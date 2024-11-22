@@ -1,0 +1,52 @@
+.TemplateFormThree {
+    display: flex;
+    gap: 14px;
+    &__left {
+      width: 50%;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      form {
+        background-color: #fafafa;
+        padding: 27px 12px;
+        border-radius: 10px;
+        border: 1px solid #fafafa;
+        box-shadow: 0 0 5px #fafafa;
+      }
+    }
+    &__right {
+      width: 50%;
+    }
+  }
+  .checkBoxGroup {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 14px;
+    .MuiCheckbox-root {
+      padding: 0;
+    }
+    .MuiFormControlLabel-root {
+      margin: 0;
+      gap: 10px;
+      span {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    &__dots {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 14px;
+      .formTitle {
+        margin-bottom: 0;
+      }
+    }
+  }
