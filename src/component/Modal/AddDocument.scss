@@ -1,0 +1,105 @@
+.docDialog {
+  .docDialog__head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 34px 30px;
+    &-title {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #100919;
+    }
+    &-subtitle {
+      padding: 0;
+      margin: 7px 0 0;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 500;
+      color: #100919;
+    }
+    
+  }
+  &__closeButton {
+    padding: 0;
+  }
+
+  .docDialog__list {
+    padding: 0;
+  }
+
+  .docDialog__list-item {
+    padding: 0;
+  }
+  .docDialog__list-item-icon {
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg path {
+      transition: all 0.3s ease;
+    }
+  }
+  .docDialog__list-item-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: #999999;
+    transition: all 0.3s ease;
+  }
+  .docDialog__list-item-button {
+    padding: 5px;
+    border-radius: 5px;
+    background: #fff;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    &:hover {
+      background: #160a2a;
+      .docDialog__list-item-text {
+        color: #fff;
+      }
+      svg path {
+        fill: #fff;
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  .docDialog__content {
+    padding: 16px 30px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    & > div:not(:last-child) {
+      border-right: 1px solid #cccccc;
+      padding-right: 60px;
+    }
+    & > div:last-child {
+      padding-left: 60px;
+    }
+    .docDialog__column-header {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 700;
+      margin-bottom: 0;
+      &--sales {
+        color: #4caf50;
+      }
+
+      &--purchases {
+        color: #f44336;
+      }
+    }
+  }
+}
+
+.MuiDialog-container .MuiDialog-paper {
+  background: #fafafa;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0px 0px 5px 0px #fafafa !important;
+  border-radius: 10px;
+  max-width: 721px;
+  width: 100%;
+}

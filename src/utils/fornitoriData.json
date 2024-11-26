@@ -1,0 +1,90 @@
+{
+  "tabData": {
+    "tab1": [
+      {
+        "id":1,
+        "Creato_il": "01/10/2022",
+        "Ragione_sociale": "Tech Solutions Ltd",
+        "P_IVA": "IT1234567890",
+        "Tipo": "Enterprise",
+        "Gruppo": "Key Partner",
+        "Regione": "Lombardia",
+        "Stato_name": "IT",
+        "Utente": "Icon_User1",
+        "Autore": "Icon_Author1",
+        "stato": "Attivo",
+         "azioni": "..."
+      },
+      {
+        "id":2,
+        "Creato_il": "15/09/2022",
+        "Ragione_sociale": "Green Energy Co.",
+        "P_IVA": "IT0987654321",
+        "Tipo": "Small Business",
+        "Gruppo": "Preferred Vendor",
+        "Regione": "Veneto",
+        "Stato_name": "IT",
+        "Utente": "Icon_User2",
+        "Autore": "Icon_Author2",
+        "stato": "Inattivo",
+         "azioni": "..."
+      },
+      {
+        "id":3,
+        "Creato_il": "05/11/2022",
+        "Ragione_sociale": "Alpha Construction",
+        "P_IVA": "IT5678901234",
+        "Tipo": "Construction Firm",
+        "Gruppo": "Strategic Supplier",
+        "Regione": "Toscana",
+        "Stato_name": "IT",
+        "Utente": "Icon_User3",
+        "Autore": "Icon_Author3",
+        "stato": "Sospeso",
+         "azioni": "..."
+      },
+      {
+        "id":4,
+        "Creato_il": "12/08/2022",
+        "Ragione_sociale": "Future Foods Inc.",
+        "P_IVA": "IT4321098765",
+        "Tipo": "Food Supplier",
+        "Gruppo": "Trusted Partner",
+        "Regione": "Sicilia",
+        "Stato_name": "IT",
+        "Utente": "Icon_User4",
+        "Autore": "Icon_Author4",
+        "stato": "Attivo",
+         "azioni": "..."
+      },
+      {
+        "id":5,
+        "Creato_il": "20/07/2022",
+        "Ragione_sociale": "NextGen Healthcare",
+        "P_IVA": "IT6789012345",
+        "Tipo": "Healthcare",
+        "Gruppo": "Core Partner",
+        "Regione": "Piemonte",
+        "Stato_name": "IT",
+        "Utente": "Icon_User5",
+        "Autore": "Icon_Author5",
+        "stato": "In Revisione",
+         "azioni": "..."
+      },
+      {
+        "id":6,
+        "Creato_il": "30/10/2022",
+        "Ragione_sociale": "Eco Transport Ltd",
+        "P_IVA": "IT9012345678",
+        "Tipo": "Transport",
+        "Gruppo": "Logistics Partner",
+        "Regione": "Campania",
+        "Stato_name": "IT",
+        "Utente": "Icon_User6",
+        "Autore": "Icon_Author6",
+        "stato": "Attivo",
+         "azioni": "..."
+      }
+    ]
+  }
+}

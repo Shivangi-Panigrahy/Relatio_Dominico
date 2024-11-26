@@ -1,0 +1,89 @@
+.RegistriCardHeader {
+    .statusText {
+        flex-direction: unset;
+       &__content {
+        .list {
+            margin: 0px;
+            padding: 0px;
+            li {
+                list-style: none;
+                .listItem {
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                  h3 {
+                    margin: 0px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 20px;
+                  }
+                }
+                .red {
+                    h3 {
+                        color: #DB0000;
+                    }
+                    svg {
+                        path {
+                            fill: #DB0000;
+                        }
+                    }
+                }
+                .green {
+                    h3 {
+                        color: #57C700;
+                    }
+                    svg {
+                        path {
+                            fill: #57C700;
+                        }
+                    }
+                }
+                .black {
+                    h3 {
+                        color: #160A2A;
+                        font-weight: 700;
+                    }
+                    svg {
+                        path {
+                            fill: #57C700;
+                        }
+                    }
+                }
+            }
+            
+        }
+       }
+    }
+}
+.RegistriCardHeaderTop {
+     .statusText {
+        &__content {
+            h4 {
+                margin-bottom: 25px;
+            }
+        }
+     }
+}
+.FlussoTopCard {
+    .statusText {
+        &__content {
+            width: 100%;
+            h4 {
+                margin-bottom: 0px;
+            }
+            .subtitle {
+                font-size: 16px;
+                line-height: 20px;
+                color: #160A2A;
+                font-weight: 400;
+                margin: 4px 0;
+            }
+            .list {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}

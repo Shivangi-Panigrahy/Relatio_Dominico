@@ -1,0 +1,58 @@
+{
+  "tabData": {
+    "tab1": [
+      {
+        "id": 1,
+        "tipo": "Document",
+        "nome": "Invoice_123",
+        "categoria": "Invoices",
+        "tipologia": "PDF",
+        "peso": "3.5 Mb",
+        "creatoIl": "01/05/2024",
+        "ultimaMod": "01/06/2024",
+        "caricatoDa": "Alice Smith",
+        "modificatoDa": "John Doe",
+        "azioni": "Download, View"
+      },
+      {
+        "id": 2,
+        "tipo": "Image",
+        "nome": "ProductImage_456",
+        "categoria": "Products",
+        "tipologia": "JPEG",
+        "peso": "1.2 Mb",
+        "creatoIl": "15/07/2024",
+        "ultimaMod": "20/07/2024",
+        "caricatoDa": "Bob Johnson",
+        "modificatoDa": "Sarah Lee",
+        "azioni": "Download, Edit"
+      },
+      {
+        "id": 3,
+        "tipo": "Spreadsheet",
+        "nome": "Financial_Report_Q1",
+        "categoria": "Reports",
+        "tipologia": "XLSX",
+        "peso": "8.9 Mb",
+        "creatoIl": "10/09/2024",
+        "ultimaMod": "12/09/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      },
+      {
+        "id": 4,
+        "tipo": "Document",
+        "nome": "Meeting_Notes_2024",
+        "categoria": "Meetings",
+        "tipologia": "DOCX",
+        "peso": "0.7 Mb",
+        "creatoIl": "22/10/2024",
+        "ultimaMod": "23/10/2024",
+        "caricatoDa": "David Wilson",
+        "modificatoDa": "Emma White",
+        "azioni": "Download, View"
+      }
+    ]
+  }
+}

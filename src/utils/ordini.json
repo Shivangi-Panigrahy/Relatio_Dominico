@@ -1,0 +1,71 @@
+{
+  "tabData": {
+    "tab1": [
+      {
+        "id": 1,
+        "doc": "Invoice",
+        "creatoIl": "01/01/2023",
+        "numero": "OR/999",
+        "fornitori": "Supplier Company Srl",
+        "autore": "John Doe",
+        "modDa": "Jane Smith",
+        "dataModifica": "02/01/2023",
+        "valore": "150.500,00€",
+        "stato": "Approvato",
+        "azioni": "View"
+      },
+      {
+        "id": 2,
+        "doc": "Contract",
+        "creatoIl": "05/02/2023",
+        "numero": "OR/101",
+        "fornitori": "Global Supplies Inc.",
+        "autore": "Alice Cooper",
+        "modDa": "Bob Martin",
+        "dataModifica": "06/02/2023",
+        "valore": "250.750,00€",
+        "stato": "Approvato",
+        "azioni": "Edit"
+      },
+      {
+        "id": 3,
+        "doc": "Agreement",
+        "creatoIl": "10/03/2023",
+        "numero": "OR/102",
+        "fornitori": "Tech Solutions Ltd.",
+        "autore": "Chris Jordan",
+        "modDa": "Maria Lee",
+        "dataModifica": "11/03/2023",
+        "valore": "100.000,00€",
+        "stato": "Approvato",
+        "azioni": "Delete"
+      },
+      {
+        "id": 4,
+        "doc": "Proposal",
+        "creatoIl": "15/04/2023",
+        "numero": "OR/103",
+        "fornitori": "Construction Pros Co.",
+        "autore": "Dave Wilson",
+        "modDa": "Sarah Brown",
+        "dataModifica": "16/04/2023",
+        "valore": "310.100,00€",
+        "stato": "Approvato",
+        "azioni": "Resubmit"
+      },
+      {
+        "id": 5,
+        "doc": "Estimate",
+        "creatoIl": "20/05/2023",
+        "numero": "OR/104",
+        "fornitori": "Elite Enterprises",
+        "autore": "Olivia Green",
+        "modDa": "Mark Harris",
+        "dataModifica": "21/05/2023",
+        "valore": "200.000,00€",
+        "stato": "Approvato",
+        "azioni": "Download"
+      }
+    ]
+  }
+}

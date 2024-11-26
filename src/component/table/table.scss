@@ -1,0 +1,175 @@
+.customtable {
+  table {
+    border: none;
+    thead {
+      background-color: #fafafa;
+      tr {
+        th {
+          border: none;
+          padding: 10px;
+          .MuiBox-root {
+            justify-content: space-between;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+          }
+          &:first-child {
+            padding: 10px 12px;
+          }
+          h4 {
+            color: #999999;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+      .CustomCheckbox {
+        margin-right: 0;
+      }
+    }
+    tbody {
+      .CustomCheckbox {
+        margin-right: 0;
+      }
+      tr {
+        background-color: transparent !important;
+        &:hover {
+          background-color: #f2f2f2 !important;
+          .completatoStato {
+            background-color: #57C700;
+            color: #fff;
+          }
+          .approvatoStato {
+            background-color:#2196F3;
+            color: #fff;
+          }
+          .in-attesaStato {
+            background-color: #FFA903;
+            color: #fff;
+          }
+          .rifiutatoStato {
+            background-color: #DB0000;
+            color: #fff;
+          }
+        }
+        td {
+          padding: 10px;
+          border-bottom: 1px dashed #999999;
+          font-size: 14px;
+          line-height: 16px;
+          color: #666666;
+          button {
+            font-size: 14px;
+            line-height: 16px;
+            color: #666666;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+          .profile {
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+          }
+          .status {
+            color: #57c700;
+            background-color: #57c70033;
+            padding: 4px 8px;
+            border-radius: 3px;
+          }
+          .menuBtn {
+            margin: auto;
+          }
+          &:first-child {
+            padding: 10px 12px;
+          }
+          & > div {
+            display: inline-flex;
+            gap: 2px;
+            align-items: center;
+            svg path {
+              fill: #999999;
+              &:hover {
+                fill: #57c700;
+              }
+            }
+          }
+          .tableActionBtn {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            gap: 7px;
+            button {
+              height: 24px;
+              width: 24px;
+              svg path {
+                fill: #0000008a;
+              }
+            }
+            .MuiBadge-badge {
+              height: 18px;
+              width: 18px;
+              max-width: 18px;
+              border-radius: 50%;
+              font-size: 14px;
+              line-height: 16px;
+              font-weight: 700;
+              color: #fff;
+              padding: 0;
+              min-width: 18px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              top: 8px;
+              right: 2px;
+            }
+          }
+        }
+        &.moveRow {
+          background: rgb(219, 216, 216) !important;
+        }
+      }
+    }
+  }
+}
+.w-120 {
+  max-width: 120px;
+  width: 120px;
+}
+.mt-14 {
+  margin-top: 14px;
+}
+.bulltePoint {
+  height: 14px;
+  width: 14px;
+  background-color: #57c700;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+// .approvato {
+//   border: 1px solid #2196f3;
+// }
+
+// .completato {
+//   border: 1px solid #4caf50;
+// }
+
+// .in-attesa {
+//   border: 1px solid #ffb300;
+// }
+
+// .rifiutato {
+//   border: 1px solid #f44336;
+// }
+
+// .default {
+//   border: 1px solid #9e9e9e;
+// }
+

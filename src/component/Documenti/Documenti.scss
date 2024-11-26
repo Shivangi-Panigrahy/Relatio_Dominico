@@ -1,0 +1,43 @@
+
+.customAccordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .documenti-customAccordion {
+        box-shadow: none;
+        &::before {
+            content: unset !important;
+        }
+       .MuiButtonBase-root  {
+        background-color: #FAFAFA;
+        flex-direction: row-reverse;
+        padding: 0px;
+        .MuiAccordionSummary-content {
+            .MuiTypography-root {
+                font-size: 14px;
+                line-height: 16px;
+                font-weight: 700;
+                color: #999999;
+                padding: 10px;
+            }
+        }
+        .MuiAccordionSummary-expandIconWrapper {
+    background-color: #F2F2F2;
+    padding: 18px 10px;
+    border-bottom: dashed 1px #CCCCCC;
+        }
+        .Mui-expanded {
+            transform: rotate(0deg);
+            svg {
+                transform: rotate(180deg);  
+            }
+        }
+       }
+    }
+    .pageTemplate {
+        padding: 0px;
+    }
+    .MuiAccordionDetails-root {
+        padding: 8px 0px 16px;
+    }
+}

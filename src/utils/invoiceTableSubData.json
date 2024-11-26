@@ -1,0 +1,311 @@
+{
+  "tabData": {
+    "tab1": [
+      {
+          "id": 1,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00",
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 2,
+          "prodotto": "Prodotto",
+          "quantita": "1028472311",
+          "prezzo": "20.020.301,00",
+          "sconto": "11%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 3,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 4,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 5,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 6,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        }
+  ],
+  "tab2": [
+      {
+          "id": 1,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 2,
+          "prodotto": "Prodotto",
+          "quantita": "1028476555",
+          "prezzo": "20.020.301,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 3,
+          "prodotto": "Prodotto",
+          "quantita": "1028476514",
+          "prezzo": "20.020.306,00",
+          "sconto": "17%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 4,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        }
+  ],
+  "tab3": [
+      {
+          "id": 1,
+          "prodotto": "Prodotto",
+          "quantita": "1028476634",
+          "prezzo": "20.020.309,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 2,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.309,00",
+          "sconto": "18%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 3,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 4,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 5,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        },
+        {
+          "id": 6,
+          "prodotto": "Prodotto",
+          "quantita": "1028476534",
+          "prezzo": "20.020.302,00",
+          "sconto": "10%",
+          "iva_type": "PZ",
+          "iva_percentage": "22%",
+          "esenzione": "esenzione",
+          "totale": "20.020.302,00"
+          ,
+          "iva": "IT12345678901",
+          "pz": "PZ-001",
+          "codice": "COD-A001"
+        }
+  ],
+    "tab4": [
+      {
+        "id": 1,
+        "prodotto": "Prodotto",
+        "quantita": "1028476534",
+        "prezzo": "20.020.302,00",
+        "sconto": "10%",
+        "iva_type": "PZ",
+        "iva_percentage": "22%",
+        "esenzione": "esenzione",
+        "totale": "20.020.302,00"
+        ,
+            "iva": "IT12345678901",
+            "pz": "PZ-001",
+            "codice": "COD-A001"
+      },
+      {
+        "id": 2,
+        "prodotto": "Prodotto",
+        "quantita": "1028476534",
+        "prezzo": "20.020.302,00",
+        "sconto": "10%",
+        "iva_type": "PZ",
+        "iva_percentage": "22%",
+        "esenzione": "esenzione",
+        "totale": "20.020.302,00"
+        ,
+            "iva": "IT12345678901",
+            "pz": "PZ-001",
+            "codice": "COD-A001"
+      },
+      {
+        "id": 3,
+        "prodotto": "Prodotto",
+        "quantita": "1028476534",
+        "prezzo": "20.020.302,00",
+        "sconto": "10%",
+        "iva_type": "PZ",
+        "iva_percentage": "22%",
+        "esenzione": "esenzione",
+        "totale": "20.020.302,00"
+        ,
+            "iva": "IT12345678901",
+            "pz": "PZ-001",
+            "codice": "COD-A001"
+      },
+      {
+        "id": 4,
+        "prodotto": "Prodotto",
+        "quantita": "1028476534",
+        "prezzo": "20.020.302,00",
+        "sconto": "10%",
+        "iva_type": "PZ",
+        "iva_percentage": "22%",
+        "esenzione": "esenzione",
+        "totale": "20.020.302,00"
+        ,
+            "iva": "IT12345678901",
+            "pz": "PZ-001",
+            "codice": "COD-A001"
+      }
+    ] 
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "projectInfo": {
+      "title": "PROGETTO/PRODUZIONE",
+      "projectName": "NOME DEL PROGETTO"
+    },
+    "productionStartDate": {
+      "title": "DATA AVVIO PRODUZIONE",
+      "date": "30/10/2024 18:37"
+    },
+    "productionDuration": {
+      "title": "DURATA DELLA PRODUZIONE",
+      "duration": "20 GGL"
+    },
+    "productionDeliveryDate": {
+      "title": "DATA CONSEGNA PRODUZIONE",
+      "date": "30/10/2024 18:37"
+    }
+  }
+  

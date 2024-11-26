@@ -1,0 +1,32 @@
+// ProductionInfo.scss
+.production-info {
+  display: flex;
+  align-items: center;
+  background-color: #57c7001a;
+  padding: 6px 24px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0px 0px 15px -8px rgb(145, 158, 171);
+  gap: 15px;
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .productInfoContent {
+      .productInfoTitle {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 700;
+        color: #160a2a;
+      }
+    }
+
+    .MuiIconButton-root {
+      color: #4caf50; // Green color for the icon
+    }
+
+    strong {
+      color: #000; // Bold text color
+    }
+  }
+}

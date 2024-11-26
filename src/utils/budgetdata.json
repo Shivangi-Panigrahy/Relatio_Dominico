@@ -1,0 +1,71 @@
+{
+  "tabData": {
+    "tab1": [
+      {
+        "id": 1,
+        "doc": "Invoice",
+        "creatoil": "01/01/2023",
+        "numero": "BU/001",
+        "titolo": "Purchase Order",
+        "fornitori": "ABC Supplies Ltd.",
+        "autore": "John Doe",
+        "modda": "Jane Smith",
+        "dataModifica": "02/01/2023",
+        "valore": "50.000,00€",
+        "stato": "Approvato"
+      },
+      {
+        "id": 2,
+        "doc": "Contract",
+        "creatoil": "05/02/2023",
+        "numero": "BU/002",
+        "titolo": "Agreement",
+        "fornitori": "Global Corp",
+        "autore": "Alice Cooper",
+        "modda": "Bob Martin",
+        "dataModifica": "06/02/2023",
+        "valore": "250.750,00€",
+        "stato": "Approvato"
+      },
+      {
+        "id": 3,
+        "doc": "Receipt",
+        "creatoil": "10/03/2023",
+        "numero": "BU/003",
+        "titolo": "Payment Confirmation",
+        "fornitori": "Tech Solutions",
+        "autore": "Chris Jordan",
+        "modda": "Maria Lee",
+        "dataModifica": "11/03/2023",
+        "valore": "1.200,00€",
+        "stato": "Approvato"
+      },
+      {
+        "id": 4,
+        "doc": "Estimate",
+        "creatoil": "15/04/2023",
+        "numero": "BU/004",
+        "titolo": "Cost Estimate",
+        "fornitori": "Construction Experts",
+        "autore": "Dave Wilson",
+        "modda": "Sarah Brown",
+        "dataModifica": "16/04/2023",
+        "valore": "500.000,00€",
+        "stato": "Approvato"
+      },
+      {
+        "id": 5,
+        "doc": "Quotation",
+        "creatoil": "20/05/2023",
+        "numero": "BU/005",
+        "titolo": "Price Quote",
+        "fornitori": "Elite Enterprises",
+        "autore": "Olivia Green",
+        "modda": "Mark Harris",
+        "dataModifica": "21/05/2023",
+        "valore": "120.000,00€",
+        "stato": "Approvato"
+      }
+    ]
+  }
+}
