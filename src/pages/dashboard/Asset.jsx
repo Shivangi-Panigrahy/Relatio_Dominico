@@ -16,11 +16,11 @@ const dataset = [
   { month: "Mag", Assicurazioni: 42, Immobili: 62, Investimenti: 78 },
   { month: "Giu", Assicurazioni: 45, Immobili: 65, Investimenti: 82 },
   { month: "Lug", Assicurazioni: 45, Immobili: 65, Investimenti: 82 },
-  { month: "Ago", Assicurazioni: 48, Immobili: 68, Investimenti: 85 },
+  { month: "Ago", Assicurazioni: 80, Immobili: 68, Investimenti: 85 },
   { month: "Set", Assicurazioni: 58, Immobili: 80, Investimenti: 95 },
   { month: "Ott", Assicurazioni: 62, Immobili: 82, Investimenti: 98 },
   { month: "Nov", Assicurazioni: 52, Immobili: 72, Investimenti: 88 },
-  { month: "Dic", Assicurazioni: 35, Immobili: 55, Investimenti: 68 },
+  { month: "Dic", Assicurazioni: 100, Immobili: 55, Investimenti: 68 },
 ];
 const dataFilter = [
   {
@@ -47,10 +47,16 @@ const dataFilter = [
 ];
 
 const dataPie = [
-  { id: 1, value: 35, color: "#E72276","type": "Assicurazioni",message:"Tipologia di asset" },
-  { id: 3, value: 5, color: "#FF4D4D", "type": "Immobili", },
-  { id: 2, value: 15, color: "#0073B7","type": "Contributi", },
-  { id: 0, value: 45, color: "#E72276" ,"type": "Investimenti",},
+  {
+    id: 1,
+    value: 35,
+    color: "#E72276",
+    type: "Assicurazioni",
+    message: "Tipologia di asset",
+  },
+  { id: 3, value: 5, color: "#FF4D4D", type: "Immobili" },
+  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+  { id: 0, value: 45, color: "#E72276", type: "Investimenti" },
 ];
 
 const columns = [
@@ -119,41 +125,41 @@ const columns = [
 
 const assetdata = [
   {
-    "status": "I Trimestre",
-    "amount": "29.043,55€",
-    "count": "8.2%",
-    "label": "Anno precedente",
-    "color": "black"
+    status: "I Trimestre",
+    amount: "29.043,55€",
+    count: "8.2%",
+    label: "Anno precedente",
+    color: "black",
   },
   {
-    "status": "II Trimestre",
-    "amount": "30.043,55€",
-    "count": "8.2%",
-    "label": "Anno precedente",
-    "color": "black"
+    status: "II Trimestre",
+    amount: "30.043,55€",
+    count: "8.2%",
+    label: "Anno precedente",
+    color: "black",
   },
   {
-    "status": "III Trimestre",
-    "amount": "55.043,55€",
-    "count": "8.2%",
-    "label": "Anno precedente",
-    "color": "black"
+    status: "III Trimestre",
+    amount: "55.043,55€",
+    count: "8.2%",
+    label: "Anno precedente",
+    color: "black",
   },
   {
-    "status": "IV Trimestre",
-    "amount": "150.043,55€",
-    "count": "8.2%",
-    "label": "Anno precedente",
-    "color": "black"
+    status: "IV Trimestre",
+    amount: "150.043,55€",
+    count: "8.2%",
+    label: "Anno precedente",
+    color: "black",
   },
   {
-    "status": "Totale valore asset",
-    "amount": "350.043,55€",
-    "count": "8.2%",
-    "label": "Anno precedente",
-    "color": "green",
-    "isHighlighted": true
-  }
+    status: "Totale valore asset",
+    amount: "350.043,55€",
+    count: "8.2%",
+    label: "Anno precedente",
+    color: "green",
+    isHighlighted: true,
+  },
 ];
 
 const series = [
@@ -258,8 +264,11 @@ const Asset = () => {
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
-    
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={assetdata} />
@@ -283,7 +292,7 @@ const Asset = () => {
           data={"asset"}
           dataFilter={dataFilter}
           dataPie={dataPie}
-         series={series}
+          series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>

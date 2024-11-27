@@ -17,12 +17,14 @@ const dataset = [
   { month: "Mag", Sviluppo: 42, Immobili: 62, Investimenti: 78 },
   { month: "Giu", Sviluppo: 45, Immobili: 65, Investimenti: 82 },
   { month: "Lug", Sviluppo: 45, Immobili: 65, Investimenti: 82 },
-  { month: "Ago", Sviluppo: 48, Immobili: 68, Investimenti: 85 },
+  { month: "Ago", Sviluppo: 80, Immobili: 68, Investimenti: 85 },
   { month: "Set", Sviluppo: 58, Immobili: 80, Investimenti: 95 },
   { month: "Ott", Sviluppo: 62, Immobili: 82, Investimenti: 98 },
   { month: "Nov", Sviluppo: 52, Immobili: 72, Investimenti: 88 },
-  { month: "Dic", Sviluppo: 35, Immobili: 55, Investimenti: 68 },
+  { month: "Dic", Sviluppo: 100, Immobili: 55, Investimenti: 68 },
 ];
+
+
 const dataFilter = [
   {
     id: "Sviluppo",

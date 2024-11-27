@@ -10,19 +10,20 @@ import tableData from "../../utils/personaleData.json";
 import dayjs from "dayjs";
 
 const dataset = [
-  { month: "Gen", entrate: 5 },
-  { month: "Feb", entrate: 8 },
-  { month: "Mar", entrate: 12 },
-  { month: "Apr", entrate: 25 },
-  { month: "Mag", entrate: 42 },
-  { month: "Giu", entrate: 45 },
-  { month: "Lug", entrate: 45 },
-  { month: "Ago", entrate: 48 },
-  { month: "Set", entrate: 58 },
-  { month: "Ott", entrate: 62 },
-  { month: "Nov", entrate: 52 },
-  { month: "Dic", entrate: 35 },
+  { month: "Gen", entrate: 20 },
+  { month: "Feb", entrate: 40 },
+  { month: "Mar", entrate: 60 },
+  { month: "Apr", entrate: 80 },
+  { month: "Mag", entrate: 100 },
+  { month: "Giu", entrate: 80 },
+  { month: "Lug", entrate: 100 },
+  { month: "Ago", entrate: 80 },
+  { month: "Set", entrate: 60 },
+  { month: "Ott", entrate: 80 },
+  { month: "Nov", entrate: 100 },
+  { month: "Dic", entrate: 80 },
 ];
+
 const dataPie = [
   { id: 1, value: 35, color: "#E72276", type: "IVA" },
   { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },

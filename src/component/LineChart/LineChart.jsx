@@ -10,7 +10,7 @@ export default function RevenueLineChart({
   dataset,
   dataFilter,
   dataPie,
-  series
+  series,
 }) {
   const [filterIncome, setfilterIncome] = React.useState("");
   const filteredData = dataset?.map((item) => {
@@ -23,57 +23,58 @@ export default function RevenueLineChart({
     } else if (filterIncome === "Ricavo" && item.hasOwnProperty("ricavo")) {
       // If 'uscite' is selected, return only month and uscite
       return { month: item.month, ricavo: item.ricavo };
-    }
-
-    else if (filterIncome === "IVA" && item.hasOwnProperty("IVA")) {
+    } else if (filterIncome === "IVA" && item.hasOwnProperty("IVA")) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, IVA : item.IVA };
-    }
-    else if (filterIncome === "IRAP" && item.hasOwnProperty("IRAP")) {
+      return { month: item.month, IVA: item.IVA };
+    } else if (filterIncome === "IRAP" && item.hasOwnProperty("IRAP")) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, IRAP : item.IRAP };
-    }
-    else if (filterIncome === "Contributi" && item.hasOwnProperty("Contributi")) {
+      return { month: item.month, IRAP: item.IRAP };
+    } else if (
+      filterIncome === "Contributi" &&
+      item.hasOwnProperty("Contributi")
+    ) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Contributi : item.Contributi };
-    }
-    else if (filterIncome === "Assicurazioni" && item.hasOwnProperty("Assicurazioni")) {
+      return { month: item.month, Contributi: item.Contributi };
+    } else if (
+      filterIncome === "Assicurazioni" &&
+      item.hasOwnProperty("Assicurazioni")
+    ) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Assicurazioni : item.Assicurazioni };
-    }
-    else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
+      return { month: item.month, Assicurazioni: item.Assicurazioni };
+    } else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Immobili : item.Immobili };
-    }
-    else if (filterIncome === "Investimenti" && item.hasOwnProperty("Investimenti")) {
+      return { month: item.month, Immobili: item.Immobili };
+    } else if (
+      filterIncome === "Investimenti" &&
+      item.hasOwnProperty("Investimenti")
+    ) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Investimenti : item.Investimenti };
-    }
-    else if (filterIncome === "Assicurazioni" && item.hasOwnProperty("Assicurazioni")) {
+      return { month: item.month, Investimenti: item.Investimenti };
+    } else if (
+      filterIncome === "Assicurazioni" &&
+      item.hasOwnProperty("Assicurazioni")
+    ) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Assicurazioni : item.Assicurazioni };
-    }
-    else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
+      return { month: item.month, Assicurazioni: item.Assicurazioni };
+    } else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Immobili : item.Immobili };
-    }
-    else if (filterIncome === "Investimenti" && item.hasOwnProperty("Investimenti")) {
+      return { month: item.month, Immobili: item.Immobili };
+    } else if (
+      filterIncome === "Investimenti" &&
+      item.hasOwnProperty("Investimenti")
+    ) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Investimenti : item.Investimenti };
-    }
-    else if (filterIncome === "Sviluppo" && item.hasOwnProperty("Sviluppo")) {
+      return { month: item.month, Investimenti: item.Investimenti };
+    } else if (filterIncome === "Sviluppo" && item.hasOwnProperty("Sviluppo")) {
       // If 'uscite' is selected, return only month and uscite
-      return { month: item.month, Sviluppo : item.Sviluppo };
+      return { month: item.month, Sviluppo: item.Sviluppo };
     }
-    
 
     return item; // Return item unchanged if neither condition matches
   });
 
   const [year, setYear] = React.useState("2023");
-  console.log(filterIncome,"filtericome")
-
-
+  console.log(filterIncome, "filtericome");
 
   const filteredSeries = data === "vendite" ? [series[0]] : series;
 
@@ -165,8 +166,9 @@ export default function RevenueLineChart({
                           item.label === filterIncome ? "line-through" : "none", // Apply line-through if it matches filterIncome
                       }}
                       onClick={() => {
-                        console.log(`Clicked ${item.label}`);
-                        setfilterIncome(item.label); // Setting the filter based on the action
+                        setfilterIncome((prev) =>
+                          prev === item.label ? "" : item.label
+                        ); // Setting the filter based on the action
                       }}
                     >
                       <span
@@ -207,6 +209,7 @@ export default function RevenueLineChart({
                   {
                     axisLine: { stroke: "transparent" },
                     tickLine: false,
+                    ticks: [0, 20, 40, 60, 80, 100],
                     valueFormatter: (value) => `${value.toLocaleString()}   k`,
                   },
                 ]}

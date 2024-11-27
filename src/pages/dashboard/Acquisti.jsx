@@ -8,18 +8,18 @@ import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
 
 const dataset = [
-  { month: "Gen", entrate: 5 },
+  { month: "Gen", entrate: 5},
   { month: "Feb", entrate: 8 },
   { month: "Mar", entrate: 12 },
   { month: "Apr", entrate: 25 },
   { month: "Mag", entrate: 42 },
   { month: "Giu", entrate: 45 },
   { month: "Lug", entrate: 45 },
-  { month: "Ago", entrate: 48 },
+  { month: "Ago", entrate: 80 },
   { month: "Set", entrate: 58 },
   { month: "Ott", entrate: 62 },
   { month: "Nov", entrate: 52 },
-  { month: "Dic", entrate: 35 },
+  { month: "Dic", entrate: 100 },
 ];
 
 const acquistidata = [
