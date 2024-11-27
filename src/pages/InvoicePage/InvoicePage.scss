@@ -44,8 +44,8 @@
   }
   &__items {
     svg {
-      height: 24px;
-      width: 24px;
+      height: 20px;
+      width: 20px;
       object-fit: contain;
     }
     button {
@@ -118,6 +118,7 @@
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     padding: 0 25px;
+    font-family: "Barlow", sans-serif;
     p {
       font-size: 16px;
       line-height: 20px;
@@ -195,6 +196,7 @@
     align-items: center;
     gap: 5px;
     padding: 27px 15px;
+    font-family: "Barlow", sans-serif !important;
   }
   &__list {
     display: grid;

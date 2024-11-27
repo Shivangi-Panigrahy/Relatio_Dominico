@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CustomInput from "../../component/form/CustomInput";
@@ -29,6 +29,7 @@ const inputFields = [
   { name: "PEC", label: "PEC" },
 ];
 
+
 const AnagraficaForm = () => {
   const {
     control,
@@ -40,19 +41,26 @@ const AnagraficaForm = () => {
 
   const onSubmit = (data) => console.log(data);
 
+  const [activeIndex, setActiveIndex] = useState(0); // Track the active index
+
+  const handleClick = (index) => {
+    setActiveIndex(index); // Set the active index when a list item is clicked
+  };
+
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="formCard">
       <div className="headerBlock">
         <h5 className="headerBlock__title">Anagrafica</h5>
         <div className="headerBlock__CutomColorPicker">
           <ul>
-            <li className="activeColor">
+            <li className={activeIndex === 0 ? 'activeColor' : ''} onClick={() => handleClick(0)}>
               <span></span>
             </li>
-            <li>
+            <li className={activeIndex === 1 ? 'activeColor' : ''} onClick={() => handleClick(1)}>
               <span></span>
             </li>
-            <li>
+            <li className={activeIndex === 2 ? 'activeColor' : ''} onClick={() => handleClick(2)}>
               <span></span>
             </li>
           </ul>

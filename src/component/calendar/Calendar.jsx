@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "moment/locale/it";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Dialog, IconButton, Button, Box, Typography } from "@mui/material";
+import { Dialog, IconButton, Button, Box, Typography, DialogContent, DialogTitle } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FilterListIcon from "@mui/icons-material/FilterList";
@@ -24,7 +24,7 @@ const events = [
     allDay: false,
     start: new Date(2024, 10, 5, 10, 0, 0),
     end: new Date(2024, 10, 5, 12, 0, 0),
-    desc: "Exploring the latest in tech innovation", // Description field
+    desc: "Exploring the latest in tech innovation",
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
     color: "#ED1E79", // Color
@@ -84,20 +84,40 @@ const events = [
     assignedTo: "Other",
     color: "#4AAFF0",
   },
+  {
+    id: 6,
+    title: `Medical Consultation`,
+    allDay: false,
+    start: new Date(2024, 10, 20, 10, 0, 0),
+    end: new Date(2024, 10, 20, 11, 0, 0),
+    desc: "Annual health check-up",
+    eventType: "Appointment",
+    assignedTo: "Me",
+    color: "#4AAFF0",
+  }
 ];
 
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
 const localizer = momentLocalizer(moment);
 
-export default function ReactBigCalendar({acquisti_agenda=false}) {
+export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [eventsData, setEventsData] = useState(events);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
   const [showEventOpen, setShowEventOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [view, setView] = useState(acquisti_agenda ? "agenda":"month");
+  const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
   const [particularEvent, setparticularEvent] = useState({});
+  const [vediTuttiOpen, setVediTuttiOpen] = useState(false);
+
+  const handleVediTuttiOpen = () => {
+    setVediTuttiOpen(true);
+  };
+
+  const handleVediTuttiClose = () => {
+    setVediTuttiOpen(false);
+  };
 
   const handleOpenDialog = (value) => {
     if (!value) {
@@ -156,15 +176,27 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
 
   const CustomEvent = ({ event }) => (
     <span>
-      <span className="event-dot" /> {/* This is the colored dot */}
+      <span
+        className="event-dot"
+        style={{
+          backgroundColor: event.eventType === 'Appointment' ? '#FFA903' : '#57C700'
+        }}
+      />
+      <span className="event-time">
+        {moment(event.start).format('HH:mm')} -
+      </span>
       {event.title}
     </span>
   );
-
   const CustomWeekEvent = ({ event }) => (
     <div className="custom-week-event">
       <div>
-        <span className="event-dot" /> {/* Green dot */}
+        <span
+          className="event-dot"
+          style={{
+            backgroundColor: event.eventType === 'Appointment' ? '#FFA903' : '#57C700'
+          }}
+        />
         <span className="custom-week-event-time">
           {moment(event.start).format("HH:mm")}-
           {moment(event.end).format("HH:mm")}
@@ -240,38 +272,38 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-        {!acquisti_agenda &&
-        <>
-          <Button
-            startIcon={<Mese />}
-            onClick={() => setView("month")}
-            className={view === "month" ? `viewButton_active` : `viewButton`}
-          >
-            Mese
-          </Button>
+          {!acquisti_agenda &&
+            <>
+              <Button
+                startIcon={<Mese />}
+                onClick={() => setView("month")}
+                className={view === "month" ? `viewButton_active` : `viewButton`}
+              >
+                Mese
+              </Button>
 
-          <Button
-            startIcon={<Settimana />}
-            onClick={() => setView("week")}
-            className={view === "week" ? `viewButton_active` : `viewButton`}
-          >
-            Settimana
-          </Button>
-          <Button
-            startIcon={<Giorana />}
-            onClick={() => setView("day")}
-            className={view === "day" ? `viewButton_active` : `viewButton`}
-          >
-            Giorno
-          </Button>
-          <Button
-            startIcon={<Agenda />}
-            onClick={() => setView("agenda")}
-            className={view === "agenda" ? `viewButton_active` : `viewButton`}
-          >
-            Agenda
-          </Button>
-        </>
+              <Button
+                startIcon={<Settimana />}
+                onClick={() => setView("week")}
+                className={view === "week" ? `viewButton_active` : `viewButton`}
+              >
+                Settimana
+              </Button>
+              <Button
+                startIcon={<Giorana />}
+                onClick={() => setView("day")}
+                className={view === "day" ? `viewButton_active` : `viewButton`}
+              >
+                Giorno
+              </Button>
+              <Button
+                startIcon={<Agenda />}
+                onClick={() => setView("agenda")}
+                className={view === "agenda" ? `viewButton_active` : `viewButton`}
+              >
+                Agenda
+              </Button>
+            </>
           }
         </Box>
 
@@ -300,7 +332,41 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
           </IconButton>
         </Box>
       </Box>
-      {view === "agenda" ? (  
+      {view === "month" && (
+        <div className="custom-day-calendar">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleVediTuttiOpen}
+            className="vedi-tutti-button"
+          >
+            Vedi Tutti
+          </Button>
+
+          {/* Vedi Tutti Modal */}
+          <Dialog
+            open={vediTuttiOpen}
+            onClose={handleVediTuttiClose}
+            fullWidth
+            maxWidth="md"
+          >
+            <DialogTitle>Tutti gli Eventi</DialogTitle>
+            <DialogContent>
+              {events.map((event, index) => (
+                <div key={index} className="event-item">
+                  <h3>{event.title}</h3>
+                  <p>{event.desc}</p>
+                  <p>
+                    Orario: {moment(event.start).format("HH:mm")} -{" "}
+                    {moment(event.end).format("HH:mm")}
+                  </p>
+                </div>
+              ))}
+            </DialogContent>
+          </Dialog>
+        </div>
+      )}
+      {view === "agenda" ? (
         <div className="calendar_aganda">
           <div className="calendar_aganda_month">Martedì</div>
           {Object.entries(groupedEvents)
@@ -321,8 +387,8 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                              event.end
-                            )}`}
+                            event.end
+                          )}`}
                       </span>
                       <div className="event-content_aganda">
                         <span className="event-dot_aganda"></span>

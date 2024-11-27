@@ -255,7 +255,7 @@ const InvoicePage = () => {
         <div className="invoiceTable">
           <ProductTable dummyData={filteredData} columns={columns} />
         </div>
-        <InvoiceTableFooter />
+        <InvoiceTableFooter dummyData={filteredData} setFilteredData={setFilteredData} />
         <InvoiceFooter />
       </div>
     </>

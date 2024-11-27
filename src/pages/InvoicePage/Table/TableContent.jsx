@@ -95,6 +95,9 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
       }, 400);
     }
   };
+  useEffect(()=>{
+    setTasks(data || [])
+  },[data])
   return (
     <TableBody className="invoiceTableMain">
       {tasks?.map((row, index) => {
@@ -145,7 +148,8 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                     {column.field === "iva" || column.field === "sconto" ? (
                       <Box className="twoField">
                         <TextField
-                          value={row[column.field][0]}
+                          // value={row[column.field][0]}
+                          placeholder={row[column.field]}
                           onChange={(e) =>
                             handleInputChange(index, column.field, e.target.value, 0)
                           }
@@ -153,7 +157,8 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                           size="small"
                         />
                         <TextField
-                          value={row[column.field][1]}
+                          // value={row[column.field][1]}
+                          placeholder={row[column.field]}
                           onChange={(e) =>
                             handleInputChange(index, column.field, e.target.value, 1)
                           }
@@ -165,7 +170,8 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                       <div className="totaleContent">20.020.302,00</div>
                     ) : (
                       <TextField
-                        value={row[column.field]}
+                        // value={row[column.field]}
+                        placeholder={row[column.field]}
                         onChange={(e) => handleInputChange(index, column.field, e.target.value)}
                         variant="outlined"
                         size="small"
@@ -205,17 +211,3 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
   );
 };
 export default TableContent;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

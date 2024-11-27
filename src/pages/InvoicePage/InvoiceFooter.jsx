@@ -13,9 +13,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { AddButton } from "../../component/button/AddButton";
 import { ReactComponent as InfoIcon } from "../../assets/InfoIcon.svg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
 const InvoiceFooter = () => {
-
   const [documentCards, setDocumentCards] = useState([
     {
       id: Date.now(),
@@ -27,7 +25,39 @@ const InvoiceFooter = () => {
       cig: "",
     },
   ]);
-
+  const [selectedValues, setSelectedValues] = useState({
+    ritenuta: "",
+    bollo: "",
+    rivalza: "",
+    condizioniPagamento: "",
+    esigibilitaIVA: "",
+    tipoPagamento: "",
+    metodoPagamento: "",
+    modalitaPagamento: "",
+    canalePagamento: "",
+  });
+  const [clicked, setClicked] = useState({
+    ritenuta: false,
+    bollo: false,
+    rivalza: false,
+    condizioniPagamento: false,
+    esigibilitaIVA: false,
+    tipoPagamento: false,
+    metodoPagamento: false,
+    modalitaPagamento: false,
+    canalePagamento: false,
+  });
+  const handleChange = (key) => (event) => {
+    setSelectedValues({ ...selectedValues, [key]: event.target.value });
+  };
+  const handleFocus = (key) => () => {
+    setClicked({ ...clicked, [key]: true });
+  };
+  const handleBlur = (key) => () => {
+    if (!selectedValues[key]) {
+      setClicked({ ...clicked, [key]: false });
+    }
+  };
   const addDocumentCard = () => {
     setDocumentCards([
       ...documentCards,
@@ -42,13 +72,11 @@ const InvoiceFooter = () => {
       },
     ]);
   };
-
   const removeDocumentCard = (cardId) => {
     if (documentCards.length > 1) {
       setDocumentCards(documentCards.filter((card) => card.id !== cardId));
     }
   };
-
   const handleFieldChange = (cardId, field, value) => {
     setDocumentCards(
       documentCards.map((card) =>
@@ -56,7 +84,6 @@ const InvoiceFooter = () => {
       )
     );
   };
-
   return (
     <>
       <Box className="infoBlock">
@@ -64,87 +91,180 @@ const InvoiceFooter = () => {
           <InfoIcon /> INFORMAZIONI PER LA FATTURAZIONE ELETTRONICA
         </Typography>
         <Box className="infoBlock__list">
-          <Box className="infoBlock__list-column">
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="" selected >Ritenuta</MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Bollo</MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Rivalza</MenuItem>
-            </Select>
-          </Box>
-          <Box className="infoBlock__list-column">
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Condizioni di pagamento</MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Esigibilità IVA</MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Tipo di pagamento</MenuItem>
-            </Select>
-          </Box>
-          <Box className="infoBlock__list-column">
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Metodo di pagamento</MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Modalità di pagamento </MenuItem>
-            </Select>
-            <Select
-              className="formSelect"
-              displayEmpty
-              IconComponent={KeyboardArrowDownIcon}
-            >
-              <MenuItem value="">Canale di pagamento</MenuItem>
-            </Select>
-          </Box>
-          <Box className="infoBlock__list-column">
-            <TextField
-              className="formTextField"
-              multiline
-              placeholder="Campo di testo"
-              rows={6.5}
-              variant="outlined"
-            />
-          </Box>
-        </Box>
+      {/* Column 1 */}
+      <Box className="infoBlock__list-column">
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.ritenuta}
+          onFocus={handleFocus("ritenuta")}
+          onBlur={handleBlur("ritenuta")}
+          onChange={handleChange("ritenuta")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.ritenuta && (
+            <MenuItem value="" disabled>
+              Seleziona Ritenuta
+            </MenuItem>
+          )}
+          <MenuItem value="ritenuta1">Ritenuta 1</MenuItem>
+          <MenuItem value="ritenuta2">Ritenuta 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.bollo}
+          onFocus={handleFocus("bollo")}
+          onBlur={handleBlur("bollo")}
+          onChange={handleChange("bollo")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.bollo && (
+            <MenuItem value="" disabled>
+              Seleziona Bollo
+            </MenuItem>
+          )}
+          <MenuItem value="bollo1">Bollo 1</MenuItem>
+          <MenuItem value="bollo2">Bollo 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.rivalza}
+          onFocus={handleFocus("rivalza")}
+          onBlur={handleBlur("rivalza")}
+          onChange={handleChange("rivalza")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.rivalza && (
+            <MenuItem value="" disabled>
+              Seleziona Rivalza
+            </MenuItem>
+          )}
+          <MenuItem value="rivalza1">Rivalza 1</MenuItem>
+          <MenuItem value="rivalza2">Rivalza 2</MenuItem>
+        </Select>
       </Box>
-
+      {/* Column 2 */}
+      <Box className="infoBlock__list-column">
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.condizioniPagamento}
+          onFocus={handleFocus("condizioniPagamento")}
+          onBlur={handleBlur("condizioniPagamento")}
+          onChange={handleChange("condizioniPagamento")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.condizioniPagamento && (
+            <MenuItem value="" disabled>
+              Condizioni di Pagamento
+            </MenuItem>
+          )}
+          <MenuItem value="condizione1">Condizione 1</MenuItem>
+          <MenuItem value="condizione2">Condizione 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.esigibilitaIVA}
+          onFocus={handleFocus("esigibilitaIVA")}
+          onBlur={handleBlur("esigibilitaIVA")}
+          onChange={handleChange("esigibilitaIVA")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.esigibilitaIVA && (
+            <MenuItem value="" disabled>
+              Esigibilità IVA
+            </MenuItem>
+          )}
+          <MenuItem value="iva1">IVA 1</MenuItem>
+          <MenuItem value="iva2">IVA 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.tipoPagamento}
+          onFocus={handleFocus("tipoPagamento")}
+          onBlur={handleBlur("tipoPagamento")}
+          onChange={handleChange("tipoPagamento")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.tipoPagamento && (
+            <MenuItem value="" disabled>
+              Tipo di Pagamento
+            </MenuItem>
+          )}
+          <MenuItem value="tipo1">Tipo 1</MenuItem>
+          <MenuItem value="tipo2">Tipo 2</MenuItem>
+        </Select>
+      </Box>
+      {/* Column 3 */}
+      <Box className="infoBlock__list-column">
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.metodoPagamento}
+          onFocus={handleFocus("metodoPagamento")}
+          onBlur={handleBlur("metodoPagamento")}
+          onChange={handleChange("metodoPagamento")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.metodoPagamento && (
+            <MenuItem value="" disabled>
+              Metodo di Pagamento
+            </MenuItem>
+          )}
+          <MenuItem value="metodo1">Metodo 1</MenuItem>
+          <MenuItem value="metodo2">Metodo 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.modalitaPagamento}
+          onFocus={handleFocus("modalitaPagamento")}
+          onBlur={handleBlur("modalitaPagamento")}
+          onChange={handleChange("modalitaPagamento")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.modalitaPagamento && (
+            <MenuItem value="" disabled>
+              Modalità di Pagamento
+            </MenuItem>
+          )}
+          <MenuItem value="modalita1">Modalità 1</MenuItem>
+          <MenuItem value="modalita2">Modalità 2</MenuItem>
+        </Select>
+        <Select
+          className="formSelect"
+          displayEmpty
+          value={selectedValues.canalePagamento}
+          onFocus={handleFocus("canalePagamento")}
+          onBlur={handleBlur("canalePagamento")}
+          onChange={handleChange("canalePagamento")}
+          IconComponent={KeyboardArrowDownIcon}
+        >
+          {!clicked.canalePagamento && (
+            <MenuItem value="" disabled>
+              Canale di Pagamento
+            </MenuItem>
+          )}
+          <MenuItem value="canale1">Canale 1</MenuItem>
+          <MenuItem value="canale2">Canale 2</MenuItem>
+        </Select>
+      </Box>
+      {/* Column 4 */}
+      <Box className="infoBlock__list-column">
+        <TextField
+          className="formTextField"
+          multiline
+          placeholder="Campo di testo"
+          rows={6.5}
+          variant="outlined"
+        />
+      </Box>
+    </Box>
+      </Box>
       <Box className="infoBlock">
         <Typography className="infoBlock__title">
           <InfoIcon /> INFORMAZIONI PER LA FATTURAZIONE ELETTRONICA
@@ -224,5 +344,4 @@ const InvoiceFooter = () => {
     </>
   );
 };
-
 export default InvoiceFooter;

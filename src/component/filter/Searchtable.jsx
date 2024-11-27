@@ -260,11 +260,11 @@ const SearchTable = ({
           />
         </>
       )}
-
+ {form !== "form1" ||
       <div style={{ marginTop: "5px" }}>
-        {form !== "form1" ||
-          (navData === "personale" && <MenuWithOptions options={options} />)}
-      </div>
+       
+          (navData === "personale" && <MenuWithOptions options={options} />)
+      </div>}
     </>
   );
   const renderInvoiceFilters = () => (

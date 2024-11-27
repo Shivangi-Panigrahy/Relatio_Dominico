@@ -1,0 +1,72 @@
+.event-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+  
+  .event-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .event-item.status-completato {
+    background-color: #d6eed6;
+  }
+  
+  .event-item.status-incompleto {
+    background-color: #ffecd6;
+  }
+  
+  .event-item.status-annullato {
+    background-color: #f6d6d6;
+  }
+  
+  .event-details h3 {
+    margin: 0 0 4px;
+  }
+  
+  .event-details p {
+    margin: 0;
+  }
+  
+  .event-status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-label {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .status-label.completato {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .status-label.incompleto {
+    background-color: #ff9800;
+    color: #fff;
+  }
+  
+  .status-label.annullato {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .event-duration {
+    margin-left: 16px;
+    font-weight: bold;
+  }
+  
+  .event-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 16px;
+  }
