@@ -63,6 +63,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightgreen",
     label: "Conversione",
+    backgroundColor: "#57C7001A",
   },
   {
     status: "Sospesi",
@@ -70,6 +71,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightyellow",
     label: "Conversione",
+    backgroundColor: "#FFA90333",
   },
   {
     status: "Rifiutati",
@@ -77,10 +79,37 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightpink",
     label: "Conversione",
+    backgroundColor: "#DB000033",
+  },
+];
+const dataFilter = [
+  {
+    id: "Valore preventivi",
+    label: "Valore preventivi",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+];
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
   },
 ];
 
-const Vendite = ({ data }) => {
+const Vendite = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -88,13 +117,15 @@ const Vendite = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
 
+  const [page, setPage] = useState(5);
+  const data = [];
 
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
-    // setPage(0);
+    // setValoreFilter(selectedValore);
+    setPage(0);
   };
 
   const handleSearch = (filters) => {
@@ -148,8 +179,10 @@ const Vendite = ({ data }) => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     // setPage(0);
+    // setFilteredData(result);
+    setPage(0);
   };
   const handleTabChange = (newTab) => {
     setActiveTab(newTab); // Update the active tab
@@ -168,7 +201,7 @@ const Vendite = ({ data }) => {
         />
 
         {/* Statistics row */}
-        <ProfittiStatitics dataType={venditeData} />
+        <ProfittiStatitics dataType={venditeData} type={true} />
 
         <SearchTable
           startDate={startDate}
@@ -184,7 +217,12 @@ const Vendite = ({ data }) => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart data={"vendite"} dataset={dataset} />
+        <RevenueLineChart
+          data={"vendite"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+          series={series}
+        />
       </div>
     </>
   );

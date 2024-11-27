@@ -26,33 +26,80 @@ const profittiData = [
     count: 8.2,
     amount: "29.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "Totale ricavi",
     count: 8.2,
     amount: "350.043.55€",
     color: "black",
+    backgroundColor: "#57C7001A",
   },
-]
-const Profiitti = ({ data }) => {
+];
+
+const dataFilter = [
+  {
+    id: "entrate",
+    label: "Entrate",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+  {
+    id: "uscite",
+    label: "Uscite",
+    value: "€35.71k",
+    color: "#DB0000",
+    action: "Uscite",
+  },
+  {
+    id: "ricavo",
+    label: "Ricavo",
+    value: "€35.71k",
+    color: "#100919",
+    action: "Ricavo",
+  },
+];
+
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
+const Profiitti = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -60,12 +107,12 @@ const Profiitti = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [page, setPage] = useState(0);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState({});
   const [valoreFilter, setValoreFilter] = useState("");
-
+  const [page, setPage] = useState(5);
+  const data = [];
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
 
@@ -120,7 +167,7 @@ const Profiitti = ({ data }) => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
 
@@ -134,7 +181,11 @@ const Profiitti = ({ data }) => {
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={profittiData} />
@@ -153,7 +204,12 @@ const Profiitti = ({ data }) => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart dataset={dataset} data={"profiti"} />
+        <RevenueLineChart
+          dataset={dataset}
+          data={"profiti"}
+          dataFilter={dataFilter}
+          series={series}
+        />
       </div>
     </>
   );

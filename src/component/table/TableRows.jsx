@@ -134,7 +134,7 @@ const TableRows = ({
     switch (navData) {
       case "personale":
         return (
-          <TableBody>
+          <TableBody className={"customTableChanges"}>
             {data?.length > 0 ? (
               data
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

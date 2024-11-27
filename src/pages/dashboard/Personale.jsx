@@ -8,6 +8,7 @@ import MenuTab from "../../component/tabs/MenuTab";
 import Table from "../../component/table/Table";
 import tableData from "../../utils/personaleData.json";
 import dayjs from "dayjs";
+
 const dataset = [
   { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
@@ -22,6 +23,12 @@ const dataset = [
   { month: "Nov", entrate: 52 },
   { month: "Dic", entrate: 35 },
 ];
+const dataPie = [
+  { id: 1, value: 35, color: "#E72276", type: "IVA" },
+  { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
+  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+  { id: 0, value: 45, color: "#E72276", type: "IRES" },
+];
 
 const personaleData = [
   {
@@ -29,30 +36,35 @@ const personaleData = [
     count: 8.2,
     amount: "29.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "Totale Stipendi",
     count: 8.2,
     amount: "-350.043.55€",
     color: "red",
+    backgroundColor: "#DB000033",
   },
 ];
 
@@ -119,7 +131,35 @@ const columns = [
     width: 120,
   },
 ];
-const Personale = ({ data }) => {
+
+const dataFilter = [
+  {
+    id: "Buste paga",
+    label: "Buste paga",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+];
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
+
+const Personale = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -127,13 +167,14 @@ const Personale = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(5);
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
+  const data = [];
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
@@ -178,7 +219,7 @@ const Personale = ({ data }) => {
     if (searchFilters.clienti) {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
   const handleTabChange = (newTab) => {
@@ -206,7 +247,13 @@ const Personale = ({ data }) => {
           setActiveFilters={setActiveFilters}
           searchFilters={searchFilters}
         />
-        <RevenueLineChart data={"personale"} dataset={dataset} />
+        <RevenueLineChart
+          data={"personale"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+          dataPie={dataPie}
+          series={series}
+        />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>
