@@ -16,12 +16,13 @@ const dataset = [
   { month: "Mag", IVA: 42, IRAP: 62, Contributi: 78 },
   { month: "Giu", IVA: 45, IRAP: 65, Contributi: 82 },
   { month: "Lug", IVA: 45, IRAP: 65, Contributi: 82 },
-  { month: "Ago", IVA: 48, IRAP: 68, Contributi: 85 },
+  { month: "Ago", IVA: 80, IRAP: 68, Contributi: 85 },
   { month: "Set", IVA: 58, IRAP: 80, Contributi: 95 },
   { month: "Ott", IVA: 62, IRAP: 82, Contributi: 98 },
   { month: "Nov", IVA: 52, IRAP: 72, Contributi: 88 },
-  { month: "Dic", IVA: 35, IRAP: 55, Contributi: 68 },
+  { month: "Dic", IVA: 100, IRAP: 55, Contributi: 68 },
 ];
+
 const dataFilter = [
   {
     id: "IVA",
@@ -110,10 +111,16 @@ const columns = [
 ];
 
 const dataPie = [
-  { id: 1, value: 35, color: "#160A2A","type": "IVA",message:"Tipologia di imposte" },
-  { id: 3, value: 5, color: "#4AAFF0", "type": "IRAP", },
-  { id: 2, value: 15, color: "#3A0CA3","type": "Contributi", },
-  { id: 0, value: 45, color: "#E72276" ,"type": "IRES",},
+  {
+    id: 1,
+    value: 35,
+    color: "#160A2A",
+    type: "IVA",
+    message: "Tipologia di imposte",
+  },
+  { id: 3, value: 5, color: "#4AAFF0", type: "IRAP" },
+  { id: 2, value: 15, color: "#3A0CA3", type: "Contributi" },
+  { id: 0, value: 45, color: "#E72276", type: "IRES" },
 ];
 const imposteData = [
   {

@@ -14,11 +14,11 @@ const dataset = [
   { month: "Mag", entrate: 42, uscite: 62, ricavo: 78 },
   { month: "Giu", entrate: 45, uscite: 65, ricavo: 82 },
   { month: "Lug", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Ago", entrate: 48, uscite: 68, ricavo: 85 },
+  { month: "Ago", entrate: 80, uscite: 68, ricavo: 85 },
   { month: "Set", entrate: 58, uscite: 80, ricavo: 95 },
   { month: "Ott", entrate: 62, uscite: 82, ricavo: 98 },
   { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
-  { month: "Dic", entrate: 35, uscite: 55, ricavo: 68 },
+  { month: "Dic", entrate: 100, uscite: 55, ricavo: 68 },
 ];
 const profittiData = [
   {
