@@ -444,6 +444,7 @@ const HeaderBelow = () => {
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
           !location.pathname.includes("/acquisti/budget/sub-budget") &&
+          !location.pathname.includes("/vendite/budget/sub-budget") &&
           !location.pathname.includes("/acquisti/ordini/sub-ordini") && (
             <AddButton title="Aggiungi" onClick={() => setOpen(true)} />
           )}

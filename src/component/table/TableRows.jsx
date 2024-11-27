@@ -11,7 +11,7 @@ import {
 import CustomCheckbox from "./Checkbox";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import MenuWithOptions from "../filter/MenuWithOptions";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
@@ -29,6 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
   cursor: "pointer",
 }));
+
 
 // const getStatusColor = (stato) => {
 //   console.log(stato,"statogetcolor")
@@ -118,6 +119,11 @@ const TableRows = ({
   navData,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
+  const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+
   const calculateTotal = (month) => {
     const total = data
       .reduce((sum, row) => sum + parseFloat(row[month] || 0), 0)
@@ -180,7 +186,14 @@ const TableRows = ({
           <TableBody>
             {data?.length > 0 ? (
               data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
                     key={index}
@@ -500,7 +513,14 @@ const TableRows = ({
           <TableBody>
             {data?.length > 0 ? (
               data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
                     key={index}
@@ -604,7 +624,15 @@ const TableRows = ({
           <TableBody>
             {data?.length > 0 ? (
               data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
+
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
                     key={index}
