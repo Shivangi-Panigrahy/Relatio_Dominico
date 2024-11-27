@@ -8,6 +8,10 @@ import MenuTab from "../../component/tabs/MenuTab";
 import Table from "../../component/table/Table";
 import tableData from "../../utils/personaleData.json";
 import dayjs from "dayjs";
+<<<<<<< Updated upstream
+=======
+const data = [];
+>>>>>>> Stashed changes
 const dataset = [
   { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
@@ -119,7 +123,20 @@ const columns = [
     width: 120,
   },
 ];
+<<<<<<< Updated upstream
 const Personale = ({ data }) => {
+=======
+const dataFilter = [
+  {
+    id: "Buste paga",
+    label: "Buste paga",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+];
+const Personale = () => {
+>>>>>>> Stashed changes
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -127,11 +144,15 @@ const Personale = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+<<<<<<< Updated upstream
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
   const [page, setPage] = useState(0);
+=======
+  const [page, setPage] = useState(5);
+>>>>>>> Stashed changes
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
   const handleSearch = (filters) => {
@@ -178,7 +199,7 @@ const Personale = ({ data }) => {
     if (searchFilters.clienti) {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
   const handleTabChange = (newTab) => {
@@ -206,7 +227,11 @@ const Personale = ({ data }) => {
           setActiveFilters={setActiveFilters}
           searchFilters={searchFilters}
         />
-        <RevenueLineChart data={"personale"} dataset={dataset} />
+        <RevenueLineChart
+          data={"personale"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+        />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>

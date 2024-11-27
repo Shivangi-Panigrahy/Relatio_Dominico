@@ -90,13 +90,13 @@ const events = [
 moment.locale("it"); // Use the Italian locale for Moment.js
 const localizer = momentLocalizer(moment);
 
-export default function ReactBigCalendar({acquisti_agenda=false}) {
+export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [eventsData, setEventsData] = useState(events);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
   const [showEventOpen, setShowEventOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [view, setView] = useState(acquisti_agenda ? "agenda":"month");
+  const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
   const [particularEvent, setparticularEvent] = useState({});
 
   const handleOpenDialog = (value) => {
@@ -156,15 +156,23 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
 
   const CustomEvent = ({ event }) => (
     <span>
-      <span className="event-dot" /> {/* This is the colored dot */}
-      {event.title}
+      <div>
+        <span className="event-dot" style={{ background: "#57C700" }} />{" "}
+        {/* Green dot */}
+        <span className="custom-week-event-time">
+          {moment(event.start).format("HH:mm")}-
+          {moment(event.end).format("HH:mm")}
+        </span>
+      </div>
+      <span>{event.title}</span>
     </span>
   );
 
   const CustomWeekEvent = ({ event }) => (
     <div className="custom-week-event">
       <div>
-        <span className="event-dot" /> {/* Green dot */}
+        <span className="event-dot" style={{ background: "#57C700" }} />{" "}
+        {/* Green dot */}
         <span className="custom-week-event-time">
           {moment(event.start).format("HH:mm")}-
           {moment(event.end).format("HH:mm")}
@@ -240,39 +248,43 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-        {!acquisti_agenda &&
-        <>
-          <Button
-            startIcon={<Mese />}
-            onClick={() => setView("month")}
-            className={view === "month" ? `viewButton_active` : `viewButton`}
-          >
-            Mese
-          </Button>
+          {!acquisti_agenda && (
+            <>
+              <Button
+                startIcon={<Mese />}
+                onClick={() => setView("month")}
+                className={
+                  view === "month" ? `viewButton_active` : `viewButton`
+                }
+              >
+                Mese
+              </Button>
 
-          <Button
-            startIcon={<Settimana />}
-            onClick={() => setView("week")}
-            className={view === "week" ? `viewButton_active` : `viewButton`}
-          >
-            Settimana
-          </Button>
-          <Button
-            startIcon={<Giorana />}
-            onClick={() => setView("day")}
-            className={view === "day" ? `viewButton_active` : `viewButton`}
-          >
-            Giorno
-          </Button>
-          <Button
-            startIcon={<Agenda />}
-            onClick={() => setView("agenda")}
-            className={view === "agenda" ? `viewButton_active` : `viewButton`}
-          >
-            Agenda
-          </Button>
-        </>
-          }
+              <Button
+                startIcon={<Settimana />}
+                onClick={() => setView("week")}
+                className={view === "week" ? `viewButton_active` : `viewButton`}
+              >
+                Settimana
+              </Button>
+              <Button
+                startIcon={<Giorana />}
+                onClick={() => setView("day")}
+                className={view === "day" ? `viewButton_active` : `viewButton`}
+              >
+                Giorno
+              </Button>
+              <Button
+                startIcon={<Agenda />}
+                onClick={() => setView("agenda")}
+                className={
+                  view === "agenda" ? `viewButton_active` : `viewButton`
+                }
+              >
+                Agenda
+              </Button>
+            </>
+          )}
         </Box>
 
         <Box className="calenderBlock__title">
@@ -300,7 +312,7 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
           </IconButton>
         </Box>
       </Box>
-      {view === "agenda" ? (  
+      {view === "agenda" ? (
         <div className="calendar_aganda">
           <div className="calendar_aganda_month">Martedì</div>
           {Object.entries(groupedEvents)

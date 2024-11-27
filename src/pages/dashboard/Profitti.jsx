@@ -51,8 +51,38 @@ const profittiData = [
     amount: "350.043.55€",
     color: "black",
   },
+<<<<<<< Updated upstream
 ]
 const Profiitti = ({ data }) => {
+=======
+];
+
+const dataFilter = [
+  {
+    id: "entrate",
+    label: "Entrate",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+  {
+    id: "uscite",
+    label: "Uscite",
+    value: "€35.71k",
+    color: "#DB0000",
+    action: "Uscite",
+  },
+  {
+    id: "ricavo",
+    label: "Ricavo",
+    value: "€35.71k",
+    color: "#100919",
+    action: "Ricavo",
+  },
+];
+
+const Profiitti = () => {
+>>>>>>> Stashed changes
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -60,19 +90,23 @@ const Profiitti = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+<<<<<<< Updated upstream
   const [page, setPage] = useState(0);
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
+=======
+  const [page, setPage] = useState(5);
+>>>>>>> Stashed changes
 
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
 
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
-
+  const data = [];
   const applyFilters = () => {
     let result = data;
 
@@ -120,7 +154,7 @@ const Profiitti = ({ data }) => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
 
@@ -134,7 +168,15 @@ const Profiitti = ({ data }) => {
     <>
       <Header />
       <div className="pageTemplate">
+<<<<<<< Updated upstream
         <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
+=======
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
+>>>>>>> Stashed changes
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={profittiData} />
@@ -153,7 +195,11 @@ const Profiitti = ({ data }) => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart dataset={dataset} data={"profiti"} />
+        <RevenueLineChart
+          dataset={dataset}
+          data={"profiti"}
+          dataFilter={dataFilter}
+        />
       </div>
     </>
   );

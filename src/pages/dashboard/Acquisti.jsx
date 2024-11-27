@@ -60,6 +60,15 @@ const acquistidata = [
     isHighlighted: true,
   },
 ];
+const dataFilter = [
+  {
+    id: "Fatturato",
+    label: "Fatturato",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+];
 
 const Acquisti = ({ data }) => {
   const [page, setPage] = useState(0);
@@ -70,11 +79,16 @@ const Acquisti = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+<<<<<<< Updated upstream
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
+=======
+  const [page, setPage] = useState(5);
+  const data = [];
+>>>>>>> Stashed changes
 
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
 
@@ -129,7 +143,7 @@ const Acquisti = ({ data }) => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
 
@@ -166,7 +180,11 @@ const Acquisti = ({ data }) => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart data={"acquisti"} dataset={dataset} />
+        <RevenueLineChart
+          data={"acquisti"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+        />
       </div>
     </>
   );

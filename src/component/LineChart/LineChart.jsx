@@ -2,10 +2,15 @@ import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { Box, Typography, Select, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"; // Icon for dropdown
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 import "./lineChart.scss";
 
-export default function RevenueLineChart({ data, dataset }) {
-  console.log(data, "data");
+export default function RevenueLineChart({
+  data,
+  dataset,
+  dataFilter,
+  dataPie,
+}) {
   const [filterIncome, setfilterIncome] = React.useState("");
   const filteredData = dataset?.map((item) => {
     if (filterIncome === "Entrate" && item.hasOwnProperty("entrate")) {
@@ -78,6 +83,18 @@ export default function RevenueLineChart({ data, dataset }) {
       message = "Spese personale";
       message2 = "Buste paga";
       break;
+    case "imposte":
+      message = "Imposte";
+      message2 = "Buste paga";
+      break;
+      case "asset":
+        message = "Asset";
+        message2 = "Buste paga";
+        break;
+      case "attivita":
+      message = "Attività";
+      message2 = "Buste paga";
+      break;
     default:
       message = "Unknown status";
   }
@@ -112,14 +129,14 @@ export default function RevenueLineChart({ data, dataset }) {
       {/* Metrics Section */}
       <Box className="graphcard__body">
         <Box className="graphcard__info">
-          {data === "profiti" ? (
-            <>
-              <Box>
+          <div>
+            {dataFilter.map((item) => (
+              <Box key={item.id}>
                 <p
-                  style={{ color: "#4CAF50", cursor: "pointer" }}
+                  style={{ color: item.color, cursor: "pointer" }}
                   onClick={() => {
-                    console.log("Clicked Entrate");
-                    setfilterIncome("Entrate");
+                    console.log(`Clicked ${item.label}`);
+                    setfilterIncome(item.label); // Setting the filter based on the action
                   }}
                 >
                   <span
@@ -127,132 +144,172 @@ export default function RevenueLineChart({ data, dataset }) {
                       width: 12,
                       height: 12,
                       borderRadius: "50%",
-                      background: "#4CAF50",
+                      background: item.color,
                       display: "inline-block",
                     }}
                   />
-                  Entrate
+                  {item.label}
                 </p>
-                <h6>€16.19k</h6>
+                <h6>{item.value}</h6>
               </Box>
-              <Box>
-                <p
-                  style={{ color: "#DB0000", cursor: "pointer" }}
-                  onClick={() => {
-                    setfilterIncome("Uscite");
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      background: "#DB0000",
-                      display: "inline-block",
-                    }}
-                  />
-                  Uscite
-                </p>
-                <h6>€35.71k</h6>
-              </Box>
-              <Box>
-                <p
-                  style={{ color: "#100919", cursor: "pointer" }}
-                  onClick={() => setfilterIncome("Ricavo")}
-                >
-                  <span
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      background: "#100919",
-                      display: "inline-block",
-                    }}
-                  />
-                  Ricavo
-                </p>
-                <h6>€35.71k</h6>
-              </Box>
-            </>
-          ) : (
-            <>
-              <Box>
-                <p
-                  style={{ color: "#4CAF50", cursor: "pointer" }}
-                  onClick={() => {
-                    console.log("Clicked Entrate");
-                    setfilterIncome("Entrate");
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      background: "#4CAF50",
-                      display: "inline-block",
-                    }}
-                  />
-                  {message2}
-                </p>
-                <h6>€16.19k</h6>
-              </Box>
-            </>
-          )}
+            ))}
+          </div>
         </Box>
+
         {/* Chart */}
-        <LineChart
-          className="MuiChartsAxis-tickLabel"
-          dataset={data == "acquisti" ? datasetAcquisti : filteredData}
-          margin={{ left: 50, right: 50, top: 30, bottom: 30 }}
-          xAxis={[
-            {
-              dataKey: "month",
-              scaleType: "point",
-              axisLine: { stroke: "transparent" },
-              tick: {
-                length: 0,
-                size: 0,
+        <Box style={{ display: "flex" }}>
+          <LineChart
+            className="MuiChartsAxis-tickLabel"
+            dataset={data == "acquisti" ? datasetAcquisti : filteredData}
+            margin={{ left: 50, right: 50, top: 30, bottom: 30 }}
+            xAxis={[
+              {
+                dataKey: "month",
+                scaleType: "point",
+                axisLine: { stroke: "transparent" },
+                tick: {
+                  length: 0,
+                  size: 0,
+                },
               },
-            },
-          ]}
-          yAxis={[
-            {
-              axisLine: { stroke: "transparent" },
-              tickLine: false,
-              valueFormatter: (value) => `${value.toLocaleString()}   k`,
-            },
-          ]}
-          grid={{
-            horizontal: true,
-            strokeDasharray: "5 5",
-            strokeWidth: 1,
-            stroke: "#e0e0e0",
-          }}
-          series={filteredSeries}
-          height={400}
-          sx={{
-            ".MuiLineElement-root": {
-              strokeWidth: 2,
-            },
-            ".MuiMarkElement-root": {
-              stroke: ({ series }) => series?.color,
-              strokeWidth: 2,
-              scale: "1",
-              fill: "#fff",
-            },
-            "& .MuiChartsAxis-line": {
-              display: "none",
-            },
-            "& .MuiChartsGrid-line": {
+            ]}
+            yAxis={[
+              {
+                axisLine: { stroke: "transparent" },
+                tickLine: false,
+                valueFormatter: (value) => `${value.toLocaleString()}   k`,
+              },
+            ]}
+            grid={{
+              horizontal: true,
               strokeDasharray: "5 5",
+              strokeWidth: 1,
               stroke: "#e0e0e0",
-            },
-            "& .MuiChartsAxis-tick": {
-              display: "none",
-            },
-          }}
-        />
+            }}
+            series={filteredSeries}
+            height={400}
+            sx={{
+              ".MuiLineElement-root": {
+                strokeWidth: 2,
+              },
+              ".MuiMarkElement-root": {
+                stroke: ({ series }) => series?.color,
+                strokeWidth: 2,
+                scale: "1",
+                fill: "#fff",
+              },
+              "& .MuiChartsAxis-line": {
+                display: "none",
+              },
+              "& .MuiChartsGrid-line": {
+                strokeDasharray: "5 5",
+                stroke: "#e0e0e0",
+              },
+              "& .MuiChartsAxis-tick": {
+                display: "none",
+              },
+            }}
+          />
+          <Box>
+            {dataPie?.length > 0 && (
+              <div
+                style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}
+              >
+                <h3>Non conformità</h3>
+                <PieChart
+                  series={[
+                    {
+                      data: dataPie,
+                      arcLabel: (item) => `${item.value}%`,
+                    },
+                  ]}
+                  width={400}
+                  height={400}
+                  sx={{
+                    [`& .${pieArcLabelClasses.root}`]: {
+                      fill: "white",
+                      fontSize: 14,
+                    },
+                  }}
+                />
+
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "20px",
+                    marginTop: "10px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        backgroundColor: "#00A859",
+                      }}
+                    ></div>
+                    <span>Temperatura</span>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        backgroundColor: "#FFD766",
+                      }}
+                    ></div>
+                    <span>Umidità</span>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        backgroundColor: "#0073B7",
+                      }}
+                    ></div>
+                    <span>C. Batterica</span>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "10px",
+                        height: "10px",
+                        backgroundColor: "#FF4D4D",
+                      }}
+                    ></div>
+                    <span>Conservazione</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
