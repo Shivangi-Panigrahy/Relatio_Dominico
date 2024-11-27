@@ -51,10 +51,6 @@ const profittiData = [
     amount: "350.043.55€",
     color: "black",
   },
-<<<<<<< Updated upstream
-]
-const Profiitti = ({ data }) => {
-=======
 ];
 
 const dataFilter = [
@@ -82,7 +78,6 @@ const dataFilter = [
 ];
 
 const Profiitti = () => {
->>>>>>> Stashed changes
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -90,13 +85,9 @@ const Profiitti = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-<<<<<<< Updated upstream
-  const [page, setPage] = useState(0);
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
-=======
   const [page, setPage] = useState(5);
->>>>>>> Stashed changes
 
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);
@@ -168,15 +159,11 @@ const Profiitti = () => {
     <>
       <Header />
       <div className="pageTemplate">
-<<<<<<< Updated upstream
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
-=======
         <MenuTab
           onTabChange={handleTabChange}
           statsDashboard={true}
           vendite={true}
         />
->>>>>>> Stashed changes
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={profittiData} />

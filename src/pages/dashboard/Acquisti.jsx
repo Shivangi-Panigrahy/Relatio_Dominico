@@ -71,7 +71,7 @@ const dataFilter = [
 ];
 
 const Acquisti = ({ data }) => {
-  const [page, setPage] = useState(0);
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -79,13 +79,10 @@ const Acquisti = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-<<<<<<< Updated upstream
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
-=======
   const [page, setPage] = useState(5);
   const data = [];
->>>>>>> Stashed changes
 
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);

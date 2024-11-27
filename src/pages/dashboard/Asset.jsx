@@ -5,11 +5,8 @@ import ProfittiStatitics from "../../component/profittiStatitics/profittiStatiti
 import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
-<<<<<<< Updated upstream
-=======
 import tableData from "../../utils/personaleData.json";
 import Table from "../../component/table/Table";
->>>>>>> Stashed changes
 
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
@@ -49,9 +46,7 @@ const dataFilter = [
   },
 ];
 
-<<<<<<< Updated upstream
-const Asset = ({ data }) => {
-=======
+
 const dataPie = [
   { id: 1, value: 35, color: "#E72276" },
   { id: 3, value: 5, color: "#FF4D4D" },
@@ -123,7 +118,6 @@ const columns = [
   },
 ];
 const Asset = () => {
->>>>>>> Stashed changes
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -131,14 +125,10 @@ const Asset = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-<<<<<<< Updated upstream
-  const [page, setPage] = useState(0);
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
-=======
   const [page, setPage] = useState(5);
   const data = [];
->>>>>>> Stashed changes
 
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);
@@ -210,15 +200,11 @@ const Asset = () => {
     <>
       <Header />
       <div className="pageTemplate">
-<<<<<<< Updated upstream
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
-=======
         <MenuTab
           onTabChange={handleTabChange}
           statsDashboard={true}
           vendite={true}
         />
->>>>>>> Stashed changes
 
         {/* Statistics row */}
         <ProfittiStatitics />

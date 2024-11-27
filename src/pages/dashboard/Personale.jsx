@@ -8,10 +8,7 @@ import MenuTab from "../../component/tabs/MenuTab";
 import Table from "../../component/table/Table";
 import tableData from "../../utils/personaleData.json";
 import dayjs from "dayjs";
-<<<<<<< Updated upstream
-=======
-const data = [];
->>>>>>> Stashed changes
+
 const dataset = [
   { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
@@ -123,9 +120,7 @@ const columns = [
     width: 120,
   },
 ];
-<<<<<<< Updated upstream
-const Personale = ({ data }) => {
-=======
+
 const dataFilter = [
   {
     id: "Buste paga",
@@ -136,7 +131,6 @@ const dataFilter = [
   },
 ];
 const Personale = () => {
->>>>>>> Stashed changes
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -144,13 +138,9 @@ const Personale = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-<<<<<<< Updated upstream
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
-  const [page, setPage] = useState(0);
-=======
   const [page, setPage] = useState(5);
->>>>>>> Stashed changes
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);
     setPage(0);

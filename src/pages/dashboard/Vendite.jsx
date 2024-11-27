@@ -97,22 +97,15 @@ const Vendite = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-<<<<<<< Updated upstream
   const [filteredData, setFilteredData] = useState(data);
   const [valoreFilter, setValoreFilter] = useState("");
 
-
-  const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
-    // setPage(0);
-=======
   const [page, setPage] = useState(5);
   const data = [];
 
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);
     setPage(0);
->>>>>>> Stashed changes
   };
 
   const handleSearch = (filters) => {
@@ -166,13 +159,10 @@ const Vendite = ({ data }) => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-<<<<<<< Updated upstream
-    setFilteredData(result);
+    // setFilteredData(result);
     // setPage(0);
-=======
     // setFilteredData(result);
     setPage(0);
->>>>>>> Stashed changes
   };
   const handleTabChange = (newTab) => {
     setActiveTab(newTab); // Update the active tab
