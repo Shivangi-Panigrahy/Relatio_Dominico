@@ -70,7 +70,7 @@ const dataFilter = [
   },
 ];
 
-const Acquisti = ({ data }) => {
+const Acquisti = () => {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -79,7 +79,7 @@ const Acquisti = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
   const [page, setPage] = useState(5);
   const data = [];

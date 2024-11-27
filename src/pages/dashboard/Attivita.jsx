@@ -125,7 +125,7 @@ const Attivita = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
 
   const [page, setPage] = useState(5);
@@ -200,8 +200,11 @@ const Attivita = () => {
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
-      
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
 
         {/* Statistics row */}
         <ProfittiStatitics />

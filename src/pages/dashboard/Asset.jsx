@@ -46,7 +46,6 @@ const dataFilter = [
   },
 ];
 
-
 const dataPie = [
   { id: 1, value: 35, color: "#E72276" },
   { id: 3, value: 5, color: "#FF4D4D" },
@@ -125,7 +124,8 @@ const Asset = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
   const [page, setPage] = useState(5);
   const data = [];
@@ -200,11 +200,8 @@ const Asset = () => {
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab
-          onTabChange={handleTabChange}
-          statsDashboard={true}
-          vendite={true}
-        />
+        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
+    
 
         {/* Statistics row */}
         <ProfittiStatitics />

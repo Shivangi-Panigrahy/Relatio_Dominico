@@ -138,13 +138,14 @@ const Personale = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
   const [page, setPage] = useState(5);
   const handleValoreFilter = (selectedValore) => {
     // setValoreFilter(selectedValore);
     setPage(0);
   };
+  const data=[]
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };

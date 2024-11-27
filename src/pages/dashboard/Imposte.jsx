@@ -165,7 +165,7 @@ const imposteData = [
   },
 ];
 
-const Imposte = ({ data }) => {
+const Imposte = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -173,7 +173,7 @@ const Imposte = ({ data }) => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [valoreFilter, setValoreFilter] = useState("");
   const [page, setPage] = useState(5);
   const data = [];
@@ -247,8 +247,11 @@ const Imposte = ({ data }) => {
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
-     
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={imposteData} />
