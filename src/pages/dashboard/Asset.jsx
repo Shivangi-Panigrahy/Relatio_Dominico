@@ -9,48 +9,48 @@ import tableData from "../../utils/personaleData.json";
 import Table from "../../component/table/Table";
 
 const dataset = [
-  { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
-  { month: "Feb", entrate: 8, uscite: 28, ricavo: 45 },
-  { month: "Mar", entrate: 12, uscite: 35, ricavo: 50 },
-  { month: "Apr", entrate: 25, uscite: 48, ricavo: 62 },
-  { month: "Mag", entrate: 42, uscite: 62, ricavo: 78 },
-  { month: "Giu", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Lug", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Ago", entrate: 48, uscite: 68, ricavo: 85 },
-  { month: "Set", entrate: 58, uscite: 80, ricavo: 95 },
-  { month: "Ott", entrate: 62, uscite: 82, ricavo: 98 },
-  { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
-  { month: "Dic", entrate: 35, uscite: 55, ricavo: 68 },
+  { month: "Gen", Assicurazioni: 5, Immobili: 25, Investimenti: 42 },
+  { month: "Feb", Assicurazioni: 8, Immobili: 28, Investimenti: 45 },
+  { month: "Mar", Assicurazioni: 12, Immobili: 35, Investimenti: 50 },
+  { month: "Apr", Assicurazioni: 25, Immobili: 48, Investimenti: 62 },
+  { month: "Mag", Assicurazioni: 42, Immobili: 62, Investimenti: 78 },
+  { month: "Giu", Assicurazioni: 45, Immobili: 65, Investimenti: 82 },
+  { month: "Lug", Assicurazioni: 45, Immobili: 65, Investimenti: 82 },
+  { month: "Ago", Assicurazioni: 48, Immobili: 68, Investimenti: 85 },
+  { month: "Set", Assicurazioni: 58, Immobili: 80, Investimenti: 95 },
+  { month: "Ott", Assicurazioni: 62, Immobili: 82, Investimenti: 98 },
+  { month: "Nov", Assicurazioni: 52, Immobili: 72, Investimenti: 88 },
+  { month: "Dic", Assicurazioni: 35, Immobili: 55, Investimenti: 68 },
 ];
 const dataFilter = [
   {
     id: "Assicurazioni",
     label: "Assicurazioni",
     value: "€16.19k",
-    color: "#4CAF50",
+    color: "black",
     action: "Entrate",
   },
   {
     id: "Immobili",
     label: "Immobili",
     value: "€16.19k",
-    color: "#4CAF50",
+    color: "black",
     action: "Entrate",
   },
   {
     id: "Investimenti",
     label: "Investimenti",
     value: "€16.19k",
-    color: "#4CAF50",
+    color: "black",
     action: "Entrate",
   },
 ];
 
 const dataPie = [
-  { id: 1, value: 35, color: "#E72276","type": "IVA",message:"xyz" },
-  { id: 3, value: 5, color: "#FF4D4D", "type": "IRAP", },
+  { id: 1, value: 35, color: "#E72276","type": "Assicurazioni",message:"Tipologia di asset" },
+  { id: 3, value: 5, color: "#FF4D4D", "type": "Immobili", },
   { id: 2, value: 15, color: "#0073B7","type": "Contributi", },
-  { id: 0, value: 45, color: "#E72276" ,"type": "IRES",},
+  { id: 0, value: 45, color: "#E72276" ,"type": "Investimenti",},
 ];
 
 const columns = [
@@ -156,6 +156,23 @@ const assetdata = [
   }
 ];
 
+const series = [
+  {
+    dataKey: "Assicurazioni",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "Immobili",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "Investimenti",
+    color: "#000000",
+    showMark: true,
+  },
+];
 
 const Asset = () => {
   const [startDate, setStartDate] = useState(null);
@@ -266,7 +283,7 @@ const Asset = () => {
           data={"asset"}
           dataFilter={dataFilter}
           dataPie={dataPie}
-          pieDta
+         series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>

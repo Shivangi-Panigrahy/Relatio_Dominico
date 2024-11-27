@@ -24,10 +24,10 @@ const dataset = [
   { month: "Dic", entrate: 35 },
 ];
 const dataPie = [
-  { id: 1, value: 35, color: "#E72276","type": "IVA", },
-  { id: 3, value: 5, color: "#FF4D4D", "type": "IRAP", },
-  { id: 2, value: 15, color: "#0073B7","type": "Contributi", },
-  { id: 0, value: 45, color: "#E72276" ,"type": "IRES",},
+  { id: 1, value: 35, color: "#E72276", type: "IVA" },
+  { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
+  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+  { id: 0, value: 45, color: "#E72276", type: "IRES" },
 ];
 
 const personaleData = [
@@ -36,30 +36,35 @@ const personaleData = [
     count: 8.2,
     amount: "29.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "Totale Stipendi",
     count: 8.2,
     amount: "-350.043.55€",
     color: "red",
+    backgroundColor: "#DB000033",
   },
 ];
 
@@ -136,8 +141,23 @@ const dataFilter = [
     action: "Entrate",
   },
 ];
-
-;
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
 
 const Personale = () => {
   const [startDate, setStartDate] = useState(null);
@@ -154,7 +174,7 @@ const Personale = () => {
     // setValoreFilter(selectedValore);
     setPage(0);
   };
-  const data=[]
+  const data = [];
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
@@ -232,6 +252,7 @@ const Personale = () => {
           dataset={dataset}
           dataFilter={dataFilter}
           dataPie={dataPie}
+          series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>

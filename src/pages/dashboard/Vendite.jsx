@@ -63,6 +63,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightgreen",
     label: "Conversione",
+    backgroundColor: "#57C7001A",
   },
   {
     status: "Sospesi",
@@ -70,6 +71,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightyellow",
     label: "Conversione",
+    backgroundColor: "#FFA90333",
   },
   {
     status: "Rifiutati",
@@ -77,6 +79,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "lightpink",
     label: "Conversione",
+    backgroundColor: "#DB000033",
   },
 ];
 const dataFilter = [
@@ -86,6 +89,23 @@ const dataFilter = [
     value: "€16.19k",
     color: "#4CAF50",
     action: "Entrate",
+  },
+];
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
   },
 ];
 
@@ -181,7 +201,7 @@ const Vendite = () => {
         />
 
         {/* Statistics row */}
-        <ProfittiStatitics dataType={venditeData} />
+        <ProfittiStatitics dataType={venditeData} type={true} />
 
         <SearchTable
           startDate={startDate}
@@ -201,6 +221,7 @@ const Vendite = () => {
           data={"vendite"}
           dataset={dataset}
           dataFilter={dataFilter}
+          series={series}
         />
       </div>
     </>

@@ -9,32 +9,32 @@ import tableData from "../../utils/personaleData.json";
 import Table from "../../component/table/Table";
 
 const dataset = [
-  { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
-  { month: "Feb", entrate: 8, uscite: 28, ricavo: 45 },
-  { month: "Mar", entrate: 12, uscite: 35, ricavo: 50 },
-  { month: "Apr", entrate: 25, uscite: 48, ricavo: 62 },
-  { month: "Mag", entrate: 42, uscite: 62, ricavo: 78 },
-  { month: "Giu", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Lug", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Ago", entrate: 48, uscite: 68, ricavo: 85 },
-  { month: "Set", entrate: 58, uscite: 80, ricavo: 95 },
-  { month: "Ott", entrate: 62, uscite: 82, ricavo: 98 },
-  { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
-  { month: "Dic", entrate: 35, uscite: 55, ricavo: 68 },
+  { month: "Gen", IVA: 5, IRAP: 25, Contributi: 42 },
+  { month: "Feb", IVA: 8, IRAP: 28, Contributi: 45 },
+  { month: "Mar", IVA: 12, IRAP: 35, Contributi: 50 },
+  { month: "Apr", IVA: 25, IRAP: 48, Contributi: 62 },
+  { month: "Mag", IVA: 42, IRAP: 62, Contributi: 78 },
+  { month: "Giu", IVA: 45, IRAP: 65, Contributi: 82 },
+  { month: "Lug", IVA: 45, IRAP: 65, Contributi: 82 },
+  { month: "Ago", IVA: 48, IRAP: 68, Contributi: 85 },
+  { month: "Set", IVA: 58, IRAP: 80, Contributi: 95 },
+  { month: "Ott", IVA: 62, IRAP: 82, Contributi: 98 },
+  { month: "Nov", IVA: 52, IRAP: 72, Contributi: 88 },
+  { month: "Dic", IVA: 35, IRAP: 55, Contributi: 68 },
 ];
 const dataFilter = [
   {
     id: "IVA",
     label: "IVA",
     value: "€16.19k",
-    color: "#4CAF50",
+    color: "#100919",
     action: "Entrate",
   },
   {
     id: "IRAP",
     label: "IRAP",
     value: "€35.71k",
-    color: "#DB0000",
+    color: "#100919",
     action: "Uscite",
   },
   {
@@ -110,9 +110,9 @@ const columns = [
 ];
 
 const dataPie = [
-  { id: 1, value: 35, color: "#E72276","type": "IVA",message:"xyz" },
-  { id: 3, value: 5, color: "#FF4D4D", "type": "IRAP", },
-  { id: 2, value: 15, color: "#0073B7","type": "Contributi", },
+  { id: 1, value: 35, color: "#160A2A","type": "IVA",message:"Tipologia di imposte" },
+  { id: 3, value: 5, color: "#4AAFF0", "type": "IRAP", },
+  { id: 2, value: 15, color: "#3A0CA3","type": "Contributi", },
   { id: 0, value: 45, color: "#E72276" ,"type": "IRES",},
 ];
 const imposteData = [
@@ -162,6 +162,23 @@ const imposteData = [
     color: "black",
     message: "Maturata",
     message2: "Maturata",
+  },
+];
+const series = [
+  {
+    dataKey: "IVA",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "IRAP",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "Contributi",
+    color: "#000000",
+    showMark: true,
   },
 ];
 
@@ -254,7 +271,7 @@ const Imposte = () => {
         />
 
         {/* Statistics row */}
-        <ProfittiStatitics dataType={imposteData} />
+        <ProfittiStatitics dataType={imposteData} type={false} seven={true} />
 
         <SearchTable
           startDate={startDate}
@@ -275,6 +292,7 @@ const Imposte = () => {
           data={"imposte"}
           dataFilter={dataFilter}
           dataPie={dataPie}
+          series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>

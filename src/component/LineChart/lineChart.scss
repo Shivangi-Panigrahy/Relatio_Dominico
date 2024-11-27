@@ -39,8 +39,10 @@
     margin: 4px 0 0;
   }
   &__info {
-    display: flex;
-    gap: 24px;
+    & > div {
+      display: flex;
+      gap: 24px;
+    }
     margin-bottom: 24px;
     h6 {
       font-size: 18px;
@@ -63,4 +65,27 @@
 }
 .MuiChartsAxis-tickLabel {
   color: red;
+}
+
+.graphcard_container_main {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 20px;
+}
+
+.graphcard_container_main_1 {
+  grid-column: 1 / 8; /* Spans 7 columns */
+}
+.graphcard_container_main_full {
+  grid-column: 1 / 11; /* Spans 7 columns */
+}
+
+.graphcard_container_sub {
+  grid-column: 8 / 11; /* Spans 3 columns (8, 9, and 10) */
+  margin-top: 30px;
+  box-shadow: 0px 12px 24px rgba(145, 158, 171, 0.1215686275);
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(145, 158, 171, 0.1215686275);
 }

@@ -26,30 +26,35 @@ const profittiData = [
     count: 8.2,
     amount: "29.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
     color: "black",
+    backgroundColor: "#fff",
   },
   {
     status: "Totale ricavi",
     count: 8.2,
     amount: "350.043.55€",
     color: "black",
+    backgroundColor: "#57C7001A",
   },
 ];
 
@@ -77,6 +82,23 @@ const dataFilter = [
   },
 ];
 
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
 const Profiitti = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -97,7 +119,7 @@ const Profiitti = () => {
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
- 
+
   const applyFilters = () => {
     let result = data;
 
@@ -186,6 +208,7 @@ const Profiitti = () => {
           dataset={dataset}
           data={"profiti"}
           dataFilter={dataFilter}
+          series={series}
         />
       </div>
     </>

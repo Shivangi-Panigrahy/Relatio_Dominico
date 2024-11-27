@@ -58,6 +58,7 @@ const acquistidata = [
     color: "lightpink",
     label: "Anno precedente",
     isHighlighted: true,
+    backgroundColor: "#DB000033",
   },
 ];
 const dataFilter = [
@@ -70,8 +71,24 @@ const dataFilter = [
   },
 ];
 
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
 const Acquisti = () => {
-
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -181,6 +198,7 @@ const Acquisti = () => {
           data={"acquisti"}
           dataset={dataset}
           dataFilter={dataFilter}
+          series={series}
         />
       </div>
     </>

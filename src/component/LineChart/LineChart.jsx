@@ -1,6 +1,6 @@
 import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { Box, Typography, Select, MenuItem } from "@mui/material";
+import { Box, Grid, Typography, Select, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"; // Icon for dropdown
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 import "./lineChart.scss";
@@ -10,6 +10,7 @@ export default function RevenueLineChart({
   dataset,
   dataFilter,
   dataPie,
+  series
 }) {
   const [filterIncome, setfilterIncome] = React.useState("");
   const filteredData = dataset?.map((item) => {
@@ -23,43 +24,56 @@ export default function RevenueLineChart({
       // If 'uscite' is selected, return only month and uscite
       return { month: item.month, ricavo: item.ricavo };
     }
+
+    else if (filterIncome === "IVA" && item.hasOwnProperty("IVA")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, IVA : item.IVA };
+    }
+    else if (filterIncome === "IRAP" && item.hasOwnProperty("IRAP")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, IRAP : item.IRAP };
+    }
+    else if (filterIncome === "Contributi" && item.hasOwnProperty("Contributi")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Contributi : item.Contributi };
+    }
+    else if (filterIncome === "Assicurazioni" && item.hasOwnProperty("Assicurazioni")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Assicurazioni : item.Assicurazioni };
+    }
+    else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Immobili : item.Immobili };
+    }
+    else if (filterIncome === "Investimenti" && item.hasOwnProperty("Investimenti")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Investimenti : item.Investimenti };
+    }
+    else if (filterIncome === "Assicurazioni" && item.hasOwnProperty("Assicurazioni")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Assicurazioni : item.Assicurazioni };
+    }
+    else if (filterIncome === "Immobili" && item.hasOwnProperty("Immobili")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Immobili : item.Immobili };
+    }
+    else if (filterIncome === "Investimenti" && item.hasOwnProperty("Investimenti")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Investimenti : item.Investimenti };
+    }
+    else if (filterIncome === "Sviluppo" && item.hasOwnProperty("Sviluppo")) {
+      // If 'uscite' is selected, return only month and uscite
+      return { month: item.month, Sviluppo : item.Sviluppo };
+    }
+    
+
     return item; // Return item unchanged if neither condition matches
   });
-  console.log(filteredData);
-  const datasetAcquisti = [
-    { month: "Gen", entrate: 5 },
-    { month: "Feb", entrate: 8 },
-    { month: "Mar", entrate: 12 },
-    { month: "Apr", entrate: 25 },
-    { month: "Mag", entrate: 42 },
-    { month: "Giu", entrate: 45 },
-    { month: "Lug", entrate: 45 },
-    { month: "Ago", entrate: 48 },
-    { month: "Set", entrate: 58 },
-    { month: "Ott", entrate: 62 },
-    { month: "Nov", entrate: 52 },
-    { month: "Dic", entrate: 35 },
-  ];
 
   const [year, setYear] = React.useState("2023");
+  console.log(filterIncome,"filtericome")
 
-  const series = [
-    {
-      dataKey: "entrate",
-      color: "#4CAF50",
-      showMark: true,
-    },
-    {
-      dataKey: "uscite",
-      color: "#f44336",
-      showMark: true,
-    },
-    {
-      dataKey: "ricavo",
-      color: "#000000",
-      showMark: true,
-    },
-  ];
+
 
   const filteredSeries = data === "vendite" ? [series[0]] : series;
 
@@ -100,139 +114,160 @@ export default function RevenueLineChart({
   }
 
   return (
-    <Box className="graphcard">
-      {/* Header Section */}
-      <Box className="graphcard__head">
-        <Box className="graphcard__heading">
-          <h6 className="graphcard__title">{message}</h6>
-          <p className="graphcard__text">(+43%) rispetto allo scorso anno</p>
-        </Box>
-        <Select
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-          size="small"
-          IconComponent={KeyboardArrowDownIcon}
-          sx={{
-            minWidth: 100,
-            height: "32px",
-            "& .MuiSelect-select": {
-              py: 0.5,
-              px: 1.5,
-            },
-          }}
+    <>
+      <Box className="graphcard_container_main" size={8}>
+        <Box
+          className={`graphcard ${
+            dataPie?.length > 0
+              ? "graphcard_container_main_1"
+              : "graphcard_container_main_full"
+          } `}
         >
-          <MenuItem value="2023">2023</MenuItem>
-          <MenuItem value="2022">2022</MenuItem>
-        </Select>
-      </Box>
-
-      {/* Metrics Section */}
-      <Box className="graphcard__body">
-        <Box className="graphcard__info">
-          <div>
-            {dataFilter.map((item) => (
-              <Box key={item.id}>
-                <p
-                  style={{ color: item.color, cursor: "pointer" }}
-                  onClick={() => {
-                    console.log(`Clicked ${item.label}`);
-                    setfilterIncome(item.label); // Setting the filter based on the action
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      background: item.color,
-                      display: "inline-block",
-                    }}
-                  />
-                  {item.label}
-                </p>
-                <h6>{item.value}</h6>
-              </Box>
-            ))}
-          </div>
-        </Box>
-
-        {/* Chart */}
-        <Box style={{ display: "flex" }}>
-          <LineChart
-            className="MuiChartsAxis-tickLabel"
-            dataset={data == "acquisti" ? datasetAcquisti : filteredData}
-            margin={{ left: 50, right: 50, top: 30, bottom: 30 }}
-            xAxis={[
-              {
-                dataKey: "month",
-                scaleType: "point",
-                axisLine: { stroke: "transparent" },
-                tick: {
-                  length: 0,
-                  size: 0,
+          {/* Header Section */}
+          <Box className="graphcard__head">
+            <Box className="graphcard__heading">
+              <h6 className="graphcard__title">{message}</h6>
+              <p className="graphcard__text">
+                (+43%) rispetto allo scorso anno
+              </p>
+            </Box>
+            <Select
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              size="small"
+              IconComponent={KeyboardArrowDownIcon}
+              sx={{
+                minWidth: 100,
+                height: "32px",
+                "& .MuiSelect-select": {
+                  py: 0.5,
+                  px: 1.5,
                 },
-              },
-            ]}
-            yAxis={[
-              {
-                axisLine: { stroke: "transparent" },
-                tickLine: false,
-                valueFormatter: (value) => `${value.toLocaleString()}   k`,
-              },
-            ]}
-            grid={{
-              horizontal: true,
-              strokeDasharray: "5 5",
-              strokeWidth: 1,
-              stroke: "#e0e0e0",
-            }}
-            series={filteredSeries}
-            height={400}
-            sx={{
-              ".MuiLineElement-root": {
-                strokeWidth: 2,
-              },
-              ".MuiMarkElement-root": {
-                stroke: ({ series }) => series?.color,
-                strokeWidth: 2,
-                scale: "1",
-                fill: "#fff",
-              },
-              "& .MuiChartsAxis-line": {
-                display: "none",
-              },
-              "& .MuiChartsGrid-line": {
-                strokeDasharray: "5 5",
-                stroke: "#e0e0e0",
-              },
-              "& .MuiChartsAxis-tick": {
-                display: "none",
-              },
-            }}
-          />
-          <Box>
-            {dataPie?.length > 0 && (
+              }}
+            >
+              <MenuItem value="2023">2023</MenuItem>
+              <MenuItem value="2022">2022</MenuItem>
+            </Select>
+          </Box>
+
+          {/* Metrics Section */}
+          <Box className="graphcard__body">
+            <Box className="graphcard__info">
+              <div>
+                {dataFilter.map((item) => (
+                  <Box key={item.id}>
+                    <p
+                      className={`custom_Fatturato_label`}
+                      style={{
+                        color: item.color,
+                        cursor: "pointer",
+                        textDecoration:
+                          item.label === filterIncome ? "line-through" : "none", // Apply line-through if it matches filterIncome
+                      }}
+                      onClick={() => {
+                        console.log(`Clicked ${item.label}`);
+                        setfilterIncome(item.label); // Setting the filter based on the action
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: 12,
+                          height: 12,
+                          borderRadius: "50%",
+                          background: item.color,
+                          display: "inline-block",
+                        }}
+                      />
+                      {item.label}
+                    </p>
+                    <h6>{item.value}</h6>
+                  </Box>
+                ))}
+              </div>
+            </Box>
+
+            {/* Chart */}
+            <Box style={{ display: "flex" }}>
+              <LineChart
+                className="MuiChartsAxis-tickLabel"
+                dataset={filteredData}
+                margin={{ left: 50, right: 50, top: 30, bottom: 30 }}
+                xAxis={[
+                  {
+                    dataKey: "month",
+                    scaleType: "point",
+                    axisLine: { stroke: "transparent" },
+                    tick: {
+                      length: 0,
+                      size: 0,
+                    },
+                  },
+                ]}
+                yAxis={[
+                  {
+                    axisLine: { stroke: "transparent" },
+                    tickLine: false,
+                    valueFormatter: (value) => `${value.toLocaleString()}   k`,
+                  },
+                ]}
+                grid={{
+                  horizontal: true,
+                  strokeDasharray: "5 5",
+                  strokeWidth: 1,
+                  stroke: "#e0e0e0",
+                }}
+                series={filteredSeries}
+                height={400}
+                sx={{
+                  ".MuiLineElement-root": {
+                    strokeWidth: 2,
+                  },
+                  ".MuiMarkElement-root": {
+                    stroke: ({ series }) => series?.color,
+                    strokeWidth: 2,
+                    scale: "1",
+                    fill: "#fff",
+                  },
+                  "& .MuiChartsAxis-line": {
+                    display: "none",
+                  },
+                  "& .MuiChartsGrid-line": {
+                    strokeDasharray: "5 5",
+                    stroke: "#e0e0e0",
+                  },
+                  "& .MuiChartsAxis-tick": {
+                    display: "none",
+                  },
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
+        {dataPie?.length > 0 && (
+          <Box className="graphcard_container_sub">
+            <Box>
               <div
                 style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}
               >
                 <h3>{dataPie[0].message}</h3>
-                <PieChart
-                  series={[
-                    {
-                      data: dataPie,
-                      arcLabel: (item) => `${item.value}%`,
-                    },
-                  ]}
-                  width={400}
-                  height={400}
-                  sx={{
-                    [`& .${pieArcLabelClasses.root}`]: {
-                      fill: "white",
-                      fontSize: 14,
-                    },
-                  }}
-                />
-
+                <div style={{ marginLeft: "65px", textAlign: "center" }}>
+                  <PieChart
+                    series={[
+                      {
+                        data: dataPie,
+                        arcLabel: (item) => `${item.value}%`,
+                      },
+                    ]}
+                    width={400}
+                    height={400}
+                    sx={{
+                      [`& .${pieArcLabelClasses.root}`]: {
+                        fill: "white",
+                        fontSize: 14,
+                      },
+                    }}
+                  />
+                </div>
                 <div
                   style={{
                     display: "flex",
@@ -262,10 +297,10 @@ export default function RevenueLineChart({
                   ))}
                 </div>
               </div>
-            )}
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
-    </Box>
+    </>
   );
 }

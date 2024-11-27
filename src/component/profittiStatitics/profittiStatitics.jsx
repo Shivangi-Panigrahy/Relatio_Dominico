@@ -16,9 +16,10 @@ const ProfittiCard = ({
   due,
   message,
   message2,
+  backgroundColor,
 }) => {
   return (
-    <div className="prfittiCard">
+    <div className="prfittiCard" style={{ backgroundColor: backgroundColor }}>
       {/* <div className="statusText__img">
         <IconComponent />
       </div> */}
@@ -50,12 +51,25 @@ const ProfittiCard = ({
   );
 };
 
-const ProfittiStatitics = ({ dataType }) => {
+const ProfittiStatitics = ({ dataType, type, seven }) => {
   return (
     <Box className="FactureSection mt-14">
       <Grid container className="FactureSection__inner" spacing={2}>
         {dataType?.map((data, index) => (
-          <Grid item xl={index === 4 ? 4 : 2} md={index === 4 ? 8 : 4} xs={12}>
+          <Grid
+            item
+            xl={
+              type
+                ? 1.5
+                : seven
+                ? 1.71 // Example: set xl to 6 if `seven` is true (adjust as needed)
+                : index === 4
+                ? 4
+                : 2
+            }
+            md={index === 4 ? 8 : 4}
+            xs={12}
+          >
             <ProfittiCard
               status={data.status}
               count={data.count}
@@ -66,6 +80,7 @@ const ProfittiStatitics = ({ dataType }) => {
               due={data.due}
               message={data.message}
               message2={data.message2}
+              backgroundColor={data.backgroundColor}
             />
 
             {/* {index < profittiData.length - 1 && (
