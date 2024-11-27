@@ -15,13 +15,6 @@ const columns = [
 
 const leadData = [
   {
-    status: "Da qualificare",
-    count: "",
-    amount: "120/32.932",
-    color: "#57C700",
-    iconColor: "#57C700",
-  },
-  {
     status: "Da contattare",
     count: "",
     amount: "34/120",

@@ -51,8 +51,8 @@ const getStatusColor = (stato) => {
   switch (stato) {
     case "Approvato":
       return {
-        backgroundColor: "#E3F2FD",
-        color: "#2196F3",
+        backgroundColor: "#57C70033",
+        color: "#57C700",
         className: "approvatoStato",
       };
     case "Completato":
@@ -73,6 +73,25 @@ const getStatusColor = (stato) => {
         color: "#F44336",
         className: "rifiutatoStato",
       };
+    case "Da contattare":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "completatoStato",
+      };
+    case "Contattati":
+      return {
+        backgroundColor: "orange",
+        color: "white",
+        className: "in-attesaStato",
+      };
+    case "In trattativa":
+      return {
+        backgroundColor: "red",
+        color: "#F44336",
+        className: "rifiutatoStato",
+      };
+
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -218,29 +237,31 @@ const TableRows = ({
                     <StyledTableCell>{row.doc}</StyledTableCell>
                     <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
-                    <StyledTableCell>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        whiteSpace={"nowrap"}
-                      >
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
+                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                      <StyledTableCell>
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          whiteSpace={"nowrap"}
                         >
-                          <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "" } }}
-                            fontSize="small"
-                          />
-                        </IconButton>
-                        {row.fornitori}
-                      </Box>
-                    </StyledTableCell>
+                          <IconButton
+                            size="small"
+                            sx={{
+                              mr: 1,
+                              color: "action.active",
+                              fontSize: "15px",
+                              "&:hover": { backgroundColor: "transparent" },
+                            }}
+                          >
+                            <VisibilityOutlinedIcon
+                              sx={{ "&:hover": { color: "" } }}
+                              fontSize="small"
+                            />
+                          </IconButton>
+                          {row.fornitori}
+                        </Box>
+                      </StyledTableCell>
+                    )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
@@ -515,12 +536,10 @@ const TableRows = ({
               data
                 .slice(
                   page * rowsPerPage,
-                  // Limit to 2 rows for specified paths
                   (isSubLeadDocumenti || isFornitoriDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
-                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
                     key={index}
@@ -531,7 +550,6 @@ const TableRows = ({
                         ? navigate("/vendite/budget/sub-budget")
                         : navigate("/acquisti/budget/sub-budget")
                     }
-
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -547,29 +565,33 @@ const TableRows = ({
                     <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     <StyledTableCell>{row.titolo}</StyledTableCell>
-                    <StyledTableCell>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        whiteSpace={"nowrap"}
-                      >
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
+
+                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                      <StyledTableCell>
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          whiteSpace={"nowrap"}
                         >
-                          <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "#57C700" } }}
-                            fontSize="small"
-                          />
-                        </IconButton>
-                        {row.fornitori}
-                      </Box>
-                    </StyledTableCell>
+                          <IconButton
+                            size="small"
+                            sx={{
+                              mr: 1,
+                              color: "action.active",
+                              fontSize: "15px",
+                              "&:hover": { backgroundColor: "transparent" },
+                            }}
+                          >
+                            <VisibilityOutlinedIcon
+                              sx={{ "&:hover": { color: "#57C700" } }}
+                              fontSize="small"
+                            />
+                          </IconButton>
+                          {row.fornitori}
+                        </Box>
+                      </StyledTableCell>
+                    )}
+
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
@@ -594,7 +616,6 @@ const TableRows = ({
                           e.preventDefault();
                           e.stopPropagation();
                           handleStatusClick(index);
-                          // classActice(row.stato);
                         }}
                       >
                         {searchFilters?.stato
@@ -654,29 +675,31 @@ const TableRows = ({
                     <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     <StyledTableCell>{row.titolo}</StyledTableCell>
-                    <StyledTableCell>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        whiteSpace={"nowrap"}
-                      >
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
+                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                      <StyledTableCell>
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          whiteSpace={"nowrap"}
                         >
-                          <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "#57C700" } }}
-                            fontSize="small"
-                          />
-                        </IconButton>
-                        {row.cliente}
-                      </Box>
-                    </StyledTableCell>
+                          <IconButton
+                            size="small"
+                            sx={{
+                              mr: 1,
+                              color: "action.active",
+                              fontSize: "15px",
+                              "&:hover": { backgroundColor: "transparent" },
+                            }}
+                          >
+                            <VisibilityOutlinedIcon
+                              sx={{ "&:hover": { color: "#57C700" } }}
+                              fontSize="small"
+                            />
+                          </IconButton>
+                          {row.cliente}
+                        </Box>
+                      </StyledTableCell>
+                    )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>

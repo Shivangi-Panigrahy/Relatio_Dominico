@@ -187,20 +187,20 @@ const Documenti = ({ data }) => {
         ))}
       </Grid>
       <div className="documentiSearchFilter">
-      <SearchTable
-        startDate={startDate}
-        setStartDate={setStartDate}
-        endDate={endDate}
-        setEndDate={setEndDate}
-        onValoreFilter={handleValoreFilter}
-        onSearch={handleSearch}
-        applyFilters={applyFilters}
-        setSearchFilters={setSearchFilters}
-        activeFilters={activeFilters}
-        setActiveFilters={setActiveFilters}
-        searchFilters={searchFilters}
-      />
-</div>
+        <SearchTable
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+          onValoreFilter={handleValoreFilter}
+          onSearch={handleSearch}
+          applyFilters={applyFilters}
+          setSearchFilters={setSearchFilters}
+          activeFilters={activeFilters}
+          setActiveFilters={setActiveFilters}
+          searchFilters={searchFilters}
+        />
+      </div>
       {/* Accordion Sections */}
       <Box className='customAccordion'>
         {sections.map((section, index) => (

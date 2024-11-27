@@ -95,6 +95,10 @@ const CustomTable = ({ data, form, columns, navData }) => {
   const [activeFilters, setActiveFilters] = useState({});
   const option = ["Option 1", "Option 2", "Option 3"];
 
+
+  const chipsetData = ["Approvato", "In Attesa", "Completato", "Rifiutato"]
+  const chipsetLeadData = ["Da contattare", "Contattati", "In trattativa"]
+
   const handleTabChange = React.useCallback(() => {
     setPage(0);
     setRowsPerPage(5);
@@ -271,15 +275,15 @@ const CustomTable = ({ data, form, columns, navData }) => {
     setSelectAll(newSelected.length === data.length); // Check if all rows are selected
   };
 
-  const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
+  // const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
 
   const [currentStatuses, setCurrentStatuses] = useState(
-    sortedData.map((item) => item.stato || statuses[0])
+    sortedData.map((item) => item.stato || chipsetLeadData[0])
   );
 
   // Function to handle status change on click
   const handleStatusClick = (index) => {
-    const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+    const randomStatus = chipsetLeadData[Math.floor(Math.random() * chipsetLeadData.length)];
 
     // Update only the status for the clicked row
     setCurrentStatuses((prevStatuses) =>

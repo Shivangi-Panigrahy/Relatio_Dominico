@@ -9,22 +9,36 @@ import {
   Button,
   Box,
   InputAdornment,
+  IconButton,
 } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "./Qualificazione.scss";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 // Dynamic Card Component with Add Button
-const DynamicCard = ({ title, initialFields }) => {
-  const [fields, setFields] = useState(initialFields);
+const DynamicCard = ({ title, initialFields, onAddField }) => {
+  const [fields, setFields] = useState(
+    initialFields.map((field) => ({ ...field, isNew: false }))
+  );
 
   const handleAddField = () => {
-    // Add a new empty field with a default label
-    const newField = { 
+    // Add a new empty field with a default label and mark as new
+    const newField = {
       label: `Campo Aggiuntivo ${fields.length + 1}`,
-      type: "text"
+      isNew: true,
     };
     setFields([...fields, newField]);
+
+    // Optional: Call the parent component's method if needed
+    if (onAddField) {
+      onAddField(newField);
+    }
+  };
+
+  const handleDeleteField = (index) => {
+    // Remove the field at the specified index
+    setFields(fields.filter((_, i) => i !== index));
   };
 
   return (
@@ -38,28 +52,37 @@ const DynamicCard = ({ title, initialFields }) => {
         <CardContent className="card__body">
           <Grid container spacing={2}>
             {fields.map((field, index) => (
-              <Grid item xs={12} key={index}>
+              <Grid
+                item
+                xs={12}
+                key={index}
+                style={{ display: "flex", alignItems: "center" }}
+              >
                 <TextField
                   className={styles["text-field"]}
                   fullWidth
                   label={field.label}
                   type={field.type || "text"}
                   variant="outlined"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end"></InputAdornment>
-                    ),
-                  }}
                 />
+                {field.isNew && (
+                  <IconButton
+                    aria-label="delete"
+                    onClick={() => handleDeleteField(index)}
+                    style={{ marginLeft: "8px" }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                )}
               </Grid>
             ))}
           </Grid>
         </CardContent>
       </Card>
       <Box sx={{ mt: 2, display: "flex", alignItems: "center" }}>
-        <Button 
-          startIcon={<AddIcon />} 
+        <Button
           className="Aggiungi_btn"
+          startIcon={<AddIcon />}
           onClick={handleAddField}
         >
           Aggiungi
