@@ -48,10 +48,10 @@ const dataFilter = [
 
 
 const dataPie = [
-  { id: 1, value: 35, color: "#E72276" },
-  { id: 3, value: 5, color: "#FF4D4D" },
-  { id: 2, value: 15, color: "#0073B7" },
-  { id: 0, value: 45, color: "#E72276" },
+  { id: 1, value: 35, color: "#E72276","type": "IVA",message:"xyz" },
+  { id: 3, value: 5, color: "#FF4D4D", "type": "IRAP", },
+  { id: 2, value: 15, color: "#0073B7","type": "Contributi", },
+  { id: 0, value: 45, color: "#E72276" ,"type": "IRES",},
 ];
 
 const columns = [

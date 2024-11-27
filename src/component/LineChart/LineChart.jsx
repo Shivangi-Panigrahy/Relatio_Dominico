@@ -87,11 +87,11 @@ export default function RevenueLineChart({
       message = "Imposte";
       message2 = "Buste paga";
       break;
-      case "asset":
-        message = "Asset";
-        message2 = "Buste paga";
-        break;
-      case "attivita":
+    case "asset":
+      message = "Asset";
+      message2 = "Buste paga";
+      break;
+    case "attivita":
       message = "Attività";
       message2 = "Buste paga";
       break;
@@ -215,7 +215,7 @@ export default function RevenueLineChart({
               <div
                 style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}
               >
-                <h3>Non conformità</h3>
+                <h3>{dataPie[0].message}</h3>
                 <PieChart
                   series={[
                     {
@@ -241,70 +241,25 @@ export default function RevenueLineChart({
                     marginTop: "10px",
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
+                  {dataPie.map((item, index) => (
                     <div
+                      key={index}
                       style={{
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: "#00A859",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "5px",
                       }}
-                    ></div>
-                    <span>Temperatura</span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: "#FFD766",
-                      }}
-                    ></div>
-                    <span>Umidità</span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: "#0073B7",
-                      }}
-                    ></div>
-                    <span>C. Batterica</span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        backgroundColor: "#FF4D4D",
-                      }}
-                    ></div>
-                    <span>Conservazione</span>
-                  </div>
+                    >
+                      <div
+                        style={{
+                          width: "10px",
+                          height: "10px",
+                          backgroundColor: item.color,
+                        }}
+                      ></div>
+                      <span>{item.type}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
