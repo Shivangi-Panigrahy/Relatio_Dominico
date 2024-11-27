@@ -90,6 +90,7 @@
 }
 .dashboardHeader .MuiToolbar-root .userProfile .userName .caption {
   font-weight: 700;
+  font-family: "Barlow", sans-serif;
 }
 .dashboardHeader .MuiToolbar-root .userProfile .multipleStopIcon {
   margin-left: 12px;
@@ -178,6 +179,7 @@ button.greenButton {
   font-weight: 700;
   box-shadow: 0px 0px 6px 0px #cccccc;
   text-transform: capitalize;
+  font-family: "Barlow", sans-serif;
 }
 button.greenButton .MuiButton-icon {
   margin-right: 0;
