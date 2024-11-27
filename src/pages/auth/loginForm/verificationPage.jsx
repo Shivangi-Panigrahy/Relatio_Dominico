@@ -5,7 +5,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Search } from "../../../assets/Sucess.svg";
 
-const verificationPage = () => {
+const VerificationPage = () => {
   const navigate = useNavigate();
   const [verificationCode, setVerificationCode] = useState([
     "",
@@ -70,4 +70,4 @@ const verificationPage = () => {
   );
 };
 
-export default verificationPage;
+export default VerificationPage;

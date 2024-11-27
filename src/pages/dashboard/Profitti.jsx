@@ -4,6 +4,7 @@ import SearchTable from "../../component/filter/Searchtable";
 import ProfittiStatitics from "../../component/profittiStatitics/profittiStatitics";
 import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
+import dayjs from "dayjs";
 
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
@@ -19,7 +20,7 @@ const dataset = [
   { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
   { month: "Dic", entrate: 35, uscite: 55, ricavo: 68 },
 ];
-const profittiData= [
+const profittiData = [
   {
     status: "I Trimestre",
     count: 8.2,
@@ -51,7 +52,7 @@ const profittiData= [
     color: "black",
   },
 ]
-const Profiitti = () => {
+const Profiitti = ({ data }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -59,6 +60,9 @@ const Profiitti = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [page, setPage] = useState(0);
+  const [filteredData, setFilteredData] = useState(data);
+  const [valoreFilter, setValoreFilter] = useState("");
 
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
@@ -124,13 +128,13 @@ const Profiitti = () => {
     setActiveTab(newTab); // Update the active tab
     setSubActiveTab(""); // Reset the active sub-tab
     setValue(-1); // Reset the value
-};
+  };
 
   return (
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true}  vendite={true}/>
+        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={profittiData} />

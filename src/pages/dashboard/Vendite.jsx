@@ -4,6 +4,7 @@ import SearchTable from "../../component/filter/Searchtable";
 import ProfittiStatitics from "../../component/profittiStatitics/profittiStatitics";
 import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
+import dayjs from "dayjs";
 
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
@@ -79,7 +80,7 @@ const venditeData = [
   },
 ];
 
-const Vendite = () => {
+const Vendite = ({ data }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -87,10 +88,13 @@ const Vendite = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState(data);
+  const [valoreFilter, setValoreFilter] = useState("");
+
 
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
-    setPage(0);
+    // setPage(0);
   };
 
   const handleSearch = (filters) => {
@@ -145,7 +149,7 @@ const Vendite = () => {
     }
 
     setFilteredData(result);
-    setPage(0);
+    // setPage(0);
   };
   const handleTabChange = (newTab) => {
     setActiveTab(newTab); // Update the active tab

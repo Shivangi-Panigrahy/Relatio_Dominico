@@ -5,8 +5,9 @@ import MenuTab from "../../component/tabs/MenuTab";
 import Header from "../../component/header/Header";
 import ProfittiStatitics from "../../component/profittiStatitics/profittiStatitics";
 import SearchTable from "../../component/filter/Searchtable";
+import dayjs from "dayjs";
 
-const ProfiittiDashboard = () => {
+const ProfiittiDashboard = ({ data }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -14,6 +15,9 @@ const ProfiittiDashboard = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState(data);
+  const [valoreFilter, setValoreFilter] = useState("");
+  const [page, setPage] = useState(0);
 
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);

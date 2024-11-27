@@ -29,7 +29,7 @@ const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
         <h4>{status}</h4>
         <h3 style={{ color: color }}>€{amount}</h3>
         <h5>
-          {count} <span>{count === "" ? " " : "Facture"}</span>
+          {count} <span>{count === "" ? " " : window.location.href.includes("/amministrazione/documenti")?"Documenti":"Facture"}</span>
         </h5>
       </div>
     </div>
@@ -47,6 +47,9 @@ const InvoiceDashboard = ({
   primaNota = false,
 }) => {
   const classes = useStyles();
+
+
+  console.log(amministrazioneDocumenti,'amministrazioneDocumenti')
 
   const dataSources = {
     acquisti: acquisti,
@@ -67,11 +70,16 @@ const InvoiceDashboard = ({
     lead,
     ordini,
     budget,
-    fornitori
+    fornitori,
+    amministrazioneDocumenti,
+    amministrazioneAsset,
+    primaNota
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
     .flat(); // Flatten in case multiple props are true
+
+    console.log(selectedData,'selectedData');
   return (
     <Box className="FactureSection">
       <Grid container className="FactureSection__inner" spacing={2}>

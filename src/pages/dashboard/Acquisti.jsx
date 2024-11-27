@@ -5,6 +5,7 @@ import ProfittiStatitics from "../../component/profittiStatitics/profittiStatiti
 import Header from "../../component/header/Header";
 import { Outlet } from "react-router-dom";
 import MenuTab from "../../component/tabs/MenuTab";
+import dayjs from "dayjs";
 
 const dataset = [
   { month: "Gen", entrate: 5 },
@@ -60,7 +61,8 @@ const acquistidata = [
   },
 ];
 
-const Acquisti = () => {
+const Acquisti = ({ data }) => {
+  const [page, setPage] = useState(0);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -68,6 +70,8 @@ const Acquisti = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState(data);
+  const [valoreFilter, setValoreFilter] = useState("");
 
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);

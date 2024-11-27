@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import MenuTab from "../../component/tabs/MenuTab";
 import Table from "../../component/table/Table";
 import tableData from "../../utils/personaleData.json";
+import dayjs from "dayjs";
 const dataset = [
   { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
@@ -118,7 +119,7 @@ const columns = [
     width: 120,
   },
 ];
-const Personale = () => {
+const Personale = ({ data }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -126,6 +127,9 @@ const Personale = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState(data);
+  const [valoreFilter, setValoreFilter] = useState("");
+  const [page, setPage] = useState(0);
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
     setPage(0);
