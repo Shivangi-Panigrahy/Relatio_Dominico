@@ -91,6 +91,18 @@ const getStatusColor = (stato) => {
         color: "#fff",
         className: "rifiutatoStato",
       };
+    case "Attivo":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Attivo",
+      };
+    case "Saldato":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Attivo",
+      };
 
     default:
       return {
@@ -312,7 +324,69 @@ const TableRows = ({
             )}
           </TableBody>
         );
+
+
       case "allegati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+
+                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+
+                      <Files />
+
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nome}</StyledTableCell>
+                    <StyledTableCell>{row.categoria}</StyledTableCell>
+                    <StyledTableCell>{row.tipologia}</StyledTableCell>
+                    <StyledTableCell>{row.peso}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.ultimaMod}</StyledTableCell>
+                    {/* <StyledTableCell>{row.caricatoDa}</StyledTableCell> */}
+
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell >
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "repository":
         return (
           <TableBody>
             {data?.length > 0 ? (

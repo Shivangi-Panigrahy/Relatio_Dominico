@@ -15,6 +15,13 @@ const columns = [
 
 const leadData = [
   {
+    status: "In trattativa",
+    count: "",
+    amount: "5/86",
+    color: "#100919",
+    iconColor: "#57C700",
+  },
+  {
     status: "Da contattare",
     count: "",
     amount: "34/120",
@@ -35,6 +42,7 @@ const leadData = [
     color: "#DB0000",
     iconColor: "#DB0000",
   },
+
 ];
 const Leed = () => {
   return (

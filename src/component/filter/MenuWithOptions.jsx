@@ -18,12 +18,12 @@ const MenuWithOptions = ({ options }) => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: '0' }}>
       <IconButton
         sx={{
           backgroundColor: "white",
           borderRadius: "4px",
-          padding: "8px",
+          height: '54px'
         }}
         onClick={(e) => handleMenuClick(e, 0)} // Open menu
       >

@@ -52,6 +52,8 @@ import AmministrazioneScadenzario from "../pages/Amministrazione/Scadenzario/Sca
 import Flussi_di_cassa from "../pages/Amministrazione/Flussi_di_cassa/Flussi_di_cassa";
 import Registri_IVA from "../pages/Amministrazione/Registri_IVA/Registri_IVA";
 import Prima_nota from "../pages/Amministrazione/Prima_nota/Prima_nota";
+import Repository from "../pages/Files/Repository/Repository";
+import Archivio from "../pages/Files/Archivio/Archivio";
 
 const Allroutes = () => {
   return (
@@ -528,6 +530,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Prima_nota />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/file/repository"
+        element={
+          <PublicRoute>
+            <Repository />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/file/archivio"
+        element={
+          <PublicRoute>
+            <Archivio />
           </PublicRoute>
         }
       />

@@ -1,15 +1,18 @@
 .BoxInputSelect {
   background-color: transparent !important;
   margin-left: 0 !important;
+
   input {
     font-size: 16px;
     line-height: 19px;
     color: #666666;
     padding: 0;
   }
+
   label {
     // transform: translate(14px, 17px) scale(1);
   }
+
   .MuiInputBase-root {
     padding: 0 16px;
     min-height: unset;
@@ -17,13 +20,15 @@
     line-height: normal;
     display: flex;
     border: 1px solid #e5e5e5;
+
     fieldset {
       // border: none;
     }
   }
-  .MuiSelect-select {
-  }
+
+  .MuiSelect-select {}
 }
+
 .invoiceFilter {
   padding: 28px;
   box-shadow: 0px 0px 15px -8px rgba(145, 158, 171, 1);
@@ -34,27 +39,32 @@
   .MuiAutocomplete-root {
     margin: 0;
   }
+
   fieldset {
     border: 2px solid #160a2a1a;
     border-radius: 5px;
     height: 54px;
   }
+
   .MuiFormLabel-root.MuiInputLabel-root {
     font-size: 14px;
     line-height: 22px;
     color: #160a2a80;
   }
+
   .MuiStack-root {
     display: grid;
     grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr 50px;
     gap: 14px;
   }
+
   &.fattura {
     .MuiStack-root {
       // grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr 155px;
       grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr 6fr 50px;
     }
   }
+
   .MuiFormControl-root {
     margin-top: 0;
     min-width: 150px;
@@ -68,34 +78,92 @@
     gap: 14px;
   }
 }
+
+.invoiceFilter.repoInvoiceFilter {
+  .MuiStack-root {
+    grid-template-columns: 144px 144px 341px 286px 286px 414px 24px !important;
+  }
+
+  .customDatePicker {
+    min-width: auto;
+  }
+
+  .searchBoxInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 0;
+  }
+}
+
+.invoiceFilter.budgetInvoiceFilter, .invoiceFilter.ordiniInvoiceFilter, .invoiceFilter.fornitoriInvoiceFilter {
+  // .MuiStack-root {
+  //   grid-template-columns: 144px 144px 454px 454px 424px 24px !important;
+
+  // }
+
+  .customDatePicker {
+    min-width: auto;
+  }
+
+  .searchBoxInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 0;
+  }
+}
+
+.invoiceFilter.leadInvoiceFilter {
+  // .MuiStack-root {
+  //   grid-template-columns: 144px 144px 454px 904px 24px !important;
+
+  // }
+
+  .customDatePicker {
+    min-width: auto;
+  }
+
+  .searchBoxInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 0;
+  }
+}
+
 .searchBoxInner {
   margin: 0 !important;
   border: 1px solid #e5e5e5 !important;
   padding: 14px;
   height: 24px;
+
   .MuiInputBase-root {
     padding: 0 !important;
   }
+
   input {
     padding: 0;
   }
 }
+
 .filteringSection {
   gap: 15px !important;
   margin: 5px 0 0 !important;
+
   p {
     font-size: 14px;
     line-height: 16px;
     font-weight: 400;
     color: #999999;
+
     span {
       color: #666666;
     }
   }
+
   &__inner {
     display: flex;
     align-items: center;
     gap: 10px;
+
     &-box {
       display: flex;
       align-items: center;
@@ -103,6 +171,7 @@
       border: 1px dashed #cccccc;
       border-radius: 5px;
       gap: 6px;
+
       p {
         font-size: 14px;
         line-height: 16px;
@@ -110,36 +179,44 @@
         color: #666666;
         margin: 0;
       }
+
       .MuiButtonBase-root {
         border-radius: 5px !important;
         background-color: #f2f2f2 !important;
+
         .MuiChip-label {
           font-size: 14px;
           line-height: 16px;
           color: #000000;
         }
+
         .MuiChip-deleteIcon {
           background-color: #999999;
           border-radius: 50%;
           height: 12px;
           width: 12px;
           color: #fff;
+
           &:hover {
             background-color: #db0000;
             color: #fff;
           }
         }
       }
+
       &.errorMessage {
         padding: 2px 4px;
         border: none;
+
         &:hover {
           background-color: #db000033;
           cursor: pointer;
         }
+
         .MuiButtonBase-root {
           background-color: transparent !important;
           padding: 0;
+
           .MuiChip-label {
             padding: 0;
             font-size: 14px;
@@ -147,6 +224,7 @@
             font-weight: 700;
             color: #db0000;
           }
+
           .MuiSvgIcon-root {
             display: none;
           }
@@ -170,6 +248,7 @@
       border-color: #e72276;
       color: #000;
     }
+
     .Mui-selected {
       background-color: #e72276 !important;
       color: #fff;
@@ -186,14 +265,17 @@
     color: #db0000;
     top: 0;
   }
+
   .MuiOutlinedInput-root {
     &.Mui-focused fieldset {
       border-color: #db0000;
     }
+
     fieldset {
       border-color: #e5e5e5;
     }
   }
+
   .MuiButtonBase-root::before {
     content: "";
     background-image: url(../../assets/ExpandMoreOutlined.svg);
@@ -201,39 +283,48 @@
     width: 24px;
     display: block;
   }
+
   .MuiButtonBase-root svg {
     display: none;
   }
 }
+
 .customSearchField {
   .MuiFormLabel-root {
     top: 6px;
   }
+
   .MuiInputLabel-root.Mui-focused {
     // color: #db0000;
     top: 0;
   }
+
   .MuiOutlinedInput-root {
+
     // Change the border color on focus
     &.Mui-focused fieldset {
       border-color: black; // Change to your desired color
     }
+
     fieldset {
       border-color: #e5e5e5; // Change to your default color
     }
   }
 }
+
 .SearchableDropdown {
   .MuiList-root {
     width: 260px;
   }
 }
+
 .tabbingfiltering {
   display: grid;
   align-items: center;
   gap: 14px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
+
   .searchBoxInner {
     max-width: 100%;
     grid-column-start: 2;
@@ -241,6 +332,7 @@
     width: calc(100% - 30px);
   }
 }
+
 .leadInvoiceFilter {
   .MuiStack-root {
     grid-template-columns: 155px 155px 1.5fr 3fr 50px;

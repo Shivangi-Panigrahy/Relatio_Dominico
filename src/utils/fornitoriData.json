@@ -26,7 +26,7 @@
         "Stato_name": "IT",
         "Utente": "Icon_User2",
         "Autore": "Icon_Author2",
-        "stato": "Inattivo",
+        "stato": "Attivo",
          "azioni": "..."
       },
       {
@@ -40,7 +40,7 @@
         "Stato_name": "IT",
         "Utente": "Icon_User3",
         "Autore": "Icon_Author3",
-        "stato": "Sospeso",
+        "stato": "Attivo",
          "azioni": "..."
       },
       {
@@ -54,7 +54,7 @@
         "Stato_name": "IT",
         "Utente": "Icon_User4",
         "Autore": "Icon_Author4",
-        "stato": "Attivo",
+       "stato": "Attivo",
          "azioni": "..."
       },
       {
@@ -68,7 +68,7 @@
         "Stato_name": "IT",
         "Utente": "Icon_User5",
         "Autore": "Icon_Author5",
-        "stato": "In Revisione",
+        "stato": "Attivo",
          "azioni": "..."
       },
       {
@@ -82,7 +82,7 @@
         "Stato_name": "IT",
         "Utente": "Icon_User6",
         "Autore": "Icon_Author6",
-        "stato": "Attivo",
+       "stato": "Attivo",
          "azioni": "..."
       }
     ]
