@@ -120,7 +120,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
       const lastElement = dummyData[dummyData.length - 1];
       const newElement = {
         ...lastElement,
-        id: `custom-${Date.now()}` // Create a unique ID using timestamp
+        id: `custom-${Date.now()}`, // Create a unique ID using timestamp
       };
 
       const updatedData = [...dummyData, newElement];
@@ -146,7 +146,13 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
         </Button>
       </Box>
 
-      <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        maxWidth="lg"
+        fullWidth
+        className="invoicePopupContainer"
+      >
         <DialogTitle>
           <div
             style={{
@@ -155,15 +161,38 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h6">Selezione un o più servizio</Typography>
+            <Typography
+              variant="h6"
+              style={{ fontWeight: "bold", fontSize: "24px" }}
+            >
+              Selezione un o più servizio
+            </Typography>
             <Button
               variant="contained"
-              style={{ backgroundColor: "#51CE3E", color: "white" }}
+              style={{
+                backgroundColor: "#57C700",
+                color: "white",
+                boxShadow: "none",
+                lineHeight: "1",
+                padding: "10px 16px",
+              }}
             >
-              Inserisci
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                  fill="white"
+                />
+              </svg>
+              <span style={{ paddingTop: "2px" }}>Inserisci</span>
             </Button>
           </div>
-          <Typography variant="subtitle2" color="textSecondary">
+          <Typography variant="subtitle2" color="#100919" fontSize={"14px"}>
             SELEZIONA IL DOCUMENTO CHE VUOI CREARE
           </Typography>
         </DialogTitle>

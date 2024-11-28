@@ -55,7 +55,7 @@ const acquistidata = [
     status: "Totale Acquisti",
     count: 8.2,
     amount: "-350.043.55€",
-    color: "lightpink",
+    color: "#160A2A",
     label: "Anno precedente",
     isHighlighted: true,
     backgroundColor: "#DB000033",

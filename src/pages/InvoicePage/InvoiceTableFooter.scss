@@ -1,34 +1,42 @@
 .insearchTable {
-    box-shadow: unset !important;
-    background-color: transparent !important;
-    table {
-        th,td {
-            border-bottom: 1px dashed #999999;
-            white-space: nowrap;
-            padding: 7px;
-            span {
-                display: block;
-                white-space: nowrap;
-            }
-            input ~ .MuiSvgIcon-root {
-                fill: #999999;
-            }
-            input:checked ~ .MuiSvgIcon-root {
-                fill: #51ce3e;
-            }
-            
-        }
-        th {
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 700;
-            color: #999999;
-        }
-        td {
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 400;
-            color: #666666;
-        }
+  box-shadow: unset !important;
+  background-color: transparent !important;
+  table {
+    th,
+    td {
+      border-bottom: 1px dashed #999999;
+      white-space: nowrap;
+      padding: 7px;
+      span {
+        display: block;
+        white-space: nowrap;
+      }
+      input ~ .MuiSvgIcon-root {
+        fill: #999999;
+      }
+      input:checked ~ .MuiSvgIcon-root {
+        fill: #51ce3e;
+      }
     }
+    th {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 700;
+      color: #999999;
+    }
+    td {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #666666;
+    }
+  }
+}
+
+.invoicePopupContainer {
+  .MuiDialog-paper {
+    max-width: 1378px;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
 }
