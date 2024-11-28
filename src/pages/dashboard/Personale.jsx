@@ -36,36 +36,41 @@ const personaleData = [
     status: "I Trimestre",
     count: 8.2,
     amount: "29.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "Totale Stipendi",
     count: 8.2,
     amount: "-350.043.55€",
-    color: "red",
+    color: "#160A2A",
     backgroundColor: "#DB000033",
+    statusColor: '#E72276'
   },
 ];
 

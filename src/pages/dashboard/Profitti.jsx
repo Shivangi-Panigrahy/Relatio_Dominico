@@ -27,6 +27,7 @@ const profittiData = [
     amount: "29.043.55€",
     color: "black",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "II Trimestre",
@@ -34,6 +35,7 @@ const profittiData = [
     amount: "30.043.55€",
     color: "black",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "III Trimestre",
@@ -41,6 +43,7 @@ const profittiData = [
     amount: "55.043.55€",
     color: "black",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "IV Trimestre",
@@ -48,6 +51,7 @@ const profittiData = [
     amount: "150.043.55€",
     color: "black",
     backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "Totale ricavi",
@@ -55,6 +59,7 @@ const profittiData = [
     amount: "350.043.55€",
     color: "black",
     backgroundColor: "#57C7001A",
+    statusColor: '#160A2A'
   },
 ];
 

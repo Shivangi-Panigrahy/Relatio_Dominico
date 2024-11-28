@@ -26,60 +26,68 @@ const venditeData = [
     status: "I Trimestre",
     count: 8.2,
     amount: "29.043.55€",
-    color: "black",
+    color: "#160A2A",
     label: "Anno precedente",
+    statusColor: '#E72276'
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
-    color: "black",
+    color: "#160A2A",
     label: "Anno precedente",
+    statusColor: '#E72276'
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
-    color: "black",
+    color: "#160A2A",
     label: "Anno precedente",
+    statusColor: '#E72276'
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
-    color: "black",
+    color: "#160A2A",
     label: "Anno precedente",
+    statusColor: '#E72276'
   },
   {
     status: "Totale Preventivi",
     count: 8.2,
     amount: "350.043.55€",
-    color: "green",
+    color: "#57C700",
     label: "Anno precedente",
+    statusColor: '#E72276'
   },
   {
     status: "Accettati",
     count: 8.2,
     amount: "350.043.55€",
-    color: "lightgreen",
+    color: "#100919",
     label: "Conversione",
     backgroundColor: "#57C7001A",
+    statusColor: '#160A2A'
   },
   {
     status: "Sospesi",
     count: 8.2,
     amount: "350.043.55€",
-    color: "lightyellow",
+    color: "#100919",
     label: "Conversione",
     backgroundColor: "#FFA90333",
+    statusColor: '#160A2A'
   },
   {
     status: "Rifiutati",
     count: 8.2,
     amount: "350.043.55€",
-    color: "lightpink",
+    color: "#100919",
     label: "Conversione",
     backgroundColor: "#DB000033",
+    statusColor: '#160A2A'
   },
 ];
 const dataFilter = [

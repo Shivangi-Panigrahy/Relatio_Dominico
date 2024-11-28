@@ -17,6 +17,7 @@ const ProfittiCard = ({
   message,
   message2,
   backgroundColor,
+  statusColor
 }) => {
   return (
     <div className="prfittiCard" style={{ backgroundColor: backgroundColor }}>
@@ -24,7 +25,7 @@ const ProfittiCard = ({
         <IconComponent />
       </div> */}
       <div className="prfittiCard__content">
-        <h4>{status}</h4>
+        <h4 style={{ color: statusColor }}>{status}</h4>
         <h3
           style={{
             color: color,
@@ -39,10 +40,10 @@ const ProfittiCard = ({
             </>
           )}
         </h3>
-        <h5>
+        <h5 style={{ display: 'flex', alignItems: 'center', gap: '3px', justifyContent: 'space-between' }}>
           {!matured && (
             <>
-              <Dato_positivo /> {count}% <span>Anno precedente</span>
+              <span style={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}> <Dato_positivo /> {count}% </span> <span style={{ fontSize: '12px' }}>Anno precedente</span>
             </>
           )}
         </h5>
@@ -62,10 +63,10 @@ const ProfittiStatitics = ({ dataType, type, seven }) => {
               type
                 ? 1.5
                 : seven
-                ? 1.71 // Example: set xl to 6 if `seven` is true (adjust as needed)
-                : index === 4
-                ? 4
-                : 2
+                  ? 1.71 // Example: set xl to 6 if `seven` is true (adjust as needed)
+                  : index === 4
+                    ? 4
+                    : 2
             }
             md={index === 4 ? 8 : 4}
             xs={12}
@@ -81,6 +82,7 @@ const ProfittiStatitics = ({ dataType, type, seven }) => {
               message={data.message}
               message2={data.message2}
               backgroundColor={data.backgroundColor}
+              statusColor={data.statusColor}
             />
 
             {/* {index < profittiData.length - 1 && (
