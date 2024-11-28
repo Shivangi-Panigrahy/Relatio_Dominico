@@ -84,14 +84,14 @@ const TAB_CONFIGURATIONS = {
     { label: "Time Sheet", icon: TimeSheet },
     { label: "Gantt", icon: Gantt },
   ],
-  default: [
-    { label: "Profitti", icon: TabIcon },
-    { label: "Vendite", icon: TabIcon },
-    { label: "Aquisti", icon: TabIcon },
-    { label: "Personale", icon: TabIcon },
-    { label: "Imposte", icon: TabIcon },
-    { label: "Assett", icon: TabIcon },
-  ],
+  // default: [
+  //   { label: "Profitti", icon: TabIcon },
+  //   { label: "Vendite", icon: TabIcon },
+  //   { label: "Aquisti", icon: TabIcon },
+  //   { label: "Personale", icon: TabIcon },
+  //   { label: "Imposte", icon: TabIcon },
+  //   { label: "Assett", icon: TabIcon },
+  // ],
   statsDashboard: [
     { label: "Profitti", icon: ProfitiIcon },
     { label: "vendite", icon: VenditeIcon },
@@ -126,26 +126,31 @@ const TAB_CONFIGURATIONS = {
     { label: "Agenda", icon: Agenda },
   ],
   subImposte: [
-
     { label: "Reteizzazione", icon: Contatti },
-
     { label: "Allegati", icon: Qualificazione },
-
+  ],
+  subAsset: [
+    { label: "Rate", icon: Contatti },
+    { label: "Allegati", icon: Qualificazione },
   ]
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori,isaminiImposte) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset) => {
 
-  console.log(label, isLead, isFornitori,isaminiImposte,'isaminiImposte');
+  // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
   if (isLead) return `/vendite/sub-lead/${label}`;
 
   if (isFornitori) return `/acquisti/fornitori/${label}`;
 
-  if (label=== "Reteizzazione") return `/amministrazione/imposte/${label}`;
+  if (isImposte) return `/amministrazione/imposte/${label}`;
 
-  if (label=== "Allegati") return `/amministrazione/imposte/${label}`;
+  if (isImposte) return `/amministrazione/imposte/${label}`;
+
+  if (isAsset) return `/amministrazione/asset/${label}`;
+
+  if (isAsset) return `/amministrazione/asset/${label}`;
 
   return `/dashboard/${label}`;
 
@@ -161,7 +166,9 @@ const MenuTab = ({
   fornitori = false,
   vendite = false,
   gantt = false,
-  subImposte=false,
+  subImposte = false,
+  subAsset = false,
+
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -175,14 +182,15 @@ const MenuTab = ({
     if (dettaglioForm) return TAB_CONFIGURATIONS.dettaglioForm;
     if (lead) return TAB_CONFIGURATIONS.lead;
     if (subImposte) return TAB_CONFIGURATIONS.subImposte;
+    if (subAsset) return TAB_CONFIGURATIONS.subAsset;
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset]);
 
   const tabsConfig = getActiveConfig();
 
   // Sync selectedTabs with the current route
   useEffect(() => {
-    const activeIndex = tabsConfig.findIndex((tab) =>
+    const activeIndex = tabsConfig?.findIndex((tab) =>
       location.pathname.includes(tab.label.toLowerCase())
     );
     if (activeIndex !== -1) {
@@ -195,7 +203,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite , subImposte);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset);
       navigate(path);
 
       // Invoke parent callback
@@ -208,12 +216,12 @@ const MenuTab = ({
 
   return (
     <Box className="tabBox">
-     <CustomTabs
+      <CustomTabs
         className={customClassName}
         value={selectedTabs} // Ensure controlled state for Tabs
         onChange={(event, newValue) => setSelectedTabs(newValue)}
       >
-        {getActiveConfig().map((tab, index) => {
+        {getActiveConfig()?.map((tab, index) => {
           const IconComponent = tab.icon;
           return (
             <CustomTab
@@ -223,29 +231,26 @@ const MenuTab = ({
                   {tab.label === "Dati"
                     ? "Dati finanziari"
                     : tab.label === "Sedi"
-                    ? "Sedi operative"
-                    : tab.label === "vendite"
-                    ? "Vendite"
-                    : tab.label === "acquisti"
-                    ? "Acquisti"
-                    : tab.label === "personale"
-                    ? "Personale"
-                    : tab.label === "profitti"
-                    ? "Profitti"
-                    : tab.label === "imposte"
-                    ? "Imposte"
-                    : tab.label === "asset"
-                    ? "Asset"
-                    : tab.label === "attivita"
-                    ? "Attivita"
-                     :tab.label === "Reteizzazione"?
-
-                    "Reteizzazione":
-
-                    tab.label === "Allegati"?
-
-                    "Allegati"
-                    : tab.label}
+                      ? "Sedi operative"
+                      : tab.label === "vendite"
+                        ? "Vendite"
+                        : tab.label === "acquisti"
+                          ? "Acquisti"
+                          : tab.label === "personale"
+                            ? "Personale"
+                            : tab.label === "profitti"
+                              ? "Profitti"
+                              : tab.label === "imposte"
+                                ? "Imposte"
+                                : tab.label === "asset"
+                                  ? "Asset"
+                                  : tab.label === "attivita"
+                                    ? "Attivita"
+                                    : tab.label === "Reteizzazione" ?
+                                      "Reteizzazione" :
+                                      tab.label === "Allegati" ?
+                                        "Allegati"
+                                        : tab.label}
                 </span>
               }
               icon={<IconComponent />}

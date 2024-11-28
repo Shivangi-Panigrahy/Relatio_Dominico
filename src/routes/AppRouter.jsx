@@ -57,6 +57,7 @@ import Archivio from "../pages/Files/Archivio/Archivio";
 import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
 import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
 import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
+import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 
 const Allroutes = () => {
   return (
@@ -496,7 +497,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-       <Route
+      <Route
         path="/amministrazione/imposte/Reteizzazione"
         element={
           <PublicRoute>
@@ -508,7 +509,7 @@ const Allroutes = () => {
         path="/amministrazione/imposte/Allegati"
         element={
           <PublicRoute>
-            <SubImposte Component={ImposteAllegati}/>
+            <SubImposte Component={Allegati} />
           </PublicRoute>
         }
       />
@@ -517,6 +518,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <AmministrazioneAsset />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/amministrazione/asset/Rate"
+        element={
+          <PublicRoute>
+            <SubAsset Component={Reteizzazione}/>
+          </PublicRoute>
+        }
+      />
+            <Route
+        path="/amministrazione/asset/Allegati"
+        element={
+          <PublicRoute>
+            <SubAsset Component={Allegati}/>
           </PublicRoute>
         }
       />
@@ -560,7 +577,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/file/repository"
         element={
           <PublicRoute>
@@ -568,7 +585,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/file/archivio"
         element={
           <PublicRoute>
