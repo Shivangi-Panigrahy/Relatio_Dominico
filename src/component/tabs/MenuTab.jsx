@@ -125,12 +125,30 @@ const TAB_CONFIGURATIONS = {
     { label: "Documenti", icon: Documenti },
     { label: "Agenda", icon: Agenda },
   ],
+  subImposte: [
+
+    { label: "Reteizzazione", icon: Contatti },
+
+    { label: "Allegati", icon: Qualificazione },
+
+  ]
 };
 
-const getNavigationPath = (label, isLead, isFornitori) => {
+
+const getNavigationPath = (label, isLead, isFornitori,isaminiImposte) => {
+
+  console.log(label, isLead, isFornitori,isaminiImposte,'isaminiImposte');
+
   if (isLead) return `/vendite/sub-lead/${label}`;
+
   if (isFornitori) return `/acquisti/fornitori/${label}`;
+
+  if (label=== "Reteizzazione") return `/amministrazione/imposte/${label}`;
+
+  if (label=== "Allegati") return `/amministrazione/imposte/${label}`;
+
   return `/dashboard/${label}`;
+
 };
 
 const MenuTab = ({
@@ -143,6 +161,7 @@ const MenuTab = ({
   fornitori = false,
   vendite = false,
   gantt = false,
+  subImposte=false,
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -155,8 +174,9 @@ const MenuTab = ({
     if (statsDashboard) return TAB_CONFIGURATIONS.statsDashboard;
     if (dettaglioForm) return TAB_CONFIGURATIONS.dettaglioForm;
     if (lead) return TAB_CONFIGURATIONS.lead;
+    if (subImposte) return TAB_CONFIGURATIONS.subImposte;
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte]);
 
   const tabsConfig = getActiveConfig();
 
@@ -175,7 +195,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite);
+      const path = getNavigationPath(label, lead, fornitori, vendite , subImposte);
       navigate(path);
 
       // Invoke parent callback
@@ -218,6 +238,13 @@ const MenuTab = ({
                     ? "Asset"
                     : tab.label === "attivita"
                     ? "Attivita"
+                     :tab.label === "Reteizzazione"?
+
+                    "Reteizzazione":
+
+                    tab.label === "Allegati"?
+
+                    "Allegati"
                     : tab.label}
                 </span>
               }

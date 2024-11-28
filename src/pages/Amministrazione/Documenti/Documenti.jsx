@@ -36,88 +36,115 @@ const AmministrazioneDocumenti = () => {
   ];
 
   const columns = [
-    { field: "doc", headerName: "Doc", width: 64 },
-    { field: "numero", headerName: "Numero", width: 89 },
-    { field: "del", headerName: "Del", width: 92 },
-    { field: "clienti", headerName: "Clienti", width: 287 },
-    { field: "fornitiori", headerName: "Fornitiori", width: 251 },
-    { field: "modDa", headerName: "Mod. da", width: 129 },
-    { field: "autore", headerName: "Autore", width: 84 },
-    { field: "creatoIl", headerName: "Creato il", width: 97 },
-    { field: "totale", headerName: "Totale", width: 139 },
-    { field: "saldata", headerName: "Saldata", width: 139 },
-    { field: "daSaldare", headerName: "Da Saldare", width: 139 },
-    { field: "stato", headerName: "Stato", width: 142 },
+    { field: "Doc", headerName: "Doc", width: 64 },
+    { field: "Numero", headerName: "Numero", width: 92 },
+    { field: "Del", headerName: "Del", width: 114 },
+    { field: "Clienti", headerName: "Clienti", width: 366 },
+    { field: "Fornitiori", headerName: "Fornitiori", width: 284 },
+    { field: "ModDa", headerName: "Mod. da", width: 273 },
+    { field: "Autore", headerName: "Autore", width: 144 },
+    { field: "CreatoIl", headerName: "Creato il", width: 145 },
+    { field: "Totale", headerName: "Totale", width: 84 },
+    { field: "Saldata", headerName: "Saldata", width: 84 },
+    { field: "DaSaldare", headerName: "Da Saldare", width: 93 },
+    { field: "Stato", headerName: "Stato", width: 142 },
     { field: "azioni", headerName: "Azioni", width: 93 },
   ];
 
- const  row = [
+  const rows = [
     {
-      "id": 1,
-      "doc": "Invoice",
-      "creatoil": "01/01/2023",
-      "numero": "BU/001",
-      "titolo": "Purchase Order",
-      "fornitori": "ABC Supplies Ltd.",
-      "autore": "John Doe",
-      "modda": "Jane Smith",
-      "dataModifica": "02/01/2023",
-      "valore": "50.000,00€",
-      "stato": "Approvato"
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
     },
     {
-      "id": 2,
-      "doc": "Contract",
-      "creatoil": "05/02/2023",
-      "numero": "BU/002",
-      "titolo": "Agreement",
-      "fornitori": "Global Corp",
-      "autore": "Alice Cooper",
-      "modda": "Bob Martin",
-      "dataModifica": "06/02/2023",
-      "valore": "250.750,00€",
-      "stato": "Approvato"
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
     },
     {
-      "id": 3,
-      "doc": "Receipt",
-      "creatoil": "10/03/2023",
-      "numero": "BU/003",
-      "titolo": "Payment Confirmation",
-      "fornitori": "Tech Solutions",
-      "autore": "Chris Jordan",
-      "modda": "Maria Lee",
-      "dataModifica": "11/03/2023",
-      "valore": "1.200,00€",
-      "stato": "Approvato"
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
     },
     {
-      "id": 4,
-      "doc": "Estimate",
-      "creatoil": "15/04/2023",
-      "numero": "BU/004",
-      "titolo": "Cost Estimate",
-      "fornitori": "Construction Experts",
-      "autore": "Dave Wilson",
-      "modda": "Sarah Brown",
-      "dataModifica": "16/04/2023",
-      "valore": "500.000,00€",
-      "stato": "Approvato"
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
     },
     {
-      "id": 5,
-      "doc": "Quotation",
-      "creatoil": "20/05/2023",
-      "numero": "BU/005",
-      "titolo": "Price Quote",
-      "fornitori": "Elite Enterprises",
-      "autore": "Olivia Green",
-      "modda": "Mark Harris",
-      "dataModifica": "21/05/2023",
-      "valore": "120.000,00€",
-      "stato": "Approvato"
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
+    },
+    {
+      Doc: "Fattura",
+      Numero: "12342343",
+      Del: "28/11/2022",
+      Clienti: "Azienda cliente srl",
+      Fornitori: "Fornitore SPA",
+      ModDa: "Author",
+      Autore: "28/11/2022",
+      CreatoIl: "28/11/2022",
+      Totale: "129.123,334.00€",
+      Saldata: "129.123,334.00€",
+      DaSaldare: "0€",
+      Stato: "Saldo",
+      Azioni: "..."
     }
-  ]
+  ];
+  
+  
 
   return (
     <>
@@ -125,9 +152,9 @@ const AmministrazioneDocumenti = () => {
    <div className="pageTemplate">
    <InvoiceDashboard amministrazioneDocumenti={amministrazioneDocumentiData}/>
    <Table
-          data={tableData.tabData.tab1}
+          data={rows}
           columns={columns}
-          navData={"budget"}
+          navData={"AmministragionDocumenti"}
         />
    </div>
     </>

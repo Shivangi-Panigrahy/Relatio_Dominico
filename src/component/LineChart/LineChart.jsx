@@ -110,6 +110,10 @@ export default function RevenueLineChart({
       message = "Attività";
       message2 = "Buste paga";
       break;
+    case "bilancio":
+      message = "Andamento Fatturato ";
+      message2 = "Andamento Fatturato ";
+      break;
     default:
       message = "Unknown status";
   }
@@ -118,11 +122,10 @@ export default function RevenueLineChart({
     <>
       <Box className="graphcard_container_main" size={8}>
         <Box
-          className={`graphcard ${
-            dataPie?.length > 0
+          className={`graphcard ${dataPie?.length > 0
               ? "graphcard_container_main_1"
               : "graphcard_container_main_full"
-          } `}
+            } `}
         >
           {/* Header Section */}
           <Box className="graphcard__head">
@@ -155,7 +158,7 @@ export default function RevenueLineChart({
           <Box className="graphcard__body">
             <Box className="graphcard__info">
               <div>
-                {dataFilter.map((item) => (
+              {dataFilter && dataFilter?.map((item) => (
                   <Box key={item.id}>
                     <p
                       className={`custom_Fatturato_label`}
@@ -280,7 +283,7 @@ export default function RevenueLineChart({
                     flexWrap: 'wrap'
                   }}
                 >
-                  {dataPie.map((item, index) => (
+                  {dataPie && dataPie?.map((item, index) => (
                     <div
                       key={index}
                       style={{

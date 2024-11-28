@@ -54,6 +54,9 @@ import Registri_IVA from "../pages/Amministrazione/Registri_IVA/Registri_IVA";
 import Prima_nota from "../pages/Amministrazione/Prima_nota/Prima_nota";
 import Repository from "../pages/Files/Repository/Repository";
 import Archivio from "../pages/Files/Archivio/Archivio";
+import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
+import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
+import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
 
 const Allroutes = () => {
   return (
@@ -478,10 +481,34 @@ const Allroutes = () => {
         }
       />
       <Route
+        path="/amministrazione/documenti/fattura"
+        element={
+          <PublicRoute>
+            <InvoicePage />
+          </PublicRoute>
+        }
+      />
+      <Route
         path="/amministrazione/imposte"
         element={
           <PublicRoute>
             <AmministrazioneImposte />
+          </PublicRoute>
+        }
+      />
+       <Route
+        path="/amministrazione/imposte/Reteizzazione"
+        element={
+          <PublicRoute>
+            <SubImposte Component={Reteizzazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/amministrazione/imposte/Allegati"
+        element={
+          <PublicRoute>
+            <SubImposte Component={ImposteAllegati}/>
           </PublicRoute>
         }
       />
