@@ -88,7 +88,7 @@ const getStatusColor = (stato) => {
     case "In trattativa":
       return {
         backgroundColor: "red",
-        color: "#F44336",
+        color: "#fff",
         className: "rifiutatoStato",
       };
 
