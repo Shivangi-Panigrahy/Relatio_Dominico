@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ReactComponent as TabIcon } from "../../assets/TabIcon.svg";
@@ -23,7 +23,7 @@ import { ReactComponent as Dati } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./MenuLink.scss";
 
 const CustomTabs = styled(Tabs)({
@@ -146,6 +146,7 @@ const MenuTab = ({
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Determine which configuration to use based on props
   const getActiveConfig = useCallback(() => {
@@ -157,28 +158,41 @@ const MenuTab = ({
     return TAB_CONFIGURATIONS.default;
   }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead]);
 
+  const tabsConfig = getActiveConfig();
+
+  // Sync selectedTabs with the current route
+  useEffect(() => {
+    const activeIndex = tabsConfig.findIndex((tab) =>
+      location.pathname.includes(tab.label.toLowerCase())
+    );
+    if (activeIndex !== -1) {
+      setSelectedTabs(activeIndex);
+    }
+  }, [location, tabsConfig]);
+
   const handleTabClick = useCallback(
     (index, label) => {
-      setSelectedTabs(index);
-
-      // Reset filters when changing tabs
-      if (window.searchTableReset?.current) {
-        window.searchTableReset.current();
-      }
+      setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
       const path = getNavigationPath(label, lead, fornitori, vendite);
       navigate(path);
 
-      // Callback for parent component
-      onTabChange?.(`tab${index + 1}`);
+      // Invoke parent callback
+      if (onTabChange) {
+        onTabChange(`tab${index + 1}`);
+      }
     },
     [lead, fornitori, navigate, onTabChange]
   );
 
   return (
     <Box className="tabBox">
-      <CustomTabs className={customClassName}>
+     <CustomTabs
+        className={customClassName}
+        value={selectedTabs} // Ensure controlled state for Tabs
+        onChange={(event, newValue) => setSelectedTabs(newValue)}
+      >
         {getActiveConfig().map((tab, index) => {
           const IconComponent = tab.icon;
           return (

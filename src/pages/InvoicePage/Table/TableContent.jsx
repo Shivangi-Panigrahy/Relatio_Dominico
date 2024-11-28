@@ -17,6 +17,7 @@ import { ReactComponent as DownwardIcon } from "../../../assets/DownwardIcon.svg
 import { ReactComponent as UpdwardIcon } from "../../../assets/UpdwardIcon.svg";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import "../InvoicePage.scss";
+import MenuWithOptions from "../../../component/filter/MenuWithOptions";
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: "none",
@@ -30,6 +31,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   borderBottom: "none",
 }));
 const TableContent = ({ data, columns, selected, handleRowClick }) => {
+  const option = ["Option 1", "Option 2", "Option 3"];
   const [expandedRow, setExpandedRow] = useState(null);
   const [tasks, setTasks] = useState(data || []);
   const [activeMoveRowIndexFirst, setActiveMoveRowIndexFirst] = useState(null);
@@ -72,7 +74,7 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
         setMovingIndex(null); // Reset moving index after update
       }, 400);
     }
-};
+  };
   const handleMoveDown = (index) => {
     if (index < tasks.length - 1) {
       setActiveMoveRowIndexFirst(index);
@@ -95,9 +97,9 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
       }, 400);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     setTasks(data || [])
-  },[data])
+  }, [data])
   return (
     <TableBody className="invoiceTableMain">
       {tasks?.map((row, index) => {
@@ -105,17 +107,17 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
         const isRowExpanded = expandedRow === row.id;
         return (
           <React.Fragment key={row.id}>
-            <StyledTableRow hover selected={isItemSelected}  className={activeMoveRowIndexFirst === index && "moveRow"}
-                    style={{
-                      transition:
-                        movingIndex === index ? "transform 0.4s ease" : "none",
-                      transform:
-                        movingIndex === index && direction === "up"
-                          ? "translateY(-100%)"
-                          : movingIndex === index && direction === "down"
-                          ? "translateY(100%)"
-                          : "none",
-                    }}>
+            <StyledTableRow hover selected={isItemSelected} className={activeMoveRowIndexFirst === index && "moveRow"}
+              style={{
+                transition:
+                  movingIndex === index ? "transform 0.4s ease" : "none",
+                transform:
+                  movingIndex === index && direction === "up"
+                    ? "translateY(-100%)"
+                    : movingIndex === index && direction === "down"
+                      ? "translateY(100%)"
+                      : "none",
+              }}>
               <StyledTableCell padding="checkbox" align="center">
                 <CustomCheckbox
                   checked={isItemSelected}
@@ -137,7 +139,7 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                           {isRowExpanded ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
                         </IconButton>
                         <IconButton size="small">
-                          <MoreVertIcon />
+                          <MenuWithOptions options={option} />
                         </IconButton>
                       </div>
                     </StyledTableCell>

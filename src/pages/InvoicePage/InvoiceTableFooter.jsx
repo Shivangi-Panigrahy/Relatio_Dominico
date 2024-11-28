@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import "./InvoicePage.scss";
 import { ReactComponent as ArrowUp } from "../../assets/ArrowUp.svg";
+import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
 import {
   Dialog,
   DialogTitle,
@@ -24,11 +25,13 @@ import {
 } from "@mui/material";
 import { Hexagon, MoreVert } from "@mui/icons-material";
 import "./InvoiceTableFooter.scss";
+import { AddButton } from "../../component/button/AddButton";
 
 const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
   const sampleData = [
     {
       id: "1",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -37,6 +40,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     },
     {
       id: "2",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -45,6 +49,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     },
     {
       id: "3",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -53,6 +58,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     },
     {
       id: "4",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -61,6 +67,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     },
     {
       id: "5",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -69,6 +76,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     },
     {
       id: "6",
+      img: "",
       code: "MK/532-245-234-0",
       name: "Nome del prodotto",
       category: "Linea A",
@@ -167,30 +175,7 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
             >
               Selezione un o più servizio
             </Typography>
-            <Button
-              variant="contained"
-              style={{
-                backgroundColor: "#57C700",
-                color: "white",
-                boxShadow: "none",
-                lineHeight: "1",
-                padding: "10px 16px",
-              }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-                  fill="white"
-                />
-              </svg>
-              <span style={{ paddingTop: "2px" }}>Inserisci</span>
-            </Button>
+              <AddButton title="Inserisci" />
           </div>
           <Typography variant="subtitle2" color="#100919" fontSize={"14px"}>
             SELEZIONA IL DOCUMENTO CHE VUOI CREARE
@@ -207,12 +192,13 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
                       onChange={toggleAll}
                     />
                   </TableCell>
+                  <TableCell>Img</TableCell>
                   <TableCell>Cod.</TableCell>
                   <TableCell>Nome del prodotto</TableCell>
                   <TableCell>Categoria</TableCell>
                   <TableCell>U/M</TableCell>
                   <TableCell>Q.tà</TableCell>
-                  <TableCell></TableCell>
+                  <TableCell>Azioni</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -232,16 +218,15 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
                           gap: "8px",
                         }}
                       >
-                        <Hexagon
+                        <ProductIcon
                           style={{
-                            color: "#e91e63",
                             width: "42px",
                             height: "42px",
                           }}
                         />
-                        <span>{service.code}</span>
                       </div>
                     </TableCell>
+                    <TableCell>{service.code}</TableCell>
                     <TableCell>{service.name}</TableCell>
                     <TableCell>{service.category}</TableCell>
                     <TableCell>{service.unit}</TableCell>

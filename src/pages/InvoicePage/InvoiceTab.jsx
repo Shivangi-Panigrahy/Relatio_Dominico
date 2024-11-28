@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CheckCircle,
   Transform,
@@ -44,14 +44,68 @@ const toolbarItems = [
   { icon: Xml, title: "XML", caption: "XML" },
 ];
 
+
 export default function InvoiceTab() {
+  const [currentStatus, setCurrentStatus] = useState('approvato');
+
+  const handleStatusBlockClick = () => {
+    switch(currentStatus) {
+      case 'approvato':
+        setCurrentStatus('sospeso');
+        break;
+      case 'sospeso':
+        setCurrentStatus('rifiutato');
+        break;
+      case 'rifiutato':
+        setCurrentStatus('approvato');
+        break;
+      default:
+        setCurrentStatus('approvato');
+    }
+  };
+
+  const renderStatusBlock = () => {
+    switch(currentStatus) {
+      case 'approvato':
+        return (
+          <div 
+            className="toolbarContainer__approvatoBlock"
+            onClick={handleStatusBlockClick}
+          >
+            <div className="toolbarContainer__approvatoBlock__Box">
+              <h4 className="toolbarContainer__approvatoBlock__text">Approvato</h4>
+            </div>
+          </div>
+        );
+      case 'sospeso':
+        return (
+          <div 
+            className="toolbarContainer__sospesoBlock"
+            onClick={handleStatusBlockClick}
+          >
+            <div className="toolbarContainer__sospesoBlock__Box">
+              <h4 className="toolbarContainer__sospesoBlock__text">Sospeso</h4>
+            </div>
+          </div>
+        );
+      case 'rifiutato':
+        return (
+          <div 
+            className="toolbarContainer__rifiutatoBlock"
+            onClick={handleStatusBlockClick}
+          >
+            <div className="toolbarContainer__rifiutatoBlock__Box">
+              <h4 className="toolbarContainer__rifiutatoBlock__text">Rifiutato</h4>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
   return (
     <div className="toolbarContainer">
-      <div className="toolbarContainer__approvatoBlock">
-        <div className="toolbarContainer__approvatoBlock__Box">
-          <h4 className="toolbarContainer__approvatoBlock__text">Approvato</h4>
-        </div>
-      </div>
+       {renderStatusBlock()}
       <div className="toolbarContainer__list">
         {toolbarItems.map((item, index) => (
           <div key={index} className="toolbarContainer__items">
