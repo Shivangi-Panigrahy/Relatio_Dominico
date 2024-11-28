@@ -12,7 +12,7 @@
         "mod. da": "User A",
         "dataModifica": "28/11/2022",
         "valore": "129.123,334.00€",
-        "stato": "Approvato",
+        "stato": "Saldato",
         "azioni": "..."
       },
       {
@@ -26,7 +26,7 @@
         "mod. da": "User B",
         "dataModifica": "29/11/2022",
         "valore": "145.678,910.00€",
-        "stato": "In attesa",
+        "stato": "Saldato",
         "azioni": "..."
       },
       {
@@ -40,7 +40,7 @@
         "mod. da": "User C",
         "dataModifica": "30/11/2022",
         "valore": "98.456,123.00€",
-        "stato": "Approvato",
+        "stato": "Saldato",
         "azioni": "..."
       },
       {
@@ -54,7 +54,7 @@
         "mod. da": "User D",
         "dataModifica": "01/12/2022",
         "valore": "210.987,654.00€",
-        "stato": "Rifiutato",
+        "stato": "Saldato",
         "azioni": "..."
       },
       {
@@ -68,7 +68,7 @@
         "mod. da": "User E",
         "dataModifica": "02/12/2022",
         "valore": "150.321,789.00€",
-        "stato": "Approvato",
+        "stato": "Saldato",
         "azioni": "..."
       },
       {
@@ -82,7 +82,7 @@
         "mod. da": "User F",
         "dataModifica": "03/12/2022",
         "valore": "175.432,567.00€",
-        "stato": "In attesa",
+        "stato": "Saldato",
         "azioni": "..."
       }
     ]

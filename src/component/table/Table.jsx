@@ -122,13 +122,20 @@ const CustomTable = ({ data, form, columns, navData }) => {
 
     if (searchFilters?.searchTerm) {
       const term = searchFilters.searchTerm.toLowerCase();
-      result = result.filter(
-        (item) =>
-          item.titolo.toLowerCase().includes(term) ||
-          item.clienti.toLowerCase().includes(term) ||
-          item.fornitori.toLowerCase().includes(term)
+      result = result.filter((item) =>
+        [item.titolo, item.clienti, item.fornitori, item.peso, item.categoria, item.ragioneSociale, item.stato, item.creatoIl, item.creatoil,item.numero,item.doc,item.Creato_il,
+        item.cliente,item.Creato_il,
+        item.Ragione_sociale,
+        item.P_IVA,
+        item.Tipo,
+        item.Gruppo,
+        item.Regione,
+        item.Stato_name,item.valore ]
+          .map((field) => field?.toLowerCase() || "")
+          .some((value) => value.includes(term))
       );
     }
+
     if (searchFilters.searchTerm == "") {
       result = data;
     }
