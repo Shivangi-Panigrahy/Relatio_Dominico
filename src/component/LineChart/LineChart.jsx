@@ -277,6 +277,7 @@ export default function RevenueLineChart({
                     justifyContent: "center",
                     gap: "20px",
                     marginTop: "10px",
+                    flexWrap: 'wrap'
                   }}
                 >
                   {dataPie.map((item, index) => (
