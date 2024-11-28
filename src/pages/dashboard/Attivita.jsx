@@ -52,9 +52,9 @@ const dataFilter = [
 
 
 const dataPie = [
-  { id: 1, value: 35, color: "#3A0CA3", type: "Siti web", message: "Tipologia di Attività" },
-  { id: 2, value: 5, color: "#4AAFF0", type: "Sviluppo software", message: "Tipologia di Attività" },
-  { id: 3, value: 15, color: "#160A2A", type: "Configuratore", message: "Tipologia di Attività" },
+  { id: 1, value: 35, color: "#B5179E", type: "Siti web", message: "Tipologia di Attività" },
+  { id: 2, value: 5, color: "#4895EF", type: "Sviluppo software", message: "Tipologia di Attività" },
+  { id: 3, value: 15, color: "#100919", type: "Configuratore", message: "Tipologia di Attività" },
   { id: 4, value: 45, color: "#E72276", type: "Relatio erp", message: "Tipologia di Attività" },
 ];
 

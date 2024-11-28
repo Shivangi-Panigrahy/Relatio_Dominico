@@ -50,12 +50,12 @@ const dataPie = [
   {
     id: 1,
     value: 35,
-    color: "#E72276",
+    color: "#B5179E",
     type: "Assicurazioni",
     message: "Tipologia di asset",
   },
-  { id: 3, value: 5, color: "#FF4D4D", type: "Immobili" },
-  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+  { id: 3, value: 5, color: "#4895EF", type: "Immobili" },
+  { id: 2, value: 15, color: "#100919", type: "Contributi" },
   { id: 0, value: 45, color: "#E72276", type: "Investimenti" },
 ];
 
