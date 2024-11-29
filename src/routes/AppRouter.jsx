@@ -37,7 +37,7 @@ import Lead from "../pages/Vendite/Lead/Lead";
 import SubLead from "../pages/Vendite/Lead/SubLead/SubLead";
 import Qualificazione from "../component/Qualificazione/Qualificazione";
 import Fornitori from "../pages/Acquisti/Fornitori/Fornitori";
-import ReactBigCalendar from "../component/calendar/HrCalendar";
+import ReactBigCalendar from "../component/calendar/Calendar";
 import Allegati from "../component/table/Allegati/Allegati";
 import Dati from "../component/Dati/Dati";
 import Sedi from "../component/Sedi/Sedi";

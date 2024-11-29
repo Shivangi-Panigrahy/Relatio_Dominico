@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../../component/header/Header";
-import ReactBigCalendar from "../../../component/calendar/HrCalendar";
+import ReactBigCalendar from "../../../component/calendar/Calendar";
 
 const Calendario = () => {
   return (
