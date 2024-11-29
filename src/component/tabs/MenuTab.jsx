@@ -93,7 +93,7 @@ const TAB_CONFIGURATIONS = {
   //   { label: "Assett", icon: TabIcon },
   // ],
   statsDashboard: [
-    { label: "Profitti", icon: ProfitiIcon },
+    { label: "profitti", icon: ProfitiIcon },
     { label: "vendite", icon: VenditeIcon },
     { label: "acquisti", icon: AquistiIcon },
     { label: "personale", icon: Personale },
@@ -232,6 +232,8 @@ const MenuTab = ({
                     ? "Dati finanziari"
                     : tab.label === "Sedi"
                       ? "Sedi operative"
+                       : tab.label === "profitti"
+                          ? "Profitti"
                       : tab.label === "vendite"
                         ? "Vendite"
                         : tab.label === "acquisti"
