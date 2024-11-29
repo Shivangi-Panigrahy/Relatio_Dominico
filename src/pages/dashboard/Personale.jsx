@@ -24,12 +24,12 @@ const dataset = [
   { month: "Dic", entrate: 80 },
 ];
 
-const dataPie = [
-  { id: 1, value: 35, color: "#E72276", type: "IVA" },
-  { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
-  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
-  { id: 0, value: 45, color: "#E72276", type: "IRES" },
-];
+// const dataPie = [
+//   { id: 1, value: 35, color: "#E72276", type: "IVA" },
+//   { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
+//   { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+//   { id: 0, value: 45, color: "#E72276", type: "IRES" },
+// ];
 
 const personaleData = [
   {
@@ -258,7 +258,7 @@ const Personale = () => {
           data={"personale"}
           dataset={dataset}
           dataFilter={dataFilter}
-          dataPie={dataPie}
+          // dataPie={dataPie}
           series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />
