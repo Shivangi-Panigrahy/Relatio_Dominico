@@ -38,7 +38,7 @@ const personaleData = [
     amount: "29.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "II Trimestre",
@@ -46,7 +46,7 @@ const personaleData = [
     amount: "30.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "III Trimestre",
@@ -54,7 +54,7 @@ const personaleData = [
     amount: "55.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "IV Trimestre",
@@ -62,7 +62,7 @@ const personaleData = [
     amount: "150.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "Totale Stipendi",
@@ -70,7 +70,8 @@ const personaleData = [
     amount: "-350.043.55€",
     color: "#160A2A",
     backgroundColor: "#DB000033",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
+    isHighlighted: true,
   },
 ];
 

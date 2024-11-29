@@ -122,10 +122,11 @@ export default function RevenueLineChart({
     <>
       <Box className="graphcard_container_main" size={8}>
         <Box
-          className={`graphcard ${dataPie?.length > 0
+          className={`graphcard ${
+            dataPie?.length > 0
               ? "graphcard_container_main_1"
               : "graphcard_container_main_full"
-            } `}
+          } `}
         >
           {/* Header Section */}
           <Box className="graphcard__head">
@@ -158,36 +159,39 @@ export default function RevenueLineChart({
           <Box className="graphcard__body">
             <Box className="graphcard__info">
               <div>
-              {dataFilter && dataFilter?.map((item) => (
-                  <Box key={item.id}>
-                    <p
-                      className={`custom_Fatturato_label`}
-                      style={{
-                        color: item.color,
-                        cursor: "pointer",
-                        textDecoration:
-                          item.label === filterIncome ? "line-through" : "none", // Apply line-through if it matches filterIncome
-                      }}
-                      onClick={() => {
-                        setfilterIncome((prev) =>
-                          prev === item.label ? "" : item.label
-                        ); // Setting the filter based on the action
-                      }}
-                    >
-                      <span
+                {dataFilter &&
+                  dataFilter?.map((item) => (
+                    <Box key={item.id}>
+                      <p
+                        className={`custom_Fatturato_label`}
                         style={{
-                          width: 12,
-                          height: 12,
-                          borderRadius: "50%",
-                          background: item.color,
-                          display: "inline-block",
+                          color: item.color,
+                          cursor: "pointer",
+                          textDecoration:
+                            item.label === filterIncome
+                              ? "line-through"
+                              : "none", // Apply line-through if it matches filterIncome
                         }}
-                      />
-                      {item.label}
-                    </p>
-                    <h6>{item.value}</h6>
-                  </Box>
-                ))}
+                        onClick={() => {
+                          setfilterIncome((prev) =>
+                            prev === item.label ? "" : item.label
+                          ); // Setting the filter based on the action
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 12,
+                            height: 12,
+                            borderRadius: "50%",
+                            background: item.color,
+                            display: "inline-block",
+                          }}
+                        />
+                        {item.label}
+                      </p>
+                      <h6>{item.value}</h6>
+                    </Box>
+                  ))}
               </div>
             </Box>
 
@@ -223,7 +227,7 @@ export default function RevenueLineChart({
                   stroke: "#e0e0e0",
                 }}
                 series={filteredSeries}
-                height={400}
+                height={314}
                 sx={{
                   ".MuiLineElement-root": {
                     strokeWidth: 2,
@@ -280,28 +284,29 @@ export default function RevenueLineChart({
                     justifyContent: "center",
                     gap: "20px",
                     marginTop: "10px",
-                    flexWrap: 'wrap'
+                    flexWrap: "wrap",
                   }}
                 >
-                  {dataPie && dataPie?.map((item, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
-                      }}
-                    >
+                  {dataPie &&
+                    dataPie?.map((item, index) => (
                       <div
+                        key={index}
                         style={{
-                          width: "10px",
-                          height: "10px",
-                          backgroundColor: item.color,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "5px",
                         }}
-                      ></div>
-                      <span>{item.type}</span>
-                    </div>
-                  ))}
+                      >
+                        <div
+                          style={{
+                            width: "10px",
+                            height: "10px",
+                            backgroundColor: item.color,
+                          }}
+                        ></div>
+                        <span>{item.type}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </Box>

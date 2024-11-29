@@ -39,11 +39,12 @@
     margin: 4px 0 0;
   }
   &__info {
+    // margin-bottom: 24px;
+
     & > div {
       display: flex;
       gap: 24px;
     }
-    margin-bottom: 24px;
     h6 {
       font-size: 18px;
       line-height: 28px;

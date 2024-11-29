@@ -2,7 +2,7 @@
   box-shadow: 0px 12px 24px #919eab1f;
   background: #fff;
   justify-content: start;
-  padding: 20px 24px;
+  padding: 24px 20px;
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -30,7 +30,7 @@
     line-height: 24px;
     font-weight: 400;
     color: #160a2a;
-    font-weight: 700 !important;
+    // font-weight: 700 !important;
   }
   h5 {
     margin: 0;
@@ -47,4 +47,8 @@
       font-weight: 400;
     }
   }
+}
+
+.mt-10 {
+  margin-top: 10px;
 }
