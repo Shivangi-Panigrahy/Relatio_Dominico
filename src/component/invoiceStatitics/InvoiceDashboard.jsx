@@ -8,6 +8,8 @@ import { ReactComponent as Scadute } from "../../assets/dashboardIcons/Scadute.s
 import { ReactComponent as Saldare } from "../../assets/dashboardIcons/saldare.svg";
 import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
+
+
 const useStyles = makeStyles(() => ({}));
 const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
   return (
@@ -27,10 +29,20 @@ const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
       </div>
       <div className="statusText__content">
         <h4>{status}</h4>
-        <h3 style={{ color: color }}>€{amount}</h3>
+        <h3 style={{ color: color }}>{amount}€</h3>
         <h5>
-          {count} <span>{count === "" ? " " : window.location.href.includes("/amministrazione/documenti")?"Documenti":"Facture"}</span>
+          { count}
+          <span>
+            {count === ""
+              ? " "
+              : window.location.href.includes("/amministrazione/documenti")
+                ? "Documenti"
+                : window.location.href.includes("/cataloghi/servizi")
+                  ? "Servizi"
+                  : "Facture"}
+          </span>
         </h5>
+
       </div>
     </div>
   );
@@ -46,10 +58,16 @@ const InvoiceDashboard = ({
   amministrazioneDocumenti = false,
   primaNota = false,
   amministrazioneImposte=false,
-  reteizzazione=false
+  reteizzazione=false,
+  servizi = false,
+
+ 
 }) => {
   const classes = useStyles();
-  console.log(amministrazioneDocumenti,'amministrazioneDocumenti')
+
+
+  console.log(amministrazioneDocumenti, 'amministrazioneDocumenti')
+
   const dataSources = {
     acquisti: acquisti,
     preventivi: preventivi,
@@ -60,7 +78,11 @@ const InvoiceDashboard = ({
     amministrazioneDocumenti:amministrazioneDocumenti,
     amministrazioneAsset:amministrazioneAsset,
     primaNota:primaNota,
-    amministrazioneImposte:amministrazioneImposte
+    amministrazioneImposte:amministrazioneImposte,
+    amministrazioneAsset: amministrazioneAsset,
+    primaNota: primaNota,
+    servizi: servizi
+
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -73,12 +95,13 @@ const InvoiceDashboard = ({
     amministrazioneDocumenti,
     amministrazioneAsset,
     primaNota,
-    amministrazioneImposte
+    amministrazioneImposte,
+    servizi
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
     .flat(); // Flatten in case multiple props are true
-    console.log(selectedData,'selectedData');
+
   return (
     <Box className="FactureSection">
       <Grid container className="FactureSection__inner" spacing={2}>

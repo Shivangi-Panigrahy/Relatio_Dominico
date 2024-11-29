@@ -16,6 +16,7 @@ import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon} from "../../assets/SIIcon.svg";
+import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -1225,7 +1226,211 @@ const TableRows = ({
           </TableBody>
           )
           
-      
+          case "listini":
+            return (
+              <TableBody>
+                {data?.length > 0 ? (
+                  data
+                    .slice(
+                      page * rowsPerPage,
+                      // Limit to 2 rows for specified paths
+                      (isSubLeadDocumenti || isFornitoriDocumenti)
+                        ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                        : page * rowsPerPage + rowsPerPage
+                    )
+                    // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row, index) => (
+                      <StyledTableRow
+                        key={index}
+                        selected={isSelected(row.id)}
+                        onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                      >
+                        <StyledTableCell align="center">
+                          <CustomCheckbox
+                            className="customChechbox"
+                            color="primary"
+                            checked={isSelected(row.id)}
+                            onChange={(event) => handleRowClick(event, row.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            inputProps={{ "aria-labelledby": row.id }}
+                          />
+                        </StyledTableCell>
+                        <StyledTableCell>{row.nomeListino}</StyledTableCell>
+                        <StyledTableCell>{row.gruppiAssociati}</StyledTableCell>
+                        <StyledTableCell>{row.nProdotti}</StyledTableCell>
+                          <StyledTableCell>
+                            <Box
+                              display="flex"
+                              alignItems="center"
+                              whiteSpace={"nowrap"}
+                            >
+                              <IconButton
+                                size="small"
+                                sx={{
+                                  mr: 1,
+                                  color: "action.active",
+                                  fontSize: "15px",
+                                  "&:hover": { backgroundColor: "transparent" },
+                                }}
+                              >
+                                <VisibilityOutlinedIcon
+                                  sx={{ "&:hover": { color: "" } }}
+                                  fontSize="small"
+                                />
+                              </IconButton>
+                              {row.stato}
+                            </Box>
+                          </StyledTableCell>
+                        <StyledTableCell sx={{ textAlign: "center" }}>
+                        {row.da}
+                        </StyledTableCell>
+                        <StyledTableCell sx={{ textAlign: "center" }}>
+                          {row.a}
+                        </StyledTableCell>
+                        <StyledTableCell>{row.priorita}</StyledTableCell>
+                        <StyledTableCell><Avatar1 /></StyledTableCell>
+                        <StyledTableCell align="center">
+                       <Avatar1 />
+                        </StyledTableCell>
+    
+                        <StyledTableCell
+                          sx={{ textAlign: "center" }}
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <MenuWithOptions options={option} />
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    ))
+                ) : (
+                  <StyledTableRow>
+                    <StyledTableCell colSpan={12} align="center">
+                      Data not found
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )}
+              </TableBody>
+            );
+            
+            case "servizi":
+              return (
+                <TableBody>
+                  {data?.length > 0 ? (
+                    data
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row, index) => (
+                        <StyledTableRow
+                          key={index}
+                          selected={isSelected(row.id)}
+                          onClick={() => navigate("/cataloghi/servizi/Scheda")}
+                        >
+                          <StyledTableCell align="center">
+                            <CustomCheckbox
+                              className="customChechbox"
+                              color="primary"
+                              checked={isSelected(row.id)}
+                              onChange={(event) => handleRowClick(event, row.id)}
+                              onClick={(event) => event.stopPropagation()}
+                              inputProps={{ "aria-labelledby": row.id }}
+                            />
+                          </StyledTableCell>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.nomeServizio}</StyledTableCell>
+                          <StyledTableCell>{row.categoria}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzVendita}</StyledTableCell>
+                          <StyledTableCell>{row.costoServizio}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoUnitario}</StyledTableCell>
+                          <StyledTableCell>{row.acquistato}</StyledTableCell>
+                          <StyledTableCell>{row.venduto}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoTotale}</StyledTableCell>
+                          <StyledTableCell>
+                            <Avatar1 />
+                          </StyledTableCell>
+                          <StyledTableCell
+                            sx={{ textAlign: "center" }}
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <MenuWithOptions options={option} />
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))
+                  ) : (
+                    <StyledTableRow>
+                      <StyledTableCell colSpan={12} align="center">
+                        Data not found
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  )}
+                </TableBody>
+              );
+            case "prodotti":
+              return (
+                <TableBody>
+                  {data?.length > 0 ? (
+                    data
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row, index) => (
+                        <StyledTableRow
+                          key={index}
+                          selected={isSelected(row.id)}
+                        // onClick={() => navigate("/amministrazione/asset/rate")}
+                        >
+                          <StyledTableCell align="center">
+                            <CustomCheckbox
+                              className="customChechbox"
+                              color="primary"
+                              checked={isSelected(row.id)}
+                              onChange={(event) => handleRowClick(event, row.id)}
+                              onClick={(event) => event.stopPropagation()}
+                              inputProps={{ "aria-labelledby": row.id }}
+                            />
+                          </StyledTableCell>
+                          <TableCell>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <ProductIcon
+                                style={{
+                                  width: "42px",
+                                  height: "42px",
+                                }}
+                              />
+                            </div>
+                          </TableCell>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.nomeProdotto}</StyledTableCell>
+                          <StyledTableCell>{row.categoria}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzVendita}</StyledTableCell>
+                          <StyledTableCell>{row.costoServizio}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoU}</StyledTableCell>
+                          <StyledTableCell>{row.acquistato}</StyledTableCell>
+                          <StyledTableCell>{row.venduto}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoTot}</StyledTableCell>
+                          <StyledTableCell sx={{ textAlign: "center" }}>
+                            <Avatar1 />
+                          </StyledTableCell>
+                          <StyledTableCell
+                            sx={{ textAlign: "center" }}
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <MenuWithOptions options={option} />
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))
+                  ) : (
+                    <StyledTableRow>
+                      <StyledTableCell colSpan={12} align="center">
+                        Data not found
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  )}
+                </TableBody>
+              );   
         default:
         return (
           <TableBody>

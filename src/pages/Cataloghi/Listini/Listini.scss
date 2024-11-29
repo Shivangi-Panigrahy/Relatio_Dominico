@@ -1,0 +1,30 @@
+.subImposteForm {
+    .headerBlock {
+      margin-bottom: 14px;
+    }
+    .CustomInputBox,.CustomSelectBox {
+      margin-bottom: 0px !important;
+      .MuiFormLabel-root {
+        &.Mui-focused {
+          color: #100919;
+        }
+      }
+      .Mui-focused {
+        fieldset {
+          border-color: #100919 !important;
+        }
+      }
+    }
+  
+    .ScadenzaCustomDatePicker {
+      max-width: unset;
+      fieldset {
+        border: 2px solid rgba(22, 10, 42, 0.1019607843);
+        border-radius: 5px;
+      }
+      .MuiInputLabel-root.Mui-focused {
+        color: #100919;
+      }
+    }
+  }
+    
