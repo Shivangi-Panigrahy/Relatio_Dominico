@@ -23,6 +23,7 @@ import Imposte from "../pages/dashboard/Imposte";
 import Produzione from "../pages/dashboard/Produzione";
 import Vendite from "../pages/dashboard/Vendite";
 import Contatti from "../component/Contatti/Contatti";
+import HrContatti from "../component/Contatti/HrContatti";
 import Relazioni from "../component/table/Relazioni/Relazioni";
 import VenditePreventivi from "../pages/Vendite/Preventivi/Preventivi";
 import AcquisitiPreventivi from "../pages/Acquisti/Preventivi/Preventivi";
@@ -30,16 +31,19 @@ import VenditeOrdini from "../pages/Vendite/Ordini/Ordini";
 import AcquisitiOrdini from "../pages/Acquisti/Ordini/Ordini";
 import VenditeBudget from "../pages/Vendite/Budget/Budget";
 import AcquisitiBudget from "../pages/Acquisti/Budget/Budget";
+import HRColaboratory from "../pages/HR/Colaboratory/Colaboratory";
+import SubColaboratory from "../pages/HR/Colaboratory/SubColaboratory";
 import Lead from "../pages/Vendite/Lead/Lead";
 import SubLead from "../pages/Vendite/Lead/SubLead/SubLead";
 import Qualificazione from "../component/Qualificazione/Qualificazione";
 import Fornitori from "../pages/Acquisti/Fornitori/Fornitori";
-import ReactBigCalendar from "../component/calendar/Calendar";
+import ReactBigCalendar from "../component/calendar/HrCalendar";
 import Allegati from "../component/table/Allegati/Allegati";
 import Dati from "../component/Dati/Dati";
 import Sedi from "../component/Sedi/Sedi";
 import Documenti from "../component/Documenti/Documenti";
 import VenditeCalendario from "../pages/Vendite/calendario/Calendario";
+import HRCalendario from "../pages/HR/Calendario/Calendario";
 import AcquistiCalendario from "../pages/Acquisti/Calendario/Calendario";
 import Dettaglio from "../pages/Acquisti/Fornitori/Dettaglio/Dettaglio";
 import Personale from "../pages/dashboard/Personale";
@@ -52,6 +56,15 @@ import AmministrazioneScadenzario from "../pages/Amministrazione/Scadenzario/Sca
 import Flussi_di_cassa from "../pages/Amministrazione/Flussi_di_cassa/Flussi_di_cassa";
 import Registri_IVA from "../pages/Amministrazione/Registri_IVA/Registri_IVA";
 import Prima_nota from "../pages/Amministrazione/Prima_nota/Prima_nota";
+import Contratto from "../component/Contratto/Contratto";
+import Turni from "../component/Turni/Turni";
+import Progetti from "../component/Progetti/Progetti";
+import FeriePermisse from "../pages/HR/FeriePermisse/FeriePermisse";
+import FeriePermisseEvento from "../pages/HR/FeriePermisse/FeriePermisseEvento";
+import BustaPage from "../pages/HR/BustePage/BustePage";
+import Busta from "../pages/HR/BustePage/Busta";
+import Candidati from "../pages/HR/Candidati/Candidati";
+import Candidato from "../pages/HR/Candidati/Candidato";
 
 const Allroutes = () => {
   return (
@@ -528,6 +541,182 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Prima_nota />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/calendario"
+        element={
+          <PublicRoute>
+            <HRCalendario />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory"
+        element={
+          <PublicRoute>
+            <HRColaboratory />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Contatti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Qualificazione"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Qualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Documenti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Contratto"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Contratto} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Equipagiamento"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Turni"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Turni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Progetti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Progetti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Agenda"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory/sub-colaboratory/Allegati"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/ferie-e-permisse"
+        element={
+          <PublicRoute>
+            <FeriePermisse />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/ferie-e-permisse/evento"
+        element={
+          <PublicRoute>
+            <FeriePermisseEvento Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/buste-page"
+        element={
+          <PublicRoute>
+            <BustaPage />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/buste-page/busta"
+        element={
+          <PublicRoute>
+            <Busta Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati"
+        element={
+          <PublicRoute>
+            <Candidati />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato"
+        element={
+          <PublicRoute>
+            <Candidato Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Contatti"
+        element={
+          <PublicRoute>
+            <Candidato Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Qualificazione"
+        element={
+          <PublicRoute>
+            <Candidato Component={Qualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Agenda"
+        element={
+          <PublicRoute>
+            <Candidato Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Allegati"
+        element={
+          <PublicRoute>
+            <Candidato Component={Allegati} />
           </PublicRoute>
         }
       />

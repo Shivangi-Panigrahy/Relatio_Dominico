@@ -24,7 +24,7 @@ const SubLead = ({ Component }) => {
           </Grid>
           <Grid item lg={9} md={8} xs={12}>
             <Box className="TemplateForm__right">
-              <MenuTab onTabChange={handleTabChange} lead={true} />
+              <MenuTab onTabChange={handleTabChange} lead={false} />
             </Box>
             {Component && <Component acquisti_agenda={true} />}
           </Grid>

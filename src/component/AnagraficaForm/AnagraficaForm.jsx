@@ -38,12 +38,16 @@ const AnagraficaForm = () => {
     resolver: yupResolver(validationSchema3),
   });
 
+  const path = window.location.pathname;
+
   const onSubmit = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="formCard">
       <div className="headerBlock">
-        <h5 className="headerBlock__title">Anagrafica</h5>
+        <h5 className="headerBlock__title">
+          {path.includes("colaboratory") ? "Colaboratory" : "Anagrafica"}
+        </h5>
         <div className="headerBlock__CutomColorPicker">
           <ul>
             <li className="activeColor">
@@ -126,7 +130,7 @@ const AnagraficaForm = () => {
           error={errors[field.name]}
         />
       ))}
-      <h6 className="formCard__subTitle">sedelegale </h6>
+      {/* <h6 className="formCard__subTitle">sedelegale </h6> */}
       {inputFields.slice(4, 6).map((field) => (
         <CustomInput
           key={field.name}
@@ -164,7 +168,9 @@ const AnagraficaForm = () => {
         </Grid>
         {/* ))} */}
       </Grid>
-      <h6 className="formCard__subTitle">Codice fatturazione </h6>
+      {path.includes("colaboratory") === false && (
+        <h6 className="formCard__subTitle">Codice fatturazione </h6>
+      )}
       {inputFields.slice(6, 9).map((field) => (
         <CustomInput
           key={field.name}

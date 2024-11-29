@@ -5,7 +5,7 @@
   border: 1px solid #f2f2f2;
   box-shadow: 0px 0px 5px 0px #fafafa;
   .headerBlock {
-    margin-bottom: 27px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,6 +57,14 @@
         }
       }
     }
+  }
+  &.eventForm {
+    .CustomInputBox {
+      margin-bottom: 0 !important;
+    }
+  }
+  .customDatePicker {
+    max-width: 100%;
   }
 
   &__subTitle {

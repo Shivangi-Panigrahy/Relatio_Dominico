@@ -1,0 +1,29 @@
+.AllegatiTab {
+  .invoiceFilter {
+    padding: 0;
+    margin: 25px 0 15px;
+    background: transparent;
+    box-shadow: unset;
+    .MuiStack-root {
+      grid-template-columns: 144px 144px 1fr 1fr 2fr;
+    }
+    .MuiFormControl-root {
+      min-width: unset;
+    }
+  }
+  .customtable {
+    table {
+      tbody {
+        tr {
+          td {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: #666666;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

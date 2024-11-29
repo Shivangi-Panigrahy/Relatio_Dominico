@@ -82,8 +82,8 @@ const HeaderBelow = () => {
               <IconButton edge="start" color="inherit"></IconButton>
             </>
           ) : window.location.href.includes(
-            "/vendite/preventivi/sub-preventivi"
-          ) ? (
+              "/vendite/preventivi/sub-preventivi"
+            ) ? (
             <>
               <Typography variant="h2">Vendite</Typography>
               <IconButton edge="start" color="inherit">
@@ -236,8 +236,8 @@ const HeaderBelow = () => {
               <Typography variant="h2">Nome del Fornitore</Typography>
             </>
           ) : window.location.href.includes(
-            "/acquisti/fornitori/Qualificazione"
-          ) ? (
+              "/acquisti/fornitori/Qualificazione"
+            ) ? (
             <>
               <Typography variant="h2">Acquisti</Typography>
               <IconButton edge="start" color="inherit">
@@ -280,8 +280,8 @@ const HeaderBelow = () => {
               <IconButton edge="start" color="inherit"></IconButton>
             </>
           ) : window.location.href.includes(
-            "/acquisti/preventivi/sub-preventivi"
-          ) ? (
+              "/acquisti/preventivi/sub-preventivi"
+            ) ? (
             <>
               <Typography variant="h2">Acquisti</Typography>
               <IconButton edge="start" color="inherit">
@@ -365,86 +365,181 @@ const HeaderBelow = () => {
               <Typography variant="h2">Budget</Typography>
               <IconButton edge="start" color="inherit"></IconButton>
             </>
-          ) :
+          ) : // amministrazione part start
+          window.location.href.includes("/amministrazione/imposte") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Imposte</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/documenti") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Documenti</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/bilancio") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Bilancio</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/scadenzario") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Scadenzario</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/asset") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Asset</Typography>
+            </>
+          ) : window.location.href.includes(
+              "/amministrazione/flussi-di-cassa"
+            ) ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Flusso di cassa</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/registri-iva") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Registri IVA</Typography>
+            </>
+          ) : window.location.href.includes("/amministrazione/prima-nota") ? (
+            <>
+              <Typography variant="h2">Amministrazione</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Prima nota</Typography>
+            </>
+          ) : window.location.href.includes("/hr/calendario") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Turni</Typography>
+              <IconButton edge="start" color="inherit"></IconButton>
+            </>
+          ) : window.location.href.includes("/colaboratory") &&
+            !window.location.href.includes("/sub-colaboratory") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Colaboratory</Typography>
+              <IconButton edge="start" color="inherit"></IconButton>
+            </>
+          ) : window.location.href.includes("/sub-colaboratory") ? (
+            <>
+              <Typography variant="h2">HR</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Colaboratori</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Nome dell collaboratore</Typography>
+            </>
+          ) : window.location.href.includes("/ferie-e-permisse") &&
+            !window.location.href.includes("/evento") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Eventi</Typography>
+              <IconButton edge="start" color="inherit"></IconButton>
+            </>
+          ) : window.location.href.includes("/evento") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Eventi</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Nome Evento</Typography>
+            </>
+          ) : window.location.href.includes("/hr/buste-page") &&
+            !window.location.href.includes("/busta") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Busta page</Typography>
+            </>
+          ) : window.location.href.includes("/busta") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Busta page</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Nome della busta page</Typography>
+            </>
+          ) : window.location.href.includes("/hr/candidati") &&
+            !window.location.href.includes("/candidato") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Candidati</Typography>
+            </>
+          ) : window.location.href.includes("/candidato") ? (
+            <>
+              <Typography variant="h2">HR </Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Candidati</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Candidato</Typography>
+            </>
+          ) : (
             // amministrazione part start
-            window.location.href.includes("/amministrazione/imposte") ?
-              <>
-                <Typography variant="h2">Amministrazione</Typography>
-                <IconButton edge="start" color="inherit">
-                  <ArrowForwardIcon />
-                </IconButton>
-                <Typography variant="h2">Imposte</Typography>
-              </>
-              :
-              window.location.href.includes("/amministrazione/documenti") ?
-                <>
-                  <Typography variant="h2">Amministrazione</Typography>
-                  <IconButton edge="start" color="inherit">
-                    <ArrowForwardIcon />
-                  </IconButton>
-                  <Typography variant="h2">Documenti</Typography>
-                </>
-                :
-                window.location.href.includes("/amministrazione/bilancio") ?
-                  <>
-                    <Typography variant="h2">Amministrazione</Typography>
-                    <IconButton edge="start" color="inherit">
-                      <ArrowForwardIcon />
-                    </IconButton>
-                    <Typography variant="h2">Bilancio</Typography>
-                  </>
-                  :
-                  window.location.href.includes("/amministrazione/scadenzario") ?
-                    <>
-                      <Typography variant="h2">Amministrazione</Typography>
-                      <IconButton edge="start" color="inherit">
-                        <ArrowForwardIcon />
-                      </IconButton>
-                      <Typography variant="h2">Scadenzario</Typography>
-                    </>
-                    :
-                    window.location.href.includes("/amministrazione/asset") ?
-                      <>
-                        <Typography variant="h2">Amministrazione</Typography>
-                        <IconButton edge="start" color="inherit">
-                          <ArrowForwardIcon />
-                        </IconButton>
-                        <Typography variant="h2">Asset</Typography>
-                      </>
-                      :
-                      window.location.href.includes("/amministrazione/flussi-di-cassa") ?
-                        <>
-                          <Typography variant="h2">Amministrazione</Typography>
-                          <IconButton edge="start" color="inherit">
-                            <ArrowForwardIcon />
-                          </IconButton>
-                          <Typography variant="h2">Flusso di cassa</Typography>
-                        </> :
-                        window.location.href.includes("/amministrazione/registri-iva") ?
-                          <>
-                            <Typography variant="h2">Amministrazione</Typography>
-                            <IconButton edge="start" color="inherit">
-                              <ArrowForwardIcon />
-                            </IconButton>
-                            <Typography variant="h2">Registri IVA</Typography>
-                          </> :
-                          window.location.href.includes("/amministrazione/prima-nota") ?
-                            <>
-                              <Typography variant="h2">Amministrazione</Typography>
-                              <IconButton edge="start" color="inherit">
-                                <ArrowForwardIcon />
-                              </IconButton>
-                              <Typography variant="h2">Prima nota</Typography>
-                            </> :
-                            // amministrazione part start
-                            (
-                              <Typography variant="h2">Titolo della Pagina</Typography>
-                            )}
+            <Typography variant="h2">Titolo della Pagina</Typography>
+          )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
           !location.pathname.includes("/acquisti/budget/sub-budget") &&
-          !location.pathname.includes("/acquisti/ordini/sub-ordini") && (
+          !location.pathname.includes("/acquisti/ordini/sub-ordini") &&
+          !location.pathname.includes("sub-colaboratory") &&
+          !location.pathname.includes("/hr/buste-page/busta") &&
+          !location.pathname.includes("/hr/ferie-e-permisse/evento") &&
+          !location.pathname.includes("/hr/candidati/candidato") && (
             <AddButton title="Aggiungi" onClick={() => setOpen(true)} />
           )}
 

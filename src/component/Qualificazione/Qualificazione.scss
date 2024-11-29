@@ -2,11 +2,13 @@
 
 .customTabBlock {
   &__body {
-    padding: 26px;
+    padding: 27px 32px;
     background-color: #fff;
     border: solid 1px #f2f2f2;
     border-radius: 10px;
     margin-top: 25px;
+    border-left: 0;
+    border-right: 0;
   }
 }
 .ContattiCards {

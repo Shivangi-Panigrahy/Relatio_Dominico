@@ -81,14 +81,8 @@ const getStatusColor = (stato) => {
   }
 };
 
-
-
-
 const StatusChip = styled(Box)(({ stato }) => {
-  const {
-    backgroundColor,
-    color,
-  } = getStatusColor(stato);
+  const { backgroundColor, color } = getStatusColor(stato);
 
   return {
     padding: "2px 8px",
@@ -102,7 +96,6 @@ const StatusChip = styled(Box)(({ stato }) => {
     transition: "all 0.3s ease",
   };
 });
-
 
 const TableRows = ({
   data,
@@ -187,7 +180,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/ordini") ||
-                        window.location.href.includes("/vendite/sub-lead/Documenti")
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/ordini/sub-ordini")
                         : navigate("/acquisti/ordini/sub-ordini")
                     }
@@ -243,11 +238,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -278,7 +275,7 @@ const TableRows = ({
             )}
           </TableBody>
         );
-      case "allegati":
+      case ("allegati", "eventoAllegati"):
         return (
           <TableBody>
             {data?.length > 0 ? (
@@ -289,7 +286,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
 
-                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                    // onClick={() => navigate("/acquisti/sub-ordini")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -302,9 +299,7 @@ const TableRows = ({
                       />
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
-
                       <Files />
-
                     </StyledTableCell>
                     <StyledTableCell>{row.nome}</StyledTableCell>
                     <StyledTableCell>{row.categoria}</StyledTableCell>
@@ -316,7 +311,7 @@ const TableRows = ({
 
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
-                    </StyledTableCell >
+                    </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
@@ -380,11 +375,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -461,11 +458,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -507,11 +506,12 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/budget") ||
-                        window.location.href.includes("/vendite/sub-lead/Documenti")
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/budget/sub-budget")
                         : navigate("/acquisti/budget/sub-budget")
                     }
-
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -565,11 +565,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -609,8 +611,14 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => window.location.href.includes("/vendite/preventivi") ||
-                      window.location.href.includes("/vendite/sub-lead/Documenti") ? navigate("/vendite/preventivi/sub-preventivi") : navigate("/acquisti/preventivi/sub-preventivi")}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/preventivi") ||
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
+                        ? navigate("/vendite/preventivi/sub-preventivi")
+                        : navigate("/acquisti/preventivi/sub-preventivi")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -664,11 +672,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -698,6 +708,369 @@ const TableRows = ({
             )}
           </TableBody>
         );
+      case "colaboratory":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      window.location.href.includes("/hr/colaboratory")
+                        ? navigate("/hr/colaboratory/sub-colaboratory")
+                        : navigate("/acquisti/ordini/sub-ordini")
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.colaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.ruolo}</StyledTableCell>
+                    <StyledTableCell>{row.livello}</StyledTableCell>
+                    <StyledTableCell>{row.trattamento}</StyledTableCell>
+                    <StyledTableCell>
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        whiteSpace={"nowrap"}
+                      >
+                        <IconButton
+                          className="colaboratory-tag"
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          {/* <VisibilityOutlinedIcon
+                            sx={{ "&:hover": { color: "" } }}
+                            fontSize="small"
+                          /> */}
+                          si
+                        </IconButton>
+                      </Box>
+                    </StyledTableCell>
+                    <StyledTableCell>{row.inixio}</StyledTableCell>
+                    <StyledTableCell>{row.fine}</StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "turni":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.data}</StyledTableCell>
+                    <StyledTableCell>{row.turno}</StyledTableCell>
+                    <StyledTableCell>{row.ore}</StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "progetti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
+                    <StyledTableCell>{row.totaleOreLavorate}</StyledTableCell>
+                    <StyledTableCell>{row.dal}</StyledTableCell>
+                    <StyledTableCell>{row.al}</StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "feriePermisse":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      window.location.href.includes("/hr/ferie-e-permisse")
+                        ? navigate("/hr/ferie-e-permisse/evento")
+                        : navigate("/hr/ferie-e-permisse")
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.colaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.evento}</StyledTableCell>
+                    <StyledTableCell>{row.da}</StyledTableCell>
+                    <StyledTableCell>{row.a}</StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.modDa}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "busta":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      window.location.href.includes("/hr/buste-page")
+                        ? navigate("/hr/buste-page/busta")
+                        : navigate("/hr/buste-page")
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    <StyledTableCell>{row.mese}</StyledTableCell>
+                    <StyledTableCell>{row.data}</StyledTableCell>
+                    <StyledTableCell>{row.colaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.totale}</StyledTableCell>
+                    <StyledTableCell style={{ backgroundColor: "#FFEBEE" }}>
+                      {row.daSaladare}
+                    </StyledTableCell>
+                    <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
+                      {row.saldato}
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.modDa}</StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "candidati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      window.location.href.includes("/hr/candidati")
+                        ? navigate("/hr/candidati/candidato")
+                        : navigate("/hr/candidati")
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.canditato}</StyledTableCell>
+                    <StyledTableCell>{row.ruolo}</StyledTableCell>
+                    <StyledTableCell>{row.livello}</StyledTableCell>
+                    <StyledTableCell>{row.trattIndividual}</StyledTableCell>
+                    <StyledTableCell>{row.disponibile}</StyledTableCell>
+                    <StyledTableCell>{row.ultimoColloquio}</StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
       default:
         return (
           <TableBody>
@@ -708,11 +1081,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/vendite/preventivi")
-                  //     ? navigate("/vendite/preventivi/sub-preventivi")
-                  //     : navigate("/acquisti/preventivi/sub-preventivi")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/vendite/preventivi")
+                    //     ? navigate("/vendite/preventivi/sub-preventivi")
+                    //     : navigate("/acquisti/preventivi/sub-preventivi")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox

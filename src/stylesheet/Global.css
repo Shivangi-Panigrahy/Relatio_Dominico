@@ -66,7 +66,7 @@
   color: #fff !important;
 }
 .dashboardHeader {
-  padding: 0 30px;
+  padding: 0 20px;
 }
 .dashboardHeader .MuiToolbar-root {
   padding: 16px 0px !important;
@@ -76,7 +76,7 @@
   gap: 14px;
 }
 .dashboardHeader .MuiToolbar-root.titleBlock {
-  padding: 8px 0px !important;
+  padding: 8px 0px 8px 8px !important;
 }
 .dashboardHeader .MuiToolbar-root .userName {
   margin-left: 12px;
@@ -168,7 +168,7 @@
 }
 
 button.greenButton {
-  padding: 10px 16px;
+  padding: 12px 16px;
   background: #57c700;
   border-radius: 8px;
   color: #fff;

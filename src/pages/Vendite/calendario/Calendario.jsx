@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Card, Container } from "@mui/material";
 import Header from "../../../component/header/Header";
-import ReactBigCalendar from "../../../component/calendar/Calendar"; // Updated import for the Calendar component
-import './Calendario.scss'
+import ReactBigCalendar from "../../../component/calendar/HrCalendar"; // Updated import for the Calendar component
+import "./Calendario.scss";
 
 const Calendario = () => {
   return (

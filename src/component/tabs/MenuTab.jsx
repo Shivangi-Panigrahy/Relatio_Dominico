@@ -25,6 +25,7 @@ import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanzia
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
 import { useNavigate } from "react-router-dom";
 import "./MenuLink.scss";
+import { AddButton } from "../button/AddButton";
 
 const CustomTabs = styled(Tabs)({
   borderBottom: "1px solid #e8e8e8",
@@ -125,11 +126,40 @@ const TAB_CONFIGURATIONS = {
     { label: "Documenti", icon: Documenti },
     { label: "Agenda", icon: Agenda },
   ],
+  hr: [
+    { label: "Contatti", icon: Documenti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Contratto", icon: Documenti },
+    { label: "Equipagiamento", icon: Documenti },
+    { label: "Turni", icon: Documenti },
+    { label: "Progetti", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+  ],
+  hrEvento: [{ label: "Allegati", icon: Documenti }],
+  hrCandidato: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Agenda", icon: Agenda },
+    { label: "Allegati", icon: Documenti },
+  ],
 };
 
-const getNavigationPath = (label, isLead, isFornitori) => {
+const getNavigationPath = (
+  label,
+  isLead,
+  isFornitori,
+  isVendite,
+  isHr,
+  isHrEvento,
+  isHrCandidato
+) => {
   if (isLead) return `/vendite/sub-lead/${label}`;
   if (isFornitori) return `/acquisti/fornitori/${label}`;
+  if (isHr) return `/hr/colaboratory/sub-colaboratory/${label}`;
+  // if (isHrEvento) return `/hr/colaboratory/sub-colaboratory/${label}`;
+  if (isHrCandidato) return `/hr/candidati/candidato/${label}`;
   return `/dashboard/${label}`;
 };
 
@@ -143,6 +173,9 @@ const MenuTab = ({
   fornitori = false,
   vendite = false,
   gantt = false,
+  hr,
+  hrEvento,
+  hrCandidato,
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -154,8 +187,20 @@ const MenuTab = ({
     if (statsDashboard) return TAB_CONFIGURATIONS.statsDashboard;
     if (dettaglioForm) return TAB_CONFIGURATIONS.dettaglioForm;
     if (lead) return TAB_CONFIGURATIONS.lead;
+    if (hr) return TAB_CONFIGURATIONS.hr;
+    if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
+    if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead]);
+  }, [
+    gantt,
+    dashboardForm,
+    statsDashboard,
+    dettaglioForm,
+    lead,
+    hr,
+    hrEvento,
+    hrCandidato,
+  ]);
 
   const handleTabClick = useCallback(
     (index, label) => {
@@ -167,17 +212,25 @@ const MenuTab = ({
       }
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite);
+      const path = getNavigationPath(
+        label,
+        lead,
+        fornitori,
+        vendite,
+        hr,
+        hrEvento,
+        hrCandidato
+      );
       navigate(path);
 
       // Callback for parent component
       onTabChange?.(`tab${index + 1}`);
     },
-    [lead, fornitori, navigate, onTabChange]
+    [lead, fornitori, navigate, onTabChange, vendite, hr, hrEvento, hrCandidato]
   );
 
   return (
-    <Box className="tabBox">
+    <Box className="tabBox tabsWithButton">
       <CustomTabs className={customClassName}>
         {getActiveConfig().map((tab, index) => {
           const IconComponent = tab.icon;
@@ -214,6 +267,7 @@ const MenuTab = ({
           );
         })}
       </CustomTabs>
+      <AddButton title="Aggiungi" />
     </Box>
   );
 };

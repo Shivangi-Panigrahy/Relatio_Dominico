@@ -223,7 +223,7 @@ const GanttChart = () => {
 
   return (
     <>
-      <Box  variant="outlined">
+      <Box variant="outlined">
         {/* Month selection buttons */}
 
         <div className="calenderGantt__table">
@@ -390,7 +390,7 @@ const GanttChart = () => {
                                 isToday
                                   ? "borderedDashed calenderBox"
                                   : "calenderBox"
-                              } ${isTaskDay ? "calenderBox asas" : ""}`}
+                              } ${isTaskDay ? "calenderBox ArrayNumber" : ""}`}
                               // className="borderedDashed"
                               key={dayIndex}
                               style={{
@@ -415,7 +415,7 @@ const GanttChart = () => {
                                 Array.from({ length: 8 }, (_, index) => (
                                   <div
                                     key={index}
-                                    className="asas"
+                                    className="ArrayNumber"
                                     style={{
                                       top: `${(index / 8) * 100}%`, // Position each div from 0% to 87.5% from the top
                                     }}

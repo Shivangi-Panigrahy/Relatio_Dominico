@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Grid,
@@ -24,35 +24,34 @@ const DynamicCard = ({ title, fields }) => (
         titleTypographyProps={{ variant: "h6" }}
       />
       <CardContent className="card__body">
-        <Grid container spacing={2}>
-          {fields.map((field, index) => (
-            <Grid item xs={12} key={index}>
-              <TextField
-                className={styles["text-field"]}
-                fullWidth
-                label={field.label}
-                type={field.type || "text"}
-                variant="outlined"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end"></InputAdornment>
-                  ),
-                }}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        {fields.map((field, index) => (
+          <div item key={index}>
+            <TextField
+              // className={styles["text-field"]}
+              className="CustomInputBox"
+              fullWidth
+              label={field.label}
+              type={field.type || "text"}
+              variant="outlined"
+              InputProps={{
+                endAdornment: <InputAdornment position="end"></InputAdornment>,
+              }}
+            />
+          </div>
+        ))}
+        <Button startIcon={<AddIcon />} className="Aggiungi_btn">
+          Aggiungi
+        </Button>
       </CardContent>
     </Card>
-    <Box sx={{ mt: 2, display: "flex", alignItems: "center" }}>
-      <Button startIcon={<AddIcon />} className="Aggiungi_btn">
-        Aggiungi
-      </Button>
-    </Box>
+    {/* <Box sx={{ mt: 2, display: "flex", alignItems: "center" }}></Box> */}
   </div>
 );
 
 const Qualificazione = () => {
+  const path = window.location.pathname;
+  const [cardData, setCardData] = useState([]);
+
   const cards = [
     {
       title: "Tipo di azienda AFweqrA",
@@ -82,11 +81,72 @@ const Qualificazione = () => {
     },
   ];
 
+  const hrCards = [
+    {
+      title: "Hard skill",
+      fields: [
+        { label: "Sviluppatore senior" },
+        { label: "Linguaggi conosciuti" },
+        { label: "Anni di esperienza" },
+      ],
+    },
+    {
+      title: "Soft skill",
+      fields: [
+        { label: "Front end" },
+        { label: "Spiccate capacita relazionali" },
+      ],
+    },
+    {
+      title: "Note",
+      fields: [{ label: "Note" }],
+    },
+  ];
+
+  const hrCandidatoCards = [
+    {
+      title: "Skill",
+      fields: [
+        { label: "Settore" },
+        { label: "Categoria categoria azienda" },
+        { label: "Codice adeco" },
+      ],
+    },
+    {
+      title: "Attivita",
+      fields: [
+        { label: "Progettazione e edirezione lavori" },
+        { label: "Prove geioteniche" },
+        { label: "Rilievi topografici" },
+        { label: "Pratiche catastali" },
+      ],
+    },
+    {
+      title: "Attivita",
+      fields: [
+        { label: "Progettazione e direzione lavori" },
+        { label: "Prove ubanistica" },
+        { label: "Progettazione strutturale" },
+        { label: "Progettazione architettonica" },
+      ],
+    },
+  ];
+
+  useEffect(() => {
+    if (path === "/hr/colaboratory/sub-colaboratory/Qualificazione") {
+      setCardData(hrCards);
+    } else if (path === "/hr/candidati/candidato/Qualificazione") {
+      setCardData(hrCandidatoCards);
+    } else {
+      setCardData(cards);
+    }
+  }, [path]);
+
   return (
     <Box className="customTabBlock" maxWidth="xl">
       <Box className="customTabBlock__body">
-        <Grid container spacing={2.5}>
-          {cards.map((card, index) => (
+        <Grid container spacing={2}>
+          {cardData.map((card, index) => (
             <Grid item xs={12} md={4} key={index}>
               <DynamicCard title={card.title} fields={card.fields} />
             </Grid>

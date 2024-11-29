@@ -1,5 +1,10 @@
 .CustomInputBox {
   margin-bottom: 14px !important;
+  &.CustomTextArea {
+    fieldset {
+      height: auto;
+    }
+  }
   input {
     padding: 18px;
     height: auto;

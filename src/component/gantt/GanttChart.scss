@@ -114,7 +114,7 @@
 .calenderBoxMain {
   position: relative;
   height: 48px;
-  .calenderBox:nth-child(odd).asas {
+  .calenderBox:nth-child(odd).ArrayNumber {
     &::before {
       content: "";
       position: absolute;
@@ -160,7 +160,7 @@
 .moveRow {
   background: rgb(219, 216, 216) !important;
 }
-.asas {
+.ArrayNumber {
   height: 12.5%;
   position: absolute;
   width: 100%;

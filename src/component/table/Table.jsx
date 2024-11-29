@@ -42,38 +42,40 @@ const CustomPagination = ({
   onRowsPerPageChange,
 }) => {
   return (
-    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2}>
-      <Typography variant="body2" color="text.secondary" mr={2}>
+    <Box className="custom-pagination">
+      <Typography variant="body2" color="text.secondary">
         Righe per pagina:
       </Typography>
       <Select
+        className="customSelect"
         value={rowsPerPage}
         onChange={onRowsPerPageChange}
         size="small"
-        sx={{ mr: 2, fontSize: "0.875rem" }}
       >
         <MenuItem value={5}>5</MenuItem>
         <MenuItem value={10}>10</MenuItem>
         <MenuItem value={25}>25</MenuItem>
       </Select>
-      <Typography variant="body2" color="text.secondary" mr={2}>
+      <Typography variant="body2" color="text.secondary">
         {`${page * rowsPerPage + 1}-${Math.min(
           (page + 1) * rowsPerPage,
           count
         )} di ${count}`}
       </Typography>
-      <IconButton
-        onClick={(e) => onPageChange(e, page - 1)}
-        disabled={page === 0}
-      >
-        <KeyboardArrowLeftIcon />
-      </IconButton>
-      <IconButton
-        onClick={(e) => onPageChange(e, page + 1)}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-      >
-        <KeyboardArrowRightIcon />
-      </IconButton>
+      <div className="iconBtn">
+        <IconButton
+          onClick={(e) => onPageChange(e, page - 1)}
+          disabled={page === 0}
+        >
+          <KeyboardArrowLeftIcon />
+        </IconButton>
+        <IconButton
+          onClick={(e) => onPageChange(e, page + 1)}
+          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        >
+          <KeyboardArrowRightIcon />
+        </IconButton>
+      </div>
     </Box>
   );
 };
@@ -306,9 +308,9 @@ const CustomTable = ({ data, form, columns, navData }) => {
   return (
     <>
       <>
-        {!window.location.href.includes('/acquisti/fornitori/Documenti') &&
-          !window.location.href.includes('/vendite/sub-lead/Documenti') &&
-          form !== "form2" ? (
+        {!window.location.href.includes("/acquisti/fornitori/Documenti") &&
+        !window.location.href.includes("/vendite/sub-lead/Documenti") &&
+        form !== "form2" ? (
           <SearchTable
             startDate={startDate}
             setStartDate={setStartDate}
@@ -328,44 +330,46 @@ const CustomTable = ({ data, form, columns, navData }) => {
         ) : null}
       </>
 
-      <Paper elevation={0}>
-        <TableContainer className="customtable">
-          <Table sx={{ minWidth: 650 }} aria-label="custom table">
-            <TableColumns
-              columns={effectiveColumns}
-              sortConfig={sortConfig}
-              handleSelectAllClick={handleSelectAllClick}
-              selectAll={selectAll}
-              handleSort={handleSort}
-              form={form}
-              navData={navData}
-            />
-            <TableRows
-              data={sortedData}
+      {columns && (
+        <Paper elevation={0}>
+          <TableContainer className="customtable">
+            <Table sx={{ minWidth: 650 }} aria-label="custom table">
+              <TableColumns
+                columns={effectiveColumns}
+                sortConfig={sortConfig}
+                handleSelectAllClick={handleSelectAllClick}
+                selectAll={selectAll}
+                handleSort={handleSort}
+                form={form}
+                navData={navData}
+              />
+              <TableRows
+                data={sortedData}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                isSelected={isSelected}
+                handleRowClick={handleRowClick}
+                handleStatusClick={handleStatusClick}
+                currentStatuses={currentStatuses}
+                searchFilters={searchFilters}
+                option={option}
+                form={form}
+                navData={navData}
+              />
+            </Table>
+          </TableContainer>
+
+          {sortedData?.length > 0 && (
+            <CustomPagination
+              count={sortedData?.length}
               page={page}
               rowsPerPage={rowsPerPage}
-              isSelected={isSelected}
-              handleRowClick={handleRowClick}
-              handleStatusClick={handleStatusClick}
-              currentStatuses={currentStatuses}
-              searchFilters={searchFilters}
-              option={option}
-              form={form}
-              navData={navData}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
             />
-          </Table>
-        </TableContainer>
-
-        {sortedData?.length > 0 && (
-          <CustomPagination
-            count={sortedData?.length}
-            page={page}
-            rowsPerPage={rowsPerPage}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        )}
-      </Paper>
+          )}
+        </Paper>
+      )}
     </>
   );
 };

@@ -37,8 +37,6 @@ const AddCalendarEvent = ({ open, onClose, event = {} }) => {
   const [circleInd, setCircleInd] = useState(colors.indexOf(event?.color) || 0);
   const [isAllDay, setIsAllDay] = useState(event?.allDay || false);
 
-  console.log(event, "event");
-
   return (
     <Dialog
       className="calenderEventModel"

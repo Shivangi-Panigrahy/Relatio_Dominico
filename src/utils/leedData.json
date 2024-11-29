@@ -1,80 +1,78 @@
-
 {
-    "tabData": {
-      "tab1": [
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        },
-        {
-          "creatoIl": "28/11/2022",
-          "ragioneSociale": "Azienda cliente srl",
-          "assegnatoA": "John Doe",
-          "autore": "Jane Smith",
-          "stato": "Approvato",
-          "azioni": "..."
-        }
-      ]
-    }
+  "tabData": {
+    "tab1": [
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      },
+      {
+        "creatoIl": "28/11/2022",
+        "ragioneSociale": "Azienda cliente srl",
+        "assegnatoA": "John Doe",
+        "autore": "Jane Smith",
+        "stato": "Approvato",
+        "azioni": "..."
+      }
+    ]
   }
-  
+}
