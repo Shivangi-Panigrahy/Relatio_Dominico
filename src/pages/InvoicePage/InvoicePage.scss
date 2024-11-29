@@ -16,7 +16,6 @@
     max-width: 304px;
     padding-right: 17px;
     &__Box {
-      background-color: #57c70033;
       width: 100%;
       border-radius: 6px;
       padding: 16px 20px;
@@ -26,7 +25,49 @@
       font-size: 12px;
       line-height: 20px;
       font-weight: 700;
-      color: #57c700;
+      // color: #57c700;
+      margin: 0px;
+      text-align: center;
+    }
+  }
+  &__sospesoBlock {
+    border-right: solid 1px #cccccc;
+    width: 100%;
+    max-width: 304px;
+    padding-right: 17px;
+    &__Box {
+      background-color: #fbeac9;
+      width: 100%;
+      border-radius: 6px;
+      padding: 16px 20px;
+      max-width: 264px;
+    }
+    &__text {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #ffae10;
+      margin: 0px;
+      text-align: center;
+    }
+  }
+  &__rifiutatoBlock {
+    border-right: solid 1px #cccccc;
+    width: 100%;
+    max-width: 304px;
+    padding-right: 17px;
+    &__Box {
+      background-color: #f4c8c8;
+      width: 100%;
+      border-radius: 6px;
+      padding: 16px 20px;
+      max-width: 264px;
+    }
+    &__text {
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 700;
+      color: #db0000;
       margin: 0px;
       text-align: center;
     }
@@ -44,8 +85,8 @@
   }
   &__items {
     svg {
-      height: 24px;
-      width: 24px;
+      height: 20px;
+      width: 20px;
       object-fit: contain;
     }
     button {
@@ -118,6 +159,7 @@
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     padding: 0 25px;
+    font-family: "Barlow", sans-serif;
     p {
       font-size: 16px;
       line-height: 20px;
@@ -156,7 +198,7 @@
   fieldset {
     border: 2px solid #e5e5e5;
     border-radius: 5px;
-    height: 54px;
+    height: 59px;
   }
   .MuiFormLabel-root {
     &.Mui-focused {
@@ -195,6 +237,7 @@
     align-items: center;
     gap: 5px;
     padding: 27px 15px;
+    font-family: "Barlow", sans-serif !important;
   }
   &__list {
     display: grid;
@@ -309,6 +352,9 @@
     }
     .deleteButton {
       color: #9e9e9e; // Grey color for the delete button
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
     }
   }
 }

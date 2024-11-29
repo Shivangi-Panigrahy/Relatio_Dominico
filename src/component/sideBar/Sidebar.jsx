@@ -230,10 +230,8 @@ const menuItems = [
     textColor: "#4361EE",
     route: "/file",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Repository", route: "/file/repository" },
+      { name: "Archivio", route: "/file/archivio" },
     ],
   },
 ];
@@ -272,7 +270,7 @@ const Sidebar = () => {
           <img src={mobileLogo} height="33" width="auto" alt="#" />
         )}
       </Box>
-      <List>
+      <List >
         {menuItems.map((item) => (
           <React.Fragment key={item.name}>
             <StyledListItem
@@ -301,7 +299,7 @@ const Sidebar = () => {
                   timeout="auto"
                   unmountOnExit
                 >
-                  <List component="div" disablePadding>
+                  <List component="div" disablePadding style={{ paddingBottom: '50px' }}>
                     {item.subitems.map((subitem) => (
                       <StyledListItem
                         key={subitem.name}
@@ -309,6 +307,7 @@ const Sidebar = () => {
                         sx={{ pl: 4 }}
                         open={open}
                         onClick={() => handleSubmenuItemClick(subitem.route)} // Navigate on submenu click
+
                       >
                         <ListItemText primary={subitem.name} />
                       </StyledListItem>

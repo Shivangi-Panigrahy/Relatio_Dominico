@@ -16,14 +16,15 @@ import "./Calendar.scss";
 import CustomWeekHeader from "./CustomWeekHeader";
 import CustomDayHeader from "./CustomDayHeader";
 import CustomToolbar from "./CustomToolbar";
-
+import EventDialog from "../../component/Modal/EventDialog/EventDialog";
+import { ReactComponent as CalendarAvatar } from "../../assets/CalendarAvatar.svg";
 const events = [
   {
     id: 0,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 5, 10, 0, 0),
-    end: new Date(2024, 10, 5, 12, 0, 0),
+    start: new Date(2024, 10, 29, 10, 0, 0),
+    end: new Date(2024, 10, 29, 12, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
@@ -33,10 +34,10 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 5, 13, 0, 0),
-    end: new Date(2024, 10, 5, 15, 0, 0),
+    start: new Date(2024, 10, 28, 13, 0, 0),
+    end: new Date(2024, 10, 28, 15, 0, 0),
     desc: "Panel discussions with industry leaders",
-    eventType: "Call",
+    eventType: "Appointment",
     assignedTo: "Other",
     color: "#B5179E",
   },
@@ -44,8 +45,8 @@ const events = [
     id: 2,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 5, 15, 0, 0),
-    end: new Date(2024, 10, 5, 19, 0, 0),
+    start: new Date(2024, 10, 27, 15, 0, 0),
+    end: new Date(2024, 10, 27, 19, 0, 0),
     desc: "Hands-on workshops",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -55,10 +56,10 @@ const events = [
     id: 3,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 5, 20, 0, 0),
-    end: new Date(2024, 10, 5, 22, 0, 0),
+    start: new Date(2024, 10, 27, 20, 0, 0),
+    end: new Date(2024, 10, 27, 22, 0, 0),
     desc: "Networking session",
-    eventType: "Call",
+    eventType: "Appointment",
     assignedTo: "Other",
     color: "#3A0CA3",
   },
@@ -66,8 +67,8 @@ const events = [
     id: 4,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 10, 9, 0, 0),
-    end: new Date(2024, 10, 10, 17, 0, 0),
+    start: new Date(2024, 10, 26, 9, 0, 0),
+    end: new Date(2024, 10, 26, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -77,73 +78,64 @@ const events = [
     id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 15, 14, 0, 0),
-    end: new Date(2024, 10, 15, 20, 0, 0),
+    start: new Date(2024, 10, 25, 14, 0, 0),
+    end: new Date(2024, 10, 25, 20, 0, 0),
     desc: "Closing ceremony",
-    eventType: "Meeting",
+    eventType: "Appointment",
     assignedTo: "Other",
     color: "#4AAFF0",
   },
 ];
-
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
 const localizer = momentLocalizer(moment);
-
-export default function ReactBigCalendar({acquisti_agenda=false}) {
+export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [eventsData, setEventsData] = useState(events);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
   const [showEventOpen, setShowEventOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [view, setView] = useState(acquisti_agenda ? "agenda":"month");
+  const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
   const [particularEvent, setparticularEvent] = useState({});
-
+  // const [openEVentDialog, setOpenEVentDialog] = useState(false);
+  const [toggleEvent,setToggleEvent] = useState(false)
+  console.log(toggleEvent,'setToggleEvent');
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
     }
     setFormOpen(value); // Open dialog when AddButton is clicked
   };
-
   console.log(eventsData, "eventsData");
   const handleSelect = ({ start, end }) => {
     setFormOpen(true);
   };
-
   const CustomTimeGutterHeader = () => (
     <div className="custom-time-gutter-header">
       <strong>Tutto il giorno</strong>
     </div>
   );
-
   const handleEventClick = (event) => {
     setSelectedEvent(event);
     setShowEventOpen(true);
   };
-
   const handleAddEvent = (newEvent) => {
     setEventsData([...eventsData, newEvent]);
     setFormOpen(false);
   };
-
   const handleClose = () => {
     setFormOpen(false);
     setShowEventOpen(false);
   };
-
   const handlePrevMonth = () => {
     setCurrentDate(moment(currentDate).subtract(1, "month").toDate());
   };
-
   const handleNextMonth = () => {
     setCurrentDate(moment(currentDate).add(1, "month").toDate());
   };
-
   const handleToday = () => {
     setCurrentDate(new Date());
   };
-
   const dayPropGetter = (date) => {
     // Only apply the hover effect if the current view is "month"
     if (view === "month") {
@@ -153,27 +145,50 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
     }
     return {}; // No additional styling for other views
   };
-
   const CustomEvent = ({ event }) => (
-    <span>
-      <span className="event-dot" /> {/* This is the colored dot */}
-      {event.title}
-    </span>
-  );
-
-  const CustomWeekEvent = ({ event }) => (
-    <div className="custom-week-event">
-      <div>
-        <span className="event-dot" /> {/* Green dot */}
-        <span className="custom-week-event-time">
-          {moment(event.start).format("HH:mm")}-
-          {moment(event.end).format("HH:mm")}
+    <>
+      <span>
+        <span>
+          <span
+            className="event-dot"
+            style={{
+              backgroundColor:
+                event.eventType === "Appointment" ? "#FFA903" : "#57C700",
+            }}
+          />{" "}
+          <span className="custom-week-event-time">
+            {moment(event.start).format("HH:mm")}- 
+            {moment(event.end).format("HH:mm")}
+          </span>
         </span>
+        <span>{event.title}</span>
+      </span>
+      <button
+        style={{ cursor: "crosshair" }}
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent calendar's event handling
+          console.log("Button clicked inside CustomEvent");
+        }}
+      >
+        Vedi tutti
+      </button>
+    </>
+  );
+  const CustomWeekEvent = ({ event }) => (
+    <div className="custom-week-event" style={{ backgroundColor: event.eventType==="Appointment" && "#FFA90333" }}>
+      <div className="custom-week-event-inner">
+        <h2>Nome del Cliente</h2>
+        <div className="userbox">
+          <span>2h</span>
+          <div className="userbox__img">
+            <CalendarAvatar />
+            <CalendarAvatar />
+          </div>
+        </div>
       </div>
-      <span>{event.title}</span>
+      <p>Attività (incontro ecc. ecc. )</p>
     </div>
   );
-
   const eventStyleGetter = (event, start, end, isSelected) => {
     return {
       style: {
@@ -186,7 +201,6 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
       },
     };
   };
-
   const groupedEvents = events.reduce((acc, event) => {
     const dateKey = event.start.toISOString().split("T")[0];
     if (!acc[dateKey]) {
@@ -195,7 +209,6 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
     acc[dateKey].push(event);
     return acc;
   }, {});
-
   console.log(
     Object.entries(groupedEvents)
       .sort()
@@ -204,7 +217,6 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
       ),
     "groupedEvents"
   );
-
   // Format time from Date object
   const formatTime = (date) => {
     return date.toLocaleTimeString("it-IT", {
@@ -213,12 +225,11 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
       hour12: false,
     });
   };
-
   const handleOpenEventDialog = (event) => {
+    console.log("coming in here to open");
     setparticularEvent(event);
     setFormOpen(true);
   };
-
   // Format date for header
   const formatDate = (date) => {
     const days = [
@@ -235,46 +246,47 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
     const month = date.getMonth() + 1;
     return `${day} ${dateNum}/${month}`;
   };
-
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-        {!acquisti_agenda &&
-        <>
-          <Button
-            startIcon={<Mese />}
-            onClick={() => setView("month")}
-            className={view === "month" ? `viewButton_active` : `viewButton`}
-          >
-            Mese
-          </Button>
-
-          <Button
-            startIcon={<Settimana />}
-            onClick={() => setView("week")}
-            className={view === "week" ? `viewButton_active` : `viewButton`}
-          >
-            Settimana
-          </Button>
-          <Button
-            startIcon={<Giorana />}
-            onClick={() => setView("day")}
-            className={view === "day" ? `viewButton_active` : `viewButton`}
-          >
-            Giorno
-          </Button>
-          <Button
-            startIcon={<Agenda />}
-            onClick={() => setView("agenda")}
-            className={view === "agenda" ? `viewButton_active` : `viewButton`}
-          >
-            Agenda
-          </Button>
-        </>
-          }
+          {!acquisti_agenda && (
+            <>
+              <Button
+                startIcon={<Mese />}
+                onClick={() => setView("month")}
+                className={
+                  view === "month" ? `viewButton_active` : `viewButton`
+                }
+              >
+                Mese
+              </Button>
+              <Button
+                startIcon={<Settimana />}
+                onClick={() => setView("week")}
+                className={view === "week" ? `viewButton_active` : `viewButton`}
+              >
+                Settimana
+              </Button>
+              <Button
+                startIcon={<Giorana />}
+                onClick={() => setView("day")}
+                className={view === "day" ? `viewButton_active` : `viewButton`}
+              >
+                Giorno
+              </Button>
+              <Button
+                startIcon={<Agenda />}
+                onClick={() => setView("agenda")}
+                className={
+                  view === "agenda" ? `viewButton_active` : `viewButton`
+                }
+              >
+                Agenda
+              </Button>
+            </>
+          )}
         </Box>
-
         <Box className="calenderBlock__title">
           <IconButton onClick={handlePrevMonth}>
             <ArrowBackIosIcon />
@@ -294,13 +306,12 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
           >
             Oggi
           </Button>
-
           <IconButton className="iconBtn">
             <FilterListIcon />
           </IconButton>
         </Box>
       </Box>
-      {view === "agenda" ? (  
+      {view === "agenda" ? (
         <div className="calendar_aganda">
           <div className="calendar_aganda_month">Martedì</div>
           {Object.entries(groupedEvents)
@@ -325,7 +336,9 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
                             )}`}
                       </span>
                       <div className="event-content_aganda">
-                        <span className="event-dot_aganda"></span>
+                        <span className="event-dot_aganda" style={{
+              backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
+            }}></span>
                         <div className="event-details_aganda">
                           <span className="event-title_aganda">
                             {event.title}
@@ -399,6 +412,7 @@ export default function ReactBigCalendar({acquisti_agenda=false}) {
           event={particularEvent}
         />
       )}
+      <EventDialog open={toggleEvent} />
     </div>
   );
 }

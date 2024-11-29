@@ -171,6 +171,22 @@
         margin: 0 !important;
       }
     }
+    .rbc-event-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > span {
+        width: 100%;
+      }
+      button {
+        background-color: transparent;
+        padding: 0;
+        margin-top: 5px;
+        border: none;
+        text-decoration: underline;
+        color: #999999;
+      }
+    }
     .rbc-today {
       background-color: #57c70033;
     }
@@ -184,7 +200,7 @@
       line-height: 16px;
       color: #100919;
       font-weight: 400;
-      padding: 4px 8px !important;
+      padding: 2px 5px !important;
       transition: all 0.4s ease;
       position: relative;
       z-index: 2;
@@ -268,11 +284,620 @@
       flex-wrap: wrap;
       height: 100%;
       display: block;
-      & > div {
+      width: 100%;
+      &-inner {
         display: flex;
         align-items: center;
-        gap: 4px;
+        justify-content: space-between;
+        .userbox {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 600;
+          color: #100919;
+          &__img {
+            display: flex;
+            align-items: center;
+            svg {
+              margin-left: -10px;
+              &:first-child {
+                z-index: 1;
+                margin: 0;
+              }
+            }
+          }
+        }
       }
+      p {
+        margin-top: -5px;
+      }
+      h2,p {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #100919;
+        margin: 0;
+      }
+      // & > div {
+      //   display: flex;
+      //   align-items: center;
+      //   gap: 4px;
+      // }
+      .custom-week-event-time + span {
+        display: block;
+        font-size: 14px;
+        line-height: 16px;
+        color: #100919;
+      }
+      .custom-week-event-time {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 700;
+        color: #100919;
+      }
+    }
+    .rbc-time-view .rbc-row {
+      box-sizing: border-box;
+      min-height: 35px;
+    }
+    .rbc-time-header-content .rbc-row.rbc-time-header-cell {
+      height: 48px;
+      min-height: 48px;
+    }
+    .rbc-time-header {
+      align-items: end;
+      .rbc-time-header-gutter {
+        height: 70px;
+        border-right: 1px solid #919eab29;
+        border-top: 1px solid #f2f2f2;
+        text-align: center;
+      }
+    }
+    .rbc-time-header .rbc-time-header-content {
+      border-left: none;
+    }
+    .rbc-time-header-cell-single-day {
+      display: flex !important;
+    }
+  }
+}
+
+/* Hover effect for the plus icon */
+.calendar-day {
+  position: relative;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.calendar-day:hover::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: grey; /* You can change this color */
+  z-index: 10;
+}
+
+.custom-week-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure it spans fully across its cell */
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.custom-week-header .day-name {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+.custom-week-header .date {
+  font-size: 12px;
+  color: #555;
+}
+
+.rbc-time-gutter {
+  width: 80px; /* Adjust this value to increase or decrease the width */
+}
+
+/* CustomCalendar.css */
+.custom-time-gutter-header {
+  height: 100%;
+  background: transparent;
+  border: none;
+  line-height: 16px;
+  font-weight: 400;
+  color: #100919;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  strong {
+    font-weight: 400;
+  }
+}
+
+.event-dot {
+  height: 8px;
+  width: 8px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+.custom-day-header {
+  font-size: 14px;
+  color: #333;
+}
+
+.custom-week-event {
+  background-color: #e0f7e9; /* Light green background */
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.custom-week-event .event-dot {
+  height: 8px;
+  width: 8px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.custom-week-event-time {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.rbc-toolbar-label {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.calendar_aganda {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  border-top: 1px solid #919eab33;
+  padding-bottom: 30px;
+  .calendar_aganda_month {
+    border-bottom: 1px solid #919eab33;
+    height: 48px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    color: #100919;
+    box-sizing: border-box;
+    text-transform: capitalize;
+  }
+  .date-header_aganda {
+    padding: 12px 20px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    color: #000000;
+    background-color: #919eab14;
+    border-bottom: 1px solid #919eab29;
+    text-align: center;
+  }
+  .day-container_aganda {
+    border-bottom: 1px solid #cccccc;
+  }
+  .event-item_aganda {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #919eab29;
+    height: 35px;
+    box-sizing: border-box;
+    margin: 0 !important;
+
+    &:hover {
+      background-color: #f5f5f5;
+      cursor: pointer;
+    }
+  }
+  .event-time_aganda {
+    min-width: 160px;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 16px;
+    color: #100919;
+    font-weight: 400;
+  }
+  .event-title_aganda {
+    font-size: 14px;
+    color: #100919;
+    display: block;
+    font-weight: 400;
+    line-height: 16px;
+  }
+  .event-content_aganda {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 12px;
+  }
+  .event-dot_aganda {
+    width: 8px;
+    height: 8px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    margin-right: 0;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+
+  .event-details_aganda {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    p {
+      margin: 0;
+    }
+  }
+
+  .event-description_aganda {
+    font-size: 13px;
+    color: #666;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+  }
+  .calendar_aganda-addBtn {
+    width: 100%;
+    background: transparent;
+    border: none;.calenderBlock {
+  .calendar-container {
+    height: 100vh;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mainTitle {
+      font-size: 18px;
+      line-height: 24px;
+      color: #100919;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+    button {
+      height: 24px;
+      width: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      svg {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+  &__head {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 6fr 250px 6fr;
+    align-items: center;
+    padding: 28px 20px;
+  }
+  &__filter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: end;
+    .greenBtn {
+      background-color: #57c700;
+      color: white;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding: 8px 16px;
+      box-shadow: none;
+      height: auto;
+      min-height: 0;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 700;
+      text-transform: capitalize;
+      &:hover {
+        background-color: #000;
+        box-shadow: none;
+      }
+    }
+    .iconBtn {
+      height: 36px;
+      width: 36px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #637381;
+      svg {
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+  &__viewAction {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .viewButton {
+      color: #2e2e4f;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      justify-content: center;
+      text-transform: capitalize;
+      .MuiButton-icon {
+        margin-right: 0;
+        margin-left: 0;
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &:hover {
+        color: #57c700;
+        svg path {
+          fill: #57c700;
+        }
+      }
+    }
+    .viewButton_active {
+      color: #57c700;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      justify-content: center;
+      text-transform: capitalize;
+      .MuiButton-icon {
+        margin-right: 0;
+        margin-left: 0;
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg path {
+        fill: #57c700;
+      }
+    }
+  }
+  .calendar-container {
+    .rbc-header {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-color: #f2f2f2;
+      font-size: 14px;
+      line-height: 16px;
+      color: #100919;
+      font-weight: 700;
+      text-transform: capitalize;
+      border-left: none;
+    }
+    & > div {
+      border: none;
+      border-top: 1px solid #f2f2f2;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .rbc-day-bg + .rbc-day-bg,
+    .rbc-month-row + .rbc-month-row {
+      border-color: #919eab29;
+    }
+    .rbc-date-cell {
+      padding-right: 8px;
+    }
+    .rbc-button-link {
+      font-size: 14px;
+      line-height: 22px;
+      color: #999999;
+      font-weight: 400;
+    }
+    .rbc-time-header-content .rbc-button-link {
+      font-size: 14px;
+      line-height: 16px;
+      color: #100919;
+      font-weight: 700;
+      .rbc-toolbar {
+        margin: 0 !important;
+      }
+    }
+    .rbc-event-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      > span {
+        width: 100%;
+      }
+      button {
+        background-color: transparent;
+        padding: 0;
+        margin-top: 5px;
+        border: none;
+        text-decoration: underline;
+        color: #999999;
+      }
+    }
+    .rbc-today {
+      background-color: #57c70033;
+    }
+    .rbc-off-range-bg {
+      background: #fff;
+    }
+    .rbc-event,
+    .rbc-day-slot .rbc-background-event {
+      background: transparent !important;
+      font-size: 14px;
+      line-height: 16px;
+      color: #100919;
+      font-weight: 400;
+      padding: 2px 5px !important;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 2;
+
+      &:hover {
+        background: rgba(87, 199, 0, 0.2) !important;
+      }
+    }
+    .event-dot {
+      background-color: #57c700;
+    }
+    .custom-week-header {
+      flex-direction: row;
+      padding: 0;
+      font-size: 14px;
+      line-height: 16px;
+      color: #100919;
+      font-weight: 700;
+      gap: 3px;
+      .date {
+        font-size: 14px;
+        line-height: 16px;
+        color: #100919;
+        font-weight: 700;
+      }
+    }
+    .rbc-time-gutter {
+      width: 160px;
+      text-align: center !important;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #100919;
+      .rbc-timeslot-group {
+        border-bottom: 1px solid #f2f2f2;
+        min-height: 35px;
+        display: block;
+        font-size: 14px;
+        line-height: 35px;
+        font-weight: 400;
+        color: #100919;
+      }
+    }
+    .rbc-time-content {
+      border-top: 1px solid #f2f2f2;
+    }
+    .rbc-timeslot-group {
+      border-color: #f2f2f2;
+      min-height: 36px;
+    }
+    .rbc-time-content > * + * > * {
+      border-color: #f2f2f2;
+      // position: relative;
+    }
+    .rbc-timeslot-group {
+      position: relative;
+      z-index: 1;
+      &:hover {
+        content: "";
+        background-image: url("../../assets/plushIcon.svg");
+        background-position: center;
+        background-size: auto;
+        background-color: #f5f5f5;
+        background-repeat: no-repeat;
+      }
+    }
+    .rbc-day-slot .rbc-events-container {
+      margin: 0;
+    }
+    .rbc-event-label {
+      display: none;
+    }
+    .rbc-day-slot .rbc-time-slot {
+      border-top: none;
+    }
+    .custom-week-event {
+      background-color: #57c70033;
+      color: #333;
+      padding: 4px 9px;
+      border-radius: 4px;
+      flex-wrap: wrap;
+      height: 100%;
+      display: block;
+      width: 100%;
+      &-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .userbox {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 600;
+          color: #100919;
+          &__img {
+            display: flex;
+            align-items: center;
+            svg {
+              margin-left: -10px;
+              &:first-child {
+                z-index: 1;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+      p {
+        margin-top: -5px;
+      }
+      h2,p {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #100919;
+        margin: 0;
+      }
+      // & > div {
+      //   display: flex;
+      //   align-items: center;
+      //   gap: 4px;
+      // }
       .custom-week-event-time + span {
         display: block;
         font-size: 14px;
@@ -520,6 +1145,22 @@
     width: 100%;
     background: transparent;
     border: none;
+    border-radius: 0;
+    min-height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    &:hover {
+      background-color: #f5f5f5;
+      svg path {
+        fill: #57c700;
+      }
+    }
+  }
+}
     border-radius: 0;
     min-height: 35px;
     text-align: center;

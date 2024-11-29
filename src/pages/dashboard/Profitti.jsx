@@ -4,6 +4,7 @@ import SearchTable from "../../component/filter/Searchtable";
 import ProfittiStatitics from "../../component/profittiStatitics/profittiStatitics";
 import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
+import dayjs from "dayjs";
 
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
@@ -13,44 +14,96 @@ const dataset = [
   { month: "Mag", entrate: 42, uscite: 62, ricavo: 78 },
   { month: "Giu", entrate: 45, uscite: 65, ricavo: 82 },
   { month: "Lug", entrate: 45, uscite: 65, ricavo: 82 },
-  { month: "Ago", entrate: 48, uscite: 68, ricavo: 85 },
+  { month: "Ago", entrate: 80, uscite: 68, ricavo: 85 },
   { month: "Set", entrate: 58, uscite: 80, ricavo: 95 },
   { month: "Ott", entrate: 62, uscite: 82, ricavo: 98 },
   { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
-  { month: "Dic", entrate: 35, uscite: 55, ricavo: 68 },
+  { month: "Dic", entrate: 100, uscite: 55, ricavo: 68 },
 ];
-const profittiData= [
+const profittiData = [
   {
     status: "I Trimestre",
     count: 8.2,
     amount: "29.043.55€",
     color: "black",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
     color: "black",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
     color: "black",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
     color: "black",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "Totale ricavi",
     count: 8.2,
     amount: "350.043.55€",
     color: "black",
+    backgroundColor: "#57C7001A",
+    statusColor: '#160A2A'
   },
-]
+];
+
+const dataFilter = [
+  {
+    id: "entrate",
+    label: "Entrate",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+  {
+    id: "uscite",
+    label: "Uscite",
+    value: "€35.71k",
+    color: "#DB0000",
+    action: "Uscite",
+  },
+  {
+    id: "ricavo",
+    label: "Ricavo",
+    value: "€35.71k",
+    color: "#100919",
+    action: "Ricavo",
+  },
+];
+
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
 const Profiitti = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -59,9 +112,12 @@ const Profiitti = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
-
+  const [filteredData, setFilteredData] = useState({});
+  const [valoreFilter, setValoreFilter] = useState("");
+  const [page, setPage] = useState(5);
+  const data = [];
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
 
@@ -116,7 +172,7 @@ const Profiitti = () => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
 
@@ -124,13 +180,17 @@ const Profiitti = () => {
     setActiveTab(newTab); // Update the active tab
     setSubActiveTab(""); // Reset the active sub-tab
     setValue(-1); // Reset the value
-};
+  };
 
   return (
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true}  vendite={true}/>
+        <MenuTab
+          onTabChange={handleTabChange}
+          statsDashboard={true}
+          vendite={true}
+        />
 
         {/* Statistics row */}
         <ProfittiStatitics dataType={profittiData} />
@@ -149,7 +209,12 @@ const Profiitti = () => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart dataset={dataset} data={"profiti"} />
+        <RevenueLineChart
+          dataset={dataset}
+          data={"profiti"}
+          dataFilter={dataFilter}
+          series={series}
+        />
       </div>
     </>
   );

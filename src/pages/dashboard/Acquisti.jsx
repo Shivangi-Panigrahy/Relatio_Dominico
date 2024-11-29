@@ -5,20 +5,21 @@ import ProfittiStatitics from "../../component/profittiStatitics/profittiStatiti
 import Header from "../../component/header/Header";
 import { Outlet } from "react-router-dom";
 import MenuTab from "../../component/tabs/MenuTab";
+import dayjs from "dayjs";
 
 const dataset = [
-  { month: "Gen", entrate: 5 },
+  { month: "Gen", entrate: 5},
   { month: "Feb", entrate: 8 },
   { month: "Mar", entrate: 12 },
   { month: "Apr", entrate: 25 },
   { month: "Mag", entrate: 42 },
   { month: "Giu", entrate: 45 },
   { month: "Lug", entrate: 45 },
-  { month: "Ago", entrate: 48 },
+  { month: "Ago", entrate: 80 },
   { month: "Set", entrate: 58 },
   { month: "Ott", entrate: 62 },
   { month: "Nov", entrate: 52 },
-  { month: "Dic", entrate: 35 },
+  { month: "Dic", entrate: 100 },
 ];
 
 const acquistidata = [
@@ -54,12 +55,39 @@ const acquistidata = [
     status: "Totale Acquisti",
     count: 8.2,
     amount: "-350.043.55€",
-    color: "lightpink",
+    color: "#160A2A",
     label: "Anno precedente",
     isHighlighted: true,
+    backgroundColor: "#DB000033",
+  },
+];
+const dataFilter = [
+  {
+    id: "Fatturato",
+    label: "Fatturato",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
   },
 ];
 
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
 const Acquisti = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -68,9 +96,13 @@ const Acquisti = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState([]);
+  const [valoreFilter, setValoreFilter] = useState("");
+  const [page, setPage] = useState(5);
+  const data = [];
 
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
 
@@ -125,7 +157,7 @@ const Acquisti = () => {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
 
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
 
@@ -162,7 +194,12 @@ const Acquisti = () => {
           searchFilters={searchFilters}
         />
 
-        <RevenueLineChart data={"acquisti"} dataset={dataset} />
+        <RevenueLineChart
+          data={"acquisti"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+          series={series}
+        />
       </div>
     </>
   );

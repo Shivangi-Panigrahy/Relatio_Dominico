@@ -224,7 +224,7 @@ const InvoicePage = () => {
         {!window.location.href.includes("/acquisti/budget/sub-budget") &&
           !window.location.href.includes("/acquisti/ordini/sub-ordini") &&
           !window.location.href.includes("/vendite/budget/sub-budget") && (
-            <ProductionInfo />
+            <ProductionInfo  adminiDoc={!window.location.href.includes("/amministrazione/documenti/fattura")}/>
           )}
 
         <SearchTable
@@ -255,7 +255,7 @@ const InvoicePage = () => {
         <div className="invoiceTable">
           <ProductTable dummyData={filteredData} columns={columns} />
         </div>
-        <InvoiceTableFooter />
+        <InvoiceTableFooter dummyData={filteredData} setFilteredData={setFilteredData} />
         <InvoiceFooter />
       </div>
     </>

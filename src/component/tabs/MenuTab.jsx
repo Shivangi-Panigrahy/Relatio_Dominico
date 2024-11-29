@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { ReactComponent as TabIcon } from "../../assets/TabIcon.svg";
@@ -23,7 +23,7 @@ import { ReactComponent as Dati } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./MenuLink.scss";
 import { AddButton } from "../button/AddButton";
 
@@ -85,16 +85,16 @@ const TAB_CONFIGURATIONS = {
     { label: "Time Sheet", icon: TimeSheet },
     { label: "Gantt", icon: Gantt },
   ],
-  default: [
-    { label: "Profitti", icon: TabIcon },
-    { label: "Vendite", icon: TabIcon },
-    { label: "Aquisti", icon: TabIcon },
-    { label: "Personale", icon: TabIcon },
-    { label: "Imposte", icon: TabIcon },
-    { label: "Assett", icon: TabIcon },
-  ],
+  // default: [
+  //   { label: "Profitti", icon: TabIcon },
+  //   { label: "Vendite", icon: TabIcon },
+  //   { label: "Aquisti", icon: TabIcon },
+  //   { label: "Personale", icon: TabIcon },
+  //   { label: "Imposte", icon: TabIcon },
+  //   { label: "Assett", icon: TabIcon },
+  // ],
   statsDashboard: [
-    { label: "Profitti", icon: ProfitiIcon },
+    { label: "profitti", icon: ProfitiIcon },
     { label: "vendite", icon: VenditeIcon },
     { label: "acquisti", icon: AquistiIcon },
     { label: "personale", icon: Personale },
@@ -144,7 +144,16 @@ const TAB_CONFIGURATIONS = {
     { label: "Agenda", icon: Agenda },
     { label: "Allegati", icon: Documenti },
   ],
+  subImposte: [
+    { label: "Reteizzazione", icon: Contatti },
+    { label: "Allegati", icon: Qualificazione },
+  ],
+  subAsset: [
+    { label: "Rate", icon: Contatti },
+    { label: "Allegati", icon: Qualificazione },
+  ]
 };
+
 
 const getNavigationPath = (
   label,
@@ -154,13 +163,27 @@ const getNavigationPath = (
   isHr,
   isHrEvento,
   isHrCandidato
-) => {
+, isaminiImposte, isImposte, isAsset) => {
+
+  // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
+
   if (isLead) return `/vendite/sub-lead/${label}`;
+
   if (isFornitori) return `/acquisti/fornitori/${label}`;
   if (isHr) return `/hr/colaboratory/sub-colaboratory/${label}`;
   // if (isHrEvento) return `/hr/colaboratory/sub-colaboratory/${label}`;
   if (isHrCandidato) return `/hr/candidati/candidato/${label}`;
+
+  if (isImposte) return `/amministrazione/imposte/${label}`;
+
+  if (isImposte) return `/amministrazione/imposte/${label}`;
+
+  if (isAsset) return `/amministrazione/asset/${label}`;
+
+  if (isAsset) return `/amministrazione/asset/${label}`;
+
   return `/dashboard/${label}`;
+
 };
 
 const MenuTab = ({
@@ -176,9 +199,13 @@ const MenuTab = ({
   hr,
   hrEvento,
   hrCandidato,
+  subImposte = false,
+  subAsset = false,
+
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Determine which configuration to use based on props
   const getActiveConfig = useCallback(() => {
@@ -190,6 +217,8 @@ const MenuTab = ({
     if (hr) return TAB_CONFIGURATIONS.hr;
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
     if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
+    if (subImposte) return TAB_CONFIGURATIONS.subImposte;
+    if (subAsset) return TAB_CONFIGURATIONS.subAsset;
     return TAB_CONFIGURATIONS.default;
   }, [
     gantt,
@@ -200,16 +229,23 @@ const MenuTab = ({
     hr,
     hrEvento,
     hrCandidato,
-  ]);
+  , subImposte, subAsset]);
+
+  const tabsConfig = getActiveConfig();
+
+  // Sync selectedTabs with the current route
+  useEffect(() => {
+    const activeIndex = tabsConfig?.findIndex((tab) =>
+      location.pathname.includes(tab.label.toLowerCase())
+    );
+    if (activeIndex !== -1) {
+      setSelectedTabs(activeIndex);
+    }
+  }, [location, tabsConfig]);
 
   const handleTabClick = useCallback(
     (index, label) => {
-      setSelectedTabs(index);
-
-      // Reset filters when changing tabs
-      if (window.searchTableReset?.current) {
-        window.searchTableReset.current();
-      }
+      setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
       const path = getNavigationPath(
@@ -220,11 +256,13 @@ const MenuTab = ({
         hr,
         hrEvento,
         hrCandidato
-      );
+      , subImposte, subAsset);
       navigate(path);
 
-      // Callback for parent component
-      onTabChange?.(`tab${index + 1}`);
+      // Invoke parent callback
+      if (onTabChange) {
+        onTabChange(`tab${index + 1}`);
+      }
     },
     [lead, fornitori, navigate, onTabChange, vendite, hr, hrEvento, hrCandidato]
   );
@@ -242,22 +280,28 @@ const MenuTab = ({
                   {tab.label === "Dati"
                     ? "Dati finanziari"
                     : tab.label === "Sedi"
-                    ? "Sedi operative"
-                    : tab.label === "vendite"
-                    ? "Vendite"
-                    : tab.label === "acquisti"
-                    ? "Acquisti"
-                    : tab.label === "personale"
-                    ? "Personale"
-                    : tab.label === "profitti"
-                    ? "Profitti"
-                    : tab.label === "imposte"
-                    ? "Imposte"
-                    : tab.label === "asset"
-                    ? "Asset"
-                    : tab.label === "attivita"
-                    ? "Attivita"
-                    : tab.label}
+                      ? "Sedi operative"
+                       : tab.label === "profitti"
+                          ? "Profitti"
+                      : tab.label === "vendite"
+                        ? "Vendite"
+                        : tab.label === "acquisti"
+                          ? "Acquisti"
+                          : tab.label === "personale"
+                            ? "Personale"
+                            : tab.label === "profitti"
+                              ? "Profitti"
+                              : tab.label === "imposte"
+                                ? "Imposte"
+                                : tab.label === "asset"
+                                  ? "Asset"
+                                  : tab.label === "attivita"
+                                    ? "Attivita"
+                                    : tab.label === "Reteizzazione" ?
+                                      "Reteizzazione" :
+                                      tab.label === "Allegati" ?
+                                        "Allegati"
+                                        : tab.label}
                 </span>
               }
               icon={<IconComponent />}

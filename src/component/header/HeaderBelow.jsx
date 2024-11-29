@@ -31,6 +31,7 @@ const HeaderBelow = () => {
           >
             <ArrowBackIcon />
           </IconButton>
+
           {window.location.href.includes("/invoice") ? (
             <>
               <Typography variant="h2">Categoria</Typography>
@@ -535,6 +536,13 @@ const HeaderBelow = () => {
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
           !location.pathname.includes("/acquisti/budget/sub-budget") &&
+          !location.pathname.includes("/dashboard/profitti") &&
+          !location.pathname.includes("/dashboard/vendite") &&
+          !location.pathname.includes("/dashboard/acquisti") &&
+          !location.pathname.includes("/dashboard/personale") &&
+          !location.pathname.includes("/dashboard/imposte") &&
+          !location.pathname.includes("/dashboard/asset") &&
+          !location.pathname.includes("/dashboard/attivita") &&
           !location.pathname.includes("/acquisti/ordini/sub-ordini") &&
           !location.pathname.includes("sub-colaboratory") &&
           !location.pathname.includes("/hr/buste-page/busta") &&

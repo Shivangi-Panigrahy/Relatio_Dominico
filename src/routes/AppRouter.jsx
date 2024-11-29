@@ -65,6 +65,12 @@ import BustaPage from "../pages/HR/BustePage/BustePage";
 import Busta from "../pages/HR/BustePage/Busta";
 import Candidati from "../pages/HR/Candidati/Candidati";
 import Candidato from "../pages/HR/Candidati/Candidato";
+import Repository from "../pages/Files/Repository/Repository";
+import Archivio from "../pages/Files/Archivio/Archivio";
+import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
+import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
+import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
+import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 
 const Allroutes = () => {
   return (
@@ -489,6 +495,14 @@ const Allroutes = () => {
         }
       />
       <Route
+        path="/amministrazione/documenti/fattura"
+        element={
+          <PublicRoute>
+            <InvoicePage />
+          </PublicRoute>
+        }
+      />
+      <Route
         path="/amministrazione/imposte"
         element={
           <PublicRoute>
@@ -497,10 +511,42 @@ const Allroutes = () => {
         }
       />
       <Route
+        path="/amministrazione/imposte/Reteizzazione"
+        element={
+          <PublicRoute>
+            <SubImposte Component={Reteizzazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/amministrazione/imposte/Allegati"
+        element={
+          <PublicRoute>
+            <SubImposte Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
         path="/amministrazione/asset"
         element={
           <PublicRoute>
             <AmministrazioneAsset />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/amministrazione/asset/Rate"
+        element={
+          <PublicRoute>
+            <SubAsset Component={Reteizzazione}/>
+          </PublicRoute>
+        }
+      />
+            <Route
+        path="/amministrazione/asset/Allegati"
+        element={
+          <PublicRoute>
+            <SubAsset Component={Allegati}/>
           </PublicRoute>
         }
       />
@@ -717,6 +763,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Candidato Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/file/repository"
+        element={
+          <PublicRoute>
+            <Repository />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/file/archivio"
+        element={
+          <PublicRoute>
+            <Archivio />
           </PublicRoute>
         }
       />

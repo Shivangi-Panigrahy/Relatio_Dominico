@@ -250,6 +250,50 @@ const SearchTable = ({
             value={activeFilters["peso"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("peso", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Peso" />} // Customize the label
+          // sx={{ width: 300 }} // Optional styling
+          />
+          <SearchField
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <MenuWithOptions options={options} />
+        </>
+      ) : navData === "eventoAllegati" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("categoria")} // Provide your unique values here
+            value={activeFilters["categoria"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("categoria", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Categoria" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("tipologia")} // Provide your unique values here
+            value={activeFilters["tipologia"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("tipologia", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Tipo di file" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("recercaLibrera")} // Provide your unique values here
+            value={activeFilters["recercaLibrera"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("recercaLibrera", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Recerca librera" />
+            )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
         </>
@@ -560,13 +604,15 @@ const SearchTable = ({
           />
         </>
       )}
-
-      {["equipagiamento", "eventoAllegati"].includes(navData) === false && (
+      {form !== "form1" || 
+        ["equipagiamento", "eventoAllegati"].includes(navData) === false && (
         <div style={{ marginTop: "5px" }}>
-          {form !== "form1" ||
-            (navData === "personale" && <MenuWithOptions options={options} />)}
-        </div>
-      )}
+              {(navData === "personale" || navData === "repository" || navData === "leed") && (
+            <MenuWithOptions options={options} />
+          )}
+          </div>
+      )
+      }
     </>
   );
   const renderInvoiceFilters = () => (
@@ -624,7 +670,11 @@ const SearchTable = ({
           window.location.pathname === "/vendite/ordini/sub-ordini"
             ? ""
             : `
-          ${invoice ? "invoiceFilter fattura" : `invoiceFilter`}
+          ${
+            invoice
+              ? "invoiceFilter fattura"
+              : `invoiceFilter`
+          }
           ${navData === "leed" ? "leadInvoiceFilter" : ""}
         `
         }

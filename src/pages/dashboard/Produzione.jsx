@@ -3,6 +3,8 @@ import RevenueLineChart from "../../component/LineChart/LineChart";
 import SearchTable from "../../component/filter/Searchtable";
 import ProfittiStatitics from "../../component/profittiStatitics/profittiStatitics";
 import Header from "../../component/header/Header";
+import dayjs from "dayjs";
+import MenuTab from "../../component/tabs/MenuTab";
 
 const Produzione = () => {
   const [startDate, setStartDate] = useState(null);
@@ -12,11 +14,15 @@ const Produzione = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [page, setPage] = useState(0);
+  const [filteredData, setFilteredData] = useState([]);
+  const [valoreFilter, setValoreFilter] = useState("");
 
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
     setPage(0);
   };
+  const data=[];
 
   const handleSearch = (filters) => {
     setSearchFilters(filters);
@@ -77,13 +83,13 @@ const Produzione = () => {
     setActiveTab(newTab); // Update the active tab
     setSubActiveTab(""); // Reset the active sub-tab
     setValue(-1); // Reset the value
-};
+  };
 
   return (
     <>
       <Header />
       <div className="pageTemplate">
-        <MenuTab onTabChange={handleTabChange} statsDashboard={true}  vendite={true}/>
+        <MenuTab onTabChange={handleTabChange} statsDashboard={true} vendite={true} />
 
         {/* Statistics row */}
         <ProfittiStatitics />

@@ -24,6 +24,7 @@
             font-size: 14px;
             line-height: 16px;
             font-weight: 700;
+            font-family: "Barlow", sans-serif;
           }
         }
       }
@@ -41,13 +42,16 @@
           background-color: #f2f2f2 !important;
           .completatoStato {
             background-color: #57c700;
+            background-color: #57c700;
             color: #fff;
           }
           .approvatoStato {
-            background-color: #2196f3;
+            background-color: #57c700;
+            // background-color: #2196f3;
             color: #fff;
           }
           .in-attesaStato {
+            background-color: #ffa903;
             background-color: #ffa903;
             color: #fff;
           }
@@ -204,6 +208,10 @@
     }
   }
 }
+.customtable  table tbody.customTableChanges tr td {
+  padding: 22px 12px !important;
+}
+
 // .approvato {
 //   border: 1px solid #2196f3;
 // }

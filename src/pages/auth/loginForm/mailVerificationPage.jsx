@@ -24,7 +24,7 @@ const CodeInput = styled(TextField)({
   },
 });
 
-const mailVerificationPage = () => {
+const MailVerificationPage = () => {
   const navigate = useNavigate();
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const {
@@ -115,4 +115,4 @@ const mailVerificationPage = () => {
   );
 };
 
-export default mailVerificationPage;
+export default MailVerificationPage;

@@ -52,3 +52,17 @@
     }
   }
 }
+
+.documentiSearchFilter {
+    .invoiceFilter {
+        display: flex;
+        flex-direction: row;
+        box-shadow: unset;
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 30px;
+        .MuiStack-root {
+            grid-template-columns: 155px 155px 1fr 1fr 2fr;
+        }
+    }
+}

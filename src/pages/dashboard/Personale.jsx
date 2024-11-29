@@ -7,19 +7,28 @@ import { Outlet } from "react-router-dom";
 import MenuTab from "../../component/tabs/MenuTab";
 import Table from "../../component/table/Table";
 import tableData from "../../utils/personaleData.json";
+import dayjs from "dayjs";
+
 const dataset = [
-  { month: "Gen", entrate: 5 },
-  { month: "Feb", entrate: 8 },
-  { month: "Mar", entrate: 12 },
-  { month: "Apr", entrate: 25 },
-  { month: "Mag", entrate: 42 },
-  { month: "Giu", entrate: 45 },
-  { month: "Lug", entrate: 45 },
-  { month: "Ago", entrate: 48 },
-  { month: "Set", entrate: 58 },
-  { month: "Ott", entrate: 62 },
-  { month: "Nov", entrate: 52 },
-  { month: "Dic", entrate: 35 },
+  { month: "Gen", entrate: 20 },
+  { month: "Feb", entrate: 40 },
+  { month: "Mar", entrate: 60 },
+  { month: "Apr", entrate: 80 },
+  { month: "Mag", entrate: 100 },
+  { month: "Giu", entrate: 80 },
+  { month: "Lug", entrate: 100 },
+  { month: "Ago", entrate: 80 },
+  { month: "Set", entrate: 60 },
+  { month: "Ott", entrate: 80 },
+  { month: "Nov", entrate: 100 },
+  { month: "Dic", entrate: 80 },
+];
+
+const dataPie = [
+  { id: 1, value: 35, color: "#E72276", type: "IVA" },
+  { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
+  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+  { id: 0, value: 45, color: "#E72276", type: "IRES" },
 ];
 
 const personaleData = [
@@ -27,31 +36,41 @@ const personaleData = [
     status: "I Trimestre",
     count: 8.2,
     amount: "29.043.55€",
-    color: "black",
+    color: "#160A2A",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
-    color: "black",
+    color: "#160A2A",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
-    color: "black",
+    color: "#160A2A",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
-    color: "black",
+    color: "#160A2A",
+    backgroundColor: "#fff",
+    statusColor: '#E72276'
   },
   {
     status: "Totale Stipendi",
     count: 8.2,
     amount: "-350.043.55€",
-    color: "red",
+    color: "#160A2A",
+    backgroundColor: "#DB000033",
+    statusColor: '#E72276'
   },
 ];
 
@@ -118,6 +137,34 @@ const columns = [
     width: 120,
   },
 ];
+
+const dataFilter = [
+  {
+    id: "Buste paga",
+    label: "Buste paga",
+    value: "€16.19k",
+    color: "#4CAF50",
+    action: "Entrate",
+  },
+];
+const series = [
+  {
+    dataKey: "entrate",
+    color: "#4CAF50",
+    showMark: true,
+  },
+  {
+    dataKey: "uscite",
+    color: "#f44336",
+    showMark: true,
+  },
+  {
+    dataKey: "ricavo",
+    color: "#000000",
+    showMark: true,
+  },
+];
+
 const Personale = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -126,10 +173,14 @@ const Personale = () => {
   const [searchFilters, setSearchFilters] = useState({});
   const [activeSubTab, setSubActiveTab] = useState("");
   const [value, setValue] = React.useState(-1);
+  const [filteredData, setFilteredData] = useState([]);
+  const [valoreFilter, setValoreFilter] = useState("");
+  const [page, setPage] = useState(5);
   const handleValoreFilter = (selectedValore) => {
-    setValoreFilter(selectedValore);
+    // setValoreFilter(selectedValore);
     setPage(0);
   };
+  const data = [];
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
@@ -174,7 +225,7 @@ const Personale = () => {
     if (searchFilters.clienti) {
       result = result.filter((item) => item.clienti === searchFilters.clienti);
     }
-    setFilteredData(result);
+    // setFilteredData(result);
     setPage(0);
   };
   const handleTabChange = (newTab) => {
@@ -202,7 +253,13 @@ const Personale = () => {
           setActiveFilters={setActiveFilters}
           searchFilters={searchFilters}
         />
-        <RevenueLineChart data={"personale"} dataset={dataset} />
+        <RevenueLineChart
+          data={"personale"}
+          dataset={dataset}
+          dataFilter={dataFilter}
+          dataPie={dataPie}
+          series={series}
+        />
         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>

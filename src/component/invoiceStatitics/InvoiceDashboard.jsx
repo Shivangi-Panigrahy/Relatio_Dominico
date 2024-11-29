@@ -45,7 +45,7 @@ const InvoiceCard = ({
               ? " "
               : subfix && hr
               ? subfix
-              : "Facture"}
+              : window.location.href.includes("/amministrazione/documenti")?"Documenti":"Facture"}
           </span>
         </h5>
       </div>
@@ -63,9 +63,11 @@ const InvoiceDashboard = ({
   amministrazioneDocumenti = false,
   primaNota = false,
   hr,
+  amministrazioneImposte=false,
+  reteizzazione=false
 }) => {
   const classes = useStyles();
-
+  console.log(amministrazioneDocumenti,'amministrazioneDocumenti')
   const dataSources = {
     acquisti: acquisti,
     preventivi: preventivi,
@@ -73,9 +75,10 @@ const InvoiceDashboard = ({
     ordini: ordini,
     budget: budget,
     fornitori: fornitori,
-    amministrazioneDocumenti: amministrazioneDocumenti,
-    amministrazioneAsset: amministrazioneAsset,
-    primaNota: primaNota,
+    amministrazioneDocumenti:amministrazioneDocumenti,
+    amministrazioneAsset:amministrazioneAsset,
+    primaNota:primaNota,
+    amministrazioneImposte:amministrazioneImposte
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -85,6 +88,10 @@ const InvoiceDashboard = ({
     ordini,
     budget,
     fornitori,
+    amministrazioneDocumenti,
+    amministrazioneAsset,
+    primaNota,
+    amministrazioneImposte
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
