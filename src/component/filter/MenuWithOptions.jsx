@@ -20,11 +20,7 @@ const MenuWithOptions = ({ options }) => {
   return (
     <div style={{ marginTop: '0' }}>
       <IconButton
-        sx={{
-          backgroundColor: "white",
-          borderRadius: "4px",
-          height: '54px'
-        }}
+      className="menuIconBtn"
         onClick={(e) => handleMenuClick(e, 0)} // Open menu
       >
         <MoreVertIcon />

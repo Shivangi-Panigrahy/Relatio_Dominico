@@ -1,7 +1,8 @@
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/budgetdata.json";
+import tableData from "../../../utils/documentiAdministrazioneData.json";
+import './Documenti.scss'
 
 const AmministrazioneDocumenti = () => {
   const amministrazioneDocumentiData = [
@@ -36,127 +37,36 @@ const AmministrazioneDocumenti = () => {
   ];
 
   const columns = [
-    { field: "Doc", headerName: "Doc", width: 64 },
-    { field: "Numero", headerName: "Numero", width: 92 },
-    { field: "Del", headerName: "Del", width: 114 },
-    { field: "Clienti", headerName: "Clienti", width: 366 },
-    { field: "Fornitiori", headerName: "Fornitiori", width: 284 },
-    { field: "ModDa", headerName: "Mod. da", width: 273 },
-    { field: "Autore", headerName: "Autore", width: 144 },
-    { field: "CreatoIl", headerName: "Creato il", width: 145 },
-    { field: "Totale", headerName: "Totale", width: 84 },
-    { field: "Saldata", headerName: "Saldata", width: 84 },
-    { field: "DaSaldare", headerName: "Da Saldare", width: 93 },
-    { field: "Stato", headerName: "Stato", width: 142 },
+    { field: "doc", headerName: "Doc", width: 64 },
+    { field: "numero", headerName: "Numero", width: 92 },
+    { field: "del", headerName: "Del", width: 114 },
+    { field: "clienti", headerName: "Clienti", width: 366 },
+    { field: "fornitori", headerName: "Fornitiori", width: 284 },
+    { field: "modDa", headerName: "Mod. da", width: 273 },
+    { field: "autore", headerName: "Autore", width: 144 },
+    { field: "creatoIl", headerName: "Creato il", width: 145 },
+    { field: "totale", headerName: "Totale", width: 84 },
+    { field: "saldata", headerName: "Saldata", width: 84 },
+    { field: "dasaldare", headerName: "Da Saldare", width: 93 },
+    { field: "stato", headerName: "Stato", width: 142 },
     { field: "azioni", headerName: "Azioni", width: 93 },
   ];
 
-  const rows = [
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    },
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    },
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    },
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    },
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    },
-    {
-      Doc: "Fattura",
-      Numero: "12342343",
-      Del: "28/11/2022",
-      Clienti: "Azienda cliente srl",
-      Fornitori: "Fornitore SPA",
-      ModDa: "Author",
-      Autore: "28/11/2022",
-      CreatoIl: "28/11/2022",
-      Totale: "129.123,334.00€",
-      Saldata: "129.123,334.00€",
-      DaSaldare: "0€",
-      Stato: "Saldo",
-      Azioni: "..."
-    }
-  ];
-  
-  
+ 
+
+
 
   return (
     <>
-   <Header />
-   <div className="pageTemplate">
-   <InvoiceDashboard amministrazioneDocumenti={amministrazioneDocumentiData}/>
-   <Table
-          data={rows}
+      <Header />
+      <div className="pageTemplate documentiPage">
+        <InvoiceDashboard amministrazioneDocumenti={amministrazioneDocumentiData} />
+        <Table
+          data={tableData}
           columns={columns}
           navData={"AmministragionDocumenti"}
         />
-   </div>
+      </div>
     </>
   )
 }

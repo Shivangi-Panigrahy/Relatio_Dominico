@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "creatoIl": "05/01/2024",
+      "documento": "Fattura FA/301",
+      "clienti": "Cliente XYZ",
+      "entrata": "15.678,45€",
+      "uscita": "5.123,00€",
+      "utileContabile": "10.555,45€",
+      "tipo": "Pagamento",
+      "modalita": "Assegno",
+      "tipoRisorsa": "Cassa",
+      "nomeRisorsa": "Cassa aziendale",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "creatoIl": "06/01/2024",
+      "documento": "Fattura FA/302",
+      "clienti": "Cliente ABC",
+      "entrata": "8.900,00€",
+      "uscita": "3.000,00€",
+      "utileContabile": "5.900,00€",
+      "tipo": "Saldo",
+      "modalita": "Bonifico",
+      "tipoRisorsa": "Contante",
+      "nomeRisorsa": "Contante in ufficio",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "creatoIl": "07/01/2024",
+      "documento": "Fattura FA/303",
+      "clienti": "Cliente DEF",
+      "entrata": "25.000,00€",
+      "uscita": "10.000,00€",
+      "utileContabile": "15.000,00€",
+      "tipo": "Saldo",
+      "modalita": "Carta di credito",
+      "tipoRisorsa": "Banca",
+      "nomeRisorsa": "Banca di Milano",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "creatoIl": "08/01/2024",
+      "documento": "Fattura FA/304",
+      "clienti": "Cliente LMN",
+      "entrata": "5.500,00€",
+      "uscita": "2.500,00€",
+      "utileContabile": "3.000,00€",
+      "tipo": "Saldo",
+      "modalita": "Bonifico",
+      "tipoRisorsa": "Poste",
+      "nomeRisorsa": "Poste Italiane",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "creatoIl": "09/01/2024",
+      "documento": "Fattura FA/305",
+      "clienti": "Cliente GHI",
+      "entrata": "13.000,00€",
+      "uscita": "4.000,00€",
+      "utileContabile": "9.000,00€",
+      "tipo": "Pagamento",
+      "modalita": "Assegno",
+      "tipoRisorsa": "Cassa",
+      "nomeRisorsa": "Cassa centrale",
+      "azioni": "..."
+    },
+    {
+      "id": 6,
+      "creatoIl": "10/01/2024",
+      "documento": "Fattura FA/306",
+      "clienti": "Cliente JKL",
+      "entrata": "20.000,00€",
+      "uscita": "12.000,00€",
+      "utileContabile": "8.000,00€",
+      "tipo": "Saldo",
+      "modalita": "Bonifico",
+      "tipoRisorsa": "Banca",
+      "nomeRisorsa": "Banca di Roma",
+      "azioni": "..."
+    }
+  ]
+  

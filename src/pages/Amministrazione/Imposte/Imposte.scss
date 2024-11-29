@@ -1,0 +1,23 @@
+.impostePage {
+    .invoiceFilter {
+        .MuiStack-root {
+            grid-template-columns: 144px 144px 124px 1.2fr 1fr 1fr 1.9fr 50px;
+            .MuiFormControl-root {
+                min-width: 124px;
+            }
+            .MuiPaper-elevation {
+                max-width: -webkit-fill-available;
+            }
+        }
+    }
+}
+.reteizzazionePage {
+    .invoiceFilter {
+        .MuiStack-root {
+            grid-template-columns: 155px 155px 1fr;
+            .MuiPaper-elevation {
+                max-width: -webkit-fill-available;
+            }
+        }
+    }
+}

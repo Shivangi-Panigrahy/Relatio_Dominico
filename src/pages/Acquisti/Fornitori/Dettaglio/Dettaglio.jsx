@@ -32,7 +32,7 @@ const Dettaglio = ({ Component }) => {
     return (
         <>
             <Header />
-            <div className="pageTemplate">
+            <div className="pageTemplate documentileadDocumentiPage">
                 <Grid container spacing={3}>
                     <Grid item lg={3} md={4} xs={12}>
                         <AnagraficaForm />

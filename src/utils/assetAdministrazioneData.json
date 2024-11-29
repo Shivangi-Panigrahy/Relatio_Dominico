@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "doc": "Contratto CA/512",
+      "creatoIl": "01/02/2023",
+      "scadenza": "01/02/2025",
+      "asset": "Immobiliare",
+      "tipologia": "Investimento",
+      "obiettivo": "Acquisto appartamento",
+      "frequenza": "250.000,00€",
+      "importoTotale": "500.000,00€",
+      "autore": "Autore A",
+      "modDa": "Modifica A",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "doc": "Contratto CA/513",
+      "creatoIl": "02/03/2023",
+      "scadenza": "02/03/2025",
+      "asset": "Tecnologia",
+      "tipologia": "Startup",
+      "obiettivo": "Fondo di investimento",
+      "frequenza": "100.000,00€",
+      "importoTotale": "200.000,00€",
+      "autore": "Autore B",
+      "modDa": "Modifica B",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "doc": "Contratto CA/514",
+      "creatoIl": "10/04/2023",
+      "scadenza": "10/04/2024",
+      "asset": "Azioni",
+      "tipologia": "Finanza",
+      "obiettivo": "Investimento in azioni",
+      "frequenza": "50.000,00€",
+      "importoTotale": "150.000,00€",
+      "autore": "Autore C",
+      "modDa": "Modifica C",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "doc": "Contratto CA/515",
+      "creatoIl": "15/05/2023",
+      "scadenza": "15/05/2025",
+      "asset": "Immobiliare",
+      "tipologia": "Investimento",
+      "obiettivo": "Acquisto terreni",
+      "frequenza": "300.000,00€",
+      "importoTotale": "600.000,00€",
+      "autore": "Autore D",
+      "modDa": "Modifica D",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "doc": "Contratto CA/516",
+      "creatoIl": "20/06/2023",
+      "scadenza": "20/06/2024",
+      "asset": "Commercio",
+      "tipologia": "Vendita",
+      "obiettivo": "Espansione attività",
+      "frequenza": "80.000,00€",
+      "importoTotale": "160.000,00€",
+      "autore": "Autore E",
+      "modDa": "Modifica E",
+      "azioni": "..."
+    },
+    {
+      "id": 6,
+      "doc": "Contratto CA/517",
+      "creatoIl": "25/07/2023",
+      "scadenza": "25/07/2025",
+      "asset": "Startup",
+      "tipologia": "Fondo di investimento",
+      "obiettivo": "Finanziamento startup",
+      "frequenza": "120.000,00€",
+      "importoTotale": "240.000,00€",
+      "autore": "Autore F",
+      "modDa": "Modifica F",
+      "azioni": "..."
+    }
+  ]
+  
