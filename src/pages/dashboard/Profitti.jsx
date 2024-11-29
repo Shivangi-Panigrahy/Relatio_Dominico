@@ -5,7 +5,8 @@ import ProfittiStatitics from "../../component/profittiStatitics/profittiStatiti
 import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
-
+import Table from "../../component/table/Table";
+import tableData from "../../utils/personaleData.json";
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
   { month: "Feb", entrate: 8, uscite: 28, ricavo: 45 },
@@ -20,46 +21,111 @@ const dataset = [
   { month: "Nov", entrate: 52, uscite: 72, ricavo: 88 },
   { month: "Dic", entrate: 100, uscite: 55, ricavo: 68 },
 ];
+const columns = [
+  { field: "nome", headerName: "Nome", width: 400 },
+  {
+    field: "gennaio",
+    headerName: "Gennaio",
+    width: 120,
+  },
+  {
+    field: "febbraio",
+    headerName: "Febbraio",
+    width: 120,
+  },
+  {
+    field: "marzo",
+    headerName: "Marzo",
+    width: 120,
+  },
+  {
+    field: "aprile",
+    headerName: "Aprile",
+    width: 120,
+  },
+  {
+    field: "maggio",
+    headerName: "Maggio",
+    width: 120,
+  },
+  {
+    field: "giugno",
+    headerName: "Giugno",
+    width: 120,
+  },
+  {
+    field: "luglio",
+    headerName: "Luglio",
+    width: 120,
+  },
+  {
+    field: "agosto",
+    headerName: "Agosto",
+    width: 120,
+  },
+  {
+    field: "settembre",
+    headerName: "Settembre",
+    width: 120,
+  },
+  {
+    field: "ottobre",
+    headerName: "Ottobre",
+    width: 120,
+  },
+  {
+    field: "novembre",
+    headerName: "Novembre",
+    width: 120,
+  },
+  {
+    field: "dicembre",
+    headerName: "Dicembre",
+    width: 120,
+  },
+];
+
 const profittiData = [
   {
     status: "I Trimestre",
     count: 8.2,
     amount: "29.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "II Trimestre",
     count: 8.2,
     amount: "30.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "III Trimestre",
     count: 8.2,
     amount: "55.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "IV Trimestre",
     count: 8.2,
     amount: "150.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "Totale ricavi",
     count: 8.2,
     amount: "350.043.55€",
-    color: "black",
+    color: "#160A2A",
     backgroundColor: "#57C7001A",
-    statusColor: '#160A2A'
+    statusColor: "#160A2A",
+    isHighlighted: true,
   },
 ];
 
@@ -90,7 +156,7 @@ const dataFilter = [
 const series = [
   {
     dataKey: "entrate",
-    color: "#4CAF50",
+    color: "#57C700",
     showMark: true,
   },
   {
@@ -104,6 +170,7 @@ const series = [
     showMark: true,
   },
 ];
+
 const Profiitti = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -193,7 +260,7 @@ const Profiitti = () => {
         />
 
         {/* Statistics row */}
-        <ProfittiStatitics dataType={profittiData} />
+        <ProfittiStatitics dataType={profittiData} isProfitti={true} />
 
         <SearchTable
           startDate={startDate}
@@ -215,6 +282,7 @@ const Profiitti = () => {
           dataFilter={dataFilter}
           series={series}
         />
+         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>
   );

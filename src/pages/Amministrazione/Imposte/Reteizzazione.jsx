@@ -1,5 +1,7 @@
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import Table from "../../../component/table/Table"
+import tableData from "../../../utils/reteizzazioneData.json"
+import './Imposte.scss'
 
 const Reteizzazione = () => {
 
@@ -28,7 +30,7 @@ const Reteizzazione = () => {
   ];
 
   const columns = [
-    { field: "scadenza", headerName: "Scadenza", width: 130},
+    { field: "creatoil", headerName: "Scadenza", width: 130},
     { field: "dataPagamento", headerName: "Data di pagamento", width: 167},
     { field: "rata", headerName: "Rata", width: 229},
     { field: "importo", headerName: "Importo", width: 150 },
@@ -39,80 +41,14 @@ const Reteizzazione = () => {
     { field: "modDa", headerName: "Mod. da", width: 84},
     { field: "azioni", headerName: "Azioni", width: 93},
   ];
-  const rows = [
-    {
-      id: 1,
-      scadenza: "31/11/2024",
-      dataPagamento: "31/11/2024",
-      rata: "Rata 1",
-      importo: "129.123.334,00€",
-      daSaldare: "0€",
-      saldato: "129.123.334,00€",
-      stato: "Pagata",
-      autore: "Author Image 1",
-      modDa: "Author Image 1",
-      azioni: "...",
-    },
-    {
-      id: 2,
-      scadenza: "31/11/2024",
-      dataPagamento: "31/11/2024",
-      rata: "Rata 1",
-      importo: "129.123.334,00€",
-      daSaldare: "0€",
-      saldato: "129.123.334,00€",
-      stato: "Pagata",
-      autore: "Author Image 2",
-      modDa: "Author Image 2",
-      azioni: "...",
-    },
-    {
-      id: 3,
-      scadenza: "31/11/2024",
-      dataPagamento: "31/11/2024",
-      rata: "Rata 1",
-      importo: "129.123.334,00€",
-      daSaldare: "0€",
-      saldato: "129.123.334,00€",
-      stato: "Pagata",
-      autore: "Author Image 3",
-      modDa: "Author Image 3",
-      azioni: "...",
-    },
-    {
-      id: 4,
-      scadenza: "31/11/2024",
-      dataPagamento: "31/11/2024",
-      rata: "Rata 1",
-      importo: "129.123.334,00€",
-      daSaldare: "0€",
-      saldato: "129.123.334,00€",
-      stato: "Pagata",
-      autore: "Author Image 4",
-      modDa: "Author Image 4",
-      azioni: "...",
-    },
-    {
-      id: 5,
-      scadenza: "31/11/2024",
-      dataPagamento: "31/11/2024",
-      rata: "Rata 1",
-      importo: "129.123.334,00€",
-      daSaldare: "0€",
-      saldato: "129.123.334,00€",
-      stato: "Pagata",
-      autore: "Author Image 5",
-      modDa: "Author Image 5",
-      azioni: "...",
-    },
-  ];
+
 
   return (
     <>
-   <div style={{paddingTop:'30px'}}>
+   <div style={{paddingTop:'30px'}} className="reteizzazionePage">
    <InvoiceDashboard ordini={OrdiniData} reteizzazione={true}/>
    <Table
-          data={rows}
+          data={tableData}
           columns={columns}
           navData={"AmministragionReteizione"}
         />

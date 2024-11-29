@@ -6,9 +6,10 @@ import Header from "../../component/header/Header";
 import { Outlet } from "react-router-dom";
 import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
-
+import Table from "../../component/table/Table";
+import tableData from "../../utils/personaleData.json";
 const dataset = [
-  { month: "Gen", entrate: 5},
+  { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
   { month: "Mar", entrate: 12 },
   { month: "Apr", entrate: 25 },
@@ -21,7 +22,69 @@ const dataset = [
   { month: "Nov", entrate: 52 },
   { month: "Dic", entrate: 100 },
 ];
-
+const columns = [
+  { field: "nome", headerName: "Nome", width: 400 },
+  {
+    field: "gennaio",
+    headerName: "Gennaio",
+    width: 120,
+  },
+  {
+    field: "febbraio",
+    headerName: "Febbraio",
+    width: 120,
+  },
+  {
+    field: "marzo",
+    headerName: "Marzo",
+    width: 120,
+  },
+  {
+    field: "aprile",
+    headerName: "Aprile",
+    width: 120,
+  },
+  {
+    field: "maggio",
+    headerName: "Maggio",
+    width: 120,
+  },
+  {
+    field: "giugno",
+    headerName: "Giugno",
+    width: 120,
+  },
+  {
+    field: "luglio",
+    headerName: "Luglio",
+    width: 120,
+  },
+  {
+    field: "agosto",
+    headerName: "Agosto",
+    width: 120,
+  },
+  {
+    field: "settembre",
+    headerName: "Settembre",
+    width: 120,
+  },
+  {
+    field: "ottobre",
+    headerName: "Ottobre",
+    width: 120,
+  },
+  {
+    field: "novembre",
+    headerName: "Novembre",
+    width: 120,
+  },
+  {
+    field: "dicembre",
+    headerName: "Dicembre",
+    width: 120,
+  },
+];
 const acquistidata = [
   {
     status: "I Trimestre",
@@ -200,6 +263,7 @@ const Acquisti = () => {
           dataFilter={dataFilter}
           series={series}
         />
+           <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>
   );

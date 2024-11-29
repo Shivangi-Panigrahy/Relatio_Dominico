@@ -6,6 +6,9 @@ import Header from "../../component/header/Header";
 import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
 
+import Table from "../../component/table/Table";
+import tableData from "../../utils/personaleData.json";
+
 const dataset = [
   { month: "Gen", entrate: 5, uscite: 25, ricavo: 42 },
   { month: "Feb", entrate: 8, uscite: 28, ricavo: 45 },
@@ -21,6 +24,69 @@ const dataset = [
   { month: "Dic", entrate: 100, uscite: 55, ricavo: 68 },
 ];
 
+const columns = [
+  { field: "nome", headerName: "Nome", width: 400 },
+  {
+    field: "gennaio",
+    headerName: "Gennaio",
+    width: 120,
+  },
+  {
+    field: "febbraio",
+    headerName: "Febbraio",
+    width: 120,
+  },
+  {
+    field: "marzo",
+    headerName: "Marzo",
+    width: 120,
+  },
+  {
+    field: "aprile",
+    headerName: "Aprile",
+    width: 120,
+  },
+  {
+    field: "maggio",
+    headerName: "Maggio",
+    width: 120,
+  },
+  {
+    field: "giugno",
+    headerName: "Giugno",
+    width: 120,
+  },
+  {
+    field: "luglio",
+    headerName: "Luglio",
+    width: 120,
+  },
+  {
+    field: "agosto",
+    headerName: "Agosto",
+    width: 120,
+  },
+  {
+    field: "settembre",
+    headerName: "Settembre",
+    width: 120,
+  },
+  {
+    field: "ottobre",
+    headerName: "Ottobre",
+    width: 120,
+  },
+  {
+    field: "novembre",
+    headerName: "Novembre",
+    width: 120,
+  },
+  {
+    field: "dicembre",
+    headerName: "Dicembre",
+    width: 120,
+  },
+];
 const venditeData = [
   {
     status: "I Trimestre",
@@ -28,7 +94,7 @@ const venditeData = [
     amount: "29.043.55€",
     color: "#160A2A",
     label: "Anno precedente",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "II Trimestre",
@@ -36,7 +102,7 @@ const venditeData = [
     amount: "30.043.55€",
     color: "#160A2A",
     label: "Anno precedente",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "III Trimestre",
@@ -44,7 +110,7 @@ const venditeData = [
     amount: "55.043.55€",
     color: "#160A2A",
     label: "Anno precedente",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "IV Trimestre",
@@ -52,7 +118,7 @@ const venditeData = [
     amount: "150.043.55€",
     color: "#160A2A",
     label: "Anno precedente",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "Totale Preventivi",
@@ -60,7 +126,7 @@ const venditeData = [
     amount: "350.043.55€",
     color: "#57C700",
     label: "Anno precedente",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "Accettati",
@@ -69,7 +135,8 @@ const venditeData = [
     color: "#100919",
     label: "Conversione",
     backgroundColor: "#57C7001A",
-    statusColor: '#160A2A'
+    statusColor: "#160A2A",
+    isHighlighted: true,
   },
   {
     status: "Sospesi",
@@ -78,7 +145,8 @@ const venditeData = [
     color: "#100919",
     label: "Conversione",
     backgroundColor: "#FFA90333",
-    statusColor: '#160A2A'
+    statusColor: "#160A2A",
+    isHighlighted: true,
   },
   {
     status: "Rifiutati",
@@ -87,7 +155,8 @@ const venditeData = [
     color: "#100919",
     label: "Conversione",
     backgroundColor: "#DB000033",
-    statusColor: '#160A2A'
+    statusColor: "#160A2A",
+    isHighlighted: true,
   },
 ];
 const dataFilter = [
@@ -209,7 +278,11 @@ const Vendite = () => {
         />
 
         {/* Statistics row */}
-        <ProfittiStatitics dataType={venditeData} type={true} />
+        <ProfittiStatitics
+          dataType={venditeData}
+          type={true}
+          isProfitti={false}
+        />
 
         <SearchTable
           startDate={startDate}
@@ -231,6 +304,7 @@ const Vendite = () => {
           dataFilter={dataFilter}
           series={series}
         />
+         <Table data={tableData} columns={columns} navData={"personale"} />
       </div>
     </>
   );

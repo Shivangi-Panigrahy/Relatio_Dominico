@@ -15,8 +15,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
-import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
-import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
+import { ReactComponent as SIIcon} from "../../assets/SIIcon.svg";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -105,6 +104,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Attivo",
       };
+      case "Pagata":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Attivo",
+        };
 
     default:
       return {
@@ -214,94 +219,6 @@ const TableRows = ({
             </StyledTableRow>
           </TableBody>
         );
-
-
-
-      case "listini":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(
-                  page * rowsPerPage,
-                  // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti)
-                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
-                    : page * rowsPerPage + rowsPerPage
-                )
-                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                    onClick={() => navigate("/cataloghi/listini/Gruppi")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.nomeListino}</StyledTableCell>
-                    <StyledTableCell>{row.gruppiAssociati}</StyledTableCell>
-                    <StyledTableCell>{row.nProdotti}</StyledTableCell>
-                      <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
-                          <IconButton
-                            size="small"
-                            sx={{
-                              mr: 1,
-                              color: "action.active",
-                              fontSize: "15px",
-                              "&:hover": { backgroundColor: "transparent" },
-                            }}
-                          >
-                            <VisibilityOutlinedIcon
-                              sx={{ "&:hover": { color: "" } }}
-                              fontSize="small"
-                            />
-                          </IconButton>
-                          {row.stato}
-                        </Box>
-                      </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                    {row.da}
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      {row.a}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.priorita}</StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell align="center">
-                   <Avatar1 />
-                    </StyledTableCell>
-
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-
       case "ordini":
         return (
           <TableBody>
@@ -341,11 +258,7 @@ const TableRows = ({
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                        
                           <IconButton
                             size="small"
                             sx={{
@@ -356,12 +269,13 @@ const TableRows = ({
                             }}
                           >
                             <VisibilityOutlinedIcon
-                              sx={{ "&:hover": { color: "" } }}
+                              sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                       
                       </StyledTableCell>
                     )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
@@ -414,8 +328,6 @@ const TableRows = ({
             )}
           </TableBody>
         );
-
-
       case "allegati":
         return (
           <TableBody>
@@ -732,11 +644,7 @@ const TableRows = ({
 
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                        
                           <IconButton
                             size="small"
                             sx={{
@@ -750,9 +658,10 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                      
                       </StyledTableCell>
                     )}
 
@@ -841,11 +750,6 @@ const TableRows = ({
                     <StyledTableCell>{row.titolo}</StyledTableCell>
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
                           <IconButton
                             size="small"
                             sx={{
@@ -859,9 +763,8 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                            {row.cliente}
                           </IconButton>
-                          {row.cliente}
-                        </Box>
                       </StyledTableCell>
                     )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
@@ -913,277 +816,347 @@ const TableRows = ({
             )}
           </TableBody>
         );
-      case "AmministragioneImposte":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                    onClick={() => navigate("/amministrazione/imposte/Reteizzazione")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                    <StyledTableCell>{row.anno}</StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.nomeImposta}</StyledTableCell>
-                    <StyledTableCell>{row.tipologia}</StyledTableCell>
-                    <StyledTableCell>
-                      <SIIcon />
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      {row.totale}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.saldato}</StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
-                      {row.daSaldare}
-                    </StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
+        case "AmministragioneImposte":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      onClick={() => navigate("/amministrazione/imposte/Reteizzazione")}
                     >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "AmministragionDocumenti":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                    onClick={() => navigate("/amministrazione/documenti/fattura")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.anno}</StyledTableCell>
+                      <StyledTableCell>{row.scadenza}</StyledTableCell>
+                      <StyledTableCell>{row.nomeImposta}</StyledTableCell>
+                      <StyledTableCell>{row.tipologia}</StyledTableCell>
+                      <StyledTableCell>
+                        <SIIcon />
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        {row.totale}
+                      </StyledTableCell>
+                      <StyledTableCell>{row.saldato}</StyledTableCell>
+                      <StyledTableCell className="customDasaldareGreen">
+                        {row.daSaldare}
+                      </StyledTableCell>
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
                         onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.Doc}</StyledTableCell>
-                    <StyledTableCell>{row.Numero}</StyledTableCell>
-                    <StyledTableCell>{row.Del}</StyledTableCell>
-                    <StyledTableCell>
-                      <IconButton
-                        size="small"
-                        sx={{
-                          mr: 1,
-                          color: "action.active",
-                          fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+        case "AmministragionDocumenti":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      onClick={() => navigate("/amministrazione/documenti/fattura")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.doc}</StyledTableCell>
+                      <StyledTableCell>{row.numero}</StyledTableCell>
+                      <StyledTableCell>{row.del}</StyledTableCell>
+                      <StyledTableCell>
+                        <IconButton
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          <VisibilityOutlinedIcon
+                            sx={{ "&:hover": { color: "#57C700" } }}
+                            fontSize="small"
+                          />
+                          {row.clienti}
+                        </IconButton>
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        <IconButton
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          <VisibilityOutlinedIcon
+                            sx={{ "&:hover": { color: "#57C700" } }}
+                            fontSize="small"
+                          />
+                          {row.fornitori}
+                        </IconButton>
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        {" "}
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.totale}</StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        {row.saldata}
+                      </StyledTableCell>
+                      <StyledTableCell className="customDasaldareGreen" >
+                        {row.dasaldare}
+                      </StyledTableCell>
+                      <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
                         }}
                       >
-                        <VisibilityOutlinedIcon
-                          sx={{ "&:hover": { color: "" } }}
-                          fontSize="small"
-                        />
-                        {row.Clienti}
-                      </IconButton>
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
                     </StyledTableCell>
-                    <StyledTableCell>
-                      <IconButton
-                        size="small"
-                        sx={{
-                          mr: 1,
-                          color: "action.active",
-                          fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
-                        }}
-                      >
-                        <VisibilityOutlinedIcon
-                          sx={{ "&:hover": { color: "" } }}
-                          fontSize="small"
-                        />
-                        {row.Fornitori}
-                      </IconButton>
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      {" "}
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.CreatoIl}</StyledTableCell>
-                    <StyledTableCell>{row.Totale}</StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      {row.Saldata}
-                    </StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
-                      {row.DaSaldare}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.Stato}</StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "AmministragionAsset":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                    onClick={() => navigate("/amministrazione/asset/rate")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
                         onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.doc}</StyledTableCell>
-                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.asset}</StyledTableCell>
-                    <StyledTableCell>{row.tipologia}</StyledTableCell>
-                    <StyledTableCell>{row.obiettivo}</StyledTableCell>
-                    <StyledTableCell>{row.frequenza}</StyledTableCell>
-                    <StyledTableCell>{row.importoTotale}</StyledTableCell>
-                    <StyledTableCell>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    {/* <StyledTableCell style={{backgroundColor:'#57C70033'}}>{row.DaSaldare}</StyledTableCell> */}
-                    {/* <StyledTableCell
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+        case "AmministragionAsset":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      onClick={() => navigate("/amministrazione/asset/rate")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.doc}</StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.scadenza}</StyledTableCell>
+                      <StyledTableCell>{row.asset}</StyledTableCell>
+                      <StyledTableCell>{row.tipologia}</StyledTableCell>
+                      <StyledTableCell>{row.obiettivo}</StyledTableCell>
+                      <StyledTableCell>{row.frequenza}</StyledTableCell>
+                      <StyledTableCell>{row.importoTotale}</StyledTableCell>
+                      <StyledTableCell>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      {/* <StyledTableCell style={{backgroundColor:'#57C70033'}}>{row.DaSaldare}</StyledTableCell> */}
+                      {/* <StyledTableCell
                     >
                       {row.Stato}
                     </StyledTableCell> */}
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "AmministragionFlussi":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                  // onClick={() => navigate("/acquisti/fornitori/Contatti")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
                         onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.data}</StyledTableCell>
-                    <StyledTableCell>{row.documento}</StyledTableCell>
-                    <StyledTableCell>{row.clientiFornitori}</StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
-                      {row.entrata}
-                    </StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#DB000033" }}>
-                      {row.uscita}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.utileContabile}</StyledTableCell>
-                    <StyledTableCell>{row.tipo}</StyledTableCell>
-                    <StyledTableCell>{row.modalita}</StyledTableCell>
-                    <StyledTableCell>{row.tipoRisorsa}</StyledTableCell>
-                    <StyledTableCell>{row.nomeRisorsa}</StyledTableCell>
-                    {/* <StyledTableCell style={{backgroundColor:'#57C70033'}}>{row.DaSaldare}</StyledTableCell> */}
-                    {/* <StyledTableCell
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+        case "AmministragionFlussi":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      // onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.documento}</StyledTableCell>
+                      <StyledTableCell>{row.clienti}</StyledTableCell>
+                      <StyledTableCell  className="customDasaldareGreen">
+                        {row.entrata}
+                      </StyledTableCell>
+                      <StyledTableCell className="customDasaldareRed">
+                        {row.uscita}
+                      </StyledTableCell>
+                      <StyledTableCell>{row.utileContabile}</StyledTableCell>
+                      <StyledTableCell>{row.tipo}</StyledTableCell>
+                      <StyledTableCell>{row.modalita}</StyledTableCell>
+                      <StyledTableCell>{row.tipoRisorsa}</StyledTableCell>
+                      <StyledTableCell>{row.nomeRisorsa}</StyledTableCell>
+                      {/* <StyledTableCell style={{backgroundColor:'#57C70033'}}>{row.DaSaldare}</StyledTableCell> */}
+                      {/* <StyledTableCell
                 >
                   {row.Stato}
                 </StyledTableCell> */}
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "bilancio":
-        return (
-          <TableBody>
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+          
+        case "bilancio":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow key={index} selected={isSelected(row.id)}>
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.doc}</StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.anno}</StyledTableCell>
+                      <StyledTableCell>{row.bilancio}</StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.fatturato}</StyledTableCell>
+                      {/* <StyledTableCell>{row.valore}</StyledTableCell> */}
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+        case "AmministragionReteizione":
+          return (
+            <TableBody>
             {data?.length > 0 ? (
               data
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -1199,234 +1172,41 @@ const TableRows = ({
                         inputProps={{ "aria-labelledby": row.id }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.doc}</StyledTableCell>
-                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                    <StyledTableCell>{row.anno}</StyledTableCell>
-                    <StyledTableCell>{row.bilancio}</StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.fatturato}</StyledTableCell>
-                    <StyledTableCell>{row.valore}</StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "AmministragionReteizione":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow key={index} selected={isSelected(row.id)}>
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.dataPagamento}</StyledTableCell>
                     <StyledTableCell>{row.rata}</StyledTableCell>
                     <StyledTableCell>{row.importo}</StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor: '#DB000033' }}>
+                    <StyledTableCell className="customDasaldareRed" >
                       {row.daSaldare}
                     </StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor: '#57C70033' }}>
+                    <StyledTableCell className="customDasaldareGreen" >
                       {row.saldato}
                     </StyledTableCell>
-                    <StyledTableCell>{row.stato}</StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        )
-      case "AmministragionReteizione":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow key={index} selected={isSelected(row.id)}>
                     <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.dataPagamento}</StyledTableCell>
-                    <StyledTableCell>{row.rata}</StyledTableCell>
-                    <StyledTableCell>{row.importo}</StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor: '#DB000033' }}>
-                      {row.daSaldare}
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor: '#57C70033' }}>
-                      {row.saldato}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.stato}</StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        )
-      case "servizi":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                  // onClick={() => navigate("/amministrazione/asset/rate")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.cod}</StyledTableCell>
-                    <StyledTableCell>{row.nomeServizio}</StyledTableCell>
-                    <StyledTableCell>{row.categoria}</StyledTableCell>
-                    <StyledTableCell>{row.um}</StyledTableCell>
-                    <StyledTableCell>{row.pzVendita}</StyledTableCell>
-                    <StyledTableCell>{row.costoServizio}</StyledTableCell>
-                    <StyledTableCell>{row.ricavoUnitario}</StyledTableCell>
-                    <StyledTableCell>{row.acquistato}</StyledTableCell>
-                    <StyledTableCell>{row.venduto}</StyledTableCell>
-                    <StyledTableCell>{row.ricavoTotale}</StyledTableCell>
-                    <StyledTableCell>
-                      <Avatar1 />
-                    </StyledTableCell>
-                    <StyledTableCell
-                      sx={{ textAlign: "center" }}
-                      onClick={(event) => event.stopPropagation()}
-                    >
-                      <MenuWithOptions options={option} />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
-      case "prodotti":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                  // onClick={() => navigate("/amministrazione/asset/rate")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <TableCell>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
                         }}
                       >
-                        <ProductIcon
-                          style={{
-                            width: "42px",
-                            height: "42px",
-                          }}
-                        />
-                      </div>
-                    </TableCell>
-                    <StyledTableCell>{row.cod}</StyledTableCell>
-                    <StyledTableCell>{row.nomeProdotto}</StyledTableCell>
-                    <StyledTableCell>{row.categoria}</StyledTableCell>
-                    <StyledTableCell>{row.um}</StyledTableCell>
-                    <StyledTableCell>{row.pzVendita}</StyledTableCell>
-                    <StyledTableCell>{row.costoServizio}</StyledTableCell>
-                    <StyledTableCell>{row.ricavoU}</StyledTableCell>
-                    <StyledTableCell>{row.acquistato}</StyledTableCell>
-                    <StyledTableCell>{row.venduto}</StyledTableCell>
-                    <StyledTableCell>{row.ricavoTot}</StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
                     </StyledTableCell>
+                    <StyledTableCell><Avatar1 /></StyledTableCell>
+                    <StyledTableCell><Avatar1 /></StyledTableCell>
                     <StyledTableCell
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
@@ -1443,8 +1223,214 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-        );
-      default:
+          )
+          
+          case "listini":
+            return (
+              <TableBody>
+                {data?.length > 0 ? (
+                  data
+                    .slice(
+                      page * rowsPerPage,
+                      // Limit to 2 rows for specified paths
+                      (isSubLeadDocumenti || isFornitoriDocumenti)
+                        ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                        : page * rowsPerPage + rowsPerPage
+                    )
+                    // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row, index) => (
+                      <StyledTableRow
+                        key={index}
+                        selected={isSelected(row.id)}
+                        onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                      >
+                        <StyledTableCell align="center">
+                          <CustomCheckbox
+                            className="customChechbox"
+                            color="primary"
+                            checked={isSelected(row.id)}
+                            onChange={(event) => handleRowClick(event, row.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            inputProps={{ "aria-labelledby": row.id }}
+                          />
+                        </StyledTableCell>
+                        <StyledTableCell>{row.nomeListino}</StyledTableCell>
+                        <StyledTableCell>{row.gruppiAssociati}</StyledTableCell>
+                        <StyledTableCell>{row.nProdotti}</StyledTableCell>
+                          <StyledTableCell>
+                            <Box
+                              display="flex"
+                              alignItems="center"
+                              whiteSpace={"nowrap"}
+                            >
+                              <IconButton
+                                size="small"
+                                sx={{
+                                  mr: 1,
+                                  color: "action.active",
+                                  fontSize: "15px",
+                                  "&:hover": { backgroundColor: "transparent" },
+                                }}
+                              >
+                                <VisibilityOutlinedIcon
+                                  sx={{ "&:hover": { color: "" } }}
+                                  fontSize="small"
+                                />
+                              </IconButton>
+                              {row.stato}
+                            </Box>
+                          </StyledTableCell>
+                        <StyledTableCell sx={{ textAlign: "center" }}>
+                        {row.da}
+                        </StyledTableCell>
+                        <StyledTableCell sx={{ textAlign: "center" }}>
+                          {row.a}
+                        </StyledTableCell>
+                        <StyledTableCell>{row.priorita}</StyledTableCell>
+                        <StyledTableCell><Avatar1 /></StyledTableCell>
+                        <StyledTableCell align="center">
+                       <Avatar1 />
+                        </StyledTableCell>
+    
+                        <StyledTableCell
+                          sx={{ textAlign: "center" }}
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <MenuWithOptions options={option} />
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    ))
+                ) : (
+                  <StyledTableRow>
+                    <StyledTableCell colSpan={12} align="center">
+                      Data not found
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )}
+              </TableBody>
+            );
+            
+            case "servizi":
+              return (
+                <TableBody>
+                  {data?.length > 0 ? (
+                    data
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row, index) => (
+                        <StyledTableRow
+                          key={index}
+                          selected={isSelected(row.id)}
+                          onClick={() => navigate("/cataloghi/servizi/Scheda")}
+                        >
+                          <StyledTableCell align="center">
+                            <CustomCheckbox
+                              className="customChechbox"
+                              color="primary"
+                              checked={isSelected(row.id)}
+                              onChange={(event) => handleRowClick(event, row.id)}
+                              onClick={(event) => event.stopPropagation()}
+                              inputProps={{ "aria-labelledby": row.id }}
+                            />
+                          </StyledTableCell>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.nomeServizio}</StyledTableCell>
+                          <StyledTableCell>{row.categoria}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzVendita}</StyledTableCell>
+                          <StyledTableCell>{row.costoServizio}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoUnitario}</StyledTableCell>
+                          <StyledTableCell>{row.acquistato}</StyledTableCell>
+                          <StyledTableCell>{row.venduto}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoTotale}</StyledTableCell>
+                          <StyledTableCell>
+                            <Avatar1 />
+                          </StyledTableCell>
+                          <StyledTableCell
+                            sx={{ textAlign: "center" }}
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <MenuWithOptions options={option} />
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))
+                  ) : (
+                    <StyledTableRow>
+                      <StyledTableCell colSpan={12} align="center">
+                        Data not found
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  )}
+                </TableBody>
+              );
+            case "prodotti":
+              return (
+                <TableBody>
+                  {data?.length > 0 ? (
+                    data
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row, index) => (
+                        <StyledTableRow
+                          key={index}
+                          selected={isSelected(row.id)}
+                        // onClick={() => navigate("/amministrazione/asset/rate")}
+                        >
+                          <StyledTableCell align="center">
+                            <CustomCheckbox
+                              className="customChechbox"
+                              color="primary"
+                              checked={isSelected(row.id)}
+                              onChange={(event) => handleRowClick(event, row.id)}
+                              onClick={(event) => event.stopPropagation()}
+                              inputProps={{ "aria-labelledby": row.id }}
+                            />
+                          </StyledTableCell>
+                          <TableCell>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <ProductIcon
+                                style={{
+                                  width: "42px",
+                                  height: "42px",
+                                }}
+                              />
+                            </div>
+                          </TableCell>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.nomeProdotto}</StyledTableCell>
+                          <StyledTableCell>{row.categoria}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzVendita}</StyledTableCell>
+                          <StyledTableCell>{row.costoServizio}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoU}</StyledTableCell>
+                          <StyledTableCell>{row.acquistato}</StyledTableCell>
+                          <StyledTableCell>{row.venduto}</StyledTableCell>
+                          <StyledTableCell>{row.ricavoTot}</StyledTableCell>
+                          <StyledTableCell sx={{ textAlign: "center" }}>
+                            <Avatar1 />
+                          </StyledTableCell>
+                          <StyledTableCell
+                            sx={{ textAlign: "center" }}
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <MenuWithOptions options={option} />
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))
+                  ) : (
+                    <StyledTableRow>
+                      <StyledTableCell colSpan={12} align="center">
+                        Data not found
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  )}
+                </TableBody>
+              );   
+        default:
         return (
           <TableBody>
             {data?.length > 0 ? (
@@ -1482,11 +1468,7 @@ const TableRows = ({
                       ""
                     ) : (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                       
                           <IconButton
                             size="small"
                             sx={{
@@ -1500,20 +1482,17 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                              {row.clienti}
                           </IconButton>
-                          {row.clienti}
-                        </Box>
+                        
+                       
                       </StyledTableCell>
                     )}
                     {form === "form2" || form === "form1" ? (
                       ""
                     ) : (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                       
                           <IconButton
                             size="small"
                             sx={{
@@ -1527,9 +1506,10 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                        
                       </StyledTableCell>
                     )}
                     <StyledTableCell>{row.data}</StyledTableCell>

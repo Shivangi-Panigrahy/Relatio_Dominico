@@ -2,10 +2,11 @@ import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table"
 import Primanota_headercards from "./Primanota_headercards";
+import tableData from "../../../utils/primeNoteAdministrazioneData.json"
 
 const Prima_nota = () => {
   const columns = [
-    { field: "data", headerName: "Data", width: 120 },
+    { field: "creatoIl", headerName: "Data", width: 120 },
     { field: "documento", headerName: "Documento", width: 200 },
     { field: "clientiFornitori", headerName: "Clienti/Fornitori", width: 250 },
     { field: "entrata", headerName: "Entrata", width: 150 },
@@ -106,10 +107,10 @@ const Prima_nota = () => {
   return (
     <>
       <Header />
-      <div className="pageTemplate">
+      <div className="pageTemplate Prima_notaPage">
         <Primanota_headercards/>
         <Table
-          data={rows}
+          data={tableData}
           columns={columns}
           navData={"AmministragionFlussi"}
         />

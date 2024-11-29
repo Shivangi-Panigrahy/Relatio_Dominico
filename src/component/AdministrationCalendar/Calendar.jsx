@@ -126,11 +126,6 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
 
   const handleEventClick = (event) => {
     setSelectedEvent(event);
-
-
-
-
-    
     setShowEventOpen(true);
   };
 
@@ -166,36 +161,57 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     return {}; // No additional styling for other views
   };
 
-  const CustomEvent = ({ event }) => (
-    <>
-      <span  style={{
-              backgroundColor:
-                event.eventType === "Appointment" ? "#DB000033" : "#57C70033",
-                padding:"5px 4px",
-                borderRadius:"4px"
-            }}>
-        <span>
-          <span
-            className="event-dot"
-            style={{
-              backgroundColor:
-                event.eventType === "Appointment" ? "#DB0000" : "#57C700",
-            }}
-          />
+  const handleVediTuttiClick = (dayEvents, day) => {
+    console.log("Vedi tutti clicked for:", day, dayEvents);
+    // Add custom logic for handling "Vedi tutti" clicks here
+  };
+  
+
+  const CustomEvent = ({ event, dayEvents, currentEventIndex }) => {
+    const isLastEvent = currentEventIndex === dayEvents.length - 1;
+  
+    return (
+      <>
+        <span
+          style={{
+            backgroundColor:
+              event.eventType === "Appointment" ? "#DB000033" : "#57C70033",
+            padding: "5px 4px",
+            borderRadius: "4px",
+          }}
+        >
+          <span>
+            <span
+              className="event-dot"
+              style={{
+                backgroundColor:
+                  event.eventType === "Appointment" ? "#DB0000" : "#57C700",
+              }}
+            />
+          </span>
+          <span style={{ color: "#100919" }}>
+            {event.title} (Fatt.23445 R.01 del {event.start.toLocaleDateString()})
+          </span>
         </span>
-        <span style={{color:"#100919"}}>Fatt.23445 R.01 del 28/11/2024</span>
-      </span>
-      <button
-        style={{ cursor: "crosshair" }}
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent calendar's event handling
-          console.log("Button clicked inside CustomEvent");
-        }}
-      >
-        Vedi tutti
-      </button>
-    </>
-  );
+        {isLastEvent && (
+          <button
+            style={{
+              cursor: "pointer",
+              marginTop: "10px",
+              display: "block",
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent calendar's default event handling
+              handleVediTuttiClick(dayEvents, event.start.toDateString());
+            }}
+          >
+            Vedi tutti
+          </button>
+        )}
+      </>
+    );
+  };
+  
 
   const CustomWeekEvent = ({ event }) => (
     <div className="custom-week-event" style={{ backgroundColor: event.eventType==="Appointment" && "#FFA90333" }}>
@@ -422,20 +438,31 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
           events={eventsData}
           className="calendar-container"
           onSelectEvent={handleEventClick}
-          onSelectSlot={(e)=>console.log(e,'target texcttt eee')}
+          onSelectSlot={(e)=>console.log(e,'eeee')} 
           toolbar={false}
           dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
           components={{
-            event: view === "month" ? CustomEvent : CustomWeekEvent,
+            event: view === "month" ? (props) => {
+              const { event } = props;
+              const dayEvents = eventsData.filter(
+                (e) => e.start.toDateString() === event.start.toDateString()
+              ); // Get all events for the day
+              const currentEventIndex = dayEvents.findIndex((e) => e.id === event.id);
+              return (
+                <CustomEvent
+                  event={event}
+                  dayEvents={dayEvents}
+                  currentEventIndex={currentEventIndex}
+                />
+              );
+            } : CustomWeekEvent,
             timeGutterHeader: CustomTimeGutterHeader,
             week: {
-              header: CustomWeekHeader, // Use CustomWeekHeader in week view header
+              header: CustomWeekHeader,
             },
             day: {
-              header: (props) => (
-                <CustomToolbar {...props} date={currentDate} />
-              ), // Pass the currentDate as date prop
+              header: (props) => <CustomToolbar {...props} date={currentDate} />,
             },
           }}
         />

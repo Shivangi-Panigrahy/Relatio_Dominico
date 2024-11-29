@@ -47,6 +47,7 @@ const toolbarItems = [
 
 export default function InvoiceTab() {
   const [currentStatus, setCurrentStatus] = useState('approvato');
+  const [toggleDiv,setToggleDiv] = useState(false)
 
   const handleStatusBlockClick = () => {
     switch(currentStatus) {
@@ -70,6 +71,7 @@ export default function InvoiceTab() {
         return (
           <div 
             className="toolbarContainer__approvatoBlock"
+            style={{cursor:'pointer'}}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__approvatoBlock__Box">
@@ -81,6 +83,7 @@ export default function InvoiceTab() {
         return (
           <div 
             className="toolbarContainer__sospesoBlock"
+            style={{cursor:'pointer'}}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__sospesoBlock__Box">
@@ -92,6 +95,7 @@ export default function InvoiceTab() {
         return (
           <div 
             className="toolbarContainer__rifiutatoBlock"
+            style={{cursor:'pointer'}}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__rifiutatoBlock__Box">
@@ -105,7 +109,19 @@ export default function InvoiceTab() {
   };
   return (
     <div className="toolbarContainer">
-       {renderStatusBlock()}
+       {window.location.href.includes("/amministrazione/documenti/fattura")
+       ?
+       <div 
+            className="toolbarContainer__approvatoBlock"
+            onClick={()=>{handleStatusBlockClick();setToggleDiv(!toggleDiv)}}
+            style={{backgroundColor: toggleDiv ? "#fbeac9" : "#DB000033",color: toggleDiv ? "#ffa903" : '#DB0000' ,cursor:'pointer'}}
+          >
+            <div className="toolbarContainer__approvatoBlock__Box">
+              <h4 className="toolbarContainer__approvatoBlock__text">Da pagara</h4>
+            </div>
+          </div> :
+          renderStatusBlock()
+          }
       <div className="toolbarContainer__list">
         {toolbarItems.map((item, index) => (
           <div key={index} className="toolbarContainer__items">

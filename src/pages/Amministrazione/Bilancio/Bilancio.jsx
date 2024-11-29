@@ -1,13 +1,12 @@
-import Header from "../../../component/header/Header"
+import Header from "../../../component/header/Header";
 import RevenueLineChart from "../../../component/LineChart/LineChart";
 import Table from "../../../component/table/Table";
-
 
 const columns = [
   { field: "doc", headerName: "Doc", width: 64 },
   { field: "creatoIl", headerName: "Creato il", width: 92 },
   { field: "anno", headerName: "Anno", width: 92 },
-  { field: "bilancio", headerName: "Bilancio", width: 2000 },
+  { field: "bilancio", headerName: "Bilancio", width: 1115 },
   { field: "autore", headerName: "Autore", width: 84 },
   { field: "modDa", headerName: "Mod. da", width: 84 },
   { field: "fatturato", headerName: "Fatturato", width: 118 },
@@ -83,14 +82,14 @@ const dataset = [
   { month: "2025", entrate: 58 },
   { month: "2026", entrate: 62 },
   { month: "2027", entrate: 52 },
-  { month: "2028", entrate: 38 }
+  { month: "2028", entrate: 38 },
 ];
 
 // const dataFilter = [];
 const series = [
   {
     dataKey: "entrate",
-    color: "#4CAF50",
+    color: "#57C700",
     // showMark: true,
   },
 ];
@@ -100,21 +99,12 @@ const AmministrazioneBilancio = () => {
     <>
       <Header />
       <div className="pageTemplate">
-        <RevenueLineChart
-          data={"bilancio"}
-          dataset={dataset}
-          series={series}
-        />
-        
-        <Table
-          data={rows}
-          columns={columns}
-          navData={"bilancio"}
-        />
+        <RevenueLineChart data={"bilancio"} dataset={dataset} series={series} />
 
+        <Table data={rows} columns={columns} navData={"bilancio"} />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default AmministrazioneBilancio
+export default AmministrazioneBilancio;

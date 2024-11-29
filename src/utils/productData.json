@@ -1,4 +1,5 @@
-{
+{ "data": {
+  "first" : {
     "projectInfo": {
       "title": "PROGETTO/PRODUZIONE",
       "projectName": "NOME DEL PROGETTO"
@@ -14,6 +15,42 @@
     "productionDeliveryDate": {
       "title": "DATA CONSEGNA PRODUZIONE",
       "date": "30/10/2024 18:37"
-    }
-  }
+    }},
+    "second" : {
+    "projectInfo": {
+      "title": "STATO DELLE FATTURA",
+      "projectName": "SCADUTA"
+    },
+    "productionStartDate": {
+      "title": "GIORNI DI RITARDO",
+      "date": "30 ggL"
+    },
+    "productionDuration": {
+      "title": "",
+      "duration": ""
+    },
+    "productionDeliveryDate": {
+      "title": "",
+      "date": ""
+    }},
+    "third" :{
+      "projectInfo": {
+        "title": "STATO DELLE FATTURA",
+        "projectName": "REGOLARE"
+      },
+      "productionStartDate": {
+        "title": "SCADENZA",
+        "date": "30/10/2024"
+      },
+      "productionDuration": {
+        "title": "",
+        "duration": ""
+      },
+      "productionDeliveryDate": {
+        "title": "",
+        "date": ""
+      }}
+}
+}
+
   

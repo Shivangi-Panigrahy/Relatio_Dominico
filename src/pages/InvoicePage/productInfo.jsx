@@ -1,86 +1,117 @@
-// ProductionInfo.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import "./productInfo.scss";
 import productionData from "../../utils/productData.json"; // Import the JSON data
 
-const ProductionInfo = () => {
-  // Access data from the JSON file
-  const {
-    projectInfo,
-    productionStartDate,
-    productionDuration,
-    productionDeliveryDate,
-  } = productionData;
+const ProductionInfo = ({adminiDoc=true}) => {
+  const [toggle, setToggle] = useState(false);
 
-  // Render the component dynamically
+  // Determine which data set to display based on the toggle state
+  const activeData = toggle ? productionData.data.third : productionData.data.second;
+
   return (
-    <Box className="production-info">
-      <Box className="info-item">
-        <Tooltip title={projectInfo.title}>
+    <>
+    {!adminiDoc ? 
+    <Box className="production-info" onClick={() => setToggle(!toggle)} style={{backgroundColor:!toggle && "#f4c8c8" ,cursor:'pointer'}}>
+      <Box className="info-item" >
+        <Tooltip>
           <IconButton size="small">
-            <InfoOutlinedIcon />
+            <InfoOutlinedIcon style={{color:!toggle && 'red'}}/>
           </IconButton>
         </Tooltip>
         <Box className="productInfoContent">
           <Typography className="productInfoTitle" variant="body2">
-            {projectInfo.title}
+            {activeData.projectInfo.title}
           </Typography>
           <Typography className="productInfoTitle" variant="body2">
-            {projectInfo.projectName}
+            {activeData.projectInfo.projectName}
           </Typography>
         </Box>
       </Box>
 
       <Box className="info-item">
-        <Tooltip title={productionStartDate.title}>
+        <Tooltip title={activeData.productionStartDate.title}>
+          <IconButton size="small">
+            <InfoOutlinedIcon style={{color:!toggle &&'red'}}/>
+          </IconButton>
+        </Tooltip>
+        <Box className="productInfoContent">
+          <Typography className="productInfoTitle" variant="body2">
+            {activeData.productionStartDate.title}
+          </Typography>
+          <Typography className="productInfoTitle" variant="body2">
+            {activeData.productionStartDate.date}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>:  
+    <Box className="production-info" >
+      <Box className="info-item" >
+        <Tooltip>
           <IconButton size="small">
             <InfoOutlinedIcon />
           </IconButton>
         </Tooltip>
         <Box className="productInfoContent">
           <Typography className="productInfoTitle" variant="body2">
-            {productionStartDate.title}
+            {productionData.data.first.projectInfo.title}
           </Typography>
           <Typography className="productInfoTitle" variant="body2">
-            {productionStartDate.date}
+            {productionData.data.first.projectInfo.projectName}
           </Typography>
         </Box>
       </Box>
 
       <Box className="info-item">
-        <Tooltip title={productionDuration.title}>
+        <Tooltip title={productionData.data.first.productionStartDate.title}>
           <IconButton size="small">
             <InfoOutlinedIcon />
           </IconButton>
         </Tooltip>
         <Box className="productInfoContent">
           <Typography className="productInfoTitle" variant="body2">
-            {productionDuration.title}
+            {productionData.data.first.productionStartDate.title}
           </Typography>
           <Typography className="productInfoTitle" variant="body2">
-            {productionDuration.duration}
+            {productionData.data.first.productionStartDate.date}
           </Typography>
         </Box>
       </Box>
 
       <Box className="info-item">
-        <Tooltip title={productionDeliveryDate.title}>
+        <Tooltip title={productionData.data.first.productionDuration.title}>
           <IconButton size="small">
-            <InfoOutlinedIcon />
+          <InfoOutlinedIcon />
           </IconButton>
         </Tooltip>
         <Box className="productInfoContent">
           <Typography className="productInfoTitle" variant="body2">
-            {productionDeliveryDate.title}
+            { productionData.data.first.productionDuration.title}
           </Typography>
           <Typography className="productInfoTitle" variant="body2">
-            {productionDeliveryDate.date}
+            {productionData.data.first.productionDuration.duration}
           </Typography>
         </Box>
       </Box>
-    </Box>
+
+      <Box className="info-item">
+        <Tooltip title={productionData.data.first.productionDeliveryDate.title}>
+          <IconButton size="small">
+           <InfoOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+        <Box className="productInfoContent">
+          <Typography className="productInfoTitle" variant="body2">
+            {productionData.data.first.productionDeliveryDate.title}
+          </Typography>
+          <Typography className="productInfoTitle" variant="body2">
+            {productionData.data.first.productionDeliveryDate.date}
+          </Typography>
+        </Box>
+      </Box>
+    </Box>}
+    </>
   );
 };
 

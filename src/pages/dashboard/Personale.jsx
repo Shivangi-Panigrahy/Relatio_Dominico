@@ -24,12 +24,12 @@ const dataset = [
   { month: "Dic", entrate: 80 },
 ];
 
-const dataPie = [
-  { id: 1, value: 35, color: "#E72276", type: "IVA" },
-  { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
-  { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
-  { id: 0, value: 45, color: "#E72276", type: "IRES" },
-];
+// const dataPie = [
+//   { id: 1, value: 35, color: "#E72276", type: "IVA" },
+//   { id: 3, value: 5, color: "#FF4D4D", type: "IRAP" },
+//   { id: 2, value: 15, color: "#0073B7", type: "Contributi" },
+//   { id: 0, value: 45, color: "#E72276", type: "IRES" },
+// ];
 
 const personaleData = [
   {
@@ -38,7 +38,7 @@ const personaleData = [
     amount: "29.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "II Trimestre",
@@ -46,7 +46,7 @@ const personaleData = [
     amount: "30.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "III Trimestre",
@@ -54,7 +54,7 @@ const personaleData = [
     amount: "55.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "IV Trimestre",
@@ -62,7 +62,7 @@ const personaleData = [
     amount: "150.043.55€",
     color: "#160A2A",
     backgroundColor: "#fff",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
   },
   {
     status: "Totale Stipendi",
@@ -70,7 +70,8 @@ const personaleData = [
     amount: "-350.043.55€",
     color: "#160A2A",
     backgroundColor: "#DB000033",
-    statusColor: '#E72276'
+    statusColor: "#E72276",
+    isHighlighted: true,
   },
 ];
 
@@ -257,7 +258,7 @@ const Personale = () => {
           data={"personale"}
           dataset={dataset}
           dataFilter={dataFilter}
-          dataPie={dataPie}
+          // dataPie={dataPie}
           series={series}
         />
         <Table data={tableData} columns={columns} navData={"personale"} />

@@ -87,3 +87,13 @@
         }
     }
 }
+.registri_page {
+    .invoiceFilter {
+        .MuiStack-root {
+            grid-template-columns: 144px 144px 106px 124px 0.5fr 0.7fr 120px 120px 0.9fr 1fr 50px;
+            .MuiFormControl-root {
+                min-width: 100px;
+            }
+        }
+    }
+}

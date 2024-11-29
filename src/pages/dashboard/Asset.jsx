@@ -157,7 +157,7 @@ const assetdata = [
     amount: "350.043,55€",
     count: "8.2%",
     label: "Anno precedente",
-    color: "green",
+    color: "#57C700",
     isHighlighted: true,
   },
 ];
