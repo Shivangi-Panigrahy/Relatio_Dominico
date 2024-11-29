@@ -16,6 +16,7 @@ import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon} from "../../assets/SIIcon.svg";
+import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",

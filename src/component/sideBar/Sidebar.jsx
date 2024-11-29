@@ -85,7 +85,7 @@ const menuItems = [
       { name: "Imposte", route: "/dashboard/imposte" },
       { name: "Asset", route: "/dashboard/asset" },
       { name: "Attività", route: "/dashboard/attivita" },
-      { name: "Produzione", route: "/dashboard/produzione" },
+      { name: "Personale", route: "/dashboard/personale" },
     ],
   },
   {
