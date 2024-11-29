@@ -8,7 +8,7 @@ import MenuTab from "../../component/tabs/MenuTab";
 import dayjs from "dayjs";
 
 const dataset = [
-  { month: "Gen", entrate: 5},
+  { month: "Gen", entrate: 5 },
   { month: "Feb", entrate: 8 },
   { month: "Mar", entrate: 12 },
   { month: "Apr", entrate: 25 },

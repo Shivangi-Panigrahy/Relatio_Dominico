@@ -1,71 +1,73 @@
 .FactureSection {
-    &__inner {
-        .profittiCard {
-            box-shadow: 0px 12px 24px #919eab1f;
-            background: #fff;
-            justify-content: start;
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            // flex-direction: row-reverse;
-            gap: 10px;
-            border-radius: 16px;
-            border: 1px solid #919eab1f;
-            &__title {
-                font-size: 16px;
-                font-weight: 700;
-                color: #E72276;
-                margin-bottom: 8px;
-            }
-            &__number {
-                font-size: 32px;
-                font-weight: 700;
-                color: #160A2A;
-                margin: 0 0 16px;
-            }
-            &__details {
-                width: 100%;
-                &__row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 8px;
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                    .profittiCard__value {
-                        font-size: 14px;
-                        font-weight: 700;
-                        color: #E72276;
-                    }
-                    .profittiCard__label {
-                        font-size: 14px;
-                        font-weight: 500;
-                        color: #6B6B6B;
-                        text-align: right;
-                    }
-                }
-            }
+  &__inner {
+    .profittiCard {
+      box-shadow: 0px 12px 24px #919eab1f;
+      background: #fff;
+      justify-content: start;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      // flex-direction: row-reverse;
+      gap: 10px;
+      border-radius: 16px;
+      border: 1px solid #919eab1f;
+      &__title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #e72276;
+        margin-bottom: 8px;
+      }
+      &__number {
+        font-size: 32px;
+        font-weight: 700;
+        color: #160a2a;
+        margin: 0 0 16px;
+      }
+      &__details {
+        width: 100%;
+        &__row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .profittiCard__value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e72276;
+          }
+          .profittiCard__label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b6b6b;
+            text-align: right;
+          }
         }
+      }
     }
+  }
 }
 
-.avittie_container{
-    .profittiCard{
-        flex-direction: column;
-        align-items: self-start;
-        gap: 5px;
-        padding: 8px 12px !important;
-    }
-    .profittiCard__number{
-        margin-bottom: 0;
-        font-size: 16px;
-        font-weight: 700 !important;
-    }
-    .profittiCard__title{
-        margin: 0 !important;
-    }
-    .profittiCard__value{
-        font-weight: 700 !important;
-    }
+.avittie_container {
+  .profittiCard {
+    flex-direction: column;
+    align-items: self-start;
+    gap: 5px;
+    padding: 8px 12px !important;
+  }
+  .profittiCard__number {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 700 !important;
+    font-family: "Barlow", sans-serif;
+  }
+  .profittiCard__title {
+    margin: 0 !important;
+  }
+  .profittiCard__value {
+    font-weight: 700 !important;
+    font-family: "Barlow", sans-serif;
+  }
 }

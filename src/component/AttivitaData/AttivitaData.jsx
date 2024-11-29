@@ -28,7 +28,10 @@ const ProfittiCard = ({
             {revenue.toFixed(2)}€
           </span>
           {""}
-          <span className="profittiCard__label"> Ricavo</span>
+          <span className="profittiCard__label" style={{ color: "#666666" }}>
+            {" "}
+            Ricavo
+          </span>
         </div>
         <div className="profittiCard__row">
           <span
@@ -38,7 +41,10 @@ const ProfittiCard = ({
             {cost.toFixed(2)}€
           </span>
           {""}
-          <span className="profittiCard__label"> Costo</span>
+          <span className="profittiCard__label" style={{ color: "#666666" }}>
+            {" "}
+            Costo
+          </span>
         </div>
         <div className="profittiCard__row">
           <span
@@ -48,7 +54,10 @@ const ProfittiCard = ({
             {profit.toFixed(2)}€
           </span>
           {""}
-          <span className="profittiCard__label"> Utile</span>
+          <span className="profittiCard__label" style={{ color: "#666666" }}>
+            {" "}
+            Utile
+          </span>
         </div>
       </div>
     </div>
