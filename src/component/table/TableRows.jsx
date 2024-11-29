@@ -213,7 +213,123 @@ const TableRows = ({
             </StyledTableRow>
           </TableBody>
         );
-      case "ordini":
+    
+    
+        
+        case "listinie":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/ordini") ||
+                        window.location.href.includes("/vendite/sub-lead/Documenti")
+                        ? navigate("/vendite/ordini/sub-ordini")
+                        : navigate("/acquisti/ordini/sub-ordini")
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeListino}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                      <StyledTableCell>
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          whiteSpace={"nowrap"}
+                        >
+                          <IconButton
+                            size="small"
+                            sx={{
+                              mr: 1,
+                              color: "action.active",
+                              fontSize: "15px",
+                              "&:hover": { backgroundColor: "transparent" },
+                            }}
+                          >
+                            <VisibilityOutlinedIcon
+                              sx={{ "&:hover": { color: "" } }}
+                              fontSize="small"
+                            />
+                          </IconButton>
+                          {row.fornitori}
+                        </Box>
+                      </StyledTableCell>
+                    )}
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.dataModifica}</StyledTableCell>
+                    <StyledTableCell>{row.valore}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+        case "ordini":
         return (
           <TableBody>
             {data?.length > 0 ? (

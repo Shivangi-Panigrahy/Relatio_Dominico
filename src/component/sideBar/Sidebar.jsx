@@ -181,10 +181,10 @@ const menuItems = [
     textColor: "#4AAFF0",
     route: "/cataloghi",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Servizi", route: "/cataloghi/servizi" },
+      { name: "Prodotti", route: "/cataloghi/prodotti" },
+      { name: "Configuratore", route: "/cataloghi/configuratore" },
+      { name: "Listini", route: "/cataloghi/listini" },
     ],
   },
   {

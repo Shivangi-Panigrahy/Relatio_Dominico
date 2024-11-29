@@ -4,36 +4,7 @@ import InvoiceDashboard from '../../../component/invoiceStatitics/InvoiceDashboa
 import Table from "../../../component/table/Table"
 import tableData from "../../../utils/repositoryData.json";
 import FileDashboard from '../../../component/invoiceStatitics/FileDashboard';
-const budgetData = [
-  {
-    status: "Totale",
-    count: 325,
-    amount: "20.350.043.55€",
-    color: "#57C700",
-    iconColor: "#57C700",
-  },
-  {
-    status: "Approvati",
-    count: 325,
-    amount: "20.350.043.55€",
-    color: "#57C700",
-    iconColor: "#57C700",
-  },
-  {
-    status: "Sospesi",
-    count: 325,
-    amount: "20.350.043.55€",
-    color: "#FFA903",
-    iconColor: "#FFA903",
-  },
-  {
-    status: "Rifiutati",
-    count: 325,
-    amount: "20.350.043.55€",
-    color: "#DB0000",
-    iconColor: "#DB0000",
-  },
-];
+
 const columns = [
   { field: "tipo", headerName: "Tipo", width: 70 },
   { field: "nome", headerName: "Nome", width: 255 },
