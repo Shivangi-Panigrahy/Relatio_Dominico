@@ -21,7 +21,7 @@ const Fornitori = () => {
   return (
     <>
       <Header />
-      <div className="pageTemplate">
+      <div className="pageTemplate ">
         <Table
           data={tableData.tabData.tab1}
           columns={columns}

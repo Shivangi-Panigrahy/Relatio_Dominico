@@ -6,7 +6,7 @@ const columns = [
   { field: "doc", headerName: "Doc", width: 64 },
   { field: "creatoIl", headerName: "Creato il", width: 92 },
   { field: "anno", headerName: "Anno", width: 92 },
-  { field: "bilancio", headerName: "Bilancio", width: 2000 },
+  { field: "bilancio", headerName: "Bilancio", width: 1115 },
   { field: "autore", headerName: "Autore", width: 84 },
   { field: "modDa", headerName: "Mod. da", width: 84 },
   { field: "fatturato", headerName: "Fatturato", width: 118 },

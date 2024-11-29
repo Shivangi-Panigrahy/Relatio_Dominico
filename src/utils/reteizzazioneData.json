@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "creatoil": "31/12/2024",
+      "dataPagamento": "30/12/2024",
+      "rata": "Rata 2",
+      "importo": "150.000,00€",
+      "daSaldare": "30.000,00€",
+      "saldato": "120.000,00€",
+      "stato": "Pagata",
+      "autore": "Author A",
+      "modDa": "Editor A",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "creatoil": "31/12/2024",
+      "dataPagamento": "29/12/2024",
+      "rata": "Rata 2",
+      "importo": "100.000,00€",
+      "daSaldare": "50.000,00€",
+      "saldato": "50.000,00€",
+      "stato": "Pagata",
+      "autore": "Author B",
+      "modDa": "Editor B",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "creatoil": "31/12/2024",
+      "dataPagamento": "31/12/2024",
+      "rata": "Rata 3",
+      "importo": "200.000,00€",
+      "daSaldare": "0€",
+      "saldato": "200.000,00€",
+      "stato": "Pagata",
+      "autore": "Author C",
+      "modDa": "Editor C",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "creatoil": "31/12/2024",
+      "dataPagamento": "30/12/2024",
+      "rata": "Rata 4",
+      "importo": "180.000,00€",
+      "daSaldare": "40.000,00€",
+      "saldato": "140.000,00€",
+      "stato": "Pagata",
+      "autore": "Author D",
+      "modDa": "Editor D",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "creatoil": "31/12/2024",
+      "dataPagamento": "31/12/2024",
+      "rata": "Rata 5",
+      "importo": "220.000,00€",
+      "daSaldare": "50.000,00€",
+      "saldato": "170.000,00€",
+      "stato": "Pagata",
+      "autore": "Author E",
+      "modDa": "Editor E",
+      "azioni": "..."
+    }
+  ]
+  

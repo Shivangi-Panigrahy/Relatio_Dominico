@@ -2,6 +2,7 @@ import Header from "../../../component/header/Header"
 import Registri_header_Cards from "./Registri_header_Cards"
 import Table from "../../../component/table/Table"
 import Flussi_di_cassa_Below from "../Flussi_di_cassa/Flussi_di_cassa_Below";
+import tableData from "../../../utils/primeNoteAdministrazioneData.json"
 
 const Registri_IVA = () => {
   const columns = [
@@ -17,100 +18,15 @@ const Registri_IVA = () => {
     { field: "nomeRisorsa", headerName: "Nome risorsa", width: 300 },
     { field: "azioni", headerName: "Azioni", width: 100 },
   ];
-  const rows = [
-    {
-      id: 1,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-    {
-      id: 2,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-    {
-      id: 3,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-    {
-      id: 4,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-    {
-      id: 5,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-    {
-      id: 6,
-      data: "28/11/2024",
-      documento: "Fattura FA/262",
-      clientiFornitori: "Cliente SPA",
-      entrata: "10.234,09€",
-      uscita: "-",
-      utileContabile: "20.468,18€",
-      tipo: "Saldo",
-      modalita: "Bonifico",
-      tipoRisorsa: "Banca",
-      nomeRisorsa: "Banca del mutuo soccorso di Frosinone",
-      azioni: "...",
-    },
-  ];
+ 
   return (
     <>
       <Header />
-      <div className="pageTemplate">
+      <div className="pageTemplate registri_page">
       <Registri_header_Cards />
       <Flussi_di_cassa_Below />
       <Table
-          data={rows}
+          data={tableData}
           columns={columns}
           navData={"AmministragionFlussi"}
         />

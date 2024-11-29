@@ -104,6 +104,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Attivo",
       };
+      case "Pagata":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Attivo",
+        };
 
     default:
       return {
@@ -252,11 +258,7 @@ const TableRows = ({
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                        
                           <IconButton
                             size="small"
                             sx={{
@@ -267,12 +269,13 @@ const TableRows = ({
                             }}
                           >
                             <VisibilityOutlinedIcon
-                              sx={{ "&:hover": { color: "" } }}
+                              sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                       
                       </StyledTableCell>
                     )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
@@ -325,8 +328,6 @@ const TableRows = ({
             )}
           </TableBody>
         );
-
-
       case "allegati":
         return (
           <TableBody>
@@ -643,11 +644,7 @@ const TableRows = ({
 
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                        
                           <IconButton
                             size="small"
                             sx={{
@@ -661,9 +658,10 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                      
                       </StyledTableCell>
                     )}
 
@@ -752,11 +750,6 @@ const TableRows = ({
                     <StyledTableCell>{row.titolo}</StyledTableCell>
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
                           <IconButton
                             size="small"
                             sx={{
@@ -770,9 +763,8 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                            {row.cliente}
                           </IconButton>
-                          {row.cliente}
-                        </Box>
                       </StyledTableCell>
                     )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
@@ -864,7 +856,7 @@ const TableRows = ({
                         {row.totale}
                       </StyledTableCell>
                       <StyledTableCell>{row.saldato}</StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
+                      <StyledTableCell className="customDasaldareGreen">
                         {row.daSaldare}
                       </StyledTableCell>
                       <StyledTableCell
@@ -906,9 +898,9 @@ const TableRows = ({
                           inputProps={{ "aria-labelledby": row.id }}
                         />
                       </StyledTableCell>
-                      <StyledTableCell>{row.Doc}</StyledTableCell>
-                      <StyledTableCell>{row.Numero}</StyledTableCell>
-                      <StyledTableCell>{row.Del}</StyledTableCell>
+                      <StyledTableCell>{row.doc}</StyledTableCell>
+                      <StyledTableCell>{row.numero}</StyledTableCell>
+                      <StyledTableCell>{row.del}</StyledTableCell>
                       <StyledTableCell>
                         <IconButton
                           size="small"
@@ -920,10 +912,10 @@ const TableRows = ({
                           }}
                         >
                           <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "" } }}
+                            sx={{ "&:hover": { color: "#57C700" } }}
                             fontSize="small"
                           />
-                          {row.Clienti}
+                          {row.clienti}
                         </IconButton>
                       </StyledTableCell>
                       <StyledTableCell>
@@ -937,10 +929,10 @@ const TableRows = ({
                           }}
                         >
                           <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "" } }}
+                            sx={{ "&:hover": { color: "#57C700" } }}
                             fontSize="small"
                           />
-                          {row.Fornitori}
+                          {row.fornitori}
                         </IconButton>
                       </StyledTableCell>
                       <StyledTableCell>
@@ -950,15 +942,37 @@ const TableRows = ({
                         {" "}
                         <Avatar1 />
                       </StyledTableCell>
-                      <StyledTableCell>{row.CreatoIl}</StyledTableCell>
-                      <StyledTableCell>{row.Totale}</StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                      <StyledTableCell>{row.totale}</StyledTableCell>
                       <StyledTableCell sx={{ textAlign: "center" }}>
-                        {row.Saldata}
+                        {row.saldata}
                       </StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
-                        {row.DaSaldare}
+                      <StyledTableCell className="customDasaldareGreen" >
+                        {row.dasaldare}
                       </StyledTableCell>
-                      <StyledTableCell>{row.Stato}</StyledTableCell>
+                      <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
                       <StyledTableCell
                         sx={{ textAlign: "center" }}
                         onClick={(event) => event.stopPropagation()}
@@ -1056,13 +1070,13 @@ const TableRows = ({
                           inputProps={{ "aria-labelledby": row.id }}
                         />
                       </StyledTableCell>
-                      <StyledTableCell>{row.data}</StyledTableCell>
+                      <StyledTableCell>{row.creatoIl}</StyledTableCell>
                       <StyledTableCell>{row.documento}</StyledTableCell>
-                      <StyledTableCell>{row.clientiFornitori}</StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
+                      <StyledTableCell>{row.clienti}</StyledTableCell>
+                      <StyledTableCell  className="customDasaldareGreen">
                         {row.entrata}
                       </StyledTableCell>
-                      <StyledTableCell style={{ backgroundColor: "#DB000033" }}>
+                      <StyledTableCell className="customDasaldareRed">
                         {row.uscita}
                       </StyledTableCell>
                       <StyledTableCell>{row.utileContabile}</StyledTableCell>
@@ -1092,6 +1106,7 @@ const TableRows = ({
               )}
             </TableBody>
           );
+          
         case "bilancio":
           return (
             <TableBody>
@@ -1121,7 +1136,7 @@ const TableRows = ({
                         <Avatar1 />
                       </StyledTableCell>
                       <StyledTableCell>{row.fatturato}</StyledTableCell>
-                      <StyledTableCell>{row.valore}</StyledTableCell>
+                      {/* <StyledTableCell>{row.valore}</StyledTableCell> */}
                       <StyledTableCell
                         sx={{ textAlign: "center" }}
                         onClick={(event) => event.stopPropagation()}
@@ -1157,17 +1172,39 @@ const TableRows = ({
                         inputProps={{ "aria-labelledby": row.id }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.dataPagamento}</StyledTableCell>
                     <StyledTableCell>{row.rata}</StyledTableCell>
                     <StyledTableCell>{row.importo}</StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor:'#DB000033' }}>
+                    <StyledTableCell className="customDasaldareRed" >
                       {row.daSaldare}
                     </StyledTableCell>
-                    <StyledTableCell sx={{ backgroundColor:'#57C70033'}}>
+                    <StyledTableCell className="customDasaldareGreen" >
                       {row.saldato}
                     </StyledTableCell>
-                    <StyledTableCell>{row.stato}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
                     <StyledTableCell><Avatar1 /></StyledTableCell>
                     <StyledTableCell><Avatar1 /></StyledTableCell>
                     <StyledTableCell
@@ -1227,11 +1264,7 @@ const TableRows = ({
                       ""
                     ) : (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                       
                           <IconButton
                             size="small"
                             sx={{
@@ -1245,20 +1278,17 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                              {row.clienti}
                           </IconButton>
-                          {row.clienti}
-                        </Box>
+                        
+                       
                       </StyledTableCell>
                     )}
                     {form === "form2" || form === "form1" ? (
                       ""
                     ) : (
                       <StyledTableCell>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          whiteSpace={"nowrap"}
-                        >
+                       
                           <IconButton
                             size="small"
                             sx={{
@@ -1272,9 +1302,10 @@ const TableRows = ({
                               sx={{ "&:hover": { color: "#57C700" } }}
                               fontSize="small"
                             />
+                             {row.fornitori}
                           </IconButton>
-                          {row.fornitori}
-                        </Box>
+                         
+                        
                       </StyledTableCell>
                     )}
                     <StyledTableCell>{row.data}</StyledTableCell>

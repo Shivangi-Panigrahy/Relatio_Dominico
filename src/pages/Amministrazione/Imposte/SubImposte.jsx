@@ -17,7 +17,7 @@ const SubImposte = ({Component}) => {
         </Grid>
         <Grid item lg={9} md={8} xs={12}>
           <Box className="TemplateForm__right">
-            <MenuTab  subImposteRate={true} />
+          <MenuTab  subImposte={true} />
           </Box>
           {Component && <Component  />}
         </Grid>

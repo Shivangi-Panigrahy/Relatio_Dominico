@@ -1,0 +1,13 @@
+.assetPage {
+    .invoiceFilter {
+        .MuiStack-root {
+            grid-template-columns: 144px 144px  1.2fr 1fr 1fr 1.9fr 50px;
+            .MuiFormControl-root {
+                min-width: 124px;
+            }
+            .MuiPaper-elevation {
+                max-width: -webkit-fill-available;
+            }
+        }
+    }
+}
