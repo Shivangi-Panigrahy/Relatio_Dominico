@@ -183,7 +183,7 @@ const menuItems = [
     subitems: [
       { name: "Servizi", route: "/cataloghi/servizi" },
       { name: "Prodotti", route: "/cataloghi/prodotti" },
-      { name: "Configuratore", route: "/cataloghi/configuratore" },
+      { name: "Configuratore", route: "/cataloghi/configuratore/configuratore" },
       { name: "Listini", route: "/cataloghi/listini" },
     ],
   },

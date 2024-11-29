@@ -60,8 +60,10 @@ import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.js
 import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
 import Listini from "../pages/Cataloghi/Listini/Listini";
-import Prodotti from "../pages/Cataloghi/Prodotti/Prodotti";
 import Servizi from "../pages/Cataloghi/Servizi/Servizi";
+import SubListini from "../pages/Cataloghi/Listini/SubListini.jsx"
+import Prodotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
+import Gruppi from "../pages/Cataloghi/Listini/Gruppi.jsx"
 
 const Allroutes = () => {
   return (
@@ -598,7 +600,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="//cataloghi/servizi"
+        path="/cataloghi/servizi"
         element={
           <PublicRoute>
             <Servizi />
@@ -622,10 +624,34 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/cataloghi/configuratore"
+        path="/cataloghi/configuratore/configuratore"
         element={
           <PublicRoute>
-            <Configuratore />
+            <Configuratore Component={Listini} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/configuratore"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Listini} />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/cataloghi/listini/gruppi"
+        element={
+          <PublicRoute>
+            <SubListini Component={Gruppi } />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/cataloghi/listini/Prodotti"
+        element={
+          <PublicRoute>
+            <SubListini Component={Prodotti} />
           </PublicRoute>
         }
       />

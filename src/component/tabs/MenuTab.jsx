@@ -125,6 +125,14 @@ const TAB_CONFIGURATIONS = {
     { label: "Documenti", icon: Documenti },
     { label: "Agenda", icon: Agenda },
   ],
+  listini: [
+    { label: "Gruppi", icon: Contatti },
+    // { label: "Prodotti", icon: Qualificazione },
+  ],
+  CatalogConfig: [
+    { label: "Configurazione", icon: Contatti },
+    { label: "Prodotti", icon: Qualificazione },
+  ],
   subImposte: [
     { label: "Reteizzazione", icon: Contatti },
     { label: "Allegati", icon: Qualificazione },
@@ -133,6 +141,7 @@ const TAB_CONFIGURATIONS = {
     { label: "Rate", icon: Contatti },
     { label: "Allegati", icon: Qualificazione },
   ]
+
 };
 
 
@@ -152,6 +161,11 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
 
   if (isAsset) return `/amministrazione/asset/${label}`;
 
+  if (label==="Gruppi") return `/cataloghi/listini/${label}`;
+
+  if (label==="Prodotti") return `/cataloghi/listini/${label}`;
+  if (label==="Configurazione") return `/cataloghi/configuratore/${label}`;
+
   return `/dashboard/${label}`;
 
 };
@@ -168,7 +182,8 @@ const MenuTab = ({
   gantt = false,
   subImposte = false,
   subAsset = false,
-
+  listini=false,
+  CatalogConfig=false
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -181,10 +196,12 @@ const MenuTab = ({
     if (statsDashboard) return TAB_CONFIGURATIONS.statsDashboard;
     if (dettaglioForm) return TAB_CONFIGURATIONS.dettaglioForm;
     if (lead) return TAB_CONFIGURATIONS.lead;
+    if (listini) return TAB_CONFIGURATIONS.listini;
     if (subImposte) return TAB_CONFIGURATIONS.subImposte;
     if (subAsset) return TAB_CONFIGURATIONS.subAsset;
+    if (CatalogConfig) return TAB_CONFIGURATIONS.CatalogConfig;
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset,listini]);
 
   const tabsConfig = getActiveConfig();
 
@@ -250,7 +267,15 @@ const MenuTab = ({
                                       "Reteizzazione" :
                                       tab.label === "Allegati" ?
                                         "Allegati"
-                                        : tab.label}
+                                        :
+                                        tab.label === "Gruppi" ?
+                                        "Gruppi":
+                                        tab.label ==="Prodotti" ?"Prodotti":
+                                        tab.label === "Configurazione" ?
+                                        "Configurazione" :
+                                        tab.label ===  "" ?"":
+
+                                        tab.label}
                 </span>
               }
               icon={<IconComponent />}

@@ -217,7 +217,7 @@ const TableRows = ({
 
 
 
-      case "listinie":
+      case "listini":
         return (
           <TableBody>
             {data?.length > 0 ? (
@@ -234,12 +234,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() =>
-                      window.location.href.includes("/vendite/ordini") ||
-                        window.location.href.includes("/vendite/sub-lead/Documenti")
-                        ? navigate("/vendite/ordini/sub-ordini")
-                        : navigate("/acquisti/ordini/sub-ordini")
-                    }
+                    onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -252,9 +247,8 @@ const TableRows = ({
                       />
                     </StyledTableCell>
                     <StyledTableCell>{row.nomeListino}</StyledTableCell>
-                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                    <StyledTableCell>{row.numero}</StyledTableCell>
-                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                    <StyledTableCell>{row.gruppiAssociati}</StyledTableCell>
+                    <StyledTableCell>{row.nProdotti}</StyledTableCell>
                       <StyledTableCell>
                         <Box
                           display="flex"
@@ -275,41 +269,19 @@ const TableRows = ({
                               fontSize="small"
                             />
                           </IconButton>
-                          {row.fornitori}
+                          {row.stato}
                         </Box>
                       </StyledTableCell>
-                    )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
+                    {row.da}
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
+                      {row.a}
                     </StyledTableCell>
-                    <StyledTableCell>{row.dataModifica}</StyledTableCell>
-                    <StyledTableCell>{row.valore}</StyledTableCell>
+                    <StyledTableCell>{row.priorita}</StyledTableCell>
+                    <StyledTableCell><Avatar1 /></StyledTableCell>
                     <StyledTableCell align="center">
-                      <StatusChip
-                        stato={
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          handleStatusClick(index);
-                          // classActice(row.stato);
-                        }}
-                      >
-                        {searchFilters?.stato
-                          ? row.stato
-                          : currentStatuses[index]}
-                      </StatusChip>
+                   <Avatar1 />
                     </StyledTableCell>
 
                     <StyledTableCell
