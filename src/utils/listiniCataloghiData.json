@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "nomeListino": "Rivenditori Elite",
+      "gruppiAssociati": "Clienti Premium",
+      "nProdotti": "120",
+      "stato": "Attivo",
+      "creatoIl": "01/01/2023",
+      "a": "01/01/2024",
+      "priorita": "15",
+      "autore": "Author Image 1",
+      "modDa": "Author Image 2",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 2,
+      "nomeListino": "Vendite Online",
+      "gruppiAssociati": "E-commerce Clients",
+      "nProdotti": "300",
+      "stato": "Attivo",
+      "creatoIl": "15/02/2023",
+      "a": "15/02/2024",
+      "priorita": "8",
+      "autore": "Author Image 3",
+      "modDa": "Author Image 4",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 3,
+      "nomeListino": "Sconto Speciale",
+      "gruppiAssociati": "Nuovi Clienti",
+      "nProdotti": "50",
+      "stato": "Attivo",
+      "creatoIl": "10/03/2023",
+      "a": "10/03/2024",
+      "priorita": "20",
+      "autore": "Author Image 5",
+      "modDa": "Author Image 1",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 4,
+      "nomeListino": "Corporazioni",
+      "gruppiAssociati": "Aziende",
+      "nProdotti": "500",
+      "stato": "Attivo",
+      "creatoIl": "01/05/2023",
+      "a": "01/05/2024",
+      "priorita": "5",
+      "autore": "Author Image 2",
+      "modDa": "Author Image 3",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 5,
+      "nomeListino": "Rivenditori Locali",
+      "gruppiAssociati": "Clienti Locali",
+      "nProdotti": "150",
+      "stato": "Attivo",
+      "creatoIl": "20/06/2023",
+      "a": "20/06/2024",
+      "priorita": "12",
+      "autore": "Author Image 4",
+      "modDa": "Author Image 5",
+      "azioni": "Edit/Delete"
+    }
+  ]
+  

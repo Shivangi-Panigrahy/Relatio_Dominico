@@ -1,0 +1,16 @@
+.cat_servizi {
+  .statusText {
+    height: 80px;
+  }
+}
+.main_texteditor_container {
+  padding: 0 !important;
+
+  .editor-toolbar {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

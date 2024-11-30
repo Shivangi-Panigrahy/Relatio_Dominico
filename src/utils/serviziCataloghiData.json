@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "cod": "PRD56-786-123-1",
+      "nomeServizio": "Design Logo",
+      "categoria": "Graphic Design",
+      "um": "Project",
+      "pzVendita": "150€",
+      "costoServizio": "50€",
+      "ricavoUnitario": "100€",
+      "acquistato": "10.500,00€",
+      "venduto": "25.000,00€",
+      "ricavoTotale": "14.500,00€",
+      "utente": "User Image 1",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 2,
+      "cod": "SFT89-675-908-2",
+      "nomeServizio": "Web Development",
+      "categoria": "IT Services",
+      "um": "Hour",
+      "pzVendita": "85€",
+      "costoServizio": "40€",
+      "ricavoUnitario": "45€",
+      "acquistato": "12.340,00€",
+      "venduto": "50.000,00€",
+      "ricavoTotale": "37.660,00€",
+      "utente": "User Image 2",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 3,
+      "cod": "HRM23-987-345-3",
+      "nomeServizio": "Recruitment Service",
+      "categoria": "Human Resources",
+      "um": "Candidate",
+      "pzVendita": "500€",
+      "costoServizio": "200€",
+      "ricavoUnitario": "300€",
+      "acquistato": "5.000,00€",
+      "venduto": "20.000,00€",
+      "ricavoTotale": "15.000,00€",
+      "utente": "User Image 3",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 4,
+      "cod": "DIG56-453-120-4",
+      "nomeServizio": "SEO Optimization",
+      "categoria": "Marketing",
+      "um": "Campaign",
+      "pzVendita": "1.200€",
+      "costoServizio": "800€",
+      "ricavoUnitario": "400€",
+      "acquistato": "16.000,00€",
+      "venduto": "30.000,00€",
+      "ricavoTotale": "14.000,00€",
+      "utente": "User Image 4",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 5,
+      "cod": "ADV76-432-982-5",
+      "nomeServizio": "Social Media Ads",
+      "categoria": "Advertising",
+      "um": "Campaign",
+      "pzVendita": "3.000€",
+      "costoServizio": "2.000€",
+      "ricavoUnitario": "1.000€",
+      "acquistato": "50.000,00€",
+      "venduto": "80.000,00€",
+      "ricavoTotale": "30.000,00€",
+      "utente": "User Image 5",
+      "azioni": "Edit/Delete"
+    }
+  ]
+  

@@ -1,0 +1,59 @@
+.pageTemplate {
+    padding: 16px 30px;
+  }
+  .tableSearchHead {
+    margin: 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    &__field {
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      & > .MuiSvgIcon-root {
+        position: absolute;
+        right: 18px;
+        fill: #10091980;
+      }
+      .MuiFormControl-root {
+        width: 100%;
+      }
+      input {
+        padding: 18px;
+        height: auto;
+        line-height: normal;
+        background-color: #fff;
+      }
+      .MuiFormLabel-root {
+        font-size: 16px;
+        line-height: 20px;
+        color: #666666;
+      }
+      fieldset {
+        border: 1px solid #e5e5e5;
+        height: 54px;
+        border-radius: 5px;
+        background: #ffffff;
+      }
+      .MuiFormLabel-root {
+        &.Mui-focused {
+          color: #e72276;
+        }
+      }
+      .Mui-focused {
+        fieldset {
+          border-width: 1px !important;
+          border-color: #000 !important;
+        }
+      }
+    }
+    &__btn {
+      button {
+        white-space: nowrap;
+      }
+    }
+  }
+  

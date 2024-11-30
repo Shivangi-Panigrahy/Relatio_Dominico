@@ -104,7 +104,7 @@ const SearchTable = ({
   }, []);
   const renderFilters = () => (
     <>
-      {navData === "personale"|| navData === "bilancio" ? (
+      {navData === "personale" || navData === "bilancio" || navData === "Gruppi" || navData === "product" || navData === "Giacenze" || navData === "distinta" || navData==="conf_prodotti"||navData==="lis_prodotti" ? (
         ""
       ) : (
         <>
@@ -450,8 +450,20 @@ const SearchTable = ({
 
               {/* <MenuWithOptions options={options} /> */}
             </>
-          ) : navData === "repository" ? (
+          ) : navData === "servizi" ? (
             <>
+              <Autocomplete
+                disablePortal
+                options={extractUniqueValues("costoServizio")} // Provide your unique values here
+                value={activeFilters["costoServizio"] || ""} // Set the selected value
+                onChange={(event, newValue) =>
+                  handleFilterSelect("costoServizio", newValue)
+                } // Update the selected value
+                renderInput={(params) => (
+                  <TextField {...params} label="CostoServizio" />
+                )} // Customize the label
+              // sx={{ width: 300 }} // Optional styling
+              />
               <Autocomplete
                 disablePortal
                 options={extractUniqueValues("categoria")} // Provide your unique values here
@@ -464,24 +476,72 @@ const SearchTable = ({
                 )} // Customize the label
               // sx={{ width: 300 }} // Optional styling
               />
+
+
+              <SearchField
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              <MenuWithOptions options={options} />
+            </>
+          )
+        : navData === "prodotti" ? (
+          <>
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("nomeProdotto")} // Provide your unique values here
+              value={activeFilters["nomeProdotto"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("nomeProdotto", newValue)
+              } // Update the selected value
+              renderInput={(params) => (
+                <TextField {...params} label="NomeProdotto" />
+              )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+            />
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("categoria")} // Provide your unique values here
+              value={activeFilters["categoria"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("categoria", newValue)
+              } // Update the selected value
+              renderInput={(params) => (
+                <TextField {...params} label="Categoria" />
+              )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+            />
+
+
+            <SearchField
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <MenuWithOptions options={options} />
+          </>
+        )
+          : navData === "listini" ? (
+            <>
               <Autocomplete
                 disablePortal
-                options={extractUniqueValues("tipologia")} // Provide your unique values here
-                value={activeFilters["tipologia"] || ""} // Set the selected value
+                options={extractUniqueValues("gruppiAssociati")} // Provide your unique values here
+                value={activeFilters["gruppiAssociati"] || ""} // Set the selected value
                 onChange={(event, newValue) =>
-                  handleFilterSelect("tipologia", newValue)
+                  handleFilterSelect("gruppiAssociati", newValue)
                 } // Update the selected value
                 renderInput={(params) => (
-                  <TextField {...params} label="Tipologia" />
+                  <TextField {...params} label="GruppiAssociati" />
                 )} // Customize the label
               // sx={{ width: 300 }} // Optional styling
               />
               <Autocomplete
                 disablePortal
-                options={extractUniqueValues("peso")} // Provide your unique values here
-                value={activeFilters["peso"] || ""} // Set the selected value
-                onChange={(event, newValue) => handleFilterSelect("peso", newValue)} // Update the selected value
-                renderInput={(params) => <TextField {...params} label="Peso" />} // Customize the label
+                options={extractUniqueValues("stato")} // Provide your unique values here
+                value={activeFilters["stato"] || ""} // Set the selected value
+                onChange={(event, newValue) =>
+                  handleFilterSelect("stato", newValue)
+                } // Update the selected value
+                renderInput={(params) => <TextField {...params} label="stato" />} // Customize the label
               // sx={{ width: 300 }} // Optional styling
               />
               <SearchField
@@ -490,67 +550,125 @@ const SearchTable = ({
               />
               <MenuWithOptions options={options} />
             </>
-          ) : navData === "personale" || navData === "bilancio" ? (
-            <></>
           )
-        : navData === "documenti" ? (
-          <>
 
-            <Autocomplete
-              disablePortal
-              options={extractUniqueValues("valore")} // Provide your unique values here
-              value={activeFilters["valore"] || ""} // Set the selected value
-              onChange={(event, newValue) =>
-                handleFilterSelect("valore", newValue)
-              } // Update the selected value
-              renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
-            />
-            <Autocomplete
-              disablePortal
-              options={extractUniqueValues("numero")} // Provide your unique values here
-              value={activeFilters["numero"] || ""} // Set the selected value
-              onChange={(event, newValue) =>
-                handleFilterSelect("numero", newValue)
-              } // Update the selected value
-              renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
-            />
-            <SearchField
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-          </>
-        ) : (
-          <>
-            <Autocomplete
-              disablePortal
-              options={extractUniqueValues("valore")} // Provide your unique values here
-              value={activeFilters["valore"] || ""} // Set the selected value
-              onChange={(event, newValue) =>
-                handleFilterSelect("valore", newValue)
-              } // Update the selected value
-              renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
-            />
-            <Autocomplete
-              disablePortal
-              options={extractUniqueValues("numero")} // Provide your unique values here
-              value={activeFilters["numero"] || ""} // Set the selected value
-              onChange={(event, newValue) =>
-                handleFilterSelect("numero", newValue)
-              } // Update the selected value
-              renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
-            />
-            <SearchField
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
 
-            <MenuWithOptions options={options} />
-          </>
-        )}
+            : navData === "repository" ? (
+              <>
+                <Autocomplete
+                  disablePortal
+                  options={extractUniqueValues("categoria")} // Provide your unique values here
+                  value={activeFilters["categoria"] || ""} // Set the selected value
+                  onChange={(event, newValue) =>
+                    handleFilterSelect("categoria", newValue)
+                  } // Update the selected value
+                  renderInput={(params) => (
+                    <TextField {...params} label="Categoria" />
+                  )} // Customize the label
+                // sx={{ width: 300 }} // Optional styling
+                />
+                <Autocomplete
+                  disablePortal
+                  options={extractUniqueValues("tipologia")} // Provide your unique values here
+                  value={activeFilters["tipologia"] || ""} // Set the selected value
+                  onChange={(event, newValue) =>
+                    handleFilterSelect("tipologia", newValue)
+                  } // Update the selected value
+                  renderInput={(params) => (
+                    <TextField {...params} label="Tipologia" />
+                  )} // Customize the label
+                // sx={{ width: 300 }} // Optional styling
+                />
+                <Autocomplete
+                  disablePortal
+                  options={extractUniqueValues("peso")} // Provide your unique values here
+                  value={activeFilters["peso"] || ""} // Set the selected value
+                  onChange={(event, newValue) => handleFilterSelect("peso", newValue)} // Update the selected value
+                  renderInput={(params) => <TextField {...params} label="Peso" />} // Customize the label
+                // sx={{ width: 300 }} // Optional styling
+                />
+                <SearchField
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                />
+                <MenuWithOptions options={options} />
+              </>
+            ) : navData === "personale" || navData === "bilancio" || navData === "Gruppi" || navData === "product"||navData==="conf_prodotti" ||navData==="lis_prodotti" ? (
+              <></>
+            )
+              : navData === "documenti" ? (
+                <>
+
+                  <Autocomplete
+                    disablePortal
+                    options={extractUniqueValues("valore")} // Provide your unique values here
+                    value={activeFilters["valore"] || ""} // Set the selected value
+                    onChange={(event, newValue) =>
+                      handleFilterSelect("valore", newValue)
+                    } // Update the selected value
+                    renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
+                  // sx={{ width: 300 }} // Optional styling
+                  />
+                  <Autocomplete
+                    disablePortal
+                    options={extractUniqueValues("numero")} // Provide your unique values here
+                    value={activeFilters["numero"] || ""} // Set the selected value
+                    onChange={(event, newValue) =>
+                      handleFilterSelect("numero", newValue)
+                    } // Update the selected value
+                    renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
+                  // sx={{ width: 300 }} // Optional styling
+                  />
+                  <SearchField
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                  />
+                </>
+              )
+                : navData === "distinta" ? (
+                  <>
+                    <SearchField
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                    />
+                  </>
+                ) : navData === "Giacenze" ? (
+                  <>
+                    <SearchField
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("valore")} // Provide your unique values here
+                      value={activeFilters["valore"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("valore", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("numero")} // Provide your unique values here
+                      value={activeFilters["numero"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("numero", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <SearchField
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                    />
+
+                    <MenuWithOptions options={options} />
+                  </>
+                )}
       {form !== "form1" || (
         <div style={{ marginTop: "5px" }}>
           {(navData === "personale" || navData === "repository" || navData === "leed") && (
@@ -608,7 +726,7 @@ const SearchTable = ({
   return (
     <Box
       className={
-        navData === "personale"||navData==="bilancio"
+        navData === "personale" || navData === "bilancio" || navData === "Gruppi" || navData === "product" || navData==="conf_prodotti"||navData==="lis_prodotti"
           ? ""
           : `
         ${window.location.pathname === "/vendite/ordini/sub-ordini"

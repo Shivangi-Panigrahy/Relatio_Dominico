@@ -44,46 +44,47 @@ const toolbarItems = [
   { icon: Xml, title: "XML", caption: "XML" },
 ];
 
-
 export default function InvoiceTab() {
-  const [currentStatus, setCurrentStatus] = useState('approvato');
-  const [toggleDiv,setToggleDiv] = useState(false)
+  const [currentStatus, setCurrentStatus] = useState("approvato");
+  const [toggleDiv, setToggleDiv] = useState(false);
 
   const handleStatusBlockClick = () => {
-    switch(currentStatus) {
-      case 'approvato':
-        setCurrentStatus('sospeso');
+    switch (currentStatus) {
+      case "approvato":
+        setCurrentStatus("sospeso");
         break;
-      case 'sospeso':
-        setCurrentStatus('rifiutato');
+      case "sospeso":
+        setCurrentStatus("rifiutato");
         break;
-      case 'rifiutato':
-        setCurrentStatus('approvato');
+      case "rifiutato":
+        setCurrentStatus("approvato");
         break;
       default:
-        setCurrentStatus('approvato');
+        setCurrentStatus("approvato");
     }
   };
 
   const renderStatusBlock = () => {
-    switch(currentStatus) {
-      case 'approvato':
+    switch (currentStatus) {
+      case "approvato":
         return (
-          <div 
+          <div
             className="toolbarContainer__approvatoBlock"
-            style={{cursor:'pointer'}}
+            style={{ cursor: "pointer" }}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__approvatoBlock__Box">
-              <h4 className="toolbarContainer__approvatoBlock__text">Approvato</h4>
+              <h4 className="toolbarContainer__approvatoBlock__text">
+                Approvato
+              </h4>
             </div>
           </div>
         );
-      case 'sospeso':
+      case "sospeso":
         return (
-          <div 
+          <div
             className="toolbarContainer__sospesoBlock"
-            style={{cursor:'pointer'}}
+            style={{ cursor: "pointer" }}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__sospesoBlock__Box">
@@ -91,15 +92,17 @@ export default function InvoiceTab() {
             </div>
           </div>
         );
-      case 'rifiutato':
+      case "rifiutato":
         return (
-          <div 
+          <div
             className="toolbarContainer__rifiutatoBlock"
-            style={{cursor:'pointer'}}
+            style={{ cursor: "pointer" }}
             onClick={handleStatusBlockClick}
           >
             <div className="toolbarContainer__rifiutatoBlock__Box">
-              <h4 className="toolbarContainer__rifiutatoBlock__text">Rifiutato</h4>
+              <h4 className="toolbarContainer__rifiutatoBlock__text">
+                Rifiutato
+              </h4>
             </div>
           </div>
         );
@@ -109,19 +112,33 @@ export default function InvoiceTab() {
   };
   return (
     <div className="toolbarContainer">
-       {window.location.href.includes("/amministrazione/documenti/fattura")
-       ?
-       <div 
-            className="toolbarContainer__approvatoBlock"
-            onClick={()=>{handleStatusBlockClick();setToggleDiv(!toggleDiv)}}
-            style={{backgroundColor: toggleDiv ? "#fbeac9" : "#DB000033",color: toggleDiv ? "#ffa903" : '#DB0000' ,cursor:'pointer'}}
+      {window.location.href.includes("/amministrazione/documenti/fattura") ? (
+        <div
+          className="toolbarContainer__approvatoBlock"
+          onClick={() => {
+            handleStatusBlockClick();
+            setToggleDiv(!toggleDiv);
+          }}
+        >
+          <div
+            className="toolbarContainer__approvatoBlock__Box"
+            style={{
+              backgroundColor: toggleDiv ? "#fbeac9" : "#DB000033",
+              color: toggleDiv ? "#ffa903" : "#DB0000",
+              cursor: "pointer",
+            }}
           >
-            <div className="toolbarContainer__approvatoBlock__Box">
-              <h4 className="toolbarContainer__approvatoBlock__text">Da pagara</h4>
-            </div>
-          </div> :
-          renderStatusBlock()
-          }
+            <h4
+              className="toolbarContainer__approvatoBlock__text"
+              style={{ color: toggleDiv ? "#ffa903" : "#DB0000" }}
+            >
+              Da pagara
+            </h4>
+          </div>
+        </div>
+      ) : (
+        renderStatusBlock()
+      )}
       <div className="toolbarContainer__list">
         {toolbarItems.map((item, index) => (
           <div key={index} className="toolbarContainer__items">

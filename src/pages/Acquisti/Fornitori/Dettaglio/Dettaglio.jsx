@@ -4,7 +4,7 @@ import Header from "../../../../component/header/Header.jsx";
 import tableData from "../../../../utils/tableData.json";
 import tableSubData from "../../../../utils/tableSubData.json";
 import MenuTab from "../../../../component/tabs/MenuTab.jsx";
-import "./Dettaglio.scss";
+// import "./Dettaglio.scss";
 import AnagraficaForm from "../../../../component/AnagraficaForm/AnagraficaForm.jsx";
 
 const Dettaglio = ({ Component }) => {

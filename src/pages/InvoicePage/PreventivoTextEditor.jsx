@@ -79,26 +79,33 @@ const PreventivoTextEditor = () => {
         </Box>
         <Box className="sidebar">
           <Box className="attachments">
-            <Box className="attachments__header">
-              <h5>
-                <AttachFile /> Allegati
-              </h5>
-              <Button
-                className="greenButton"
-                variant="contained"
-                color="success"
-                startIcon={<Upload />}
-              >
-                Upload
-              </Button>
-            </Box>
-            <List className="attachment-list">
-              {attachments.map((attachment, index) => (
-                <ListItem key={index}>
-                  <DescriptionOutlined /> <ListItemText primary={attachment} />
-                </ListItem>
-              ))}
-            </List>
+            {
+            !window.location.href.includes('/cataloghi/servizi/Scheda') && 
+            !window.location.href.includes('/cataloghi/prodotti/Scheda') && 
+            (
+              <>
+                <Box className="attachments__header">
+                  <h5>
+                    <AttachFile /> Allegati
+                  </h5>
+                  <Button
+                    className="greenButton"
+                    variant="contained"
+                    color="success"
+                    startIcon={<Upload />}
+                  >
+                    Upload
+                  </Button>
+                </Box>
+                <List className="attachment-list">
+                  {attachments.map((attachment, index) => (
+                    <ListItem key={index}>
+                      <DescriptionOutlined /> <ListItemText primary={attachment} />
+                    </ListItem>
+                  ))}
+                </List>
+              </>
+            )}
           </Box>
         </Box>
       </Box>
