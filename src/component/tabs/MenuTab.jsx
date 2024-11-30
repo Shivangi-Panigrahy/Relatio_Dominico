@@ -160,11 +160,22 @@ const TAB_CONFIGURATIONS = {
     { label: "Allegati", icon: Documenti },
   ],
   hrEvento: [{ label: "Allegati", icon: Documenti }],
+  hrCollaborate: [
+    { label: "Contatti", icon: Documenti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Contratto", icon: Documenti },
+    { label: "Equipagiamento", icon: Documenti },
+    { label: "Turni", icon: Documenti },
+    { label: "Progetti", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+  ],
 
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHrCollaborate) => {
 
   // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
@@ -187,6 +198,8 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isHrCandidato) return `/hr/candidati/candidato/${label}`;
 
   if (isHrBusta) return `/hr/buste-page/${label}`;
+
+  if (isHrCollaborate) return `/hr/sub-colaboratory/${label}`;
 
 
   return `/dashboard/${label}`;
@@ -212,6 +225,8 @@ const MenuTab = ({
   sublistini = false,
   hrCandidato = false,
   hrEvento = false,
+  hrCollaborate=false,
+
 
 
 }) => {
@@ -235,9 +250,10 @@ const MenuTab = ({
     if (sublistini) return TAB_CONFIGURATIONS.sublistini;
     if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
+    if (hrCollaborate) return TAB_CONFIGURATIONS.hrCollaborate;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hrCollaborate]);
 
   const tabsConfig = getActiveConfig();
 
@@ -264,7 +280,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hrCollaborate]
   );
 
   return (

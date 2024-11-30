@@ -79,6 +79,10 @@ import Candidati from "../pages/HR/Candidati/Candidati.jsx";
 import Candidato from "../pages/HR/Candidati/Candidato.jsx";
 import BustaPage from "../pages/HR/BustePage/BustePage.jsx";
 import Busta from "../pages/HR/BustePage/Busta.jsx";
+import FeriePermisse from "../pages/HR/FeriePermisse/FeriePermisse.jsx";
+import FeriePermisseEvento from "../pages/HR/FeriePermisse/FeriePermisseEvento.jsx";
+import Colaboratory from "../pages/HR/Colaboratory/Colaboratory.jsx";
+import SubColaboratory from "../pages/HR/Colaboratory/SubColaboratory.jsx";
 
 const Allroutes = () => {
   return (
@@ -737,32 +741,32 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-      {/* <Route
+   <Route
         path="/hr/colaboratory"
         element={
           <PublicRoute>
-            <HRColaboratory />
+            <Colaboratory />
           </PublicRoute>
         }
       />
-      <Route
+      {/* <Route
         path="/hr/colaboratory/sub-colaboratory"
         element={
           <PublicRoute>
             <SubColaboratory Component={HrContatti} />
           </PublicRoute>
         }
-      />
+      /> */}
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Contatti"
+        path="/hr/sub-colaboratory/Contatti"
         element={
           <PublicRoute>
-            <SubColaboratory Component={HrContatti} />
+            <SubColaboratory Component={Contatti} />
           </PublicRoute>
         }
       />
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Qualificazione"
+        path="/hr/sub-colaboratory/Qualificazione"
         element={
           <PublicRoute>
             <SubColaboratory Component={Qualificazione} />
@@ -770,30 +774,30 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Documenti"
+        path="/hr/sub-colaboratory/Documenti"
         element={
           <PublicRoute>
             <SubColaboratory Component={Documenti} />
           </PublicRoute>
         }
       />
-      <Route
+      {/* <Route
         path="/hr/colaboratory/sub-colaboratory/Contratto"
         element={
           <PublicRoute>
             <SubColaboratory Component={Contratto} />
           </PublicRoute>
         }
-      />
+      /> */}
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Equipagiamento"
+        path="/hr/sub-colaboratory/Equipagiamento"
         element={
           <PublicRoute>
             <SubColaboratory Component={Documenti} />
           </PublicRoute>
         }
       />
-      <Route
+      {/* <Route
         path="/hr/colaboratory/sub-colaboratory/Turni"
         element={
           <PublicRoute>
@@ -807,10 +811,10 @@ const Allroutes = () => {
           <PublicRoute>
             <SubColaboratory Component={Progetti} />
           </PublicRoute>
-        }
-      />
+        } */}
+      {/* /> */}
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Agenda"
+        path="/hr/sub-colaboratory/Agenda"
         element={
           <PublicRoute>
             <SubColaboratory Component={ReactBigCalendar} />
@@ -818,7 +822,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Allegati"
+        path="/hr/sub-colaboratory/Allegati"
         element={
           <PublicRoute>
             <SubColaboratory Component={Allegati} />
@@ -840,7 +844,7 @@ const Allroutes = () => {
             <FeriePermisseEvento Component={Allegati} />
           </PublicRoute>
         }
-      /> */}
+      />
       <Route
         path="/hr/buste-page"
         element={

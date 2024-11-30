@@ -22,7 +22,7 @@ const SubColaboratory = ({ Component }) => {
             </Grid>
             <Grid item lg={9} md={8} xs={12}>
               <Box className="TemplateForm__right">
-                <MenuTab onTabChange={handleTabChange} hr={true} />
+                <MenuTab onTabChange={handleTabChange} hrCollaborate={true} />
               </Box>
               {Component && <Component hr={true} />}
             </Grid>
