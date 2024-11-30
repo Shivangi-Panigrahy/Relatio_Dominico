@@ -3,6 +3,7 @@ import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
 import tableData from "../../../utils/serviziData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
+import "./Prodotti.scss";
 
 const columns = [
   { field: "img", headerName: "IMG", width: 64 },
@@ -115,42 +116,34 @@ const prodottiData = [
     status: "Acuistato",
     count: 325,
     amount: "20.350.043.55€",
-    color: "#57C700",
+    color: "#160A2A",
     iconColor: "#57C700",
   },
   {
     status: "Venduto",
     count: 325,
     amount: "20.350.043.55€",
-    color: "#FFA903",
-    iconColor: "#FFA903",
+    color: "#160A2A",
+    iconColor: "#57C700",
   },
   {
     status: "Ricavo",
     count: 325,
     amount: "20.350.043.55€",
-    color: "#DB0000",
-    iconColor: "#DB0000",
+    color: "#57C700",
+    iconColor: "#57C700",
   },
 ];
 
-
 const Prodotti = () => {
-
-
   return (
     <>
       <Header />
 
       <div className="pageTemplate">
-
         <InvoiceDashboard servizi={prodottiData} />
 
-        <Table
-          data={rows}
-          columns={columns}
-          navData={"prodotti"}
-        />
+        <Table data={rows} columns={columns} navData={"prodotti"} />
       </div>
     </>
   );

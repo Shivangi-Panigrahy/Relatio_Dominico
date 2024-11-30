@@ -10,7 +10,7 @@ const Scheda_servizio = () => {
       <Grid container spacing={4}>
         {/* Text Editors */}
         <Grid item xs={12} md={8} className="main_texteditor_container">
-          <Box sx={{ marginBottom: 4 }}>
+          <Box sx={{ marginBottom: "6px" }}>
             <PreventivoTextEditor />
           </Box>
           <Box>
