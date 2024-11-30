@@ -117,6 +117,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Immediata",
       };
+      case "Approvata":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -1991,7 +1997,7 @@ const TableRows = ({
                     <StyledTableCell>{row.colaboratore}</StyledTableCell>
                     <StyledTableCell>{row.evento}</StyledTableCell>
                     <StyledTableCell>{row.da}</StyledTableCell>
-                    <StyledTableCell>{row.a}</StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>

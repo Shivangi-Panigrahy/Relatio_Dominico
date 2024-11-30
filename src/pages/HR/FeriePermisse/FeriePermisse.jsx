@@ -1,20 +1,20 @@
 import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/hrData.json";
+import tableData from "../../../utils/feriePermisseHr.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import "./FeriePermisse.scss";
 
 const columns = [
-  { field: "colaboratore", headerName: "Colaboratore", width: 400 },
-  { field: "evento", headerName: "Evento", width: 400 },
-  { field: "da", headerName: "Da", width: 120 },
-  { field: "a", headerName: "A", width: 120 },
-  { field: "totOre", headerName: "Tot ore", width: 120 },
-  { field: "autore", headerName: "Autore", width: 90 },
-  { field: "modDa", headerName: "Mod. da", width: 90 },
-  { field: "stato", headerName: "Stato", width: 120 },
-  { field: "azioni", headerName: "Azioni", width: 90 },
+  { field: "colaboratore", headerName: "Colaboratore", width: 500 },
+  { field: "evento", headerName: "Evento", width: 450 },
+  { field: "da", headerName: "Da", width: 130 },
+  { field: "creatoil", headerName: "A", width: 130 },
+  { field: "totOre", headerName: "Tot ore", width: 130 },
+  { field: "autore", headerName: "Autore", width: 85 },
+  { field: "modDa", headerName: "Mod. da", width: 85 },
+  { field: "stato", headerName: "Stato", width: 145 },
+  { field: "azioni", headerName: "Azioni", width: 95 },
 ];
 
 const OrdiniData = [
@@ -51,7 +51,7 @@ const FeriePermisse = () => {
         <div className="feriePermisse">
           <InvoiceDashboard ordini={OrdiniData} hr={true} />
           <Table
-            data={tableData.hrData.feriePermisse}
+            data={tableData}
             columns={columns}
             navData={"feriePermisse"}
           />
