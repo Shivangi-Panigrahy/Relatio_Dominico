@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/hrData.json";
+import tableData from "../../../utils/colaboratoryHrData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 
 const columns = [
@@ -9,8 +9,8 @@ const columns = [
   { field: "ruolo", headerName: "Ruolo", width: 180 },
   { field: "livello", headerName: "Livello", width: 90 },
   { field: "trattamento", headerName: "Trattamento", width: 180 },
-  { field: "attivo", headerName: "Attivo", width: 120 },
-  { field: "inixio", headerName: "Inixio", width: 120 },
+  { field: "stato", headerName: "Attivo", width: 120 },
+  { field: "creatoil", headerName: "Inixio", width: 120 },
   { field: "fine", headerName: "Fine", width: 120 },
   { field: "utente", headerName: "Utente", width: 90 },
   { field: "azioni", headerName: "Azioni", width: 90 },
@@ -46,7 +46,7 @@ const Colaboratory = () => {
         <div className="colaboratory">
           <InvoiceDashboard ordini={OrdiniData} hr={true} />
           <Table
-            data={tableData.hrData.hrCollaborator}
+            data={tableData}
             columns={columns}
             navData={"colaboratory"}
           />

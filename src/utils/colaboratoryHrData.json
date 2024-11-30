@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "colaboratore": "Matteo Vellone",
+      "ruolo": "Project Manager",
+      "livello": "Senior",
+      "trattamento": "Tempo indeterminato",
+      "stato": "Si",
+      "creatoil": "28/11/2024",
+      "fine": "28/11/2024",
+      "utente": "Jane Smith",
+      "azioni": "Modifica"
+    },
+    {
+      "id": 2,
+      "colaboratore": "Giulia Bianchi",
+      "ruolo": "Software Engineer",
+      "livello": "Junior",
+      "trattamento": "Contratto a termine",
+      "stato": "Si",
+      "creatoil": "15/09/2023",
+      "fine": "15/09/2024",
+      "utente": "John Doe",
+      "azioni": "Elimina"
+    },
+    {
+      "id": 3,
+      "colaboratore": "Luca Verdi",
+      "ruolo": "Data Scientist",
+      "livello": "Mid",
+      "trattamento": "Part-time",
+      "stato": "Si",
+      "creatoil": "01/01/2024",
+      "fine": "31/12/2024",
+      "utente": "Alice Johnson",
+      "azioni": "Visualizza"
+    },
+    {
+      "id": 4,
+      "colaboratore": "Anna Neri",
+      "ruolo": "UX Designer",
+      "livello": "Senior",
+      "trattamento": "Tempo indeterminato",
+      "stato": "Si",
+      "creatoil": "01/03/2022",
+      "fine": "01/03/2026",
+      "utente": "Emily Davis",
+      "azioni": "Approva"
+    },
+    {
+      "id": 5,
+      "colaboratore": "Marco Rossi",
+      "ruolo": "DevOps Engineer",
+      "livello": "Mid",
+      "trattamento": "Tempo indeterminato",
+      "stato": "Si",
+      "creatoil": "10/10/2023",
+      "fine": "10/10/2027",
+      "utente": "Michael Brown",
+      "azioni": "Revisione"
+    },
+    {
+      "id": 6,
+      "colaboratore": "Francesca Moretti",
+      "ruolo": "HR Specialist",
+      "livello": "Junior",
+      "trattamento": "Contratto a termine",
+      "stato": "Si",
+      "creatoil": "05/06/2023",
+      "fine": "05/06/2024",
+      "utente": "Sarah Lee",
+      "azioni": "Archivia"
+    },
+    {
+      "id": 7,
+      "colaboratore": "Stefano Bianchi",
+      "ruolo": "Marketing Manager",
+      "livello": "Senior",
+      "trattamento": "Tempo indeterminato",
+      "stato": "Si",
+      "creatoil": "20/02/2020",
+      "fine": "20/02/2025",
+      "utente": "Robert Wilson",
+      "azioni": "Esporta"
+    }
+  ]
+  

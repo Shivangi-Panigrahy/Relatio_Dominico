@@ -123,6 +123,18 @@ const getStatusColor = (stato) => {
           color: "#57C700",
           className: "Approvata",
         };
+        case "Approvata":
+          return {
+            backgroundColor: "#57C70033",
+            color: "#57C700",
+            className: "Approvata",
+          };
+          case "Si":
+            return {
+              backgroundColor: "#57C70033",
+              color: "#57C700",
+              className: "Approvata",
+            };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -1926,29 +1938,31 @@ const TableRows = ({
                     <StyledTableCell>{row.ruolo}</StyledTableCell>
                     <StyledTableCell>{row.livello}</StyledTableCell>
                     <StyledTableCell>{row.trattamento}</StyledTableCell>
-                    <StyledTableCell>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        whiteSpace={"nowrap"}
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
                       >
-                        <IconButton
-                          className="colaboratory-tag"
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
-                        >
-                          {/* <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "" } }}
-                            fontSize="small"
-                          /> */}
-                          si
-                        </IconButton>
-                      </Box>
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
                     </StyledTableCell>
                     <StyledTableCell>{row.inixio}</StyledTableCell>
                     <StyledTableCell>{row.fine}</StyledTableCell>
