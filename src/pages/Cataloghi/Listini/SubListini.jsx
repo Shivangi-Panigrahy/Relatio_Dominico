@@ -5,11 +5,6 @@ import MenuTab from "../../../component/tabs/MenuTab";
 import ListiniForm from "./ListiniForm";
 // import SearchField from "../../component/filter/SearchField.jsx";
 const SubListini = ({ Component }) => {
-  const [activeTab, setActiveTab] = useState("tab1");
-
-  const handleTabChange = (newTab) => {
-    setActiveTab(newTab); // Update the active tab
-  };
 
   return (
     <>
@@ -21,7 +16,7 @@ const SubListini = ({ Component }) => {
           </Grid>
           <Grid item lg={9} md={8} xs={12}>
             <Box className="TemplateForm__right">
-              <MenuTab onTabChange={handleTabChange} listini={true} />
+              <MenuTab sublistini={true} />
             </Box>
             {Component && <Component acquisti_agenda={true} />}
           </Grid>

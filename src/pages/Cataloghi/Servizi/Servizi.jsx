@@ -96,7 +96,7 @@ const rows = [
   },
 ];
 
-const prodottiData = [
+const serviziData = [
   {
     status: "Servizi ",
     count: "",
@@ -136,13 +136,13 @@ const Servizi = () => {
 
       <div className="pageTemplate">
 
-        <InvoiceDashboard servizi={prodottiData} />
+        <InvoiceDashboard servizi={serviziData} />
 
 
         <Table
           data={rows}
           columns={columns}
-          navData={"prodotti"}
+          navData={"servizi"}
         />
       </div>
     </>

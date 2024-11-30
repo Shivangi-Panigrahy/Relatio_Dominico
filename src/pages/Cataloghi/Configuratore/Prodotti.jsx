@@ -5,7 +5,6 @@ import tableData from "../../../utils/serviziData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import ProductTable from "../../../component/ProductTable/ProductTable";
 
-
 const columns = [
   { field: "img", headerName: "Img", width: 520 },
   { field: "code", headerName: "Code", width: 299 },
@@ -16,58 +15,58 @@ const columns = [
 ];
 const rows = [
   {
-    id: "1",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "1",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
   {
-    id: "2",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "2",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
   {
-    id: "3",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "3",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
   {
-    id: "4",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "4",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
   {
-    id: "5",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "5",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
   {
-    id: "6",
-    img: "",
-    code: "MK/532-245-234-0",
-    name: "Nome del prodotto",
-    category: "Linea A",
-    unit: "Pezzi",
-    quantity: 4,
+      id: "6",
+      img: "",
+      code: "MK/532-245-234-0",
+      name: "Nome del prodotto",
+      category: "Linea A",
+      unit: "Pezzi",
+      quantity: 4,
   },
 ];
 
@@ -79,7 +78,7 @@ const Prodotti = () => {
 
       <div className="pageTemplate">
 
-        <Table
+      <Table
           data={rows}
           columns={columns}
           navData={"product"}
@@ -90,4 +89,3 @@ const Prodotti = () => {
 };
 
 export default Prodotti;
-

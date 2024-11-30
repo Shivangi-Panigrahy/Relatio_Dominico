@@ -5,7 +5,6 @@ import tableData from "../../../utils/serviziData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import ProductTable from "../../../component/ProductTable/ProductTable";
 
-
 const columns = [
   { field: "img", headerName: "Img", width: 520 },
   { field: "code", headerName: "Code", width: 299 },
@@ -71,7 +70,26 @@ const rows = [
   },
 ];
 
-const Prodotti = () => {
+const prodottiData = [
+  {
+    status: "Toale componenti ",
+    count: "",
+    amount: "332",
+    color: "#100919",
+    iconColor: "",
+  },
+  {
+    status: "Categorie componenti",
+    count: "",
+    amount: "5",
+    color: "#100919",
+    iconColor: "",
+  },
+
+];
+
+
+const Distinta_base = () => {
 
 
   return (
@@ -79,6 +97,7 @@ const Prodotti = () => {
 
       <div className="pageTemplate">
 
+        <InvoiceDashboard servizi={prodottiData} />
         <Table
           data={rows}
           columns={columns}
@@ -89,5 +108,4 @@ const Prodotti = () => {
   );
 };
 
-export default Prodotti;
-
+export default Distinta_base;
