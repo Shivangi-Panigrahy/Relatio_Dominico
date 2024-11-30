@@ -63,9 +63,7 @@ const ImageGallery = () => {
 
   const handleFileUpload = (event) => {
     const uploadedFiles = Array.from(event.target.files);
-    const newImages = uploadedFiles.map((file) =>
-      URL.createObjectURL(file)
-    );
+    const newImages = uploadedFiles.map((file) => URL.createObjectURL(file));
     setImages((prevImages) => [...prevImages, ...newImages]);
   };
 
@@ -74,7 +72,7 @@ const ImageGallery = () => {
       <Typography variant="h6" gutterBottom>
         Galleria d'immagini
       </Typography>
-      <UploadContainer>
+      <UploadContainer style={{ position: "relative" }}>
         <Cloudupload fontSize="large" />
         <Typography>Upload file</Typography>
         <input
@@ -88,6 +86,8 @@ const ImageGallery = () => {
             cursor: "pointer",
             width: "100%",
             height: "100%",
+            top: "0",
+            left: "0",
           }}
         />
       </UploadContainer>
@@ -103,9 +103,7 @@ const ImageGallery = () => {
                   alt={`Image ${index + 1}`}
                 />
               ) : (
-                <Box sx={{ height: 100 }}>
-                  {src}
-                </Box>
+                <Box sx={{ height: 100 }}>{src}</Box>
               )}
               <IconButton
                 size="small"
@@ -123,7 +121,9 @@ const ImageGallery = () => {
           </Grid>
         ))}
       </Grid>
-      <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: 2 }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "space-between", marginTop: 2 }}
+      >
         <RemoveButton onClick={handleRemoveAll}>Rimuovi tutto</RemoveButton>
         <UploadButton component="label">
           Carica foto

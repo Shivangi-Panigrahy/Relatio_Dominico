@@ -9,7 +9,6 @@ import { ReactComponent as Saldare } from "../../assets/dashboardIcons/saldare.s
 import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
 
-
 const useStyles = makeStyles(() => ({}));
 const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
   return (
@@ -37,7 +36,9 @@ const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
         )}
         <h5>
           {count}
-          <span>
+          <span
+            style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
+          >
             {count === ""
               ? " "
               : window.location.href.includes("/amministrazione/documenti")
@@ -65,13 +66,10 @@ const InvoiceDashboard = ({
   amministrazioneImposte = false,
   reteizzazione = false,
   servizi = false,
-
-
 }) => {
   const classes = useStyles();
 
-
-  console.log(amministrazioneDocumenti, 'amministrazioneDocumenti')
+  console.log(amministrazioneDocumenti, "amministrazioneDocumenti");
 
   const dataSources = {
     acquisti: acquisti,
@@ -86,8 +84,7 @@ const InvoiceDashboard = ({
     amministrazioneImposte: amministrazioneImposte,
     amministrazioneAsset: amministrazioneAsset,
     primaNota: primaNota,
-    servizi: servizi
-
+    servizi: servizi,
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -101,7 +98,7 @@ const InvoiceDashboard = ({
     amministrazioneAsset,
     primaNota,
     amministrazioneImposte,
-    servizi
+    servizi,
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays

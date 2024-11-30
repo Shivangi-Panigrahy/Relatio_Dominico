@@ -3,6 +3,7 @@ import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
 import tableData from "../../../utils/serviziData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
+import "./Servizi.scss";
 
 const columns = [
   { field: "cod", headerName: "COD.", width: 150 },
@@ -106,44 +107,37 @@ const serviziData = [
   },
   {
     status: "Finanziario",
-    count: 2,
+    count: 325,
     amount: "20.350.043.55€",
-    color: "#57C700",
+    color: "#160A2A",
     iconColor: "#57C700",
   },
   {
     status: "Immobiliare",
-    count: 1,
+    count: 325,
     amount: "20.350.043.55€",
-    color: "#FFA903",
-    iconColor: "#FFA903",
+    color: "#160A2A",
+    iconColor: "#57C700",
   },
   {
     status: "Strumentale",
-    count: 13,
+    count: 325,
     amount: "20.350.043.55€",
-    color: "#DB0000",
+    color: "#57C700",
     iconColor: "#DB0000",
   },
 ];
 
 const Servizi = () => {
-
-
   return (
     <>
       <Header />
 
       <div className="pageTemplate">
-
-        <InvoiceDashboard servizi={serviziData} />
-
-
-        <Table
-          data={rows}
-          columns={columns}
-          navData={"servizi"}
-        />
+        <div className="cat_servizi">
+          <InvoiceDashboard servizi={serviziData} />
+        </div>
+        <Table data={rows} columns={columns} navData={"servizi"} />
       </div>
     </>
   );
