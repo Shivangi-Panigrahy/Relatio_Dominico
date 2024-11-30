@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "cod": "BP-01-25",
+      "lotto": "56789",
+      "scadenza": "15/12/2024",
+      "prodotto": "Prodotto A",
+      "marcaSerie": "Elite",
+      "stabilimento": "Stabilimento B",
+      "um": "Cartoni",
+      "pzUnitario": "75,000.00€",
+      "qta": "50000"
+    },
+    {
+      "id": 2,
+      "cod": "BP-02-25",
+      "lotto": "67890",
+      "scadenza": "20/01/2025",
+      "prodotto": "Prodotto B",
+      "marcaSerie": "Premium",
+      "stabilimento": "Stabilimento C",
+      "um": "Scatole",
+      "pzUnitario": "50,000.00€",
+      "qta": "40000"
+    },
+    {
+      "id": 3,
+      "cod": "BP-03-25",
+      "lotto": "78901",
+      "scadenza": "05/02/2025",
+      "prodotto": "Prodotto C",
+      "marcaSerie": "Deluxe",
+      "stabilimento": "Stabilimento D",
+      "um": "Pezzi",
+      "pzUnitario": "100,000.00€",
+      "qta": "25000"
+    },
+    {
+      "id": 4,
+      "cod": "BP-04-25",
+      "lotto": "89012",
+      "scadenza": "28/02/2025",
+      "prodotto": "Prodotto D",
+      "marcaSerie": "Super",
+      "stabilimento": "Stabilimento E",
+      "um": "Litri",
+      "pzUnitario": "125,000.00€",
+      "qta": "60000"
+    },
+    {
+      "id": 5,
+      "cod": "BP-05-25",
+      "lotto": "90123",
+      "scadenza": "10/03/2025",
+      "prodotto": "Prodotto E",
+      "marcaSerie": "Standard",
+      "stabilimento": "Stabilimento F",
+      "um": "Unità",
+      "pzUnitario": "85,000.00€",
+      "qta": "35000"
+    }
+  ]
+  

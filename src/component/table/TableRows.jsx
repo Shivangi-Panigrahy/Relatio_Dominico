@@ -1258,31 +1258,31 @@ const TableRows = ({
                     <StyledTableCell>{row.nomeListino}</StyledTableCell>
                     <StyledTableCell>{row.gruppiAssociati}</StyledTableCell>
                     <StyledTableCell>{row.nProdotti}</StyledTableCell>
-                    <StyledTableCell>
-                      <Box
-                        display="flex"
-                        alignItems="center"
-                        whiteSpace={"nowrap"}
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
                       >
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
-                        >
-                          <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "" } }}
-                            fontSize="small"
-                          />
-                        </IconButton>
-                        {row.stato}
-                      </Box>
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
-                      {row.da}
+                      {row.creatoIl}
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       {row.a}
@@ -1492,6 +1492,274 @@ const TableRows = ({
             )}
           </TableBody>
         );
+        case "distinta":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  // .slice(
+                  //   page * rowsPerPage,
+                  //   // Limit to 2 rows for specified paths
+                  //   (isSubLeadDocumenti || isFornitoriDocumenti)
+                  //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  //     : page * rowsPerPage + rowsPerPage
+                  // )
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
+                          <ProductIcon
+                            style={{
+                              width: "42px",
+                              height: "42px",
+                            }}
+                          />
+                        </div>
+                      </StyledTableCell>
+                      <StyledTableCell>{row.cod}</StyledTableCell>
+                      <StyledTableCell>{row.nome_del_prodotto}</StyledTableCell>
+                      <StyledTableCell>{row.categoria}</StyledTableCell>
+                      <StyledTableCell>{row.um}</StyledTableCell>
+                      <StyledTableCell>{row.qta}</StyledTableCell>
+                      <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
+          case "lis_prodotti":
+            return (
+              <TableBody>
+                {data?.length > 0 ? (
+                  data
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    // .slice(
+                    //   page * rowsPerPage,
+                    //   // Limit to 2 rows for specified paths
+                    //   (isSubLeadDocumenti || isFornitoriDocumenti)
+                    //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    //     : page * rowsPerPage + rowsPerPage
+                    // )
+                    .map((row, index) => (
+                      <StyledTableRow
+                        key={index}
+                        selected={isSelected(row.id)}
+                      // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                      >
+                        <StyledTableCell align="center">
+                          <CustomCheckbox
+                            className="customChechbox"
+                            color="primary"
+                            checked={isSelected(row.id)}
+                            onChange={(event) => handleRowClick(event, row.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            inputProps={{ "aria-labelledby": row.id }}
+                          />
+                        </StyledTableCell>
+                        <StyledTableCell>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            <ProductIcon
+                              style={{
+                                width: "42px",
+                                height: "42px",
+                              }}
+                            />
+                          </div>
+                        </StyledTableCell>
+                        <StyledTableCell>{row.cod}</StyledTableCell>
+                        <StyledTableCell>{row.nome_del_prodotto}</StyledTableCell>
+                        <StyledTableCell>{row.categoria}</StyledTableCell>
+                        <StyledTableCell>{row.um}</StyledTableCell>
+                        <StyledTableCell>{row.qta}</StyledTableCell>
+                        <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                      </StyledTableRow>
+                    ))
+                ) : (
+                  <StyledTableRow>
+                    <StyledTableCell colSpan={12} align="center">
+                      Data not found
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )}
+              </TableBody>
+            );
+          case "conf_prodotti":
+            return (
+              <TableBody>
+                {data?.length > 0 ? (
+                  data
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    // .slice(
+                    //   page * rowsPerPage,
+                    //   // Limit to 2 rows for specified paths
+                    //   (isSubLeadDocumenti || isFornitoriDocumenti)
+                    //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    //     : page * rowsPerPage + rowsPerPage
+                    // )
+                    .map((row, index) => (
+                      <StyledTableRow
+                        key={index}
+                        selected={isSelected(row.id)}
+                      // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                      >
+                        <StyledTableCell align="center">
+                          <CustomCheckbox
+                            className="customChechbox"
+                            color="primary"
+                            checked={isSelected(row.id)}
+                            onChange={(event) => handleRowClick(event, row.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            inputProps={{ "aria-labelledby": row.id }}
+                          />
+                        </StyledTableCell>
+                        <StyledTableCell>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            <ProductIcon
+                              style={{
+                                width: "42px",
+                                height: "42px",
+                              }}
+                            />
+                          </div>
+                        </StyledTableCell>
+                        <StyledTableCell>{row.cod}</StyledTableCell>
+                        <StyledTableCell>{row.nome_del_prodotto}</StyledTableCell>
+                        <StyledTableCell>{row.categoria}</StyledTableCell>
+                        <StyledTableCell>{row.um}</StyledTableCell>
+                        <StyledTableCell>{row.qta}</StyledTableCell>
+                        <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                      </StyledTableRow>
+                    ))
+                ) : (
+                  <StyledTableRow>
+                    <StyledTableCell colSpan={12} align="center">
+                      Data not found
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )}
+              </TableBody>
+            );
+          case "prodotti":
+            return (
+              <TableBody>
+                {data?.length > 0 ? (
+                  data
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    // .slice(
+                    //   page * rowsPerPage,
+                    //   // Limit to 2 rows for specified paths
+                    //   (isSubLeadDocumenti || isFornitoriDocumenti)
+                    //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    //     : page * rowsPerPage + rowsPerPage
+                    // )
+                    .map((row, index) => (
+                      <StyledTableRow
+                        key={index}
+                        selected={isSelected(row.id)}
+                      // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                      >
+                        <StyledTableCell align="center">
+                          <CustomCheckbox
+                            className="customChechbox"
+                            color="primary"
+                            checked={isSelected(row.id)}
+                            onChange={(event) => handleRowClick(event, row.id)}
+                            onClick={(event) => event.stopPropagation()}
+                            inputProps={{ "aria-labelledby": row.id }}
+                          />
+                        </StyledTableCell>
+                        <StyledTableCell>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            <ProductIcon
+                              style={{
+                                width: "42px",
+                                height: "42px",
+                              }}
+                            />
+                          </div>
+                        </StyledTableCell>
+                        <StyledTableCell>{row.cod}</StyledTableCell>
+                        <StyledTableCell>{row.nome_del_prodotto}</StyledTableCell>
+                        <StyledTableCell>{row.categoria}</StyledTableCell>
+                        <StyledTableCell>{row.um}</StyledTableCell>
+                        <StyledTableCell>{row.qta}</StyledTableCell>
+                        <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                      </StyledTableRow>
+                    ))
+                ) : (
+                  <StyledTableRow>
+                    <StyledTableCell colSpan={12} align="center">
+                      Data not found
+                    </StyledTableCell>
+                  </StyledTableRow>
+                )}
+              </TableBody>
+            );
       case "Giacenze":
         return (
           <TableBody>

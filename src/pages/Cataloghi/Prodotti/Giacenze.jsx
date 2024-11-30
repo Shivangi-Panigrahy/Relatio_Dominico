@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/serviziData.json";
-import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
-import ProductTable from "../../../component/ProductTable/ProductTable";
+import tableData from "../../../utils/giacenzeCaraloghiData.json";
+
 
 const columns = [
     { field: "cod", headerName: "Cod.", width: 100 },
@@ -88,7 +87,7 @@ const Giacenze = () => {
             <div className="pageTemplate">
 
                 <Table
-                    data={rows}
+                    data={tableData}
                     columns={columns}
                     navData={"Giacenze"}
                 />
