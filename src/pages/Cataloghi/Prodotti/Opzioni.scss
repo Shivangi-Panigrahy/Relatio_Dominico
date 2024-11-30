@@ -1,32 +1,52 @@
 .expandable-list {
-    width: 100%;
-    background-color: #fff;
-  
-    .section-container {
-      margin-bottom: 16px;
-  
-      .section-header {
-        background-color: #f5f5f5;
-        border-radius: 4px;
-  
-        .MuiListItemButton-root {
-          padding: 8px 16px;
-  
-          .MuiListItemText-root {
-            margin-left: 8px;
+  width: 100%;
+  background-color: #fff;
+
+  .section-container {
+    margin-bottom: 16px;
+
+    .section-header {
+      background-color: #f5f5f5;
+      border-radius: 4px;
+
+      .MuiListItemButton-root {
+        padding: 8px 16px;
+
+        .MuiListItemText-root {
+          margin-left: 8px;
+
+          .MuiTypography-root {
+            font-family: "Public Sans", sans-serif;
+            color: #666666;
           }
         }
       }
-  
-      .section-content {
-        padding-left: 32px;
+      .MuiSvgIcon-root {
+        fill: #0000008a;
       }
-  
-      .add-row-button {
-        margin-left: 32px;
-        margin-bottom: 16px;
+    }
+
+    .section-content {
+      padding-left: 32px;
+    }
+
+    .add-row-button {
+      // margin-left: 32px;
+      // margin-bottom: 16px;
+
+      color: #160a2a;
+      font-weight: 700;
+      text-transform: unset;
+      background-color: transparent !important;
+
+      .MuiTouchRipple-root {
+        display: none !important;
       }
     }
   }
-  
-  
+}
+
+.section-container .section-content {
+  padding-left: 0 !important;
+  padding-top: 4px;
+}

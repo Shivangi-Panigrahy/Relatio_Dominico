@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   List,
   ListItem,
@@ -7,10 +7,11 @@ import {
   Collapse,
   Button,
   Box,
-} from '@mui/material';
-import { ExpandMore, ExpandLess, Add } from '@mui/icons-material';
-import './Configure.scss';
-import Face from './Face';
+} from "@mui/material";
+import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
+import "./Configure.scss";
+import Face from "./Face";
+import Catagoria from "./Catagoria";
 
 export default function Configure() {
   const [openSections, setOpenSections] = useState([]);
@@ -19,12 +20,12 @@ export default function Configure() {
 
   const sections = [
     {
-      id: 'fase',
-      title: 'Nome della fase',
+      id: "fase",
+      title: "Nome della fase",
     },
     {
-      id: 'categoria',
-      title: 'Nome della Categoria',
+      id: "categoria",
+      title: "Nome della Categoria",
     },
   ];
 
@@ -57,14 +58,18 @@ export default function Configure() {
         <Box key={section.id} className="section-container">
           <ListItem disablePadding className="section-header">
             <ListItemButton onClick={() => handleSectionClick(section.id)}>
-              {openSections.includes(section.id) ? <ExpandLess /> : <ExpandMore />}
+              {openSections.includes(section.id) ? (
+                <ExpandLess />
+              ) : (
+                <ExpandMore />
+              )}
               <ListItemText primary={section.title} />
             </ListItemButton>
           </ListItem>
 
           <Collapse in={openSections.includes(section.id)} timeout="auto">
             <List component="div" disablePadding className="section-content">
-              {section.id === 'fase' && (
+              {section.id === "fase" && (
                 <>
                   {dimensions.map((dimension) => (
                     <Face
@@ -83,10 +88,10 @@ export default function Configure() {
                 </>
               )}
 
-              {section.id === 'categoria' && (
+              {section.id === "categoria" && (
                 <>
                   {colors.map((color) => (
-                    <Face
+                    <Catagoria
                       key={color.id}
                       id={color.id}
                       onDelete={handleDeleteColori}
@@ -95,14 +100,19 @@ export default function Configure() {
                   <Button
                     startIcon={<Add />}
                     className="add-color-button"
-                    variant="outlined"
+                    variant="text"
                     onClick={handleAddColori}
+                    style={{
+                      color: "#160a2a",
+                      fontWeight: 700,
+                      textTransform: "unset",
+                      backgroundColor: "transparent",
+                    }}
                   >
                     Aggiungi colore
                   </Button>
                 </>
               )}
-
             </List>
           </Collapse>
         </Box>

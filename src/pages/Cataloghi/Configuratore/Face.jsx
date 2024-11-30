@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Box,
@@ -7,13 +7,17 @@ import {
   MenuItem,
   IconButton,
   Paper,
-} from '@mui/material'
-import { Delete } from '@mui/icons-material'
-import './Face.scss'
+} from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import "./Face.scss";
 
 export default function Face() {
   return (
-    <Paper className="phase-form" elevation={0}>
+    <Paper
+      className="phase-form"
+      style={{ backgroundColor: "#f3f3f3" }}
+      elevation={0}
+    >
       <Box className="form-content">
         <Box className="top-row">
           <TextField
@@ -22,12 +26,8 @@ export default function Face() {
             variant="outlined"
             fullWidth
           />
-          
-          <Select
-            defaultValue=""
-            className="priority-select"
-            displayEmpty
-          >
+
+          <Select defaultValue="" className="priority-select" displayEmpty>
             <MenuItem value="">Priorità</MenuItem>
             <MenuItem value="1">Alta</MenuItem>
             <MenuItem value="2">Media</MenuItem>
@@ -49,6 +49,5 @@ export default function Face() {
         />
       </Box>
     </Paper>
-  )
+  );
 }
-

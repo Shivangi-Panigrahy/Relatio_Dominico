@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -11,10 +11,10 @@ import {
   Checkbox,
   FormControlLabel,
   Paper,
-} from '@mui/material';
-import { CloudUpload, Add, Delete } from '@mui/icons-material';
-import './Dimension.scss';
-import SubDimensions from './SubDimensions';
+} from "@mui/material";
+import { CloudUpload, Add, Delete } from "@mui/icons-material";
+import "./Dimension.scss";
+import SubDimensions from "./SubDimensions";
 
 export default function Dimension({ id, onDelete }) {
   const [subDimensions, setSubDimensions] = useState([]); // Array to track SubDimensions
@@ -29,113 +29,200 @@ export default function Dimension({ id, onDelete }) {
 
   return (
     <div className="dimension-form-wrapper">
-      <Paper className="dimension-form" elevation={0}>
+      <Paper
+        className="dimension-form"
+        style={{ padding: "0", marginBottom: "0" }}
+        elevation={0}
+      >
         <Box className="form-row">
           {/* File Upload */}
-          <Box className="upload-box">
-            <input type="file" id="file-upload" className="file-input" hidden />
-            <label htmlFor="file-upload" className="upload-label">
-              <CloudUpload className="upload-icon" />
-              <div className="upload-text">Upload file</div>
-            </label>
-          </Box>
+          <div className="dimention_box_container">
+            <Box className="upload-box">
+              <input
+                type="file"
+                id="file-upload"
+                className="file-input"
+                hidden
+              />
+              <label htmlFor="file-upload" className="upload-label">
+                <CloudUpload className="upload-icon" />
+                <div className="upload-text">Upload file</div>
+              </label>
+            </Box>
+          </div>
 
-          {/* Form Controls */}
-          <Select defaultValue="" className="form-select" displayEmpty>
-            <MenuItem value="">Dimensioni</MenuItem>
-            <MenuItem value="1">Dimensione 1</MenuItem>
-            <MenuItem value="2">Dimensione 2</MenuItem>
-          </Select>
+          <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "auto auto auto",
+                gap: "5px",
+              }}
+            >
+              <div className="dimention_box_container">
+                {/* Form Controls */}
+                <Select
+                  defaultValue=""
+                  className="form-select  custom_padding"
+                  displayEmpty
+                  style={{ width: "100%" }}
+                >
+                  <MenuItem value="">Dimensioni</MenuItem>
+                  <MenuItem value="1">Dimensione 1</MenuItem>
+                  <MenuItem value="2">Dimensione 2</MenuItem>
+                </Select>
+              </div>
 
-          <TextField
-            placeholder="Nome dell'opzione (Due ante)"
-            className="option-name"
-            variant="outlined"
-            fullWidth
-          />
+              <div className="dimention_box_container">
+                <TextField
+                  placeholder="Nome dell'opzione (Due ante)"
+                  variant="outlined"
+                  style={{ width: "100%", backgroundColor: "#fff" }}
+                  className="custom_padding"
+                />
+              </div>
 
-          <Select defaultValue="" className="form-select" displayEmpty>
-            <MenuItem value="">Fase</MenuItem>
-            <MenuItem value="1">Fase 1</MenuItem>
-            <MenuItem value="2">Fase 2</MenuItem>
-          </Select>
+              <div
+                className="dimention_box_container"
+                style={{ display: "flex", gap: "5px" }}
+              >
+                <Select
+                  defaultValue=""
+                  className="form-select custom_padding"
+                  style={{ flex: "1" }}
+                  displayEmpty
+                >
+                  <MenuItem value="">Fase</MenuItem>
+                  <MenuItem value="1">Fase 1</MenuItem>
+                  <MenuItem value="2">Fase 2</MenuItem>
+                </Select>
 
-          <Select defaultValue="" className="form-select" displayEmpty>
-            <MenuItem value="">Categoria</MenuItem>
-            <MenuItem value="1">Categoria 1</MenuItem>
-            <MenuItem value="2">Categoria 2</MenuItem>
-          </Select>
+                <Select
+                  defaultValue=""
+                  className="form-select custom_padding"
+                  style={{ flex: "1" }}
+                  displayEmpty
+                >
+                  <MenuItem value="">Categoria</MenuItem>
+                  <MenuItem value="1">Categoria 1</MenuItem>
+                  <MenuItem value="2">Categoria 2</MenuItem>
+                </Select>
+              </div>
+            </div>
+            {/* Measurements Row */}
+            <Box
+              className="measurements-row"
+              style={{ display: "flex", gap: "5px" }}
+            >
+              <div className="dimention_box_container" style={{ flex: "1" }}>
+                {/* Width Section */}
+                <Box style={{ display: "flex", gap: "5px" }}>
+                  <Select
+                    defaultValue="mm"
+                    className="unit-select custom_padding bg_white"
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="mm">mm</MenuItem>
+                    <MenuItem value="cm">cm</MenuItem>
+                  </Select>
 
-          <IconButton className="delete-button" onClick={() => onDelete(id)}>
-            <Delete />
-          </IconButton>
-        </Box>
+                  <TextField
+                    placeholder="Larghezza (1234)"
+                    className="dimension-input custom_padding bg_white textfield_height"
+                    variant="outlined"
+                  />
 
-        {/* Measurements Row */}
-        <Box className="measurements-row">
-          {/* Width Section */}
-          <Box className="measurement-section">
-            <Select defaultValue="mm" className="unit-select">
-              <MenuItem value="mm">mm</MenuItem>
-              <MenuItem value="cm">cm</MenuItem>
-            </Select>
+                  <Select
+                    defaultValue=""
+                    className="range-select custom_padding bg_white"
+                    displayEmpty
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="">Min</MenuItem>
+                    <MenuItem value="100">100</MenuItem>
+                    <MenuItem value="200">200</MenuItem>
+                  </Select>
 
-            <TextField
-              placeholder="Larghezza (1234)"
-              className="dimension-input"
-              variant="outlined"
-            />
+                  <Select
+                    defaultValue=""
+                    className="range-select custom_padding bg_white"
+                    displayEmpty
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="">Max</MenuItem>
+                    <MenuItem value="1000">1000</MenuItem>
+                    <MenuItem value="2000">2000</MenuItem>
+                  </Select>
 
-            <Select defaultValue="" className="range-select" displayEmpty>
-              <MenuItem value="">Min</MenuItem>
-              <MenuItem value="100">100</MenuItem>
-              <MenuItem value="200">200</MenuItem>
-            </Select>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="fissa"
+                    className="fixed-checkbox"
+                  />
+                </Box>
+              </div>
+              <div className="dimention_box_container" style={{ flex: "1" }}>
+                {/* Width Section */}
+                <Box style={{ display: "flex", gap: "5px" }}>
+                  <Select
+                    defaultValue="mm"
+                    className="unit-select custom_padding bg_white"
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="mm">mm</MenuItem>
+                    <MenuItem value="cm">cm</MenuItem>
+                  </Select>
 
-            <Select defaultValue="" className="range-select" displayEmpty>
-              <MenuItem value="">Max</MenuItem>
-              <MenuItem value="1000">1000</MenuItem>
-              <MenuItem value="2000">2000</MenuItem>
-            </Select>
+                  <TextField
+                    placeholder="Larghezza (1234)"
+                    className="dimension-input custom_padding bg_white textfield_height"
+                    variant="outlined"
+                  />
 
-            <FormControlLabel
-              control={<Checkbox />}
-              label="fissa"
-              className="fixed-checkbox"
-            />
-          </Box>
+                  <Select
+                    defaultValue=""
+                    className="range-select custom_padding bg_white"
+                    displayEmpty
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="">Min</MenuItem>
+                    <MenuItem value="100">100</MenuItem>
+                    <MenuItem value="200">200</MenuItem>
+                  </Select>
 
-          {/* Height Section */}
-          <Box className="measurement-section">
-            <Select defaultValue="mm" className="unit-select">
-              <MenuItem value="mm">mm</MenuItem>
-              <MenuItem value="cm">cm</MenuItem>
-            </Select>
+                  <Select
+                    defaultValue=""
+                    className="range-select custom_padding bg_white"
+                    displayEmpty
+                    style={{ width: "70px" }}
+                  >
+                    <MenuItem value="">Max</MenuItem>
+                    <MenuItem value="1000">1000</MenuItem>
+                    <MenuItem value="2000">2000</MenuItem>
+                  </Select>
 
-            <TextField
-              placeholder="Altezza (1234)"
-              className="dimension-input"
-              variant="outlined"
-            />
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="fissa"
+                    className="fixed-checkbox"
+                  />
+                </Box>
+              </div>
+            </Box>
+          </div>
 
-            <Select defaultValue="" className="range-select" displayEmpty>
-              <MenuItem value="">Min</MenuItem>
-              <MenuItem value="100">100</MenuItem>
-              <MenuItem value="200">200</MenuItem>
-            </Select>
-
-            <Select defaultValue="" className="range-select" displayEmpty>
-              <MenuItem value="">Max</MenuItem>
-              <MenuItem value="1000">1000</MenuItem>
-              <MenuItem value="2000">2000</MenuItem>
-            </Select>
-
-            <FormControlLabel
-              control={<Checkbox />}
-              label="fissa"
-              className="fixed-checkbox"
-            />
-          </Box>
+          <div
+            className="dimention_box_container"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <IconButton className="delete-button" onClick={() => onDelete(id)}>
+              <Delete />
+            </IconButton>
+          </div>
         </Box>
       </Paper>
 
@@ -154,6 +241,13 @@ export default function Dimension({ id, onDelete }) {
         className="add-section-button"
         variant="outlined"
         onClick={handleAddSubDimension}
+        style={{
+          marginLeft: "155px",
+          fontFamily: '"Public Sans", sans-serif',
+          border: "0",
+          padding: "0",
+          color: "#666666",
+        }}
       >
         Aggiungi sezione
       </Button>

@@ -1,73 +1,130 @@
 .color-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #f8f9fa;
+  padding: 16px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+
+  .upload-box {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    background-color: #f8f9fa;
-    padding: 16px;
-    margin-bottom: 16px;
-    border-radius: 4px;
-  
-    .upload-box {
-      width: 100px;
-      height: 100px;
-      background-color: #f0f0f0;
-      border-radius: 4px;
+    justify-content: center;
+
+    .upload-label {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-  
-      .upload-label {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-      }
-  
-      .upload-icon {
-        color: #6b7280;
-        font-size: 24px;
-        margin-bottom: 8px;
-      }
-  
-      .upload-text {
-        color: #6b7280;
-        font-size: 14px;
-      }
+      cursor: pointer;
     }
-  
-    .color-select,
-    .phase-select,
-    .category-select {
-      min-width: 140px;
-      background-color: white;
-  
-      .MuiOutlinedInput-notchedOutline {
-        border-color: #e2e8f0;
-      }
-    }
-  
-    .color-name,
-    .price-markup {
-      width: 200px;
-      background-color: white;
-  
-      .MuiOutlinedInput-notchedOutline {
-        border-color: #e2e8f0;
-      }
-  
-      input::placeholder {
-        color: #9ca3af;
-      }
-    }
-  
-    .delete-button {
+
+    .upload-icon {
       color: #6b7280;
-      padding: 8px;
-  
-      &:hover {
-        background-color: rgba(107, 114, 128, 0.04);
-      }
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .upload-text {
+      color: #6b7280;
+      font-size: 14px;
     }
   }
-  
-  
+
+  .color-select,
+  .phase-select,
+  .category-select {
+    min-width: 140px;
+    background-color: white;
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: #e2e8f0;
+    }
+  }
+
+  .color-name,
+  .price-markup {
+    width: 200px;
+    background-color: white;
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: #e2e8f0;
+    }
+
+    input::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  .delete-button {
+    color: #6b7280;
+    padding: 8px;
+
+    &:hover {
+      background-color: rgba(107, 114, 128, 0.04);
+    }
+  }
+}
+
+.color-form {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+
+  .upload-label {
+    gap: 5px;
+  }
+
+  .upload-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #ccc;
+    padding: 0.5rem;
+    min-width: 120px;
+    height: fit-content;
+  }
+}
+
+.color-select,
+.color-name,
+.price-markup,
+.phase-select,
+.category-select {
+  min-width: 150px;
+}
+
+.delete-button {
+  justify-self: center;
+}
+
+// .add-color-button,
+// .add-component-button {
+//   color: #22c55e;
+//   border-color: #22c55e;
+//   text-transform: none;
+//   padding: 6px 16px;
+//   font-size: 14px;
+
+//   &:hover {
+//     border-color: #16a34a;
+//   }
+
+//   .MuiSvgIcon-root {
+//     font-size: 20px;
+//     background-color: #22c55e;
+//     fill: #fff;
+//     border-radius: 4px;
+//   }
+
+//   .MuiButton-icon {
+//     margin-left: 0 !important;
+//   }
+// }

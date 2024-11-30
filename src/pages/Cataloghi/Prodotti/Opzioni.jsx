@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   List,
   ListItem,
@@ -7,11 +7,11 @@ import {
   Collapse,
   Button,
   Box,
-} from '@mui/material';
-import { ExpandMore, ExpandLess, Add } from '@mui/icons-material';
-import './Opzioni.scss';
-import Dimension from './Dimension';
-import Colori from './Colori';
+} from "@mui/material";
+import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
+import "./Opzioni.scss";
+import Dimension from "./Dimension";
+import Colori from "./Colori";
 
 export default function Opzioni() {
   const [openSections, setOpenSections] = useState([]);
@@ -21,16 +21,16 @@ export default function Opzioni() {
 
   const sections = [
     {
-      id: 'dimensions',
-      title: 'Dimensioni, volume e peso',
+      id: "dimensions",
+      title: "Dimensioni, volume e peso",
     },
     {
-      id: 'colors',
-      title: 'Colori e finiture',
+      id: "colors",
+      title: "Colori e finiture",
     },
     {
-      id: 'components',
-      title: 'Componenti e accessori',
+      id: "components",
+      title: "Componenti e accessori",
     },
   ];
 
@@ -72,14 +72,18 @@ export default function Opzioni() {
         <Box key={section.id} className="section-container">
           <ListItem disablePadding className="section-header">
             <ListItemButton onClick={() => handleSectionClick(section.id)}>
-              {openSections.includes(section.id) ? <ExpandLess /> : <ExpandMore />}
+              {openSections.includes(section.id) ? (
+                <ExpandLess />
+              ) : (
+                <ExpandMore />
+              )}
               <ListItemText primary={section.title} />
             </ListItemButton>
           </ListItem>
 
           <Collapse in={openSections.includes(section.id)} timeout="auto">
             <List component="div" disablePadding className="section-content">
-              {section.id === 'dimensions' && (
+              {section.id === "dimensions" && (
                 <>
                   {dimensions.map((dimension) => (
                     <Dimension
@@ -98,7 +102,7 @@ export default function Opzioni() {
                 </>
               )}
 
-              {section.id === 'colors' && (
+              {section.id === "colors" && (
                 <>
                   {colors.map((color) => (
                     <Colori
@@ -110,15 +114,21 @@ export default function Opzioni() {
                   <Button
                     startIcon={<Add />}
                     className="add-color-button"
-                    variant="outlined"
+                    variant="text"
                     onClick={handleAddColori}
+                    style={{
+                      color: "#160a2a",
+                      fontWeight: 700,
+                      textTransform: "unset",
+                      backgroundColor: "transparent",
+                    }}
                   >
                     Aggiungi colore
                   </Button>
                 </>
               )}
 
-              {section.id === 'components' && (
+              {section.id === "components" && (
                 <>
                   {components.map((component) => (
                     <Colori
@@ -130,8 +140,14 @@ export default function Opzioni() {
                   <Button
                     startIcon={<Add />}
                     className="add-component-button"
-                    variant="outlined"
+                    variant="text"
                     onClick={handleAddComponenti}
+                    style={{
+                      color: "#160a2a",
+                      fontWeight: 700,
+                      textTransform: "unset",
+                      backgroundColor: "transparent",
+                    }}
                   >
                     Aggiungi componente
                   </Button>
