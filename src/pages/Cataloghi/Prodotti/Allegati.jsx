@@ -1,10 +1,5 @@
-
 const Allegati = () => {
-  return (
-    <div>
-      Allegati
-    </div>
-  )
-}
+  return <div>Allegat i</div>;
+};
 
-export default Allegati
+export default Allegati;

@@ -74,6 +74,7 @@ import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
 import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
 import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
 import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
+import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
 
 const Allroutes = () => {
   return (
@@ -685,7 +686,7 @@ const Allroutes = () => {
         path="/cataloghi/configuratore/Configurazione"
         element={
           <PublicRoute>
-            <Configuratore Component={Listini} />
+            <Configuratore Component={Configure} />
           </PublicRoute>
         }
       />
