@@ -133,10 +133,11 @@ const menuItems = [
     textColor: "#3A0CA3",
     route: "/hr",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Calendario", route: "/hr/calendario" },
+      { name: "Colaboratory", route: "/hr/colaboratory" },
+      { name: "Ferie e permisse", route: "/hr/ferie-e-permisse" },
+      { name: "Busta page", route: "/hr/buste-page" },
+      { name: "Candidati", route: "/hr/candidati" },
     ],
   },
   {

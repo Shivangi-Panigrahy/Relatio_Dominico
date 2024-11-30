@@ -153,11 +153,17 @@ const TAB_CONFIGURATIONS = {
     { label: "Gruppi", icon: Right },
     { label: "Prodotti", icon: Right },
   ],
+  hrCandidato:[
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Agenda", icon: Agenda },
+    { label: "Allegati", icon: Documenti },
+  ]
 
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato) => {
 
   // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
@@ -176,6 +182,8 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isConfiguratore) return `/cataloghi/configuratore/${label}`;
 
   if (isListini) return `/cataloghi/listini/${label}`;
+
+  if (isHrCandidato) return `/hr/candidati/candidato/${label}`;
 
 
   return `/dashboard/${label}`;
@@ -199,6 +207,7 @@ const MenuTab = ({
   subProdotti = false,
   configuratore = false,
   sublistini = false,
+  hrCandidato=false,
 
 
 }) => {
@@ -220,9 +229,10 @@ const MenuTab = ({
     if (subProdotti) return TAB_CONFIGURATIONS.subProdotti;
     if (configuratore) return TAB_CONFIGURATIONS.configuratore;
     if (sublistini) return TAB_CONFIGURATIONS.sublistini;
+    if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini,hrCandidato]);
 
   const tabsConfig = getActiveConfig();
 
@@ -241,7 +251,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini,hrCandidato);
       navigate(path);
 
       // Invoke parent callback
@@ -249,7 +259,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini,hrCandidato]
   );
 
   return (

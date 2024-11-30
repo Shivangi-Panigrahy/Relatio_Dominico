@@ -1,0 +1,439 @@
+{
+  "hrData": {
+    "hrCollaborator": [
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "ruolo": "Project Manager",
+        "livello": "Senior",
+        "trattamento": "Tempo indeterminato",
+        "attivo": "attivo",
+        "inixio": "28/11/2024",
+        "fine": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      }
+    ],
+    "turni": [
+      {
+        "data": "28/11/2024",
+        "turno": "9:00 / 18:30",
+        "ore": "08",
+        "Azioni": "..."
+      },
+      {
+        "data": "28/11/2024",
+        "turno": "9:00 / 18:30",
+        "ore": "08",
+        "azioni": "..."
+      },
+      {
+        "data": "28/11/2024",
+        "turno": "9:00 / 18:30",
+        "ore": "08",
+        "azioni": "..."
+      },
+      {
+        "data": "28/11/2024",
+        "turno": "9:00 / 18:30",
+        "ore": "08",
+        "azioni": "..."
+      }
+    ],
+    "progetti": [
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      },
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      },
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      }
+    ],
+    "allegati": [
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      },
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      },
+      {
+        "nomeProgetto": "Nome del progetto",
+        "totaleOreLavorate": "342",
+        "dal": "28/11/2024",
+        "al": "28/11/2024",
+        "azioni": "..."
+      }
+    ],
+    "feriePermisse": [
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      },
+      {
+        "colaboratore": "Matteo Vellone",
+        "evento": "Ferie",
+        "da": "28/11/2024",
+        "a": "28/11/2024",
+        "totOre": 8,
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "stato": "Approvata",
+        "azioni": "..."
+      }
+    ],
+    "eventoAllegati": [
+      {
+        "id": 1,
+        "tipo": "Spreadsheet",
+        "nome": "Financial_Report_Q1",
+        "categoria": "Reports",
+        "tipologia": "XLSX",
+        "peso": "8.9 Mb",
+        "creatoIl": "10/09/2024",
+        "ultimaMod": "12/09/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      },
+      {
+        "id": 2,
+        "tipo": "Document",
+        "nome": "Meeting_Notes_2024",
+        "categoria": "Meetings",
+        "tipologia": "DOCX",
+        "peso": "0.7 Mb",
+        "creatoIl": "22/10/2024",
+        "ultimaMod": "23/10/2024",
+        "caricatoDa": "David Wilson",
+        "modificatoDa": "Emma White",
+        "azioni": "Download, View"
+      }
+    ],
+    "busta": [
+      {
+        "numero": "BP-09-24",
+        "mese": "Settembre",
+        "data": "31/11/2024",
+        "colaboratore": "Matteo Vellone",
+        "totale": "129.123.334.00€",
+        "daSaladare": "0€",
+        "saldato": "129.123.334.00€",
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "numero": "BP-09-24",
+        "mese": "Settembre",
+        "data": "31/11/2024",
+        "colaboratore": "Matteo Vellone",
+        "totale": "129.123.334.00€",
+        "daSaladare": "0€",
+        "saldato": "129.123.334.00€",
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "numero": "BP-09-24",
+        "mese": "Settembre",
+        "data": "31/11/2024",
+        "colaboratore": "Matteo Vellone",
+        "totale": "129.123.334.00€",
+        "daSaladare": "0€",
+        "saldato": "129.123.334.00€",
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "numero": "BP-09-24",
+        "mese": "Settembre",
+        "data": "31/11/2024",
+        "colaboratore": "Matteo Vellone",
+        "totale": "129.123.334.00€",
+        "daSaladare": "0€",
+        "saldato": "129.123.334.00€",
+        "autore": "Jane Smith",
+        "modDa": "Jane Smith",
+        "azioni": "..."
+      }
+    ],
+    "bustaAllegati":[
+      {
+        "id": 1,
+        "tipo": "Spreadsheet",
+        "nome": "Busta paga",
+        "categoria": "Dicembre",
+        "tipologia": "PDF",
+        "peso": "234.23 Mb",
+        "creatoIl": "28/11/2024",
+        "ultimaMod": "28/11/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      },
+      {
+        "id": 2,
+        "tipo": "Spreadsheet",
+        "nome": "Busta paga",
+        "categoria": "Novembre",
+        "tipologia": "PDF",
+        "peso": "234.23 Mb",
+        "creatoIl": "28/11/2024",
+        "ultimaMod": "28/11/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      }
+    ],
+    "candidati": [
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      },
+      {
+        "canditato" : "Matteo Vellone",
+        "ruolo" : "Project Manager",
+        "livello" : "Senior",
+        "trattIndividual": "P.IVA",
+        "disponibile": "Immediata",
+        "ultimoColloquio": "28/11/2024",
+        "utente": "Jane Smith",
+        "azioni": "..."
+      }
+    ],
+    "candidatoAllegati": [
+      {
+        "id": 1,
+        "tipo": "Spreadsheet",
+        "nome": "File",
+        "categoria": "Nome Cartella",
+        "tipologia": "PDF",
+        "peso": "234.23 Mb",
+        "creatoIl": "28/11/2024",
+        "ultimaMod": "28/11/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      },
+      {
+        "id": 2,
+        "tipo": "Spreadsheet",
+        "nome": "File",
+        "categoria": "Nome Cartella",
+        "tipologia": "PDF",
+        "peso": "234.23 Mb",
+        "creatoIl": "28/11/2024",
+        "ultimaMod": "28/11/2024",
+        "caricatoDa": "Charlie Brown",
+        "modificatoDa": "Rachel Green",
+        "azioni": "Download, View, Edit"
+      }
+    ]
+  }
+}

@@ -1889,6 +1889,60 @@ const TableRows = ({
             )}
           </TableBody>
         );
+
+        case "candidati":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      onClick={() => navigate("/hr/candidati/candidato/Contatti")}
+                      // onClick={() =>
+                      //   window.location.href.includes("/hr/colaboratory")
+                      //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
+                      //     : navigate("/hr/candidati")
+                      // }
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.canditato}</StyledTableCell>
+                      <StyledTableCell>{row.ruolo}</StyledTableCell>
+                      <StyledTableCell>{row.livello}</StyledTableCell>
+                      <StyledTableCell>{row.trattIndividual}</StyledTableCell>
+                      <StyledTableCell>{row.disponibile}</StyledTableCell>
+                      <StyledTableCell>{row.ultimoColloquio}</StyledTableCell>
+                      <StyledTableCell sx={{ textAlign: "center" }}>
+                        <Avatar1 />
+                      </StyledTableCell>
+                      <StyledTableCell
+                        sx={{ textAlign: "center" }}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <MenuWithOptions options={option} />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
       default:
         return (
           <TableBody>
