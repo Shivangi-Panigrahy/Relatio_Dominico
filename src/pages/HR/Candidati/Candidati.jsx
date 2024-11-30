@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/hrData.json";
 import "./Candidati.scss";
 import tableData from "../../../utils/candidatihr.json"
 
