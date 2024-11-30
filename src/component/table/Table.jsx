@@ -132,7 +132,20 @@ const CustomTable = ({ data, form, columns, navData }) => {
         item.Tipo,
         item.Gruppo,
         item.Regione,
-        item.Stato_name,item.valore ]
+        item.Stato_name,item.valore,
+      item?.saldata,
+      item?.dasaldare,
+      item?.fornitori,
+      item?.totale,
+      item.anno,item.scadenza,
+      item.nomeImposta,
+      item.tipologia,
+      item.realizzata,
+      item.autore,
+      item.modDa,
+      item.daSaldare,
+      item.scadenza,item.obiettivo,item.asset,item.importo,item.dataPagamento,item.rata
+     ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
       );
@@ -202,6 +215,48 @@ const CustomTable = ({ data, form, columns, navData }) => {
     }
     if (searchFilters.peso) {
       result = result.filter((item) => item.peso === searchFilters.peso);
+    }
+    if (searchFilters.saldato) {
+      result = result.filter(
+        (item) => item.saldato === searchFilters.saldato
+      );
+    }
+    if (searchFilters.totale) {
+      result = result.filter((item) => item.totale === searchFilters.totale);
+    }
+    if (searchFilters.documento) {
+      result = result.filter((item) => item.documento === searchFilters.documento);
+    }
+    if (searchFilters.clienti) {
+      result = result.filter((item) => item.clienti === searchFilters.clienti);
+    }
+    if (searchFilters.entrata) {
+      result = result.filter((item) => item.entrata === searchFilters.entrata);
+    }
+    if (searchFilters.uscita) {
+      result = result.filter((item) => item.uscita === searchFilters.uscita);
+    }
+    if (searchFilters.utileContabile) {
+      result = result.filter((item) => item.utileContabile === searchFilters.utileContabile);
+    }
+    if (searchFilters.tipo) {
+      result = result.filter((item) => item.tipo === searchFilters.tipo);
+    }
+    if (searchFilters.modalita) {
+      result = result.filter((item) => item.modalita === searchFilters.modalita);
+    }
+
+    if (searchFilters.tipoRisorsa) {
+      result = result.filter((item) => item.tipoRisorsa === searchFilters.tipoRisorsa);
+    }
+    if (searchFilters.nomeRisorsa) {
+      result = result.filter((item) => item.nomeRisorsa === searchFilters.nomeRisorsa);
+    }
+    if (searchFilters.scadenza) {
+      result = result.filter((item) => item.scadenza === searchFilters.scadenza);
+    }
+    if (searchFilters.obiettivo) {
+      result = result.filter((item) => item.obiettivo === searchFilters.obiettivo);
     }
 
     setFilteredData(result);

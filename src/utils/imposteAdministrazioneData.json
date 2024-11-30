@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "creatoIl": "01/01/2023",
+      "anno": "2023",
+      "scadenza": "15/01/2023",
+      "nomeImposta": "F24 Azienda 01-23",
+      "tipologia": "IVA",
+      "realizzata": "SI",
+      "autore": "Mario Rossi",
+      "modDa": "Luigi Verdi",
+      "totale": "15.000,00€",
+      "saldato": "10.000,00€",
+      "daSaldare": "5.000,00€",
+      "azioni": "Visualizza"
+    },
+    {
+      "id": 2,
+      "creatoIl": "05/02/2023",
+      "anno": "2023",
+      "scadenza": "20/02/2023",
+      "nomeImposta": "F24 Dipendenti 02-23",
+      "tipologia": "Contributi",
+      "realizzata": "NO",
+      "autore": "Anna Bianchi",
+      "modDa": "Marco Neri",
+      "totale": "25.000,00€",
+      "saldato": "5.000,00€",
+      "daSaldare": "20.000,00€",
+      "azioni": "Modifica"
+    },
+    {
+      "id": 3,
+      "creatoIl": "10/03/2023",
+      "anno": "2023",
+      "scadenza": "25/03/2023",
+      "nomeImposta": "F24 Lavoratori 03-23",
+      "tipologia": "Tasse",
+      "realizzata": "SI",
+      "autore": "Claudio Russo",
+      "modDa": "Francesca Esposito",
+      "totale": "30.000,00€",
+      "saldato": "30.000,00€",
+      "daSaldare": "0,00€",
+      "azioni": "Archivia"
+    },
+    {
+      "id": 4,
+      "creatoIl": "15/04/2023",
+      "anno": "2023",
+      "scadenza": "30/04/2023",
+      "nomeImposta": "F24 IVA 04-23",
+      "tipologia": "IVA",
+      "realizzata": "NO",
+      "autore": "Giulia Conti",
+      "modDa": "Fabio Ricci",
+      "totale": "12.000,00€",
+      "saldato": "3.000,00€",
+      "daSaldare": "9.000,00€",
+      "azioni": "Approva"
+    },
+    {
+      "id": 5,
+      "creatoIl": "20/05/2023",
+      "anno": "2023",
+      "scadenza": "05/06/2023",
+      "nomeImposta": "F24 Azienda 05-23",
+      "tipologia": "Tasse",
+      "realizzata": "SI",
+      "autore": "Paolo Ferrari",
+      "modDa": "Sara Galli",
+      "totale": "18.500,00€",
+      "saldato": "18.500,00€",
+      "daSaldare": "0,00€",
+      "azioni": "Dettagli"
+    }
+  ]
+  

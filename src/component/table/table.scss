@@ -38,6 +38,12 @@
       }
       tr {
         background-color: transparent !important;
+        .customDasaldareRed {
+          background-color: #DB000033;
+        }
+        .customDasaldareGreen {
+          background-color: #57C70033;
+        }
         &:hover {
           background-color: #f2f2f2 !important;
           .completatoStato {
@@ -59,6 +65,17 @@
             background-color: #db0000;
             color: #fff;
           }
+          .Pagata {
+            background-color: #57c700;
+            color: #fff;
+          }
+          .customDasaldareGreen {
+            background-color: #57C70080;
+          }
+          .customDasaldareRed {
+            background-color: #DB000080;
+          }
+         
         }
         td {
           padding: 10px;
@@ -109,8 +126,13 @@
             align-items: center;
             svg path {
               fill: #999999;
+              // &:hover {
+              //   fill: #57c700;
+              // }
+            }
+            .menuIconBtn {
               &:hover {
-                fill: #57c700;
+                background-color: #fff;
               }
             }
           }

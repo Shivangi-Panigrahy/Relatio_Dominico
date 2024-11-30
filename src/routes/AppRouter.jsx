@@ -71,6 +71,12 @@ import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
 import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
 import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
 import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
+import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
+import Listini from "../pages/Cataloghi/Listini/Listini";
+import Servizi from "../pages/Cataloghi/Servizi/Servizi";
+import SubListini from "../pages/Cataloghi/Listini/SubListini.jsx"
+import Prodotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
+import Gruppi from "../pages/Cataloghi/Listini/Gruppi.jsx"
 
 const Allroutes = () => {
   return (
@@ -779,6 +785,62 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Archivio />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/servizi"
+        element={
+          <PublicRoute>
+            <Servizi />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti"
+        element={
+          <PublicRoute>
+            <Prodotti />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/listini"
+        element={
+          <PublicRoute>
+            <Listini />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/configuratore"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Listini} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/configuratore"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Listini} />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/cataloghi/listini/gruppi"
+        element={
+          <PublicRoute>
+            <SubListini Component={Gruppi } />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/cataloghi/listini/Prodotti"
+        element={
+          <PublicRoute>
+            <SubListini Component={Prodotti} />
           </PublicRoute>
         }
       />

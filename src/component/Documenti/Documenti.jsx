@@ -262,6 +262,7 @@ const Documenti = ({ data }) => {
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
           searchFilters={searchFilters}
+          navData={"documenti"}
         />
       </div>
       {/* Accordion Sections */}

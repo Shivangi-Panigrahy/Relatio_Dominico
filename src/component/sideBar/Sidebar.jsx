@@ -85,7 +85,7 @@ const menuItems = [
       { name: "Imposte", route: "/dashboard/imposte" },
       { name: "Asset", route: "/dashboard/asset" },
       { name: "Attività", route: "/dashboard/attivita" },
-      { name: "Produzione", route: "/dashboard/produzione" },
+      { name: "Personale", route: "/dashboard/personale" },
     ],
   },
   {
@@ -182,10 +182,10 @@ const menuItems = [
     textColor: "#4AAFF0",
     route: "/cataloghi",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Servizi", route: "/cataloghi/servizi" },
+      { name: "Prodotti", route: "/cataloghi/prodotti" },
+      { name: "Configuratore", route: "/cataloghi/configuratore/configuratore" },
+      { name: "Listini", route: "/cataloghi/listini" },
     ],
   },
   {

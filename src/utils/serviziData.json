@@ -1,0 +1,73 @@
+{
+    "tabData": {
+        "tab1":
+        [
+            {
+              "id": 1,
+              "nomeListino": "Rivenditori Top",
+              "gruppiAssociati": "Clienti premium",
+              "nProdotti": 150,
+              "stato": "Attivo",
+              "da": "01/11/2023",
+              "a": "30/11/2023",
+              "priorita": 5,
+              "autore": "Luca Rossi",
+              "modificatoDa": "Giulia Bianchi",
+              "azioni": "Edit"
+            },
+            {
+              "id": 2,
+              "nomeListino": "Distribuzione Base",
+              "gruppiAssociati": "Clienti standard",
+              "nProdotti": 320,
+              "stato": "Inattivo",
+              "da": "15/10/2023",
+              "a": "15/12/2023",
+              "priorita": 7,
+              "autore": "Marco Verdi",
+              "modificatoDa": "Anna Neri",
+              "azioni": "Delete"
+            },
+            {
+              "id": 3,
+              "nomeListino": "Offerta Natale",
+              "gruppiAssociati": "Clienti top",
+              "nProdotti": 200,
+              "stato": "Attivo",
+              "da": "01/12/2023",
+              "a": "31/12/2023",
+              "priorita": 10,
+              "autore": "Chiara Blu",
+              "modificatoDa": "Elisa Grigi",
+              "azioni": "View"
+            },
+            {
+              "id": 4,
+              "nomeListino": "Vendita Promozionale",
+              "gruppiAssociati": "Nuovi clienti",
+              "nProdotti": 180,
+              "stato": "Attivo",
+              "da": "10/11/2023",
+              "a": "10/01/2024",
+              "priorita": 8,
+              "autore": "Paolo Gialli",
+              "modificatoDa": "Francesca Rossi",
+              "azioni": "Edit"
+            },
+            {
+              "id": 5,
+              "nomeListino": "Listino Generale",
+              "gruppiAssociati": "Tutti i clienti",
+              "nProdotti": 400,
+              "stato": "Inattivo",
+              "da": "01/09/2023",
+              "a": "31/12/2023",
+              "priorita": 3,
+              "autore": "Sergio Viola",
+              "modificatoDa": "Maria Marrone",
+              "azioni": "Delete"
+            }
+          ]
+          
+    }
+}

@@ -1,6 +1,8 @@
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
+import tableData from "../../../utils/assetAdministrazioneData.json"
+import './Asset.scss'
 
 const AmministrazioneAsset = () => {
 
@@ -18,86 +20,7 @@ const AmministrazioneAsset = () => {
     { field: "azioni", headerName: "Azioni", width: 93 },
     
   ];
-  const rows = [
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore1",
-      modDa: "Mod1",
-      azioni: "..."
-    },
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore2",
-      modDa: "Mod2",
-      azioni: "..."
-    },
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore3",
-      modDa: "Mod3",
-      azioni: "..."
-    },
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore4",
-      modDa: "Mod4",
-      azioni: "..."
-    },
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore5",
-      modDa: "Mod5",
-      azioni: "..."
-    },
-    {
-      doc: "Doc",
-      creatoIl: "28/11/2022",
-      scadenza: "28/11/2022",
-      asset: "Assicurazione",
-      tipologia: "Finanza",
-      obiettivo: "Piano di accumulo",
-      frequenza: "129.123.334,00€",
-      importoTotale: "129.123.334,00€",
-      autore: "Autore6",
-      modDa: "Mod6",
-      azioni: "..."
-    }
-  ];
+
 
   const amministrazioneAssetData = [
     {
@@ -134,10 +57,10 @@ const AmministrazioneAsset = () => {
   return (
     <>
     <Header />
-    <div className="pageTemplate">
+    <div className="pageTemplate assetPage">
     <InvoiceDashboard amministrazioneAsset={amministrazioneAssetData}/>
     <Table
-          data={rows}
+          data={tableData}
           columns={columns}
           navData={"AmministragionAsset"}
         />
