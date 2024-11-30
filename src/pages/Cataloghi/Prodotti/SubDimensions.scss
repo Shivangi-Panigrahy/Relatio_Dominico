@@ -1,0 +1,107 @@
+.section-form {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background-color: #f8f9fa;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  
+    .form-content {
+      flex: 1;
+  
+      .top-row {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 16px;
+  
+        .section-name {
+          flex: 1;
+          background-color: white;
+  
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #f8f9fa;
+          }
+        }
+  
+        .radio-group {
+          display: flex;
+          gap: 24px;
+  
+          .MuiFormControlLabel-root {
+            margin: 0;
+            
+            .MuiRadio-root {
+              color: #6b7280;
+              padding: 4px;
+            }
+  
+            .MuiFormControlLabel-label {
+              color: #6b7280;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+  
+      .measurements-row {
+        display: flex;
+        gap: 24px;
+  
+        .measurement-section {
+          flex: 1;
+          display: flex;
+          gap: 16px;
+          align-items: center;
+  
+          .unit-select {
+            width: 80px;
+            background-color: white;
+  
+            .MuiOutlinedInput-notchedOutline {
+              border-color: #e2e8f0;
+            }
+          }
+  
+          .dimension-input {
+            width: 160px;
+            background-color: white;
+  
+            .MuiOutlinedInput-notchedOutline {
+              border-color: #e2e8f0;
+            }
+          }
+  
+          .range-select {
+            width: 100px;
+            background-color: white;
+  
+            .MuiOutlinedInput-notchedOutline {
+              border-color: #e2e8f0;
+            }
+          }
+  
+          .fixed-checkbox {
+            margin-left: 8px;
+            
+            .MuiCheckbox-root {
+              color: #6b7280;
+              padding: 4px;
+            }
+            
+            .MuiFormControlLabel-label {
+              color: #6b7280;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  
+    .delete-button {
+      color: #6b7280;
+      padding: 8px;
+    }
+  }
+  
+  

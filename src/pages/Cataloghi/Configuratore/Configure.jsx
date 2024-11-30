@@ -9,28 +9,22 @@ import {
   Box,
 } from '@mui/material';
 import { ExpandMore, ExpandLess, Add } from '@mui/icons-material';
-import './Opzioni.scss';
-import Dimension from './Dimension';
-import Colori from './Colori';
+import './Configure.scss';
+import Face from './Face';
 
-export default function Opzioni() {
+export default function Configure() {
   const [openSections, setOpenSections] = useState([]);
   const [dimensions, setDimensions] = useState([]); // Array to track Dimension rows
   const [colors, setColors] = useState([]); // Array to track Colori rows
-  const [components, setComponents] = useState([]); // Array to track Componenti rows
 
   const sections = [
     {
-      id: 'dimensions',
-      title: 'Dimensioni, volume e peso',
+      id: 'fase',
+      title: 'Nome della fase',
     },
     {
-      id: 'colors',
-      title: 'Colori e finiture',
-    },
-    {
-      id: 'components',
-      title: 'Componenti e accessori',
+      id: 'categoria',
+      title: 'Nome della Categoria',
     },
   ];
 
@@ -49,21 +43,12 @@ export default function Opzioni() {
   const handleAddColori = () => {
     setColors((prev) => [...prev, { id: Date.now() }]); // Add a new colori with a unique ID
   };
-
-  const handleAddComponenti = () => {
-    setComponents((prev) => [...prev, { id: Date.now() }]); // Add a new componenti with a unique ID
-  };
-
   const handleDeleteDimension = (id) => {
     setDimensions((prev) => prev.filter((item) => item.id !== id)); // Remove the Dimension with the given ID
   };
 
   const handleDeleteColori = (id) => {
     setColors((prev) => prev.filter((item) => item.id !== id)); // Remove the Colori with the given ID
-  };
-
-  const handleDeleteComponenti = (id) => {
-    setComponents((prev) => prev.filter((item) => item.id !== id)); // Remove the Componenti with the given ID
   };
 
   return (
@@ -79,10 +64,10 @@ export default function Opzioni() {
 
           <Collapse in={openSections.includes(section.id)} timeout="auto">
             <List component="div" disablePadding className="section-content">
-              {section.id === 'dimensions' && (
+              {section.id === 'fase' && (
                 <>
                   {dimensions.map((dimension) => (
-                    <Dimension
+                    <Face
                       key={dimension.id}
                       id={dimension.id}
                       onDelete={handleDeleteDimension}
@@ -98,10 +83,10 @@ export default function Opzioni() {
                 </>
               )}
 
-              {section.id === 'colors' && (
+              {section.id === 'categoria' && (
                 <>
                   {colors.map((color) => (
-                    <Colori
+                    <Face
                       key={color.id}
                       id={color.id}
                       onDelete={handleDeleteColori}
@@ -118,25 +103,6 @@ export default function Opzioni() {
                 </>
               )}
 
-              {section.id === 'components' && (
-                <>
-                  {components.map((component) => (
-                    <Colori
-                      key={component.id}
-                      id={component.id}
-                      onDelete={handleDeleteComponenti}
-                    />
-                  ))}
-                  <Button
-                    startIcon={<Add />}
-                    className="add-component-button"
-                    variant="outlined"
-                    onClick={handleAddComponenti}
-                  >
-                    Aggiungi componente
-                  </Button>
-                </>
-              )}
             </List>
           </Collapse>
         </Box>

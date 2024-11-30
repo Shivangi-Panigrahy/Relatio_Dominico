@@ -1,0 +1,73 @@
+.color-form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #f8f9fa;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  
+    .upload-box {
+      width: 100px;
+      height: 100px;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .upload-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+      }
+  
+      .upload-icon {
+        color: #6b7280;
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+  
+      .upload-text {
+        color: #6b7280;
+        font-size: 14px;
+      }
+    }
+  
+    .color-select,
+    .phase-select,
+    .category-select {
+      min-width: 140px;
+      background-color: white;
+  
+      .MuiOutlinedInput-notchedOutline {
+        border-color: #e2e8f0;
+      }
+    }
+  
+    .color-name,
+    .price-markup {
+      width: 200px;
+      background-color: white;
+  
+      .MuiOutlinedInput-notchedOutline {
+        border-color: #e2e8f0;
+      }
+  
+      input::placeholder {
+        color: #9ca3af;
+      }
+    }
+  
+    .delete-button {
+      color: #6b7280;
+      padding: 8px;
+  
+      &:hover {
+        background-color: rgba(107, 114, 128, 0.04);
+      }
+    }
+  }
+  
+  
