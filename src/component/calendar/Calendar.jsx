@@ -96,10 +96,12 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [showEventOpen, setShowEventOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
+  // const [view, setView] = useState(acquisti_agenda && candidati_agenda ? "agenda" : "month");
+
   const [particularEvent, setparticularEvent] = useState({});
   // const [openEVentDialog, setOpenEVentDialog] = useState(false);
-  const [toggleEvent,setToggleEvent] = useState(false)
-  console.log(toggleEvent,'setToggleEvent');
+  const [toggleEvent, setToggleEvent] = useState(false)
+  console.log(toggleEvent, 'setToggleEvent');
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
@@ -157,7 +159,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
             }}
           />{" "}
           <span className="custom-week-event-time">
-            {moment(event.start).format("HH:mm")}- 
+            {moment(event.start).format("HH:mm")}-
             {moment(event.end).format("HH:mm")}
           </span>
         </span>
@@ -175,7 +177,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     </>
   );
   const CustomWeekEvent = ({ event }) => (
-    <div className="custom-week-event" style={{ backgroundColor: event.eventType==="Appointment" && "#FFA90333" }}>
+    <div className="custom-week-event" style={{ backgroundColor: event.eventType === "Appointment" && "#FFA90333" }}>
       <div className="custom-week-event-inner">
         <h2>Nome del Cliente</h2>
         <div className="userbox">
@@ -250,7 +252,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-          {!acquisti_agenda && (
+          {!acquisti_agenda &&  (
             <>
               <Button
                 startIcon={<Mese />}
@@ -332,13 +334,13 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                              event.end
-                            )}`}
+                            event.end
+                          )}`}
                       </span>
                       <div className="event-content_aganda">
                         <span className="event-dot_aganda" style={{
-              backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
-            }}></span>
+                          backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
+                        }}></span>
                         <div className="event-details_aganda">
                           <span className="event-title_aganda">
                             {event.title}

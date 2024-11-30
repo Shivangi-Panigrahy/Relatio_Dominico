@@ -77,6 +77,8 @@ import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 import HrCalendario from "../pages/HR/Calendario/Calendario.jsx"
 import Candidati from "../pages/HR/Candidati/Candidati.jsx";
 import Candidato from "../pages/HR/Candidati/Candidato.jsx";
+import BustaPage from "../pages/HR/BustePage/BustePage.jsx";
+import Busta from "../pages/HR/BustePage/Busta.jsx";
 
 const Allroutes = () => {
   return (
@@ -838,7 +840,7 @@ const Allroutes = () => {
             <FeriePermisseEvento Component={Allegati} />
           </PublicRoute>
         }
-      />
+      /> */}
       <Route
         path="/hr/buste-page"
         element={
@@ -854,7 +856,7 @@ const Allroutes = () => {
             <Busta Component={Allegati} />
           </PublicRoute>
         }
-      /> */}
+      />
       <Route
         path="/hr/candidati"
         element={

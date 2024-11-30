@@ -24,7 +24,7 @@ const Candidato = ({ Component }) => {
               <Box className="TemplateForm__right">
                 <MenuTab onTabChange={handleTabChange} hrCandidato={true} />
               </Box>
-              {Component && <Component hrCandidato={true} />}
+              {Component && <Component acquisti_agenda={true} />}
             </Grid>
           </Grid>
         </div>
