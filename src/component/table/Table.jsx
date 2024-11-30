@@ -146,7 +146,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
       item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
       item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
       item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
-      item?.code,item.name,item?.nome_del_prodotto
+      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore
      ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -278,7 +278,12 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.livello) {
       result = result.filter((item) => item.livello === searchFilters.livello);
     }
-
+    if (searchFilters.mese) {
+      result = result.filter((item) => item.mese === searchFilters.mese);
+    }
+    if (searchFilters.collaboratore) {
+      result = result.filter((item) => item.collaboratore === searchFilters.collaboratore);
+    }
     setFilteredData(result);
     setPage(0);
   };

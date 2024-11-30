@@ -1919,22 +1919,22 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     <StyledTableCell>{row.mese}</StyledTableCell>
-                    <StyledTableCell>{row.data}</StyledTableCell>
-                    <StyledTableCell>{row.colaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
+                    <StyledTableCell>{row.collaboratore}</StyledTableCell>
                     <StyledTableCell>{row.totale}</StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#FFEBEE" }}>
-                      {row.daSaladare}
+                    <StyledTableCell className="customDasaldareRed">
+                      {row.daSaldare}
                     </StyledTableCell>
-                    <StyledTableCell style={{ backgroundColor: "#57C70033" }}>
-                      {row.saldato}
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textAlign: "center" }}>
-                      <Avatar1 />
+                    <StyledTableCell className="customDasaldareGreen">
+                      {row.saldo}
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
-                    <StyledTableCell>{row.modDa}</StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    {/* <StyledTableCell>{row.modDa}</StyledTableCell> */}
                     <StyledTableCell
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}

@@ -1,20 +1,20 @@
 import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/hrData.json";
+import tableData from "../../../utils/bustaHrData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import "./BustePage.scss";
 const columns = [
-  { field: "numero", headerName: "Numero", width: 400 },
-  { field: "mese", headerName: "Mese", width: 400 },
-  { field: "data", headerName: "Data", width: 120 },
-  { field: "colaboratore", headerName: "Collaboratore", width: 120 },
-  { field: "totale", headerName: "Totale", width: 120 },
-  { field: "daSaladare", headerName: "Da saldare", width: 90 },
-  { field: "saldato", headerName: "Saldato", width: 90 },
-  { field: "autore", headerName: "Autore", width: 90 },
-  { field: "modDa", headerName: "Mod. da", width: 90 },
-  { field: "azioni", headerName: "Azioni", width: 90 },
+  { field: "numero", headerName: "Numero", width: 100 },
+  { field: "mese", headerName: "Mese", width: 100 },
+  { field: "creatoil", headerName: "Data", width: 100 },
+  { field: "collaboratore", headerName: "Collaboratore", width: 720 },
+  { field: "totale", headerName: "Totale", width: 160 },
+  { field: "daSaldare", headerName: "Da saldare", width: 160 },
+  { field: "saldo", headerName: "Saldato", width: 160 },
+  { field: "autore", headerName: "Autore", width: 85 },
+  { field: "modDa", headerName: "Mod. da", width: 85 },
+  { field: "azioni", headerName: "Azioni", width: 95 },
 ];
 
 const OrdiniData = [
@@ -48,7 +48,7 @@ const BustaPage = () => {
         <div className="buste">
           <InvoiceDashboard ordini={OrdiniData} hr={true} />
           <Table
-            data={tableData.hrData.busta}
+            data={tableData}
             columns={columns}
             navData={"busta"}
           />

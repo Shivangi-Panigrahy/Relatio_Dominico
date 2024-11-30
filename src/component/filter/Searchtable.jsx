@@ -646,7 +646,7 @@ const SearchTable = ({
                     renderInput={(params) => <TextField {...params} label="Livello" />} // Customize the label
                   // sx={{ width: 300 }} // Optional styling
                   />
-                     <Autocomplete
+                  <Autocomplete
                     disablePortal
                     options={extractUniqueValues("ruolo")} // Provide your unique values here
                     value={activeFilters["ruolo"] || ""} // Set the selected value
@@ -663,32 +663,9 @@ const SearchTable = ({
                   <MenuWithOptions options={options} />
                 </>
               )
-                : navData === "distinta" ? (
+                : navData === "busta" ? (
                   <>
-                    <SearchField
-                      value={searchTerm}
-                      onChange={handleSearchChange}
-                    />
-                  </>
-                ) : navData === "Giacenze" ? (
-                  <>
-                    <SearchField
-                      value={searchTerm}
-                      onChange={handleSearchChange}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Autocomplete
-                      disablePortal
-                      options={extractUniqueValues("valore")} // Provide your unique values here
-                      value={activeFilters["valore"] || ""} // Set the selected value
-                      onChange={(event, newValue) =>
-                        handleFilterSelect("valore", newValue)
-                      } // Update the selected value
-                      renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
-                    // sx={{ width: 300 }} // Optional styling
-                    />
+
                     <Autocomplete
                       disablePortal
                       options={extractUniqueValues("numero")} // Provide your unique values here
@@ -699,14 +676,87 @@ const SearchTable = ({
                       renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
                     // sx={{ width: 300 }} // Optional styling
                     />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("mese")} // Provide your unique values here
+                      value={activeFilters["mese"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("mese", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Mese" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("collaboratore")} // Provide your unique values here
+                      value={activeFilters["collaboratore"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("collaboratore", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Collaboratore" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("totale")} // Provide your unique values here
+                      value={activeFilters["totale"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("totale", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Totale" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
                     <SearchField
                       value={searchTerm}
                       onChange={handleSearchChange}
                     />
-
                     <MenuWithOptions options={options} />
                   </>
-                )}
+                )
+                  : navData === "distinta" ? (
+                    <>
+                      <SearchField
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                      />
+                    </>
+                  ) : navData === "Giacenze" ? (
+                    <>
+                      <SearchField
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Autocomplete
+                        disablePortal
+                        options={extractUniqueValues("valore")} // Provide your unique values here
+                        value={activeFilters["valore"] || ""} // Set the selected value
+                        onChange={(event, newValue) =>
+                          handleFilterSelect("valore", newValue)
+                        } // Update the selected value
+                        renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
+                      // sx={{ width: 300 }} // Optional styling
+                      />
+                      <Autocomplete
+                        disablePortal
+                        options={extractUniqueValues("numero")} // Provide your unique values here
+                        value={activeFilters["numero"] || ""} // Set the selected value
+                        onChange={(event, newValue) =>
+                          handleFilterSelect("numero", newValue)
+                        } // Update the selected value
+                        renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
+                      // sx={{ width: 300 }} // Optional styling
+                      />
+                      <SearchField
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                      />
+
+                      <MenuWithOptions options={options} />
+                    </>
+                  )}
       {form !== "form1" || (
         <div style={{ marginTop: "5px" }}>
           {(navData === "personale" || navData === "repository" || navData === "leed") && (
