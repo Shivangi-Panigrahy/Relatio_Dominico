@@ -184,7 +184,7 @@ const getNavigationPath = (
   isHr,
   isHrEvento,
   isHrCandidato
-, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini) => {
+  , isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini) => {
 
   // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
@@ -239,6 +239,8 @@ const MenuTab = ({
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log(customClassName,'customClassName////')
+
   // Determine which configuration to use based on props
   const getActiveConfig = useCallback(() => {
     if (gantt) return TAB_CONFIGURATIONS.gantt;
@@ -267,7 +269,7 @@ const MenuTab = ({
     hr,
     hrEvento,
     hrCandidato,
-  , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]);
+    , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]);
 
   const tabsConfig = getActiveConfig();
 
@@ -294,7 +296,7 @@ const MenuTab = ({
         hr,
         hrEvento,
         hrCandidato
-      , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini);
+        , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini);
       navigate(path);
 
       // Invoke parent callback
@@ -308,50 +310,88 @@ const MenuTab = ({
   return (
     <Box className="tabBox tabsWithButton">
       <CustomTabs className={customClassName}>
-        {getActiveConfig().map((tab, index) => {
+        {getActiveConfig()?.map((tab, index) => {
           const IconComponent = tab.icon;
           return (
             <CustomTab
               key={`${tab.label}-${index}`}
               label={
                 <span>
+
                   {tab.label === "Dati"
+
                     ? "Dati finanziari"
+
                     : tab.label === "Sedi"
+
                       ? "Sedi operative"
+
                       : tab.label === "profitti"
+
                         ? "Profitti"
+
                         : tab.label === "vendite"
+
                           ? "Vendite"
+
                           : tab.label === "acquisti"
+
                             ? "Acquisti"
+
                             : tab.label === "personale"
+
                               ? "Personale"
+
                               : tab.label === "profitti"
+
                                 ? "Profitti"
+
                                 : tab.label === "imposte"
+
                                   ? "Imposte"
+
                                   : tab.label === "asset"
+
                                     ? "Asset"
+
                                     : tab.label === "attivita"
+
                                       ? "Attivita"
+
                                       : tab.label === "Reteizzazione" ?
+
                                         "Reteizzazione" :
+
                                         // tab.label === "Allegati" ?
+
                                         //   "Allegati" :
+
                                         tab.label === "Scheda" ?
+
                                           "Scheda servizio" :
+
                                           tab.label === "Scheda" ?
+
                                             "Scheda prodotto" :
+
                                             tab.label === "Distinta" ?
+
                                               "Distinta base" :
+
                                               tab.label === "Configurazione" ?
+
                                                 "Configurazione" :
+
                                                 // tab.label === "Gruppi" ?
+
                                                 //   "Gruppi" :
+
                                                 //   tab.label === "Prodotti" ? "Prodotti" :
+
                                                 tab.label === "" ? "" :
+
                                                   tab.label}
+
                 </span>
               }
               icon={<IconComponent />}

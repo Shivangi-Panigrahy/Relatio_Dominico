@@ -10,120 +10,48 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
 
 const useStyles = makeStyles(() => ({}));
-const InvoiceCard = ({
-  status,
-  count,
-  amount,
-  color,
-  iconColor,
-  hr,
-  subfix,
-}) => {
+const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
   return (
     <div className="statusText">
       <div className="statusText__img">
-        {!hr && (
-          iconColor ? (
-            <>
-              <CircularProgress
-                variant="determinate"
-                value={75}
-                style={{ color: iconColor }}
-              />
-              <span className="text-value" style={{ color: iconColor }}>
-                18%
-              </span>
-            </>
-          ) : null
-        )}
+        {iconColor ? (
+          <>
+            <CircularProgress
+              variant="determinate"
+              value={75}
+              style={{ color: iconColor }}
+            />
+            <span className="text-value" style={{ color: iconColor }}>
+              18%
+            </span>
+          </>
+        ) : null}
       </div>
       <div className="statusText__content">
         <h4>{status}</h4>
         {iconColor ? (
-          !hr && <h3 style={{ color }}>{amount}€</h3>
+          <h3 style={{ color: color }}>{amount}€</h3>
         ) : (
-          <h3 style={{ color }}>{amount}</h3>
+          <h3 style={{ color: color }}>{amount}</h3>
         )}
         <h5>
-          {count}{" "}
+          {count}
           <span
             style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
           >
-            {count === "" || (hr && !subfix)
+            {count === ""
               ? " "
-              : subfix && hr
-                ? subfix
-                : window.location.href.includes("/amministrazione/documenti")
-                  ? "Documenti"
-                  : window.location.href.includes("/cataloghi/servizi")
-                    ? "Servizi"
-                    : "Facture"}
+              : window.location.href.includes("/amministrazione/documenti")
+              ? "Documenti"
+              : window.location.href.includes("/cataloghi/servizi")
+              ? "Servizi"
+              : "Facture"}
           </span>
         </h5>
       </div>
     </div>
   );
 };
-
-// const InvoiceCard = ({
-//   status,
-//   count,
-//   amount,
-//   color,
-//   iconColor,
-//   hr,
-//   subfix,
-// }) => {
-//   return (
-//     <div className="statusText">
-//       <div className="statusText__img">
-//         {!hr && (
-//           {iconColor ? (
-//           <>
-//               <CircularProgress
-//                 variant="determinate"
-//                 value={75}
-//                 style={{ color: iconColor }}
-//               />
-//               <span className="text-value" style={{ color: iconColor }}>
-//                 18%
-//               </span>
-//               </>
-//         )}
-//         ) : null}
-//       </div>
-//       <div className="statusText__content">
-//         <h4>{status}</h4>
-//         {iconColor ? (
-//           {!hr && <h3 style={{ color: color }}>{amount}€</h3>}
-//         ) : (
-//           <h3 style={{ color: color }}>{amount}</h3>
-//         )}
-//         <h5>
-//           {count}{" "}
-
-//           <span
-//             style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
-//           >
-
-//             {count === ""
-//               || (hr && !subfix)
-//               ? " "
-//               : subfix && hr
-//               ? subfix
-
-//               : window.location.href.includes("/amministrazione/documenti")
-//               ? "Documenti"
-//               : window.location.href.includes("/cataloghi/servizi")
-//               ? "Servizi"
-//               : "Facture"}
-
-//           </span>
-//         </h5>
-//       </div>
-//     </div>
-//   );
-// };
 
 const InvoiceDashboard = ({
   acquisti = false,
@@ -176,52 +104,17 @@ const InvoiceDashboard = ({
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
     .flat(); // Flatten in case multiple props are true
 
-  const path = window.location.pathname;
-
   return (
     <Box className="FactureSection">
-      <Grid container className="FactureSection__inner" spacing={1}>
+      <Grid container className="FactureSection__inner" spacing={2}>
         {selectedData.map((data, index) => (
-          <Grid
-            item
-            key={index}
-            xs={
-              path === "/hr/colaboratory"
-                ? 3
-                : path === "/hr/buste-page"
-                  ? 4
-                  : 6
-            }
-            sm={
-              path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
-                ? 3
-                : path === "/hr/buste-page"
-                  ? 4
-                  : 6
-            }
-            md={
-              path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
-                ? 3
-                : path === "/hr/buste-page"
-                  ? 4
-                  : 6
-            }
-            lg={
-              path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
-                ? 3
-                : path === "/hr/buste-page"
-                  ? 4
-                  : 6
-            }
-          >
+          <Grid item lg={reteizzazione ? 4 : 3} md={6} xs={12} key={index}>
             <InvoiceCard
               status={data.status}
               count={data.count}
               amount={data.amount}
               color={data.color}
               iconColor={data.iconColor}
-              subfix={data.subfix}
-              hr={hr}
             />
             {/* Divider only for the first three cards */}
             {index < selectedData.length - 1 && (

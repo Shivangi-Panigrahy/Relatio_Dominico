@@ -217,6 +217,7 @@ const SearchTable = ({
             )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
+            <MenuWithOptions options={options} />
         </>
       ) : navData === "allegati" ? (
         <>
@@ -715,6 +716,7 @@ const SearchTable = ({
                     />
 
                     <MenuWithOptions options={options} />
+                    
                   </>
                 )}
       {form !== "form1" || (
@@ -774,25 +776,25 @@ const SearchTable = ({
   );
   return (
     <Box
-      className={
-        navData === "personale" || navData === "bilancio" || navData === "Gruppi" || navData === "product" || navData==="conf_prodotti"||navData==="lis_prodotti"
+    className={
+      navData === "personale" || navData === "bilancio" || navData === "Gruppi" || navData === "product" || navData==="conf_prodotti"||navData==="lis_prodotti"
+        ? ""
+        : `
+      ${window.location.pathname === "/vendite/ordini/sub-ordini"
           ? ""
           : `
-        ${
-          window.location.pathname === "/vendite/ordini/sub-ordini"
-            ? ""
-            : `
-          ${
-            invoice
-              ? "invoiceFilter fattura"
-              : `invoiceFilter`
-          }
-          ${navData === "leed" ? "leadInvoiceFilter" : ""}
-          ${navData === "AmministragionDocumenti" ? "fornitoriInvoiceFilter" : ""}
-        `
-        }
+        ${invoice ? "invoiceFilter fattura" : "invoiceFilter"}
+        ${navData === "leed" ? "leadInvoiceFilter" : ""}
+        ${navData === "repository" ? "repoInvoiceFilter" : ""}
+        ${navData === "budget" ? "budgetInvoiceFilter" : ""}
+        ${navData === "ordini" ? "ordiniInvoiceFilter" : ""}
+        ${navData === "fornitori" ? "fornitoriInvoiceFilter" : ""}
+        ${navData === "preventivi" ? "fornitoriInvoiceFilter" : ""}
+        ${navData === "AmministragionDocumenti" ? "fornitoriInvoiceFilter" : ""}
       `
-      }
+        }
+    `
+    }
     >
       <Stack spacing={2}>
         {form === "form1" ? (

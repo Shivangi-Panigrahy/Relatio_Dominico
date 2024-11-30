@@ -17,7 +17,7 @@ import styles from "./Contatti.scss";
 // Dynamic Card Component with Add and Delete functionality for new fields
 const DynamicCard = ({ title, initialFields, onAddField }) => {
   const [fields, setFields] = useState(
-    initialFields.map((field) => ({ ...field, isNew: false }))
+    initialFields?.map((field) => ({ ...field, isNew: false }))
   );
 
   const handleAddField = () => {
@@ -49,7 +49,7 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
         />
         <CardContent className="card__body">
           <Grid container spacing={2}>
-            {fields.map((field, index) => (
+            {fields?.map((field, index) => (
               <Grid
                 item
                 xs={12}
@@ -130,7 +130,7 @@ const Contatti = () => {
     <Box className="customTabBlock" maxWidth="xl">
       <Box className="customTabBlock__body">
         <Grid container spacing={3}>
-          {cards.map((card, index) => (
+          {cards?.map((card, index) => (
             <Grid item xs={12} md={4} key={index}>
               <DynamicCard title={card.title} initialFields={card.fields} />
             </Grid>
