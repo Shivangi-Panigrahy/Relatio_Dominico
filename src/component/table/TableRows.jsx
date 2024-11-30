@@ -111,7 +111,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Attivo",
       };
-
+      case "Immediata":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Immediata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -1917,12 +1922,35 @@ const TableRows = ({
                           inputProps={{ "aria-labelledby": row.id }}
                         />
                       </StyledTableCell>
-                      <StyledTableCell>{row.canditato}</StyledTableCell>
+                      <StyledTableCell>{row.candidato}</StyledTableCell>
                       <StyledTableCell>{row.ruolo}</StyledTableCell>
                       <StyledTableCell>{row.livello}</StyledTableCell>
-                      <StyledTableCell>{row.trattIndividual}</StyledTableCell>
-                      <StyledTableCell>{row.disponibile}</StyledTableCell>
-                      <StyledTableCell>{row.ultimoColloquio}</StyledTableCell>
+                      <StyledTableCell>{row.trattamento_individuato}</StyledTableCell>
+                      <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+                      <StyledTableCell>{row.creatoil}</StyledTableCell>
                       <StyledTableCell sx={{ textAlign: "center" }}>
                         <Avatar1 />
                       </StyledTableCell>

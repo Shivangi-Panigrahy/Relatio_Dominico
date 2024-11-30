@@ -1,0 +1,80 @@
+[
+    {
+      "id": 1,
+      "candidato": "Matteo Vellone",
+      "ruolo": "Project Manager",
+      "livello": "Senior",
+      "trattamento_individuato": "P.IVA",
+      "stato": "Immediata",
+      "creatoil": "28/11/2024",
+      "utente": "Jane Smith",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "candidato": "Luca Rossi",
+      "ruolo": "Software Engineer",
+      "livello": "Junior",
+      "trattamento_individuato": "Tempo Determinato",
+      "stato": "Immediata",
+      "creatoil": "15/11/2024",
+      "utente": "Michael Brown",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "candidato": "Sara Bianchi",
+      "ruolo": "Product Designer",
+      "livello": "Mid-Level",
+      "trattamento_individuato": "Freelance",
+      "stato": "Immediata",
+      "creatoil": "05/11/2024",
+      "utente": "Emily Davis",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "candidato": "Giulia Conti",
+      "ruolo": "Data Analyst",
+      "livello": "Senior",
+      "trattamento_individuato": "P.IVA",
+      "stato": "Immediata",
+      "creatoil": "20/10/2024",
+      "utente": "Chris Wilson",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "candidato": "Marco Verdi",
+      "ruolo": "DevOps Engineer",
+      "livello": "Mid-Level",
+      "trattamento_individuato": "Tempo Determinato",
+      "stato": "Immediata",
+      "creatoil": "10/10/2024",
+      "utente": "Sophia Taylor",
+      "azioni": "..."
+    },
+    {
+      "id": 6,
+      "candidato": "Elena Russo",
+      "ruolo": "HR Specialist",
+      "livello": "Junior",
+      "trattamento_individuato": "P.IVA",
+      "stato": "Immediata",
+      "creatoil": "25/09/2024",
+      "utente": "David Johnson",
+      "azioni": "..."
+    },
+    {
+      "id": 7,
+      "candidato": "Francesco Moretti",
+      "ruolo": "Marketing Manager",
+      "livello": "Senior",
+      "trattamento_individuato": "Freelance",
+      "stato": "Immediata",
+      "creatoil": "15/09/2024",
+      "utente": "Olivia Martin",
+      "azioni": "..."
+    }
+  ]
+  

@@ -269,7 +269,15 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.nomeProdotto) {
       result = result.filter((item) => item.nomeProdotto === searchFilters.nomeProdotto);
     }
-
+    if (searchFilters.candidato) {
+      result = result.filter((item) => item.candidato === searchFilters.candidato);
+    }
+    if (searchFilters.ruolo) {
+      result = result.filter((item) => item.ruolo === searchFilters.ruolo);
+    }
+    if (searchFilters.livello) {
+      result = result.filter((item) => item.livello === searchFilters.livello);
+    }
 
     setFilteredData(result);
     setPage(0);

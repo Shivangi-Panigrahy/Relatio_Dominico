@@ -2,22 +2,19 @@ import React from "react";
 import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
 import "./Candidati.scss";
+import tableData from "../../../utils/candidatihr.json"
 
 const columns = [
-  { field: "canditato", headerName: "Canditato", width: 400 },
-  { field: "ruolo", headerName: "Ruolo", width: 400 },
-  { field: "livello", headerName: "Livello", width: 120 },
-  { field: "trattIndividual", headerName: "Tratt. individual", width: 120 },
-  { field: "disponibile", headerName: "Disponibile", width: 120 },
-  { field: "ultimoColloquio", headerName: "Ultimo colloquio", width: 90 },
-  { field: "utente", headerName: "Utente", width: 90 },
-  { field: "azioni", headerName: "Azioni", width: 90 },
+  { field: "canditato", headerName: "Canditato", width: 800 },
+  { field: "ruolo", headerName: "Ruolo", width: 180 },
+  { field: "livello", headerName: "Livello", width: 132 },
+  { field: "trattIndividual", headerName: "Tratt. individual", width: 180 },
+  { field: "stato", headerName: "Disponibile", width: 125 },
+  { field: "creatoil", headerName: "Ultimo colloquio", width:160 },
+  { field: "utente", headerName: "Utente", width: 85 },
+  { field: "azioni", headerName: "Azioni", width: 95},
 ];
 
-const rows = [
-
-
-]
 
 const Candidati = () => {
   return (
@@ -26,7 +23,7 @@ const Candidati = () => {
       <div className="pageTemplate">
         <div className="candidati">
           <Table
-            data={rows}
+            data={tableData}
             columns={columns}
             navData={"candidati"}
           />
