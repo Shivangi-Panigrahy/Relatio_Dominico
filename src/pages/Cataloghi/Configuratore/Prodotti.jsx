@@ -1,73 +1,16 @@
 import React from "react";
-import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/serviziData.json";
-import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
-import ProductTable from "../../../component/ProductTable/ProductTable";
+import tableData from "../../../utils/distintaCataloghiData.json";
+
 
 const columns = [
-  { field: "img", headerName: "Img", width: 520 },
-  { field: "code", headerName: "Code", width: 299 },
-  { field: "name", headerName: "Name", width: 170 },
-  { field: "category", headerName: "Category", width: 142 },
-  { field: "unit", headerName: "Unit", width: 128 },
-  { field: "quantity", headerName: "Quantity", width: 128 },
-];
-const rows = [
-  {
-      id: "1",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
-  {
-      id: "2",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
-  {
-      id: "3",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
-  {
-      id: "4",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
-  {
-      id: "5",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
-  {
-      id: "6",
-      img: "",
-      code: "MK/532-245-234-0",
-      name: "Nome del prodotto",
-      category: "Linea A",
-      unit: "Pezzi",
-      quantity: 4,
-  },
+  { field: "img", headerName: "IMG", width: 62 }, // Image column
+  { field: "cod", headerName: "COD.", width: 185 }, // Code column
+  { field: "nome_del_prodotto", headerName: "Nome del prodotto", width: 550 }, // Product name column
+  { field: "categoria", headerName: "Categoria", width: 200 }, // Category column
+  { field: "um", headerName: "UM", width: 80 }, // Unit of measure
+  { field: "qta", headerName: "Q.ta", width: 125}, // Quantity column
+  { field: "azioni", headerName: "Azioni", width: 95 }, // Actions column
 ];
 
 const Prodotti = () => {
@@ -79,9 +22,9 @@ const Prodotti = () => {
       <div className="pageTemplate">
 
       <Table
-          data={rows}
+          data={tableData}
           columns={columns}
-          navData={"product"}
+          navData={"conf_prodotti"}
         />
       </div>
     </>
