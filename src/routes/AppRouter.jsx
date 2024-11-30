@@ -83,6 +83,9 @@ import FeriePermisse from "../pages/HR/FeriePermisse/FeriePermisse.jsx";
 import FeriePermisseEvento from "../pages/HR/FeriePermisse/FeriePermisseEvento.jsx";
 import Colaboratory from "../pages/HR/Colaboratory/Colaboratory.jsx";
 import SubColaboratory from "../pages/HR/Colaboratory/SubColaboratory.jsx";
+import Turni from "../component/Turni/Turni.jsx";
+import Progetti from "../component/Progetti/Progetti.jsx";
+import Contratto from "../component/Contratto/Contratto.jsx";
 
 const Allroutes = () => {
   return (
@@ -741,7 +744,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-   <Route
+      <Route
         path="/hr/colaboratory"
         element={
           <PublicRoute>
@@ -781,14 +784,14 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-      {/* <Route
-        path="/hr/colaboratory/sub-colaboratory/Contratto"
+      <Route
+        path="/hr/sub-colaboratory/Contratto"
         element={
           <PublicRoute>
             <SubColaboratory Component={Contratto} />
           </PublicRoute>
         }
-      /> */}
+      />
       <Route
         path="/hr/sub-colaboratory/Equipagiamento"
         element={
@@ -797,8 +800,8 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-      {/* <Route
-        path="/hr/colaboratory/sub-colaboratory/Turni"
+      <Route
+        path="/hr/sub-colaboratory/Turni"
         element={
           <PublicRoute>
             <SubColaboratory Component={Turni} />
@@ -806,13 +809,13 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/hr/colaboratory/sub-colaboratory/Progetti"
+        path="/hr/sub-colaboratory/Progetti"
         element={
           <PublicRoute>
             <SubColaboratory Component={Progetti} />
           </PublicRoute>
-        } */}
-      {/* /> */}
+        }
+      />
       <Route
         path="/hr/sub-colaboratory/Agenda"
         element={

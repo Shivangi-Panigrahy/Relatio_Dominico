@@ -34,9 +34,30 @@ const Documenti = ({ data }) => {
   };
   const sections = [
     {
+      label: "Busta Page",
+      content:
+        window.location.href.includes('/acquisti/fornitori/Documenti')
+          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
+          ? <AcquistiBudget />
+          : window.location.href.includes('/vendite/sub-lead/Documenti')
+            ? <VenditeBudget />
+            : "Budget content is hidden for this page."
+    },
+    {
       label: "Budget",
       content:
         window.location.href.includes('/acquisti/fornitori/Documenti')
+          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
+          ? <AcquistiBudget />
+          : window.location.href.includes('/vendite/sub-lead/Documenti')
+            ? <VenditeBudget />
+            : "Budget content is hidden for this page."
+    },
+    {
+      label: "Budget",
+      content:
+        window.location.href.includes('/acquisti/fornitori/Documenti')
+          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
           ? <AcquistiBudget />
           : window.location.href.includes('/vendite/sub-lead/Documenti')
             ? <VenditeBudget />
@@ -46,6 +67,7 @@ const Documenti = ({ data }) => {
       label: "Preventivi",
       content:
         window.location.href.includes('/acquisti/fornitori/Documenti')
+          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
           ? < AcquistiPreventivi />
           : window.location.href.includes('/vendite/sub-lead/Documenti')
             ? <VenditePreventivi />
@@ -58,6 +80,7 @@ const Documenti = ({ data }) => {
           label: "Ordini",
           content:
             window.location.href.includes('/acquisti/fornitori/Documenti')
+              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
               ? <AcquistiOrdini />
               : window.location.href.includes('/vendite/sub-lead/Documenti')
                 ? <VenditeOrdini />

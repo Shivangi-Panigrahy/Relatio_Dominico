@@ -160,7 +160,7 @@ const TAB_CONFIGURATIONS = {
     { label: "Allegati", icon: Documenti },
   ],
   hrEvento: [{ label: "Allegati", icon: Documenti }],
-  hrCollaborate: [
+  hr: [
     { label: "Contatti", icon: Documenti },
     { label: "Qualificazione", icon: Qualificazione },
     { label: "Documenti", icon: Documenti },
@@ -175,7 +175,7 @@ const TAB_CONFIGURATIONS = {
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHrCollaborate) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHr,) => {
 
   // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
@@ -199,7 +199,7 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
 
   if (isHrBusta) return `/hr/buste-page/${label}`;
 
-  if (isHrCollaborate) return `/hr/sub-colaboratory/${label}`;
+  if (isHr) return `/hr/sub-colaboratory/${label}`;
 
 
   return `/dashboard/${label}`;
@@ -225,7 +225,7 @@ const MenuTab = ({
   sublistini = false,
   hrCandidato = false,
   hrEvento = false,
-  hrCollaborate=false,
+  hr=false,
 
 
 
@@ -250,10 +250,10 @@ const MenuTab = ({
     if (sublistini) return TAB_CONFIGURATIONS.sublistini;
     if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
-    if (hrCollaborate) return TAB_CONFIGURATIONS.hrCollaborate;
+    if (hr) return TAB_CONFIGURATIONS.hr;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hrCollaborate]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr]);
 
   const tabsConfig = getActiveConfig();
 
@@ -272,7 +272,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr);
       navigate(path);
 
       // Invoke parent callback
@@ -280,7 +280,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hrCollaborate]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr]
   );
 
   return (
