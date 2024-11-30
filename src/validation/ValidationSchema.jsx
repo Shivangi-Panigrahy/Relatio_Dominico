@@ -54,6 +54,20 @@ export const validationSchema3 = Yup.object().shape({
   PEC: Yup.string().required("This field is required"),
 });
 
+export const validationSchema4 = Yup.object().shape({
+  "Nome del prodotto": Yup.string().required("This field is required"),
+  Categoria: Yup.string().required("This field is required"),
+  "Codice Prodotto": Yup.string().required("This field is required"),
+  "Codice EAN": Yup.string().required("This field is required"),
+  "Centri di ricavo/costo": Yup.string().required("This field is required"),
+  "Prz.m.vendita": Yup.string().required("This field is required"),
+  "Prz.m.acquisto": Yup.string().required("This field is required"),
+  "Utile medio": Yup.string().required("This field is required"),
+  IVA: Yup.string().required("This field is required"),
+  Attivo: Yup.string().required("This field is required"),
+  Note: Yup.string().required("This field is required"),
+});
+
 export const validationSchemaPasswordReset = Yup.object().shape({
   email: Yup
     .string()

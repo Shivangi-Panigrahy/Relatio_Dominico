@@ -52,16 +52,15 @@ const OrdiniData = [
 const Ordini = () => {
   const location = useLocation();
 
-  const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
+  const isSubLeadDocumenti =
+    location.pathname === "/vendite/sub-lead/Documenti";
 
   return (
     <>
       {!isSubLeadDocumenti && <Header />}
 
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && (
-           <InvoiceDashboard ordini={OrdiniData} />
-        )}
+        {!isSubLeadDocumenti && <InvoiceDashboard ordini={OrdiniData} />}
 
         <Table
           data={tableData.tabData.tab1}

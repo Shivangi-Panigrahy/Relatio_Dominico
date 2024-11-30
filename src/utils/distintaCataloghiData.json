@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "img": "image-url-1", 
+      "cod": "MKR32-245-234-0",
+      "nome_del_prodotto": "Prodotto A",
+      "categoria": "Linea A",
+      "um": "Pezzi",
+      "qta": "4",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 2,
+      "img": "image-url-2", 
+      "cod": "MKR32-245-234-1",
+      "nome_del_prodotto": "Prodotto B",
+      "categoria": "Linea B",
+      "um": "Pezzi",
+      "qta": "8",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 3,
+      "img": "image-url-3", 
+      "cod": "MKR32-245-234-2",
+      "nome_del_prodotto": "Prodotto C",
+      "categoria": "Linea C",
+      "um": "Litri",
+      "qta": "10",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 4,
+      "img": "image-url-4", 
+      "cod": "MKR32-245-234-3",
+      "nome_del_prodotto": "Prodotto D",
+      "categoria": "Linea D",
+      "um": "Kg",
+      "qta": "5",
+      "azioni": "Edit/Delete"
+    },
+    {
+      "id": 5,
+      "img": "image-url-5", 
+      "cod": "MKR32-245-234-4",
+      "nome_del_prodotto": "Prodotto E",
+      "categoria": "Linea E",
+      "um": "Pezzi",
+      "qta": "12",
+      "azioni": "Edit/Delete"
+    }
+  ]
+  

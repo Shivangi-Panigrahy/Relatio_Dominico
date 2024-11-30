@@ -39,10 +39,10 @@
       tr {
         background-color: transparent !important;
         .customDasaldareRed {
-          background-color: #DB000033;
+          background-color: #db000033;
         }
         .customDasaldareGreen {
-          background-color: #57C70033;
+          background-color: #57c70033;
         }
         &:hover {
           background-color: #f2f2f2 !important;
@@ -70,12 +70,11 @@
             color: #fff;
           }
           .customDasaldareGreen {
-            background-color: #57C70080;
+            background-color: #57c70080;
           }
           .customDasaldareRed {
-            background-color: #DB000080;
+            background-color: #db000080;
           }
-         
         }
         td {
           padding: 10px;
@@ -83,6 +82,8 @@
           font-size: 14px;
           line-height: 16px;
           color: #666666;
+          font-family: "Public Sans", sans-serif;
+
           button {
             font-size: 14px;
             line-height: 16px;
@@ -102,6 +103,7 @@
               color: #57c700;
               font-weight: 700;
             }
+            font-family: "Public Sans", sans-serif;
           }
           .profile {
             width: 32px;
@@ -231,6 +233,8 @@
   }
 }
 .customtable  table tbody.customTableChanges tr td {
+
+.customtable table tbody.customTableChanges tr td {
   padding: 22px 12px !important;
 }
 

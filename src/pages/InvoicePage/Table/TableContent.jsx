@@ -98,8 +98,8 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
     }
   };
   useEffect(() => {
-    setTasks(data || [])
-  }, [data])
+    setTasks(data || []);
+  }, [data]);
   return (
     <TableBody className="invoiceTableMain">
       {tasks?.map((row, index) => {
@@ -107,7 +107,10 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
         const isRowExpanded = expandedRow === row.id;
         return (
           <React.Fragment key={row.id}>
-            <StyledTableRow hover selected={isItemSelected} className={activeMoveRowIndexFirst === index && "moveRow"}
+            <StyledTableRow
+              hover
+              selected={isItemSelected}
+              className={activeMoveRowIndexFirst === index && "moveRow"}
               style={{
                 transition:
                   movingIndex === index ? "transform 0.4s ease" : "none",
@@ -115,9 +118,10 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                   movingIndex === index && direction === "up"
                     ? "translateY(-100%)"
                     : movingIndex === index && direction === "down"
-                      ? "translateY(100%)"
-                      : "none",
-              }}>
+                    ? "translateY(100%)"
+                    : "none",
+              }}
+            >
               <StyledTableCell padding="checkbox" align="center">
                 <CustomCheckbox
                   checked={isItemSelected}
@@ -129,14 +133,27 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                   return (
                     <StyledTableCell key={column.field} align={column.align}>
                       <div className="tableActionBtn">
-                        <IconButton size="small" onClick={() => handleMoveUp(index)}>
+                        <IconButton
+                          size="small"
+                          onClick={() => handleMoveUp(index)}
+                        >
                           <UpdwardIcon />
                         </IconButton>
-                        <IconButton size="small" onClick={() => handleMoveDown(index)}>
+                        <IconButton
+                          size="small"
+                          onClick={() => handleMoveDown(index)}
+                        >
                           <DownwardIcon />
                         </IconButton>
-                        <IconButton size="small" onClick={() => handleExpandClick(row.id)}>
-                          {isRowExpanded ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
+                        <IconButton
+                          size="small"
+                          onClick={() => handleExpandClick(row.id)}
+                        >
+                          {isRowExpanded ? (
+                            <KeyboardArrowUp />
+                          ) : (
+                            <KeyboardArrowDown />
+                          )}
                         </IconButton>
                         <IconButton size="small">
                           <MenuWithOptions options={option} />
@@ -153,7 +170,12 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                           // value={row[column.field][0]}
                           placeholder={row[column.field]}
                           onChange={(e) =>
-                            handleInputChange(index, column.field, e.target.value, 0)
+                            handleInputChange(
+                              index,
+                              column.field,
+                              e.target.value,
+                              0
+                            )
                           }
                           variant="outlined"
                           size="small"
@@ -162,7 +184,12 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                           // value={row[column.field][1]}
                           placeholder={row[column.field]}
                           onChange={(e) =>
-                            handleInputChange(index, column.field, e.target.value, 1)
+                            handleInputChange(
+                              index,
+                              column.field,
+                              e.target.value,
+                              1
+                            )
                           }
                           variant="outlined"
                           size="small"
@@ -174,7 +201,9 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                       <TextField
                         // value={row[column.field]}
                         placeholder={row[column.field]}
-                        onChange={(e) => handleInputChange(index, column.field, e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange(index, column.field, e.target.value)
+                        }
                         variant="outlined"
                         size="small"
                       />
@@ -188,7 +217,11 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
               <TableRow>
                 <StyledTableCell />
                 <StyledTableCell>
-                  <TextField label="Descrizione" variant="outlined" className="textField" />
+                  <TextField
+                    label="Descrizione"
+                    variant="outlined"
+                    className="textField"
+                  />
                 </StyledTableCell>
                 <StyledTableCell colSpan={2}>
                   <Select displayEmpty variant="outlined" defaultValue="">
@@ -196,7 +229,11 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                   </Select>
                 </StyledTableCell>
                 <StyledTableCell colSpan={2}>
-                  <TextField label="Progetto" variant="outlined" className="textField" />
+                  <TextField
+                    label="Progetto"
+                    variant="outlined"
+                    className="textField"
+                  />
                 </StyledTableCell>
                 <StyledTableCell>
                   <Select displayEmpty variant="outlined" defaultValue="">

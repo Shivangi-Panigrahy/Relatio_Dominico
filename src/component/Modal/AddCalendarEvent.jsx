@@ -166,7 +166,7 @@ const AddCalendarEvent = ({ open, onClose, event = {} }) => {
             }
             InputLabelProps={{ shrink: true }} // Keeps label "Fine" in place
             inputProps={{
-              style: { cursor: "pointer" } // Adds cursor pointer on the text field
+              style: { cursor: "pointer" }, // Adds cursor pointer on the text field
             }}
             onClick={(e) => e.target.showPicker && e.target.showPicker()} // Opens picker on click
           />
@@ -177,12 +177,11 @@ const AddCalendarEvent = ({ open, onClose, event = {} }) => {
         </div>
 
         {/* End date/time */}
-        <div className="customFieldBox" >
+        <div className="customFieldBox">
           <TextField
             className="customSearchField"
             fullWidth
             label="Fine"
-
             type="datetime-local"
             margin="normal"
             defaultValue={
@@ -190,7 +189,7 @@ const AddCalendarEvent = ({ open, onClose, event = {} }) => {
             }
             InputLabelProps={{ shrink: true }} // Keeps label "Fine" in place
             inputProps={{
-              style: { cursor: "pointer" } // Adds cursor pointer on the text field
+              style: { cursor: "pointer" }, // Adds cursor pointer on the text field
             }}
             onClick={(e) => e.target.showPicker && e.target.showPicker()} // Opens picker on click
           />
@@ -219,10 +218,22 @@ const AddCalendarEvent = ({ open, onClose, event = {} }) => {
       </DialogContent>
 
       <DialogActions className="calenderEventModel__footer">
-        <Button className="greenButton">Salva</Button>
+        <Button
+          className="greenButton"
+          style={{
+            fontFamily: '"Public Sans", sans-serif',
+          }}
+        >
+          Salva
+        </Button>
         <Button
           onClick={() => onClose(false)}
-          variant="contained"
+          variant="outlined"
+          style={{
+            borderColor: "#DB0000",
+            color: "#DB0000",
+            fontFamily: '"Public Sans", sans-serif',
+          }}
           color="error"
         >
           Cancella

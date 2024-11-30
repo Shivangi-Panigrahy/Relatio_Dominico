@@ -23,6 +23,7 @@ import { ReactComponent as Dati } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
+import { ReactComponent as Right } from "../../assets/right.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./MenuLink.scss";
 import { AddButton } from "../button/AddButton";
@@ -144,14 +145,6 @@ const TAB_CONFIGURATIONS = {
     { label: "Agenda", icon: Agenda },
     { label: "Allegati", icon: Documenti },
   ],
-  listini: [
-    { label: "Gruppi", icon: Contatti },
-    // { label: "Prodotti", icon: Qualificazione },
-  ],
-  CatalogConfig: [
-    { label: "Configurazione", icon: Contatti },
-    { label: "Prodotti", icon: Qualificazione },
-  ],
   subImposte: [
     { label: "Reteizzazione", icon: Contatti },
     { label: "Allegati", icon: Qualificazione },
@@ -159,7 +152,26 @@ const TAB_CONFIGURATIONS = {
   subAsset: [
     { label: "Rate", icon: Contatti },
     { label: "Allegati", icon: Qualificazione },
-  ]
+  ],
+  subServizi: [
+    { label: "Scheda", icon: Right },
+    { label: "Allegati", icon: Right },
+  ],
+  subProdotti: [
+    { label: "Scheda", icon: Right },
+    { label: "Distinta", icon: Right },
+    { label: "Opzioni", icon: Right },
+    { label: "Giacenze", icon: Right },
+    { label: "Allegati", icon: Right },
+  ],
+  configuratore: [
+    { label: "Configurazione", icon: Right },
+    { label: "Prodotti", icon: Right },
+  ],
+  sublistini: [
+    { label: "Gruppi", icon: Right },
+    { label: "Prodotti", icon: Right },
+  ],
 
 };
 
@@ -172,7 +184,7 @@ const getNavigationPath = (
   isHr,
   isHrEvento,
   isHrCandidato
-, isaminiImposte, isImposte, isAsset) => {
+, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini) => {
 
   // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
@@ -185,16 +197,16 @@ const getNavigationPath = (
 
   if (isImposte) return `/amministrazione/imposte/${label}`;
 
-  if (isImposte) return `/amministrazione/imposte/${label}`;
-
   if (isAsset) return `/amministrazione/asset/${label}`;
 
-  if (isAsset) return `/amministrazione/asset/${label}`;
+  if (isServizi) return `/cataloghi/servizi/${label}`;
 
-  if (label==="Gruppi") return `/cataloghi/listini/${label}`;
+  if (isProdotti) return `/cataloghi/prodotti/${label}`;
 
-  if (label==="Prodotti") return `/cataloghi/listini/${label}`;
-  if (label==="Configurazione") return `/cataloghi/configuratore/${label}`;
+  if (isConfiguratore) return `/cataloghi/configuratore/${label}`;
+
+  if (isListini) return `/cataloghi/listini/${label}`;
+
 
   return `/dashboard/${label}`;
 
@@ -215,8 +227,13 @@ const MenuTab = ({
   hrCandidato,
   subImposte = false,
   subAsset = false,
-  listini=false,
-  CatalogConfig=false
+  CatalogConfig = false,
+  subServizi = false,
+  subProdotti = false,
+  configuratore = false,
+  sublistini = false,
+
+
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -232,10 +249,14 @@ const MenuTab = ({
     if (hr) return TAB_CONFIGURATIONS.hr;
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
     if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
-    if (listini) return TAB_CONFIGURATIONS.listini;
     if (subImposte) return TAB_CONFIGURATIONS.subImposte;
     if (subAsset) return TAB_CONFIGURATIONS.subAsset;
     if (CatalogConfig) return TAB_CONFIGURATIONS.CatalogConfig;
+    if (subServizi) return TAB_CONFIGURATIONS.subServizi;
+    if (subProdotti) return TAB_CONFIGURATIONS.subProdotti;
+    if (configuratore) return TAB_CONFIGURATIONS.configuratore;
+    if (sublistini) return TAB_CONFIGURATIONS.sublistini;
+
     return TAB_CONFIGURATIONS.default;
   }, [
     gantt,
@@ -246,14 +267,14 @@ const MenuTab = ({
     hr,
     hrEvento,
     hrCandidato,
-  , subImposte, subAsset,listini]);
+  , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]);
 
   const tabsConfig = getActiveConfig();
 
   // Sync selectedTabs with the current route
   useEffect(() => {
     const activeIndex = tabsConfig?.findIndex((tab) =>
-      location.pathname.includes(tab.label.toLowerCase())
+      location.pathname.toLowerCase().includes(tab.label.toLowerCase())
     );
     if (activeIndex !== -1) {
       setSelectedTabs(activeIndex);
@@ -273,7 +294,7 @@ const MenuTab = ({
         hr,
         hrEvento,
         hrCandidato
-      , subImposte, subAsset);
+      , subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini);
       navigate(path);
 
       // Invoke parent callback
@@ -281,7 +302,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, hr, hrEvento, hrCandidato]
+    [lead, fornitori, navigate, onTabChange, vendite, hr, hrEvento, hrCandidato, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]
   );
 
   return (
@@ -298,35 +319,39 @@ const MenuTab = ({
                     ? "Dati finanziari"
                     : tab.label === "Sedi"
                       ? "Sedi operative"
-                       : tab.label === "profitti"
-                          ? "Profitti"
-                      : tab.label === "vendite"
-                        ? "Vendite"
-                        : tab.label === "acquisti"
-                          ? "Acquisti"
-                          : tab.label === "personale"
-                            ? "Personale"
-                            : tab.label === "profitti"
-                              ? "Profitti"
-                              : tab.label === "imposte"
-                                ? "Imposte"
-                                : tab.label === "asset"
-                                  ? "Asset"
-                                  : tab.label === "attivita"
-                                    ? "Attivita"
-                                    : tab.label === "Reteizzazione" ?
-                                      "Reteizzazione" :
-                                      tab.label === "Allegati" ?
-                                        "Allegati"
-                                        :
-                                        tab.label === "Gruppi" ?
-                                        "Gruppi":
-                                        tab.label ==="Prodotti" ?"Prodotti":
-                                        tab.label === "Configurazione" ?
-                                        "Configurazione" :
-                                        tab.label ===  "" ?"":
-
-                                        tab.label}
+                      : tab.label === "profitti"
+                        ? "Profitti"
+                        : tab.label === "vendite"
+                          ? "Vendite"
+                          : tab.label === "acquisti"
+                            ? "Acquisti"
+                            : tab.label === "personale"
+                              ? "Personale"
+                              : tab.label === "profitti"
+                                ? "Profitti"
+                                : tab.label === "imposte"
+                                  ? "Imposte"
+                                  : tab.label === "asset"
+                                    ? "Asset"
+                                    : tab.label === "attivita"
+                                      ? "Attivita"
+                                      : tab.label === "Reteizzazione" ?
+                                        "Reteizzazione" :
+                                        // tab.label === "Allegati" ?
+                                        //   "Allegati" :
+                                        tab.label === "Scheda" ?
+                                          "Scheda servizio" :
+                                          tab.label === "Scheda" ?
+                                            "Scheda prodotto" :
+                                            tab.label === "Distinta" ?
+                                              "Distinta base" :
+                                              tab.label === "Configurazione" ?
+                                                "Configurazione" :
+                                                // tab.label === "Gruppi" ?
+                                                //   "Gruppi" :
+                                                //   tab.label === "Prodotti" ? "Prodotti" :
+                                                tab.label === "" ? "" :
+                                                  tab.label}
                 </span>
               }
               icon={<IconComponent />}

@@ -144,7 +144,11 @@ const CustomTable = ({ data, form, columns, navData }) => {
       item.autore,
       item.modDa,
       item.daSaldare,
-      item.scadenza,item.obiettivo,item.asset,item.importo,item.dataPagamento,item.rata
+      item.scadenza,item.obiettivo,item.asset,item.importo,item.dataPagamento,item.rata,
+      item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
+      item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
+      item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
+      item?.code,item.name,item?.nome_del_prodotto
      ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -258,6 +262,16 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.obiettivo) {
       result = result.filter((item) => item.obiettivo === searchFilters.obiettivo);
     }
+    if (searchFilters.costoServizio) {
+      result = result.filter((item) => item.costoServizio === searchFilters.costoServizio);
+    }
+    if (searchFilters.gruppiAssociati) {
+      result = result.filter((item) => item.gruppiAssociati === searchFilters.gruppiAssociati);
+    }
+    if (searchFilters.nomeProdotto) {
+      result = result.filter((item) => item.nomeProdotto === searchFilters.nomeProdotto);
+    }
+
 
     setFilteredData(result);
     setPage(0);

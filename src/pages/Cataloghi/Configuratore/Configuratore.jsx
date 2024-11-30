@@ -21,7 +21,7 @@ const Configuratore = ({ Component }) => {
           </Grid>
           <Grid item lg={9} md={8} xs={12}>
             <Box className="TemplateForm__right">
-              <MenuTab onTabChange={handleTabChange} CatalogConfig={true} />
+              <MenuTab onTabChange={handleTabChange} configuratore={true} />
             </Box>
             {Component && <Component  />}
           </Grid>

@@ -10,11 +10,13 @@
     height: auto;
     line-height: normal;
     background-color: #fff;
+    font-family: "Public Sans", sans-serif;
   }
   .MuiFormLabel-root {
     font-size: 16px;
     line-height: 20px;
-    color: #666666;
+    color: #160a2a80;
+    font-family: "Public Sans", sans-serif;
   }
   fieldset {
     border: 2px solid #e5e5e5;
@@ -68,5 +70,9 @@
 .CustomSelectBox {
   .MuiInputBase-root > svg {
     display: none;
+  }
+  .MuiFormLabel-root {
+    font-family: "Public Sans", sans-serif;
+    color: #160a2a80;
   }
 }

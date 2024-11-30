@@ -75,8 +75,18 @@ import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
 import Listini from "../pages/Cataloghi/Listini/Listini";
 import Servizi from "../pages/Cataloghi/Servizi/Servizi";
 import SubListini from "../pages/Cataloghi/Listini/SubListini.jsx"
-import Prodotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 import Gruppi from "../pages/Cataloghi/Listini/Gruppi.jsx"
+import SubServizi from "../pages/Cataloghi/Servizi/SubServizi.jsx";
+import Scheda_servizio from "../pages/Cataloghi/Servizi/Scheda_servizio.jsx";
+import Prodotti from "../pages/Cataloghi/Prodotti/Prodotti.jsx";
+import SubProdotti from "../pages/Cataloghi/Prodotti/SubProdotti.jsx";
+import Scheda_prodotto from "../pages/Cataloghi/Prodotti/Scheda_prodotto.jsx";
+import Distinta_base from "../pages/Cataloghi/Prodotti/Distinta_base.jsx";
+import Opzioni from "../pages/Cataloghi/Prodotti/Opzioni.jsx";
+import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
+import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
+import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
+import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 
 const Allroutes = () => {
   return (
@@ -544,15 +554,15 @@ const Allroutes = () => {
         path="/amministrazione/asset/Rate"
         element={
           <PublicRoute>
-            <SubAsset Component={Reteizzazione}/>
+            <SubAsset Component={Reteizzazione} />
           </PublicRoute>
         }
       />
-            <Route
+      <Route
         path="/amministrazione/asset/Allegati"
         element={
           <PublicRoute>
-            <SubAsset Component={Allegati}/>
+            <SubAsset Component={Allegati} />
           </PublicRoute>
         }
       />
@@ -797,10 +807,82 @@ const Allroutes = () => {
         }
       />
       <Route
+        path="/cataloghi/servizi/Scheda"
+        element={
+          <PublicRoute>
+            <SubServizi Component={Scheda_servizio} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/servizi/Allegati"
+        element={
+          <PublicRoute>
+            <SubServizi Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
         path="/cataloghi/prodotti"
         element={
           <PublicRoute>
             <Prodotti />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti/Scheda"
+        element={
+          <PublicRoute>
+            <SubProdotti Component={Scheda_prodotto} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti/Distinta"
+        element={
+          <PublicRoute>
+            <SubProdotti Component={Distinta_base} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti/Opzioni"
+        element={
+          <PublicRoute>
+            <SubProdotti Component={Opzioni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti/Giacenze"
+        element={
+          <PublicRoute>
+            <SubProdotti Component={Giacenze} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/prodotti/Allegati"
+        element={
+          <PublicRoute>
+            <SubProdotti Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/Configurazione"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Listini} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/Prodotti"
+        element={
+          <PublicRoute>
+            <Configuratore Component={ConfiguratoreProdotti} />
           </PublicRoute>
         }
       />
@@ -812,35 +894,20 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
+
       <Route
-        path="/cataloghi/configuratore/configuratore"
+        path="/cataloghi/listini/Gruppi"
         element={
           <PublicRoute>
-            <Configuratore Component={Listini} />
+            <SubListini Component={Gruppi} />
           </PublicRoute>
         }
       />
       <Route
-        path="/cataloghi/configuratore/configuratore"
-        element={
-          <PublicRoute>
-            <Configuratore Component={Listini} />
-          </PublicRoute>
-        }
-      />
-        <Route
-        path="/cataloghi/listini/gruppi"
-        element={
-          <PublicRoute>
-            <SubListini Component={Gruppi } />
-          </PublicRoute>
-        }
-      />
-        <Route
         path="/cataloghi/listini/Prodotti"
         element={
           <PublicRoute>
-            <SubListini Component={Prodotti} />
+            <SubListini Component={ListiniProdotti} />
           </PublicRoute>
         }
       />

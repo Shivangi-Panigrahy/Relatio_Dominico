@@ -9,7 +9,6 @@ import { ReactComponent as Saldare } from "../../assets/dashboardIcons/saldare.s
 import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
 
-
 const useStyles = makeStyles(() => ({}));
 const InvoiceCard = ({
   status,
@@ -24,46 +23,108 @@ const InvoiceCard = ({
     <div className="statusText">
       <div className="statusText__img">
         {!hr && (
-          <>
-            <CircularProgress
-              variant="determinate"
-              value={75}
-              style={{ color: iconColor }}
-            />
-            <span className="text-value" style={{ color: iconColor }}>
-              18%
-            </span>
-            {/* <CopyIcon className="FileIcon"/> */}
-          </>
+          iconColor ? (
+            <>
+              <CircularProgress
+                variant="determinate"
+                value={75}
+                style={{ color: iconColor }}
+              />
+              <span className="text-value" style={{ color: iconColor }}>
+                18%
+              </span>
+            </>
+          ) : null
         )}
       </div>
       <div className="statusText__content">
         <h4>{status}</h4>
-        {!hr && <h3 style={{ color: color }}>{amount}€</h3>}
+        {iconColor ? (
+          !hr && <h3 style={{ color }}>{amount}€</h3>
+        ) : (
+          <h3 style={{ color }}>{amount}</h3>
+        )}
         <h5>
-          { count}{" "}
-         
-          <span>
-            
-            {count === ""
-              || (hr && !subfix)
+          {count}{" "}
+          <span
+            style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
+          >
+            {count === "" || (hr && !subfix)
               ? " "
               : subfix && hr
-              ? subfix
-             
-              : window.location.href.includes("/amministrazione/documenti")
-                ? "Documenti"
-                : window.location.href.includes("/cataloghi/servizi")
-                  ? "Servizi"
-                  : "Facture"}
-          
+                ? subfix
+                : window.location.href.includes("/amministrazione/documenti")
+                  ? "Documenti"
+                  : window.location.href.includes("/cataloghi/servizi")
+                    ? "Servizi"
+                    : "Facture"}
           </span>
         </h5>
-
       </div>
     </div>
   );
 };
+
+// const InvoiceCard = ({
+//   status,
+//   count,
+//   amount,
+//   color,
+//   iconColor,
+//   hr,
+//   subfix,
+// }) => {
+//   return (
+//     <div className="statusText">
+//       <div className="statusText__img">
+//         {!hr && (
+//           {iconColor ? (
+//           <>
+//               <CircularProgress
+//                 variant="determinate"
+//                 value={75}
+//                 style={{ color: iconColor }}
+//               />
+//               <span className="text-value" style={{ color: iconColor }}>
+//                 18%
+//               </span>
+//               </>
+//         )}
+//         ) : null}
+//       </div>
+//       <div className="statusText__content">
+//         <h4>{status}</h4>
+//         {iconColor ? (
+//           {!hr && <h3 style={{ color: color }}>{amount}€</h3>}
+//         ) : (
+//           <h3 style={{ color: color }}>{amount}</h3>
+//         )}
+//         <h5>
+//           {count}{" "}
+
+//           <span
+//             style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
+//           >
+
+//             {count === ""
+//               || (hr && !subfix)
+//               ? " "
+//               : subfix && hr
+//               ? subfix
+
+//               : window.location.href.includes("/amministrazione/documenti")
+//               ? "Documenti"
+//               : window.location.href.includes("/cataloghi/servizi")
+//               ? "Servizi"
+//               : "Facture"}
+
+//           </span>
+//         </h5>
+//       </div>
+//     </div>
+//   );
+// };
+
 const InvoiceDashboard = ({
   acquisti = false,
   preventivi = false,
@@ -74,17 +135,13 @@ const InvoiceDashboard = ({
   amministrazioneAsset = false,
   amministrazioneDocumenti = false,
   primaNota = false,
-  hr,
-  amministrazioneImposte=false,
-  reteizzazione=false,
+  amministrazioneImposte = false,
+  reteizzazione = false,
   servizi = false,
-
- 
 }) => {
   const classes = useStyles();
 
-
-  console.log(amministrazioneDocumenti, 'amministrazioneDocumenti')
+  console.log(amministrazioneDocumenti, "amministrazioneDocumenti");
 
   const dataSources = {
     acquisti: acquisti,
@@ -93,14 +150,13 @@ const InvoiceDashboard = ({
     ordini: ordini,
     budget: budget,
     fornitori: fornitori,
-    amministrazioneDocumenti:amministrazioneDocumenti,
-    amministrazioneAsset:amministrazioneAsset,
-    primaNota:primaNota,
-    amministrazioneImposte:amministrazioneImposte,
+    amministrazioneDocumenti: amministrazioneDocumenti,
     amministrazioneAsset: amministrazioneAsset,
     primaNota: primaNota,
-    servizi: servizi
-
+    amministrazioneImposte: amministrazioneImposte,
+    amministrazioneAsset: amministrazioneAsset,
+    primaNota: primaNota,
+    servizi: servizi,
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -114,7 +170,7 @@ const InvoiceDashboard = ({
     amministrazioneAsset,
     primaNota,
     amministrazioneImposte,
-    servizi
+    servizi,
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
@@ -133,29 +189,29 @@ const InvoiceDashboard = ({
               path === "/hr/colaboratory"
                 ? 3
                 : path === "/hr/buste-page"
-                ? 4
-                : 6
+                  ? 4
+                  : 6
             }
             sm={
               path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
                 ? 3
                 : path === "/hr/buste-page"
-                ? 4
-                : 6
+                  ? 4
+                  : 6
             }
             md={
               path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
                 ? 3
                 : path === "/hr/buste-page"
-                ? 4
-                : 6
+                  ? 4
+                  : 6
             }
             lg={
               path === "/hr/colaboratory" || path === "/hr/ferie-e-permisse"
                 ? 3
                 : path === "/hr/buste-page"
-                ? 4
-                : 6
+                  ? 4
+                  : 6
             }
           >
             <InvoiceCard

@@ -3,7 +3,6 @@ import Table from "../../../component/table/Table";
 import tableData from "../../../utils/distintaCataloghiData.json";
 
 
-
 const columns = [
   { field: "img", headerName: "IMG", width: 62 }, // Image column
   { field: "cod", headerName: "COD.", width: 185 }, // Code column
@@ -14,7 +13,6 @@ const columns = [
   { field: "azioni", headerName: "Azioni", width: 95 }, // Actions column
 ];
 
-
 const Prodotti = () => {
 
 
@@ -23,10 +21,10 @@ const Prodotti = () => {
 
       <div className="pageTemplate">
 
-        <Table
+      <Table
           data={tableData}
           columns={columns}
-          navData={"lis_prodotti"}
+          navData={"conf_prodotti"}
         />
       </div>
     </>
@@ -34,4 +32,3 @@ const Prodotti = () => {
 };
 
 export default Prodotti;
-
