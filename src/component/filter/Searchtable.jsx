@@ -753,6 +753,31 @@ const SearchTable = ({
                     />
                     <MenuWithOptions options={options} />
                   </>
+                ): navData === "turni" ? (
+                  <>
+
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("turno")} // Provide your unique values here
+                      value={activeFilters["turno"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("turno", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Turno" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("ore")} // Provide your unique values here
+                      value={activeFilters["ore"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("ore", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Ore" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                 
+                  </>
                 )
                 : navData === "colaboratory" ? (
                   <>
@@ -793,6 +818,37 @@ const SearchTable = ({
                       onChange={handleSearchChange}
                     />
                     <MenuWithOptions options={options} />
+                  </>
+                )
+                : navData === "progetti" ? (
+                  <>
+
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("nomeProgetto")} // Provide your unique values here
+                      value={activeFilters["nomeProgetto"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("nomeProgetto", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Nome Progetto" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("totaleOreLavorate")} // Provide your unique values here
+                      value={activeFilters["totaleOreLavorate"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("totaleOreLavorate", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Totale OreLavorate" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+               
+                    <SearchField
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                    />
+                 
                   </>
                 )
                   : navData === "distinta" ? (

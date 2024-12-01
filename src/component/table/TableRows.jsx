@@ -2229,7 +2229,7 @@ const TableRows = ({
                         inputProps={{ "aria-labelledby": row.id }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.data}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.turno}</StyledTableCell>
                     <StyledTableCell>{row.ore}</StyledTableCell>
                     <StyledTableCell
@@ -2277,7 +2277,7 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
                     <StyledTableCell>{row.totaleOreLavorate}</StyledTableCell>
-                    <StyledTableCell>{row.dal}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.al}</StyledTableCell>
                     <StyledTableCell
                       sx={{ textAlign: "center" }}

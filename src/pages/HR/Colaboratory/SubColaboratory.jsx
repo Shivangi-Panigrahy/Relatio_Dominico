@@ -13,7 +13,7 @@ const SubColaboratory = ({ Component }) => {
 
   return (
     <>
-      <Header />
+      <Header /> 
       <div className="pageTemplate">
         <div className="subColaboratory">
           <Grid container spacing={3}>

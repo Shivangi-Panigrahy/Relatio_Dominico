@@ -146,7 +146,8 @@ const CustomTable = ({ data, form, columns, navData }) => {
       item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
       item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
       item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
-      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento,item?.trattamento
+      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento,item?.trattamento,
+      item?.ore,item?.turno,item?.totaleOreLavorate,item?.nomeProgetto,item?.al
      ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -294,6 +295,18 @@ const CustomTable = ({ data, form, columns, navData }) => {
       result = result.filter((item) => item.colaboratore === searchFilters.colaboratore);
     }
     
+    if (searchFilters.ore) {
+      result = result.filter((item) => item.ore === searchFilters.ore);
+    }
+    if (searchFilters.turno) {
+      result = result.filter((item) => item.turno === searchFilters.turno);
+    }
+    if (searchFilters.totaleOreLavorate) {
+      result = result.filter((item) => item.totaleOreLavorate === searchFilters.totaleOreLavorate);
+    }
+    if (searchFilters.nomeProgetto) {
+      result = result.filter((item) => item.nomeProgetto === searchFilters.nomeProgetto);
+    }
   
     setFilteredData(result);
     setPage(0);

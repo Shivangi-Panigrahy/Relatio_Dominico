@@ -1,12 +1,12 @@
 import React from "react";
 import Table from "../../component/table/Table";
-import tableData from "../../utils/hrData.json";
+import tableData from "../../utils/progettiHrData.json";
 import InvoiceDashboard from "../../component/invoiceStatitics/InvoiceDashboard";
 import "./Progetti.scss";
 const columns = [
   { field: "nomeProgetto", headerName: "Nome Progetto", width: 900 },
   { field: "totaleOreLavorate", headerName: "Totale Ore Lavorate", width: 300 },
-  { field: "dal", headerName: "Dal", width: 90 },
+  { field: "creatoIl", headerName: "Dal", width: 90 },
   { field: "al", headerName: "Al", width: 90 },
   { field: "azioni", headerName: "Azioni", width: 90 },
 ];
@@ -28,7 +28,7 @@ const Progetti = () => {
     <div className="ProgettiTab">
       <InvoiceDashboard ordini={OrdiniData} hr={true} />
       <Table
-        data={tableData.hrData.progetti}
+        data={tableData}
         columns={columns}
         navData={"progetti"}
       />

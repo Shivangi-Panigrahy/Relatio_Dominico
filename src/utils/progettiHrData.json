@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "nomeProgetto": "Progetto A",
+      "totaleOreLavorate": "342",
+      "creatoIl": "01/11/2024",
+      "al": "15/11/2024",
+      "azioni": "Analisi dati"
+    },
+    {
+      "id": 2,
+      "nomeProgetto": "Progetto B",
+      "totaleOreLavorate": "276",
+      "creatoIl": "16/11/2024",
+      "al": "28/11/2024",
+      "azioni": "Sviluppo software"
+    },
+    {
+      "id": 3,
+      "nomeProgetto": "Progetto C",
+      "totaleOreLavorate": "198",
+      "creatoIl": "29/11/2024",
+      "al": "10/12/2024",
+      "azioni": "Test e collaudo"
+    }
+  ]
+  
