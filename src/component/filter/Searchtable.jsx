@@ -754,6 +754,47 @@ const SearchTable = ({
                     <MenuWithOptions options={options} />
                   </>
                 )
+                : navData === "colaboratory" ? (
+                  <>
+
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("colaboratore")} // Provide your unique values here
+                      value={activeFilters["colaboratore"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("colaboratore", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Colaboratore" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("ruolo")} // Provide your unique values here
+                      value={activeFilters["ruolo"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("ruolo", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Ruolo" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+                    <Autocomplete
+                      disablePortal
+                      options={extractUniqueValues("trattamento")} // Provide your unique values here
+                      value={activeFilters["trattamento"] || ""} // Set the selected value
+                      onChange={(event, newValue) =>
+                        handleFilterSelect("trattamento", newValue)
+                      } // Update the selected value
+                      renderInput={(params) => <TextField {...params} label="Trattamento" />} // Customize the label
+                    // sx={{ width: 300 }} // Optional styling
+                    />
+               
+                    <SearchField
+                      value={searchTerm}
+                      onChange={handleSearchChange}
+                    />
+                    <MenuWithOptions options={options} />
+                  </>
+                )
                   : navData === "distinta" ? (
                     <>
                       <SearchField

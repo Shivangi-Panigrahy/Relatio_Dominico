@@ -146,7 +146,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
       item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
       item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
       item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
-      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento
+      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento,item?.trattamento
      ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -287,9 +287,13 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.livello) {
       result = result.filter((item) => item.livello === searchFilters.livello);
     }
-    if (searchFilters.evento) {
-      result = result.filter((item) => item.evento === searchFilters.evento);
+    if (searchFilters.trattamento) {
+      result = result.filter((item) => item.trattamento === searchFilters.trattamento);
     }
+    if (searchFilters.colaboratore) {
+      result = result.filter((item) => item.colaboratore === searchFilters.colaboratore);
+    }
+    
   
     setFilteredData(result);
     setPage(0);
