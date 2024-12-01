@@ -5,19 +5,6 @@ import Table from "../../../component/table/Table";
 import tableData from "../../../utils/preventiviData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 
-// const columns = [
-//   { field: "doc", headerName: "Doc", width: 70 },
-//   { field: "creatoIl", headerName: "Creato il", width: 100 },
-//   { field: "numero", headerName: "Numero", width: 100 },
-//   { field: "titolo", headerName: "Titolo", width: 300 },
-//   { field: "fornitori", headerName: "Fornitori", width: 250 },
-//   { field: "autore", headerName: "Autore", width: 80 },
-//   { field: "modDa", headerName: "Mod. da", width: 80 },
-//   { field: "dataModifica", headerName: "Data Modifica", width: 100 },
-//   { field: "valore", headerName: "Valore", width: 120 },
-//   { field: "stato", headerName: "Stato", width: 100 },
-//   { field: "azioni", headerName: "Azioni", width: 100 },
-// ];
 
 const columns = [
   { field: "doc", headerName: "Doc", width: 65 },

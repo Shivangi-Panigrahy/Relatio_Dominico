@@ -117,24 +117,24 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Immediata",
       };
-      case "Approvata":
-        return {
-          backgroundColor: "#57C70033",
-          color: "#57C700",
-          className: "Approvata",
-        };
-        case "Approvata":
-          return {
-            backgroundColor: "#57C70033",
-            color: "#57C700",
-            className: "Approvata",
-          };
-          case "Si":
-            return {
-              backgroundColor: "#57C70033",
-              color: "#57C700",
-              className: "Approvata",
-            };
+    case "Approvata":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
+    case "Approvata":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
+    case "Si":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -1913,7 +1913,7 @@ const TableRows = ({
             )}
           </TableBody>
         );
-        case "colaboratory":
+      case "colaboratory":
         return (
           <TableBody>
             {data?.length > 0 ? (
@@ -2068,13 +2068,13 @@ const TableRows = ({
           <TableBody>
             {data?.length > 0 ? (
               data
-              .slice(
-                page * rowsPerPage,
-                // Limit to 2 rows for specified paths
-                (isSubcolaboratoryDocumenti)
-                  ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
-                  : page * rowsPerPage + rowsPerPage
-              )
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubcolaboratoryDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
@@ -2186,6 +2186,99 @@ const TableRows = ({
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "turni":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() =>
+                  //   window.location.href.includes("/hr/colaboratory")
+                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                  //     : navigate("/acquisti/ordini/sub-ordini")
+                  // }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.data}</StyledTableCell>
+                    <StyledTableCell>{row.turno}</StyledTableCell>
+                    <StyledTableCell>{row.ore}</StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "progetti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() =>
+                  //   window.location.href.includes("/hr/colaboratory")
+                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                  //     : navigate("/acquisti/ordini/sub-ordini")
+                  // }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
+                    <StyledTableCell>{row.totaleOreLavorate}</StyledTableCell>
+                    <StyledTableCell>{row.dal}</StyledTableCell>
+                    <StyledTableCell>{row.al}</StyledTableCell>
                     <StyledTableCell
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
