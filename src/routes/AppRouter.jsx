@@ -86,6 +86,7 @@ import SubColaboratory from "../pages/HR/Colaboratory/SubColaboratory.jsx";
 import Turni from "../component/Turni/Turni.jsx";
 import Progetti from "../component/Progetti/Progetti.jsx";
 import Contratto from "../component/Contratto/Contratto.jsx";
+import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
 
 const Allroutes = () => {
   return (
@@ -697,7 +698,7 @@ const Allroutes = () => {
         path="/cataloghi/configuratore/Configurazione"
         element={
           <PublicRoute>
-            <Configuratore Component={Listini} />
+            <Configuratore Component={Configure} />
           </PublicRoute>
         }
       />

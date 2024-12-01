@@ -1,0 +1,211 @@
+.dimension-form-wrapper {
+  .dimension-form {
+    // background-color: #f8f9fa;
+    padding: 16px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+
+    .form-row {
+      margin-bottom: 5px;
+      display: grid;
+      grid-template-columns: 150px 1fr auto;
+      gap: 5px;
+
+      .upload-box {
+        width: 100%;
+        height: 100%;
+        background-color: #edebebb2;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .upload-label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .upload-icon {
+          color: #6b7280;
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+
+        .upload-text {
+          color: #6b7280;
+          font-size: 14px;
+        }
+      }
+
+      .form-select {
+        min-width: 140px;
+        background-color: white;
+
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #e2e8f0;
+        }
+      }
+
+      .option-name {
+        flex: 1;
+        background-color: white;
+
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #e2e8f0;
+        }
+      }
+
+      .delete-button {
+        color: #6b7280;
+      }
+    }
+
+    .measurements-row {
+      display: flex;
+      gap: 24px;
+
+      .measurement-section {
+        flex: 1;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        .unit-select {
+          width: 80px;
+          background-color: white;
+
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #e2e8f0;
+          }
+        }
+
+        .dimension-input {
+          width: 160px;
+          background-color: white;
+
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #e2e8f0;
+          }
+        }
+
+        .range-select {
+          width: 100px;
+          background-color: white;
+
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #e2e8f0;
+          }
+        }
+
+        .fixed-checkbox {
+          margin-left: 8px;
+
+          .MuiCheckbox-root {
+            color: #6b7280;
+          }
+
+          .MuiFormControlLabel-label {
+            color: #6b7280;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .add-section-button {
+    color: #22c55e;
+    border-color: #22c55e;
+    text-transform: none;
+    padding: 6px 16px;
+    font-size: 14px;
+
+    &:hover {
+      border-color: #16a34a;
+    }
+
+    .MuiSvgIcon-root {
+      font-size: 20px;
+      background-color: #22c55e;
+      fill: #fff;
+      border-radius: 4px;
+    }
+
+    .MuiButton-icon {
+      margin-left: 0 !important;
+    }
+  }
+
+  &:not(:first-of-type) {
+    margin-top: 10px;
+  }
+}
+
+.dimention_box_container {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.custom_padding {
+  .MuiSelect-select,
+  .MuiInputBase-input.MuiOutlinedInput-input {
+    padding: 8px !important;
+  }
+}
+
+.bg_white {
+  background-color: #fff;
+}
+
+.textfield_height {
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    height: 100%;
+  }
+}
+
+// .form-row {
+//   display: grid;
+//   grid-template-columns: auto 1fr auto;
+//   gap: 1rem;
+//   align-items: start;
+// }
+
+// .upload-box {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   border: 1px dashed #ccc;
+//   padding: 1rem;
+//   text-align: center;
+// }
+
+// .delete-button {
+//   align-self: center;
+// }
+
+// .form-select,
+// .option-name,
+// .dimension-input,
+// .range-select {
+//   margin: 0.5rem 0;
+// }
+
+// .measurements-row {
+//   display: flex;
+//   gap: 1rem;
+// }
+
+// .measurement-section {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.5rem;
+// }
+
+// .unit-select,
+// .fixed-checkbox {
+//   margin-top: 0.5rem;
+// }

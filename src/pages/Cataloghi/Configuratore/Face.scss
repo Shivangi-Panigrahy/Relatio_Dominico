@@ -1,0 +1,72 @@
+.phase-form {
+  background-color: #f8f9fa;
+  padding: 16px;
+  margin-bottom: 6px;
+  border-radius: 0px !important;
+
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .top-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .phase-name {
+        flex: 1;
+        background-color: white;
+
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #e2e8f0;
+        }
+
+        input::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      .priority-select {
+        min-width: 140px;
+        background-color: white;
+
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #e2e8f0;
+        }
+      }
+
+      .delete-button {
+        color: #6b7280;
+        padding: 8px;
+
+        &:hover {
+          background-color: rgba(107, 114, 128, 0.04);
+        }
+      }
+    }
+
+    .description {
+      background-color: white;
+
+      .MuiOutlinedInput-notchedOutline {
+        border-color: #e2e8f0;
+      }
+
+      textarea::placeholder {
+        color: #9ca3af;
+      }
+    }
+  }
+}
+
+.phase-name {
+  input {
+    padding: 8px;
+  }
+}
+.priority-select {
+  .MuiSelect-select {
+    padding: 8px;
+  }
+}

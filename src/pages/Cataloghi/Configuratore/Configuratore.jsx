@@ -8,7 +8,7 @@ const Configuratore = ({ Component }) => {
   const [activeTab, setActiveTab] = useState("tab1");
 
   const handleTabChange = (newTab) => {
-    setActiveTab(newTab); // Update the active tab
+    setActiveTab(newTab); 
   };
 
   return (
