@@ -185,6 +185,7 @@ const TableRows = ({
 
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
   const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
 
   const calculateTotal = (month) => {
     const total = data
@@ -251,7 +252,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -636,7 +637,7 @@ const TableRows = ({
               data
                 .slice(
                   page * rowsPerPage,
-                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -745,7 +746,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -2067,7 +2068,14 @@ const TableRows = ({
           <TableBody>
             {data?.length > 0 ? (
               data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .slice(
+                page * rowsPerPage,
+                // Limit to 2 rows for specified paths
+                (isSubcolaboratoryDocumenti)
+                  ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  : page * rowsPerPage + rowsPerPage
+              )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow
                     key={index}

@@ -4,6 +4,7 @@ import Table from "../../../component/table/Table";
 import tableData from "../../../utils/bustaHrData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
 import "./BustePage.scss";
+import { useLocation } from "react-router-dom";
 const columns = [
   { field: "numero", headerName: "Numero", width: 100 },
   { field: "mese", headerName: "Mese", width: 100 },
@@ -41,12 +42,19 @@ const OrdiniData = [
   },
 ];
 const BustaPage = () => {
+  const location = useLocation();
+
+  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
   return (
     <>
-      <Header />
+      {!isSubcolaboratoryDocumenti && <Header />}
+
       <div className="pageTemplate">
         <div className="buste">
-          <InvoiceDashboard ordini={OrdiniData} hr={true} />
+          {!isSubcolaboratoryDocumenti && (
+            <InvoiceDashboard ordini={OrdiniData} hr={true} />
+          )}
+
           <Table
             data={tableData}
             columns={columns}

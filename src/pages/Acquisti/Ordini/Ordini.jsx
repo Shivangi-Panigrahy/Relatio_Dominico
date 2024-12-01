@@ -54,14 +54,15 @@ const Ordini = () => {
     { field: "azioni", headerName: "Azioni", width: 100 },
   ];
 
-  const isSubLeadDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+  const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
 
   return (
     <>
-      {!isSubLeadDocumenti && <Header />}
+      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && <Header />}
 
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && (
+        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && (
           <InvoiceDashboard ordini={OrdiniData} />
         )}
 

@@ -10,6 +10,7 @@ import VenditeOrdini from "../../pages/Vendite/Ordini/Ordini";
 import './Documenti.scss'
 import SearchTable from "../filter/Searchtable";
 import dayjs from "dayjs";
+import BustaPage from "../../pages/HR/BustePage/BustePage";
 
 const Documenti = ({ data }) => {
 
@@ -33,26 +34,17 @@ const Documenti = ({ data }) => {
     setSearchFilters(filters);
   };
   const sections = [
+    ...(window.location.href.includes('/hr/sub-colaboratory/Documenti')
+    ? []
+    : [
     {
       label: "Busta Page",
-      content:
-        window.location.href.includes('/acquisti/fornitori/Documenti')
-          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-          ? <AcquistiBudget />
-          : window.location.href.includes('/vendite/sub-lead/Documenti')
-            ? <VenditeBudget />
-            : "Budget content is hidden for this page."
+      content: window.location.href.includes('/hr/sub-colaboratory/Documenti')
+        ? <BustaPage />
+        : "Busta Page content is hidden for this page."
     },
-    {
-      label: "Budget",
-      content:
-        window.location.href.includes('/acquisti/fornitori/Documenti')
-          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-          ? <AcquistiBudget />
-          : window.location.href.includes('/vendite/sub-lead/Documenti')
-            ? <VenditeBudget />
-            : "Budget content is hidden for this page."
-    },
+  ]),
+
     {
       label: "Budget",
       content:

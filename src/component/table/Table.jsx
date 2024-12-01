@@ -412,6 +412,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
       <>
         {!window.location.href.includes('/acquisti/fornitori/Documenti') &&
           !window.location.href.includes('/vendite/sub-lead/Documenti') &&
+          !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
           form !== "form2" ? (
           <SearchTable
             startDate={startDate}
