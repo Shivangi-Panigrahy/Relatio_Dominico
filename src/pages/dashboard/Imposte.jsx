@@ -280,7 +280,7 @@ const Imposte = () => {
   return (
     <>
       <Header />
-      <div className="pageTemplate">
+      <div className="pageTemplate imposte_container">
         <MenuTab
           onTabChange={handleTabChange}
           statsDashboard={true}
