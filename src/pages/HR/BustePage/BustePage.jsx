@@ -24,7 +24,7 @@ const OrdiniData = [
     count: 325,
     amount: "20.350.043.55€",
     subfix: "Buste paga",
-    color: "#100919",
+    color: "#57C700",
   },
   {
     status: "Ultimo mese",
@@ -38,13 +38,14 @@ const OrdiniData = [
     count: 325,
     amount: "20.350.043.55€",
     subfix: "Buste paga",
-    color: "#FFA903",
+    color: "#57C700",
   },
 ];
 const BustaPage = () => {
   const location = useLocation();
 
-  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isSubcolaboratoryDocumenti =
+    location.pathname === "/hr/sub-colaboratory/Documenti";
   return (
     <>
       {!isSubcolaboratoryDocumenti && <Header />}
@@ -52,14 +53,14 @@ const BustaPage = () => {
       <div className="pageTemplate">
         <div className="buste">
           {!isSubcolaboratoryDocumenti && (
-            <InvoiceDashboard ordini={OrdiniData} hr={true} />
+            <InvoiceDashboard
+              ordini={OrdiniData}
+              hr={true}
+              reteizzazione={true}
+            />
           )}
 
-          <Table
-            data={tableData}
-            columns={columns}
-            navData={"busta"}
-          />
+          <Table data={tableData} columns={columns} navData={"busta"} />
         </div>
       </div>
     </>

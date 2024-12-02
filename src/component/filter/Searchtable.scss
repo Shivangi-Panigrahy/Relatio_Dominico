@@ -139,6 +139,18 @@
     padding: 14px 0;
   }
 }
+.invoiceFilter.candidatiInvoiceFilter {
+  .MuiStack-root {
+    grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr 1.5fr 50px;
+  }
+}
+.invoiceFilter.allegatiInvoiceFilter {
+  padding: 0 !important;
+  box-shadow: none !important;
+  .MuiStack-root {
+    grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr;
+  }
+}
 
 .searchBoxInner {
   margin: 0 !important;

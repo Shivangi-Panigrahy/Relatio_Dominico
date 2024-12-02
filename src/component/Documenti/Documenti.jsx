@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Box, Typography, Grid, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Grid,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AcquistiBudget from "../../pages/Acquisti/Budget/Budget";
 import AcquistiPreventivi from "../../pages/Acquisti/Preventivi/Preventivi";
@@ -7,13 +14,12 @@ import AcquistiOrdini from "../../pages/Acquisti/Ordini/Ordini";
 import VenditeBudget from "../../pages/Vendite/Budget/Budget";
 import VenditePreventivi from "../../pages/Vendite/Preventivi/Preventivi";
 import VenditeOrdini from "../../pages/Vendite/Ordini/Ordini";
-import './Documenti.scss'
+import "./Documenti.scss";
 import SearchTable from "../filter/Searchtable";
 import dayjs from "dayjs";
 import BustaPage from "../../pages/HR/BustePage/BustePage";
 
 const Documenti = ({ data }) => {
-
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [activeTab, setActiveTab] = useState("tab1");
@@ -34,90 +40,109 @@ const Documenti = ({ data }) => {
     setSearchFilters(filters);
   };
 
-  const isEquipagiamentoPage = window.location.href.includes('/hr/sub-colaboratory/Equipagiamento');
-  const isDocumentiPage = window.location.href.includes('/hr/sub-colaboratory/Documenti');
-  
+  const isEquipagiamentoPage = window.location.href.includes(
+    "/hr/sub-colaboratory/Equipagiamento"
+  );
+  const isDocumentiPage = window.location.href.includes(
+    "/hr/sub-colaboratory/Documenti"
+  );
+
   const sections = [
     ...(isEquipagiamentoPage
       ? [
-        {
-          label: "Attrezzature",
-          content: "Attrezzature content is hidden for this page."
-        },
-        {
-          label: "Mezzi",
-          content: "Mezzi content is hidden for this page."
-        },
-      ]
+          {
+            label: "Attrezzature",
+            content: "Attrezzature content is hidden for this page.",
+          },
+          {
+            label: "Mezzi",
+            content: "Mezzi content is hidden for this page.",
+          },
+        ]
       : []),
 
     ...(isDocumentiPage
       ? [
-        {
-          label: "Busta Page",
-          content: <BustaPage />
-        },
-      ]
+          {
+            label: "Busta Page",
+            content: <BustaPage />,
+          },
+        ]
       : []),
 
     ...(isEquipagiamentoPage
-      ? []  // Avoid adding Budget, Preventivi, Ordini, DDT in Equipagiamento
+      ? [] // Avoid adding Budget, Preventivi, Ordini, DDT in Equipagiamento
       : [
-        {
-          label: "Budget",
-          content:
-            window.location.href.includes('/acquisti/fornitori/Documenti')
-              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-              ? <AcquistiBudget />
-              : window.location.href.includes('/vendite/sub-lead/Documenti')
-                ? <VenditeBudget />
-                : "Budget content is hidden for this page."
-        },
-        {
-          label: "Preventivi",
-          content:
-            window.location.href.includes('/acquisti/fornitori/Documenti')
-              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-              ? < AcquistiPreventivi />
-              : window.location.href.includes('/vendite/sub-lead/Documenti')
-                ? <VenditePreventivi />
-                : "Preventivi content is hidden for this page."
-        },
-        {
-          label: "Ordini",
-          content:
-            window.location.href.includes('/acquisti/fornitori/Documenti')
-              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-              ? <AcquistiOrdini />
-              : window.location.href.includes('/vendite/sub-lead/Documenti')
-                ? <VenditeOrdini />
-                : "Ordini content is hidden for this page."
-        },
-        {
-          label: "Documenti contabili",
-          content: "All the documenti contabili details are provided here."
-        },
-        {
-          label: "DDT",
-          content: "DDT-related information can be found in this section."
-        }
-      ]),
+          {
+            label: "Budget",
+            content:
+              window.location.href.includes("/acquisti/fornitori/Documenti") ||
+              window.location.href.includes(
+                "/hr/sub-colaboratory/Documenti"
+              ) ? (
+                <AcquistiBudget />
+              ) : window.location.href.includes(
+                  "/vendite/sub-lead/Documenti"
+                ) ? (
+                <VenditeBudget />
+              ) : (
+                "Budget content is hidden for this page."
+              ),
+          },
+          {
+            label: "Preventivi",
+            content:
+              window.location.href.includes("/acquisti/fornitori/Documenti") ||
+              window.location.href.includes(
+                "/hr/sub-colaboratory/Documenti"
+              ) ? (
+                <AcquistiPreventivi />
+              ) : window.location.href.includes(
+                  "/vendite/sub-lead/Documenti"
+                ) ? (
+                <VenditePreventivi />
+              ) : (
+                "Preventivi content is hidden for this page."
+              ),
+          },
+          {
+            label: "Ordini",
+            content:
+              window.location.href.includes("/acquisti/fornitori/Documenti") ||
+              window.location.href.includes(
+                "/hr/sub-colaboratory/Documenti"
+              ) ? (
+                <AcquistiOrdini />
+              ) : window.location.href.includes(
+                  "/vendite/sub-lead/Documenti"
+                ) ? (
+                <VenditeOrdini />
+              ) : (
+                "Ordini content is hidden for this page."
+              ),
+          },
+          {
+            label: "Documenti contabili",
+            content: "All the documenti contabili details are provided here.",
+          },
+          {
+            label: "DDT",
+            content: "DDT-related information can be found in this section.",
+          },
+        ]),
   ];
 
   const stats = [
     { label: "Documenti", value: 604 },
     { label: "Budget", value: 604 },
     { label: "Preventivi", value: 604 },
-    { label: "Ordini", value: 604 },
-    { label: "Fatture", value: 604 },
-    { label: "Buste paga", value: 604 },
-    // ...(isEquipagiamentoPage
-    //   ? []  // Avoid adding Ordini, Fatture, and Buste Paga stats in Equipagiamento
-    //   : [
-    //     { label: "Ordini", value: 604 },
-    //     { label: "Fatture", value: 604 },
-    //     { label: "Buste paga", value: 604 },
-    //   ]),
+    ...(window.location.href.includes("/vendite/sub-lead/Documenti")
+      ? []
+      : [
+          { label: "Ordini", value: 604 },
+          { label: "Fatture", value: 604 },
+          { label: "Buste paga", value: 604 },
+        ]),
   ];
 
   const applyFilters = () => {
@@ -200,7 +225,7 @@ const Documenti = ({ data }) => {
                   fontWeight: 700,
                   lineHeight: "16px",
                   color: "#E72276",
-                  marginBottom: "12px"
+                  marginBottom: "12px",
                 }}
               >
                 {stat.label}
@@ -211,6 +236,7 @@ const Documenti = ({ data }) => {
                   fontWeight: 700,
                   lineHeight: "24px",
                   color: "#57C700",
+                  fontFamily: '"Barlow", sans-serif',
                 }}
               >
                 {stat.value}
@@ -236,9 +262,8 @@ const Documenti = ({ data }) => {
         />
       </div>
       {/* Accordion Sections */}
-      <Box className='customAccordion'>
+      <Box className="customAccordion">
         {sections.map((section, index) => (
-
           <Accordion
             key={index}
             disableGutters
@@ -248,19 +273,13 @@ const Documenti = ({ data }) => {
               expandIcon={<ExpandMoreIcon sx={{ color: "#555" }} />}
               aria-controls={`panel${index}-content`}
               id={`panel${index}-header`}
-
             >
-              <Typography
-              >
-                {section.label}
-              </Typography>
+              <Typography>{section.label}</Typography>
             </AccordionSummary>
-            <AccordionDetails
-            >
+            <AccordionDetails>
               <Typography>{section.content}</Typography>
             </AccordionDetails>
           </Accordion>
-
         ))}
       </Box>
     </Box>
