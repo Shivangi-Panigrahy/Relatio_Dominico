@@ -609,7 +609,8 @@ const HeaderBelow = () => {
                                                                 <ArrowForwardIcon />
                                                               </IconButton>
                                                               <Typography variant="h2">Nome del listino</Typography>
-                                                            </> :
+                                                            </>
+                                                                            :
                                                             window.location.href.includes("/cataloghi/listini") ?
                                                               <>
                                                                 <Typography variant="h2">Cataloghi</Typography>
@@ -980,10 +981,17 @@ const HeaderBelow = () => {
                                                                                                                                     </IconButton>
                                                                                                                                     <Typography variant="h2">Prima nota</Typography>
                                                                                                                                   </> :
-
-                                                                                                                                  (
-                                                                                                                                    <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                                                                  )}
+                                                                              window.location.href.includes("/production/plan") ?
+                                                                                <>
+                                                                                  <Typography variant="h2">Produzione</Typography>
+                                                                                  <IconButton edge="start" color="inherit">
+                                                                                    <ArrowForwardIcon />
+                                                                                  </IconButton>
+                                                                                  <Typography variant="h2">Pianifica</Typography>
+                                                                                </> :
+                                                                                                                                    (
+                                                                                                                                      <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                                                    )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
@@ -998,7 +1006,8 @@ const HeaderBelow = () => {
           !location.pathname.includes("/dashboard/attivita") &&
           !location.pathname.includes("/acquisti/ordini/sub-ordini") &&
           !location.pathname.includes("/amministrazione/documenti/fattura") &&
-          (
+         
+          !location.pathname.includes("/production/plan") && (
 
             <AddButton title="Aggiungi" onClick={() => setOpen(true)} />
           )}

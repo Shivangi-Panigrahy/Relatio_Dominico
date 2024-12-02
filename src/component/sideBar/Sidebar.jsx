@@ -168,12 +168,12 @@ const menuItems = [
     name: "Produzione",
     icon: ProduzioneLogo,
     textColor: "#4895EF",
-    route: "/produzione",
+    route: "/production",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Pianifica", route: "/production/plan" },
+      { name: "Produzioni", route: "/productions" },
+      { name: "Processi", route: "/test" },
+      { name: "Archivio", route: "/test" },
     ],
   },
   {

@@ -89,6 +89,8 @@ import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
+import Plan from "../pages/Production/Plan.jsx";
+import Productions from "../pages/Production/Productions.jsx";
 
 const Allroutes = () => {
   return (
@@ -734,6 +736,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <SubListini Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/production/plan"
+        element={
+          <PublicRoute>
+            <Plan />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/productions"
+        element={
+          <PublicRoute>
+            <Productions />
           </PublicRoute>
         }
       />
