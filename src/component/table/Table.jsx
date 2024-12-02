@@ -146,7 +146,8 @@ const CustomTable = ({ data, form, columns, navData }) => {
       item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
       item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
       item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
-      item?.code,item.name,item?.nome_del_prodotto
+      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento,item?.trattamento,
+      item?.ore,item?.turno,item?.totaleOreLavorate,item?.nomeProgetto,item?.al
      ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -269,8 +270,44 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.nomeProdotto) {
       result = result.filter((item) => item.nomeProdotto === searchFilters.nomeProdotto);
     }
-
-
+    if (searchFilters.candidato) {
+      result = result.filter((item) => item.candidato === searchFilters.candidato);
+    }
+    if (searchFilters.ruolo) {
+      result = result.filter((item) => item.ruolo === searchFilters.ruolo);
+    }
+    if (searchFilters.livello) {
+      result = result.filter((item) => item.livello === searchFilters.livello);
+    }
+    if (searchFilters.mese) {
+      result = result.filter((item) => item.mese === searchFilters.mese);
+    }
+    if (searchFilters.collaboratore) {
+      result = result.filter((item) => item.collaboratore === searchFilters.collaboratore);
+    }
+    if (searchFilters.livello) {
+      result = result.filter((item) => item.livello === searchFilters.livello);
+    }
+    if (searchFilters.trattamento) {
+      result = result.filter((item) => item.trattamento === searchFilters.trattamento);
+    }
+    if (searchFilters.colaboratore) {
+      result = result.filter((item) => item.colaboratore === searchFilters.colaboratore);
+    }
+    
+    if (searchFilters.ore) {
+      result = result.filter((item) => item.ore === searchFilters.ore);
+    }
+    if (searchFilters.turno) {
+      result = result.filter((item) => item.turno === searchFilters.turno);
+    }
+    if (searchFilters.totaleOreLavorate) {
+      result = result.filter((item) => item.totaleOreLavorate === searchFilters.totaleOreLavorate);
+    }
+    if (searchFilters.nomeProgetto) {
+      result = result.filter((item) => item.nomeProgetto === searchFilters.nomeProgetto);
+    }
+  
     setFilteredData(result);
     setPage(0);
   };
@@ -388,6 +425,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
       <>
         {!window.location.href.includes('/acquisti/fornitori/Documenti') &&
           !window.location.href.includes('/vendite/sub-lead/Documenti') &&
+          !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
           form !== "form2" ? (
           <SearchTable
             startDate={startDate}

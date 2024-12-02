@@ -24,6 +24,7 @@ import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Right } from "../../assets/right.svg";
+import { ReactComponent as Mese } from "../../assets/Mese.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./MenuLink.scss";
 
@@ -153,13 +154,34 @@ const TAB_CONFIGURATIONS = {
     { label: "Gruppi", icon: Right },
     { label: "Prodotti", icon: Right },
   ],
+  hrCandidato: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Agenda", icon: Agenda },
+    { label: "Allegati", icon: Documenti },
+  ],
+  hrEvento: [{ label: "Allegati", icon: Documenti }],
+  hr: [
+    { label: "Contatti", icon: Documenti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Contratto", icon: Documenti },
+    { label: "Equipagiamento", icon: Documenti },
+    { label: "Turni", icon: Documenti },
+    { label: "Progetti", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+  ],
+  hrcalendario: [
+    { label: "Calendario", icon: Mese },
+    { label: "Organizza", icon: Agenda },
+  ],
 
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHr,ishrCalendario) => {
 
-  // console.log(label, isLead, isFornitori, isaminiImposte, 'isaminiImposte');
 
   if (isLead) return `/vendite/sub-lead/${label}`;
 
@@ -176,6 +198,14 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isConfiguratore) return `/cataloghi/configuratore/${label}`;
 
   if (isListini) return `/cataloghi/listini/${label}`;
+
+  if (isHrCandidato) return `/hr/candidati/candidato/${label}`;
+
+  if (isHrBusta) return `/hr/buste-page/${label}`;
+
+  if (isHr) return `/hr/sub-colaboratory/${label}`;
+
+  if (ishrCalendario) return `/hr/${label}`;
 
 
   return `/dashboard/${label}`;
@@ -199,6 +229,11 @@ const MenuTab = ({
   subProdotti = false,
   configuratore = false,
   sublistini = false,
+  hrCandidato = false,
+  hrEvento = false,
+  hr=false,
+  hrcalendario = false,
+
 
 
 }) => {
@@ -220,9 +255,13 @@ const MenuTab = ({
     if (subProdotti) return TAB_CONFIGURATIONS.subProdotti;
     if (configuratore) return TAB_CONFIGURATIONS.configuratore;
     if (sublistini) return TAB_CONFIGURATIONS.sublistini;
+    if (hrCandidato) return TAB_CONFIGURATIONS.hrCandidato;
+    if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
+    if (hr) return TAB_CONFIGURATIONS.hr;
+    if (hrcalendario) return TAB_CONFIGURATIONS.hrcalendario;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]);
 
   const tabsConfig = getActiveConfig();
 
@@ -241,7 +280,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario);
       navigate(path);
 
       // Invoke parent callback
@@ -249,7 +288,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]
   );
 
   return (

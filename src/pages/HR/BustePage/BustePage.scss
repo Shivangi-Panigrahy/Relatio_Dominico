@@ -1,0 +1,15 @@
+.buste {
+  .FactureSection {
+    padding: 0;
+  }
+  .invoiceFilter {
+    margin: 16px 0 8px;
+    padding: 28px 37px 28px 27px;
+    .MuiStack-root {
+      grid-template-columns: 144px 144px 106px 124px 195px 120px 1fr 50px;
+    }
+    .MuiFormControl-root {
+      min-width: unset;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "numero": "BP-10-24",
+      "mese": "Ottobre",
+      "creatoil": "01/10/2024",
+      "collaboratore": "Mario Rossi",
+      "totale": "100.000,00€",
+      "daSaldare": "50.000,00€",
+      "saldo": "50.000,00€",
+      "autore": "Mario Rossi",
+      "modDa": null
+    },
+    {
+      "id": 2,
+      "numero": "BP-11-24",
+      "mese": "Novembre",
+      "creatoil": "15/11/2024",
+      "collaboratore": "Giulia Bianchi",
+      "totale": "200.000,00€",
+      "daSaldare": "0€",
+      "saldo": "200.000,00€",
+      "autore": "Giulia Bianchi",
+      "modDa": null
+    },
+    {
+      "id": 3,
+      "numero": "BP-12-24",
+      "mese": "Dicembre",
+      "creatoil": "31/12/2024",
+      "collaboratore": "Luca Verdi",
+      "totale": "300.000,00€",
+      "daSaldare": "300.000,00€",
+      "saldo": "0€",
+      "autore": "Luca Verdi",
+      "modDa": null
+    },
+    {
+      "id": 4,
+      "numero": "BP-13-24",
+      "mese": "Gennaio",
+      "creatoil": "05/01/2025",
+      "collaboratore": "Anna Neri",
+      "totale": "150.000,00€",
+      "daSaldare": "75.000,00€",
+      "saldo": "75.000,00€",
+      "autore": "Anna Neri",
+      "modDa": null
+    }
+  ]
+  

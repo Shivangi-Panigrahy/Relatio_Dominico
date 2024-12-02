@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
 
 const useStyles = makeStyles(() => ({}));
-const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
+const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
   return (
     <div className="statusText">
       <div className="statusText__img">
@@ -34,18 +34,64 @@ const InvoiceCard = ({ status, count, amount, color, iconColor }) => {
         ) : (
           <h3 style={{ color: color }}>{amount}</h3>
         )}
-        <h5>
+        <h5
+          style={
+            window.location.href.includes("/hr/buste-page")
+              ? {
+                fontWeight: "700",
+                fontSize: "16px",
+                fontFamily: '"Public Sans", sans-serif',
+                color: "#100919",
+              }
+              : {
+                fontWeight: "700",
+                fontSize: "20px",
+                fontFamily: '"Barlow", sans-serif',
+                color: "#100919",
+              }
+          }
+        >
           {count}
           <span
-            style={{ paddingLeft: "5px", fontFamily: '"Barlow", sans-serif' }}
+            style={
+              window.location.href.includes("/hr/buste-page") || window.location.href.includes("/vendite/preventivi")|window.location.href.includes("/vendite/budget")|| window.location.href.includes("/vendite/ordini")||
+              window.location.href.includes("/acquisti/budget")||window.location.href.includes("/acquisti/ordini")|| window.location.href.includes("/acquisti/preventivi")
+              ||window.location.href.includes("/amministrazione/documenti")|| window.location.href.includes("/amministrazione/asset") ||window.location.href.includes("/cataloghi/servizi")||window.location.href.includes("/cataloghi/prodotti")
+                ? {
+                  fontWeight: "400",
+                  fontSize: "16px",
+                  fontFamily: '"Barlow", sans-serif',
+                  color: "#666666",
+                  paddingLeft: "5px",
+                }
+                : {
+                  paddingLeft: "5px",
+                  fontWeight: "700",
+                  fontSize: "20px",
+                  fontFamily: '"Barlow", sans-serif',
+                  color: "#100919",
+                }
+            }
           >
             {count === ""
               ? " "
               : window.location.href.includes("/amministrazione/documenti")
-              ? "Documenti"
-              : window.location.href.includes("/cataloghi/servizi")
-              ? "Servizi"
-              : "Facture"}
+                ? "Documenti"
+                : window.location.href.includes("/cataloghi/servizi")
+                  ? "Servizi"
+                  : window.location.href.includes("/hr/ferie-e-permisse")
+                    ? subfix
+                    : window.location.href.includes("/hr/buste-page")
+                      ? "Buste paga"
+                      : window.location.href.includes("/vendite/preventivi") ? "preventivi" :
+                      window.location.href.includes("/vendite/budget") ? "budget":
+                      window.location.href.includes("/vendite/ordini") ? "ordini" :
+                      window.location.href.includes("/acquisti/budget") ? "budget" :
+                      window.location.href.includes("/acquisti/ordini") ? "ordini":
+                      window.location.href.includes("/acquisti/preventivi") ? "preventivi":
+                      window.location.href.includes("/amministrazione/asset") ? "asset":
+                      window.location.href.includes("/cataloghi/prodotti") ? "prodotti":
+                      ""}
           </span>
         </h5>
       </div>
@@ -115,6 +161,7 @@ const InvoiceDashboard = ({
               amount={data.amount}
               color={data.color}
               iconColor={data.iconColor}
+              subfix={data?.subfix}
             />
             {/* Divider only for the first three cards */}
             {index < selectedData.length - 1 && (

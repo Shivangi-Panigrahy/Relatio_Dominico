@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "colaboratore": "Matteo Vellone",
+      "evento": "Ferie",
+      "da": "28/11/2024",
+      "creatoil": "28/11/2024",
+      "totOre": 8,
+      "autore": "Jane Smith",
+      "modDa": "Jane Smith",
+      "stato": "Approvata",
+      "azioni": "Modify"
+    },
+    {
+      "id": 2,
+      "colaboratore": "Anna Rossi",
+      "evento": "Malattia",
+      "da": "27/11/2024",
+      "creatoil": "29/11/2024",
+      "totOre": 16,
+      "autore": "John Doe",
+      "modDa": "John Doe",
+      "stato": "Approvata",
+      "azioni": "Approve"
+    },
+    {
+      "id": 3,
+      "colaboratore": "Luigi Bianchi",
+      "evento": "Permesso",
+      "da": "30/11/2024",
+      "creatoil": "30/11/2024",
+      "totOre": 4,
+      "autore": "Alice Brown",
+      "modDa": "Alice Brown",
+      "stato": "Approvata",
+      "azioni": "Reject"
+    },
+    {
+      "id": 4,
+      "colaboratore": "Clara Moretti",
+      "evento": "Ferie",
+      "da": "01/12/2024",
+      "creatoil": "05/12/2024",
+      "totOre": 40,
+      "autore": "Jane Smith",
+      "modDa": "Jane Smith",
+      "stato": "Approvata",
+      "azioni": "Hold"
+    },
+    {
+      "id": 5,
+      "colaboratore": "Marco Verdi",
+      "evento": "Malattia",
+      "da": "25/11/2024",
+      "creatoil": "27/11/2024",
+      "totOre": 24,
+      "autore": "John Doe",
+      "modDa": "John Doe",
+      "stato": "Approvata",
+      "azioni": "Approve"
+    },
+    {
+      "id": 6,
+      "colaboratore": "Sara Conti",
+      "evento": "Permesso",
+      "da": "29/11/2024",
+      "creatoil": "29/11/2024",
+      "totOre": 6,
+      "autore": "Alice Brown",
+      "modDa": "Alice Brown",
+      "stato": "Approvata",
+      "azioni": "Modify"
+    }
+  ]
+  

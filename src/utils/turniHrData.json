@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "creatoIl": "28/11/2024",
+      "turno": "9:00 / 18:30",
+      "ore": "08",
+      "azioni": "Controllo inventario"
+    },
+    {
+      "id": 2,
+      "creatoIl": "29/11/2024",
+      "turno": "10:00 / 19:00",
+      "ore": "07",
+      "azioni": "Riordino magazzino"
+    },
+    {
+      "id": 3,
+      "creatoIl": "30/11/2024",
+      "turno": "8:30 / 17:30",
+      "ore": "08",
+      "azioni": "Preparazione ordini"
+    },
+    {
+      "id": 4,
+      "creatoIl": "01/12/2024",
+      "turno": "12:00 / 21:00",
+      "ore": "08",
+      "azioni": "Aggiornamento database"
+    }
+  ]
+  

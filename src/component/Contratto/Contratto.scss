@@ -1,0 +1,16 @@
+.Contratto {
+  padding-top: 25px;
+  .card {
+    margin-bottom: 17px;
+    h6 {
+      font-size: 18px;
+      line-height: 21px;
+      font-weight: 700;
+      color: #666666;
+      margin: 0 0 14px;
+    }
+  }
+  .customDatePicker {
+    max-width: 100%;
+  }
+}
