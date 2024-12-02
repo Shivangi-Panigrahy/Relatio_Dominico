@@ -33,39 +33,56 @@ const Documenti = ({ data }) => {
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
+
+  const isEquipagiamentoPage = window.location.href.includes('/hr/sub-colaboratory/Equipagiamento');
+  const isDocumentiPage = window.location.href.includes('/hr/sub-colaboratory/Documenti');
+  
   const sections = [
-    ...(window.location.href.includes('/hr/sub-colaboratory/Documenti')
-    ? [
+    ...(isEquipagiamentoPage
+      ? [
+        {
+          label: "Attrezzature",
+          content: "Attrezzature content is hidden for this page."
+        },
+        {
+          label: "Mezzi",
+          content: "Mezzi content is hidden for this page."
+        },
+      ]
+      : []),
+
+    ...(isDocumentiPage
+      ? [
         {
           label: "Busta Page",
           content: <BustaPage />
         },
       ]
-    : []),
+      : []),
 
-    {
-      label: "Budget",
-      content:
-        window.location.href.includes('/acquisti/fornitori/Documenti')
-          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-          ? <AcquistiBudget />
-          : window.location.href.includes('/vendite/sub-lead/Documenti')
-            ? <VenditeBudget />
-            : "Budget content is hidden for this page."
-    },
-    {
-      label: "Preventivi",
-      content:
-        window.location.href.includes('/acquisti/fornitori/Documenti')
-          || window.location.href.includes('/hr/sub-colaboratory/Documenti')
-          ? < AcquistiPreventivi />
-          : window.location.href.includes('/vendite/sub-lead/Documenti')
-            ? <VenditePreventivi />
-            : "Budget content is hidden for this page."
-    },
-    ...(window.location.href.includes('/vendite/sub-lead/Documenti')
-      ? []
+    ...(isEquipagiamentoPage
+      ? []  // Avoid adding Budget, Preventivi, Ordini, DDT in Equipagiamento
       : [
+        {
+          label: "Budget",
+          content:
+            window.location.href.includes('/acquisti/fornitori/Documenti')
+              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
+              ? <AcquistiBudget />
+              : window.location.href.includes('/vendite/sub-lead/Documenti')
+                ? <VenditeBudget />
+                : "Budget content is hidden for this page."
+        },
+        {
+          label: "Preventivi",
+          content:
+            window.location.href.includes('/acquisti/fornitori/Documenti')
+              || window.location.href.includes('/hr/sub-colaboratory/Documenti')
+              ? < AcquistiPreventivi />
+              : window.location.href.includes('/vendite/sub-lead/Documenti')
+                ? <VenditePreventivi />
+                : "Preventivi content is hidden for this page."
+        },
         {
           label: "Ordini",
           content:
@@ -91,13 +108,16 @@ const Documenti = ({ data }) => {
     { label: "Documenti", value: 604 },
     { label: "Budget", value: 604 },
     { label: "Preventivi", value: 604 },
-    ...(window.location.href.includes('/vendite/sub-lead/Documenti')
-      ? []
-      : [
-        { label: "Ordini", value: 604 },
-        { label: "Fatture", value: 604 },
-        { label: "Buste paga", value: 604 },
-      ]),
+    { label: "Ordini", value: 604 },
+    { label: "Fatture", value: 604 },
+    { label: "Buste paga", value: 604 },
+    // ...(isEquipagiamentoPage
+    //   ? []  // Avoid adding Ordini, Fatture, and Buste Paga stats in Equipagiamento
+    //   : [
+    //     { label: "Ordini", value: 604 },
+    //     { label: "Fatture", value: 604 },
+    //     { label: "Buste paga", value: 604 },
+    //   ]),
   ];
 
   const applyFilters = () => {
@@ -231,7 +251,6 @@ const Documenti = ({ data }) => {
 
             >
               <Typography
-
               >
                 {section.label}
               </Typography>
