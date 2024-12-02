@@ -135,6 +135,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
+      case "In corso":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -195,6 +201,110 @@ const TableRows = ({
   };
   const dataRender = (navData) => {
     switch (navData) {
+      
+      case "attivita_progetti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
+                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                    : page * rowsPerPage + rowsPerPage
+                )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() =>
+                      navigate("/attività/progetti/Task") 
+                    }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
+                    <StyledTableCell>{row.categoria}</StyledTableCell>
+                   
+                  
+                      <StyledTableCell>
+
+                        <IconButton
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          <VisibilityOutlinedIcon
+                            sx={{ "&:hover": { color: "#57C700" } }}
+                            fontSize="small"
+                          />
+                          {row.commitente}
+                        </IconButton>
+
+
+                      </StyledTableCell>
+                       <StyledTableCell>{row.teamLeader}</StyledTableCell>
+                       <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                       <StyledTableCell>{row.fine}</StyledTableCell>
+                       <StyledTableCell>{row.gUtilizzate}</StyledTableCell>
+                    <StyledTableCell>{row.gResidue}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
       case "personale":
         return (
           <TableBody className={"customTableChanges"}>

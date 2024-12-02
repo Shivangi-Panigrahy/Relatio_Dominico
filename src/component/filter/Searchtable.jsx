@@ -784,6 +784,48 @@ const SearchTable = ({
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
+      ) : navData === "attivita_progetti" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("nomeProgetto")} // Provide your unique values here
+            value={activeFilters["nomeProgetto"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("nomeProgetto", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Nome Progetto" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("teamLeader")} // Provide your unique values here
+            value={activeFilters["teamLeader"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("teamLeader", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Team Leader" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+             <Autocomplete
+            disablePortal
+            options={extractUniqueValues("stato")} // Provide your unique values here
+            value={activeFilters["stato"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("stato", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="stato" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+
+          <SearchField value={searchTerm} onChange={handleSearchChange} />
+          <MenuWithOptions options={options} />
+        </>
       ) : navData === "progetti" ? (
         <>
           <Autocomplete
@@ -800,13 +842,13 @@ const SearchTable = ({
           />
           <Autocomplete
             disablePortal
-            options={extractUniqueValues("totaleOreLavorate")} // Provide your unique values here
-            value={activeFilters["totaleOreLavorate"] || ""} // Set the selected value
+            options={extractUniqueValues("stato")} // Provide your unique values here
+            value={activeFilters["stato"] || ""} // Set the selected value
             onChange={(event, newValue) =>
-              handleFilterSelect("totaleOreLavorate", newValue)
+              handleFilterSelect("stato", newValue)
             } // Update the selected value
             renderInput={(params) => (
-              <TextField {...params} label="Totale OreLavorate" />
+              <TextField {...params} label="stato" />
             )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
@@ -934,6 +976,7 @@ const SearchTable = ({
           ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
           ${navData === "colaboratory" ? "colaboratoryInvoiceFilter" : ""}
           ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
+          ${navData === "attivita_progetti" ? "colaboratoryInvoiceFilter" : ""}
           ${
             navData === "AmministragionDocumenti"
              
