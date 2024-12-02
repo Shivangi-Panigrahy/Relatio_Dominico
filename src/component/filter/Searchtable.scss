@@ -140,6 +140,13 @@
   }
 }
 
+.invoiceFilter.distintaInvoiceFilter,
+.invoiceFilter.giacenzeInvoiceFilter {
+  .MuiStack-root {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .searchBoxInner {
   margin: 0 !important;
   border: 1px solid #e5e5e5 !important;
