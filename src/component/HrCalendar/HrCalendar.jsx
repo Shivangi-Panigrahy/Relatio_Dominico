@@ -27,13 +27,15 @@ import CustomToolbar from "./CustomToolbar";
 import PresenzeModal from "../Modal/Presenze";
 import AddResourcesDialog from "../Modal/AddResourcesDialog";
 
+import avatart_img from "../../assets/Img_Avatar_1.png";
+
 const events = [
   {
     id: 0,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 25, 10, 0, 0),
-    end: new Date(2024, 10, 25, 12, 0, 0),
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 15, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
@@ -43,8 +45,8 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 25, 13, 0, 0),
-    end: new Date(2024, 10, 25, 15, 0, 0),
+    start: new Date(2024, 11, 3, 13, 0, 0),
+    end: new Date(2024, 11, 3, 18, 0, 0),
     desc: "Panel discussions with industry leaders",
     eventType: "Call",
     assignedTo: "Other",
@@ -54,8 +56,8 @@ const events = [
     id: 2,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 26, 15, 0, 0),
-    end: new Date(2024, 10, 26, 19, 0, 0),
+    start: new Date(2024, 11, 4, 15, 0, 0),
+    end: new Date(2024, 11, 4, 19, 0, 0),
     desc: "Hands-on workshops",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -65,8 +67,8 @@ const events = [
     id: 3,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 26, 20, 0, 0),
-    end: new Date(2024, 10, 26, 22, 0, 0),
+    start: new Date(2024, 11, 5, 20, 0, 0),
+    end: new Date(2024, 11, 5, 22, 0, 0),
     desc: "Networking session",
     eventType: "Call",
     assignedTo: "Other",
@@ -76,8 +78,8 @@ const events = [
     id: 4,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 27, 9, 0, 0),
-    end: new Date(2024, 10, 27, 17, 0, 0),
+    start: new Date(2024, 11, 6, 9, 0, 0),
+    end: new Date(2024, 11, 6, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -87,8 +89,8 @@ const events = [
     id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 28, 14, 0, 0),
-    end: new Date(2024, 10, 28, 20, 0, 0),
+    start: new Date(2024, 11, 7, 14, 0, 0),
+    end: new Date(2024, 11, 7, 20, 0, 0),
     desc: "Closing ceremony",
     eventType: "Meeting",
     assignedTo: "Other",
@@ -171,10 +173,45 @@ export default function ReactBigCalendar({
   };
 
   const CustomEvent = ({ event }) => (
-    <span>
-      <span className="event-dot" /> {/* This is the colored dot */}
-      {event.title}
-    </span>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        width: "100%",
+        gap: "22px",
+        padding: "0 28px",
+        paddingBottom: "5px",
+      }}
+    >
+      <p style={{ display: "flex", margin: "0" }}>
+        <span
+          className="event-dot"
+          style={{
+            marginTop: "4px",
+            display: "block",
+            backgroundColor: event.eventType === "Meeting" && "#DB0000",
+          }}
+        />{" "}
+        {/* This is the colored dot */}
+        <span style={{ display: "block" }}>
+          <span style={{ fontWeight: "600" }}>09:00 - 13:30</span>
+          <span style={{ display: "block" }}>Presenti</span>
+        </span>
+      </p>
+      <p
+        style={{
+          padding: "2px 6px",
+          backgroundColor:
+            event.eventType === "Meeting" ? "#DB000033" : "#57C70033",
+          color: event.eventType === "Meeting" ? "#DB0000" : "#57C700",
+          borderRadius: "6px",
+          margin: "0",
+        }}
+      >
+        36
+      </p>
+    </div>
   );
 
   const CustomWeekEvent = ({ event }) => (
@@ -186,7 +223,18 @@ export default function ReactBigCalendar({
           {moment(event.end).format("HH:mm")}
         </span>
       </div>
-      <span>{event.title}</span>
+      <span className="event_title">{event.title}</span>
+
+      <div className="avatar_stack">
+        <img src={avatart_img} alt="" />
+        <img src={avatart_img} alt="" />
+        <img src={avatart_img} alt="" />
+        <img src={avatart_img} alt="" />
+        <img src={avatart_img} alt="" />
+      </div>
+      <a href="javascript:void(0)" className="event_link">
+        Aggiungi risorse
+      </a>
     </div>
   );
 
@@ -253,9 +301,12 @@ export default function ReactBigCalendar({
   };
 
   useEffect(() => {
-    hrView ? setView("week") : window.location.pathname === "/hr/colaboratory/sub-colaboratory/Agenda" ? setView("agenda") : setView("month");
+    hrView
+      ? setView("week")
+      : window.location.pathname === "/hr/colaboratory/sub-colaboratory/Agenda"
+      ? setView("agenda")
+      : setView("month");
   }, [hrView]);
-
 
   return (
     <div className="calenderBlock">
@@ -355,8 +406,8 @@ export default function ReactBigCalendar({
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                            event.end
-                          )}`}
+                              event.end
+                            )}`}
                       </span>
                       <div className="event-content_aganda">
                         <span className="event-dot_aganda"></span>

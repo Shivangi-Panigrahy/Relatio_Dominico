@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../../component/header/Header";
-import ReactBigCalendar from '../../../component/HrCalendar/HrCalendar'
+import ReactBigCalendar from "../../../component/HrCalendar/HrCalendar";
 import { ReactComponent as Mese } from "../../../assets/Mese.svg";
 import { Tab, Tabs } from "@mui/material";
 
