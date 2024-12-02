@@ -146,10 +146,9 @@ const menuItems = [
     textColor: "#3F37C9",
     route: "/attivita",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Organizza", route: "/attività/timesheet" },
+      { name: "Calendario", route: "/attività/calendario" },
+      { name: "Progetti", route: "/attività/progetti" },
     ],
   },
   {
