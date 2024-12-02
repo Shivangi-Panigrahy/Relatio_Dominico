@@ -71,10 +71,19 @@ import Scheda_prodotto from "../pages/Cataloghi/Prodotti/Scheda_prodotto.jsx";
 import Distinta_base from "../pages/Cataloghi/Prodotti/Distinta_base.jsx";
 import Opzioni from "../pages/Cataloghi/Prodotti/Opzioni.jsx";
 import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
+import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx"
 import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
 import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
 import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
+import Prenota from "../pages/Logistica/Prenota/Prenota.jsx";
+import Stabilimenti from "../pages/Logistica/Stabilimenti/Stabilimenti.jsx";
+import SubStabilimenti from "../pages/Logistica/Stabilimenti/SubStabilimenti.jsx";
+import Mezzi from "../pages/Logistica/Mezzi/Mezzi.jsx";
+import SubMezzi from "../pages/Logistica/Mezzi/SubMezzi.jsx";
+import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
+import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
+import DDT from "../pages/Logistica/DDT/DDT.jsx";
 
 const Allroutes = () => {
   return (
@@ -723,7 +732,134 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-      {/* amministrazione Route end */}
+      <Route
+        path="/logistica/prenota"
+        element={
+          <PublicRoute>
+            <Prenota />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti"
+        element={
+          <PublicRoute>
+            <Stabilimenti />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={Gruppi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={Gruppi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi"
+        element={
+          <PublicRoute>
+            <Mezzi />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi/"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={Gruppi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={Gruppi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature"
+        element={
+          <PublicRoute>
+            <Attrezzature />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature/"
+        element={
+          <PublicRoute>
+            <SubAttrezzature Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature/"
+        element={
+          <PublicRoute>
+            <SubAttrezzature Component={Gruppi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/giacenze"
+        element={
+          <PublicRoute>
+            <LogisticaGiacenze />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/DDT"
+        element={
+          <PublicRoute>
+            <DDT />
+          </PublicRoute>
+        }
+      />
     </Routes>
   );
 };
