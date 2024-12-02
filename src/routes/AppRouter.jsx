@@ -87,6 +87,8 @@ import Turni from "../component/Turni/Turni.jsx";
 import Progetti from "../component/Progetti/Progetti.jsx";
 import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
+import HrContatti from "../component/Contatti/HrContatti";
+import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 
 const Allroutes = () => {
   return (
@@ -745,6 +747,14 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
+          <Route
+        path="/hr/organizza"
+        element={
+          <PublicRoute>
+            <HrCalendario />
+          </PublicRoute>
+        }
+      />
       <Route
         path="/hr/colaboratory"
         element={
@@ -765,7 +775,7 @@ const Allroutes = () => {
         path="/hr/sub-colaboratory/Contatti"
         element={
           <PublicRoute>
-            <SubColaboratory Component={Contatti} />
+            <SubColaboratory Component={HrContatti} />
           </PublicRoute>
         }
       />
@@ -773,7 +783,7 @@ const Allroutes = () => {
         path="/hr/sub-colaboratory/Qualificazione"
         element={
           <PublicRoute>
-            <SubColaboratory Component={Qualificazione} />
+            <SubColaboratory Component={HrQualificazione} />
           </PublicRoute>
         }
       />
@@ -885,7 +895,7 @@ const Allroutes = () => {
         path="/hr/candidati/candidato/Qualificazione"
         element={
           <PublicRoute>
-            <Candidato Component={Qualificazione} />
+            <Candidato Component={HrQualificazione} />
           </PublicRoute>
         }
       />

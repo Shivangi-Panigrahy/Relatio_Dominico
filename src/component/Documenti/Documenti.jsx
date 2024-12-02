@@ -35,15 +35,13 @@ const Documenti = ({ data }) => {
   };
   const sections = [
     ...(window.location.href.includes('/hr/sub-colaboratory/Documenti')
-    ? []
-    : [
-    {
-      label: "Busta Page",
-      content: window.location.href.includes('/hr/sub-colaboratory/Documenti')
-        ? <BustaPage />
-        : "Busta Page content is hidden for this page."
-    },
-  ]),
+    ? [
+        {
+          label: "Busta Page",
+          content: <BustaPage />
+        },
+      ]
+    : []),
 
     {
       label: "Budget",

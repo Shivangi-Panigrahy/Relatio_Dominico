@@ -45,6 +45,9 @@ const Ordini = () => {
     { field: "doc", headerName: "Doc", width: 70 },
     { field: "creatoIl", headerName: "Creato il", width: 100 },
     { field: "numero", headerName: "Numero", width: 100 },
+    // ...(location.pathname !== "/acquisti/fornitori/Documenti" 
+    //   ? [{ field: "fornitori", headerName: "Fornitori", width: 380  }] 
+    //   : []),
     { field: "fornitori", headerName: "Fornitori", width: 380 },
     { field: "autore", headerName: "Autore", width: 80 },
     { field: "modDa", headerName: "Mod. da", width: 80 },

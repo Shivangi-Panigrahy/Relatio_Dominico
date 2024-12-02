@@ -92,38 +92,38 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
   );
 };
 
-const Qualificazione = () => {
+const HrQualificazione = () => {
   const path = window.location.pathname;
   const [cardData, setCardData] = useState([]);
 
-  const cards = [
-    {
-      title: "Tipo di azienda AFweqrA",
-      fields: [
-        { label: "Settore" },
-        { label: "Categoria categoria azienda" },
-        { label: "Codice adeco" },
-      ],
-    },
-    {
-      title: "Attivita",
-      fields: [
-        { label: "Progettazione e edirezione lavori" },
-        { label: "Prove geioteniche" },
-        { label: "Rilievi topografici" },
-        { label: "Pratiche catastali" },
-      ],
-    },
-    {
-      title: "Attivita",
-      fields: [
-        { label: "Progettazione e direzione lavori" },
-        { label: "Progettazine ubanistica" },
-        { label: "Progettazine strutturale" },
-        { label: "Progettazine architettonica" },
-      ],
-    },
-  ];
+//   const cards = [
+//     {
+//       title: "Tipo di azienda AFweqrA",
+//       fields: [
+//         { label: "Settore" },
+//         { label: "Categoria categoria azienda" },
+//         { label: "Codice adeco" },
+//       ],
+//     },
+//     {
+//       title: "Attivita",
+//       fields: [
+//         { label: "Progettazione e edirezione lavori" },
+//         { label: "Prove geioteniche" },
+//         { label: "Rilievi topografici" },
+//         { label: "Pratiche catastali" },
+//       ],
+//     },
+//     {
+//       title: "Attivita",
+//       fields: [
+//         { label: "Progettazione e direzione lavori" },
+//         { label: "Progettazine ubanistica" },
+//         { label: "Progettazine strutturale" },
+//         { label: "Progettazine architettonica" },
+//       ],
+//     },
+//   ];
 
   const hrCards = [
     {
@@ -182,7 +182,8 @@ const Qualificazione = () => {
     } else if (path === "/hr/candidati/candidato/Qualificazione") {
       setCardData(hrCandidatoCards);
     } else {
-      setCardData(cards);
+      <>
+      </>
     }
   }, [path]);
 
@@ -190,7 +191,7 @@ const Qualificazione = () => {
     <Box className="customTabBlock" maxWidth="xl">
       <Box className="customTabBlock__body">
         <Grid container spacing={2.5}>
-          {cards.map((card, index) => (
+          {cardData.map((card, index) => (
             <Grid item xs={12} md={4} key={index}>
               <DynamicCard
                 title={card.title}
@@ -204,4 +205,4 @@ const Qualificazione = () => {
   );
 };
 
-export default Qualificazione;
+export default HrQualificazione;

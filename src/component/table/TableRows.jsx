@@ -281,7 +281,7 @@ const TableRows = ({
                     <StyledTableCell>{row.doc}</StyledTableCell>
                     <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
-                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                    {!isSubLeadDocumenti && (
                       <StyledTableCell>
 
                         <IconButton
@@ -773,7 +773,7 @@ const TableRows = ({
                     <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     <StyledTableCell>{row.titolo}</StyledTableCell>
-                    {!isSubLeadDocumenti && !isFornitoriDocumenti && (
+                    {!isSubLeadDocumenti && (
                       <StyledTableCell>
                         <IconButton
                           size="small"
