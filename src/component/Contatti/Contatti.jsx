@@ -102,6 +102,28 @@ const Contatti = () => {
         { label: "Pagina LinkedIn" },
       ],
     },
+    {
+      title: "Contatti Referente 1",
+      fields: [
+        { label: "Nome e Cognome referente" },
+        { label: "Tipo di referente" },
+        { label: "Cellulare" },
+        { label: "Numero Mobile" },
+        { label: "Email", type: "email" },
+        { label: "Contatto LinkedIn" },
+      ],
+    },
+    {
+      title: "Contatti Referente 2",
+      fields: [
+        { label: "Nome e Cognome referente" },
+        { label: "Tipo di referente" },
+        { label: "Cellulare" },
+        { label: "Numero Mobile" },
+        { label: "Email", type: "email" },
+        { label: "Contatto LinkedIn" },
+      ],
+    },
   ];
 
   return (
