@@ -862,30 +862,66 @@ const HeaderBelow = () => {
                                                                                                                 </IconButton>
                                                                                                                 <Typography variant="h2">Busta paga</Typography>
                                                                                                               </> :
-                                                                                                                  window.location.href.includes("/hr/buste-page/busta") ?
+                                                                                                              window.location.href.includes("/hr/candidati/candidato/Contatti") ?
+                                                                                                                <>
+                                                                                                                  <Typography variant="h2">HR</Typography>
+                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                    <ArrowForwardIcon />
+                                                                                                                  </IconButton>
+                                                                                                                  <Typography variant="h2">Candidati</Typography>
+                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                    <ArrowForwardIcon />
+                                                                                                                  </IconButton>
+                                                                                                                  <Typography variant="h2">Candidato</Typography>
+                                                                                                                </> :
+                                                                                                                window.location.href.includes("/hr/candidati/candidato/Qualificazione") ?
                                                                                                                   <>
                                                                                                                     <Typography variant="h2">HR</Typography>
                                                                                                                     <IconButton edge="start" color="inherit">
                                                                                                                       <ArrowForwardIcon />
                                                                                                                     </IconButton>
-                                                                                                                    <Typography variant="h2">Busta paga</Typography>
+                                                                                                                    <Typography variant="h2">Candidati</Typography>
                                                                                                                     <IconButton edge="start" color="inherit">
                                                                                                                       <ArrowForwardIcon />
                                                                                                                     </IconButton>
-                                                                                                                    <Typography variant="h2">Nome della busta paga</Typography>
+                                                                                                                    <Typography variant="h2">Candidato</Typography>
                                                                                                                   </> :
-                                                                                                                  window.location.href.includes("/hr/buste-page") ?
+                                                                                                                  window.location.href.includes("/hr/candidati/candidato/Agenda") ?
                                                                                                                     <>
                                                                                                                       <Typography variant="h2">HR</Typography>
                                                                                                                       <IconButton edge="start" color="inherit">
                                                                                                                         <ArrowForwardIcon />
                                                                                                                       </IconButton>
-                                                                                                                      <Typography variant="h2">Busta paga</Typography>
+                                                                                                                      <Typography variant="h2">Candidati</Typography>
+                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                        <ArrowForwardIcon />
+                                                                                                                      </IconButton>
+                                                                                                                      <Typography variant="h2">Candidato</Typography>
                                                                                                                     </> :
+                                                                                                                    window.location.href.includes("/hr/candidati/candidato/Allegati") ?
+                                                                                                                      <>
+                                                                                                                        <Typography variant="h2">HR</Typography>
+                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                          <ArrowForwardIcon />
+                                                                                                                        </IconButton>
+                                                                                                                        <Typography variant="h2">Candidati</Typography>
+                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                          <ArrowForwardIcon />
+                                                                                                                        </IconButton>
+                                                                                                                        <Typography variant="h2">Candidato</Typography>
+                                                                                                                      </> :
+                                                                                                                      window.location.href.includes("/hr/candidati") ?
+                                                                                                                        <>
+                                                                                                                          <Typography variant="h2">HR</Typography>
+                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                            <ArrowForwardIcon />
+                                                                                                                          </IconButton>
+                                                                                                                          <Typography variant="h2">Candidati</Typography>
+                                                                                                                        </> :
 
-                                                                                                              (
-                                                                                                                <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                                              )}
+                                                                                                                        (
+                                                                                                                          <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                                        )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
