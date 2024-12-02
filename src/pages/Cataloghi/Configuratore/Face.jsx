@@ -11,7 +11,7 @@ import {
 import { Delete } from "@mui/icons-material";
 import "./Face.scss";
 
-export default function Face() {
+export default function Face({ id, onDelete }) {
   return (
     <Paper
       className="phase-form"
@@ -34,7 +34,7 @@ export default function Face() {
             <MenuItem value="3">Bassa</MenuItem>
           </Select>
 
-          <IconButton className="delete-button">
+          <IconButton className="delete-button" onClick={() => onDelete(id)}>
             <Delete />
           </IconButton>
         </Box>
@@ -47,6 +47,7 @@ export default function Face() {
           rows={4}
           fullWidth
         />
+        
       </Box>
     </Paper>
   );

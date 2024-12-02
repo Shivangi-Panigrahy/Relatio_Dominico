@@ -1,21 +1,26 @@
 .customtable {
   table {
     border: none;
+
     thead {
       background-color: #fafafa;
+
       tr {
         th {
           border: none;
           padding: 10px;
+
           .MuiBox-root {
             justify-content: space-between;
             white-space: nowrap;
             display: flex;
             align-items: center;
           }
+
           &:first-child {
             padding: 10px 12px;
           }
+
           h4 {
             color: #999999;
             margin: 0;
@@ -28,59 +33,86 @@
           }
         }
       }
+
       .CustomCheckbox {
         margin-right: 0;
       }
     }
+
     tbody {
       .CustomCheckbox {
         margin-right: 0;
       }
+
       tr {
         background-color: transparent !important;
+
         .customDasaldareRed {
           background-color: #db000033;
         }
+
         .customDasaldareGreen {
           background-color: #57c70033;
         }
+
         &:hover {
           background-color: #f2f2f2 !important;
+
           .completatoStato {
             background-color: #57c700;
             color: #fff;
           }
+
           .approvatoStato {
             background-color: #57c700;
             color: #fff;
           }
+
           .in-attesaStato {
             background-color: #ffa903;
             color: #fff;
           }
+
           .rifiutatoStato {
             background-color: #db0000;
             color: #fff;
           }
+
           .Attivo {
             background-color: #57c700;
             color: #fff;
           }
+
           .Saldato {
             background-color: #57c700;
             color: #fff;
           }
+
           .Pagata {
             background-color: #57c700;
             color: #fff;
           }
+
+          .Immediata {
+            background-color: #57c700;
+            color: #fff;
+          }
+
+          .Approvata {
+            background-color: #57c700;
+            color: #fff;
+          }
+
           .customDasaldareGreen {
             background-color: #57c70080;
           }
+
           .customDasaldareRed {
             background-color: #db000080;
           }
+
         }
+
         td {
           padding: 10px;
           border-bottom: 1px dashed #999999;
@@ -100,51 +132,62 @@
             gap: 5px;
             font-family: "Public Sans", sans-serif;
           }
+
           .profile {
             width: 32px;
             height: 32px;
             border-radius: 100%;
           }
+
           .status {
             color: #57c700;
             background-color: #57c70033;
             padding: 4px 8px;
             border-radius: 3px;
           }
+
           .menuBtn {
             margin: auto;
           }
+
           &:first-child {
             padding: 10px 12px;
           }
-          & > div {
+
+          &>div {
             display: inline-flex;
             gap: 2px;
             align-items: center;
+
             svg path {
               fill: #999999;
               // &:hover {
               //   fill: #57c700;
               // }
             }
+
             .menuIconBtn {
               &:hover {
                 background-color: #fff;
               }
             }
           }
+
           .tableActionBtn {
             display: flex;
             align-items: center;
             justify-content: end;
             gap: 7px;
+
             button {
               height: 24px;
               width: 24px;
+
               svg path {
                 fill: #0000008a;
               }
             }
+
             .MuiBadge-badge {
               height: 18px;
               width: 18px;
@@ -164,6 +207,7 @@
             }
           }
         }
+
         &.moveRow {
           background: rgb(219, 216, 216) !important;
         }
@@ -171,13 +215,16 @@
     }
   }
 }
+
 .w-120 {
   max-width: 120px;
   width: 120px;
 }
+
 .mt-14 {
   margin-top: 14px;
 }
+
 .bulltePoint {
   height: 14px;
   width: 14px;
@@ -188,6 +235,12 @@
 
 .customtable table tbody.customTableChanges tr td {
   padding: 22px 12px !important;
+}
+
+.customChechbox span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // .approvato {

@@ -45,6 +45,9 @@ const Ordini = () => {
     { field: "doc", headerName: "Doc", width: 70 },
     { field: "creatoIl", headerName: "Creato il", width: 100 },
     { field: "numero", headerName: "Numero", width: 100 },
+    // ...(location.pathname !== "/acquisti/fornitori/Documenti" 
+    //   ? [{ field: "fornitori", headerName: "Fornitori", width: 380  }] 
+    //   : []),
     { field: "fornitori", headerName: "Fornitori", width: 380 },
     { field: "autore", headerName: "Autore", width: 80 },
     { field: "modDa", headerName: "Mod. da", width: 80 },
@@ -54,14 +57,15 @@ const Ordini = () => {
     { field: "azioni", headerName: "Azioni", width: 100 },
   ];
 
-  const isSubLeadDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+  const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
+  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
 
   return (
     <>
-      {!isSubLeadDocumenti && <Header />}
+      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && <Header />}
 
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && (
+        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && (
           <InvoiceDashboard ordini={OrdiniData} />
         )}
 

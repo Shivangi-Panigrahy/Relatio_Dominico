@@ -23,8 +23,8 @@ const events = [
     id: 0,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 29, 10, 0, 0),
-    end: new Date(2024, 10, 29, 12, 0, 0),
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
@@ -34,8 +34,8 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 28, 13, 0, 0),
-    end: new Date(2024, 10, 28, 15, 0, 0),
+    start: new Date(2024, 11, 3, 13, 0, 0),
+    end: new Date(2024, 11, 3, 15, 0, 0),
     desc: "Panel discussions with industry leaders",
     eventType: "Appointment",
     assignedTo: "Other",
@@ -45,8 +45,8 @@ const events = [
     id: 2,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 27, 15, 0, 0),
-    end: new Date(2024, 10, 27, 19, 0, 0),
+    start: new Date(2024, 11, 27, 15, 0, 0),
+    end: new Date(2024, 11, 27, 19, 0, 0),
     desc: "Hands-on workshops",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -56,8 +56,8 @@ const events = [
     id: 3,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 27, 20, 0, 0),
-    end: new Date(2024, 10, 27, 22, 0, 0),
+    start: new Date(2024, 11, 27, 20, 0, 0),
+    end: new Date(2024, 11, 27, 22, 0, 0),
     desc: "Networking session",
     eventType: "Appointment",
     assignedTo: "Other",
@@ -67,8 +67,8 @@ const events = [
     id: 4,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 26, 9, 0, 0),
-    end: new Date(2024, 10, 26, 17, 0, 0),
+    start: new Date(2024, 11, 26, 9, 0, 0),
+    end: new Date(2024, 11, 26, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -78,8 +78,8 @@ const events = [
     id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 10, 25, 14, 0, 0),
-    end: new Date(2024, 10, 25, 20, 0, 0),
+    start: new Date(2024, 11, 25, 14, 0, 0),
+    end: new Date(2024, 11, 25, 20, 0, 0),
     desc: "Closing ceremony",
     eventType: "Appointment",
     assignedTo: "Other",
@@ -96,10 +96,12 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [showEventOpen, setShowEventOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
+  // const [view, setView] = useState(acquisti_agenda && candidati_agenda ? "agenda" : "month");
+
   const [particularEvent, setparticularEvent] = useState({});
   // const [openEVentDialog, setOpenEVentDialog] = useState(false);
-  const [toggleEvent,setToggleEvent] = useState(false)
-  console.log(toggleEvent,'setToggleEvent');
+  const [toggleEvent, setToggleEvent] = useState(false)
+  console.log(toggleEvent, 'setToggleEvent');
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
@@ -157,7 +159,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
             }}
           />{" "}
           <span className="custom-week-event-time">
-            {moment(event.start).format("HH:mm")}- 
+            {moment(event.start).format("HH:mm")}-
             {moment(event.end).format("HH:mm")}
           </span>
         </span>
@@ -175,7 +177,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     </>
   );
   const CustomWeekEvent = ({ event }) => (
-    <div className="custom-week-event" style={{ backgroundColor: event.eventType==="Appointment" && "#FFA90333" }}>
+    <div className="custom-week-event" style={{ backgroundColor: event.eventType === "Appointment" && "#FFA90333" }}>
       <div className="custom-week-event-inner">
         <h2>Nome del Cliente</h2>
         <div className="userbox">
@@ -250,7 +252,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-          {!acquisti_agenda && (
+          {!acquisti_agenda &&  (
             <>
               <Button
                 startIcon={<Mese />}
@@ -332,13 +334,13 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                              event.end
-                            )}`}
+                            event.end
+                          )}`}
                       </span>
                       <div className="event-content_aganda">
                         <span className="event-dot_aganda" style={{
-              backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
-            }}></span>
+                          backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
+                        }}></span>
                         <div className="event-details_aganda">
                           <span className="event-title_aganda">
                             {event.title}

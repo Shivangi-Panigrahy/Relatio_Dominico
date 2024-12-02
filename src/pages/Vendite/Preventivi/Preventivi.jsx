@@ -45,7 +45,7 @@ const Preventivi = () => {
   { field: "creatoIl", headerName: "Creato il", width: 95 },
   { field: "numero", headerName: "Numero", width: 95 },
   { field: "titolo", headerName: "Titolo", width: 505 },
-  ...(location.pathname !== "/vendite/sub-lead/Documenti " 
+  ...(location.pathname !== "/vendite/sub-lead/Documenti" 
     ? [{ field: "fornitori", headerName: "Cliente/Lead", width: 340 }] 
     : []),
   { field: "autore", headerName: "Autore", width: 85 },

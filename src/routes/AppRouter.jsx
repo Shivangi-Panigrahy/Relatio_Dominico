@@ -75,6 +75,18 @@ import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx"
 import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
 import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
 import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
+import HrCalendario from "../pages/HR/Calendario/Calendario.jsx"
+import Candidati from "../pages/HR/Candidati/Candidati.jsx";
+import Candidato from "../pages/HR/Candidati/Candidato.jsx";
+import BustaPage from "../pages/HR/BustePage/BustePage.jsx";
+import Busta from "../pages/HR/BustePage/Busta.jsx";
+import FeriePermisse from "../pages/HR/FeriePermisse/FeriePermisse.jsx";
+import FeriePermisseEvento from "../pages/HR/FeriePermisse/FeriePermisseEvento.jsx";
+import Colaboratory from "../pages/HR/Colaboratory/Colaboratory.jsx";
+import SubColaboratory from "../pages/HR/Colaboratory/SubColaboratory.jsx";
+import Turni from "../component/Turni/Turni.jsx";
+import Progetti from "../component/Progetti/Progetti.jsx";
+import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
 import Prenota from "../pages/Logistica/Prenota/Prenota.jsx";
 import Stabilimenti from "../pages/Logistica/Stabilimenti/Stabilimenti.jsx";
@@ -84,6 +96,8 @@ import SubMezzi from "../pages/Logistica/Mezzi/SubMezzi.jsx";
 import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
 import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
 import DDT from "../pages/Logistica/DDT/DDT.jsx";
+import HrContatti from "../component/Contatti/HrContatti";
+import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 
 const Allroutes = () => {
   return (
@@ -729,6 +743,184 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <SubListini Component={ListiniProdotti} />
+          </PublicRoute>
+        }
+      />
+
+
+      <Route
+        path="/hr/calendario"
+        element={
+          <PublicRoute>
+            <HrCalendario />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/organizza"
+        element={
+          <PublicRoute>
+            <HrCalendario />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/colaboratory"
+        element={
+          <PublicRoute>
+            <Colaboratory />
+          </PublicRoute>
+        }
+      />
+      {/* <Route
+        path="/hr/colaboratory/sub-colaboratory"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={HrContatti} />
+          </PublicRoute>
+        }
+      /> */}
+      <Route
+        path="/hr/sub-colaboratory/Contatti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Qualificazione"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={HrQualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Documenti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Contratto"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Contratto} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Equipagiamento"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Turni"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Turni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Progetti"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Progetti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Agenda"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/sub-colaboratory/Allegati"
+        element={
+          <PublicRoute>
+            <SubColaboratory Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/ferie-e-permisse"
+        element={
+          <PublicRoute>
+            <FeriePermisse />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/ferie-e-permisse/evento"
+        element={
+          <PublicRoute>
+            <FeriePermisseEvento Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/buste-page"
+        element={
+          <PublicRoute>
+            <BustaPage />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/buste-page/busta"
+        element={
+          <PublicRoute>
+            <Busta Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati"
+        element={
+          <PublicRoute>
+            <Candidati />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Contatti"
+        element={
+          <PublicRoute>
+            <Candidato Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Qualificazione"
+        element={
+          <PublicRoute>
+            <Candidato Component={HrQualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Agenda"
+        element={
+          <PublicRoute>
+            <Candidato Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/hr/candidati/candidato/Allegati"
+        element={
+          <PublicRoute>
+            <Candidato Component={Allegati} />
           </PublicRoute>
         }
       />
