@@ -11,8 +11,12 @@ import {
 import { Delete } from "@mui/icons-material";
 import "./Catagoria.scss";
 import ConfigratorModal from "./ConfigatorModal";
+import { useState } from "react";
 
-export default function Face() {
+export default function Face({ id, onDelete }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Paper
       className="category-form"
@@ -52,10 +56,11 @@ export default function Face() {
               lineHeight: "1",
               padding: "12px",
             }}
+            onClick={handleOpen}
           >
             Configura
           </Button>
-          <IconButton className="delete-button">
+          <IconButton className="delete-button"  onClick={() => onDelete(id)}>
             <Delete />
           </IconButton>
         </Box>
@@ -68,7 +73,7 @@ export default function Face() {
           fullWidth
         />
       </Box>
-      <ConfigratorModal />
+      <ConfigratorModal open={open} close={handleClose}/>
     </Paper>
   );
 }

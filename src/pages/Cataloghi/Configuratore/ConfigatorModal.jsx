@@ -23,11 +23,9 @@ import { MoreVert } from "@mui/icons-material";
 import { ReactComponent as Right } from "../../../assets/right.svg";
 import "./ConfigatorModal.scss";
 
-export default function ConfiguraModal() {
-  const [open, setOpen] = useState(true);
+export default function ConfiguraModal({open,close}) {
   const [tabIndex, setTabIndex] = useState(0);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   const handleTabChange = (event, newValue) => setTabIndex(newValue);
 
   const [selectedTabs, setSelectedTabs] = useState(0);
@@ -61,10 +59,9 @@ export default function ConfiguraModal() {
 
   return (
     <div>
-      <button onClick={handleOpen}>Open Modal</button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={close}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{

@@ -1,17 +1,13 @@
-import React from 'react';
-import {
-  Paper,
-  TextField,
-  InputAdornment
-} from '@mui/material'; // Import Material-UI components
-import SearchIcon from '@mui/icons-material/Search'; // Icon for the search field
-import './Searchtable.scss'; // Custom styles
+import React from "react";
+import { Paper, TextField, InputAdornment } from "@mui/material"; // Import Material-UI components
+import SearchIcon from "@mui/icons-material/Search"; // Icon for the search field
+import "./Searchtable.scss"; // Custom styles
 
-const SearchField = ({ 
+const SearchField = ({
   value, // Current value of the search field
   onChange, // Function to handle input changes
   placeholder = "Ricerca libera", // Placeholder text
-  className = "searchBoxInner" // Custom class for styling
+  className = "searchBoxInner", // Custom class for styling
 }) => {
   return (
     <Paper

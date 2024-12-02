@@ -491,6 +491,17 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Categoria" />
             )} // Customize the label
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("categoria")} // Provide your unique values here
+            value={activeFilters["categoria"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("categoria", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Categoria" />
+            )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
 
@@ -891,6 +902,9 @@ const SearchTable = ({
       />
     </>
   );
+
+  console.log(navData);
+
   return (
     <Box
       className={
@@ -916,11 +930,18 @@ const SearchTable = ({
           ${navData === "allegati" ? "allegatiInvoiceFilter" : ""}
           ${navData === "candidati" ? "candidatiInvoiceFilter" : ""}
           ${
+            navData === "distinta" ? "distintaInvoiceFilter" : ""}
+          ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
+          ${
             navData === "AmministragionDocumenti"
+             
               ? "fornitoriInvoiceFilter"
+             
               : ""
+          
           }
         `
+        }
         }
       `
       }
@@ -950,7 +971,6 @@ const SearchTable = ({
           renderInput={(params) => (
             <TextField {...params} label="Titolo del preventivo" />
           )} // Customize the label
-          // sx={{ width: 300 }} // Optional styling
         />
       )}
     </Box>
