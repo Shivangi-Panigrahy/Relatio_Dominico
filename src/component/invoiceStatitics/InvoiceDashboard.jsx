@@ -56,7 +56,9 @@ const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
             style={
               window.location.href.includes("/hr/buste-page") || window.location.href.includes("/vendite/preventivi")|window.location.href.includes("/vendite/budget")|| window.location.href.includes("/vendite/ordini")||
               window.location.href.includes("/acquisti/budget")||window.location.href.includes("/acquisti/ordini")|| window.location.href.includes("/acquisti/preventivi")
-              ||window.location.href.includes("/amministrazione/documenti")|| window.location.href.includes("/amministrazione/asset") ||window.location.href.includes("/cataloghi/servizi")||window.location.href.includes("/cataloghi/prodotti")
+              ||window.location.href.includes("/amministrazione/documenti")|| window.location.href.includes("/amministrazione/asset") 
+              ||window.location.href.includes("/cataloghi/servizi")||window.location.href.includes("/cataloghi/prodotti")||
+              window.location.href.includes("/amministrazione/imposte/Reteizzazione")
                 ? {
                   fontWeight: "400",
                   fontSize: "16px",
@@ -91,6 +93,7 @@ const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
                       window.location.href.includes("/acquisti/preventivi") ? "preventivi":
                       window.location.href.includes("/amministrazione/asset") ? "asset":
                       window.location.href.includes("/cataloghi/prodotti") ? "prodotti":
+                      window.location.href.includes("/amministrazione/imposte/Reteizzazione") ? "rate":
                       ""}
           </span>
         </h5>
