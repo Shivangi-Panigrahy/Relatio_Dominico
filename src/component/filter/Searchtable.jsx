@@ -903,7 +903,7 @@ const SearchTable = ({
     </>
   );
 
-  console.log(navData);
+  console.log("Nav",navData);
 
   return (
     <Box
@@ -932,6 +932,8 @@ const SearchTable = ({
           ${
             navData === "distinta" ? "distintaInvoiceFilter" : ""}
           ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
+          ${navData === "colaboratory" ? "colaboratoryInvoiceFilter" : ""}
+          ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
           ${
             navData === "AmministragionDocumenti"
              
@@ -941,7 +943,6 @@ const SearchTable = ({
           
           }
         `
-        }
         }
       `
       }

@@ -38,50 +38,60 @@ const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
           style={
             window.location.href.includes("/hr/buste-page")
               ? {
-                  fontWeight: "700",
-                  fontSize: "16px",
-                  fontFamily: '"Public Sans", sans-serif',
-                  color: "#100919",
-                }
+                fontWeight: "700",
+                fontSize: "16px",
+                fontFamily: '"Public Sans", sans-serif',
+                color: "#100919",
+              }
               : {
-                  fontWeight: "700",
-                  fontSize: "20px",
-                  fontFamily: '"Barlow", sans-serif',
-                  color: "#100919",
-                }
+                fontWeight: "700",
+                fontSize: "20px",
+                fontFamily: '"Barlow", sans-serif',
+                color: "#100919",
+              }
           }
         >
           {count}
           <span
             style={
-              window.location.href.includes("/hr/buste-page")
+              window.location.href.includes("/hr/buste-page") || window.location.href.includes("/vendite/preventivi")|window.location.href.includes("/vendite/budget")|| window.location.href.includes("/vendite/ordini")||
+              window.location.href.includes("/acquisti/budget")||window.location.href.includes("/acquisti/ordini")|| window.location.href.includes("/acquisti/preventivi")
+              ||window.location.href.includes("/amministrazione/documenti")|| window.location.href.includes("/amministrazione/asset") ||window.location.href.includes("/cataloghi/servizi")||window.location.href.includes("/cataloghi/prodotti")
                 ? {
-                    fontWeight: "400",
-                    fontSize: "16px",
-                    fontFamily: '"Barlow", sans-serif',
-                    color: "#666666",
-                    paddingLeft: "5px",
-                  }
+                  fontWeight: "400",
+                  fontSize: "16px",
+                  fontFamily: '"Barlow", sans-serif',
+                  color: "#666666",
+                  paddingLeft: "5px",
+                }
                 : {
-                    paddingLeft: "5px",
-                    fontWeight: "700",
-                    fontSize: "20px",
-                    fontFamily: '"Barlow", sans-serif',
-                    color: "#100919",
-                  }
+                  paddingLeft: "5px",
+                  fontWeight: "700",
+                  fontSize: "20px",
+                  fontFamily: '"Barlow", sans-serif',
+                  color: "#100919",
+                }
             }
           >
             {count === ""
               ? " "
               : window.location.href.includes("/amministrazione/documenti")
-              ? "Documenti"
-              : window.location.href.includes("/cataloghi/servizi")
-              ? "Servizi"
-              : window.location.href.includes("/hr/ferie-e-permisse")
-              ? subfix
-              : window.location.href.includes("/hr/buste-page")
-              ? "Buste paga"
-              : ""}
+                ? "Documenti"
+                : window.location.href.includes("/cataloghi/servizi")
+                  ? "Servizi"
+                  : window.location.href.includes("/hr/ferie-e-permisse")
+                    ? subfix
+                    : window.location.href.includes("/hr/buste-page")
+                      ? "Buste paga"
+                      : window.location.href.includes("/vendite/preventivi") ? "preventivi" :
+                      window.location.href.includes("/vendite/budget") ? "budget":
+                      window.location.href.includes("/vendite/ordini") ? "ordini" :
+                      window.location.href.includes("/acquisti/budget") ? "budget" :
+                      window.location.href.includes("/acquisti/ordini") ? "ordini":
+                      window.location.href.includes("/acquisti/preventivi") ? "preventivi":
+                      window.location.href.includes("/amministrazione/asset") ? "asset":
+                      window.location.href.includes("/cataloghi/prodotti") ? "prodotti":
+                      ""}
           </span>
         </h5>
       </div>
