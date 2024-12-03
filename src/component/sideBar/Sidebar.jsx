@@ -171,8 +171,8 @@ const menuItems = [
     route: "/production",
     subitems: [
       { name: "Pianifica", route: "/production/plan" },
-      { name: "Produzioni", route: "/productions" },
-      { name: "Processi", route: "/test" },
+      { name: "Produzioni", route: "/production/list" },
+      { name: "Processi", route: "/production/processes" },
       { name: "Archivio", route: "/test" },
     ],
   },

@@ -61,8 +61,8 @@ const SearchTable = ({
       const allValues = Array.isArray(tabData)
         ? tabData.map((item) => item[field])
         : Object.values(tabData)
-            .flat()
-            .map((item) => item[field]);
+          .flat()
+          .map((item) => item[field]);
       return [...new Set(allValues.filter(Boolean))];
     },
     [tabData]
@@ -105,13 +105,13 @@ const SearchTable = ({
   const renderFilters = () => (
     <>
       {navData === "personale" ||
-      navData === "bilancio" ||
-      navData === "Gruppi" ||
-      navData === "product" ||
-      navData === "Giacenze" ||
-      navData === "distinta" ||
-      navData === "conf_prodotti" ||
-      navData === "lis_prodotti" ? (
+        navData === "bilancio" ||
+        navData === "Gruppi" ||
+        navData === "product" ||
+        navData === "Giacenze" ||
+        navData === "distinta" ||
+        navData === "conf_prodotti" ||
+        navData === "lis_prodotti" ? (
         ""
       ) : (
         <>
@@ -148,7 +148,7 @@ const SearchTable = ({
             value={activeFilters["Tipo"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("Tipo", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Tipo" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -158,7 +158,7 @@ const SearchTable = ({
               handleFilterSelect("Gruppo", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Gruppo" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -173,7 +173,7 @@ const SearchTable = ({
               handleFilterSelect("stato", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="stato" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -190,7 +190,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Categoria" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -202,7 +202,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Tipologia" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
         </>
@@ -218,7 +218,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Clienti/Fornitiori" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -228,7 +228,7 @@ const SearchTable = ({
               handleFilterSelect("numero", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="numero" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -238,7 +238,7 @@ const SearchTable = ({
               handleFilterSelect("stato", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="stato" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -251,7 +251,7 @@ const SearchTable = ({
             value={activeFilters["anno"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("anno", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="anno" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -263,7 +263,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Tipologia" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -273,7 +273,7 @@ const SearchTable = ({
               handleFilterSelect("totale", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Totale" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -283,7 +283,7 @@ const SearchTable = ({
               handleFilterSelect("saldato", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Saldato" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -300,7 +300,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Documento" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -312,7 +312,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Clienti/Fornitori" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -322,7 +322,7 @@ const SearchTable = ({
               handleFilterSelect("entrata", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Entrata" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -334,7 +334,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="UtileContabile" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -342,7 +342,7 @@ const SearchTable = ({
             value={activeFilters["tipo"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("tipo", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Tipo" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -352,7 +352,7 @@ const SearchTable = ({
               handleFilterSelect("modalita", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Modalita" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -364,7 +364,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="TipoRisorsa" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -376,7 +376,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="NomeRisorsa" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <MenuWithOptions options={options} />
@@ -393,7 +393,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Tipologia" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -403,7 +403,7 @@ const SearchTable = ({
               handleFilterSelect("scadenza", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Scadenza" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -415,7 +415,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Obiettivo" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -432,7 +432,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Ricerca libera" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           {/* <MenuWithOptions options={options} /> */}
@@ -449,7 +449,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="CostoServizio" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -461,7 +461,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Categoria" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <SearchField value={searchTerm} onChange={handleSearchChange} />
@@ -479,7 +479,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="NomeProdotto" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -502,7 +502,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Categoria" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <SearchField value={searchTerm} onChange={handleSearchChange} />
@@ -520,7 +520,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="GruppiAssociati" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -530,7 +530,7 @@ const SearchTable = ({
               handleFilterSelect("stato", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="stato" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -547,7 +547,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Categoria" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -559,7 +559,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Tipologia" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -567,7 +567,7 @@ const SearchTable = ({
             value={activeFilters["peso"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("peso", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Peso" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -589,7 +589,7 @@ const SearchTable = ({
               handleFilterSelect("valore", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -599,7 +599,7 @@ const SearchTable = ({
               handleFilterSelect("numero", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
         </>
@@ -615,7 +615,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Candidato" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -625,7 +625,7 @@ const SearchTable = ({
               handleFilterSelect("livello", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Livello" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -635,7 +635,7 @@ const SearchTable = ({
               handleFilterSelect("ruolo", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Ruolo" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -650,7 +650,7 @@ const SearchTable = ({
               handleFilterSelect("numero", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -658,7 +658,7 @@ const SearchTable = ({
             value={activeFilters["mese"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("mese", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Mese" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -670,7 +670,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Collaboratore" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -680,7 +680,7 @@ const SearchTable = ({
               handleFilterSelect("totale", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Totale" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
@@ -695,7 +695,7 @@ const SearchTable = ({
               handleFilterSelect("evento", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Evento" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -707,7 +707,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Colaboratore" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -717,7 +717,7 @@ const SearchTable = ({
               handleFilterSelect("stato", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Stato" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <SearchField value={searchTerm} onChange={handleSearchChange} />
@@ -733,7 +733,7 @@ const SearchTable = ({
               handleFilterSelect("turno", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Turno" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -741,7 +741,7 @@ const SearchTable = ({
             value={activeFilters["ore"] || ""} // Set the selected value
             onChange={(event, newValue) => handleFilterSelect("ore", newValue)} // Update the selected value
             renderInput={(params) => <TextField {...params} label="Ore" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
         </>
       ) : navData === "colaboratory" ? (
@@ -756,7 +756,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Colaboratore" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -766,7 +766,7 @@ const SearchTable = ({
               handleFilterSelect("ruolo", newValue)
             } // Update the selected value
             renderInput={(params) => <TextField {...params} label="Ruolo" />} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -778,7 +778,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Trattamento" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <SearchField value={searchTerm} onChange={handleSearchChange} />
@@ -796,7 +796,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Nome Progetto" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
             disablePortal
@@ -808,7 +808,7 @@ const SearchTable = ({
             renderInput={(params) => (
               <TextField {...params} label="Totale OreLavorate" />
             )} // Customize the label
-            // sx={{ width: 300 }} // Optional styling
+          // sx={{ width: 300 }} // Optional styling
           />
 
           <SearchField value={searchTerm} onChange={handleSearchChange} />
@@ -821,33 +821,109 @@ const SearchTable = ({
         <>
           <SearchField value={searchTerm} onChange={handleSearchChange} />
         </>
-      ) : (
-        <>
-          <Autocomplete
-            disablePortal
-            options={extractUniqueValues("valore")} // Provide your unique values here
-            value={activeFilters["valore"] || ""} // Set the selected value
-            onChange={(event, newValue) =>
-              handleFilterSelect("valore", newValue)
-            } // Update the selected value
-            renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
+      ) :
+        navData === "Productions" ? (
+          <>
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("prodotto")} // Provide your unique values here
+              value={activeFilters["prodotto"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("prodotto", newValue)
+              } // Update the selected value
+              renderInput={(params) => <TextField {...params} label="Prodotto" />} // Customize the label
             // sx={{ width: 300 }} // Optional styling
-          />
-          <Autocomplete
-            disablePortal
-            options={extractUniqueValues("numero")} // Provide your unique values here
-            value={activeFilters["numero"] || ""} // Set the selected value
-            onChange={(event, newValue) =>
-              handleFilterSelect("numero", newValue)
-            } // Update the selected value
-            renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
+            />
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("fase")} // Provide your unique values here
+              value={activeFilters["fase"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("fase", newValue)
+              } // Update the selected value
+              renderInput={(params) => (
+                <TextField {...params} label="Fase" />
+              )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
-          />
-          <SearchField value={searchTerm} onChange={handleSearchChange} />
+            />
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("stabilimento")} // Provide your unique values here
+              value={activeFilters["stabilimento"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("stabilimento", newValue)
+              } // Update the selected value
+              renderInput={(params) => <TextField {...params} label="Stabilimento" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+            />
+            <SearchField value={searchTerm} onChange={handleSearchChange} />
+            <MenuWithOptions options={options} />
+          </>
+           ) :
+           navData === "Processi" ? (
+             <>
+               <Autocomplete
+                 disablePortal
+                 options={extractUniqueValues("prodottofinale")} // Provide your unique values here
+                 value={activeFilters["prodottofinale"] || ""} // Set the selected value
+                 onChange={(event, newValue) =>
+                   handleFilterSelect("prodottofinale", newValue)
+                 } // Update the selected value
+                 renderInput={(params) => <TextField {...params} label="Prodotto" />} // Customize the label
+               // sx={{ width: 300 }} // Optional styling
+               />
+               <Autocomplete
+                 disablePortal
+                 options={extractUniqueValues("processo")} // Provide your unique values here
+                 value={activeFilters["processo"] || ""} // Set the selected value
+                 onChange={(event, newValue) =>
+                   handleFilterSelect("processo", newValue)
+                 } // Update the selected value
+                 renderInput={(params) => (
+                   <TextField {...params} label="Fase" />
+                 )} // Customize the label
+               // sx={{ width: 300 }} // Optional styling
+               />
+               <Autocomplete
+                 disablePortal
+                 options={extractUniqueValues("stato")} // Provide your unique values here
+                 value={activeFilters["stato"] || ""} // Set the selected value
+                 onChange={(event, newValue) =>
+                   handleFilterSelect("stato", newValue)
+                 } // Update the selected value
+                 renderInput={(params) => <TextField {...params} label="Stato" />} // Customize the label
+               // sx={{ width: 300 }} // Optional styling
+               />
+               <SearchField value={searchTerm} onChange={handleSearchChange} />
+               <MenuWithOptions options={options} />
+             </>
+        ) : (
+          <>
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("valore")} // Provide your unique values here
+              value={activeFilters["valore"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("valore", newValue)
+              } // Update the selected value
+              renderInput={(params) => <TextField {...params} label="Valore" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+            />
+            <Autocomplete
+              disablePortal
+              options={extractUniqueValues("numero")} // Provide your unique values here
+              value={activeFilters["numero"] || ""} // Set the selected value
+              onChange={(event, newValue) =>
+                handleFilterSelect("numero", newValue)
+              } // Update the selected value
+              renderInput={(params) => <TextField {...params} label="Numero" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+            />
+            <SearchField value={searchTerm} onChange={handleSearchChange} />
 
-          <MenuWithOptions options={options} />
-        </>
-      )}
+            <MenuWithOptions options={options} />
+          </>
+        )}
       {form !== "form1" || (
         <div style={{ marginTop: "5px" }}>
           {(navData === "personale" ||
@@ -903,21 +979,20 @@ const SearchTable = ({
     </>
   );
 
-  console.log("Nav",navData);
+  console.log("Nav", navData);
 
   return (
     <Box
       className={
         navData === "personale" ||
-        navData === "bilancio" ||
-        navData === "Gruppi" ||
-        navData === "product" ||
-        navData === "conf_prodotti" ||
-        navData === "lis_prodotti"
+          navData === "bilancio" ||
+          navData === "Gruppi" ||
+          navData === "product" ||
+          navData === "conf_prodotti" ||
+          navData === "lis_prodotti"
           ? ""
           : `
-        ${
-          window.location.pathname === "/vendite/ordini/sub-ordini"
+        ${window.location.pathname === "/vendite/ordini/sub-ordini"
             ? ""
             : `
           ${invoice ? "invoiceFilter fattura" : "invoiceFilter"}
@@ -929,21 +1004,19 @@ const SearchTable = ({
           ${navData === "preventivi" ? "fornitoriInvoiceFilter" : ""}
           ${navData === "allegati" ? "allegatiInvoiceFilter" : ""}
           ${navData === "candidati" ? "candidatiInvoiceFilter" : ""}
-          ${
-            navData === "distinta" ? "distintaInvoiceFilter" : ""}
+          ${navData === "distinta" ? "distintaInvoiceFilter" : ""}
           ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
           ${navData === "colaboratory" ? "colaboratoryInvoiceFilter" : ""}
           ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
-          ${
-            navData === "AmministragionDocumenti"
-             
+          ${navData === "AmministragionDocumenti"
+
               ? "fornitoriInvoiceFilter"
-             
+
               : ""
-          
-          }
+
+            }
         `
-        }
+          }
       `
       }
     >
@@ -955,25 +1028,25 @@ const SearchTable = ({
             {window.location.pathname === "/vendite/ordini/sub-ordini"
               ? null
               : invoice
-              ? renderInvoiceFilters()
-              : renderFilters()}
+                ? renderInvoiceFilters()
+                : renderFilters()}
           </>
         )}
       </Stack>
       {(window.location.href.includes("/vendite/budget/sub-budget") ||
         window.location.href.includes("/acquisti/budget/sub-budget") ||
         window.location.href.includes("/acquisti/budget/sub-budget")) && (
-        <Autocomplete
-          sx={{ marginTop: "14px !important" }}
-          disablePortal
-          options={extractUniqueValues("valore")} // Provide your unique values here
-          value={activeFilters["valore"] || ""} // Set the selected value
-          onChange={(event, newValue) => handleFilterSelect("valore", newValue)} // Update the selected value
-          renderInput={(params) => (
-            <TextField {...params} label="Titolo del preventivo" />
-          )} // Customize the label
-        />
-      )}
+          <Autocomplete
+            sx={{ marginTop: "14px !important" }}
+            disablePortal
+            options={extractUniqueValues("valore")} // Provide your unique values here
+            value={activeFilters["valore"] || ""} // Set the selected value
+            onChange={(event, newValue) => handleFilterSelect("valore", newValue)} // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Titolo del preventivo" />
+            )} // Customize the label
+          />
+        )}
     </Box>
   );
 };

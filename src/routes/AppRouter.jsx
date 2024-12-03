@@ -91,6 +91,9 @@ import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 import Plan from "../pages/Production/Plan.jsx";
 import Productions from "../pages/Production/Productions.jsx";
+import ProductionsDetails from "../pages/Production/ProductionsDetails.jsx";
+import Processes from "../pages/Production/Processes.jsx";
+import ProcessesDetails from "../pages/Production/ProcessesDetails.jsx";
 
 const Allroutes = () => {
   return (
@@ -748,14 +751,38 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/productions"
+        path="/production/list"
         element={
           <PublicRoute>
             <Productions />
           </PublicRoute>
         }
       />
+      <Route
+        path="/production/list/details"
+        element={
+          <PublicRoute>
+            <ProductionsDetails />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/production/processes"
+        element={
+          <PublicRoute>
+            <Processes />
+          </PublicRoute>
+        }
+      />
 
+      <Route
+        path="/production/processes/details"
+        element={
+          <PublicRoute>
+            <ProcessesDetails />
+          </PublicRoute>
+        }
+      />
 
       <Route
         path="/hr/calendario"
@@ -765,7 +792,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/hr/organizza"
         element={
           <PublicRoute>

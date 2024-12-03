@@ -1189,4 +1189,19 @@
       }
     }
   }
-  
+  .ProductionsProcessiPage {
+    .invoiceFilter {
+      .MuiStack-root {
+        grid-template-columns: 155px 155px 1fr 1fr 1.2fr 1.6fr 50px;
+      }
+    }
+  }
+  .ProductionsCards {
+  .FactureSection__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    .MuiGrid-item {
+      max-width: 100%;
+    }
+  }
+  }

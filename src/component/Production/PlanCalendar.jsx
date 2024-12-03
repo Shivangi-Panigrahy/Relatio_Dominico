@@ -24,8 +24,8 @@ const events = [
     id: 0,
     title: `Produzione 344554-`, // Updated title
     allDay: false,
-    start: new Date(2024, 11, 26, 10, 30, 0), // 26th December 2024 at 10:30
-    end: new Date(2024, 11, 26, 17, 0, 0),
+    start: new Date(2024, 11, 3, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 3, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -35,8 +35,8 @@ const events = [
     id: 1, // Changed id to make it unique
     title: `Produzione 344554-`, // Updated title
     allDay: false,
-    start: new Date(2024, 11, 26, 10, 30, 0), // 26th December 2024 at 10:30
-    end: new Date(2024, 11, 26, 17, 0, 0),
+    start: new Date(2024, 11, 3, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 3, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -90,7 +90,6 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
     setCurrentDate(moment(currentDate).add(1, "month").toDate());
   };
   const handleToday = () => {
-    debugger
     setCurrentDate(new Date());
   };
   const dayPropGetter = (date) => {
@@ -134,7 +133,6 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
     )
   };
   const CustomWeekEvent = ({ event }) => {
-    debugger
     console.log('event: ', event);
     return (
       <div className="custom-week-event" style={{ backgroundColor: event.eventType === "Appointment" && "#FFA90333" }}>
