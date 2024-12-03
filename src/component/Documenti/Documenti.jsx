@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -34,117 +34,163 @@ const Documenti = ({ data }) => {
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
     setPage(0);
+  }
+
+  // Helper function to determine current route
+  const getCurrentRoute = () => {
+    const path = window.location.pathname;
+    return {
+      isProgettiTaskPage: path.includes("/attivita/progetti/Task"),
+      isProgettiAssetPage: path.includes("/attivita/progetti/Asset"),
+      isProgettiDocumentiPage: path.includes("/attivita/progetti/Documenti"),
+      isHREquipagiamentoPage: path.includes("/hr/sub-colaboratory/Equipagiamento"),
+      isHRDocumentiPage: path.includes("/hr/sub-colaboratory/Documenti"),
+      isAcquistiDocumentiPage: path.includes("/acquisti/fornitori/Documenti"),
+      isVenditeDocumentiPage: path.includes("/vendite/sub-lead/Documenti")
+    };
   };
 
   const handleSearch = (filters) => {
     setSearchFilters(filters);
   };
 
-  const isEquipagiamentoPage = window.location.href.includes(
-    "/hr/sub-colaboratory/Equipagiamento"
-  );
-  const isDocumentiPage = window.location.href.includes(
-    "/hr/sub-colaboratory/Documenti"
-  );
+  // Determine sections visibility based on route
+  const getSections = () => {
+    const route = getCurrentRoute();
 
-  const sections = [
-    ...(isEquipagiamentoPage
-      ? [
-          {
-            label: "Attrezzature",
-            content: "Attrezzature content is hidden for this page.",
-          },
-          {
-            label: "Mezzi",
-            content: "Mezzi content is hidden for this page.",
-          },
-        ]
-      : []),
+    const sections = [];
 
-    ...(isDocumentiPage
-      ? [
-          {
-            label: "Busta Page",
-            content: <BustaPage />,
-          },
-        ]
-      : []),
 
-    ...(isEquipagiamentoPage
-      ? [] // Avoid adding Budget, Preventivi, Ordini, DDT in Equipagiamento
-      : [
-          {
-            label: "Budget",
-            content:
-              window.location.href.includes("/acquisti/fornitori/Documenti") ||
-              window.location.href.includes(
-                "/hr/sub-colaboratory/Documenti"
-              ) ? (
-                <AcquistiBudget />
-              ) : window.location.href.includes(
-                  "/vendite/sub-lead/Documenti"
-                ) ? (
-                <VenditeBudget />
-              ) : (
-                "Budget content is hidden for this page."
-              ),
-          },
-          {
-            label: "Preventivi",
-            content:
-              window.location.href.includes("/acquisti/fornitori/Documenti") ||
-              window.location.href.includes(
-                "/hr/sub-colaboratory/Documenti"
-              ) ? (
-                <AcquistiPreventivi />
-              ) : window.location.href.includes(
-                  "/vendite/sub-lead/Documenti"
-                ) ? (
-                <VenditePreventivi />
-              ) : (
-                "Preventivi content is hidden for this page."
-              ),
-          },
-          {
-            label: "Ordini",
-            content:
-              window.location.href.includes("/acquisti/fornitori/Documenti") ||
-              window.location.href.includes(
-                "/hr/sub-colaboratory/Documenti"
-              ) ? (
-                <AcquistiOrdini />
-              ) : window.location.href.includes(
-                  "/vendite/sub-lead/Documenti"
-                ) ? (
-                <VenditeOrdini />
-              ) : (
-                "Ordini content is hidden for this page."
-              ),
-          },
-          {
-            label: "Documenti contabili",
-            content: "All the documenti contabili details are provided here.",
-          },
-          {
-            label: "DDT",
-            content: "DDT-related information can be found in this section.",
-          },
-        ]),
-  ];
+    // Equipagiamento route
+    if (route.isHREquipagiamentoPage) {
+      sections.push(
+        { label: "Attrezzature", content: "Attrezzature content" },
+        { label: "Mezzi", content: "Mezzi content" }
+      );
+    }
 
-  const stats = [
-    { label: "Documenti", value: 604 },
-    { label: "Budget", value: 604 },
-    { label: "Preventivi", value: 604 },
-    ...(window.location.href.includes("/vendite/sub-lead/Documenti")
-      ? []
-      : [
-          { label: "Ordini", value: 604 },
-          { label: "Fatture", value: 604 },
-          { label: "Buste paga", value: 604 },
-        ]),
-  ];
+    // HR Documenti route
+    if (route.isHRDocumentiPage) {
+      sections.push(
+        { label: "Busta Page", content: <BustaPage /> },
+        { label: "Budget", content: <AcquistiBudget /> },
+        { label: "Preventivi", content: <AcquistiPreventivi /> },
+        { label: "Ordini", content: <AcquistiOrdini /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
 
+    // Acquisti Documenti route
+    if (route.isAcquistiDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <AcquistiBudget /> },
+        { label: "Preventivi", content: <AcquistiPreventivi /> },
+        { label: "Ordini", content: <AcquistiOrdini /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    // Vendite Documenti route
+    if (route.isVenditeDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <VenditeBudget /> },
+        { label: "Preventivi", content: <VenditePreventivi /> },
+        { label: "Ordini", content: <VenditeOrdini /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    // Progetti Task route
+    if (route.isProgettiTaskPage) {
+      sections.push(
+        { label: "Category 1", content: "Category 1 content" },
+        { label: "Category 2", content: "Category 2 content" },
+        { label: "Category 3", content: "Category 3 content" }
+      );
+    }
+
+    if (route.isProgettiAssetPage) {
+      sections.push(
+        { label: "Collaboratori", content: "Collaboratori content" },
+        { label: "Mezzi", content: "Mezzi content" },
+        { label: "Attrezzature", content: "Attrezzature details" },
+        { label: "Prodotti", content: "Prodotti information" }
+      );
+    }
+
+    if (route.isProgettiDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <VenditeBudget /> },
+        { label: "Preventivi", content: <VenditePreventivi /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    return sections;
+  };
+
+  // Determine stats based on route
+  const getStats = () => {
+    const route = getCurrentRoute();
+    const baseStats = [];
+
+    if (route.isVenditeDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 }
+      );
+    }
+
+    if (route.isAcquistiDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+    if (route.isHRDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+    if (route.isHREquipagiamentoPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+    if (route.isProgettiTaskPage) {
+      baseStats.push(
+        { label: "Fasi", value: 12604 },
+        { label: "Task totalli", value: 12604 },
+        { label: "Task Da completi", value: 604 },
+        { label: "Task completi", value: 604 }
+      );
+    }
+
+    return baseStats;
+  };
+
+  // Filtering logic
   const applyFilters = () => {
     let result = data;
 
@@ -156,9 +202,6 @@ const Documenti = ({ data }) => {
           item.clienti.toLowerCase().includes(term) ||
           item.fornitori.toLowerCase().includes(term)
       );
-    }
-    if (searchFilters.searchTerm == "") {
-      result = data;
     }
 
     if (searchFilters.StartDate && searchFilters.EndDate) {
@@ -176,6 +219,7 @@ const Documenti = ({ data }) => {
       }
     }
 
+    // Additional filter conditions
     if (searchFilters.valore) {
       result = result.filter((item) => item.valore === searchFilters.valore);
     }
@@ -184,7 +228,6 @@ const Documenti = ({ data }) => {
         (item) => item.numero === parseInt(searchFilters.numero)
       );
     }
-
     if (searchFilters.stato) {
       result = result.filter((item) => item.stato === searchFilters.stato);
     }
@@ -196,15 +239,12 @@ const Documenti = ({ data }) => {
     setPage(0);
   };
 
+  // Memoize sections and stats to prevent unnecessary re-renders
+  const sections = useMemo(getSections, [window.location.pathname]);
+  const stats = useMemo(getStats, [window.location.pathname]);
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: 2000,
-        mx: "auto",
-        mt: 4,
-      }}
-    >
+    <Box sx={{ width: "100%", maxWidth: 2000, mx: "auto", mt: 4 }}>
       <Grid container spacing={2} justifyContent="start" sx={{ mb: 4 }}>
         {stats.map((stat, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={2}>
@@ -214,9 +254,6 @@ const Documenti = ({ data }) => {
                 borderRadius: "16px",
                 boxShadow: "0px 6px 24px #919EAB33",
                 padding: "14px 20px",
-                // "&:hover": {
-                //   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-                // },
               }}
             >
               <Typography
@@ -245,23 +282,35 @@ const Documenti = ({ data }) => {
           </Grid>
         ))}
       </Grid>
+
       <div className="documentiSearchFilter">
-        <SearchTable
-          startDate={startDate}
-          setStartDate={setStartDate}
-          endDate={endDate}
-          setEndDate={setEndDate}
-          onValoreFilter={handleValoreFilter}
-          onSearch={handleSearch}
-          applyFilters={applyFilters}
-          setSearchFilters={setSearchFilters}
-          activeFilters={activeFilters}
-          setActiveFilters={setActiveFilters}
-          searchFilters={searchFilters}
-          navData={"documenti"}
-        />
+        <>
+          {!window.location.href.includes('/attivita/progetti/Task') &&
+            !window.location.href.includes('/attivita/progetti/Asset')
+            // !window.location.href.includes('/hr/sub-colaboratory/Documenti') 
+            ?
+            (
+              <SearchTable
+                startDate={startDate}
+                setStartDate={setStartDate}
+                endDate={endDate}
+                setEndDate={setEndDate}
+                onValoreFilter={handleValoreFilter}
+                onSearch={handleSearch}
+                applyFilters={applyFilters}
+                setSearchFilters={setSearchFilters}
+                activeFilters={activeFilters}
+                setActiveFilters={setActiveFilters}
+                searchFilters={searchFilters}
+                navData={"documenti"}
+              />
+            ) : null}
+        </>
+
+
+
       </div>
-      {/* Accordion Sections */}
+
       <Box className="customAccordion">
         {sections.map((section, index) => (
           <Accordion
@@ -286,4 +335,4 @@ const Documenti = ({ data }) => {
   );
 };
 
-export default Documenti;
+export default Documenti

@@ -95,6 +95,7 @@ import AttivitaProgetti from "../pages/Attivita/Progetti/Progetti.jsx"
 import SubProgetti from "../pages/Attivita/Progetti/SubProgetti.jsx";
 import Economia from "../component/Economia/Economia.jsx";
 
+
 const Allroutes = () => {
   return (
     <Routes>
@@ -921,7 +922,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/timesheet"
+        path="/attivita/Timesheet"
         element={
           <PublicRoute>
             <Organizza />
@@ -929,7 +930,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/gantt"
+        path="/attivita/gantt"
         element={
           <PublicRoute>
             <Organizza />
@@ -937,7 +938,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/calendario"
+        path="/attivita/calendario"
         element={
           <PublicRoute>
             <AttivitaCalendar />
@@ -945,7 +946,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti"
+        path="/attivita/progetti"
         element={
           <PublicRoute>
             <AttivitaProgetti />
@@ -953,7 +954,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Task"
+        path="/attivita/progetti/Task"
         element={
           <PublicRoute>
             <SubProgetti Component={Documenti} />
@@ -961,7 +962,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Asset"
+        path="/attivita/progetti/Asset"
         element={
           <PublicRoute>
             <SubProgetti Component={Documenti} />
@@ -969,7 +970,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Allegati"
+        path="/attivita/progetti/Allegati"
         element={
           <PublicRoute>
             <SubProgetti Component={Allegati} />
@@ -977,7 +978,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Documenti"
+        path="/attivita/progetti/Documenti"
         element={
           <PublicRoute>
             <SubProgetti Component={Documenti} />
@@ -985,7 +986,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Economia"
+        path="/attivita/progetti/Economia"
         element={
           <PublicRoute>
             <SubProgetti Component={Economia} />
@@ -993,7 +994,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/attività/progetti/Dashboard"
+        path="/attivita/progetti/Dashboard"
         element={
           <PublicRoute>
             <SubProgetti Component={ReactBigCalendar} />

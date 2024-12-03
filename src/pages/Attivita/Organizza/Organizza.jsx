@@ -3,6 +3,7 @@ import Header from "../../../component/header/Header";
 import MenuTab from "../../../component/tabs/MenuTab";
 import Timesheet from './Timesheet'; // Assume this component exists
 import Gantt from './Gantt'; // Assume this component exists
+import InvoiceDashboard from '../../../component/invoiceStatitics/InvoiceDashboard';
 
 const Organizza = () => {
   const [selectedTab, setSelectedTab] = useState("Timesheet");
@@ -26,6 +27,28 @@ const Organizza = () => {
     }
   };
 
+  const OrganizzaData = [
+    {
+      status: "Collaboratori",
+      count: 53,
+      color: "#100919",
+    },
+    {
+      status: "Livello di occupazione complessivo",
+      count: '85%',
+      color: "#57C700",
+    },
+    {
+      status: "Progetti",
+      count: 32,
+      color: "#FFA903",
+    },
+    {
+      status: "Ore pianificate",
+      count: 280,
+      color: "#DB0000",
+    },
+  ];
   return (
     <>
       <Header />
@@ -36,6 +59,7 @@ const Organizza = () => {
             customClassName="organizzaTabs"
             organizza={true}
           />
+          <InvoiceDashboard ordini={OrganizzaData} />
           <div className="contentCard">
             {renderContent()}
           </div>

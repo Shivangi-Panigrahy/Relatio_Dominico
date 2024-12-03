@@ -980,10 +980,125 @@ const HeaderBelow = () => {
                                                                                                                                     </IconButton>
                                                                                                                                     <Typography variant="h2">Prima nota</Typography>
                                                                                                                                   </> :
+                                                                                                                                  window.location.href.includes("/attivita/calendario") ?
+                                                                                                                                    <>
+                                                                                                                                      <Typography variant="h2">Attività</Typography>
+                                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                                        <ArrowForwardIcon />
+                                                                                                                                      </IconButton>
+                                                                                                                                      <Typography variant="h2">Calendario</Typography>
+                                                                                                                                    </>
+                                                                                                                                    :
+                                                                                                                                    window.location.href.includes("/attivita/timesheet") ?
+                                                                                                                                      <>
+                                                                                                                                        <Typography variant="h2">Attività</Typography>
+                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                        </IconButton>
+                                                                                                                                        <Typography variant="h2">Timesheet</Typography>
+                                                                                                                                      </>
+                                                                                                                                      :
+                                                                                                                                      window.location.href.includes("/attivita/gantt") ?
+                                                                                                                                        <>
+                                                                                                                                          <Typography variant="h2">Attività</Typography>
+                                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                                            <ArrowForwardIcon />
+                                                                                                                                          </IconButton>
+                                                                                                                                          <Typography variant="h2">Gantt</Typography>
+                                                                                                                                        </>
+                                                                                                                                        :
+                                                                                                                                        window.location.href.includes("/attivita/progetti/Task") ?
+                                                                                                                                          <>
+                                                                                                                                            <Typography variant="h2">Attività</Typography>
+                                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                                              <ArrowForwardIcon />
+                                                                                                                                            </IconButton>
+                                                                                                                                            <Typography variant="h2">Gantt</Typography>
+                                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                                              <ArrowForwardIcon />
+                                                                                                                                            </IconButton>
+                                                                                                                                            <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                          </>
+                                                                                                                                          :
+                                                                                                                                          window.location.href.includes("/attivita/progetti/Asset") ?
+                                                                                                                                            <>
+                                                                                                                                              <Typography variant="h2">Attività</Typography>
+                                                                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                                                                <ArrowForwardIcon />
+                                                                                                                                              </IconButton>
+                                                                                                                                              <Typography variant="h2">Gantt</Typography>
+                                                                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                                                                <ArrowForwardIcon />
+                                                                                                                                              </IconButton>
+                                                                                                                                              <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                            </>
+                                                                                                                                            :
+                                                                                                                                            window.location.href.includes("/attivita/progetti/Allegati") ?
+                                                                                                                                              <>
+                                                                                                                                                <Typography variant="h2">Attività</Typography>
+                                                                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                                                                  <ArrowForwardIcon />
+                                                                                                                                                </IconButton>
+                                                                                                                                                <Typography variant="h2">Gantt</Typography>
+                                                                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                                                                  <ArrowForwardIcon />
+                                                                                                                                                </IconButton>
+                                                                                                                                                <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                              </>
+                                                                                                                                              :
+                                                                                                                                              window.location.href.includes("/attivita/progetti/Documenti") ?
+                                                                                                                                                <>
+                                                                                                                                                  <Typography variant="h2">Attività</Typography>
+                                                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                                                    <ArrowForwardIcon />
+                                                                                                                                                  </IconButton>
+                                                                                                                                                  <Typography variant="h2">Gantt</Typography>
+                                                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                                                    <ArrowForwardIcon />
+                                                                                                                                                  </IconButton>
+                                                                                                                                                  <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                                </>
+                                                                                                                                                :
+                                                                                                                                                window.location.href.includes("/attivita/progetti/Economia") ?
+                                                                                                                                                  <>
+                                                                                                                                                    <Typography variant="h2">Attività</Typography>
+                                                                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                                                                      <ArrowForwardIcon />
+                                                                                                                                                    </IconButton>
+                                                                                                                                                    <Typography variant="h2">Gantt</Typography>
+                                                                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                                                                      <ArrowForwardIcon />
+                                                                                                                                                    </IconButton>
+                                                                                                                                                    <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                                  </>
+                                                                                                                                                  :
+                                                                                                                                                  window.location.href.includes("/attivita/progetti/Dashboard") ?
+                                                                                                                                                    <>
+                                                                                                                                                      <Typography variant="h2">Attività</Typography>
+                                                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                                                        <ArrowForwardIcon />
+                                                                                                                                                      </IconButton>
+                                                                                                                                                      <Typography variant="h2">Gantt</Typography>
+                                                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                                                        <ArrowForwardIcon />
+                                                                                                                                                      </IconButton>
+                                                                                                                                                      <Typography variant="h2">Nome del progetto</Typography>
+                                                                                                                                                    </>
+                                                                                                                                                    :
+                                                                                                                                                    window.location.href.includes("/attivita/progetti") ?
+                                                                                                                                                      <>
+                                                                                                                                                        <Typography variant="h2">Attività</Typography>
+                                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                                        </IconButton>
+                                                                                                                                                        <Typography variant="h2">Progetti</Typography>
+                                                                                                                                                      </>
+                                                                                                                                                      :
 
-                                                                                                                                  (
-                                                                                                                                    <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                                                                  )}
+
+                                                                                                                                                      (
+                                                                                                                                                        <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                                                                      )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&

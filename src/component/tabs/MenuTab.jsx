@@ -219,9 +219,9 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
 
   if (ishrCalendario) return `/hr/${label}`;
 
-  if (isOrganizza) return `/attività/${label}`;
+  if (isOrganizza) return `/attivita/${label}`;
 
-  if (isProgetti) return `/attività/progetti/${label}`;
+  if (isProgetti) return `/attivita/progetti/${label}`;
 
 
   return `/dashboard/${label}`;

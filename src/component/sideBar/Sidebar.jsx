@@ -146,9 +146,9 @@ const menuItems = [
     textColor: "#3F37C9",
     route: "/attivita",
     subitems: [
-      { name: "Organizza", route: "/attività/timesheet" },
-      { name: "Calendario", route: "/attività/calendario" },
-      { name: "Progetti", route: "/attività/progetti" },
+      { name: "Organizza", route: "/attivita/timesheet" },
+      { name: "Calendario", route: "/attivita/calendario" },
+      { name: "Progetti", route: "/attivita/progetti" },
     ],
   },
   {

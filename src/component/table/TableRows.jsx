@@ -220,7 +220,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
                     onClick={() =>
-                      navigate("/attività/progetti/Task") 
+                      navigate("/attivita/progetti/Task") 
                     }
                   >
                     <StyledTableCell align="center">
