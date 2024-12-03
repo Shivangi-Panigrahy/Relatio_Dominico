@@ -65,101 +65,158 @@ const GanttChart = () => {
   const currentDate = today.getDate(); // Get current day of the month
   const currentMonth = today.getMonth(); // Get current month (0-based, so November is 10)
   const currentYear = today.getFullYear(); // Get current year
+  // const [projects, setProjects] = useState([
+  //   {
+  //     id: 0,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 8, color: "pink", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Matteo gantt",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 8, color: "#E91E63", month: 10 },
+  //       { startDate: 11, endDate: 12, color: "#E91E63", month: 10 },
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 7, endDate: 8, color: "yellow", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 6, endDate: 7, color: "green", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   // More project data...
+  // ]);
+
+  // Filter tasks based on the selected month
+
   const [projects, setProjects] = useState([
     {
       id: 0,
+      category: "Tema Tecnico",
       name: "Matteo Vellone",
+      role: "Designer",
       allocation: "40%",
       tasks: [
         { startDate: 4, endDate: 8, color: "pink", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 11, endDate: 15, color: "pink", month: 10 },
+      ],
+    },
+    {
+      id: 1,
+      category: "Tema Tecnico",
+      name: "Matteo Vellone",
+      role: "Designer",
+      allocation: "70%",
+      tasks: [
+        { startDate: 4, endDate: 8, color: "yellow", month: 10 },
       ],
     },
     {
       id: 2,
-      name: "Matteo gantt",
-      allocation: "40%",
+      category: "Tema Tecnico",
+      name: "Matteo Vellone",
+      role: "Designer",
+      allocation: "90%",
       tasks: [
-        { startDate: 4, endDate: 8, color: "#E91E63", month: 10 },
-        { startDate: 11, endDate: 12, color: "#E91E63", month: 10 },
+        { startDate: 4, endDate: 8, color: "red", month: 10 },
       ],
     },
     {
       id: 3,
+      category: "Tema Design",
       name: "Matteo Vellone",
+      role: "Designer",
       allocation: "40%",
       tasks: [
-        { startDate: 7, endDate: 8, color: "yellow", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 4, endDate: 8, color: "green", month: 10 },
       ],
     },
     {
       id: 4,
+      category: "Tema Design",
       name: "Matteo Vellone",
-      allocation: "40%",
+      role: "Designer",
+      allocation: "70%",
       tasks: [
-        { startDate: 6, endDate: 7, color: "green", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 4, endDate: 8, color: "yellow", month: 10 },
       ],
     },
-    {
-      id: 5,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 6,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 7,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 8,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 9,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 10,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    // More project data...
+    // Add more projects as needed
   ]);
 
-  // Filter tasks based on the selected month
+
   const getTasksForSelectedMonth = (tasks) => {
     return tasks.filter((task) => {
       // Compare the task's month to the selected month
@@ -168,62 +225,66 @@ const GanttChart = () => {
   };
 
   const handleArrowUp = (index) => {
-    if (index > 0) {
+    // Find the boundaries of the current category
+    const currentCategory = projects[index].category;
+    const startIndex = projects.findIndex((project) => project.category === currentCategory);
+    const endIndex = projects.slice(startIndex).findIndex((project) => project.category !== currentCategory);
+    const categoryEndIndex = endIndex === -1 ? projects.length - 1 : startIndex + endIndex - 1;
+
+    if (index > startIndex) {
       setActiveMoveRowIndexFirst(index);
       setMovingIndex(index);
       setDirection("up");
 
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(index - 1);
-        setDirection(null); // Reset direction after animation
-      }, 400);
-
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(null);
-      }, 900);
-
+      // Update the order of the projects within the category
       const newProjects = [...projects];
-      const temp = newProjects[index];
-      newProjects[index] = newProjects[index - 1];
-      newProjects[index - 1] = temp;
+      [newProjects[index - 1], newProjects[index]] = [newProjects[index], newProjects[index - 1]];
 
       setTimeout(() => {
-        setProjects(newProjects);
-        setMovingIndex(null); // Reset moving index after update
-      }, 400);
+        setProjects(newProjects); // Update the state after animation
+        setActiveMoveRowIndexFirst(null);
+        setMovingIndex(null);
+        setDirection(null); // Reset direction
+      }, 400); // Animation duration
     }
   };
 
   const handleArrowDown = (index) => {
-    if (index < projects.length - 1) {
+    // Find the boundaries of the current category
+    const currentCategory = projects[index].category;
+    const startIndex = projects.findIndex((project) => project.category === currentCategory);
+    const endIndex = projects.slice(startIndex).findIndex((project) => project.category !== currentCategory);
+    const categoryEndIndex = endIndex === -1 ? projects.length - 1 : startIndex + endIndex - 1;
+
+    if (index < categoryEndIndex) {
       setActiveMoveRowIndexFirst(index);
       setMovingIndex(index);
       setDirection("down");
 
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(index + 1);
-        setDirection(null); // Reset direction after animation
-      }, 400);
-
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(null);
-      }, 900);
-
+      // Update the order of the projects within the category
       const newProjects = [...projects];
-      const temp = newProjects[index];
-      newProjects[index] = newProjects[index + 1];
-      newProjects[index + 1] = temp;
+      [newProjects[index + 1], newProjects[index]] = [newProjects[index], newProjects[index + 1]];
 
       setTimeout(() => {
-        setProjects(newProjects);
-        setMovingIndex(null); // Reset moving index after update
-      }, 400);
+        setProjects(newProjects); // Update the state after animation
+        setActiveMoveRowIndexFirst(null);
+        setMovingIndex(null);
+        setDirection(null); // Reset direction
+      }, 400); // Animation duration
     }
+  };
+
+
+  const getColor = (allocation) => {
+    const percentage = parseInt(allocation, 10);
+    if (percentage <= 40) return "#57C700"; // Green
+    if (percentage <= 70) return "orange"; // Yellow
+    return "red"; // Red
   };
 
   return (
     <>
-      <Box  variant="outlined">
+      <Box variant="outlined">
         {/* Month selection buttons */}
 
         <div className="calenderGantt__table">
@@ -237,7 +298,7 @@ const GanttChart = () => {
               <NextBtn />
             </IconButton>
           </div>
-          <Table className="calenderGantt__userTable">
+          {/* <Table className="calenderGantt__userTable">
             <TableHead>
               <TableRow>
                 <TableCell>
@@ -271,9 +332,7 @@ const GanttChart = () => {
                           <Avatar1 />
                           <span></span>
                         </div>
-                        {/* <Avatar style={{ width: "32px", height: "32px" }}>
-                        M
-                      </Avatar> */}
+                     
                         <Typography variant="body2">{project.name}</Typography>
                       </div>
                     </TableCell>
@@ -310,8 +369,60 @@ const GanttChart = () => {
                 );
               })}
             </TableBody>
+          </Table> */}
+          <Table className="calenderGantt__userTable">
+            <TableHead>
+              <TableRow>
+                <TableCell>
+                  <div className="heading">Collaboratori</div>
+                </TableCell>
+                <TableCell>
+                  <div className="heading">Ruolo</div>
+                </TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {projects.reduce((acc, project, index) => {
+                // Add category row if it's the first project or the category changes
+                if (
+                  index === 0 ||
+                  projects[index - 1].category !== project.category
+                ) {
+                  acc.push(
+                    <TableRow key={`category-${project.category}`} style={{ backgroundColor: "#f5f5f5" }}>
+                      <TableCell colSpan={3} style={{ fontWeight: "bold", padding: "8px" }}>
+                        {project.category}
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+                // Add individual project row
+                acc.push(
+                  <TableRow key={project.id}>
+                    <TableCell style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      im
+                      <Typography variant="body2">{project.name}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body2">{project.role}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
+                        <IconButton size="small" onClick={() => handleArrowUp(index)}>
+                          <ArrowUpwardIcon fontSize="inherit" />
+                        </IconButton>
+                        <IconButton size="small" onClick={() => handleArrowDown(index)}>
+                          <ArrowDownwardIcon fontSize="inherit" />
+                        </IconButton>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+                return acc;
+              }, [])}
+            </TableBody>
           </Table>
-
           <Table className="calenderGantt__detailTable">
             <TableHead>
               <TableRow>
@@ -328,18 +439,150 @@ const GanttChart = () => {
                         currentDateObj.getDay() === 6;
                       return (
                         <div
-                          className={`${
-                            isToday
-                              ? "detailBox__inner borderedDashed"
-                              : "detailBox__inner"
-                          }`}
+                          className={`${isToday ? "detailBox__inner borderedDashed" : "detailBox__inner"}`}
                           key={date}
                           style={{
                             color: isToday
                               ? "#FFFFFF"
                               : isWeekend
-                              ? "#1009191A"
-                              : "#100919",
+                                ? "#1009191A"
+                                : "#100919",
+                            backgroundColor: isToday ? "#abe380" : "transparent",
+                          }}
+                        >
+                          {date}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {projects.map((project) => {
+                const tasksForMonth = getTasksForSelectedMonth(project.tasks);
+                return (
+                  <TableRow key={project.id}>
+                    <TableCell colSpan={selectedMonth.days} style={{ position: "relative", padding: 0 }}>
+                      <div className="calenderBoxMain">
+                        {dates.map((date, dayIndex) => {
+                          const taskForDay = tasksForMonth.find(
+                            (task) => date >= task.startDate && date <= task.endDate
+                          );
+                          const isTaskDay = !!taskForDay;
+                          const taskColor = taskForDay ? taskForDay.color : "#f0f0f0"; // Default to gray if not a task day
+                          const currentDateObj = new Date(2024, monthIndex, date);
+                          const isWeekend =
+                            currentDateObj.getDay() === 0 || currentDateObj.getDay() === 6;
+                          const isToday =
+                            date === currentDate &&
+                            currentMonth === monthIndex &&
+                            currentYear === 2024;
+
+                          // Adjust the image and number rendering
+                          const isStartDate = taskForDay && date === taskForDay.startDate;
+                          const isEndDate = taskForDay && date === taskForDay.endDate;
+
+                          return (
+                            <div
+                              className={`${isToday ? "borderedDashed calenderBox" : "calenderBox"} ${isTaskDay ? "calenderBox asas" : ""
+                                }`}
+                              key={dayIndex}
+                              style={{
+                                position: "absolute",
+                                height: "100%",
+                                backgroundColor: isToday
+                                  ? "#ffffff" // White background for today
+                                  : isTaskDay
+                                    ? taskColor
+                                    : isWeekend
+                                      ? "" // Gray for weekends
+                                      : "#f0f0f0", // Default gray for other days
+                                left: `${(dayIndex / selectedMonth.days) * 100}%`,
+                                width: `${100 / selectedMonth.days}%`,
+                                top: "-1px",
+                              }}
+                            >
+                              {/* Render image at the start date */}
+                              {isStartDate && (
+                                <img
+                                  src="path-to-image.png" // Replace with the actual image path
+                                  alt="Task Start"
+                                  style={{
+                                    position: "absolute",
+                                    top: "50%",
+                                    left: "10%",
+                                    transform: "translateY(-50%)",
+                                    width: "24px",
+                                    height: "24px",
+                                    borderRadius: "50%",
+                                  }}
+                                />
+                              )}
+
+                              {/* Render the number "8" at the end date */}
+                              {isEndDate && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    bottom: "10%",
+                                    right: "10%",
+                                    backgroundColor: "#ffffff",
+                                    color: "#000000",
+                                    borderRadius: "50%",
+                                    padding: "4px 8px",
+                                    fontSize: "12px",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  8
+                                </div>
+                              )}
+
+                              {!isWeekend && (isToday || !isTaskDay) && (
+                                <span>
+                                  <PlushIcon />
+                                </span>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+
+
+          {/* <Table className="calenderGantt__detailTable">
+            <TableHead>
+              <TableRow>
+                <TableCell colSpan={selectedMonth.days} style={{ padding: 0 }}>
+                  <div className="detailBox">
+                    {dates.map((date) => {
+                      const isToday =
+                        date === currentDate &&
+                        currentMonth === monthIndex &&
+                        currentYear === 2024;
+                      const currentDateObj = new Date(2024, monthIndex, date);
+                      const isWeekend =
+                        currentDateObj.getDay() === 0 ||
+                        currentDateObj.getDay() === 6;
+                      return (
+                        <div
+                          className={`${isToday
+                            ? "detailBox__inner borderedDashed"
+                            : "detailBox__inner"
+                            }`}
+                          key={date}
+                          style={{
+                            color: isToday
+                              ? "#FFFFFF"
+                              : isWeekend
+                                ? "#1009191A"
+                                : "#100919",
                             backgroundColor: isToday
                               ? "#abe380"
                               : "transparent",
@@ -386,11 +629,10 @@ const GanttChart = () => {
                             currentYear === 2024;
                           return (
                             <div
-                              className={`${
-                                isToday
-                                  ? "borderedDashed calenderBox"
-                                  : "calenderBox"
-                              } ${isTaskDay ? "calenderBox asas" : ""}`}
+                              className={`${isToday
+                                ? "borderedDashed calenderBox"
+                                : "calenderBox"
+                                } ${isTaskDay ? "calenderBox asas" : ""}`}
                               // className="borderedDashed"
                               key={dayIndex}
                               style={{
@@ -399,14 +641,13 @@ const GanttChart = () => {
                                 backgroundColor: isToday
                                   ? "#ffffff" // White background for today
                                   : isTaskDay
-                                  ? taskColor
-                                  : isWeekend
-                                  ? "" // Gray for weekends
-                                  : "#f0f0f0", // Default gray for other days
+                                    ? taskColor
+                                    : isWeekend
+                                      ? "" // Gray for weekends
+                                      : "#f0f0f0", // Default gray for other days
                                 //   borderRadius: "4px",
-                                left: `${
-                                  (dayIndex / selectedMonth.days) * 100
-                                }%`,
+                                left: `${(dayIndex / selectedMonth.days) * 100
+                                  }%`,
                                 width: `${100 / selectedMonth.days}%`,
                                 top: "-1px",
                               }}
@@ -436,7 +677,7 @@ const GanttChart = () => {
                 );
               })}
             </TableBody>
-          </Table>
+          </Table> */}
         </div>
       </Box>
     </>
