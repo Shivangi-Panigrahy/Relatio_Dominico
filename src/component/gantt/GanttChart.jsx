@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableHead,
@@ -15,6 +15,12 @@ import { ReactComponent as NextBtn } from "../../assets/NextBtn.svg";
 import { ReactComponent as PreviousBtn } from "../../assets/PreviousBtn.svg";
 import { ReactComponent as PlushIcon } from "../../assets/plushIcon.svg";
 import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
+import { ReactComponent as CalenderIcon } from "../../assets/CalenderIcon.svg";
+import { ReactComponent as Calender_Two } from "../../assets/Calender_Two.svg";
+import { ReactComponent as Calender_Three } from "../../assets/Calender_Three.svg";
+import { ReactComponent as ChevronUp } from "../../assets/ChevronUp.svg";
+// import { ExpandLessIcon, ExpandMoreIcon } from '@material-ui/icons';
+
 
 import "./GanttChart.scss";
 import GanttCard from "./GanttCard";
@@ -65,170 +71,298 @@ const GanttChart = () => {
   const currentDate = today.getDate(); // Get current day of the month
   const currentMonth = today.getMonth(); // Get current month (0-based, so November is 10)
   const currentYear = today.getFullYear(); // Get current year
+  // const [projects, setProjects] = useState([
+  //   {
+  //     id: 0,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 8, color: "pink", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Matteo gantt",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 8, color: "#E91E63", month: 10 },
+  //       { startDate: 11, endDate: 12, color: "#E91E63", month: 10 },
+  //     ],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 7, endDate: 8, color: "yellow", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 6, endDate: 7, color: "green", month: 10 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "Matteo Vellone",
+  //     allocation: "40%",
+  //     tasks: [
+  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
+  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+  //     ],
+  //   },
+  //   // More project data...
+  // ]);
+
+  // Filter tasks based on the selected month
+
+
+
   const [projects, setProjects] = useState([
     {
       id: 0,
+      category: "Tema Tecnico",
       name: "Matteo Vellone",
+      role: "Designer",
+      pillColor: '#57C700',
       allocation: "40%",
       tasks: [
         { startDate: 4, endDate: 8, color: "pink", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 11, endDate: 15, color: "pink", month: 10 },
+      ],
+    },
+    {
+      id: 1,
+      category: "Tema Tecnico",
+      name: "Matteo Vellone",
+      role: "Designer",
+      pillColor: '#FFA903',
+      allocation: "70%",
+      tasks: [
+        { startDate: 4, endDate: 8, color: "yellow", month: 10 },
       ],
     },
     {
       id: 2,
-      name: "Matteo gantt",
-      allocation: "40%",
+      category: "Tema Tecnico",
+      name: "Matteo Vellone",
+      role: "Designer",
+      pillColor: '#DB0000',
+      allocation: "90%",
       tasks: [
-        { startDate: 4, endDate: 8, color: "#E91E63", month: 10 },
-        { startDate: 11, endDate: 12, color: "#E91E63", month: 10 },
+        { startDate: 4, endDate: 8, color: "red", month: 10 },
       ],
     },
     {
       id: 3,
+      category: "Tema Design",
       name: "Matteo Vellone",
+      role: "Designer",
       allocation: "40%",
+      pillColor: '#DB0000',
       tasks: [
-        { startDate: 7, endDate: 8, color: "yellow", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 4, endDate: 8, color: "green", month: 10 },
       ],
     },
     {
       id: 4,
+      category: "Tema Design",
       name: "Matteo Vellone",
-      allocation: "40%",
+      role: "Designer",
+      allocation: "70%",
+      pillColor: '#DB0000',
       tasks: [
-        { startDate: 6, endDate: 7, color: "green", month: 10 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
+        { startDate: 4, endDate: 8, color: "yellow", month: 10 },
       ],
     },
-    {
-      id: 5,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 6,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 7,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 8,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 9,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    {
-      id: 10,
-      name: "Matteo Vellone",
-      allocation: "40%",
-      tasks: [
-        { startDate: 4, endDate: 5, color: "red", month: 7 },
-        { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-      ],
-    },
-    // More project data...
+    // Add more projects as needed
   ]);
 
-  // Filter tasks based on the selected month
+
   const getTasksForSelectedMonth = (tasks) => {
-    return tasks.filter((task) => {
+    return tasks?.filter((task) => {
       // Compare the task's month to the selected month
       return task.month === monthIndex; // task.month is a number (e.g., 7 for July)
     });
   };
 
   const handleArrowUp = (index) => {
-    if (index > 0) {
+    // Find the boundaries of the current category
+    const currentCategory = projects[index].category;
+    const startIndex = projects.findIndex((project) => project.category === currentCategory);
+    const endIndex = projects.slice(startIndex).findIndex((project) => project.category !== currentCategory);
+    const categoryEndIndex = endIndex === -1 ? projects.length - 1 : startIndex + endIndex - 1;
+
+    if (index > startIndex) {
       setActiveMoveRowIndexFirst(index);
       setMovingIndex(index);
       setDirection("up");
 
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(index - 1);
-        setDirection(null); // Reset direction after animation
-      }, 400);
-
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(null);
-      }, 900);
-
+      // Update the order of the projects within the category
       const newProjects = [...projects];
-      const temp = newProjects[index];
-      newProjects[index] = newProjects[index - 1];
-      newProjects[index - 1] = temp;
+      [newProjects[index - 1], newProjects[index]] = [newProjects[index], newProjects[index - 1]];
 
       setTimeout(() => {
-        setProjects(newProjects);
-        setMovingIndex(null); // Reset moving index after update
-      }, 400);
+        setProjects(newProjects); // Update the state after animation
+        setActiveMoveRowIndexFirst(null);
+        setMovingIndex(null);
+        setDirection(null); // Reset direction
+      }, 400); // Animation duration
     }
   };
 
   const handleArrowDown = (index) => {
-    if (index < projects.length - 1) {
+    // Find the boundaries of the current category
+    const currentCategory = projects[index].category;
+    const startIndex = projects.findIndex((project) => project.category === currentCategory);
+    const endIndex = projects.slice(startIndex).findIndex((project) => project.category !== currentCategory);
+    const categoryEndIndex = endIndex === -1 ? projects.length - 1 : startIndex + endIndex - 1;
+
+    if (index < categoryEndIndex) {
       setActiveMoveRowIndexFirst(index);
       setMovingIndex(index);
       setDirection("down");
 
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(index + 1);
-        setDirection(null); // Reset direction after animation
-      }, 400);
-
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(null);
-      }, 900);
-
+      // Update the order of the projects within the category
       const newProjects = [...projects];
-      const temp = newProjects[index];
-      newProjects[index] = newProjects[index + 1];
-      newProjects[index + 1] = temp;
+      [newProjects[index + 1], newProjects[index]] = [newProjects[index], newProjects[index + 1]];
 
       setTimeout(() => {
-        setProjects(newProjects);
-        setMovingIndex(null); // Reset moving index after update
-      }, 400);
+        setProjects(newProjects); // Update the state after animation
+        setActiveMoveRowIndexFirst(null);
+        setMovingIndex(null);
+        setDirection(null); // Reset direction
+      }, 400); // Animation duration
     }
   };
 
+  const [expandedItems, setExpandedItems] = useState([]);
+  const handleToggleExpand = (id) => {
+    setExpandedItems((prevExpandedItems) => {
+      if (prevExpandedItems.includes(id)) {
+        return prevExpandedItems.filter((itemId) => itemId !== id);
+      } else {
+        return [...prevExpandedItems, id];
+      }
+    });
+  };
+
+  const filteredProjects = projects.filter((project,i) =>
+    expandedItems.includes(project.category)
+  );
+
+  if (filteredProjects.length > 0) {
+    const temp1 = { ...filteredProjects[0] };
+    const temp2 = { ...filteredProjects[0] };
+  
+    // Set unique IDs for the new items
+    temp1.id = filteredProjects.length;
+    temp2.id = filteredProjects.length + 1;
+  
+    // Optionally modify other fields to distinguish the new items
+    temp1.name = `${temp1.name} - Copy 1`;
+    temp2.name = `${temp2.name} - Copy 2`;
+  
+    // Push the new items into the array
+    filteredProjects.push(temp1, temp2);
+  
+    // Sort the array based on IDs or other criteria
+    filteredProjects.sort((a, b) => a.id - b.id);
+  }
+  else {
+      const temp1 = { ...projects[0] };
+    const temp2 = { ...projects[0] };
+  
+    // Set unique IDs for the new items
+    temp1.id = filteredProjects.length;
+    temp2.id = filteredProjects.length + 1;
+  
+    // Optionally modify other fields to distinguish the new items
+    temp1.name = `${temp1.name} - Copy 1`;
+    temp2.name = `${temp2.name} - Copy 2`;
+  
+    // Push the new items into the array
+    filteredProjects.push(temp1, temp2);
+  
+    // Sort the array based on IDs or other criteria
+    filteredProjects.sort((a, b) => a.id - b.id);
+  }
+  
+
+
+  const dataCategories = projects.reduce((acc, project, index) => {
+    if (index === 0 || projects[index - 1].category !== project.category) {
+      acc.push(project.category);  
+    }
+    return acc;  
+  }, []);
+  const filteredProjects1 = projects.filter((project) =>
+    dataCategories.includes(project.category)
+  );
+
+  console.log(filteredProjects, "dataCategores")
   return (
     <>
-      <Box  variant="outlined">
+      <Box variant="outlined">
         {/* Month selection buttons */}
 
         <div className="calenderGantt__table">
-          <div></div>
-          <div className="calenderGantt__header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#57C700' }}>
+            <CalenderIcon />
+            <p>Mese</p>
+          </div>
+          <div className="calenderGantt__header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
             <IconButton onClick={handlePreviousMonth}>
               <PreviousBtn />
             </IconButton>
@@ -237,84 +371,126 @@ const GanttChart = () => {
               <NextBtn />
             </IconButton>
           </div>
+
           <Table className="calenderGantt__userTable">
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <div className="heading active">Collaboratori</div>
+                  <div className="calenderGantt__table">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#160A2A' }}>
+                      <CalenderIcon />
+                      <p>Trimestre</p>
+                    </div>
+                  </div>
                 </TableCell>
                 <TableCell>
-                  <div className="heading">Progetti</div>
+                  <div className="calenderGantt__table">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#160A2A' }}>
+                      <CalenderIcon />
+                      <p>Mese</p>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="calenderGantt__table">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#160A2A' }}>
+                      <Calender_Two />
+                      <p>Settimana </p>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="calenderGantt__table">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#160A2A' }}>
+                      <Calender_Three />
+                      <p>Giorno</p>
+                    </div>
+                  </div>
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {projects.map((project, index) => {
-                return (
-                  <TableRow
-                    key={project.id}
-                    className={activeMoveRowIndexFirst === index && "moveRow"}
-                    style={{
-                      transition:
-                        movingIndex === index ? "transform 0.4s ease" : "none",
-                      transform:
-                        movingIndex === index && direction === "up"
-                          ? "translateY(-100%)"
-                          : movingIndex === index && direction === "down"
-                          ? "translateY(100%)"
-                          : "none",
-                    }}
-                  >
-                    <TableCell style={{ padding: "8px" }}>
-                      <div className="profileBox">
-                        <div className="profileBox__img">
-                          <Avatar1 />
-                          <span></span>
+              {projects.reduce((acc, project, index) => {
+                // Add category row if it's the first project or the category changes
+                if (index === 0 || projects[index - 1].category !== project.category) {
+                  acc.push(
+                    <TableRow key={`${project.category}`} style={{ backgroundColor: "#f5f5f5" }}>
+                      <TableCell colSpan={3} style={{ fontWeight: "bold", padding: "8px", textAlign: 'left' }}>
+                        <IconButton
+                          size="small"
+                          onClick={() => handleToggleExpand(`${project.category}`)}
+                        >
+                          {expandedItems.includes(`${project.category}`) ? "": ""}
+                          <ChevronUp /> 
+                        </IconButton>
+                        <span style={{ fontFamily: '"Barlow", sans-serif', verticalAlign: 'middle', fontSize: '16px', color: '#666666' }}> {project.category} </span>
+                      </TableCell>
+                      <TableCell>
+                        <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
+                          <IconButton size="small" onClick={() => handleArrowUp(index)}>
+                            <ArrowUpwardIcon fontSize="inherit" />
+                          </IconButton>
+                          <IconButton size="small" onClick={() => handleArrowDown(index)}>
+                            <ArrowDownwardIcon fontSize="inherit" />
+                          </IconButton>
                         </div>
-                        {/* <Avatar style={{ width: "32px", height: "32px" }}>
-                        M
-                      </Avatar> */}
-                        <Typography variant="body2">{project.name}</Typography>
-                      </div>
-                    </TableCell>
-                    <TableCell style={{ padding: "8px" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <Typography
-                          variant="body2"
-                          style={{ color: "#57C700", fontWeight: 500 }}
-                        >
-                          {project.allocation}
-                        </Typography>
-                        <IconButton
-                          size="small"
-                          onClick={() => handleArrowUp(index)}
-                        >
-                          <ArrowUpwardIcon fontSize="inherit" />
-                        </IconButton>
-                        <IconButton
-                          size="small"
-                          onClick={() => handleArrowDown(index)}
-                        >
-                          <ArrowDownwardIcon fontSize="inherit" />
-                        </IconButton>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+
+                // Add individual project row
+                acc.push(
+                  <React.Fragment key={project.id}>
+                    <TableRow
+                      style={{
+                        display: expandedItems.includes(`${project.category}`) ? "table-row" : "none",
+                      }}
+                    >
+                      <TableCell colSpan={2}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <p style={{
+                            backgroundColor: `${project.pillColor}`, width: 'fit-content', display: 'flex', alignItems: 'center', margin: '0', gap: '3px', borderRadius: '17px', paddingRight: '6px', padding: '1px'
+                          }}>
+                            <span style={{ lineHeight: '0' }}> <Avatar1 /> </span>
+                            <span style={{
+                              display: 'block',
+                              fontFamily: '"Barlow", sans-serif',
+                              fontSize: '14px',
+                              fontWeight: '700',
+                              lineHeight: '16.8px',
+                              paddingRight: '6px',
+                              color: '#fff'
+                            }}>
+                              {project.allocation}
+                            </span>
+                          </p>
+                          <Typography variant="body2" style={{ paddingBottom: '0', fontFamily: '"Barlow", sans-serif', fontSize: '14px', fontWeight: '400', lineHeight: '19.2px' }}>{project.name}</Typography>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Typography variant="body2" style={{ paddingBottom: '0', fontFamily: '"Barlow", sans-serif', fontSize: '14px', fontWeight: '400', lineHeight: '19.2px' }} >{project.role}</Typography>
+                      </TableCell>
+                      <TableCell>
+                        <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
+                          <IconButton size="small" onClick={() => handleArrowUp(index)}>
+                            <ArrowUpwardIcon fontSize="inherit" />
+                          </IconButton>
+                          <IconButton size="small" onClick={() => handleArrowDown(index)}>
+                            <ArrowDownwardIcon fontSize="inherit" />
+                          </IconButton>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  </React.Fragment>
                 );
-              })}
+                return acc;
+              }, [])}
             </TableBody>
           </Table>
-
           <Table className="calenderGantt__detailTable">
             <TableHead>
-              <TableRow>
+              <TableRow style={{ padding: '0' }}>
                 <TableCell colSpan={selectedMonth.days} style={{ padding: 0 }}>
                   <div className="detailBox">
                     {dates.map((date) => {
@@ -328,21 +504,15 @@ const GanttChart = () => {
                         currentDateObj.getDay() === 6;
                       return (
                         <div
-                          className={`${
-                            isToday
-                              ? "detailBox__inner borderedDashed"
-                              : "detailBox__inner"
-                          }`}
+                          className={`${isToday ? "detailBox__inner borderedDashed" : "detailBox__inner"}`}
                           key={date}
                           style={{
                             color: isToday
                               ? "#FFFFFF"
                               : isWeekend
-                              ? "#1009191A"
-                              : "#100919",
-                            backgroundColor: isToday
-                              ? "#abe380"
-                              : "transparent",
+                                ? "#1009191A"
+                                : "#100919",
+                            backgroundColor: isToday ? "#abe380" : "transparent",
                           }}
                         >
                           {date}
@@ -354,44 +524,41 @@ const GanttChart = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {projects.map((project) => {
+              {(filteredProjects)?.map((project) => {
                 const tasksForMonth = getTasksForSelectedMonth(project.tasks);
+                console.log(project, "project")
                 return (
                   <TableRow key={project.id}>
-                    <TableCell
-                      colSpan={selectedMonth.days}
-                      style={{ position: "relative", padding: 0 }}
-                    >
+                    <TableCell colSpan={selectedMonth.days} sx={{ borderBottom: "none", paddingTop: 0.8, paddingBottom: 0 }}>
                       <div className="calenderBoxMain">
                         {dates.map((date, dayIndex) => {
-                          const taskForDay = tasksForMonth.find(
-                            (task) =>
-                              date >= task.startDate && date <= task.endDate
+                          const taskForDay = tasksForMonth?.find(
+                            (task) => date >= task.startDate && date <= task.endDate
                           );
                           const isTaskDay = !!taskForDay;
-                          const taskColor = taskForDay
-                            ? taskForDay.color
-                            : "#f0f0f0"; // Default to gray if not a task day
-                          const currentDateObj = new Date(
-                            2024,
-                            monthIndex,
-                            date
-                          );
+                          const taskColor = taskForDay ? taskForDay.color : "#f0f0f0"; // Default to gray if not a task day
+                          const currentDateObj = new Date(2024, monthIndex, date);
                           const isWeekend =
-                            currentDateObj.getDay() === 0 ||
-                            currentDateObj.getDay() === 6;
+                            currentDateObj.getDay() === 0 || currentDateObj.getDay() === 6;
                           const isToday =
                             date === currentDate &&
                             currentMonth === monthIndex &&
                             currentYear === 2024;
+
+                          // Adjust the image and number rendering
+                          const isStartDate = taskForDay && date === taskForDay.startDate;
+                          const isEndDate = taskForDay && date === taskForDay.endDate;
+                          const isMonday = currentDateObj.getDay() === 1 
+                          const isFriday = currentDateObj.getDay() === 5 
+
                           return (
                             <div
-                              className={`${
-                                isToday
-                                  ? "borderedDashed calenderBox"
-                                  : "calenderBox"
-                              } ${isTaskDay ? "calenderBox asas" : ""}`}
-                              // className="borderedDashed"
+                              className={`
+                              ${isToday ? "borderedDashed calenderBox" : "calenderBox"} 
+                              ${isTaskDay ? "calenderBox asas" : ""
+                                }${isMonday ? "monday" : ""}
+                                ${isFriday ? "isFriday" : ""}`}
+                                
                               key={dayIndex}
                               style={{
                                 position: "absolute",
@@ -399,28 +566,59 @@ const GanttChart = () => {
                                 backgroundColor: isToday
                                   ? "#ffffff" // White background for today
                                   : isTaskDay
-                                  ? taskColor
-                                  : isWeekend
-                                  ? "" // Gray for weekends
-                                  : "#f0f0f0", // Default gray for other days
-                                //   borderRadius: "4px",
-                                left: `${
-                                  (dayIndex / selectedMonth.days) * 100
-                                }%`,
+                                    ? taskColor
+                                    : isWeekend
+                                      ? "" // Gray for weekends
+                                      : "#f0f0f0", // Default gray for other days
+                                left: `${(dayIndex / selectedMonth.days) * 100}%`,
                                 width: `${100 / selectedMonth.days}%`,
                                 top: "-1px",
+                                
+                                
                               }}
                             >
-                              {isTaskDay &&
-                                Array.from({ length: 8 }, (_, index) => (
-                                  <div
-                                    key={index}
-                                    className="asas"
-                                    style={{
-                                      top: `${(index / 8) * 100}%`, // Position each div from 0% to 87.5% from the top
-                                    }}
-                                  />
-                                ))}
+                              {isStartDate && (
+                                <Avatar1  style={{
+                                  position: "absolute",
+                                  top: "50%",
+                                  left: "10%",
+                                  transform: "translateY(-50%)",
+                                  width: "24px",
+                                  height: "24px",
+                                  borderRadius: "50%",
+                                }}/>
+                                // <img
+                                //   src="path-to-image.png" // Replace with the actual image path
+                                //   alt="Task Start"
+                                //   style={{
+                                //     position: "absolute",
+                                //     top: "50%",
+                                //     left: "10%",
+                                //     transform: "translateY(-50%)",
+                                //     width: "24px",
+                                //     height: "24px",
+                                //     borderRadius: "50%",
+                                //   }}
+                                // />
+                              )}
+
+                              {isEndDate && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    bottom: "10%",
+                                    right: "10%",
+                                   
+                                    color: "#ffffff",
+                                    borderRadius: "50%",
+                                    padding: "4px 8px",
+                                    fontSize: "16px",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  8
+                                </div>
+                              )}
 
                               {!isWeekend && (isToday || !isTaskDay) && (
                                 <span>
