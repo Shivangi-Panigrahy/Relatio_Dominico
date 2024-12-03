@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "cod": "BP-09-24",
+      "lotto": "32423",
+      "dataArrivo": "31/11/2024",
+      "scadenza": "31/12/2024",
+      "prodotto": "Prodotto A",
+      "marcaSerie": "Delux",
+      "stabilimento": "Stabilimento A",
+      "um": "Pezzi",
+      "pzUnitario": "120.000,00€",
+      "qta": "30000",
+      "valore": "3.600.000,00€",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "cod": "BP-10-24",
+      "lotto": "32424",
+      "dataArrivo": "01/12/2024",
+      "scadenza": "31/12/2025",
+      "prodotto": "Prodotto B",
+      "marcaSerie": "Elite",
+      "stabilimento": "Stabilimento B",
+      "um": "Pezzi",
+      "pzUnitario": "100.000,00€",
+      "qta": "25000",
+      "valore": "2.500.000,00€",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "cod": "BP-11-24",
+      "lotto": "32425",
+      "dataArrivo": "05/12/2024",
+      "scadenza": "30/11/2025",
+      "prodotto": "Prodotto C",
+      "marcaSerie": "Premium",
+      "stabilimento": "Stabilimento C",
+      "um": "Pezzi",
+      "pzUnitario": "150.000,00€",
+      "qta": "20000",
+      "valore": "3.000.000,00€",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "cod": "BP-12-24",
+      "lotto": "32426",
+      "dataArrivo": "10/12/2024",
+      "scadenza": "30/06/2025",
+      "prodotto": "Prodotto D",
+      "marcaSerie": "Standard",
+      "stabilimento": "Stabilimento D",
+      "um": "Pezzi",
+      "pzUnitario": "80.000,00€",
+      "qta": "40000",
+      "valore": "3.200.000,00€",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "cod": "BP-13-24",
+      "lotto": "32427",
+      "dataArrivo": "15/12/2024",
+      "scadenza": "31/10/2025",
+      "prodotto": "Prodotto E",
+      "marcaSerie": "Basic",
+      "stabilimento": "Stabilimento E",
+      "um": "Pezzi",
+      "pzUnitario": "90.000,00€",
+      "qta": "35000",
+      "valore": "3.150.000,00€",
+      "azioni": "..."
+    }
+  ]
+  

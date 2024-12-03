@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "tipologiaMezzo": "Furgone",
+      "targhe": "AB123CD",
+      "posizione": "Stabilimento A",
+      "km": "12.345KM",
+      "da": "01/01/2022",
+      "a": "01/01/2023",
+      "autore": "Giulia Rossi",
+      "modDa": "Luca Gialli",
+      "stato": "Disponibile",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "tipologiaMezzo": "Camion",
+      "targhe": "EF456GH",
+      "posizione": "Stabilimento B",
+      "km": "56.789KM",
+      "da": "15/03/2022",
+      "a": "15/03/2023",
+      "autore": "Mario Bianchi",
+      "modDa": "Anna Verdi",
+      "stato": "In manutenzione",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "tipologiaMezzo": "Autobus",
+      "targhe": "IJ789KL",
+      "posizione": "Stabilimento C",
+      "km": "78.123KM",
+      "da": "20/06/2022",
+      "a": "20/06/2023",
+      "autore": "Carla Neri",
+      "modDa": "Paolo Blu",
+      "stato": "Disponibile",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "tipologiaMezzo": "Furgone",
+      "targhe": "MN012OP",
+      "posizione": "Stabilimento D",
+      "km": "34.567KM",
+      "da": "10/10/2022",
+      "a": "10/10/2023",
+      "autore": "Luca Gialli",
+      "modDa": "Giulia Rossi",
+      "stato": "Non disponibile",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "tipologiaMezzo": "Moto",
+      "targhe": "QR345ST",
+      "posizione": "Stabilimento E",
+      "km": "9.876KM",
+      "da": "05/05/2022",
+      "a": "05/05/2023",
+      "autore": "Anna Verdi",
+      "modDa": "Mario Bianchi",
+      "stato": "Disponibile",
+      "azioni": "..."
+    }
+  ]
+  

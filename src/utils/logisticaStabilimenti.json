@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "nomeStabilimento": "Stabilimento Alpha",
+      "tipologia": "Fabbrica",
+      "indirizzo": "Via Roma, 123 00100 ROMA RM IT",
+      "operativoDa": "15/03/2021",
+      "utente": "Giulia Rossi",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "nomeStabilimento": "Stabilimento Beta",
+      "tipologia": "Magazzino",
+      "indirizzo": "Corso Italia, 45 20100 MILANO MI IT",
+      "operativoDa": "10/06/2020",
+      "utente": "Mario Bianchi",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "nomeStabilimento": "Stabilimento Gamma",
+      "tipologia": "Centro Logistico",
+      "indirizzo": "Piazza Dante, 8 80100 NAPOLI NA IT",
+      "operativoDa": "01/01/2022",
+      "utente": "Anna Verdi",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "nomeStabilimento": "Stabilimento Delta",
+      "tipologia": "Ufficio",
+      "indirizzo": "Viale Libertà, 20 70100 BARI BA IT",
+      "operativoDa": "05/09/2023",
+      "utente": "Luca Gialli",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "nomeStabilimento": "Stabilimento Epsilon",
+      "tipologia": "Magazzino",
+      "indirizzo": "Via Torino, 67 10100 TORINO TO IT",
+      "operativoDa": "12/11/2021",
+      "utente": "Carla Neri",
+      "azioni": "..."
+    },
+    {
+      "id": 6,
+      "nomeStabilimento": "Stabilimento Zeta",
+      "tipologia": "Fabbrica",
+      "indirizzo": "Via Garibaldi, 90 50100 FIRENZE FI IT",
+      "operativoDa": "22/07/2019",
+      "utente": "Paolo Blu",
+      "azioni": "..."
+    }
+  ]
+  

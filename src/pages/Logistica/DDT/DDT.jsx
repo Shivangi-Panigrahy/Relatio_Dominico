@@ -1,24 +1,20 @@
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/assetAdministrazioneData.json"
+import tableData from "../../../utils/logisticaDDT.json"
 
 const DDT = () => {
 
     const columns = [
-        { field: "doc", headerName: "Doc", width: 64 },
-        { field: "creatoIl", headerName: "Creato il", width: 92 },
-        { field: "scadenza", headerName: "Scadenza", width: 114 },
-        { field: "asset", headerName: "Asset", width: 366 },
-        { field: "tipologia", headerName: "Tipologia", width: 284 },
-        { field: "obiettivo", headerName: "Obiettivo", width: 273 },
-        { field: "frequenza", headerName: "Frequenza", width: 144 },
-        { field: "importoTotale", headerName: "Importo totale", width: 145 },
-        { field: "autore", headerName: "Autore", width: 84 },
-        { field: "modDa", headerName: "Mod. da", width: 84 },
-        { field: "azioni", headerName: "Azioni", width: 93 },
-
+        { field: "doc", headerName: "Doc.", width: 100 },
+        { field: "creatoIl", headerName: "Creato il", width: 150 },
+        { field: "numero", headerName: "Numero", width: 150 },
+        { field: "clienteFornitore", headerName: "Cliente/Fornitore", width: 200 },
+        { field: "stabilimento", headerName: "Stabilimento di arrivo/partenza", width: 250 },
+        { field: "autore", headerName: "Autore", width: 150 },
+        { field: "azioni", headerName: "Azioni", width: 100 },
     ];
+    
 
 
     // const rows = [

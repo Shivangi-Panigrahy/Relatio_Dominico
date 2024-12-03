@@ -1,54 +1,46 @@
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/assetAdministrazioneData.json"
+import tableData from "../../../utils/logisticaMezzi.json"
 
 const Mezzi = () => {
 
     const columns = [
-        { field: "doc", headerName: "Doc", width: 64 },
-        { field: "creatoIl", headerName: "Creato il", width: 92 },
-        { field: "scadenza", headerName: "Scadenza", width: 114 },
-        { field: "asset", headerName: "Asset", width: 366 },
-        { field: "tipologia", headerName: "Tipologia", width: 284 },
-        { field: "obiettivo", headerName: "Obiettivo", width: 273 },
-        { field: "frequenza", headerName: "Frequenza", width: 144 },
-        { field: "importoTotale", headerName: "Importo totale", width: 145 },
-        { field: "autore", headerName: "Autore", width: 84 },
-        { field: "modDa", headerName: "Mod. da", width: 84 },
-        { field: "azioni", headerName: "Azioni", width: 93 },
-
+        { field: "tipologiaMezzo", headerName: "Tipologia mezzo", width: 200 },
+        { field: "targhe", headerName: "Targhe", width: 150 },
+        { field: "posizione", headerName: "Posizione", width: 200 },
+        { field: "km", headerName: "KM", width: 150 },
+        { field: "da", headerName: "Da", width: 150 },
+        { field: "a", headerName: "A", width: 150 },
+        { field: "autore", headerName: "Autore", width: 150 },
+        { field: "modDa", headerName: "Mod. da", width: 150 },
+        { field: "stato", headerName: "Stato", width: 150 },
+        { field: "azioni", headerName: "Azioni", width: 100 },
     ];
+    
 
 
     const rows = [
         {
-            status: "Totale ",
-            count: 5,
-            amount: "20.350.043.55€",
+            status: "Totale Mezzi",
+            count: 5543,
+            amount: "",
             color: "#100919",
-            iconColor: "#57C700",
+            iconColor: "",
         },
         {
-            status: "Finanziario",
-            count: 2,
-            amount: "20.350.043.55€",
+            status: "Disponibili",
+            count: 5543,
+            amount: "",
             color: "#57C700",
-            iconColor: "#57C700",
+            iconColor: "",
         },
         {
-            status: "Immobiliare",
-            count: 1,
-            amount: "20.350.043.55€",
+            status: "Occupati",
+            count: 5543,
+            amount: "",
             color: "#FFA903",
-            iconColor: "#FFA903",
-        },
-        {
-            status: "Strumentale",
-            count: 13,
-            amount: "20.350.043.55€",
-            color: "#DB0000",
-            iconColor: "#DB0000",
+            iconColor: "",
         },
     ];
 
@@ -57,7 +49,7 @@ const Mezzi = () => {
         <>
             <Header />
             <div className="pageTemplate assetPage">
-                <InvoiceDashboard amministrazioneAsset={rows} />
+                <InvoiceDashboard mezzi={rows} />
                 <Table
                     data={tableData}
                     columns={columns}

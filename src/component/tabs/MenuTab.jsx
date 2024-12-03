@@ -176,11 +176,27 @@ const TAB_CONFIGURATIONS = {
     { label: "Calendario", icon: Mese },
     { label: "Organizza", icon: Agenda },
   ],
+  subStabilimenti: [
+    { label: "Gaicenze", icon: Contatti },
+    { label: "Mezzi", icon: Qualificazione },
+    { label: "Attrezzature", icon: Agenda },
+    { label: "Collaboratori", icon: Documenti },
+    { label: "Contatti", icon: Documenti },
+  ],
+  subMezzi: [
+    { label: "Scadenze", icon: Contatti },
+    { label: "Allegati", icon: Qualificazione },
+    { label: "Gaicenze", icon: Agenda },
+  ],
+  subAttrezzature:[
+    { label: "Scadenze", icon: Qualificazione },
+    { label: "Allegati", icon: Agenda },
+  ],
 
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHr,ishrCalendario) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario, isStabilimenti, isMezzi,isAttrezzature) => {
 
 
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -207,6 +223,12 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
 
   if (ishrCalendario) return `/hr/${label}`;
 
+  if (isStabilimenti) return `/logistica/stabilimenti/${label}`;
+
+  if (isMezzi) return `/logistica/mezzi/${label}`;
+
+  if (isAttrezzature) return `/logistica/attrezzature/${label}`;
+
 
   return `/dashboard/${label}`;
 
@@ -231,8 +253,11 @@ const MenuTab = ({
   sublistini = false,
   hrCandidato = false,
   hrEvento = false,
-  hr=false,
+  hr = false,
   hrcalendario = false,
+  subStabilimenti = false,
+  subMezzi = false,
+  subAttrezzature=false,
 
 
 
@@ -259,9 +284,12 @@ const MenuTab = ({
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
     if (hr) return TAB_CONFIGURATIONS.hr;
     if (hrcalendario) return TAB_CONFIGURATIONS.hrcalendario;
+    if (subStabilimenti) return TAB_CONFIGURATIONS.subStabilimenti;
+    if (subMezzi) return TAB_CONFIGURATIONS.subMezzi;
+    if (subAttrezzature) return TAB_CONFIGURATIONS.subAttrezzature;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature]);
 
   const tabsConfig = getActiveConfig();
 
@@ -280,7 +308,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature);
       navigate(path);
 
       // Invoke parent callback
@@ -288,7 +316,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature]
   );
 
   return (
@@ -337,6 +365,8 @@ const MenuTab = ({
                                               "Distinta base" :
                                               tab.label === "Configurazione" ?
                                                 "Configurazione" :
+                                                tab.label === "Scadenze" ?
+                                                "Scadenze e manutenzioni" :
                                                 // tab.label === "Gruppi" ?
                                                 //   "Gruppi" :
                                                 //   tab.label === "Prodotti" ? "Prodotti" :

@@ -98,6 +98,9 @@ import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
 import DDT from "../pages/Logistica/DDT/DDT.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
+// import Gaicenze from "../pages/Logistica/Stabilimenti/SubStabilimenti/Gaicenze.jsx";
+import Collaboratori from "../pages/Logistica/Stabilimenti/SubStabilimenti/Collaboratori.jsx";
+import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
 
 const Allroutes = () => {
   return (
@@ -941,42 +944,42 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/logistica/stabilimenti/"
+        path="/logistica/stabilimenti/Gaicenze"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={Gruppi} />
+            <SubStabilimenti Component={LogisticaGiacenze} />
           </PublicRoute>
         }
       />
       <Route
-        path="/logistica/stabilimenti/"
+        path="/logistica/stabilimenti/Mezzi"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={ListiniProdotti} />
+            <SubStabilimenti Component={Mezzi} />
           </PublicRoute>
         }
       />
       <Route
-        path="/logistica/stabilimenti/"
+        path="/logistica/stabilimenti/Attrezzature"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={Gruppi} />
+            <SubStabilimenti Component={Attrezzature} />
           </PublicRoute>
         }
       />
       <Route
-        path="/logistica/stabilimenti/"
+        path="/logistica/stabilimenti/Collaboratori"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={ListiniProdotti} />
+            <SubStabilimenti Component={Collaboratori} />
           </PublicRoute>
         }
       />
       <Route
-        path="/logistica/stabilimenti/"
+        path="/logistica/stabilimenti/Contatti"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={ListiniProdotti} />
+            <SubStabilimenti Component={Contatti} />
           </PublicRoute>
         }
       />
@@ -989,7 +992,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/logistica/mezzi/"
+        path="/logistica/mezzi/Scadenze"
         element={
           <PublicRoute>
             <SubMezzi Component={Gruppi} />
@@ -997,18 +1000,18 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/logistica/mezzi"
+        path="/logistica/mezzi/Allegati"
         element={
           <PublicRoute>
-            <SubMezzi Component={ListiniProdotti} />
+            <SubMezzi Component={Allegati} />
           </PublicRoute>
         }
       />
       <Route
-        path="/logistica/mezzi"
+        path="/logistica/mezzi/Gaicenze"
         element={
           <PublicRoute>
-            <SubMezzi Component={Gruppi} />
+            <SubMezzi Component={LogisticaGiacenze} />
           </PublicRoute>
         }
       />
@@ -1021,7 +1024,7 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/logistica/attrezzature/"
+        path="/logistica/attrezzature/Scadenze"
         element={
           <PublicRoute>
             <SubAttrezzature Component={ListiniProdotti} />
@@ -1029,10 +1032,10 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/logistica/attrezzature/"
+        path="/logistica/attrezzature/Allegati"
         element={
           <PublicRoute>
-            <SubAttrezzature Component={Gruppi} />
+            <SubAttrezzature Component={Allegati} />
           </PublicRoute>
         }
       />
@@ -1041,6 +1044,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <LogisticaGiacenze />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/giacenze/subGiacenze"
+        element={
+          <PublicRoute>
+            <SubGiacenze />
           </PublicRoute>
         }
       />

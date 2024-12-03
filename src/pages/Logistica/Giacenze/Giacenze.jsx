@@ -1,54 +1,62 @@
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
-import tableData from "../../../utils/assetAdministrazioneData.json"
+import tableData from "../../../utils/logisticaGiacenze.json"
 
 const Giacenze = () => {
 
     const columns = [
-        { field: "doc", headerName: "Doc", width: 64 },
-        { field: "creatoIl", headerName: "Creato il", width: 92 },
-        { field: "scadenza", headerName: "Scadenza", width: 114 },
-        { field: "asset", headerName: "Asset", width: 366 },
-        { field: "tipologia", headerName: "Tipologia", width: 284 },
-        { field: "obiettivo", headerName: "Obiettivo", width: 273 },
-        { field: "frequenza", headerName: "Frequenza", width: 144 },
-        { field: "importoTotale", headerName: "Importo totale", width: 145 },
-        { field: "autore", headerName: "Autore", width: 84 },
-        { field: "modDa", headerName: "Mod. da", width: 84 },
-        { field: "azioni", headerName: "Azioni", width: 93 },
-
+        { field: "cod", headerName: "Cod.", width: 150 },
+        { field: "lotto", headerName: "Lotto", width: 150 },
+        { field: "dataArrivo", headerName: "Data arrivo", width: 150 },
+        { field: "scadenza", headerName: "Scadenza", width: 150 },
+        { field: "prodotto", headerName: "Prodotto", width: 200 },
+        { field: "marcaSerie", headerName: "Marca/serie", width: 150 },
+        { field: "stabilimento", headerName: "Stabilimento", width: 150 },
+        { field: "um", headerName: "U M", width: 100 },
+        { field: "pzUnitario", headerName: "Pz. Unitario", width: 150 },
+        { field: "qta", headerName: "Q.ta", width: 100 },
+        { field: "valore", headerName: "Valore", width: 150 },
+        { field: "azioni", headerName: "Azioni", width: 100 },
     ];
+    
 
 
     const rows = [
         {
-            status: "Totale ",
-            count: 5,
-            amount: "20.350.043.55€",
+            status: "Giacenze",
+            count: 5543,
+            amount: "",
             color: "#100919",
-            iconColor: "#57C700",
+            iconColor: "",
         },
         {
-            status: "Finanziario",
-            count: 2,
-            amount: "20.350.043.55€",
+            status: "Prodotti",
+            count: 5543,
+            amount: "",
             color: "#57C700",
-            iconColor: "#57C700",
+            iconColor: "",
         },
         {
-            status: "Immobiliare",
-            count: 1,
-            amount: "20.350.043.55€",
+            status: "Quantita",
+            count: 5543,
+            amount: "",
             color: "#FFA903",
-            iconColor: "#FFA903",
+            iconColor: "",
         },
         {
-            status: "Strumentale",
-            count: 13,
-            amount: "20.350.043.55€",
-            color: "#DB0000",
-            iconColor: "#DB0000",
+            status: "Marchio/Serie",
+            count: 5543,
+            amount: "",
+            color: "#FFA903",
+            iconColor: "",
+        },
+        {
+            status: "Valore",
+            count: "55.443,00€",
+            amount: "",
+            color: "#FFA903",
+            iconColor: "",
         },
     ];
 
