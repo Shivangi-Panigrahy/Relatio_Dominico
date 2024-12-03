@@ -617,10 +617,106 @@ const HeaderBelow = () => {
                                                                   <ArrowForwardIcon />
                                                                 </IconButton>
                                                                 <Typography variant="h2">Listini</Typography>
-                                                                              </> :
-                                                                              // Hr section
+                                                              </> :
+                                                              // Hr section
 
-                                                                              window.location.href.includes("/hr/sub-colaboratory/Contatti") ?
+                                                              window.location.href.includes("/hr/sub-colaboratory/Contatti") ?
+                                                                <>
+                                                                  <Typography variant="h2">HR</Typography>
+                                                                  <IconButton edge="start" color="inherit">
+                                                                    <ArrowForwardIcon />
+                                                                  </IconButton>
+                                                                  <Typography variant="h2">Collaboratori</Typography>
+                                                                  <IconButton edge="start" color="inherit">
+                                                                    <ArrowForwardIcon />
+                                                                  </IconButton>
+                                                                  <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                </> :
+                                                                window.location.href.includes("/hr/sub-colaboratory/Qualificazione") ?
+                                                                  <>
+                                                                    <Typography variant="h2">HR</Typography>
+                                                                    <IconButton edge="start" color="inherit">
+                                                                      <ArrowForwardIcon />
+                                                                    </IconButton>
+                                                                    <Typography variant="h2">Collaboratori</Typography>
+                                                                    <IconButton edge="start" color="inherit">
+                                                                      <ArrowForwardIcon />
+                                                                    </IconButton>
+                                                                    <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                  </> :
+                                                                  window.location.href.includes("/hr/sub-colaboratory/Documenti") ?
+                                                                    <>
+                                                                      <Typography variant="h2">HR</Typography>
+                                                                      <IconButton edge="start" color="inherit">
+                                                                        <ArrowForwardIcon />
+                                                                      </IconButton>
+                                                                      <Typography variant="h2">Collaboratori</Typography>
+                                                                      <IconButton edge="start" color="inherit">
+                                                                        <ArrowForwardIcon />
+                                                                      </IconButton>
+                                                                      <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                    </> :
+                                                                    window.location.href.includes("/hr/sub-colaboratory/Contratto") ?
+                                                                      <>
+                                                                        <Typography variant="h2">HR</Typography>
+                                                                        <IconButton edge="start" color="inherit">
+                                                                          <ArrowForwardIcon />
+                                                                        </IconButton>
+                                                                        <Typography variant="h2">Collaboratori</Typography>
+                                                                        <IconButton edge="start" color="inherit">
+                                                                          <ArrowForwardIcon />
+                                                                        </IconButton>
+                                                                        <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                      </> :
+                                                                      window.location.href.includes("/hr/sub-colaboratory/Equipagiamento") ?
+                                                                        <>
+                                                                          <Typography variant="h2">HR</Typography>
+                                                                          <IconButton edge="start" color="inherit">
+                                                                            <ArrowForwardIcon />
+                                                                          </IconButton>
+                                                                          <Typography variant="h2">Collaboratori</Typography>
+                                                                          <IconButton edge="start" color="inherit">
+                                                                            <ArrowForwardIcon />
+                                                                          </IconButton>
+                                                                          <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                        </> :
+                                                                        window.location.href.includes("/hr/sub-colaboratory/Turni") ?
+                                                                          <>
+                                                                            <Typography variant="h2">HR</Typography>
+                                                                            <IconButton edge="start" color="inherit">
+                                                                              <ArrowForwardIcon />
+                                                                            </IconButton>
+                                                                            <Typography variant="h2">Collaboratori</Typography>
+                                                                            <IconButton edge="start" color="inherit">
+                                                                              <ArrowForwardIcon />
+                                                                            </IconButton>
+                                                                            <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                          </> :
+                                                                          window.location.href.includes("/hr/sub-colaboratory/Progetti") ?
+                                                                            <>
+                                                                              <Typography variant="h2">HR</Typography>
+                                                                              <IconButton edge="start" color="inherit">
+                                                                                <ArrowForwardIcon />
+                                                                              </IconButton>
+                                                                              <Typography variant="h2">Collaboratori</Typography>
+                                                                              <IconButton edge="start" color="inherit">
+                                                                                <ArrowForwardIcon />
+                                                                              </IconButton>
+                                                                              <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                            </> :
+                                                                            window.location.href.includes("/hr/sub-colaboratory/Agenda") ?
+                                                                              <>
+                                                                                <Typography variant="h2">HR</Typography>
+                                                                                <IconButton edge="start" color="inherit">
+                                                                                  <ArrowForwardIcon />
+                                                                                </IconButton>
+                                                                                <Typography variant="h2">Collaboratori</Typography>
+                                                                                <IconButton edge="start" color="inherit">
+                                                                                  <ArrowForwardIcon />
+                                                                                </IconButton>
+                                                                                <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                              </> :
+                                                                              window.location.href.includes("/hr/sub-colaboratory/Allegati") ?
                                                                                 <>
                                                                                   <Typography variant="h2">HR</Typography>
                                                                                   <IconButton edge="start" color="inherit">
@@ -632,361 +728,266 @@ const HeaderBelow = () => {
                                                                                   </IconButton>
                                                                                   <Typography variant="h2">Nome del collaboratore</Typography>
                                                                                 </> :
-                                                                                window.location.href.includes("/hr/sub-colaboratory/Qualificazione") ?
+                                                                                window.location.href.includes("/hr/colaboratory") ?
                                                                                   <>
                                                                                     <Typography variant="h2">HR</Typography>
                                                                                     <IconButton edge="start" color="inherit">
                                                                                       <ArrowForwardIcon />
                                                                                     </IconButton>
                                                                                     <Typography variant="h2">Collaboratori</Typography>
-                                                                                    <IconButton edge="start" color="inherit">
-                                                                                      <ArrowForwardIcon />
-                                                                                    </IconButton>
-                                                                                    <Typography variant="h2">Nome del collaboratore</Typography>
                                                                                   </> :
-                                                                                  window.location.href.includes("/hr/sub-colaboratory/Documenti") ?
+                                                                                  window.location.href.includes("/hr/calendario") ?
                                                                                     <>
                                                                                       <Typography variant="h2">HR</Typography>
                                                                                       <IconButton edge="start" color="inherit">
                                                                                         <ArrowForwardIcon />
                                                                                       </IconButton>
-                                                                                      <Typography variant="h2">Collaboratori</Typography>
-                                                                                      <IconButton edge="start" color="inherit">
-                                                                                        <ArrowForwardIcon />
-                                                                                      </IconButton>
-                                                                                      <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                      <Typography variant="h2">Turni</Typography>
                                                                                     </> :
-                                                                                    window.location.href.includes("/hr/sub-colaboratory/Contratto") ?
+                                                                                    window.location.href.includes("/hr/organizza") ?
                                                                                       <>
                                                                                         <Typography variant="h2">HR</Typography>
                                                                                         <IconButton edge="start" color="inherit">
                                                                                           <ArrowForwardIcon />
                                                                                         </IconButton>
-                                                                                        <Typography variant="h2">Collaboratori</Typography>
-                                                                                        <IconButton edge="start" color="inherit">
-                                                                                          <ArrowForwardIcon />
-                                                                                        </IconButton>
-                                                                                        <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                        <Typography variant="h2">Turni</Typography>
                                                                                       </> :
-                                                                                      window.location.href.includes("/hr/sub-colaboratory/Equipagiamento") ?
+                                                                                      window.location.href.includes("/hr/ferie-e-permisse/evento") ?
                                                                                         <>
                                                                                           <Typography variant="h2">HR</Typography>
                                                                                           <IconButton edge="start" color="inherit">
                                                                                             <ArrowForwardIcon />
                                                                                           </IconButton>
-                                                                                          <Typography variant="h2">Collaboratori</Typography>
+                                                                                          <Typography variant="h2">Eventi</Typography>
                                                                                           <IconButton edge="start" color="inherit">
                                                                                             <ArrowForwardIcon />
                                                                                           </IconButton>
-                                                                                          <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                          <Typography variant="h2">Nome evento</Typography>
                                                                                         </> :
-                                                                                        window.location.href.includes("/hr/sub-colaboratory/Turni") ?
+                                                                                        window.location.href.includes("/hr/ferie-e-permisse") ?
                                                                                           <>
                                                                                             <Typography variant="h2">HR</Typography>
                                                                                             <IconButton edge="start" color="inherit">
                                                                                               <ArrowForwardIcon />
                                                                                             </IconButton>
-                                                                                            <Typography variant="h2">Collaboratori</Typography>
-                                                                                            <IconButton edge="start" color="inherit">
-                                                                                              <ArrowForwardIcon />
-                                                                                            </IconButton>
-                                                                                            <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                            <Typography variant="h2">Eventi</Typography>
                                                                                           </> :
-                                                                                          window.location.href.includes("/hr/sub-colaboratory/Progetti") ?
+                                                                                          window.location.href.includes("/hr/buste-page/busta") ?
                                                                                             <>
                                                                                               <Typography variant="h2">HR</Typography>
                                                                                               <IconButton edge="start" color="inherit">
                                                                                                 <ArrowForwardIcon />
                                                                                               </IconButton>
-                                                                                              <Typography variant="h2">Collaboratori</Typography>
+                                                                                              <Typography variant="h2">Busta paga</Typography>
                                                                                               <IconButton edge="start" color="inherit">
                                                                                                 <ArrowForwardIcon />
                                                                                               </IconButton>
-                                                                                              <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                              <Typography variant="h2">Nome della busta paga</Typography>
                                                                                             </> :
-                                                                                            window.location.href.includes("/hr/sub-colaboratory/Agenda") ?
+                                                                                            window.location.href.includes("/hr/buste-page") ?
                                                                                               <>
                                                                                                 <Typography variant="h2">HR</Typography>
                                                                                                 <IconButton edge="start" color="inherit">
                                                                                                   <ArrowForwardIcon />
                                                                                                 </IconButton>
-                                                                                                <Typography variant="h2">Collaboratori</Typography>
-                                                                                                <IconButton edge="start" color="inherit">
-                                                                                                  <ArrowForwardIcon />
-                                                                                                </IconButton>
-                                                                                                <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                                <Typography variant="h2">Busta paga</Typography>
                                                                                               </> :
-                                                                                              window.location.href.includes("/hr/sub-colaboratory/Allegati") ?
+                                                                                              window.location.href.includes("/hr/candidati/candidato/Contatti") ?
                                                                                                 <>
                                                                                                   <Typography variant="h2">HR</Typography>
                                                                                                   <IconButton edge="start" color="inherit">
                                                                                                     <ArrowForwardIcon />
                                                                                                   </IconButton>
-                                                                                                  <Typography variant="h2">Collaboratori</Typography>
+                                                                                                  <Typography variant="h2">Candidati</Typography>
                                                                                                   <IconButton edge="start" color="inherit">
                                                                                                     <ArrowForwardIcon />
                                                                                                   </IconButton>
-                                                                                                  <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                                  <Typography variant="h2">Candidato</Typography>
                                                                                                 </> :
-                                                                                                window.location.href.includes("/hr/colaboratory") ?
+                                                                                                window.location.href.includes("/hr/candidati/candidato/Qualificazione") ?
                                                                                                   <>
                                                                                                     <Typography variant="h2">HR</Typography>
                                                                                                     <IconButton edge="start" color="inherit">
                                                                                                       <ArrowForwardIcon />
                                                                                                     </IconButton>
-                                                                                                    <Typography variant="h2">Collaboratori</Typography>
+                                                                                                    <Typography variant="h2">Candidati</Typography>
+                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                      <ArrowForwardIcon />
+                                                                                                    </IconButton>
+                                                                                                    <Typography variant="h2">Candidato</Typography>
                                                                                                   </> :
-                                                                                                  window.location.href.includes("/hr/calendario") ?
+                                                                                                  window.location.href.includes("/hr/candidati/candidato/Agenda") ?
                                                                                                     <>
                                                                                                       <Typography variant="h2">HR</Typography>
                                                                                                       <IconButton edge="start" color="inherit">
                                                                                                         <ArrowForwardIcon />
                                                                                                       </IconButton>
-                                                                                                      <Typography variant="h2">Turni</Typography>
+                                                                                                      <Typography variant="h2">Candidati</Typography>
+                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                        <ArrowForwardIcon />
+                                                                                                      </IconButton>
+                                                                                                      <Typography variant="h2">Candidato</Typography>
                                                                                                     </> :
-                                                                                                    window.location.href.includes("/hr/organizza") ?
+                                                                                                    window.location.href.includes("/hr/candidati/candidato/Allegati") ?
                                                                                                       <>
                                                                                                         <Typography variant="h2">HR</Typography>
                                                                                                         <IconButton edge="start" color="inherit">
                                                                                                           <ArrowForwardIcon />
                                                                                                         </IconButton>
-                                                                                                        <Typography variant="h2">Turni</Typography>
+                                                                                                        <Typography variant="h2">Candidati</Typography>
+                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                          <ArrowForwardIcon />
+                                                                                                        </IconButton>
+                                                                                                        <Typography variant="h2">Candidato</Typography>
                                                                                                       </> :
-                                                                                                      window.location.href.includes("/hr/ferie-e-permisse/evento") ?
+                                                                                                      window.location.href.includes("/hr/candidati") ?
                                                                                                         <>
                                                                                                           <Typography variant="h2">HR</Typography>
                                                                                                           <IconButton edge="start" color="inherit">
                                                                                                             <ArrowForwardIcon />
                                                                                                           </IconButton>
-                                                                                                          <Typography variant="h2">Eventi</Typography>
-                                                                                                          <IconButton edge="start" color="inherit">
-                                                                                                            <ArrowForwardIcon />
-                                                                                                          </IconButton>
-                                                                                                          <Typography variant="h2">Nome evento</Typography>
+                                                                                                          <Typography variant="h2">Candidati</Typography>
                                                                                                         </> :
-                                                                                                        window.location.href.includes("/hr/ferie-e-permisse") ?
+                                                                                                        // amministrazione part start
+                                                                                                        window.location.href.includes("/amministrazione/imposte/Reteizzazione") ?
                                                                                                           <>
-                                                                                                            <Typography variant="h2">HR</Typography>
+                                                                                                            <Typography variant="h2">Amministrazione</Typography>
                                                                                                             <IconButton edge="start" color="inherit">
                                                                                                               <ArrowForwardIcon />
                                                                                                             </IconButton>
-                                                                                                            <Typography variant="h2">Eventi</Typography>
+                                                                                                            <Typography variant="h2">Imposte</Typography>
+                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                              <ArrowForwardIcon />
+                                                                                                            </IconButton>
+                                                                                                            <Typography variant="h2">Nome dell’imposta</Typography>
                                                                                                           </> :
-                                                                                                          window.location.href.includes("/hr/buste-page/busta") ?
+                                                                                                          window.location.href.includes("/amministrazione/imposte/Allegati") ?
                                                                                                             <>
-                                                                                                              <Typography variant="h2">HR</Typography>
+                                                                                                              <Typography variant="h2">Amministrazione</Typography>
                                                                                                               <IconButton edge="start" color="inherit">
                                                                                                                 <ArrowForwardIcon />
                                                                                                               </IconButton>
-                                                                                                              <Typography variant="h2">Busta paga</Typography>
+                                                                                                              <Typography variant="h2">Imposte</Typography>
                                                                                                               <IconButton edge="start" color="inherit">
                                                                                                                 <ArrowForwardIcon />
                                                                                                               </IconButton>
-                                                                                                              <Typography variant="h2">Nome della busta paga</Typography>
+                                                                                                              <Typography variant="h2">Nome dell’imposta</Typography>
                                                                                                             </> :
-                                                                                                            window.location.href.includes("/hr/buste-page") ?
+                                                                                                            window.location.href.includes("/amministrazione/imposte") ?
                                                                                                               <>
-                                                                                                                <Typography variant="h2">HR</Typography>
+                                                                                                                <Typography variant="h2">Amministrazione</Typography>
                                                                                                                 <IconButton edge="start" color="inherit">
                                                                                                                   <ArrowForwardIcon />
                                                                                                                 </IconButton>
-                                                                                                                <Typography variant="h2">Busta paga</Typography>
-                                                                                                              </> :
-                                                                                                              window.location.href.includes("/hr/candidati/candidato/Contatti") ?
+                                                                                                                <Typography variant="h2">Imposte</Typography>
+                                                                                                              </>
+                                                                                                              :
+                                                                                                              window.location.href.includes("/amministrazione/documenti/fattura") ?
                                                                                                                 <>
-                                                                                                                  <Typography variant="h2">HR</Typography>
+                                                                                                                  <Typography variant="h2">Amministrazione</Typography>
                                                                                                                   <IconButton edge="start" color="inherit">
                                                                                                                     <ArrowForwardIcon />
                                                                                                                   </IconButton>
-                                                                                                                  <Typography variant="h2">Candidati</Typography>
+                                                                                                                  <Typography variant="h2">Documenti</Typography>
                                                                                                                   <IconButton edge="start" color="inherit">
                                                                                                                     <ArrowForwardIcon />
                                                                                                                   </IconButton>
-                                                                                                                  <Typography variant="h2">Candidato</Typography>
+                                                                                                                  <Typography variant="h2">Fattura</Typography>
                                                                                                                 </> :
-                                                                                                                window.location.href.includes("/hr/candidati/candidato/Qualificazione") ?
+                                                                                                                window.location.href.includes("/amministrazione/documenti") ?
                                                                                                                   <>
-                                                                                                                    <Typography variant="h2">HR</Typography>
+                                                                                                                    <Typography variant="h2">Amministrazione</Typography>
                                                                                                                     <IconButton edge="start" color="inherit">
                                                                                                                       <ArrowForwardIcon />
                                                                                                                     </IconButton>
-                                                                                                                    <Typography variant="h2">Candidati</Typography>
-                                                                                                                    <IconButton edge="start" color="inherit">
-                                                                                                                      <ArrowForwardIcon />
-                                                                                                                    </IconButton>
-                                                                                                                    <Typography variant="h2">Candidato</Typography>
-                                                                                                                  </> :
-                                                                                                                  window.location.href.includes("/hr/candidati/candidato/Agenda") ?
+                                                                                                                    <Typography variant="h2">Documenti</Typography>
+                                                                                                                  </>
+                                                                                                                  :
+                                                                                                                  window.location.href.includes("/amministrazione/bilancio") ?
                                                                                                                     <>
-                                                                                                                      <Typography variant="h2">HR</Typography>
+                                                                                                                      <Typography variant="h2">Amministrazione</Typography>
                                                                                                                       <IconButton edge="start" color="inherit">
                                                                                                                         <ArrowForwardIcon />
                                                                                                                       </IconButton>
-                                                                                                                      <Typography variant="h2">Candidati</Typography>
-                                                                                                                      <IconButton edge="start" color="inherit">
-                                                                                                                        <ArrowForwardIcon />
-                                                                                                                      </IconButton>
-                                                                                                                      <Typography variant="h2">Candidato</Typography>
-                                                                                                                    </> :
-                                                                                                                    window.location.href.includes("/hr/candidati/candidato/Allegati") ?
+                                                                                                                      <Typography variant="h2">Bilancio</Typography>
+                                                                                                                    </>
+                                                                                                                    :
+                                                                                                                    window.location.href.includes("/amministrazione/scadenzario") ?
                                                                                                                       <>
-                                                                                                                        <Typography variant="h2">HR</Typography>
+                                                                                                                        <Typography variant="h2">Amministrazione</Typography>
                                                                                                                         <IconButton edge="start" color="inherit">
                                                                                                                           <ArrowForwardIcon />
                                                                                                                         </IconButton>
-                                                                                                                        <Typography variant="h2">Candidati</Typography>
-                                                                                                                        <IconButton edge="start" color="inherit">
-                                                                                                                          <ArrowForwardIcon />
-                                                                                                                        </IconButton>
-                                                                                                                        <Typography variant="h2">Candidato</Typography>
-                                                                                                                      </> :
-                                                                                                                      window.location.href.includes("/hr/candidati") ?
+                                                                                                                        <Typography variant="h2">Scadenzario</Typography>
+                                                                                                                      </>
+                                                                                                                      :
+                                                                                                                      window.location.href.includes("/amministrazione/asset/Rate") ?
                                                                                                                         <>
-                                                                                                                          <Typography variant="h2">HR</Typography>
+                                                                                                                          <Typography variant="h2">Amministrazione</Typography>
                                                                                                                           <IconButton edge="start" color="inherit">
                                                                                                                             <ArrowForwardIcon />
                                                                                                                           </IconButton>
-                                                                                                                          <Typography variant="h2">Candidati</Typography>
-                                                                                                        </> :
-                                                              // amministrazione part start
-                                                              window.location.href.includes("/amministrazione/imposte/Reteizzazione") ?
-                                                                <>
-                                                                  <Typography variant="h2">Amministrazione</Typography>
-                                                                  <IconButton edge="start" color="inherit">
-                                                                    <ArrowForwardIcon />
-                                                                  </IconButton>
-                                                                  <Typography variant="h2">Imposte</Typography>
-                                                                  <IconButton edge="start" color="inherit">
-                                                                    <ArrowForwardIcon />
-                                                                  </IconButton>
-                                                                  <Typography variant="h2">Nome dell’imposta</Typography>
-                                                                </> :
-                                                                window.location.href.includes("/amministrazione/imposte/Allegati") ?
-                                                                  <>
-                                                                    <Typography variant="h2">Amministrazione</Typography>
-                                                                    <IconButton edge="start" color="inherit">
-                                                                      <ArrowForwardIcon />
-                                                                    </IconButton>
-                                                                    <Typography variant="h2">Imposte</Typography>
-                                                                    <IconButton edge="start" color="inherit">
-                                                                      <ArrowForwardIcon />
-                                                                    </IconButton>
-                                                                    <Typography variant="h2">Nome dell’imposta</Typography>
-                                                                  </> :
-                                                                  window.location.href.includes("/amministrazione/imposte") ?
-                                                                    <>
-                                                                      <Typography variant="h2">Amministrazione</Typography>
-                                                                      <IconButton edge="start" color="inherit">
-                                                                        <ArrowForwardIcon />
-                                                                      </IconButton>
-                                                                      <Typography variant="h2">Imposte</Typography>
-                                                                    </>
-                                                                    :
-                                                                    window.location.href.includes("/amministrazione/documenti/fattura") ?
-                                                                      <>
-                                                                        <Typography variant="h2">Amministrazione</Typography>
-                                                                        <IconButton edge="start" color="inherit">
-                                                                          <ArrowForwardIcon />
-                                                                        </IconButton>
-                                                                        <Typography variant="h2">Documenti</Typography>
-                                                                        <IconButton edge="start" color="inherit">
-                                                                          <ArrowForwardIcon />
-                                                                        </IconButton>
-                                                                        <Typography variant="h2">Fattura</Typography>
-                                                                      </> :
-                                                                      window.location.href.includes("/amministrazione/documenti") ?
-                                                                        <>
-                                                                          <Typography variant="h2">Amministrazione</Typography>
-                                                                          <IconButton edge="start" color="inherit">
-                                                                            <ArrowForwardIcon />
-                                                                          </IconButton>
-                                                                          <Typography variant="h2">Documenti</Typography>
-                                                                        </>
-                                                                        :
-                                                                        window.location.href.includes("/amministrazione/bilancio") ?
-                                                                          <>
-                                                                            <Typography variant="h2">Amministrazione</Typography>
-                                                                            <IconButton edge="start" color="inherit">
-                                                                              <ArrowForwardIcon />
-                                                                            </IconButton>
-                                                                            <Typography variant="h2">Bilancio</Typography>
-                                                                          </>
-                                                                          :
-                                                                          window.location.href.includes("/amministrazione/scadenzario") ?
-                                                                            <>
-                                                                              <Typography variant="h2">Amministrazione</Typography>
-                                                                              <IconButton edge="start" color="inherit">
-                                                                                <ArrowForwardIcon />
-                                                                              </IconButton>
-                                                                              <Typography variant="h2">Scadenzario</Typography>
-                                                                            </>
-                                                                            :
-                                                                            window.location.href.includes("/amministrazione/asset/Rate") ?
-                                                                              <>
-                                                                                <Typography variant="h2">Amministrazione</Typography>
-                                                                                <IconButton edge="start" color="inherit">
-                                                                                  <ArrowForwardIcon />
-                                                                                </IconButton>
-                                                                                <Typography variant="h2">Asset</Typography>
-                                                                                <IconButton edge="start" color="inherit">
-                                                                                  <ArrowForwardIcon />
-                                                                                </IconButton>
-                                                                                <Typography variant="h2">Nome asset</Typography>
-                                                                              </>
-                                                                              :
-                                                                              window.location.href.includes("/amministrazione/asset/Allegati") ?
-                                                                                <>
-                                                                                  <Typography variant="h2">Amministrazione</Typography>
-                                                                                  <IconButton edge="start" color="inherit">
-                                                                                    <ArrowForwardIcon />
-                                                                                  </IconButton>
-                                                                                  <Typography variant="h2">Asset</Typography>
-                                                                                  <IconButton edge="start" color="inherit">
-                                                                                    <ArrowForwardIcon />
-                                                                                  </IconButton>
-                                                                                  <Typography variant="h2">Nome asset</Typography>
-                                                                                </>
-                                                                                :
-                                                                                window.location.href.includes("/amministrazione/asset") ?
-                                                                                  <>
-                                                                                    <Typography variant="h2">Amministrazione</Typography>
-                                                                                    <IconButton edge="start" color="inherit">
-                                                                                      <ArrowForwardIcon />
-                                                                                    </IconButton>
-                                                                                    <Typography variant="h2">Asset</Typography>
-                                                                                  </>
-                                                                                  :
-                                                                                  window.location.href.includes("/amministrazione/flussi-di-cassa") ?
-                                                                                    <>
-                                                                                      <Typography variant="h2">Amministrazione</Typography>
-                                                                                      <IconButton edge="start" color="inherit">
-                                                                                        <ArrowForwardIcon />
-                                                                                      </IconButton>
-                                                                                      <Typography variant="h2">Flusso di cassa</Typography>
-                                                                                    </> :
-                                                                                    window.location.href.includes("/amministrazione/registri-iva") ?
-                                                                                      <>
-                                                                                        <Typography variant="h2">Amministrazione</Typography>
-                                                                                        <IconButton edge="start" color="inherit">
-                                                                                          <ArrowForwardIcon />
-                                                                                        </IconButton>
-                                                                                        <Typography variant="h2">Registri IVA</Typography>
-                                                                                      </> :
-                                                                                      window.location.href.includes("/amministrazione/prima-nota") ?
-                                                                                        <>
-                                                                                          <Typography variant="h2">Amministrazione</Typography>
-                                                                                          <IconButton edge="start" color="inherit">
-                                                                                            <ArrowForwardIcon />
-                                                                                          </IconButton>
-                                                                                          <Typography variant="h2">Prima nota</Typography>
-                                                                                        </> :
+                                                                                                                          <Typography variant="h2">Asset</Typography>
+                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                            <ArrowForwardIcon />
+                                                                                                                          </IconButton>
+                                                                                                                          <Typography variant="h2">Nome asset</Typography>
+                                                                                                                        </>
+                                                                                                                        :
+                                                                                                                        window.location.href.includes("/amministrazione/asset/Allegati") ?
+                                                                                                                          <>
+                                                                                                                            <Typography variant="h2">Amministrazione</Typography>
+                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                              <ArrowForwardIcon />
+                                                                                                                            </IconButton>
+                                                                                                                            <Typography variant="h2">Asset</Typography>
+                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                              <ArrowForwardIcon />
+                                                                                                                            </IconButton>
+                                                                                                                            <Typography variant="h2">Nome asset</Typography>
+                                                                                                                          </>
+                                                                                                                          :
+                                                                                                                          window.location.href.includes("/amministrazione/asset") ?
+                                                                                                                            <>
+                                                                                                                              <Typography variant="h2">Amministrazione</Typography>
+                                                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                                                <ArrowForwardIcon />
+                                                                                                                              </IconButton>
+                                                                                                                              <Typography variant="h2">Asset</Typography>
+                                                                                                                            </>
+                                                                                                                            :
+                                                                                                                            window.location.href.includes("/amministrazione/flussi-di-cassa") ?
+                                                                                                                              <>
+                                                                                                                                <Typography variant="h2">Amministrazione</Typography>
+                                                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                                                  <ArrowForwardIcon />
+                                                                                                                                </IconButton>
+                                                                                                                                <Typography variant="h2">Flusso di cassa</Typography>
+                                                                                                                              </> :
+                                                                                                                              window.location.href.includes("/amministrazione/registri-iva") ?
+                                                                                                                                <>
+                                                                                                                                  <Typography variant="h2">Amministrazione</Typography>
+                                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                                    <ArrowForwardIcon />
+                                                                                                                                  </IconButton>
+                                                                                                                                  <Typography variant="h2">Registri IVA</Typography>
+                                                                                                                                </> :
+                                                                                                                                window.location.href.includes("/amministrazione/prima-nota") ?
+                                                                                                                                  <>
+                                                                                                                                    <Typography variant="h2">Amministrazione</Typography>
+                                                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                                                      <ArrowForwardIcon />
+                                                                                                                                    </IconButton>
+                                                                                                                                    <Typography variant="h2">Prima nota</Typography>
+                                                                                                                                  </> :
 
-                                                                                                                        (
-                                                                                                                          <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                                                        )}
+                                                                                                                                  (
+                                                                                                                                    <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                                                  )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
+          !location.pathname.includes("/acquisti/preventivi/sub-preventivi") &&
           !location.pathname.includes("/acquisti/budget/sub-budget") &&
           !location.pathname.includes("/dashboard/profitti") &&
           !location.pathname.includes("/dashboard/vendite") &&
@@ -995,7 +996,10 @@ const HeaderBelow = () => {
           !location.pathname.includes("/dashboard/imposte") &&
           !location.pathname.includes("/dashboard/asset") &&
           !location.pathname.includes("/dashboard/attivita") &&
-          !location.pathname.includes("/acquisti/ordini/sub-ordini") && (
+          !location.pathname.includes("/acquisti/ordini/sub-ordini") &&
+          !location.pathname.includes("/amministrazione/documenti/fattura") &&
+          (
+
             <AddButton title="Aggiungi" onClick={() => setOpen(true)} />
           )}
 

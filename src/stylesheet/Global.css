@@ -212,3 +212,7 @@ button.greenPlusButton svg path {
 .Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #000 !important;
 }
+
+.imposte_container .prfittiCard {
+  min-height: 85px;
+}
