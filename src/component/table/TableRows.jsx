@@ -2082,7 +2082,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  onClick={() => navigate("/production/processes/details")}
+                    onClick={() => navigate("/production/processes/details")}
                   >
                     {/* Custom Checkbox */}
                     <StyledTableCell align="center">
@@ -2136,6 +2136,93 @@ const TableRows = ({
                           : currentStatuses[index]}
                       </StatusChip>
                     </StyledTableCell>
+
+                    {/* Menu Options */}
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+
+        );
+      case "Archive":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    // onClick={() => navigate("/production/processes/details")}
+                  >
+                    {/* Custom Checkbox */}
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customCheckbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+
+                    {/* Table Cells */}
+                    <StyledTableCell>{row.numero || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row["creatoil"] || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.lotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.fase || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.data_inizio || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row["data_fine"] || "N/A"}</StyledTableCell>
+                    {/* <StyledTableCell>{row["mod_da"] || "N/A"}</StyledTableCell> */}
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.stato || "N/A"}</StyledTableCell>
+
+
+                    {/* Status Chip */}
+                    {/* <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell> */}
 
                     {/* Menu Options */}
                     <StyledTableCell

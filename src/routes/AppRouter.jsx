@@ -94,6 +94,7 @@ import Productions from "../pages/Production/Productions.jsx";
 import ProductionsDetails from "../pages/Production/ProductionsDetails.jsx";
 import Processes from "../pages/Production/Processes.jsx";
 import ProcessesDetails from "../pages/Production/ProcessesDetails.jsx";
+import Archive from "../pages/Production/Archive.jsx";
 
 const Allroutes = () => {
   return (
@@ -780,6 +781,15 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <ProcessesDetails />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/production/archive"
+        element={
+          <PublicRoute>
+            <Archive />
           </PublicRoute>
         }
       />

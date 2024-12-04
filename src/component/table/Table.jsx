@@ -324,6 +324,10 @@ const CustomTable = ({ data, form, columns, navData }) => {
       result = result.filter((item) => item.processo === searchFilters.processo);
     }
 
+    if (searchFilters.prodotto) {
+      result = result.filter((item) => item.prodotto === searchFilters.prodotto);
+    }
+
     setFilteredData(result);
     setPage(0);
   };
