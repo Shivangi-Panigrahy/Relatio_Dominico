@@ -780,7 +780,7 @@ const Allroutes = () => {
         path="/production/processes/details"
         element={
           <PublicRoute>
-            <ProcessesDetails />
+            <ProcessesDetails Component={Configure} />
           </PublicRoute>
         }
       />
