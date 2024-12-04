@@ -98,6 +98,7 @@ import SubColaboratoryAnagrafiche from "../pages/Anagrafiche/Colaboratory/SubCol
 import FornitoriAnagrafiche from "../pages/Anagrafiche/Fornitori/FornitoriAnagrafiche.jsx";
 import DettaglioAnagrafiche from "../pages/Anagrafiche/Fornitori/Dettaglio/DettaglioAnagrafiche.jsx";
 import ClientiAnagrafiche from "../pages/Anagrafiche/Clienti/ClientiAnagrafiche.jsx";
+import DettaglioClientiAnagrafiche from "../pages/Anagrafiche/Clienti/Dettaglio/DettaglioClientiAnagrafiche.jsx";
 
 const Allroutes = () => {
   return (
@@ -1020,7 +1021,7 @@ const Allroutes = () => {
           </PublicRoute>
         } ColaboratoryAnagrafiche
       />
-           <Route
+      <Route
         path="/angrafiche/sub-colaboratory/Contatti"
         element={
           <PublicRoute>
@@ -1092,15 +1093,15 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-        <Route
+      <Route
         path="/angrafiche/fornitori"
         element={
           <PublicRoute>
-            <FornitoriAnagrafiche  />
+            <FornitoriAnagrafiche />
           </PublicRoute>
         }
       />
-        <Route
+      <Route
         path="/angrafiche/fornitori/Contatti"
         element={
           <PublicRoute>
@@ -1164,7 +1165,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-         <Route
+      <Route
         path="/angrafiche/clienti"
         element={
           <PublicRoute>
@@ -1172,11 +1173,11 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/angrafiche/clienti/Contatti"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Contatti} />
+            <DettaglioClientiAnagrafiche Component={Contatti} />
           </PublicRoute>
         }
       />
@@ -1184,7 +1185,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Qualificazione"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Qualificazione} />
+            <DettaglioClientiAnagrafiche Component={Qualificazione} />
           </PublicRoute>
         }
       />
@@ -1192,7 +1193,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Documenti"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Documenti} />
+            <DettaglioClientiAnagrafiche Component={Documenti} />
           </PublicRoute>
         }
       />
@@ -1200,7 +1201,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Agenda"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={ReactBigCalendar} />
+            <DettaglioClientiAnagrafiche Component={ReactBigCalendar} />
           </PublicRoute>
         }
       />
@@ -1208,7 +1209,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Dati"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Dati} />
+            <DettaglioClientiAnagrafiche Component={Dati} />
           </PublicRoute>
         }
       />
@@ -1216,7 +1217,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Sedi"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Sedi} />
+            <DettaglioClientiAnagrafiche Component={Sedi} />
           </PublicRoute>
         }
       />
@@ -1224,7 +1225,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Relazioni"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Relazioni} />
+            <DettaglioClientiAnagrafiche Component={Relazioni} />
           </PublicRoute>
         }
       />
@@ -1232,7 +1233,7 @@ const Allroutes = () => {
         path="/angrafiche/clienti/Allegati"
         element={
           <PublicRoute>
-            <DettaglioAnagrafiche Component={Allegati} />
+            <DettaglioClientiAnagrafiche Component={Allegati} />
           </PublicRoute>
         }
       />

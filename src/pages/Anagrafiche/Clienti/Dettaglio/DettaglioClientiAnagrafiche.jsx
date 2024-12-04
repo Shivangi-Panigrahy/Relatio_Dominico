@@ -42,18 +42,22 @@ const DettaglioClientiAnagrafiche = ({ Component }) => {
                         <Box className="TemplateForm__right">
                             <MenuTab
                                 onTabChange={handleTabChange}
-                                // dettaglioForm={true} 
+                                // dettaglioForm={true}  asdasdasd
                                 clientiAnagrafiche={true}
                             />
-                           
-                            <ProductionInfo  adminiDoc={false}/>
-                             { Component && <Component acquisti_agenda={true} /> }
+                            <Box sx={{mt:"4px"}}>
+                                <ProductionInfo adminiDoc={true} />
+                            </Box>
+
+
+
+                            {Component && <Component acquisti_agenda={true} />}
                             {/* <Contatti /> */}
                             {/* <Qualificazione /> */}
                             {/* <ReactBigCalendar 
                                 acquisti_agenda={true} 
                             /> */}
-                            {/* <Sedi_Operative /> */} 
+                            {/* <Sedi_Operative /> */}
                         </Box>
                     </Grid>
                 </Grid>
