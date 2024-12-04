@@ -4,7 +4,7 @@
       "doc": "Doc",
       "creatoIl": "28/11/2022",
       "numero": "BU/227",
-      "clienteFornitore": "Nome Cliente A",
+      "fornitori": "Nome Cliente A",
       "stabilimento": "Stabilimento A",
       "autore": "User 1",
       "azioni": "..."
@@ -14,7 +14,7 @@
       "doc": "Doc",
       "creatoIl": "29/11/2022",
       "numero": "BU/228",
-      "clienteFornitore": "Nome Cliente B",
+      "fornitori": "Nome Cliente B",
       "stabilimento": "Stabilimento B",
       "autore": "User 2",
       "azioni": "..."
@@ -24,7 +24,7 @@
       "doc": "Doc",
       "creatoIl": "30/11/2022",
       "numero": "BU/229",
-      "clienteFornitore": "Nome Cliente C",
+      "fornitori": "Nome Cliente C",
       "stabilimento": "Stabilimento C",
       "autore": "User 3",
       "azioni": "..."
@@ -34,7 +34,7 @@
       "doc": "Doc",
       "creatoIl": "01/12/2022",
       "numero": "BU/230",
-      "clienteFornitore": "Nome Cliente D",
+      "fornitori": "Nome Cliente D",
       "stabilimento": "Stabilimento D",
       "autore": "User 4",
       "azioni": "..."
@@ -44,7 +44,7 @@
       "doc": "Doc",
       "creatoIl": "02/12/2022",
       "numero": "BU/231",
-      "clienteFornitore": "Nome Cliente E",
+      "fornitori": "Nome Cliente E",
       "stabilimento": "Stabilimento E",
       "autore": "User 5",
       "azioni": "..."

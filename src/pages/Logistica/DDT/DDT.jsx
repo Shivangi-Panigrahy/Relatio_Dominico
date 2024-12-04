@@ -6,13 +6,13 @@ import tableData from "../../../utils/logisticaDDT.json"
 const DDT = () => {
 
     const columns = [
-        { field: "doc", headerName: "Doc.", width: 100 },
-        { field: "creatoIl", headerName: "Creato il", width: 150 },
-        { field: "numero", headerName: "Numero", width: 150 },
-        { field: "clienteFornitore", headerName: "Cliente/Fornitore", width: 200 },
-        { field: "stabilimento", headerName: "Stabilimento di arrivo/partenza", width: 250 },
-        { field: "autore", headerName: "Autore", width: 150 },
-        { field: "azioni", headerName: "Azioni", width: 100 },
+        { field: "doc", headerName: "Doc.", width: 65 },
+        { field: "creatoIl", headerName: "Creato il", width: 95 },
+        { field: "numero", headerName: "Numero", width: 95 },
+        { field: "fornitori", headerName: "Cliente/Fornitore", width: 655 },
+        { field: "stabilimento", headerName: "Stabilimento di arrivo/partenza", width: 662 },
+        { field: "autore", headerName: "Autore", width: 85},
+        { field: "azioni", headerName: "Azioni", width: 95 },
     ];
     
 

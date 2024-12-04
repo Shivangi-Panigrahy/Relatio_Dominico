@@ -123,32 +123,31 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters?.searchTerm) {
       const term = searchFilters.searchTerm.toLowerCase();
       result = result.filter((item) =>
-        [item.titolo, item.clienti, item.fornitori, item.peso, item.categoria, item.ragioneSociale, item.stato, item.creatoIl, item.creatoil,item.numero,item.doc,item.Creato_il,
-        item.cliente,item.Creato_il,
+        [item.titolo, item.clienti, item.fornitori, item.peso, item.categoria, item.ragioneSociale, item.stato, item.creatoIl, item.creatoil, item.numero, item.doc, item.Creato_il,
+        item.cliente, item.Creato_il,
         item.Ragione_sociale,
         item.P_IVA,
         item.Tipo,
         item.Gruppo,
         item.Regione,
-        item.Stato_name,item.valore,
-      item?.saldata,
-      item?.dasaldare,
-      item?.fornitori,
-      item?.totale,
-      item.anno,item.scadenza,
-      item.nomeImposta,
-      item.tipologia,
-      item.realizzata,
-      item.autore,
-      item.modDa,
-      item.daSaldare,
-      item.scadenza,item.obiettivo,item.asset,item.importo,item.dataPagamento,item.rata,
-      item?.cod,item?.nomeServizio,item?.um,item?.pzVendita,item?.costoServizio,item?.ricavoUnitario,item?.acquistato,item?.venduto,item?.ricavoTotale,
-      item?.nomeListino,item?.gruppiAssociati,item?.nProdotti,item?.a,item?.priorita,item?.nomeProdotto,
-      item?.lotto,item?.marcaSerie,item?.stabilimento,item?.qta,item?.pzUnitario,
-      item?.code,item.name,item?.nome_del_prodotto,item?.mese,item?.collaboratore,item?.colaboratore,item?.evento,item?.trattamento,
-      item?.ore,item?.turno,item?.totaleOreLavorate,item?.nomeProgetto,item?.al
-     ]
+        item.Stato_name, item.valore,
+        item?.saldata,
+        item?.dasaldare,
+        item?.totale,
+        item.anno, item.scadenza,
+        item.nomeImposta,
+        item.tipologia,
+        item.realizzata,
+        item.autore,
+        item.modDa,
+        item.daSaldare,
+        item.scadenza, item.obiettivo, item.asset, item.importo, item.dataPagamento, item.rata,
+        item?.cod, item?.nomeServizio, item?.um, item?.pzVendita, item?.costoServizio, item?.ricavoUnitario, item?.acquistato, item?.venduto, item?.ricavoTotale,
+        item?.nomeListino, item?.gruppiAssociati, item?.nProdotti, item?.a, item?.priorita, item?.nomeProdotto,
+        item?.lotto, item?.marcaSerie, item?.stabilimento, item?.qta, item?.pzUnitario,
+        item?.code, item.name, item?.nome_del_prodotto, item?.mese, item?.collaboratore, item?.colaboratore, item?.evento, item?.trattamento,
+        item?.ore, item?.turno, item?.totaleOreLavorate, item?.nomeProgetto, item?.al, item?.indirizzo, item?.operativoDa,item?.tipologiaAttrezzature,item?.posizione
+        ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
       );
@@ -294,7 +293,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.colaboratore) {
       result = result.filter((item) => item.colaboratore === searchFilters.colaboratore);
     }
-    
+
     if (searchFilters.ore) {
       result = result.filter((item) => item.ore === searchFilters.ore);
     }
@@ -307,7 +306,25 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.nomeProgetto) {
       result = result.filter((item) => item.nomeProgetto === searchFilters.nomeProgetto);
     }
-  
+    if (searchFilters.stabilimento) {
+      result = result.filter((item) => item.stabilimento === searchFilters.stabilimento);
+    }
+    if (searchFilters.fornitori) {
+      result = result.filter((item) => item.fornitori === searchFilters.fornitori);
+    }
+    if (searchFilters.prodotto) {
+      result = result.filter((item) => item.prodotto === searchFilters.prodotto);
+    }
+    if (searchFilters.marcaSerie) {
+      result = result.filter((item) => item.marcaSerie === searchFilters.marcaSerie);
+    }
+    if (searchFilters.tipologiaAttrezzature) {
+      result = result.filter((item) => item.tipologiaAttrezzature === searchFilters.tipologiaAttrezzature);
+    }
+    if (searchFilters.posizione) {
+      result = result.filter((item) => item.posizione === searchFilters.posizione);
+    }
+
     setFilteredData(result);
     setPage(0);
   };

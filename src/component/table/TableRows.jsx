@@ -2443,7 +2443,7 @@ const TableRows = ({
                     <StyledTableCell>{row.tipologiaAttrezzature}</StyledTableCell>
                     <StyledTableCell>{row.numeroDiSerie}</StyledTableCell>
                     <StyledTableCell>{row.posizione}</StyledTableCell>
-                    <StyledTableCell>{row.da}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.a}</StyledTableCell>
                     <StyledTableCell>
                       <Avatar1 />
@@ -2517,9 +2517,26 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.cod}</StyledTableCell>
                     <StyledTableCell>{row.lotto}</StyledTableCell>
-                    <StyledTableCell>{row.dataArrivo}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.prodotto}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.prodotto}
+                      </IconButton>
+                    </StyledTableCell>
+
                     <StyledTableCell>{row.marcaSerie}</StyledTableCell>
                     <StyledTableCell>{row.stabilimento}</StyledTableCell>
                     <StyledTableCell>{row.um}</StyledTableCell>
@@ -2568,7 +2585,26 @@ const TableRows = ({
                     <StyledTableCell>{row.doc}</StyledTableCell>
                     <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.numero}</StyledTableCell>
-                    <StyledTableCell>{row.clienteFornitore}</StyledTableCell>
+                    <StyledTableCell>
+
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.fornitori}
+                      </IconButton>
+
+
+                    </StyledTableCell>
                     <StyledTableCell>{row.stabilimento}</StyledTableCell>
                     <StyledTableCell>
                       <Avatar1 />

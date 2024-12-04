@@ -7,15 +7,15 @@ import tableData from "../../../utils/logisticaAttrezzature.json"
 const Attrezzature = () => {
 
     const columns = [
-        { field: "tipologiaAttrezzature", headerName: "Tipologia attrezzature", width: 200 },
-        { field: "numeroDiSerie", headerName: "N. di serie", width: 150 },
-        { field: "posizione", headerName: "Posizione", width: 200 },
-        { field: "da", headerName: "Da", width: 150 },
-        { field: "a", headerName: "A", width: 150 },
-        { field: "autore", headerName: "Autore", width: 150 },
-        { field: "modDa", headerName: "Mod. da", width: 150 },
-        { field: "stato", headerName: "Stato", width: 150 },
-        { field: "azioni", headerName: "Azioni", width: 100 },
+        { field: "tipologiaAttrezzature", headerName: "Tipologia attrezzature", width: 485 },
+        { field: "numeroDiSerie", headerName: "N. di serie", width: 300 },
+        { field: "posizione", headerName: "Posizione", width: 300 },
+        { field: "creatoIl", headerName: "Da", width: 130 },
+        { field: "a", headerName: "A", width: 130 },
+        { field: "autore", headerName: "Autore", width: 85 },
+        { field: "modDa", headerName: "Mod. da", width: 85 },
+        { field: "stato", headerName: "Stato", width: 145 },
+        { field: "azioni", headerName: "Azioni", width: 95 },
     ];
 
 

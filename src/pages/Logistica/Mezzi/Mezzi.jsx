@@ -7,16 +7,16 @@ import tableData from "../../../utils/logisticaMezzi.json"
 const Mezzi = () => {
 
     const columns = [
-        { field: "tipologiaMezzo", headerName: "Tipologia mezzo", width: 200 },
-        { field: "targhe", headerName: "Targhe", width: 150 },
-        { field: "posizione", headerName: "Posizione", width: 200 },
-        { field: "km", headerName: "KM", width: 150 },
-        { field: "da", headerName: "Da", width: 150 },
-        { field: "a", headerName: "A", width: 150 },
-        { field: "autore", headerName: "Autore", width: 150 },
-        { field: "modDa", headerName: "Mod. da", width: 150 },
-        { field: "stato", headerName: "Stato", width: 150 },
-        { field: "azioni", headerName: "Azioni", width: 100 },
+        { field: "tipologiaMezzo", headerName: "Tipologia mezzo", width: 445 },
+        { field: "targhe", headerName: "Targhe", width: 210 },
+        { field: "posizione", headerName: "Posizione", width: 305 },
+        { field: "km", headerName: "KM", width: 130 },
+        { field: "da", headerName: "Da", width: 130 },
+        { field: "a", headerName: "A", width: 130 },
+        { field: "autore", headerName: "Autore", width: 85 },
+        { field: "modDa", headerName: "Mod. da", width: 85 },
+        { field: "stato", headerName: "Stato", width: 145 },
+        { field: "azioni", headerName: "Azioni", width: 95 },
     ];
 
 

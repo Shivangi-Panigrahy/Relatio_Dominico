@@ -6,12 +6,12 @@ import tableData from "../../../utils/logisticaStabilimenti.json"
 const Stabilimenti = () => {
 
     const columns = [
-        { field: "nomeStabilimento", headerName: "Nome dello stabilimento", width: 250 },
-        { field: "tipologia", headerName: "Tipologia", width: 150 },
-        { field: "indirizzo", headerName: "Indirizzo", width: 300 },
-        { field: "operativoDa", headerName: "Operativo da", width: 150 },
-        { field: "utente", headerName: "Utente", width: 100 },
-        { field: "azioni", headerName: "Azioni", width: 100 },
+        { field: "nomeStabilimento", headerName: "Nome dello stabilimento", width: 610 },
+        { field: "tipologia", headerName: "Tipologia", width: 300 },
+        { field: "indirizzo", headerName: "Indirizzo", width: 530 },
+        { field: "operativoDa", headerName: "Operativo da", width: 130 },
+        { field: "utente", headerName: "Utente", width: 85 },
+        { field: "azioni", headerName: "Azioni", width: 95 },
     ];
     
 
