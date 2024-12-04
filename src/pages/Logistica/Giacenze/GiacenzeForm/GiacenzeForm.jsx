@@ -18,20 +18,19 @@ const selectOptions = [
 
 const inputFields = [
     {
-        name: "Nome del mezzo",
-        label: "Nome del mezzo",
+        name: "Nome della giacenze",
+        label: "Nome della giacenze",
     },
-    { name: "Categoria mezzo", label: "Categoria mezzo" },
-    { name: "Targa", label: "Targa" },
-    { name: "Targa rimorchio", label: "Targa rimorchio" },
-    { name: "Costo orario", label: "Costo orario" },
-    { name: "Stabilimento", label: "Stabilimento" },
+    { name: "Prodotto", label: "Prodotto" },
+    { name: "Marca", label: "Marca" },
+    { name: "Codice", label: "Codice" },
+    { name: "Lotto", label: "Lotto" },
     { name: "Centri di ricavo/Costo", label: "Centri di ricavo/Costo" },
     { name: "Note", label: "Note" },
 ];
 
 
-const MezziForm = () => {
+const GiacenzeForm = () => {
     const {
         control,
         handleSubmit,
@@ -52,9 +51,9 @@ const MezziForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="formCard">
             <div className="headerBlock">
-                <h5 className="headerBlock__title">Mezzo</h5>
+                <h5 className="headerBlock__title">Giacenza</h5>
             </div>
-            {inputFields.slice(0, 1).map((field) => (
+            {inputFields.slice(0, 5).map((field) => (
                 <CustomInput
                     key={field.name}
                     control={control}
@@ -67,36 +66,8 @@ const MezziForm = () => {
             <Grid style={{ marginBottom: "14px" }}>
                 <CustomSelect
                     control={control}
-                    name="Categoria mezzo"
-                    label="Categoria mezzo"
-                    error={errors.Categoria?.message}
-                    options={selectOptions}
-                />
-            </Grid>
-
-            {inputFields.slice(2, 5).map((field) => (
-                <CustomInput
-                    key={field.name}
-                    control={control}
-                    name={field.name}
-                    label={field.label}
-                    error={errors[field.name]}
-                />
-            ))}
-            <Grid style={{ marginBottom: "14px" }}>
-                <CustomSelect
-                    control={control}
-                    name="Stabilimento"
-                    label="Stabilimento"
-                    error={errors.Stabilimento?.message}
-                    options={selectOptions}
-                />
-            </Grid>
-            <Grid style={{ marginBottom: "14px" }}>
-                <CustomSelect
-                    control={control}
-                    name="Centri"
-                    label="Centri"
+                    name="Centri di ricavo/Costo"
+                    label="Centri di ricavo/Costo"
                     error={errors.Centri?.message}
                     options={selectOptions}
                 />
@@ -126,4 +97,4 @@ const MezziForm = () => {
 };
 
 
-export default MezziForm;
+export default GiacenzeForm;

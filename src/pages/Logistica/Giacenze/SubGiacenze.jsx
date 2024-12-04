@@ -1,6 +1,8 @@
 import { Box, Grid } from "@mui/material"
 import Header from "../../../component/header/Header"
 import MenuTab from "../../../component/tabs/MenuTab"
+import GiacenzeForm from "./GiacenzeForm/GiacenzeForm"
+import SubGiacenzeForm from "./SubGiacenzeForm"
 // import SubImposteForm from "../Imposte/SubImposteForm"
 
 const SubGiacenze = ({ Component }) => {
@@ -11,13 +13,13 @@ const SubGiacenze = ({ Component }) => {
 
                 <Grid container spacing={3}>
                     <Grid item lg={3} md={4} xs={12}>
-                        {/* <SubImposteForm /> */}
+                        <GiacenzeForm />
                     </Grid>
                     <Grid item lg={9} md={8} xs={12}>
                         <Box className="TemplateForm__right">
-                            {/* <MenuTab subMezzi={true} /> */}
                         </Box>
-                        {Component && <Component />}
+                        <SubGiacenzeForm />
+                        {/* {Component && <Component />} */}
                     </Grid>
                 </Grid>
             </div>
