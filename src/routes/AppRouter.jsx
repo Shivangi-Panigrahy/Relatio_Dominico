@@ -1026,7 +1026,7 @@ const Allroutes = () => {
         path="/logistica/attrezzature/Scadenze"
         element={
           <PublicRoute>
-            <SubAttrezzature Component={ListiniProdotti} />
+            <SubAttrezzature Component={ReactBigCalendar} />
           </PublicRoute>
         }
       />
@@ -1059,6 +1059,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <DDT />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/sub-DDT"
+        element={
+          <PublicRoute>
+            <InvoicePage />
           </PublicRoute>
         }
       />

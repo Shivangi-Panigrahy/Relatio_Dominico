@@ -980,10 +980,150 @@ const HeaderBelow = () => {
                                                                                                                                     </IconButton>
                                                                                                                                     <Typography variant="h2">Prima nota</Typography>
                                                                                                                                   </> :
-
-                                                                                                                                  (
-                                                                                                                                    <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                                                                  )}
+                                                                                                                                  window.location.href.includes("/logistica/prenota") ?
+                                                                                                                                    <>
+                                                                                                                                      <Typography variant="h2">Logistica</Typography>
+                                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                                        <ArrowForwardIcon />
+                                                                                                                                      </IconButton>
+                                                                                                                                      <Typography variant="h2">Prenota</Typography>
+                                                                                                                                    </>
+                                                                                                                                    :
+                                                                                                                                    window.location.href.includes("/logistica/stabilimenti/") ?
+                                                                                                                                      <>
+                                                                                                                                        <Typography variant="h2">Logistica</Typography>
+                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                        </IconButton>
+                                                                                                                                        <Typography variant="h2">Stabilimenti</Typography>
+                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                        </IconButton>
+                                                                                                                                        <Typography variant="h2">Nome stabilimento</Typography>
+                                                                                                                                      </>
+                                                                                                                                      :
+                                                                                                                                      window.location.href.includes("/logistica/stabilimenti") ?
+                                                                                                                                        <>
+                                                                                                                                          <Typography variant="h2">Logistica</Typography>
+                                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                                            <ArrowForwardIcon />
+                                                                                                                                          </IconButton>
+                                                                                                                                          <Typography variant="h2">Stabilimenti</Typography>
+                                                                                                                                        </>
+                                                                                                                                        :
+                                                                                                                                        window.location.href.includes("/logistica/mezzi/") ?
+                                                                                                                                          <>
+                                                                                                                                            <Typography variant="h2">Logistica</Typography>
+                                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                                              <ArrowForwardIcon />
+                                                                                                                                            </IconButton>
+                                                                                                                                            <Typography variant="h2">Mezzi</Typography>
+                                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                                              <ArrowForwardIcon />
+                                                                                                                                            </IconButton>
+                                                                                                                                            <Typography variant="h2">Nome del mezzo</Typography>
+                                                                                                                                          </>
+                                                                                                                                          :
+                                                                                                                                          window.location.href.includes("/logistica/mezzi") ?
+                                                                                                                                            <>
+                                                                                                                                              <Typography variant="h2">Logistica</Typography>
+                                                                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                                                                <ArrowForwardIcon />
+                                                                                                                                              </IconButton>
+                                                                                                                                              <Typography variant="h2">Mezzi</Typography>
+                                                                                                                                            </>
+                                                                                                                                            :
+                                                                                                                                            window.location.href.includes("/logistica/mezzi/") ?
+                                                                                                                                              <>
+                                                                                                                                                <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                                                                  <ArrowForwardIcon />
+                                                                                                                                                </IconButton>
+                                                                                                                                                <Typography variant="h2">Mezzi</Typography>
+                                                                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                                                                  <ArrowForwardIcon />
+                                                                                                                                                </IconButton>
+                                                                                                                                                <Typography variant="h2">Nome del mezzo</Typography>
+                                                                                                                                              </>
+                                                                                                                                              :
+                                                                                                                                              window.location.href.includes("/logistica/mezzi") ?
+                                                                                                                                                <>
+                                                                                                                                                  <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                                                                    <ArrowForwardIcon />
+                                                                                                                                                  </IconButton>
+                                                                                                                                                  <Typography variant="h2">Mezzi</Typography>
+                                                                                                                                                </>
+                                                                                                                                                :
+                                                                                                                                                window.location.href.includes("/logistica/attrezzature/") ?
+                                                                                                                                                  <>
+                                                                                                                                                    <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                                                                      <ArrowForwardIcon />
+                                                                                                                                                    </IconButton>
+                                                                                                                                                    <Typography variant="h2">Attrezzature</Typography>
+                                                                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                                                                      <ArrowForwardIcon />
+                                                                                                                                                    </IconButton>
+                                                                                                                                                    <Typography variant="h2">Nome dell’attrezzatura</Typography>
+                                                                                                                                                  </>
+                                                                                                                                                  :
+                                                                                                                                                  window.location.href.includes("/logistica/attrezzature") ?
+                                                                                                                                                    <>
+                                                                                                                                                      <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                                                                        <ArrowForwardIcon />
+                                                                                                                                                      </IconButton>
+                                                                                                                                                      <Typography variant="h2">Attrezzature</Typography>
+                                                                                                                                                    </>
+                                                                                                                                                    :
+                                                                                                                                                    window.location.href.includes("/logistica/giacenze/") ?
+                                                                                                                                                      <>
+                                                                                                                                                        <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                                        </IconButton>
+                                                                                                                                                        <Typography variant="h2">Giacenze</Typography>
+                                                                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                                                                          <ArrowForwardIcon />
+                                                                                                                                                        </IconButton>
+                                                                                                                                                        <Typography variant="h2">Nome della giacenza</Typography>
+                                                                                                                                                      </>
+                                                                                                                                                      :
+                                                                                                                                                      window.location.href.includes("/logistica/giacenze") ?
+                                                                                                                                                        <>
+                                                                                                                                                          <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                                                            <ArrowForwardIcon />
+                                                                                                                                                          </IconButton>
+                                                                                                                                                          <Typography variant="h2">Giacenze</Typography>
+                                                                                                                                                        </>
+                                                                                                                                                        :
+                                                                                                                                                        window.location.href.includes("/logistica/sub-DDT") ?
+                                                                                                                                                        <>
+                                                                                                                                                          <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                                                            <ArrowForwardIcon />
+                                                                                                                                                          </IconButton>
+                                                                                                                                                          <Typography variant="h2">DTT</Typography>
+                                                                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                                                                            <ArrowForwardIcon />
+                                                                                                                                                          </IconButton>
+                                                                                                                                                          <Typography variant="h2">Numero del DDT</Typography>
+                                                                                                                                                        </>
+                                                                                                                                                        :
+                                                                                                                                                        window.location.href.includes("/logistica/DDT") ?
+                                                                                                                                                          <>
+                                                                                                                                                            <Typography variant="h2">Logistica</Typography>
+                                                                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                                                                              <ArrowForwardIcon />
+                                                                                                                                                            </IconButton>
+                                                                                                                                                            <Typography variant="h2">DTT</Typography>
+                                                                                                                                                          </>
+                                                                                                                                                          :
+                                                                                                                                                        (
+                                                                                                                                                          <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                                                                        )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&
