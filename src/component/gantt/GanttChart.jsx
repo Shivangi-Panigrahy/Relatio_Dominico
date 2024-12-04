@@ -783,7 +783,7 @@ const GanttChart = () => {
                                 className={`
                                       ${
                                         isToday
-                                          ? "borderedDashed calenderBox"
+                                          ? "borderedDashed calenderBoxq"
                                           : "calenderBox"
                                       } 
                                       ${isTaskDay ? "calenderBox" : ""}${
@@ -809,7 +809,7 @@ const GanttChart = () => {
                                 }}
                               >
                                 {isMonday &&
-                                  <div style={{display:"flex"}}>
+                                  <div className="multiImages">
                                   {taskForDay &&
                                   filteredGroupProjects[category].map(
                                     (item) => {
@@ -824,7 +824,7 @@ const GanttChart = () => {
                                   <div
                                     style={{
                                       position: "absolute",
-                                      bottom: "10%",
+                                      bottom: "6%",
                                       right: "10%",
                                       color: "#ffffff",
                                       borderRadius: "50%",
@@ -931,7 +931,9 @@ const GanttChart = () => {
                                           top: "-1px",
                                         }}
                                       >
+                                        <div className="sigleImages">
                                         {isMonday && taskForDay?.avatar}
+                                        </div>
 
                                         {isEndDate && (
                                           <div
