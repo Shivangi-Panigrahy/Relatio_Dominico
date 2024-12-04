@@ -99,7 +99,6 @@ import DDT from "../pages/Logistica/DDT/DDT.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 // import Gaicenze from "../pages/Logistica/Stabilimenti/SubStabilimenti/Gaicenze.jsx";
-import Collaboratori from "../pages/Logistica/Stabilimenti/SubStabilimenti/Collaboratori.jsx";
 import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
 
 const Allroutes = () => {
@@ -971,7 +970,7 @@ const Allroutes = () => {
         path="/logistica/stabilimenti/Collaboratori"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={Collaboratori} />
+            <SubStabilimenti Component={Colaboratory} />
           </PublicRoute>
         }
       />
@@ -995,7 +994,7 @@ const Allroutes = () => {
         path="/logistica/mezzi/Scadenze"
         element={
           <PublicRoute>
-            <SubMezzi Component={Gruppi} />
+            <SubMezzi Component={ReactBigCalendar} />
           </PublicRoute>
         }
       />

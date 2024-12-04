@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
@@ -19,7 +20,6 @@ const Giacenze = () => {
         { field: "valore", headerName: "Valore", width: 150 },
         { field: "azioni", headerName: "Azioni", width: 100 },
     ];
-    
 
 
     const rows = [
@@ -60,12 +60,18 @@ const Giacenze = () => {
         },
     ];
 
+    const location = useLocation();
+    const isLogisticaiGaicenze = location.pathname === "/logistica/stabilimenti/Gaicenze";
+    const isLogisticaiMezzi = location.pathname === "/logistica/mezzi/Gaicenze";
 
     return (
         <>
-            <Header />
-            <div className="pageTemplate assetPage">
-                <InvoiceDashboard amministrazioneAsset={rows} />
+            {!isLogisticaiGaicenze && !isLogisticaiMezzi && <Header />}
+            <div className="pageTemplate">
+                {!isLogisticaiGaicenze && !isLogisticaiMezzi && (
+                    <InvoiceDashboard giacenze={rows} />
+                )}
+
                 <Table
                     data={tableData}
                     columns={columns}
