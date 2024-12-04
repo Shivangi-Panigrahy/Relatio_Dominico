@@ -484,7 +484,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
                     onClick={() =>
-                      window.location.href.includes("/vendite/sub-lead")
+                      window.location.href.includes("/vendite/lead")
                         ? navigate("/vendite/sub-lead/Contatti")
                         : navigate("/anagrafiche/sub-lead/Contatti")
                     }
