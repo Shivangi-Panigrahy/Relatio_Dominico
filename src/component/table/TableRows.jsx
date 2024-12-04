@@ -135,6 +135,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
+      case "Disponibile":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
