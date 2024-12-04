@@ -391,7 +391,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
   // const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
 
   const [currentStatuses, setCurrentStatuses] = useState(
-    sortedData.map((item) => item.stato || chipsetLeadData[0])
+    sortedData?.map((item) => item.stato || chipsetLeadData[0])
   );
 
   // Function to handle status change on click

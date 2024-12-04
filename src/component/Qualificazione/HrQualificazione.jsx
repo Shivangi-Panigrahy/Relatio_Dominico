@@ -181,7 +181,12 @@ const HrQualificazione = () => {
       setCardData(hrCards);
     } else if (path === "/hr/candidati/candidato/Qualificazione") {
       setCardData(hrCandidatoCards);
-    } else {
+    }
+    else if (path === "/angrafiche/candidati/Qualificazione") {
+      setCardData(hrCandidatoCards)}
+      else if (path === "/angrafiche/sub-colaboratory/Qualificazione") {
+        setCardData(hrCandidatoCards)}
+    else {
       <>
       </>
     }

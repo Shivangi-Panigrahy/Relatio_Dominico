@@ -89,6 +89,15 @@ import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
+import LeadAnagrafiche from "../pages/Anagrafiche/Lead/LeadAnagrafiche.jsx";
+import SubLeadAnagrafiche from "../pages/Anagrafiche/Lead/subLead/SubLeadAnagrafiche.jsx";
+import CandidatiAnagrafiche from "../pages/Anagrafiche/Candidati/CandidatiAnagrafiche.jsx";
+import CandidatoAnagrafiche from "../pages/Anagrafiche/Candidati/CandidatoAnagrafiche.jsx";
+import ColaboratoryAnagrafiche from "../pages/Anagrafiche/Colaboratory/ColaboratoryAnagrafiche.jsx";
+import SubColaboratoryAnagrafiche from "../pages/Anagrafiche/Colaboratory/SubColaboratory.jsx";
+import FornitoriAnagrafiche from "../pages/Anagrafiche/Fornitori/FornitoriAnagrafiche.jsx";
+import DettaglioAnagrafiche from "../pages/Anagrafiche/Fornitori/Dettaglio/DettaglioAnagrafiche.jsx";
+import ClientiAnagrafiche from "../pages/Anagrafiche/Clienti/ClientiAnagrafiche.jsx";
 
 const Allroutes = () => {
   return (
@@ -747,7 +756,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/hr/organizza"
         element={
           <PublicRoute>
@@ -912,6 +921,318 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Candidato Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/lead"
+        element={
+          <PublicRoute>
+            <LeadAnagrafiche />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/anagrafiche/sub-lead/Contatti"
+        element={
+          <PublicRoute>
+            <SubLeadAnagrafiche Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/anagrafiche/sub-lead/Qualificazione"
+        element={
+          <PublicRoute>
+            <SubLeadAnagrafiche Component={Qualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/anagrafiche/sub-lead/Documenti"
+        element={
+          <PublicRoute>
+            <SubLeadAnagrafiche Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/anagrafiche/sub-lead/Agenda"
+        element={
+          <PublicRoute>
+            <SubLeadAnagrafiche Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati"
+        element={
+          <PublicRoute>
+            <CandidatiAnagrafiche />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati/Contatti"
+        element={
+          <PublicRoute>
+            <CandidatoAnagrafiche Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati/Qualificazione"
+        element={
+          <PublicRoute>
+            <CandidatoAnagrafiche Component={HrQualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati/Agenda"
+        element={
+          <PublicRoute>
+            <CandidatoAnagrafiche Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati/Allegati"
+        element={
+          <PublicRoute>
+            <CandidatoAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/candidati/Allegati"
+        element={
+          <PublicRoute>
+            <CandidatoAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/colaboratory"
+        element={
+          <PublicRoute>
+            <ColaboratoryAnagrafiche />
+          </PublicRoute>
+        } ColaboratoryAnagrafiche
+      />
+           <Route
+        path="/angrafiche/sub-colaboratory/Contatti"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={HrContatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Qualificazione"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={HrQualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Documenti"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Contratto"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Contratto} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Equipagiamento"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Turni"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Turni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Progetti"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Progetti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Agenda"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/sub-colaboratory/Allegati"
+        element={
+          <PublicRoute>
+            <SubColaboratoryAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/angrafiche/fornitori"
+        element={
+          <PublicRoute>
+            <FornitoriAnagrafiche  />
+          </PublicRoute>
+        }
+      />
+        <Route
+        path="/angrafiche/fornitori/Contatti"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Qualificazione"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Qualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Documenti"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Agenda"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Dati"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Dati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Sedi"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Sedi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Relazioni"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Relazioni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/fornitori/Allegati"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+         <Route
+        path="/angrafiche/clienti"
+        element={
+          <PublicRoute>
+            <ClientiAnagrafiche />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/angrafiche/clienti/Contatti"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Qualificazione"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Qualificazione} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Documenti"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Agenda"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Dati"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Dati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Sedi"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Sedi} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Relazioni"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Relazioni} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/angrafiche/clienti/Allegati"
+        element={
+          <PublicRoute>
+            <DettaglioAnagrafiche Component={Allegati} />
           </PublicRoute>
         }
       />

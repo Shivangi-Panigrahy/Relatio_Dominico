@@ -483,7 +483,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/vendite/sub-lead/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/sub-lead")
+                        ? navigate("/vendite/sub-lead/Contatti")
+                        : navigate("/anagrafiche/sub-lead/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -559,7 +563,14 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    // onClick={() => navigate("/acquisti/fornitori/Contatti")}/angrafiche/clienti
+                    onClick={() =>
+                      window.location.href.includes("/acquisti/fornitori")
+                      ? navigate("/acquisti/fornitori/Contatti")
+                      : window.location.href.includes("/angrafiche/clienti")
+                      ? navigate("/angrafiche/clienti/Contatti")
+                      : navigate("/angrafiche/fornitori/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1923,7 +1934,12 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
+                    // onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/colaboratory")
+                        ? navigate("/hr/sub-colaboratory/Contatti")
+                        : navigate("/angrafiche/sub-colaboratory/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2137,12 +2153,12 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/candidati/candidato/Contatti")}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
-                  //     : navigate("/hr/candidati")
-                  // }
+                    // onClick={() => navigate("/hr/candidati/candidato/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/candidati")
+                        ? navigate("/hr/candidati/candidato/Contatti")
+                        : navigate("/angrafiche/candidati/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
