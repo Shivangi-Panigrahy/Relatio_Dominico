@@ -21,9 +21,9 @@ function ProcessesDetails({ Component }) {
                         <ProcessForm />
                     </Grid>
                     <Grid item lg={9} md={8} xs={12}>
-                        {/* <Box className="TemplateForm__right">
-                            <MenuTab onTabChange={handleTabChange} configuratore={true} />
-                        </Box> */}
+                        <Box className="TemplateForm__right">
+                            {/* <MenuTab onTabChange={handleTabChange} configuratore={true} /> */}
+                        </Box>
                         {Component && <Component />}
                     </Grid>
                 </Grid>

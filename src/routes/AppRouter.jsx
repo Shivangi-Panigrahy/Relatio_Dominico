@@ -87,6 +87,7 @@ import Turni from "../component/Turni/Turni.jsx";
 import Progetti from "../component/Progetti/Progetti.jsx";
 import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
+import ConfigureDetails from "../pages/Production/Configure.jsx"
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 import Plan from "../pages/Production/Plan.jsx";
@@ -780,7 +781,7 @@ const Allroutes = () => {
         path="/production/processes/details"
         element={
           <PublicRoute>
-            <ProcessesDetails Component={Configure} />
+            <ProcessesDetails Component={ConfigureDetails} />
           </PublicRoute>
         }
       />

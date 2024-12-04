@@ -1,0 +1,25 @@
+.MuiTableRow-head {
+    background-color: #fdfdfd;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
+  .MuiTableHead-root {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
+  .MuiTableCell-head {
+    color: #888888 !important;
+  }
+  
+  .MuiTableCell-body,
+  .MuiOutlinedInput-root {
+    color: #666666 !important;
+    font-family: "Public Sans", sans-serif;
+  
+    input {
+      font-family: "Public Sans", sans-serif;
+    }
+  }
+  

@@ -1,0 +1,74 @@
+.category-form {
+    background-color: #f8f9fa;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .top-row {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        .category-name-select,
+        .category-select,
+        .phase-select,
+        .priority-select {
+          min-width: 140px;
+          background-color: white;
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #e2e8f0;
+          }
+        }
+        .della-text {
+          color: #6b7280;
+          margin: 0 -8px;
+          font-size: 14px;
+        }
+        .configure-button {
+          background-color: #65a30d;
+          text-transform: none;
+          padding: 6px 16px;
+          font-size: 14px;
+          min-width: 100px;
+          &:hover {
+            background-color: #4d7c0f;
+          }
+        }
+        .delete-button {
+          color: #6b7280;
+          padding: 8px;
+          &:hover {
+            background-color: rgba(107, 114, 128, 0.04);
+          }
+        }
+      }
+      .description {
+        background-color: white;
+        .MuiOutlinedInput-notchedOutline {
+          border-color: #e2e8f0;
+        }
+        textarea::placeholder {
+          color: #9ca3af;
+        }
+      }
+    }
+  }
+  
+  .category-name-select,
+  .category-select,
+  .phase-select {
+    .MuiSelect-select {
+      padding: 8px;
+      padding-right: 32px;
+    }
+  }
+  
+  .category-form {
+    .top-row.MuiBox-root {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto auto auto;
+    }
+  }
+  

@@ -150,6 +150,14 @@ const TAB_CONFIGURATIONS = {
     { label: "Configurazione", icon: Right },
     { label: "Prodotti", icon: Right },
   ],
+  Configura: [
+    { label: "Personale", icon: Right },
+    { label: "Attrezzature", icon: Right },
+    { label: "Mezzi", icon: Right },
+    { label: "Prodotti", icon: Right },
+    { label: "Semilavorati", icon: Right },
+    { label: "Scarti", icon: Right },
+  ],
   sublistini: [
     { label: "Gruppi", icon: Right },
     { label: "Prodotti", icon: Right },
@@ -180,7 +188,7 @@ const TAB_CONFIGURATIONS = {
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,isHr,ishrCalendario) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario) => {
 
 
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -231,7 +239,7 @@ const MenuTab = ({
   sublistini = false,
   hrCandidato = false,
   hrEvento = false,
-  hr=false,
+  hr = false,
   hrcalendario = false,
 
 
@@ -261,7 +269,7 @@ const MenuTab = ({
     if (hrcalendario) return TAB_CONFIGURATIONS.hrcalendario;
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario]);
 
   const tabsConfig = getActiveConfig();
 
@@ -280,7 +288,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario);
       navigate(path);
 
       // Invoke parent callback
@@ -288,7 +296,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,hr,hrcalendario]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario]
   );
 
   return (
