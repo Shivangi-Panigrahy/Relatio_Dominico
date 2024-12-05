@@ -43,7 +43,7 @@
     table {
       border-top: 1px solid #cccccc;
       border-collapse: separate;
-      border-spacing: 0 2px;
+      border-spacing: 0 1px;
 
       th {
         padding: 0 16px;
@@ -56,6 +56,7 @@
 
       td {
         border: none;
+        padding: 1px 9px;
       }
     }
   }
@@ -133,6 +134,24 @@
 .calenderBoxMain {
   position: relative;
   height: 48px;
+  display: flex;
+
+  &__inner {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #fff;
+
+    &.isWeekend {
+      background-color: transparent;
+    }
+
+    &.isFriday,
+    &.isMonday {
+      width: calc(3.33% - 7px);
+    }
+  }
 
   .calenderBox:nth-child(odd).asas {
     &::before {
@@ -152,6 +171,12 @@
   height: 80% !important;
   width: 3.33333%;
   top: -1px;
+  padding: 5px 0;
+  background-color: #F2F2F2;
+
+  &.isWeekend {
+    background-color: transparent;
+  }
 
   span {
     position: absolute;
@@ -192,6 +217,7 @@
   position: absolute;
   width: 100%;
   transition: 0.4s;
+
   &:hover {
     background-color: #fff;
   }
@@ -221,29 +247,46 @@
 //     }
 //   }
 // }
+
 .calenderBoxmonday,
 .monday {
-  border-radius: 30px 0px 0px 30px;
+  .detailBoxcalender {
+    border-radius: 30px 0px 0px 30px;
+  }
 }
-.isFriday {
-  border-radius: 0px 30px 30px 0px;
+
+.detailBoxcalender {
+  width: 100%;
+  height: 100%;
 }
+
+.isEndDate {
+  .detailBoxcalender {
+    border-radius: 0px 30px 30px 0px;
+  }
+}
+
 .calenderBox {
   position: relative;
+
   .multiImages {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    z-index: 1;
+    position: relative;
+    top: 3px;
+    left: 3px;
+
     svg {
-      margin-left: -10px;
+      min-width: 32px;
+      min-width: 32px;
+      margin-left: -15px;
+
       &:first-child {
         margin-left: 0px !important;
       }
     }
   }
+
   .sigleImages {
     position: absolute;
     top: 10%;
@@ -251,3 +294,50 @@
   }
 }
 
+.smallBox {
+  >div {
+    height: 38px;
+
+    .MuiSlider-root {
+      height: 38px;
+      border-radius: 30px;
+      padding: 0;
+
+      >span {
+        height: 38px;
+        border-radius: 30px;
+        opacity: 0;
+        // background-color: #4cc9f0;
+      }
+
+      .MuiSlider-thumb {
+        display: none;
+      }
+    }
+  }
+
+  &__Tag {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  &__Images {
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    z-index: 1;
+
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+  }
+}
