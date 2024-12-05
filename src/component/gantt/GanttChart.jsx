@@ -70,105 +70,20 @@ const GanttChart = () => {
 
   const selectedMonth = months[monthIndex];
   const dates = Array.from({ length: selectedMonth.days }, (_, i) => i + 1);
+  const weekends = dates.filter(day => {
+    const date = new Date(2024, 10, day); // 10 = November
+    const dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
+    return dayOfWeek === 0 || dayOfWeek === 6;
+  });
+
+  console.log("Weekend dates:", weekends, selectedMonth.year, selectedMonth.month);
 
   // Get today's date for comparison
   const today = new Date();
   const currentDate = today.getDate(); // Get current day of the month
   const currentMonth = today.getMonth(); // Get current month (0-based, so November is 10)
   const currentYear = today.getFullYear(); // Get current year
-  // const [projects, setProjects] = useState([
-  //   {
-  //     id: 0,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 8, color: "pink", month: 10 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Matteo gantt",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 8, color: "#E91E63", month: 10 },
-  //       { startDate: 11, endDate: 12, color: "#E91E63", month: 10 },
-  //     ],
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 7, endDate: 8, color: "yellow", month: 10 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 6, endDate: 7, color: "green", month: 10 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "Matteo Vellone",
-  //     allocation: "40%",
-  //     tasks: [
-  //       { startDate: 4, endDate: 5, color: "red", month: 7 },
-  //       { startDate: 8, endDate: 12, color: "#E91E63", month: 7 },
-  //     ],
-  //   },
-  //   // More project data...
-  // ]);
+
 
   // Filter tasks based on the selected month
 
@@ -196,7 +111,7 @@ const GanttChart = () => {
           avatar: <Avatar1 />,
         },
         {
-          startDate: 18,
+          startDate:18,
           endDate: 22,
           color: "#4CC9F0",
           month: 10,
@@ -209,6 +124,7 @@ const GanttChart = () => {
           month: 10,
           avatar: <Avatar1 />,
         },
+
       ],
     },
     {
@@ -246,14 +162,14 @@ const GanttChart = () => {
         {
           startDate: 18,
           endDate: 22,
-          color: "red",
+          color: "#4CC9F0",
           month: 10,
           avatar: <Avatar1 />,
         },
         {
           startDate: 25,
           endDate: 29,
-          color: "red",
+          color: "#4CC9F0",
           month: 10,
           avatar: <Avatar1 />,
         },
@@ -270,28 +186,28 @@ const GanttChart = () => {
         {
           startDate: 4,
           endDate: 8,
-          color: "#4CC9F0",
+          color: "#4361EE",
           month: 10,
           avatar: <Avatar1 />,
         },
         {
           startDate: 11,
           endDate: 15,
-          color: "#4CC9F0",
+          color: "#4361EE",
           month: 10,
           avatar: <Avatar1 />,
         },
         {
           startDate: 18,
           endDate: 22,
-          color: "#4CC9F0",
+          color: "#4361EE",
           month: 10,
           avatar: <Avatar1 />,
         },
         {
           startDate: 25,
           endDate: 29,
-          color: "#4CC9F0",
+          color: "#4361EE",
           month: 10,
           avatar: <Avatar1 />,
         },
@@ -420,7 +336,7 @@ const GanttChart = () => {
       ];
 
       setTimeout(() => {
-        // setFilteredGroupProjects(newProjects);
+        setProjects(newProjects);
         setActiveMoveRowIndexFirst(null);
         setMovingIndex(null);
         setDirection(null);
@@ -472,25 +388,24 @@ const GanttChart = () => {
   };
 
   const handleTaskDateChange = (projectId, taskIndex, newEndDate) => {
-    // console.log('newEndDate: ', newEndDate);
-    // console.log('taskIndex: ', taskIndex);
-    // console.log('projectId: ', projectId);
+
     setProjects((prevProjects) =>
       prevProjects.map((project) =>
         project.id === projectId
           ? {
             ...project,
             tasks: project.tasks.map((task, index) =>
-              index === taskIndex && newEndDate < task.endDate || newEndDate == task.endDate
-                ? { ...task, endDate: newEndDate } // Only allow decreasing the endDate
-                :
-                task
+              index === taskIndex
+                ? { ...task, endDate: newEndDate } // Update the endDate without restriction
+                : task
             ),
           }
           : project
       )
     );
   };
+
+
   const handleMouseDown = (e) => {
 
     setStartX(e.clientX);
@@ -513,8 +428,30 @@ const GanttChart = () => {
     setIsDragging(true);
     setStartX(0);
   };
+  const handleEndChange = (id, taskIndex, data) => {
+    console.log(weekends, data, "test")
+    if (weekends.includes(data + 1)) {
 
+      return; // Stop execution if the date is restricted and in the future
+    }
+    console.log("testfubncr", data)
+    setProjects((prevProjects) =>
+      prevProjects.map((project) =>
+        project.id === id
+          ? {
+            ...project,
+            tasks: project.tasks.map((task, index) =>
+              index === taskIndex
+                ? { ...task, endDate: data + 1 } // Update the endDate without restriction
+                : task
+            ),
+          }
+          : project
+      )
+    );
 
+  }
+  console.log(projects, "projects")
 
   return (
     <>
@@ -835,25 +772,28 @@ const GanttChart = () => {
 
                 filteredGroupProjects[category].forEach((item) => {
                   // Calculate task durations
+                  console.log(item.tasks.length,"item")
                   let taskDurationSum = 0;
 
                   // Iterate through tasks and validate endDate < next task's startDate
                   for (let i = 0; i < item.tasks.length; i++) {
                     const currentTask = item.tasks[i];
                     const nextTask = item.tasks[i + 1];
+                    console.log(currentTask,nextTask,"taskk")
 
                     // Ensure currentTask endDate is valid and less than nextTask startDate
                     if (
-                      currentTask.startDate <= currentTask.endDate && // Valid start and end date
-                      (!nextTask || currentTask.endDate < nextTask.startDate) // Less than next task's startDate
+                      currentTask.startDate <= currentTask.endDate  // Less than next task's startDate
                     ) {
                       taskDurationSum +=
                         currentTask.endDate - currentTask.startDate + 1;
                     }
+                  
                   }
-
+                 console.log(taskDurationSum,"taskDurationSum")
                   // Add task durations to the total
-                  total += taskDurationSum;
+                  total= taskDurationSum
+                  // total += taskDurationSum;
                 });
 
                 // Add the number of items in the array
@@ -997,8 +937,10 @@ const GanttChart = () => {
                                   paddingTop: 0.8,
                                   paddingBottom: 0,
                                 }}
+
                               >
                                 <div className="calenderBoxMain smallBox" style={{ position: "relative" }}>
+
                                   {tasksForMonth.map((task, taskIndex) => {
                                     const startPercent =
                                       ((task.startDate - 1) / selectedMonth.days) * 100;
@@ -1007,6 +949,7 @@ const GanttChart = () => {
 
                                     return (
                                       <div
+
                                         key={taskIndex}
                                         style={{
                                           position: "absolute",
@@ -1016,8 +959,9 @@ const GanttChart = () => {
                                           // transform: "translateY(-50%)",
                                           height: "38px", // Set height to align with the row
                                         }}
+
                                       >
-                                        <div className="smallBox__Tag">
+                                        <div className="smallBox__Tag" onClick={() => handleEndChange(project.id, taskIndex, task.endDate)} >
 
                                           {task.endDate - task.startDate + 1}
                                         </div>
@@ -1038,7 +982,7 @@ const GanttChart = () => {
                                           }}
                                           onChange={(e, newValue) => {
 
-                                            const [_, newEndDate] = newValue;
+                                            const [newStartDate, newEndDate] = newValue;
                                             console.log("newValue", newValue);
 
                                             handleTaskDateChange(project.id, taskIndex, newEndDate);
@@ -1054,7 +998,11 @@ const GanttChart = () => {
 
                                           }}
                                         />
-
+                                        {/* {!isWeekend && (isToday || !isTaskDay) && (
+                                          <span>
+                                            <PlushIcon />
+                                          </span>
+                                        )} */}
                                       </div>
                                     );
                                   })}
