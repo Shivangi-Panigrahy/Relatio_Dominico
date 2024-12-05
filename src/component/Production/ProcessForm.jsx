@@ -163,6 +163,7 @@ const ProcessForm = () => {
                     color="success"
                     startIcon={<AddIcon />}
                     type="submit"
+                    className="pr"
                 >
                     Aggiungi
                 </Button>

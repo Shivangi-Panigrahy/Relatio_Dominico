@@ -1,109 +1,77 @@
 import React, { useState } from "react";
-import {
-    Modal,
-    Backdrop,
-    Fade,
-    Paper,
-    Box,
-    Typography,
-    Tabs,
-    Tab,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Checkbox,
-    TextField,
-    IconButton,
-    styled,
-} from "@mui/material";
-import { MoreVert } from "@mui/icons-material";
+import { Modal, Backdrop, Fade, Paper, Box, Typography, Tabs, Tab, TableContainer, styled, Button, } from "@mui/material";
 import { ReactComponent as Right } from "../../assets/right.svg";
+import AddIcon from "@mui/icons-material/Add"; // Importing the Add icon from Material-UI icons
+import tableData from "../../utils/configuraModal.json";
+import Table from "../../component/table/Table";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import "./ConfigatorModal.scss";
-
-const tableData = {
-    personale: [
-        {
-            id: 1,
-            ruolo: "Operaio specializzato",
-            quantita: 5,
-        },
-        {
-            id: 2,
-            ruolo: "Operaio specializzato",
-            quantita: 5,
-        },
-        {
-            id: 3,
-            ruolo: "Operaio specializzato",
-            quantita: 5,
-        },
-    ],
-    attrezzature: [
-        {
-            id: 1,
-            ruolo: "Rastrello tipo y",
-            quantita: 5,
-        },
-        {
-            id: 2,
-            ruolo: "Rastrello tipo y",
-            quantita: 5,
-        },
-        {
-            id: 3,
-            ruolo: "Rastrello tipo y",
-            quantita: 5,
-        }
-    ],
-    mezzi: [
-        {
-            id: 1,
-            ruolo: "Trattore tipo x",
-            quantita: 12,
-        },
-        {
-            id: 2,
-            ruolo: "Trattore tipo x",
-            quantita: 12,
-        },
-        {
-            id: 3,
-            ruolo: "Trattore tipo x",
-            quantita: 12,
-        },
-    ],
-    prodotti: [
-        {
-            id: 1,
-            ruolo: "CD490823",
-            prodotto: "Zafferano",
-            tipo: "prodotto finito",
-            um: "kg",
-        },
-        {
-            id: 2,
-            ruolo: "CD490823",
-            prodotto: "Zafferano",
-            tipo: "prodotto finito",
-            um: "kg",
-        },
-        {
-            id: 3,
-            ruolo: "CD490823",
-            prodotto: "Zafferano",
-            tipo: "prodotto finito",
-            um: "kg",
-        },
-    ],
-    // Add more data for other tabs as needed
-};
-
 
 export default function ConfiguraModal({ open, close }) {
     const [selectedTab, setSelectedTab] = useState(0);
+
+    const tabMessages = {
+        attrezzature: "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+        mezzi: "Attenzione i mezzi selezionati saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+        prodotti: "Attenzione i prodotti selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
+        semilavorati: "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+        scarti: "Attenzione i prodotti selezionati saranno prelevati dalle giacenze di magazzino o dal prodotto risultato della fase precedente."
+    };
+
+    const buttonNames = {
+        personale: "Aggiungi Personale",
+        attrezzature: "Aggiungi Attrezzatura",
+        mezzi: "Aggiungi Mezzo",
+        prodotti: "Aggiungi Prodotto",
+        semilavorati: "Aggiungi Semilavorato",
+        scarti: "Aggiungi Scarto",
+    };
+    const columns = {
+        personale: [
+          { field: "ruolo", headerName: "Ruolo", width: 855 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+        attrezzature: [
+          { field: "ruolo", headerName: "Ruolo", width: 855 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+        mezzi: [
+          { field: "ruolo", headerName: "Ruolo", width: 855 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+        prodotti: [
+          { field: "ruolo", headerName: "Ruolo", width: 148 },
+          { field: "prodotto", headerName: "Prodotto", width: 340 },
+          { field: "tipo", headerName: "Tipo", width: 185 },
+          { field: "um", headerName: "UM", width: 180 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+        semilavorati: [
+          { field: "ruolo", headerName: "Ruolo", width: 148 },
+          { field: "prodotto", headerName: "Prodotto", width: 340 },
+          { field: "tipo", headerName: "Tipo", width: 185 },
+          { field: "um", headerName: "UM", width: 180 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+        scarti: [
+          { field: "ruolo", headerName: "Ruolo", width: 148 },
+          { field: "prodotto", headerName: "Prodotto", width: 340 },
+          { field: "tipo", headerName: "Tipo", width: 185 },
+          { field: "um", headerName: "UM", width: 180 },
+          { field: "quantita", headerName: "Quantità", width: 170 },
+          { field: "azioni", headerName: "Azioni", width: 93 },
+        ],
+      };
+    
+    // Map tab index to keys in the tabMessages object
+    const tabKeys = ["personale", "attrezzature", "mezzi", "prodotti", "semilavorati", "scarti"];
+    const currentTabKey = tabKeys[selectedTab];
+    const message = tabMessages[currentTabKey] || "";
 
     const handleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
@@ -140,149 +108,51 @@ export default function ConfiguraModal({ open, close }) {
         switch (selectedTab) {
             case 0:
                 return (
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>
-                                    <Checkbox />
-                                </TableCell>
-                                <TableCell>Ruolo</TableCell>
-                                <TableCell>Q.tà</TableCell>
-                                <TableCell>Azioni</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tableData?.personale.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>{row.ruolo}</TableCell>
-                                    <TableCell>
-                                        <TextField
-                                            size="small"
-                                            defaultValue={row.quantita}
-                                            variant="outlined"
-                                        />
-                                    </TableCell>
-                                    <TableCell>
-                                        <IconButton>
-                                            <MoreVert />
-                                        </IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.personale}
+                        navData={"ConfigatorModalPersonale"}
+                    />
                 );
             case 1:
                 return (
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>
-                                    <Checkbox />
-                                </TableCell>
-                                <TableCell>Rastrezzature</TableCell>
-                                <TableCell>Q.tà</TableCell>
-                                <TableCell>Azioni</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tableData.attrezzature.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>{row.ruolo}</TableCell>
-                                    <TableCell>
-                                        <TextField
-                                            size="small"
-                                            defaultValue={row.quantita}
-                                            variant="outlined"
-                                        />
-                                    </TableCell>
-                                    <TableCell>
-                                        <IconButton>
-                                            <MoreVert />
-                                        </IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.attrezzature}
+                        navData={"ConfigatorModalAttrezzature"}
+                    />
                 );
             case 2:
                 return (
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>
-                                    <Checkbox />
-                                </TableCell>
-                                <TableCell>Mezzi</TableCell>
-                                <TableCell>Q.tà</TableCell>
-                                <TableCell>Azioni</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tableData.mezzi.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>{row.ruolo}</TableCell>
-                                    <TableCell>
-                                        <TextField
-                                            size="small"
-                                            defaultValue={row.quantita}
-                                            variant="outlined"
-                                        />
-                                    </TableCell>
-                                    <TableCell>
-                                        <IconButton>
-                                            <MoreVert />
-                                        </IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.mezzi}
+                        navData={"ConfigatorModalMezzi"}
+                    />
                 );
             case 3:
                 return (
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>
-                                    <Checkbox />
-                                </TableCell>
-                                <TableCell>Codice prodotto</TableCell>
-                                <TableCell>Prodotto</TableCell>
-                                <TableCell>Tipo</TableCell>
-                                <TableCell>Um</TableCell>
-                                <TableCell>Azioni</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {tableData.prodotti.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell>
-                                        <Checkbox />
-                                    </TableCell>
-                                    <TableCell>{row.ruolo}</TableCell>
-                                    <TableCell>{row.prodotto}</TableCell>
-                                    <TableCell>{row.tipo}</TableCell>
-                                    <TableCell>{row.um}</TableCell>
-                                    <TableCell>
-                                        <IconButton>
-                                            <MoreVert />
-                                        </IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.prodotti}
+                        navData={"ConfigatorModalProdotti"}
+                    />
+                );
+            case 4:
+                return (
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.semilavorati}
+                        navData={"ConfigatorModalSemilavorati"}
+                    />
+                );
+            case 5:
+                return (
+                    <Table
+                        data={tableData[currentTabKey]}
+                        columns={columns?.scarti}
+                        navData={"ConfigatorModalScarti"}
+                    />
                 );
             default:
                 return <Typography>No Table Data</Typography>;
@@ -298,6 +168,7 @@ export default function ConfiguraModal({ open, close }) {
             BackdropProps={{
                 timeout: 500,
             }}
+            className="risultatiConfigatorModal"
         >
             <Fade in={open}>
                 <Paper
@@ -308,17 +179,18 @@ export default function ConfiguraModal({ open, close }) {
                         transform: "translate(-50%, -50%)",
                         width: "80%",
                         maxWidth: "1200px",
-                        padding: "20px",
+                        padding: "40px",
                         borderRadius: "20px",
                         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
                     }}
                 >
-                    <Typography variant="h6" gutterBottom>
+                    <Typography  className="modalTitle" variant="h6" gutterBottom>
                         Configura
                     </Typography>
 
                     {/* Tabs */}
                     <Box className="tabBox">
+                    <Box className='tabBoxFlex'>
                         <CustomTabs
                             value={selectedTab}
                             onChange={(event, newValue) => setSelectedTab(newValue)}
@@ -329,15 +201,38 @@ export default function ConfiguraModal({ open, close }) {
                             <CustomTab label="Prodotti" icon={<Right />} />
                             <CustomTab label="Semilavorati" icon={<Right />} />
                             <CustomTab label="Scarti" icon={<Right />} />
-                            <CustomTab label="Fornitori" icon={<Right />} />
-                            <CustomTab label="Clienti" icon={<Right />} />
+                           
                         </CustomTabs>
+                        <Button
+                                variant="contained" // Setting the button variant to "contained" for a filled appearance
+                                startIcon={<AddIcon />} // Adding an icon at the start of the button
+                                className="greenButton"
+                                sx={{ background: "57C700" }}
+                            >
+                                Aggiungi
+                            </Button>
+                            </Box>
+                        
+
                     </Box>
+                    {/* Dynamic Message */}
+                    {message && (
+                        <Box  className="modalNotifationBlock">
+                             <ErrorOutlineIcon/>
+                            <Typography
+                                variant="body1"
+                               className="notifactionText"
+                            >
+                                {message}
+                            </Typography>
+                            </Box>
+                        )}
 
                     {/* Conditional Table Rendering */}
                     <TableContainer>
                         {renderTableContent()}
                     </TableContainer>
+
                 </Paper>
             </Fade>
         </Modal>

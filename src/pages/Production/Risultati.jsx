@@ -12,8 +12,8 @@ import {
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import "./Catagoria.scss";
-//   import ConfigratorModal from "./ConfigatorModal";
 import { useState } from "react";
+import RisultatiConfigatorModal from "./RisultatiConfigatorModal";
 
 export default function Risultati({ id, onDelete }) {
     const [open, setOpen] = useState(false);
@@ -27,13 +27,7 @@ export default function Risultati({ id, onDelete }) {
         >
             <Box className="form-content">
                 <Box className="top-row">
-                    {/* <Select defaultValue="" className="category-name-select" displayEmpty>
-              <MenuItem value="">Nome della categoria</MenuItem>
-              <MenuItem value="1">Categoria 1</MenuItem>
-              <MenuItem value="2">Categoria 2</MenuItem>
-            </Select> */}
                     <TextField id="outlined-basic" label="Nome dell’attività (Es. Pigiatura)" variant="outlined" className="category-name-select" fullWidth style={{ marginRight: "16px" }} />
-
                     <Typography className="della-text">è all’interno della</Typography>
                     <FormControl>
                         <InputLabel id="category-select-label">Fase (es. Trasformazioni in mosto)</InputLabel>
@@ -61,11 +55,6 @@ export default function Risultati({ id, onDelete }) {
                             <MenuItem value="2">Fase 2</MenuItem>
                         </Select>
                     </FormControl>
-                    {/* <Select defaultValue="" className="phase-select" displayEmpty>
-                        <MenuItem value="">Priorità</MenuItem>
-                        <MenuItem value="1">Fase 1</MenuItem>
-                        <MenuItem value="2">Fase 2</MenuItem>
-                    </Select> */}
                     <Button
                         variant="contained"
                         className="configure-button"
@@ -92,7 +81,7 @@ export default function Risultati({ id, onDelete }) {
                     fullWidth
                 /> */}
             </Box>
-            {/* <ConfigratorModal open={open} close={handleClose}/> */}
+            <RisultatiConfigatorModal open={open} close={handleClose} />
         </Paper>
     );
 }

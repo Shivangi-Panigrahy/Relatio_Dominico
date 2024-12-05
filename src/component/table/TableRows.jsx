@@ -17,6 +17,7 @@ import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
 import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
+import { MoreVert } from "@mui/icons-material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -2166,7 +2167,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    // onClick={() => navigate("/production/processes/details")}
+                  // onClick={() => navigate("/production/processes/details")}
                   >
                     {/* Custom Checkbox */}
                     <StyledTableCell align="center">
@@ -2241,8 +2242,378 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-
         );
+      case "ConfigatorModalPersonale":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalAttrezzature":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalMezzi":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalProdotti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalSemilavorati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        )
+      case "ConfigatorModalScarti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{margin:"0 auto !important"}}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        )
+      case "RisultatiConfigatorModalProdotti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell>
+                      <IconButton sx={{margin:"0 auto !important"}}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "RisultatiConfigatorModalSemilavorati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell >
+                      <IconButton sx={{margin:"0 auto !important"}}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "RisultatiConfigatorModalScarti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell >
+                      <IconButton sx={{margin:"0 auto !important"}}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
       case "feriePermisse":
         return (
           <TableBody>

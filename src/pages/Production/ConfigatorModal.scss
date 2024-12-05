@@ -1,25 +1,104 @@
 .MuiTableRow-head {
-    background-color: #fdfdfd;
-    border-top: 0;
-    border-bottom: 0;
-  }
-  
-  .MuiTableHead-root {
-    border-top: 0;
-    border-bottom: 0;
-  }
-  
-  .MuiTableCell-head {
-    color: #888888 !important;
-  }
-  
-  .MuiTableCell-body,
-  .MuiOutlinedInput-root {
-    color: #666666 !important;
+  background-color: #fdfdfd;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.MuiTableHead-root {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.MuiTableCell-head {
+  color: #888888 !important;
+}
+
+.MuiTableCell-body,
+.MuiOutlinedInput-root {
+  color: #666666 !important;
+  font-family: "Public Sans", sans-serif;
+
+  input {
     font-family: "Public Sans", sans-serif;
-  
-    input {
-      font-family: "Public Sans", sans-serif;
+  }
+}
+
+.risultatiConfigatorModal {
+  .MuiPaper-root {
+
+    .modalTitle {
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 700;
+      color: #666666;
+      margin-bottom: 26px;
+    }
+
+    .tabBox {
+      margin-bottom: 20px;
+      .MuiTabs-root {
+        border: none;
+        .MuiTabs-flexContainer {
+          button.MuiButtonBase-root {
+            color: #666666;
+            opacity: 20%;
+
+            svg {
+              path {
+                fill: #666666;
+              }
+
+              color: #666666;
+            }
+          }
+
+          button.MuiButtonBase-root.Mui-selected,
+          button.MuiButtonBase-root:hover {
+            color: #160A2A;
+            border-color: #225CA6;
+            opacity: 100%;
+
+            svg {
+              color: #160A2A;
+            }
+          }
+        }
+      }
+
+      .tabBoxFlex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+    .modalNotifationBlock {
+      background-color: #57C7001A;
+      border-radius: 16px;
+      padding: 10px 26px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0px 13px 24px -4px rgba(145,158,171,12%);
+      margin-bottom: 20px;
+      .notifactionText{
+         font-size: 16px;
+         line-height: 19.5px;
+         font-weight: 500;
+         color: #225CA6;
+         font-family: "Barlow", sans-serif;
+      }
+      svg {
+        color: #57C700;
+      }
+    }
+    .customtable {
+    table {
+      thead {
+        tr {
+          background-color: #FAFAFA;
+        }
+      }
+    }
     }
   }
-  
+}

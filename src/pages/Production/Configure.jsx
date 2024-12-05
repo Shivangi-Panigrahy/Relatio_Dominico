@@ -9,7 +9,7 @@ import {
   Box,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
-// import "./Configure.scss";
+import "./Configure.scss";
 import Nomefase from "./Nomefase";
 import Attività from "./Attività";
 import Risultati from "./Risultati";
@@ -68,7 +68,7 @@ export default function ConfigureDetails() {
   };
 
   return (
-    <List className="expandable-list">
+    <List className="expandable-list configureAccordion">
       {sections.map((section) => (
         <Box key={section.id} className="section-container">
           <ListItem disablePadding className="section-header">

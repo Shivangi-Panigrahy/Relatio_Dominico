@@ -1,0 +1,131 @@
+{
+    "personale": [
+        {
+            "id": 1,
+            "ruolo": "Operaio specializzato",
+            "quantita": 5
+        },
+        {
+            "id": 2,
+            "ruolo": "Operaio specializzato",
+            "quantita": 5
+        },
+        {
+            "id": 3,
+            "ruolo": "Operaio specializzato",
+            "quantita": 5
+        }
+    ],
+    "attrezzature": [
+        {
+            "id": 1,
+            "ruolo": "Rastrello tipo y",
+            "quantita": 5
+        },
+        {
+            "id": 2,
+            "ruolo": "Rastrello tipo y",
+            "quantita": 5
+        },
+        {
+            "id": 3,
+            "ruolo": "Rastrello tipo y",
+            "quantita": 5
+        }
+    ],
+    "mezzi": [
+        {
+            "id": 1,
+            "ruolo": "Trattore tipo x",
+            "quantita": 12
+        },
+        {
+            "id": 2,
+            "ruolo": "Trattore tipo x",
+            "quantita": 12
+        },
+        {
+            "id": 3,
+            "ruolo": "Trattore tipo x",
+            "quantita": 12
+        }
+    ],
+    "prodotti": [
+        {
+            "id": 1,
+            "ruolo": "CD490823",
+            "prodotto": "Zafferano",
+            "tipo": "prodotto finito",
+            "um": "kg",
+            "quantita": 12
+        },
+        {
+            "id": 2,
+            "ruolo": "CD490823",
+            "prodotto": "Zafferano",
+            "tipo": "prodotto finito",
+            "um": "kg",
+            "quantita": 12
+        },
+        {
+            "id": 3,
+            "ruolo": "CD490823",
+            "prodotto": "Zafferano",
+            "tipo": "prodotto finito",
+            "um": "kg",
+            "quantita": 12
+        }
+    ],
+    "semilavorati": [
+        {
+            "id": 1,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        },
+        {
+            "id": 2,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        },
+        {
+            "id": 3,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        }
+    ],
+    "scarti": [
+        {
+            "id": 1,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        },
+        {
+            "id": 2,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        },
+        {
+            "id": 3,
+            "ruolo": "CD490823",
+            "prodotto": "Germoglio",
+            "tipo": "Semilavorato",
+            "um": "Gr",
+            "quantita": 1
+        }
+    ]
+}
