@@ -42,38 +42,40 @@ const CustomPagination = ({
   onRowsPerPageChange,
 }) => {
   return (
-    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2}>
-      <Typography variant="body2" color="text.secondary" mr={2}>
+    <Box className="custom-pagination">
+      <Typography variant="body2" color="text.secondary">
         Righe per pagina:
       </Typography>
       <Select
+        className="customSelect"
         value={rowsPerPage}
         onChange={onRowsPerPageChange}
         size="small"
-        sx={{ mr: 2, fontSize: "0.875rem" }}
       >
         <MenuItem value={5}>5</MenuItem>
         <MenuItem value={10}>10</MenuItem>
         <MenuItem value={25}>25</MenuItem>
       </Select>
-      <Typography variant="body2" color="text.secondary" mr={2}>
+      <Typography variant="body2" color="text.secondary">
         {`${page * rowsPerPage + 1}-${Math.min(
           (page + 1) * rowsPerPage,
           count
         )} di ${count}`}
       </Typography>
-      <IconButton
-        onClick={(e) => onPageChange(e, page - 1)}
-        disabled={page === 0}
-      >
-        <KeyboardArrowLeftIcon />
-      </IconButton>
-      <IconButton
-        onClick={(e) => onPageChange(e, page + 1)}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-      >
-        <KeyboardArrowRightIcon />
-      </IconButton>
+      <div className="iconBtn">
+        <IconButton
+          onClick={(e) => onPageChange(e, page - 1)}
+          disabled={page === 0}
+        >
+          <KeyboardArrowLeftIcon />
+        </IconButton>
+        <IconButton
+          onClick={(e) => onPageChange(e, page + 1)}
+          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        >
+          <KeyboardArrowRightIcon />
+        </IconButton>
+      </div>
     </Box>
   );
 };

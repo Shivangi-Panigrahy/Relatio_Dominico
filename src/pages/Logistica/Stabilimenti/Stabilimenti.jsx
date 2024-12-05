@@ -2,7 +2,7 @@ import Header from "../../../component/header/Header"
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard"
 import Table from "../../../component/table/Table";
 import tableData from "../../../utils/logisticaStabilimenti.json"
-
+import "./Stabilimenti.scss"
 const Stabilimenti = () => {
 
     const columns = [
@@ -13,18 +13,20 @@ const Stabilimenti = () => {
         { field: "utente", headerName: "Utente", width: 85 },
         { field: "azioni", headerName: "Azioni", width: 95 },
     ];
-    
+
 
     return (
         <>
             <Header />
             <div className="pageTemplate">
-                {/* <InvoiceDashboard amministrazioneAsset={rows} /> */}
-                <Table
-                    data={tableData}
-                    columns={columns}
-                    navData={"stabilimenti"}
-                />
+                <div className="stabilimenti">
+                    {/* <InvoiceDashboard amministrazioneAsset={rows} /> */}
+                    <Table
+                        data={tableData}
+                        columns={columns}
+                        navData={"stabilimenti"}
+                    />
+                </div>
             </div>
         </>
     )

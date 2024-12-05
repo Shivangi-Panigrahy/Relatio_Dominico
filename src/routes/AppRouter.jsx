@@ -1,5 +1,4 @@
 import React from "react";
-import Dashboard from "../pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import PublicRoute from "../auth/PublicRoute";
 import DashboardForm from "../pages/dashboardForm/DashboardForm";
@@ -56,7 +55,6 @@ import Repository from "../pages/Files/Repository/Repository";
 import Archivio from "../pages/Files/Archivio/Archivio";
 import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
 import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
-import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
 import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
 import Listini from "../pages/Cataloghi/Listini/Listini";
@@ -72,7 +70,6 @@ import Distinta_base from "../pages/Cataloghi/Prodotti/Distinta_base.jsx";
 import Opzioni from "../pages/Cataloghi/Prodotti/Opzioni.jsx";
 import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
 import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx"
-import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
 import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
 import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 import HrCalendario from "../pages/HR/Calendario/Calendario.jsx"
@@ -98,7 +95,6 @@ import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
 import DDT from "../pages/Logistica/DDT/DDT.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
-// import Gaicenze from "../pages/Logistica/Stabilimenti/SubStabilimenti/Gaicenze.jsx";
 import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
 
 const Allroutes = () => {

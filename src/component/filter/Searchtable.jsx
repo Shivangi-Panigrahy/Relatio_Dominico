@@ -30,7 +30,7 @@ const SearchTable = ({
   const [minMaxData, setMinMaxDate] = useState(null);
   const [removeDate, setRemoveDate] = useState(false);
   const options = ["Valore 1", "Valore 2"];
-  console.log(tabData, "tabdata");
+
   // Reset all filters and call onSearch
   const resetFilters = useCallback(() => {
     setStartDate(null);
