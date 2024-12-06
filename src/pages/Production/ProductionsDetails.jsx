@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../../component/header/Header";
-import Table from "../../component/table/Table";
-import tableData from "../../utils/ProductionList.json";
-import ProductionList from "../../component/Production/ProductionList";
 import ProductionDetails from "../../component/Production/ProductionDetails";
+import ProductionsAccordion from "../../component/Production/ProductionsAccordion";
+import './ProductionsDetails.scss'
 
 const OrdiniData = [
     {
@@ -33,32 +32,37 @@ const OrdiniData = [
     },
     {
         status: "Data",
-        count: 'INIZIO: 20/11/2024 - FINE: 28/11/2024',
+        // count: 'INIZIO: 20/11/2024 - FINE: 28/11/2024',
         color: "#DB0000",
+        countListDate: [
+            { title: "INIZIO", date: "20/11/2024" },
+            { title: "FINE", date: "28/11/2024" },
+          ],
+        
     },
     {
         status: "Stato della produzione",
         count: "In corso",
-        phase: "Piantumazione",
-        timing: "Regolare",
+        phasetiming :[
+            { title: "Fase", subtitle: "Piantumazione" },
+            { title: "Tempistica:", subtitle: "Regolare" },
+        ],
+        // phase: "Fase Piantumazione",
+        // timing: "Tempistica: Regolare",
         color: "#DB0000",
     },
 ];
 const ProductionsDetails = () => {
     return (
-        <>
+        <div className="ProductionsDetailsList">
             <Header />
             <div className="pageTemplate">
                 <div className="colaboratory">
                     <ProductionDetails ordini={OrdiniData} hr={true} />
-                    {/* <Table
-            data={tableData}
-            columns={columns}
-            navData={"Productions"}
-          /> */}
+                    <ProductionsAccordion />
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

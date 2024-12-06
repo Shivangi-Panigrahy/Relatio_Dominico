@@ -1,0 +1,274 @@
+.ProductionsAccordionBlock {
+    margin-top: 20px;
+
+    .ProductionsAccordionRow {
+        display: flex;
+        gap: 44px;
+        overflow-x: auto;
+
+        .ProductionsAccordionCard {
+            min-width: 475px;
+            max-width: 475px;
+
+            &__inner {
+                padding: 30px 24px;
+                background-color: #FAFAFA;
+                border-radius: 30px;
+                height: calc(100vh - 380px);
+                overflow: auto;
+                overflow-x: hidden;
+
+                .cardHeader {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .title {
+                        font-size: 20px;
+                        line-height: 23px;
+                        color: #666666;
+                        font-weight: 700;
+                    }
+
+                    &__buttons {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        .customChip {
+                            background-color: #57C700;
+                            color: #fff;
+                            font-size: 12px;
+                            font-weight: 700;
+                            line-height: 14px;
+                            border-radius: 6px;
+                            font-family: "Barlow", sans-serif;
+                            height: 24px;
+                        }
+                    }
+                }
+
+                .giorniDateBlock {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+
+                    .MuiFormControl-root {
+                        max-width: 100%;
+                    }
+
+                    .giorni {
+                        font-size: 18px;
+                        line-height: 21px;
+                        font-weight: 700;
+                        color: #57C700;
+                        text-align: center;
+                    }
+                }
+
+                .ProductionsAccordionList {
+                    margin-top: 22px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    .ProductionsAccordionItem {
+                        border: none;
+                        box-shadow: none;
+                        background-color: transparent;
+
+                        &::before {
+                            content: unset;
+                        }
+
+                        .MuiAccordion-heading {
+
+                            .MuiAccordionSummary-root {
+                                flex-direction: row-reverse;
+                                background-color: #ffff;
+                                border-radius: 10px;
+                                min-height: 38px;
+                                padding: 0 10px;
+
+                                &.Mui-expanded,
+                                &:hover {
+                                    background-color: #F2F2F2;
+                                }
+
+                                .MuiAccordionSummary-content {
+                                    margin: 0;
+
+                                    .contentBox {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        gap: 10px;
+                                        width: 100%;
+
+                                        .accordionTitle {
+                                            font-size: 16px;
+                                            line-height: 19px;
+                                            font-weight: 700;
+                                            color: #666666;
+                                        }
+
+                                        .customStatus {
+                                            background-color: #FFA90333;
+                                            color: #FFA903;
+                                            border-radius: 6px;
+                                            font-size: 12px;
+                                            line-height: 20px;
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .accordionDetailBox {
+                            padding: 0px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+                            margin-top: 6px;
+
+                            &__dateListRow {
+                                display: flex;
+                                align-items: center;
+                                background-color: #fff;
+                                padding: 10px 15px;
+                                border-radius: 10px;
+                                gap: 15px;
+
+                                .dateCols {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                }
+                            }
+
+                            &__dateListCol {
+                                display: flex;
+                                align-items: center;
+
+                                gap: 8px;
+
+                                .MuiFormControl-root {
+                                    max-width: 135px;
+                                }
+                            }
+
+                            &__countBox {
+                                height: 37px;
+                                width: 37px;
+                                background-color: #1009191A;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                &__text {
+                                    font-size: 14px;
+                                    line-height: 16px;
+                                    font-weight: 700;
+                                    color: #160A2A80;
+                                }
+                            }
+
+                            &__textListRow {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                background-color: #fff;
+                                padding: 10px 15px;
+                                border-radius: 10px;
+                                gap: 15px;
+
+                                &__text {
+                                    font-size: 16px;
+                                    line-height: 19px;
+                                    font-weight: 400;
+                                    color: #666666;
+                                }
+
+                                &:hover {}
+                            }
+
+
+                        }
+                    }
+
+                    .footerButtons {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .button1 {
+                            background-color: #F2F2F2;
+                            padding: 10px;
+                            border-radius: 12px;
+                            height: 55px;
+                            transition: all 0.5s;
+                            .text {
+                                background-color: #57C70080;
+                                color: #4361EE;
+                                font-size: 16px;
+                                line-height: 20px;
+                                font-weight: 700;
+                                color: #0F253A;
+                                display: block;
+                                width: 100%;
+                                border-radius: 12px;
+                                padding: 8px;
+                                border: dashed 1px #57C700;
+                                text-transform: capitalize;
+                                margin: 0;
+                            }
+
+                            &:hover {
+                                padding: 4px;
+                                .text{
+                                    background-color: #57C700;
+                                    padding: 10px;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        .button2 {
+                            background-color: #F2F2F2;
+                            padding: 10px;
+                            border-radius: 12px;
+                            transition: all 0.5s;
+                            .text {
+                                background-color: #57C700;
+                                color: #4361EE;
+                                font-size: 16px;
+                                line-height: 20px;
+                                font-weight: 400;
+                                color: #fff;
+                                display: block;
+                                width: 100%;
+                                border-radius: 12px;
+                                padding: 4px;
+                                border: dashed 1px #F2F2F2;
+                                text-transform: capitalize;
+                                margin: 0;
+                                transition: all 0.5s;
+                            }
+
+                            &:hover {
+                                transition: all 0.5s;
+                                .text{
+                                    .hoverHide {
+                                        display: none;
+                                        transition: all 0.5s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

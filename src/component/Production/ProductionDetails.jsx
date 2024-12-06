@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Icon } from "@mui/material";
+import { Box, Grid, Icon, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import "./ProductionCalendar.scss";
 import { ReactComponent as InsertDriveGray } from "../../assets/dashboardIcons/InsertDriveGray.svg";
@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { ReactComponent as CopyIcon } from "../../assets/CopyIcon.svg";
 
 const useStyles = makeStyles(() => ({}));
-const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
+const InvoiceCard = ({ status, count, amount, color, iconColor, subfix, countListTitle, countListDate, phasetiming }) => {
     return (
         <div className="statusText">
             <div className="statusText__img">
@@ -28,31 +28,15 @@ const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
                 ) : null}
             </div>
             <div className="statusText__content">
-                <h4>{status}</h4>
-                {iconColor ? (
+                <h4 className="statusText__content__title">{status}</h4>
+                {/* {iconColor ? (
                     <h3 style={{ color: color }}>{amount}€</h3>
                 ) : (
                     <h3 style={{ color: color }}>{amount}</h3>
-                )}
-                <h5
-                    style={
-                        window.location.href.includes("/hr/buste-page")
-                            ? {
-                                fontWeight: "700",
-                                fontSize: "16px",
-                                fontFamily: '"Public Sans", sans-serif',
-                                color: "#100919",
-                            }
-                            : {
-                                fontWeight: "700",
-                                fontSize: "20px",
-                                fontFamily: '"Barlow", sans-serif',
-                                color: "#100919",
-                            }
-                    }
-                >
+                )} */}
+                <p className="statusText__content__count">
                     {count}
-                    <span
+                    {/* <span
                         style={
                             window.location.href.includes("/hr/buste-page") || window.location.href.includes("/vendite/preventivi") | window.location.href.includes("/vendite/budget") || window.location.href.includes("/vendite/ordini") ||
                                 window.location.href.includes("/acquisti/budget") || window.location.href.includes("/acquisti/ordini") || window.location.href.includes("/acquisti/preventivi")
@@ -95,8 +79,30 @@ const InvoiceCard = ({ status, count, amount, color, iconColor, subfix }) => {
                                                                         window.location.href.includes("/cataloghi/prodotti") ? "prodotti" :
                                                                             window.location.href.includes("/amministrazione/imposte/Reteizzazione") ? "rate" :
                                                                                 ""}
-                    </span>
-                </h5>
+                    </span> */}
+                </p>
+                <div className="countList">
+                    {Array.isArray(countListDate) && countListDate.map((item, index) => (
+                        <div key={index} className="countListItem">
+                            <p >
+                                {item.title}
+                            </p>
+                            <span >{item.date}</span>
+                        </div>
+
+                    ))}
+                </div>
+                <div className="phasetimingList">
+                    {Array.isArray(phasetiming) && phasetiming.map((item, index) => (
+                        <div key={index} className="phasetimingItem">
+                            <p >
+                                {item.title}
+                            </p>
+                            <span >{item.subtitle}</span>
+                        </div>
+
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -156,22 +162,28 @@ const ProductionDetails = ({
     return (
         <Box className="FactureSection">
             <Grid container className="FactureSection__inner" spacing={2}>
-                {selectedData.map((data, index) => (
-                    <Grid item lg={reteizzazione ? 4 : 3} md={6} xs={12} key={index}>
-                        <InvoiceCard
-                            status={data.status}
-                            count={data.count}
-                            amount={data.amount}
-                            color={data.color}
-                            iconColor={data.iconColor}
-                            subfix={data?.subfix}
-                        />
-                        {/* Divider only for the first three cards */}
-                        {index < selectedData.length - 1 && (
-                            <div className={classes.divider}></div>
-                        )}
-                    </Grid>
-                ))}
+                {selectedData.map((data, index) => {
+                    console.log('data: ', data);
+                    return (
+                        <Grid item lg={reteizzazione ? 4 : 3} md={6} xs={12} key={index}>
+                            <InvoiceCard
+                                status={data.status}
+                                count={data.count}
+                                amount={data.amount}
+                                color={data.color}
+                                iconColor={data.iconColor}
+                                subfix={data?.subfix}
+                                countListTitle={data.countListTitle}
+                                countListDate={data.countListDate}
+                                phasetiming={data.phasetiming}
+                            />
+                            {/* Divider only for the first three cards */}
+                            {index < selectedData.length - 1 && (
+                                <div className={classes.divider}></div>
+                            )}
+                        </Grid>
+                    )
+                })}
             </Grid>
         </Box>
     );
