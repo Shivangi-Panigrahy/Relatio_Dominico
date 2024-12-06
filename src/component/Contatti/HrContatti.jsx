@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Container,
   Grid,
   Card,
   CardContent,
@@ -8,13 +7,30 @@ import {
   TextField,
   Button,
   Box,
+  IconButton,
 } from "@mui/material";
-import styles from "./Contatti.scss";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import styles from "./Contatti.scss";
 
-// Dynamic Card Component with Add Button
-const DynamicCard = ({ title, fields }) => (
-  <Grid container spacing={2}>
+const DynamicCard = ({ title, initialFields }) => {
+  const [fields, setFields] = useState(
+    initialFields.map((field) => ({ ...field, isNew: false }))
+  );
+
+  const handleAddField = () => {
+    const newField = {
+      label: `Campo Aggiuntivo ${fields.length + 1}`,
+      isNew: true,
+    };
+    setFields([...fields, newField]);
+  };
+
+  const handleDeleteField = (index) => {
+    setFields(fields.filter((_, i) => i !== index));
+  };
+
+  return (
     <Grid item xl={4} md={6} sm={12}>
       <div className="ContattiCards">
         <Card className="card">
@@ -24,41 +40,63 @@ const DynamicCard = ({ title, fields }) => (
             titleTypographyProps={{ variant: "h6" }}
           />
           <CardContent className="card__body">
-            {fields.map((field, index) => (
-              <div item key={index}>
-                <TextField
-                  // className={styles["text-field"]}
-                  className="CustomInputBox"
-                  fullWidth
-                  label={field.label}
-                  type={field.type || "text"}
-                  variant="outlined"
-                />
-              </div>
-            ))}
-            <Button className="Aggiungi_btn" startIcon={<AddIcon />}>
+            <Grid container spacing={2}>
+              {fields.map((field, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  key={index}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <TextField
+                    className="CustomInputBox"
+                    fullWidth
+                    label={field.label}
+                    type={field.type || "text"}
+                    variant="outlined"
+                  />
+                  {field.isNew && (
+                    <IconButton
+                      aria-label="delete"
+                      onClick={() => handleDeleteField(index)}
+                      style={{ marginLeft: "8px" }}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  )}
+                </Grid>
+              ))}
+            </Grid>
+            <Button
+              className="Aggiungi_btn"
+              startIcon={<AddIcon />}
+              onClick={handleAddField}
+              style={{ marginTop: "16px" }}
+            >
               Aggiungi
             </Button>
           </CardContent>
         </Card>
-        {/* <Box sx={{ mt: 2, display: "flex", alignItems: "center" }}></Box> */}
       </div>
     </Grid>
-  </Grid>
-);
+  );
+};
 
 const HrContatti = () => {
-  const fields = [
+  const initialFields = [
     { label: "Numero Fisso" },
     { label: "Numero Mobile" },
     { label: "Email", type: "email" },
     { label: "Sito" },
     { label: "Pagina LinkedIn" },
   ];
+
   return (
     <Box className="customTabBlock" maxWidth="xl">
       <Box className="customTabBlock__body">
-        <DynamicCard fields={fields} />
+        <Grid container spacing={3}>
+          <DynamicCard title="Contatti Azienda" initialFields={initialFields} />
+        </Grid>
       </Box>
     </Box>
   );
