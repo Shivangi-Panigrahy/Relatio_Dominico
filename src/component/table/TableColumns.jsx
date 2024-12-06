@@ -24,7 +24,7 @@ const TableColumns = ({
       {navData === "personale" ? (
         ""
       ) : (
-        <StyledTableCell padding="checkbox" align="center">
+        <StyledTableCell padding="checkbox" align="center" width={'42px'}>
           <CustomCheckbox
             checked={selectAll}
             onChange={(event) => handleSelectAllClick(event)}
@@ -38,7 +38,7 @@ const TableColumns = ({
           style={{ width: column.width, cursor: "pointer" }}
           onClick={() => handleSort(column.field)}
         >
-          <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center" justifyContent={'space-between'}>
             <h4>{column.headerName}</h4>
             {sortConfig.field === column.field ? (
               sortConfig.direction === "asc" ? (

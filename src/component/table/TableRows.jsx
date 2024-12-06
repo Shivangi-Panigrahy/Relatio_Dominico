@@ -186,6 +186,11 @@ const TableRows = ({
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
   const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
   const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isAnagraficheLeadDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"
+  const isAnagraficheClientiDocumentiPage = location.pathname === "/angrafiche/clienti/Documenti";
+  const isAnagraficheFornitoriDocumentiPage = location.pathname === "/angrafiche/fornitori/Documenti";
+  const isAnagraficheCollaboratoriDocumentiPage =
+    location.pathname === "/angrafiche/sub-colaboratory/Documenti"
 
   const calculateTotal = (month) => {
     const total = data
@@ -252,7 +257,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -483,7 +488,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/vendite/sub-lead/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/lead")
+                        ? navigate("/vendite/sub-lead/Contatti")
+                        : navigate("/anagrafiche/sub-lead/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -559,7 +568,14 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    // onClick={() => navigate("/acquisti/fornitori/Contatti")}/angrafiche/clienti
+                    onClick={() =>
+                      window.location.href.includes("/acquisti/fornitori")
+                        ? navigate("/acquisti/fornitori/Contatti")
+                        : window.location.href.includes("/angrafiche/clienti")
+                          ? navigate("/angrafiche/clienti/Contatti")
+                          : navigate("/angrafiche/fornitori/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -637,7 +653,7 @@ const TableRows = ({
               data
                 .slice(
                   page * rowsPerPage,
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheLeadDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -746,7 +762,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheLeadDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -1923,7 +1939,12 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
+                    // onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/colaboratory")
+                        ? navigate("/hr/sub-colaboratory/Contatti")
+                        : navigate("/angrafiche/sub-colaboratory/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2071,7 +2092,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubcolaboratoryDocumenti)
+                  (isSubcolaboratoryDocumenti || isAnagraficheCollaboratoriDocumentiPage)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -2137,12 +2158,12 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/candidati/candidato/Contatti")}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
-                  //     : navigate("/hr/candidati")
-                  // }
+                    // onClick={() => navigate("/hr/candidati/candidato/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/candidati")
+                        ? navigate("/hr/candidati/candidato/Contatti")
+                        : navigate("/angrafiche/candidati/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox

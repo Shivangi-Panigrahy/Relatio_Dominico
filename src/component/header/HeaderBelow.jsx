@@ -149,7 +149,7 @@ const HeaderBelow = () => {
                 </IconButton>
                 <Typography variant="h2">Budget</Typography>
               </>
-            ) : window.location.href.includes("/lead") ? (
+            ) : window.location.href.includes("/vendite/lead") ? (
               <>
                 <Typography variant="h2">Vendite</Typography>
                 <IconButton edge="start" color="inherit">
@@ -157,7 +157,7 @@ const HeaderBelow = () => {
                 </IconButton>
                 <Typography variant="h2">Lead</Typography>
               </>
-            ) : window.location.href.includes("/sub-lead") ? (
+            ) : window.location.href.includes("/vendite/sub-lead/") ? (
               <>
                 <Typography variant="h2">Vendite</Typography>
                 <IconButton edge="start" color="inherit">
@@ -182,7 +182,7 @@ const HeaderBelow = () => {
                   </IconButton>
                   <Typography variant="h2">Nome del Fornitore</Typography>
                 </>
-              ) : window.location.href.includes("/fornitori") ? (
+              ) : window.location.href.includes("/acquisti/fornitori") ? (
                 <>
                   <Typography variant="h2">Acquisti </Typography>
                   <IconButton edge="start" color="inherit">
@@ -611,10 +611,117 @@ const HeaderBelow = () => {
                                                                                           </IconButton>
                                                                                           <Typography variant="h2">Prima nota</Typography>
                                                                                         </> :
+                                                                                        window.location.href.includes("/anagrafiche/sub-lead/") ?
+                                                                                          <>
+                                                                                            <Typography variant="h2">Anagrafiche</Typography>
+                                                                                            <IconButton edge="start" color="inherit">
+                                                                                              <ArrowForwardIcon />
+                                                                                            </IconButton>
+                                                                                            <Typography variant="h2">Lead</Typography>
+                                                                                            <IconButton edge="start" color="inherit">
+                                                                                              <ArrowForwardIcon />
+                                                                                            </IconButton>
+                                                                                            <Typography variant="h2">Nome del lead</Typography>
+                                                                                          </>
+                                                                                          :
+                                                                                          window.location.href.includes("/angrafiche/lead") ?
+                                                                                            <>
+                                                                                              <Typography variant="h2">Anagrafiche</Typography>
+                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                <ArrowForwardIcon />
+                                                                                              </IconButton>
+                                                                                              <Typography variant="h2">Lead</Typography>
+                                                                                            </> :
 
-                                                                                        (
-                                                                                          <Typography variant="h2">Titolo della Pagina</Typography>
-                                                                                        )}
+                                                                                            window.location.href.includes("/angrafiche/clienti/") ?
+                                                                                              <>
+                                                                                                <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                  <ArrowForwardIcon />
+                                                                                                </IconButton>
+                                                                                                <Typography variant="h2">Clienti</Typography>
+                                                                                                <IconButton edge="start" color="inherit">
+                                                                                                  <ArrowForwardIcon />
+                                                                                                </IconButton>
+                                                                                                <Typography variant="h2">Nome del cliente</Typography>
+                                                                                              </>
+                                                                                              :
+                                                                                              window.location.href.includes("/angrafiche/clienti") ?
+                                                                                                <>
+                                                                                                  <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                  <IconButton edge="start" color="inherit">
+                                                                                                    <ArrowForwardIcon />
+                                                                                                  </IconButton>
+                                                                                                  <Typography variant="h2">Clienti</Typography>
+                                                                                                </> :
+                                                                                                window.location.href.includes("/angrafiche/fornitori/") ?
+                                                                                                  <>
+                                                                                                    <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                      <ArrowForwardIcon />
+                                                                                                    </IconButton>
+                                                                                                    <Typography variant="h2">Fornitori</Typography>
+                                                                                                    <IconButton edge="start" color="inherit">
+                                                                                                      <ArrowForwardIcon />
+                                                                                                    </IconButton>
+                                                                                                    <Typography variant="h2">Nome del Fornitore</Typography>
+                                                                                                  </>
+                                                                                                  :
+                                                                                                  window.location.href.includes("/angrafiche/fornitori") ?
+                                                                                                    <>
+                                                                                                      <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                      <IconButton edge="start" color="inherit">
+                                                                                                        <ArrowForwardIcon />
+                                                                                                      </IconButton>
+                                                                                                      <Typography variant="h2">Fornitori</Typography>
+                                                                                                    </> :
+                                                                                                    window.location.href.includes("/angrafiche/sub-colaboratory/") ?
+                                                                                                      <>
+                                                                                                        <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                          <ArrowForwardIcon />
+                                                                                                        </IconButton>
+                                                                                                        <Typography variant="h2">Collaboratori</Typography>
+                                                                                                        <IconButton edge="start" color="inherit">
+                                                                                                          <ArrowForwardIcon />
+                                                                                                        </IconButton>
+                                                                                                        <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                                      </>
+                                                                                                      :
+                                                                                                      window.location.href.includes("/angrafiche/colaboratory") ?
+                                                                                                        <>
+                                                                                                          <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                          <IconButton edge="start" color="inherit">
+                                                                                                            <ArrowForwardIcon />
+                                                                                                          </IconButton>
+                                                                                                          <Typography variant="h2">Collaboratori</Typography>
+                                                                                                        </> :
+                                                                                                        window.location.href.includes("/angrafiche/candidati/") ?
+                                                                                                          <>
+                                                                                                            <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                              <ArrowForwardIcon />
+                                                                                                            </IconButton>
+                                                                                                            <Typography variant="h2">Collaboratori</Typography>
+                                                                                                            <IconButton edge="start" color="inherit">
+                                                                                                              <ArrowForwardIcon />
+                                                                                                            </IconButton>
+                                                                                                            <Typography variant="h2">Nome del collaboratore</Typography>
+                                                                                                          </>
+                                                                                                          :
+                                                                                                          window.location.href.includes("/angrafiche/candidati") ?
+                                                                                                            <>
+                                                                                                              <Typography variant="h2">Anagrafiche</Typography>
+                                                                                                              <IconButton edge="start" color="inherit">
+                                                                                                                <ArrowForwardIcon />
+                                                                                                              </IconButton>
+                                                                                                              <Typography variant="h2">Collaboratori</Typography>
+                                                                                                            </> :
+
+
+                                                                                                            (
+                                                                                                              <Typography variant="h2">Titolo della Pagina</Typography>
+                                                                                                            )}
         </Box>
         {!location.pathname.includes("/vendite/preventivi/sub-preventivi") &&
           !location.pathname.includes("/vendite/ordini/sub-ordini") &&

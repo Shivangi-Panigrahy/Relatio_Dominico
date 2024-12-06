@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import {
   Container,
   Grid,
@@ -10,11 +11,15 @@ import {
   Box,
   InputAdornment,
   IconButton,
+  TextareaAutosize,
 } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "./Qualificazione.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
+import styled from "@emotion/styled";
+import { validationSchema3 } from "../../validation/ValidationSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 // Dynamic Card Component with Add Button
 const DynamicCard = ({ title, initialFields, onAddField }) => {
@@ -40,7 +45,38 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
     // Remove the field at the specified index
     setFields(fields.filter((_, i) => i !== index));
   };
+  const EmptyTextarea = ({ placeholder }) => {
+    const Textarea = styled(TextareaAutosize)(
+      ({ theme }) => `
+      box-sizing: border-box;
+      width: 100%;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      padding: 12px;
+      border-radius: 5px;
+      color: #160A2A;
+      background: ${"#fff"};
+      border: 2px solid #e5e5e5;
+    `
+    );
 
+    return (
+      <Textarea
+        aria-label="empty textarea"
+        placeholder={placeholder}
+        minRows={4}
+      />
+    );
+  };
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema3),
+  });
   return (
     <div className="ContattiCards">
       <Card className="card">
@@ -58,13 +94,33 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
                 key={index}
                 style={{ display: "flex", alignItems: "center" }}
               >
-                <TextField
-                  className={styles["text-field"]}
-                  fullWidth
-                  label={field.label}
-                  type={field.type || "text"}
-                  variant="outlined"
-                />
+                {fields[0].label === "Note" ? (
+                  <Controller
+                    name="notes"
+                    control={control}
+                    render={({ field }) => (
+                      // <Textarea aria-label="empty textarea" placeholder="Empty" />
+                      <EmptyTextarea placeholder="Note" />
+                      // <TextareaAutosize
+                      //   maxRows={4}
+                      //   aria-label="maximum height"
+                      //   className="CustomInputBox CustomTextArea"
+                      //   // {...field}
+                      //   label="Note"
+                      //   multiline
+                      //   variant="outlined"
+                      // />
+                    )}
+                  />
+                ) : (
+                  <TextField
+                    className={styles["text-field"]}
+                    fullWidth
+                    label={field.label}
+                    type={field.type || "text"}
+                    variant="outlined"
+                  />
+                )}
                 {field.isNew && (
                   <IconButton
                     aria-label="delete"
@@ -80,13 +136,17 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
         </CardContent>
       </Card>
       <Box sx={{ mt: 2, display: "flex", alignItems: "center" }}>
-        <Button
-          className="Aggiungi_btn"
-          startIcon={<AddIcon />}
-          onClick={handleAddField}
-        >
-          Aggiungi
-        </Button>
+        {fields[0].label === "Note" ? (
+          ""
+        ) : (
+          <Button
+            className="Aggiungi_btn"
+            startIcon={<AddIcon />}
+            onClick={handleAddField}
+          >
+            Aggiungi
+          </Button>
+        )}
       </Box>
     </div>
   );
@@ -95,35 +155,6 @@ const DynamicCard = ({ title, initialFields, onAddField }) => {
 const HrQualificazione = () => {
   const path = window.location.pathname;
   const [cardData, setCardData] = useState([]);
-
-//   const cards = [
-//     {
-//       title: "Tipo di azienda AFweqrA",
-//       fields: [
-//         { label: "Settore" },
-//         { label: "Categoria categoria azienda" },
-//         { label: "Codice adeco" },
-//       ],
-//     },
-//     {
-//       title: "Attivita",
-//       fields: [
-//         { label: "Progettazione e edirezione lavori" },
-//         { label: "Prove geioteniche" },
-//         { label: "Rilievi topografici" },
-//         { label: "Pratiche catastali" },
-//       ],
-//     },
-//     {
-//       title: "Attivita",
-//       fields: [
-//         { label: "Progettazione e direzione lavori" },
-//         { label: "Progettazine ubanistica" },
-//         { label: "Progettazine strutturale" },
-//         { label: "Progettazine architettonica" },
-//       ],
-//     },
-//   ];
 
   const hrCards = [
     {
@@ -181,9 +212,12 @@ const HrQualificazione = () => {
       setCardData(hrCards);
     } else if (path === "/hr/candidati/candidato/Qualificazione") {
       setCardData(hrCandidatoCards);
+    } else if (path === "/angrafiche/candidati/Qualificazione") {
+      setCardData(hrCandidatoCards);
+    } else if (path === "/angrafiche/sub-colaboratory/Qualificazione") {
+      setCardData(hrCards);
     } else {
-      <>
-      </>
+      <></>;
     }
   }, [path]);
 
@@ -193,10 +227,7 @@ const HrQualificazione = () => {
         <Grid container spacing={2.5}>
           {cardData.map((card, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <DynamicCard
-                title={card.title}
-                initialFields={card.fields}
-              />
+              <DynamicCard title={card.title} initialFields={card.fields} />
             </Grid>
           ))}
         </Grid>
