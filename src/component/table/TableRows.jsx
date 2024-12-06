@@ -135,12 +135,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
-    case "Disponibile":
-      return {
-        backgroundColor: "#57C70033",
-        color: "#57C700",
-        className: "Approvata",
-      };
+      case "Disponibile":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -2566,47 +2566,65 @@ const TableRows = ({
             )}
           </TableBody>
         );
-      case "GiacenzeStabilimenti":
-        return (
-          <TableBody>
-            {data?.length > 0 ? (
-              data
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.cod}</StyledTableCell>
-                    <StyledTableCell>{row.lotto}</StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.marcaSerie}</StyledTableCell>
-                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
-                    <StyledTableCell>{row.um}</StyledTableCell>
-                    <StyledTableCell>{row.pzUnitario}</StyledTableCell>
-                    <StyledTableCell>{row.qta}</StyledTableCell>
-                  </StyledTableRow>
-                ))
-            ) : (
-              <StyledTableRow>
-                <StyledTableCell colSpan={12} align="center">
-                  Data not found
-                </StyledTableCell>
-              </StyledTableRow>
-            )}
-          </TableBody>
-        );
+        case "GiacenzeStabilimenti":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.cod}</StyledTableCell>
+                      <StyledTableCell>{row.lotto}</StyledTableCell>
+                      <StyledTableCell>{row.scadenza}</StyledTableCell>
+                      <StyledTableCell>
+                        <IconButton
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          <VisibilityOutlinedIcon
+                            sx={{ "&:hover": { color: "#57C700" } }}
+                            fontSize="small"
+                          />
+                          {row.prodotto}
+                        </IconButton>
+                      </StyledTableCell>
+  
+                      <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                      <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                      <StyledTableCell>{row.um}</StyledTableCell>
+                      <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                      <StyledTableCell>{row.qta}</StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
       case "DDT":
         return (
           <TableBody>
