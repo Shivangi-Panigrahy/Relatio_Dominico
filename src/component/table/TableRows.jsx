@@ -135,12 +135,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
-    case "Disponibile":
-      return {
-        backgroundColor: "#57C70033",
-        color: "#57C700",
-        className: "Approvata",
-      };
+      case "Disponibile":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -192,11 +192,6 @@ const TableRows = ({
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
   const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
   const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
-  const isAnagraficheLeadDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"
-  const isAnagraficheClientiDocumentiPage = location.pathname === "/angrafiche/clienti/Documenti";
-  const isAnagraficheFornitoriDocumentiPage = location.pathname === "/angrafiche/fornitori/Documenti";
-  const isAnagraficheCollaboratoriDocumentiPage =
-    location.pathname === "/angrafiche/sub-colaboratory/Documenti"
 
   const calculateTotal = (month) => {
     const total = data
@@ -263,7 +258,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -494,11 +489,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() =>
-                      window.location.href.includes("/vendite/lead")
-                        ? navigate("/vendite/sub-lead/Contatti")
-                        : navigate("/anagrafiche/sub-lead/Contatti")
-                    }
+                    onClick={() => navigate("/vendite/sub-lead/Contatti")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -574,14 +565,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    // onClick={() => navigate("/acquisti/fornitori/Contatti")}/angrafiche/clienti
-                    onClick={() =>
-                      window.location.href.includes("/acquisti/fornitori")
-                        ? navigate("/acquisti/fornitori/Contatti")
-                        : window.location.href.includes("/angrafiche/clienti")
-                          ? navigate("/angrafiche/clienti/Contatti")
-                          : navigate("/angrafiche/fornitori/Contatti")
-                    }
+                    onClick={() => navigate("/acquisti/fornitori/Contatti")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -659,7 +643,7 @@ const TableRows = ({
               data
                 .slice(
                   page * rowsPerPage,
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheLeadDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -768,7 +752,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isAnagraficheLeadDocumenti || isAnagraficheClientiDocumentiPage || isAnagraficheFornitoriDocumentiPage || isAnagraficheCollaboratoriDocumentiPage)
+                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -1812,62 +1796,40 @@ const TableRows = ({
             {data?.length > 0 ? (
               data
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  // Check if we're on a specific route
-                  const isSpecificRoute =
-                    location.pathname === "/logistica/stabilimenti/Gaicenze" ||
-                    location.pathname === "/logistica/mezzi/Gaicenze";
-
-                  return (
-                    <StyledTableRow
-                      key={index}
-                      selected={isSelected(row.id)}
-                    >
-                      <StyledTableCell align="center">
-                        <CustomCheckbox
-                          className="customChechbox"
-                          color="primary"
-                          checked={isSelected(row.id)}
-                          onChange={(event) => handleRowClick(event, row.id)}
-                          onClick={(event) => event.stopPropagation()}
-                          inputProps={{ "aria-labelledby": row.id }}
-                        />
-                      </StyledTableCell>
-
-                      {/* Conditionally render columns */}
-                      {isSpecificRoute ? (
-                        // Specific route columns
-                        <>
-                          <StyledTableCell>{row.cod}</StyledTableCell>
-                          <StyledTableCell>{row.lotto}</StyledTableCell>
-                          <StyledTableCell>{row.scadenza}</StyledTableCell>
-                          <StyledTableCell>{row.prodotto}</StyledTableCell>
-                          <StyledTableCell>{row.marcaSerie}</StyledTableCell>
-                          <StyledTableCell>{row.stabilimento}</StyledTableCell>
-                          <StyledTableCell>{row.um}</StyledTableCell>
-                          <StyledTableCell>{row.pzUnitario}</StyledTableCell>
-                          <StyledTableCell>{row.qta}</StyledTableCell>
-                        </>
-                      ) : (
-                        // Default columns
-                        <>
-                          <StyledTableCell>{row.cod}</StyledTableCell>
-                          <StyledTableCell>{row.lotto}</StyledTableCell>
-                          <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                          <StyledTableCell>{row.scadenza}</StyledTableCell>
-                          <StyledTableCell>{row.prodotto}</StyledTableCell>
-                          <StyledTableCell>{row.marcaSerie}</StyledTableCell>
-                          <StyledTableCell>{row.stabilimento}</StyledTableCell>
-                          <StyledTableCell>{row.um}</StyledTableCell>
-                          <StyledTableCell>{row.pzUnitario}</StyledTableCell>
-                          <StyledTableCell>{row.qta}</StyledTableCell>
-                          <StyledTableCell>{row.valore}</StyledTableCell>
-                          <StyledTableCell>{row.azioni}</StyledTableCell>
-                        </>
-                      )}
-                    </StyledTableRow>
-                  );
-                })
+                // .slice(
+                //   page * rowsPerPage,
+                //   // Limit to 2 rows for specified paths
+                //   (isSubLeadDocumenti || isFornitoriDocumenti)
+                //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                //     : page * rowsPerPage + rowsPerPage
+                // )
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.cod}</StyledTableCell>
+                    <StyledTableCell>{row.lotto}</StyledTableCell>
+                    <StyledTableCell>{row.scadenza}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto}</StyledTableCell>
+                    <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                    <StyledTableCell>{row.um}</StyledTableCell>
+                    <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                    <StyledTableCell>{row.qta}</StyledTableCell>
+                  </StyledTableRow>
+                ))
             ) : (
               <StyledTableRow>
                 <StyledTableCell colSpan={12} align="center">
@@ -1877,55 +1839,6 @@ const TableRows = ({
             )}
           </TableBody>
         );
-      // case "Giacenze":
-      //   return (
-      //     <TableBody>
-      //       {data?.length > 0 ? (
-      //         data
-      //           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-      //           // .slice(
-      //           //   page * rowsPerPage,
-      //           //   // Limit to 2 rows for specified paths
-      //           //   (isSubLeadDocumenti || isFornitoriDocumenti)
-      //           //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
-      //           //     : page * rowsPerPage + rowsPerPage
-      //           // )
-      //           .map((row, index) => (
-      //             <StyledTableRow
-      //               key={index}
-      //               selected={isSelected(row.id)}
-      //             // onClick={() => navigate("/cataloghi/listini/Gruppi")}
-      //             >
-      //               <StyledTableCell align="center">
-      //                 <CustomCheckbox
-      //                   className="customChechbox"
-      //                   color="primary"
-      //                   checked={isSelected(row.id)}
-      //                   onChange={(event) => handleRowClick(event, row.id)}
-      //                   onClick={(event) => event.stopPropagation()}
-      //                   inputProps={{ "aria-labelledby": row.id }}
-      //                 />
-      //               </StyledTableCell>
-      //               <StyledTableCell>{row.cod}</StyledTableCell>
-      //               <StyledTableCell>{row.lotto}</StyledTableCell>
-      //               <StyledTableCell>{row.scadenza}</StyledTableCell>
-      //               <StyledTableCell>{row.prodotto}</StyledTableCell>
-      //               <StyledTableCell>{row.marcaSerie}</StyledTableCell>
-      //               <StyledTableCell>{row.stabilimento}</StyledTableCell>
-      //               <StyledTableCell>{row.um}</StyledTableCell>
-      //               <StyledTableCell>{row.pzUnitario}</StyledTableCell>
-      //               <StyledTableCell>{row.qta}</StyledTableCell>
-      //             </StyledTableRow>
-      //           ))
-      //       ) : (
-      //         <StyledTableRow>
-      //           <StyledTableCell colSpan={12} align="center">
-      //             Data not found
-      //           </StyledTableCell>
-      //         </StyledTableRow>
-      //       )}
-      //     </TableBody>
-      //   );
       case "Gruppi":
         return (
           <TableBody>
@@ -2016,12 +1929,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    // onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
-                    onClick={() =>
-                      window.location.href.includes("/hr/colaboratory")
-                        ? navigate("/hr/sub-colaboratory/Contatti")
-                        : navigate("/angrafiche/sub-colaboratory/Contatti")
-                    }
+                    onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2169,7 +2077,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubcolaboratoryDocumenti || isAnagraficheCollaboratoriDocumentiPage)
+                  (isSubcolaboratoryDocumenti)
                     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
                     : page * rowsPerPage + rowsPerPage
                 )
@@ -2235,12 +2143,12 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    // onClick={() => navigate("/hr/candidati/candidato/Contatti")}
-                    onClick={() =>
-                      window.location.href.includes("/hr/candidati")
-                        ? navigate("/hr/candidati/candidato/Contatti")
-                        : navigate("/angrafiche/candidati/Contatti")
-                    }
+                    onClick={() => navigate("/hr/candidati/candidato/Contatti")}
+                  // onClick={() =>
+                  //   window.location.href.includes("/hr/colaboratory")
+                  //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
+                  //     : navigate("/hr/candidati")
+                  // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2658,6 +2566,48 @@ const TableRows = ({
             )}
           </TableBody>
         );
+        case "GiacenzeStabilimenti":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                      // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.cod}</StyledTableCell>
+                      <StyledTableCell>{row.lotto}</StyledTableCell>
+                      <StyledTableCell>{row.scadenza}</StyledTableCell>
+                      <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                      <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                      <StyledTableCell>{row.um}</StyledTableCell>
+                      <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                      <StyledTableCell>{row.qta}</StyledTableCell>
+                      <StyledTableCell>{row.valore}</StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={12} align="center">
+                    Data not found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
       case "DDT":
         return (
           <TableBody>

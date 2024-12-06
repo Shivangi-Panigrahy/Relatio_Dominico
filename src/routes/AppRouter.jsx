@@ -106,6 +106,7 @@ import FornitoriAnagrafiche from "../pages/Anagrafiche/Fornitori/FornitoriAnagra
 import DettaglioAnagrafiche from "../pages/Anagrafiche/Fornitori/Dettaglio/DettaglioAnagrafiche.jsx";
 import ClientiAnagrafiche from "../pages/Anagrafiche/Clienti/ClientiAnagrafiche.jsx";
 import DettaglioClientiAnagrafiche from "../pages/Anagrafiche/Clienti/Dettaglio/DettaglioClientiAnagrafiche.jsx";
+import GiacenzeStabilimenti from "../pages/Logistica/Stabilimenti/GiacenzeStabilimenti.jsx";
 
 const Allroutes = () => {
   return (
@@ -952,7 +953,7 @@ const Allroutes = () => {
         path="/logistica/stabilimenti/Gaicenze"
         element={
           <PublicRoute>
-            <SubStabilimenti Component={LogisticaGiacenze} />
+            <SubStabilimenti Component={GiacenzeStabilimenti} />
           </PublicRoute>
         }
       />

@@ -13,7 +13,7 @@ const Giacenze = () => {
   const fullColumns = [
     { field: "cod", headerName: "Cod.", width: 100 },
     { field: "lotto", headerName: "Lotto", width: 130 },
-    { field: "creatoIl", headerName: "Data arrivo", width: 115 },
+    { field: "Data arrivo", headerName: "Data arrivo", width: 115 },
     { field: "scadenza", headerName: "Scadenza", width: 115 },
     { field: "prodotto", headerName: "Prodotto", width: 355 },
     { field: "marcaSerie", headerName: "Marca/serie", width: 245 },
