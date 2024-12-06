@@ -176,7 +176,49 @@ const TAB_CONFIGURATIONS = {
     { label: "Calendario", icon: Mese },
     { label: "Organizza", icon: Agenda },
   ],
-  subStabilimenti: [
+  leadAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+  ],
+  anagraficheCandidato: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Agenda", icon: Agenda },
+    { label: "Allegati", icon: Documenti },
+  ],
+  colaboratoryAnagrafiche: [
+    { label: "Contatti", icon: Documenti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Contratto", icon: Documenti },
+    { label: "Equipagiamento", icon: Documenti },
+    { label: "Turni", icon: Documenti },
+    { label: "Progetti", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+  ],
+  fornitoriAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Dati", icon: Dati },
+    { label: "Sedi", icon: Sedi },
+    { label: "Relazioni", icon: Relazioni },
+    { label: "Allegati", icon: Allegati },
+  ],
+  clientiAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Dati", icon: Dati },
+    { label: "Sedi", icon: Sedi },
+    { label: "Relazioni", icon: Relazioni },
+    { label: "Allegati", icon: Allegati },
+  ],  subStabilimenti: [
     { label: "Gaicenze", icon: Contatti },
     { label: "Mezzi", icon: Qualificazione },
     { label: "Attrezzature", icon: Agenda },
@@ -196,7 +238,7 @@ const TAB_CONFIGURATIONS = {
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario, isStabilimenti, isMezzi,isAttrezzature) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche) => {
 
 
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -229,6 +271,17 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
 
   if (isAttrezzature) return `/logistica/attrezzature/${label}`;
 
+  if (isleadAnagrafiche) return `/anagrafiche/sub-lead/${label}`;
+
+  if (isAnagraficheCandidato)
+    return `/angrafiche/candidati/${label}`;
+  if (isColaboratoryAnagrafiche)
+    return `/angrafiche/sub-colaboratory/${label}`;
+  if (isFornitoriAnagrafiche)
+    return `/angrafiche/fornitori/${label}`;
+  if (isClientiAnagrafiche)
+    return `/angrafiche/clienti/${label}`;
+
 
   return `/dashboard/${label}`;
 
@@ -258,8 +311,11 @@ const MenuTab = ({
   subStabilimenti = false,
   subMezzi = false,
   subAttrezzature=false,
-
-
+  leadAnagrafiche = false,
+  anagraficheCandidato = false,
+  colaboratoryAnagrafiche = false,
+  fornitoriAnagrafiche=false,
+  clientiAnagrafiche=false
 
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
@@ -287,9 +343,15 @@ const MenuTab = ({
     if (subStabilimenti) return TAB_CONFIGURATIONS.subStabilimenti;
     if (subMezzi) return TAB_CONFIGURATIONS.subMezzi;
     if (subAttrezzature) return TAB_CONFIGURATIONS.subAttrezzature;
+    if (leadAnagrafiche) return TAB_CONFIGURATIONS.leadAnagrafiche;
+    if (anagraficheCandidato) return TAB_CONFIGURATIONS.anagraficheCandidato;
+    if (colaboratoryAnagrafiche) return TAB_CONFIGURATIONS.colaboratoryAnagrafiche;
+    if (fornitoriAnagrafiche) return TAB_CONFIGURATIONS.fornitoriAnagrafiche;
+    if (clientiAnagrafiche) return TAB_CONFIGURATIONS.clientiAnagrafiche;
+
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]);
 
   const tabsConfig = getActiveConfig();
 
@@ -308,7 +370,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche);
       navigate(path);
 
       // Invoke parent callback
@@ -316,7 +378,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, subStabilimenti, subMezzi,subAttrezzature]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]
   );
 
   return (

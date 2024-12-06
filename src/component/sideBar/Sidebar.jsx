@@ -196,10 +196,11 @@ const menuItems = [
     textColor: "#4CC9F0",
     route: "/anagrafiche",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Lead", route: "/angrafiche/lead" },
+      { name: "Clienti", route: "/angrafiche/clienti" },
+      { name: "Fornitori", route: "/angrafiche/fornitori" },
+      { name: "Collaboratori", route: "/angrafiche/colaboratory" },
+      { name: "Candidati", route: "/angrafiche/candidati" },
     ],
   },
   {

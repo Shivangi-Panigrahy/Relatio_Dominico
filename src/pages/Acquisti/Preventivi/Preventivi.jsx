@@ -54,16 +54,20 @@ const Preventivi = () => {
 
   const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
   const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isAnagraficheClientiDocumentiPage = location.pathname === "/angrafiche/clienti/Documenti";
+  const isAnagraficheFornitoriDocumentiPage = location.pathname === "/angrafiche/fornitori/Documenti";
+  const isAnagraficheCollaboratoriDocumentiPage =
+    location.pathname === "/angrafiche/sub-colaboratory/Documenti"
 
   return (
     <>
-      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && <Header />}
-      
+      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && !isAnagraficheClientiDocumentiPage && !isAnagraficheFornitoriDocumentiPage && !isAnagraficheCollaboratoriDocumentiPage && <Header />}
+
       <div className="pageTemplate">
-        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti &&(
+        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && !isAnagraficheClientiDocumentiPage && !isAnagraficheFornitoriDocumentiPage && !isAnagraficheCollaboratoriDocumentiPage && (
           <InvoiceDashboard preventivi={preventiviData} />
         )}
-        
+
         <Table
           data={tableData.tabData.tab1}
           columns={columns}
