@@ -243,6 +243,22 @@
   justify-content: center;
 }
 
+.custom_pagination p {
+  font-family: "Public Sans", sans-serif;
+  font-family: sans-serif;
+  color: #100919;
+}
+
+.custom_pagination .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary fieldset {
+  border: none !important;
+}
+
+.custom_pagination .MuiSelect-select.MuiSelect-outlined {
+  font-family: "Public Sans", sans-serif;
+  color: #100919;
+}
+
+
 // .approvato {
 //   border: 1px solid #2196f3;
 // }

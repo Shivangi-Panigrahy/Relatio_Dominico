@@ -51,6 +51,7 @@ const Documenti = ({ data }) => {
       isAnagraficheClientiDocumentiPage: path.includes("/angrafiche/clienti/Documenti"),
       isAnagraficheFornitoriDocumentiPage: path.includes("/angrafiche/fornitori/Documenti"),
       isAnagraficheCollaboratoriDocumentiPage: path.includes("/angrafiche/sub-colaboratory/Documenti"),
+      isAnagraficheEquipagiamentoDocumentiPage:path.includes("/angrafiche/sub-colaboratory/Equipagiamento"),
     };
   };
 
@@ -168,6 +169,12 @@ const Documenti = ({ data }) => {
         { label: "DDT", content: "DDT-related information" }
       );
     }
+      if (route.isAnagraficheEquipagiamentoDocumentiPage) {
+      sections.push(
+        { label: "Attrezzature", content: "Attrezzature content" },
+        { label: "Mezzi", content: "Mezzi content" }
+      );
+    }
 
     return sections;
   };
@@ -225,6 +232,60 @@ const Documenti = ({ data }) => {
         { label: "Task completi", value: 604 }
       );
     }
+    if (route.isAnagraficheLeadDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 }
+      );
+    }
+
+    if (route.isAnagraficheClientiDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+    if (route.isAnagraficheFornitoriDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+    if (route.isAnagraficheCollaboratoriDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+    if (route.isAnagraficheEquipagiamentoDocumentiPage) {
+      baseStats.push(
+        { label: "Documenti", value: 604 },
+        { label: "Budget", value: 604 },
+        { label: "Preventivi", value: 604 },
+        { label: "Ordini", value: 604 },
+        { label: "Fatture", value: 604 },
+        { label: "Buste paga", value: 604 }
+      );
+    }
+
+
+
 
     return baseStats;
   };

@@ -42,7 +42,7 @@ const CustomPagination = ({
   onRowsPerPageChange,
 }) => {
   return (
-    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2}>
+    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2} className="custom_pagination">
       <Typography variant="body2" color="text.secondary" mr={2}>
         Righe per pagina:
       </Typography>
