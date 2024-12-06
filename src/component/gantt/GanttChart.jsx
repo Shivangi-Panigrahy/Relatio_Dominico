@@ -15,9 +15,8 @@ import { ReactComponent as NextBtn } from "../../assets/NextBtn.svg";
 import { ReactComponent as PreviousBtn } from "../../assets/PreviousBtn.svg";
 import { ReactComponent as PlushIcon } from "../../assets/plushIcon.svg";
 import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
-
 import "./GanttChart.scss";
-import GanttCard from "./GanttCard";
+
 // Function to generate an array of months with days for a given year
 const generateMonths = (year) => {
   return Array.from({ length: 12 }, (_, i) => {

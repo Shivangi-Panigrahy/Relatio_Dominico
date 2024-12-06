@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "doc": "Doc",
+      "creatoIl": "28/11/2022",
+      "numero": "BU/227",
+      "fornitori": "Nome Cliente A",
+      "stabilimento": "Stabilimento A",
+      "autore": "User 1",
+      "azioni": "..."
+    },
+    {
+      "id": 2,
+      "doc": "Doc",
+      "creatoIl": "29/11/2022",
+      "numero": "BU/228",
+      "fornitori": "Nome Cliente B",
+      "stabilimento": "Stabilimento B",
+      "autore": "User 2",
+      "azioni": "..."
+    },
+    {
+      "id": 3,
+      "doc": "Doc",
+      "creatoIl": "30/11/2022",
+      "numero": "BU/229",
+      "fornitori": "Nome Cliente C",
+      "stabilimento": "Stabilimento C",
+      "autore": "User 3",
+      "azioni": "..."
+    },
+    {
+      "id": 4,
+      "doc": "Doc",
+      "creatoIl": "01/12/2022",
+      "numero": "BU/230",
+      "fornitori": "Nome Cliente D",
+      "stabilimento": "Stabilimento D",
+      "autore": "User 4",
+      "azioni": "..."
+    },
+    {
+      "id": 5,
+      "doc": "Doc",
+      "creatoIl": "02/12/2022",
+      "numero": "BU/231",
+      "fornitori": "Nome Cliente E",
+      "stabilimento": "Stabilimento E",
+      "autore": "User 5",
+      "azioni": "..."
+    }
+  ]
+  

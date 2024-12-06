@@ -218,11 +218,27 @@ const TAB_CONFIGURATIONS = {
     { label: "Sedi", icon: Sedi },
     { label: "Relazioni", icon: Relazioni },
     { label: "Allegati", icon: Allegati },
+  ],  subStabilimenti: [
+    { label: "Gaicenze", icon: Contatti },
+    { label: "Mezzi", icon: Qualificazione },
+    { label: "Attrezzature", icon: Agenda },
+    { label: "Collaboratori", icon: Documenti },
+    { label: "Contatti", icon: Documenti },
   ],
+  subMezzi: [
+    { label: "Scadenze", icon: Contatti },
+    { label: "Allegati", icon: Qualificazione },
+    { label: "Gaicenze", icon: Agenda },
+  ],
+  subAttrezzature:[
+    { label: "Scadenze", icon: Qualificazione },
+    { label: "Allegati", icon: Agenda },
+  ],
+
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche) => {
 
 
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -248,6 +264,12 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isHr) return `/hr/sub-colaboratory/${label}`;
 
   if (ishrCalendario) return `/hr/${label}`;
+
+  if (isStabilimenti) return `/logistica/stabilimenti/${label}`;
+
+  if (isMezzi) return `/logistica/mezzi/${label}`;
+
+  if (isAttrezzature) return `/logistica/attrezzature/${label}`;
 
   if (isleadAnagrafiche) return `/anagrafiche/sub-lead/${label}`;
 
@@ -286,6 +308,9 @@ const MenuTab = ({
   hrEvento = false,
   hr = false,
   hrcalendario = false,
+  subStabilimenti = false,
+  subMezzi = false,
+  subAttrezzature=false,
   leadAnagrafiche = false,
   anagraficheCandidato = false,
   colaboratoryAnagrafiche = false,
@@ -315,6 +340,9 @@ const MenuTab = ({
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
     if (hr) return TAB_CONFIGURATIONS.hr;
     if (hrcalendario) return TAB_CONFIGURATIONS.hrcalendario;
+    if (subStabilimenti) return TAB_CONFIGURATIONS.subStabilimenti;
+    if (subMezzi) return TAB_CONFIGURATIONS.subMezzi;
+    if (subAttrezzature) return TAB_CONFIGURATIONS.subAttrezzature;
     if (leadAnagrafiche) return TAB_CONFIGURATIONS.leadAnagrafiche;
     if (anagraficheCandidato) return TAB_CONFIGURATIONS.anagraficheCandidato;
     if (colaboratoryAnagrafiche) return TAB_CONFIGURATIONS.colaboratoryAnagrafiche;
@@ -323,7 +351,7 @@ const MenuTab = ({
 
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]);
 
   const tabsConfig = getActiveConfig();
 
@@ -342,7 +370,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche);
       navigate(path);
 
       // Invoke parent callback
@@ -350,7 +378,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]
   );
 
   return (
@@ -399,6 +427,8 @@ const MenuTab = ({
                                               "Distinta base" :
                                               tab.label === "Configurazione" ?
                                                 "Configurazione" :
+                                                tab.label === "Scadenze" ?
+                                                "Scadenze e manutenzioni" :
                                                 // tab.label === "Gruppi" ?
                                                 //   "Gruppi" :
                                                 //   tab.label === "Prodotti" ? "Prodotti" :

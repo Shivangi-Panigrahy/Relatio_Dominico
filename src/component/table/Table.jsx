@@ -47,33 +47,35 @@ const CustomPagination = ({
         Righe per pagina:
       </Typography>
       <Select
+        className="customSelect"
         value={rowsPerPage}
         onChange={onRowsPerPageChange}
         size="small"
-        sx={{ mr: 2, fontSize: "0.875rem" }}
       >
         <MenuItem value={5}>5</MenuItem>
         <MenuItem value={10}>10</MenuItem>
         <MenuItem value={25}>25</MenuItem>
       </Select>
-      <Typography variant="body2" color="text.secondary" mr={2}>
+      <Typography variant="body2" color="text.secondary">
         {`${page * rowsPerPage + 1}-${Math.min(
           (page + 1) * rowsPerPage,
           count
         )} di ${count}`}
       </Typography>
-      <IconButton
-        onClick={(e) => onPageChange(e, page - 1)}
-        disabled={page === 0}
-      >
-        <KeyboardArrowLeftIcon />
-      </IconButton>
-      <IconButton
-        onClick={(e) => onPageChange(e, page + 1)}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-      >
-        <KeyboardArrowRightIcon />
-      </IconButton>
+      <div className="iconBtn">
+        <IconButton
+          onClick={(e) => onPageChange(e, page - 1)}
+          disabled={page === 0}
+        >
+          <KeyboardArrowLeftIcon />
+        </IconButton>
+        <IconButton
+          onClick={(e) => onPageChange(e, page + 1)}
+          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        >
+          <KeyboardArrowRightIcon />
+        </IconButton>
+      </div>
     </Box>
   );
 };
@@ -130,25 +132,25 @@ const CustomTable = ({ data, form, columns, navData }) => {
         item.Tipo,
         item.Gruppo,
         item.Regione,
-        item.Stato_name, item.valore,
-        item?.saldata,
-        item?.dasaldare,
-        item?.fornitori,
-        item?.totale,
-        item.anno, item.scadenza,
-        item.nomeImposta,
-        item.tipologia,
-        item.realizzata,
-        item.autore,
-        item.modDa,
-        item.daSaldare,
-        item.scadenza, item.obiettivo, item.asset, item.importo, item.dataPagamento, item.rata,
-        item?.cod, item?.nomeServizio, item?.um, item?.pzVendita, item?.costoServizio, item?.ricavoUnitario, item?.acquistato, item?.venduto, item?.ricavoTotale,
-        item?.nomeListino, item?.gruppiAssociati, item?.nProdotti, item?.a, item?.priorita, item?.nomeProdotto,
-        item?.lotto, item?.marcaSerie, item?.stabilimento, item?.qta, item?.pzUnitario,
-        item?.code, item.name, item?.nome_del_prodotto, item?.mese, item?.collaboratore, item?.colaboratore, item?.evento, item?.trattamento,
-        item?.ore, item?.turno, item?.totaleOreLavorate, item?.nomeProgetto, item?.al
-        ]
+        item.Stato_name,  item.valore,
+          item?.saldata,
+          item?.dasaldare,
+            item?.totale,
+          item.anno,  item.scadenza,
+          item.nomeImposta,
+          item.tipologia,
+          item.realizzata,
+          item.autore,
+          item.modDa,
+          item.daSaldare,
+          item.scadenza,  item.obiettivo,  item.asset,  item.importo,  item.dataPagamento,  item.rata,
+          item?.cod,  item?.nomeServizio,  item?.um,  item?.pzVendita,  item?.costoServizio,  item?.ricavoUnitario,  item?.acquistato,  item?.venduto,  item?.ricavoTotale,
+          item?.nomeListino,  item?.gruppiAssociati,  item?.nProdotti,  item?.a,  item?.priorita,  item?.nomeProdotto,
+          item?.lotto,  item?.marcaSerie,  item?.stabilimento,  item?.qta,  item?.pzUnitario,
+          item?.code,  item.name,  item?.nome_del_prodotto,  item?.mese,  item?.collaboratore,  item?.colaboratore,  item?.evento,  item?.trattamento,
+          item?.ore,  item?.turno,  item?.totaleOreLavorate,  item?.nomeProgetto,  item?.al, item?.indirizzo, item?.operativoDa,item?.tipologiaAttrezzature,item?.posizione,
+          item?.targhe,item?.tipologiaMezzo
+           ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
       );
@@ -307,7 +309,30 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.nomeProgetto) {
       result = result.filter((item) => item.nomeProgetto === searchFilters.nomeProgetto);
     }
-
+    if (searchFilters.stabilimento) {
+      result = result.filter((item) => item.stabilimento === searchFilters.stabilimento);
+    }
+    if (searchFilters.fornitori) {
+      result = result.filter((item) => item.fornitori === searchFilters.fornitori);
+    }
+    if (searchFilters.prodotto) {
+      result = result.filter((item) => item.prodotto === searchFilters.prodotto);
+    }
+    if (searchFilters.marcaSerie) {
+      result = result.filter((item) => item.marcaSerie === searchFilters.marcaSerie);
+    }
+    if (searchFilters.tipologiaAttrezzature) {
+      result = result.filter((item) => item.tipologiaAttrezzature === searchFilters.tipologiaAttrezzature);
+    }
+    if (searchFilters.posizione) {
+      result = result.filter((item) => item.posizione === searchFilters.posizione);
+    }
+    if (searchFilters.targhe) {
+      result = result.filter((item) => item.targhe === searchFilters.targhe);
+    }
+    if (searchFilters.tipologiaMezzo) {
+      result = result.filter((item) => item.tipologiaMezzo === searchFilters.tipologiaMezzo);
+    }
     setFilteredData(result);
     setPage(0);
   };
