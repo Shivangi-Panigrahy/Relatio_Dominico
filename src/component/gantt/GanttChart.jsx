@@ -907,7 +907,7 @@ const GanttChart = () => {
                                         fontWeight: "bold",
                                       }}
                                     >
-                                      {total}
+                                      {total}sds
                                     </div>
                                   )}
 

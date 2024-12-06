@@ -29,7 +29,7 @@ import mobileLogo from "../../../src/assets/mobileLogo.svg";
 import { ExpandLess, ExpandMore, ChevronRight } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 const drawerWidth = 284;
-const collapsedDrawerWidth = 40;
+const collapsedDrawerWidth = 80;
 const StyledDrawer = styled(Drawer)(({ theme, open }) => ({
   width: open ? drawerWidth : collapsedDrawerWidth,
   flexShrink: 0,
