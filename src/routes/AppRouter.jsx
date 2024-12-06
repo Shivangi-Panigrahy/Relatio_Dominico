@@ -897,7 +897,7 @@ const Allroutes = () => {
         path="/hr/candidati/candidato/Contatti"
         element={
           <PublicRoute>
-            <Candidato Component={Contatti} />
+            <Candidato Component={HrContatti} />
           </PublicRoute>
         }
       />
