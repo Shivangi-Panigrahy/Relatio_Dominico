@@ -135,12 +135,12 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
-      case "Disponibile":
-        return {
-          backgroundColor: "#57C70033",
-          color: "#57C700",
-          className: "Approvata",
-        };
+    case "Disponibile":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -1812,40 +1812,62 @@ const TableRows = ({
             {data?.length > 0 ? (
               data
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                // .slice(
-                //   page * rowsPerPage,
-                //   // Limit to 2 rows for specified paths
-                //   (isSubLeadDocumenti || isFornitoriDocumenti)
-                //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
-                //     : page * rowsPerPage + rowsPerPage
-                // )
-                .map((row, index) => (
-                  <StyledTableRow
-                    key={index}
-                    selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
-                  >
-                    <StyledTableCell align="center">
-                      <CustomCheckbox
-                        className="customChechbox"
-                        color="primary"
-                        checked={isSelected(row.id)}
-                        onChange={(event) => handleRowClick(event, row.id)}
-                        onClick={(event) => event.stopPropagation()}
-                        inputProps={{ "aria-labelledby": row.id }}
-                      />
-                    </StyledTableCell>
-                    <StyledTableCell>{row.cod}</StyledTableCell>
-                    <StyledTableCell>{row.lotto}</StyledTableCell>
-                    <StyledTableCell>{row.scadenza}</StyledTableCell>
-                    <StyledTableCell>{row.prodotto}</StyledTableCell>
-                    <StyledTableCell>{row.marcaSerie}</StyledTableCell>
-                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
-                    <StyledTableCell>{row.um}</StyledTableCell>
-                    <StyledTableCell>{row.pzUnitario}</StyledTableCell>
-                    <StyledTableCell>{row.qta}</StyledTableCell>
-                  </StyledTableRow>
-                ))
+                .map((row, index) => {
+                  // Check if we're on a specific route
+                  const isSpecificRoute =
+                    location.pathname === "/logistica/stabilimenti/Gaicenze" ||
+                    location.pathname === "/logistica/mezzi/Gaicenze";
+
+                  return (
+                    <StyledTableRow
+                      key={index}
+                      selected={isSelected(row.id)}
+                    >
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          className="customChechbox"
+                          color="primary"
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{ "aria-labelledby": row.id }}
+                        />
+                      </StyledTableCell>
+
+                      {/* Conditionally render columns */}
+                      {isSpecificRoute ? (
+                        // Specific route columns
+                        <>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.lotto}</StyledTableCell>
+                          <StyledTableCell>{row.scadenza}</StyledTableCell>
+                          <StyledTableCell>{row.prodotto}</StyledTableCell>
+                          <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                          <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                          <StyledTableCell>{row.qta}</StyledTableCell>
+                        </>
+                      ) : (
+                        // Default columns
+                        <>
+                          <StyledTableCell>{row.cod}</StyledTableCell>
+                          <StyledTableCell>{row.lotto}</StyledTableCell>
+                          <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                          <StyledTableCell>{row.scadenza}</StyledTableCell>
+                          <StyledTableCell>{row.prodotto}</StyledTableCell>
+                          <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                          <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                          <StyledTableCell>{row.um}</StyledTableCell>
+                          <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                          <StyledTableCell>{row.qta}</StyledTableCell>
+                          <StyledTableCell>{row.valore}</StyledTableCell>
+                          <StyledTableCell>{row.azioni}</StyledTableCell>
+                        </>
+                      )}
+                    </StyledTableRow>
+                  );
+                })
             ) : (
               <StyledTableRow>
                 <StyledTableCell colSpan={12} align="center">
@@ -1855,6 +1877,55 @@ const TableRows = ({
             )}
           </TableBody>
         );
+      // case "Giacenze":
+      //   return (
+      //     <TableBody>
+      //       {data?.length > 0 ? (
+      //         data
+      //           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+      //           // .slice(
+      //           //   page * rowsPerPage,
+      //           //   // Limit to 2 rows for specified paths
+      //           //   (isSubLeadDocumenti || isFornitoriDocumenti)
+      //           //     ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+      //           //     : page * rowsPerPage + rowsPerPage
+      //           // )
+      //           .map((row, index) => (
+      //             <StyledTableRow
+      //               key={index}
+      //               selected={isSelected(row.id)}
+      //             // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+      //             >
+      //               <StyledTableCell align="center">
+      //                 <CustomCheckbox
+      //                   className="customChechbox"
+      //                   color="primary"
+      //                   checked={isSelected(row.id)}
+      //                   onChange={(event) => handleRowClick(event, row.id)}
+      //                   onClick={(event) => event.stopPropagation()}
+      //                   inputProps={{ "aria-labelledby": row.id }}
+      //                 />
+      //               </StyledTableCell>
+      //               <StyledTableCell>{row.cod}</StyledTableCell>
+      //               <StyledTableCell>{row.lotto}</StyledTableCell>
+      //               <StyledTableCell>{row.scadenza}</StyledTableCell>
+      //               <StyledTableCell>{row.prodotto}</StyledTableCell>
+      //               <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+      //               <StyledTableCell>{row.stabilimento}</StyledTableCell>
+      //               <StyledTableCell>{row.um}</StyledTableCell>
+      //               <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+      //               <StyledTableCell>{row.qta}</StyledTableCell>
+      //             </StyledTableRow>
+      //           ))
+      //       ) : (
+      //         <StyledTableRow>
+      //           <StyledTableCell colSpan={12} align="center">
+      //             Data not found
+      //           </StyledTableCell>
+      //         </StyledTableRow>
+      //       )}
+      //     </TableBody>
+      //   );
       case "Gruppi":
         return (
           <TableBody>

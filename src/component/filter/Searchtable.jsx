@@ -939,6 +939,7 @@ const SearchTable = ({
         <>
           <SearchField value={searchTerm} onChange={handleSearchChange} />
         </>
+        
       ) : (
         <>
           <Autocomplete

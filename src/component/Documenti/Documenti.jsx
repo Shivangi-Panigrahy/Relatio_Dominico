@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -34,20 +34,6 @@ const Documenti = ({ data }) => {
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
     setPage(0);
-  }
-
-  // Helper function to determine current route
-  const getCurrentRoute = () => {
-    const path = window.location.pathname;
-    return {
-      isProgettiTaskPage: path.includes("/attivita/progetti/Task"),
-      isProgettiAssetPage: path.includes("/attivita/progetti/Asset"),
-      isProgettiDocumentiPage: path.includes("/attivita/progetti/Documenti"),
-      isHREquipagiamentoPage: path.includes("/hr/sub-colaboratory/Equipagiamento"),
-      isHRDocumentiPage: path.includes("/hr/sub-colaboratory/Documenti"),
-      isAcquistiDocumentiPage: path.includes("/acquisti/fornitori/Documenti"),
-      isVenditeDocumentiPage: path.includes("/vendite/sub-lead/Documenti")
-    };
   }
 
   // Helper function to determine current route

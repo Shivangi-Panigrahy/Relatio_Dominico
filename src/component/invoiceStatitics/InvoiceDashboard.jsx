@@ -115,10 +115,10 @@ const InvoiceDashboard = ({
   amministrazioneImposte = false,
   reteizzazione = false,
   servizi = false,
-  leadAnagrafiche=false
+  leadAnagrafiche = false,
   mezzi = false,
   attrezzature = false,
-  giacenze=false,
+  giacenze = false,
 }) => {
   const classes = useStyles();
 
@@ -140,8 +140,8 @@ const InvoiceDashboard = ({
     servizi: servizi,
     mezzi: mezzi,
     attrezzature: attrezzature,
-    giacenze:giacenze,
-    leadAnagrafiche:leadAnagrafiche,
+    giacenze: giacenze,
+    leadAnagrafiche: leadAnagrafiche,
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
