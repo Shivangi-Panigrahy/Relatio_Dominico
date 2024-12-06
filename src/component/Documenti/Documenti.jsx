@@ -46,7 +46,11 @@ const Documenti = ({ data }) => {
       isHREquipagiamentoPage: path.includes("/hr/sub-colaboratory/Equipagiamento"),
       isHRDocumentiPage: path.includes("/hr/sub-colaboratory/Documenti"),
       isAcquistiDocumentiPage: path.includes("/acquisti/fornitori/Documenti"),
-      isVenditeDocumentiPage: path.includes("/vendite/sub-lead/Documenti")
+      isVenditeDocumentiPage: path.includes("/vendite/sub-lead/Documenti"),
+      isAnagraficheLeadDocumentiPage: path.includes("/anagrafiche/sub-lead/Documenti"),
+      isAnagraficheClientiDocumentiPage: path.includes("/angrafiche/clienti/Documenti"),
+      isAnagraficheFornitoriDocumentiPage: path.includes("/angrafiche/fornitori/Documenti"),
+      isAnagraficheCollaboratoriDocumentiPage: path.includes("/angrafiche/sub-colaboratory/Documenti"),
     };
   };
 
@@ -97,9 +101,6 @@ const Documenti = ({ data }) => {
       sections.push(
         { label: "Budget", content: <VenditeBudget /> },
         { label: "Preventivi", content: <VenditePreventivi /> },
-        { label: "Ordini", content: <VenditeOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
-        { label: "DDT", content: "DDT-related information" }
       );
     }
 
@@ -125,6 +126,44 @@ const Documenti = ({ data }) => {
       sections.push(
         { label: "Budget", content: <VenditeBudget /> },
         { label: "Preventivi", content: <VenditePreventivi /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    if (route.isAnagraficheLeadDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <VenditeBudget /> },
+        { label: "Preventivi", content: <VenditePreventivi /> },
+      );
+    }
+
+    if (route.isAnagraficheClientiDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <AcquistiBudget /> },
+        { label: "Preventivi", content: <AcquistiPreventivi /> },
+        { label: "Ordini", content: <AcquistiOrdini /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    if (route.isAnagraficheFornitoriDocumentiPage) {
+      sections.push(
+        { label: "Budget", content: <AcquistiBudget /> },
+        { label: "Preventivi", content: <AcquistiPreventivi /> },
+        { label: "Ordini", content: <AcquistiOrdini /> },
+        { label: "Documenti contabili", content: "Documenti contabili details" },
+        { label: "DDT", content: "DDT-related information" }
+      );
+    }
+
+    if (route.isAnagraficheCollaboratoriDocumentiPage) {
+      sections.push(
+        { label: "Busta Page", content: <BustaPage /> },
+        { label: "Budget", content: <AcquistiBudget /> },
+        { label: "Preventivi", content: <AcquistiPreventivi /> },
+        { label: "Ordini", content: <AcquistiOrdini /> },
         { label: "Documenti contabili", content: "Documenti contabili details" },
         { label: "DDT", content: "DDT-related information" }
       );

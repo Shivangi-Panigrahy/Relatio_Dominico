@@ -45,8 +45,8 @@ const Budget = () => {
     { field: "numero", headerName: "Numero", width: 92 },
     { field: "titolo", headerName: "Titolo", width: 505 },
     // { field: "fornitori", headerName: "Cliente/Lead", width: 340 },
-    ...(location.pathname !== "/vendite/sub-lead/Documenti" 
-      ? [{ field: "fornitori", headerName: "Cliente/Lead", width: 340 }] 
+    ...(location.pathname !== "/vendite/sub-lead/Documenti"
+      ? [{ field: "fornitori", headerName: "Cliente/Lead", width: 340 }]
       : []),
     { field: "autore", headerName: "Autore", width: 85 },
     { field: "modDa", headerName: "Mod. da", width: 85 },
@@ -57,16 +57,17 @@ const Budget = () => {
   ];
 
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
+  const isAnagraficheDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"
 
   return (
     <>
-      {!isSubLeadDocumenti && <Header />}
-      
+      {!isSubLeadDocumenti && !isAnagraficheDocumenti && <Header />}
+
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && (
-              <InvoiceDashboard budget={budgetData} />
+        {!isSubLeadDocumenti && !isAnagraficheDocumenti && (
+          <InvoiceDashboard budget={budgetData} />
         )}
-        
+
         <Table
           data={tableData.tabData.tab1}
           columns={columns}

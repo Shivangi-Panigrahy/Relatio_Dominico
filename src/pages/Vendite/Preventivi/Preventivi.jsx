@@ -41,31 +41,32 @@ const Preventivi = () => {
   const location = useLocation();
 
   const columns = [
-  { field: "doc", headerName: "Doc", width: 65 },
-  { field: "creatoIl", headerName: "Creato il", width: 95 },
-  { field: "numero", headerName: "Numero", width: 95 },
-  { field: "titolo", headerName: "Titolo", width: 505 },
-  ...(location.pathname !== "/vendite/sub-lead/Documenti" 
-    ? [{ field: "fornitori", headerName: "Cliente/Lead", width: 340 }] 
-    : []),
-  { field: "autore", headerName: "Autore", width: 85 },
-  { field: "modDa", headerName: "Mod. da", width: 85 },
-  { field: "dataModifica", headerName: "Data Modifica", width: 130 },
-  { field: "valore", headerName: "Valore", width: 120 },
-  { field: "stato", headerName: "Stato", width: 142 },
-  { field: "azioni", headerName: "Azioni", width: 95 },
-];
+    { field: "doc", headerName: "Doc", width: 65 },
+    { field: "creatoIl", headerName: "Creato il", width: 95 },
+    { field: "numero", headerName: "Numero", width: 95 },
+    { field: "titolo", headerName: "Titolo", width: 505 },
+    ...(location.pathname !== "/vendite/sub-lead/Documenti"
+      ? [{ field: "fornitori", headerName: "Cliente/Lead", width: 340 }]
+      : []),
+    { field: "autore", headerName: "Autore", width: 85 },
+    { field: "modDa", headerName: "Mod. da", width: 85 },
+    { field: "dataModifica", headerName: "Data Modifica", width: 130 },
+    { field: "valore", headerName: "Valore", width: 120 },
+    { field: "stato", headerName: "Stato", width: 142 },
+    { field: "azioni", headerName: "Azioni", width: 95 },
+  ];
 
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
+  const isAnagraficheDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"
 
 
 
   return (
     <>
-      {!isSubLeadDocumenti && <Header />}
+      {!isSubLeadDocumenti && !isAnagraficheDocumenti && <Header />}
 
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && (
+        {!isSubLeadDocumenti && !isAnagraficheDocumenti && (
           <InvoiceDashboard preventivi={preventiviData} />
         )}
 
