@@ -6,11 +6,12 @@ import tableData from "../../../utils/logisticaGiacenze.json";
 
 const Giacenze = () => {
   const location = useLocation();
-  const isLogisticaGiacenze = location.pathname === "/logistica/stabilimenti/Gaicenze";
+  const isLogisticaGiacenze =
+    location.pathname === "/logistica/stabilimenti/Gaicenze";
   const isLogisticaiMezzi = location.pathname === "/logistica/mezzi/Gaicenze";
 
   // Define full columns list
-  const fullColumns = [
+  const columns = [
     { field: "cod", headerName: "Cod.", width: 100 },
     { field: "lotto", headerName: "Lotto", width: 130 },
     { field: "Data arrivo", headerName: "Data arrivo", width: 115 },
@@ -39,9 +40,7 @@ const Giacenze = () => {
   ];
 
   // Determine which columns to use based on location
-  const columns = (isLogisticaGiacenze || isLogisticaiMezzi) 
-    ? specificColumns 
-    : fullColumns;
+
 
   const rows = [
     {
@@ -82,18 +81,19 @@ const Giacenze = () => {
   ];
 
   // Adjust tableData for the given routes
-  const displayedData = isLogisticaGiacenze || isLogisticaiMezzi ? tableData : tableData.slice(0, 5);
+  const displayedData =
+    isLogisticaGiacenze || isLogisticaiMezzi
+      ? tableData
+      : tableData.slice(0, 5);
 
   return (
     <>
       {!isLogisticaGiacenze && !isLogisticaiMezzi && <Header />}
       <div className="pageTemplate">
-        {!isLogisticaGiacenze && !isLogisticaiMezzi && <InvoiceDashboard giacenze={rows} />}
-        <Table
-          data={displayedData}
-          columns={columns}
-          navData={"giacenze"}
-        />
+        {!isLogisticaGiacenze && !isLogisticaiMezzi && (
+          <InvoiceDashboard giacenze={rows}   />
+        )}
+        <Table data={displayedData} columns={columns} navData={"giacenze"} />
       </div>
     </>
   );

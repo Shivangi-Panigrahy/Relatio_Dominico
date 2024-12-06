@@ -11,12 +11,13 @@ const Mezzi = () => {
         { field: "targhe", headerName: "Targhe", width: 210 },
         { field: "posizione", headerName: "Posizione", width: 305 },
         { field: "km", headerName: "KM", width: 130 },
-        { field: "da", headerName: "Da", width: 130 },
+        { field: "creatoIl", headerName: "Da", width: 130 },
         { field: "a", headerName: "A", width: 130 },
         { field: "autore", headerName: "Autore", width: 85 },
         { field: "modDa", headerName: "Mod. da", width: 85 },
         { field: "stato", headerName: "Stato", width: 145 },
         { field: "azioni", headerName: "Azioni", width: 95 },
+       
     ];
 
 

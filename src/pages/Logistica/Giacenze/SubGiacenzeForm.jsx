@@ -1,27 +1,27 @@
-import React from 'react';
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CustomInput from "../../../component/form/CustomInput";
 import CustomSelect from "../../../component/form/CustomSelect";
 import { Box, Grid, TextField } from "@mui/material";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 // Assuming you have a validation schema defined
 // import { validationSchema3 } from "../../../../validation/ValidationSchema";
 
 const StyledAlert = styled(Box)({
-  backgroundColor: '#f0f9eb',
-  color: '#333',
-  padding: '8px 16px',
-  borderRadius: '4px',
-  marginBottom: '16px',
+  backgroundColor: "#f0f9eb",
+  color: "#333",
+  padding: "8px 16px",
+  borderRadius: "4px",
+  marginBottom: "16px",
 });
 
 const SectionTitle = styled(Box)({
-  fontSize: '14px',
+  fontSize: "14px",
   fontWeight: 500,
-  color: '#333',
-  marginBottom: '16px',
+  color: "#333",
+  marginBottom: "16px",
 });
 
 const selectOptions = [
@@ -44,11 +44,15 @@ const SubGiacenzeForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="formCard">
-      <Box sx={{ p: 3, maxWidth: '1200px', margin: '0 auto' }}>
-        <Grid container spacing={4}>
+      <Box sx={{ p: 3, maxWidth: "1200px", margin: "0 auto" }}>
+        <Grid container spacing={2}>
           {/* Left Column */}
           <Grid item xs={12} md={4}>
-            <SectionTitle>Stabilimento</SectionTitle>
+            <SectionTitle
+              style={{ fontSize: "18px", color: "#666666", fontWeight: "700" }}
+            >
+              Stabilimento
+            </SectionTitle>
             <Box sx={{ mb: 2 }}>
               <CustomSelect
                 control={control}
@@ -66,7 +70,15 @@ const SubGiacenzeForm = () => {
             />
 
             <Box sx={{ mt: 3 }}>
-              <SectionTitle>Prezzi</SectionTitle>
+              <SectionTitle
+                style={{
+                  fontSize: "18px",
+                  color: "#666666",
+                  fontWeight: "700",
+                }}
+              >
+                Prezzi
+              </SectionTitle>
               <Grid container spacing={1}>
                 <Grid item xs={8}>
                   <CustomInput
@@ -131,11 +143,16 @@ const SubGiacenzeForm = () => {
 
           {/* Middle Column */}
           <Grid item xs={12} md={4}>
-            <SectionTitle>Quantità</SectionTitle>
-            <StyledAlert>
-              RIORDINO AUTOMATICO: MINIMA GIACENZA XXDD PZ RIORDINA IL 20/11/2024
+            <SectionTitle
+              style={{ fontSize: "18px", color: "#666666", fontWeight: "700" }}
+            >
+              Quantità
+            </SectionTitle>
+            <StyledAlert style={{ fontSize: "10px", color: "#666666" }}>
+              RIORDINO AUTOMATICO: MINIMA GIACENZA XXDD PZ RIORDINA IL
+              20/11/2024
             </StyledAlert>
-            
+
             <Grid container spacing={1}>
               <Grid item xs={4}>
                 <CustomInput
@@ -167,7 +184,15 @@ const SubGiacenzeForm = () => {
             </Grid>
 
             <Box sx={{ mt: 3 }}>
-              <SectionTitle>Caratteristiche</SectionTitle>
+              <SectionTitle
+                style={{
+                  fontSize: "18px",
+                  color: "#666666",
+                  fontWeight: "700",
+                }}
+              >
+                Caratteristiche
+              </SectionTitle>
               <Grid container spacing={1}>
                 <Grid item xs={6}>
                   <CustomSelect
@@ -229,7 +254,11 @@ const SubGiacenzeForm = () => {
 
           {/* Right Column */}
           <Grid item xs={12} md={4}>
-            <SectionTitle>Provenienza</SectionTitle>
+            <SectionTitle
+              style={{ fontSize: "18px", color: "#666666", fontWeight: "700" }}
+            >
+              Provenienza
+            </SectionTitle>
             <Box sx={{ mb: 2 }}>
               <CustomSelect
                 control={control}
@@ -274,4 +303,3 @@ const SubGiacenzeForm = () => {
 };
 
 export default SubGiacenzeForm;
-

@@ -148,7 +148,8 @@ const CustomTable = ({ data, form, columns, navData }) => {
           item?.nomeListino,  item?.gruppiAssociati,  item?.nProdotti,  item?.a,  item?.priorita,  item?.nomeProdotto,
           item?.lotto,  item?.marcaSerie,  item?.stabilimento,  item?.qta,  item?.pzUnitario,
           item?.code,  item.name,  item?.nome_del_prodotto,  item?.mese,  item?.collaboratore,  item?.colaboratore,  item?.evento,  item?.trattamento,
-          item?.ore,  item?.turno,  item?.totaleOreLavorate,  item?.nomeProgetto,  item?.al, item?.indirizzo, item?.operativoDa,item?.tipologiaAttrezzature,item?.posizione
+          item?.ore,  item?.turno,  item?.totaleOreLavorate,  item?.nomeProgetto,  item?.al, item?.indirizzo, item?.operativoDa,item?.tipologiaAttrezzature,item?.posizione,
+          item?.targhe,item?.tipologiaMezzo
            ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -326,7 +327,12 @@ const CustomTable = ({ data, form, columns, navData }) => {
     if (searchFilters.posizione) {
       result = result.filter((item) => item.posizione === searchFilters.posizione);
     }
-
+    if (searchFilters.targhe) {
+      result = result.filter((item) => item.targhe === searchFilters.targhe);
+    }
+    if (searchFilters.tipologiaMezzo) {
+      result = result.filter((item) => item.tipologiaMezzo === searchFilters.tipologiaMezzo);
+    }
     setFilteredData(result);
     setPage(0);
   };
