@@ -184,11 +184,53 @@ const TAB_CONFIGURATIONS = {
     { label: "Calendario", icon: Mese },
     { label: "Organizza", icon: Agenda },
   ],
-
+  leadAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+  ],
+  anagraficheCandidato: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Agenda", icon: Agenda },
+    { label: "Allegati", icon: Documenti },
+  ],
+  colaboratoryAnagrafiche: [
+    { label: "Contatti", icon: Documenti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Contratto", icon: Documenti },
+    { label: "Equipagiamento", icon: Documenti },
+    { label: "Turni", icon: Documenti },
+    { label: "Progetti", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+  ],
+  fornitoriAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Dati", icon: Dati },
+    { label: "Sedi", icon: Sedi },
+    { label: "Relazioni", icon: Relazioni },
+    { label: "Allegati", icon: Allegati },
+  ],
+  clientiAnagrafiche: [
+    { label: "Contatti", icon: Contatti },
+    { label: "Qualificazione", icon: Qualificazione },
+    { label: "Documenti", icon: Documenti },
+    { label: "Agenda", icon: Agenda },
+    { label: "Dati", icon: Dati },
+    { label: "Sedi", icon: Sedi },
+    { label: "Relazioni", icon: Relazioni },
+    { label: "Allegati", icon: Allegati },
+  ],
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta, isHr, ishrCalendario, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche) => {
 
 
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -214,6 +256,17 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isHr) return `/hr/sub-colaboratory/${label}`;
 
   if (ishrCalendario) return `/hr/${label}`;
+
+  if (isleadAnagrafiche) return `/anagrafiche/sub-lead/${label}`;
+
+  if (isAnagraficheCandidato)
+    return `/angrafiche/candidati/${label}`;
+  if (isColaboratoryAnagrafiche)
+    return `/angrafiche/sub-colaboratory/${label}`;
+  if (isFornitoriAnagrafiche)
+    return `/angrafiche/fornitori/${label}`;
+  if (isClientiAnagrafiche)
+    return `/angrafiche/clienti/${label}`;
 
 
   return `/dashboard/${label}`;
@@ -241,8 +294,11 @@ const MenuTab = ({
   hrEvento = false,
   hr = false,
   hrcalendario = false,
-
-
+  leadAnagrafiche = false,
+  anagraficheCandidato = false,
+  colaboratoryAnagrafiche = false,
+  fornitoriAnagrafiche=false,
+  clientiAnagrafiche=false
 
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
@@ -267,9 +323,15 @@ const MenuTab = ({
     if (hrEvento) return TAB_CONFIGURATIONS.hrEvento;
     if (hr) return TAB_CONFIGURATIONS.hr;
     if (hrcalendario) return TAB_CONFIGURATIONS.hrcalendario;
+    if (leadAnagrafiche) return TAB_CONFIGURATIONS.leadAnagrafiche;
+    if (anagraficheCandidato) return TAB_CONFIGURATIONS.anagraficheCandidato;
+    if (colaboratoryAnagrafiche) return TAB_CONFIGURATIONS.colaboratoryAnagrafiche;
+    if (fornitoriAnagrafiche) return TAB_CONFIGURATIONS.fornitoriAnagrafiche;
+    if (clientiAnagrafiche) return TAB_CONFIGURATIONS.clientiAnagrafiche;
+
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]);
 
   const tabsConfig = getActiveConfig();
 
@@ -288,7 +350,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche);
       navigate(path);
 
       // Invoke parent callback
@@ -296,7 +358,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento, hr, hrcalendario, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche]
   );
 
   return (

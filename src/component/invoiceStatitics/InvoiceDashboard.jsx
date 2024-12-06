@@ -115,6 +115,7 @@ const InvoiceDashboard = ({
   amministrazioneImposte = false,
   reteizzazione = false,
   servizi = false,
+  leadAnagrafiche=false
 }) => {
   const classes = useStyles();
 
@@ -134,6 +135,7 @@ const InvoiceDashboard = ({
     amministrazioneAsset: amministrazioneAsset,
     primaNota: primaNota,
     servizi: servizi,
+    leadAnagrafiche:leadAnagrafiche,
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -148,6 +150,7 @@ const InvoiceDashboard = ({
     primaNota,
     amministrazioneImposte,
     servizi,
+    leadAnagrafiche
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays

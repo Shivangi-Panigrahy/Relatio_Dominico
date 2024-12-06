@@ -42,7 +42,7 @@ const CustomPagination = ({
   onRowsPerPageChange,
 }) => {
   return (
-    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2}>
+    <Box display="flex" justifyContent="flex-end" alignItems="center" p={2} className="custom_pagination">
       <Typography variant="body2" color="text.secondary" mr={2}>
         Righe per pagina:
       </Typography>
@@ -411,7 +411,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
   // const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
 
   const [currentStatuses, setCurrentStatuses] = useState(
-    sortedData.map((item) => item.stato || chipsetLeadData[0])
+    sortedData?.map((item) => item.stato || chipsetLeadData[0])
   );
 
   // Function to handle status change on click
@@ -447,6 +447,10 @@ const CustomTable = ({ data, form, columns, navData }) => {
           !window.location.href.includes('/vendite/sub-lead/Documenti') &&
           !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
           !window.location.href.includes('/production/processes/details') &&
+          !window.location.href.includes('/anagrafiche/sub-lead/Documenti') &&
+          !window.location.href.includes('/angrafiche/clienti/Documenti') &&
+          !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
+          !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
           form !== "form2" ? (
           <SearchTable  
             startDate={startDate}
@@ -495,7 +499,25 @@ const CustomTable = ({ data, form, columns, navData }) => {
           </Table>
         </TableContainer>
 
-        {sortedData?.length > 0 && (
+        {sortedData?.length > 0 &&
+          (!window.location.href.includes('/acquisti/fornitori/Documenti') &&
+            !window.location.href.includes('/vendite/sub-lead/Documenti') &&
+            !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
+            !window.location.href.includes('/anagrafiche/sub-lead/Documenti') &&
+            !window.location.href.includes('/angrafiche/clienti/Documenti') &&
+            !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
+            !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti')
+            ? (
+              <CustomPagination
+                count={sortedData?.length}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            ) : null)}
+
+        {/* {sortedData?.length > 0 && (
           <CustomPagination
             count={sortedData?.length}
             page={page}
@@ -503,7 +525,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        )}
+        )} */}
       </Paper>
     </>
   );

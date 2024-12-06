@@ -46,8 +46,8 @@ const Budget = () => {
     { field: "creatoIl", headerName: "Creato il", width: 100 },
     { field: "numero", headerName: "Numero", width: 100 },
     { field: "titolo", headerName: "Titolo", width: 380 },
-    ...(location.pathname !== "/acquisti/fornitori/Documenti" 
-      ? [{ field: "fornitori", headerName: "Fornitori", width: 280 }] 
+    ...(location.pathname !== "/acquisti/fornitori/Documenti"
+      ? [{ field: "fornitori", headerName: "Fornitori", width: 280 }]
       : []),
     { field: "autore", headerName: "Autore", width: 80 },
     { field: "modDa", headerName: "Mod. da", width: 80 },
@@ -56,16 +56,21 @@ const Budget = () => {
     { field: "stato", headerName: "Stato", width: 100 },
     { field: "azioni", headerName: "Azioni", width: 100 },
   ];
- 
+
   const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
   const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isAnagraficheClientiDocumentiPage = location.pathname === "/angrafiche/clienti/Documenti";
+  const isAnagraficheFornitoriDocumentiPage = location.pathname === "/angrafiche/fornitori/Documenti";
+  const isAnagraficheCollaboratoriDocumentiPage =
+    location.pathname === "/angrafiche/sub-colaboratory/Documenti"
+
 
   return (
     <>
-      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && <Header />}
+      {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && !isAnagraficheClientiDocumentiPage && !isAnagraficheFornitoriDocumentiPage && !isAnagraficheCollaboratoriDocumentiPage && <Header />}
 
       <div className="pageTemplate">
-        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti &&(
+        {!isFornitoriDocumenti && !isSubcolaboratoryDocumenti && !isAnagraficheClientiDocumentiPage && !isAnagraficheFornitoriDocumentiPage && !isAnagraficheCollaboratoriDocumentiPage && (
           <InvoiceDashboard budget={budgetData} />
         )}
 

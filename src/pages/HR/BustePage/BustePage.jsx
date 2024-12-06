@@ -46,13 +46,16 @@ const BustaPage = () => {
 
   const isSubcolaboratoryDocumenti =
     location.pathname === "/hr/sub-colaboratory/Documenti";
+
+  const isAnagraficheCollaboratoriDocumentiPage =
+    location.pathname === "/angrafiche/sub-colaboratory/Documenti"
   return (
     <>
-      {!isSubcolaboratoryDocumenti && <Header />}
+      {!isSubcolaboratoryDocumenti && !isAnagraficheCollaboratoriDocumentiPage && <Header />}
 
       <div className="pageTemplate">
         <div className="buste">
-          {!isSubcolaboratoryDocumenti && (
+          {!isSubcolaboratoryDocumenti && !isAnagraficheCollaboratoriDocumentiPage && (
             <InvoiceDashboard
               ordini={OrdiniData}
               hr={true}

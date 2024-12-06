@@ -1,0 +1,11 @@
+.documentileadDocumentiPage {
+    .invoiceFilter  {
+        .MuiStack-root {
+            grid-template-columns: 155px 155px 216px 216px 1fr !important;
+            width: 100%;
+            .MuiPaper-elevation {
+                max-width: -webkit-fill-available;
+            } 
+        }
+    }
+}
