@@ -28,46 +28,46 @@ export default function ConfiguraModal({ open, close }) {
     };
     const columns = {
         personale: [
-          { field: "ruolo", headerName: "Ruolo", width: 855 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 855 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
         attrezzature: [
-          { field: "ruolo", headerName: "Ruolo", width: 855 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 855 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
         mezzi: [
-          { field: "ruolo", headerName: "Ruolo", width: 855 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 855 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
         prodotti: [
-          { field: "ruolo", headerName: "Ruolo", width: 148 },
-          { field: "prodotto", headerName: "Prodotto", width: 340 },
-          { field: "tipo", headerName: "Tipo", width: 185 },
-          { field: "um", headerName: "UM", width: 180 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 148 },
+            { field: "prodotto", headerName: "Prodotto", width: 340 },
+            { field: "tipo", headerName: "Tipo", width: 185 },
+            { field: "um", headerName: "UM", width: 180 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
         semilavorati: [
-          { field: "ruolo", headerName: "Ruolo", width: 148 },
-          { field: "prodotto", headerName: "Prodotto", width: 340 },
-          { field: "tipo", headerName: "Tipo", width: 185 },
-          { field: "um", headerName: "UM", width: 180 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 148 },
+            { field: "prodotto", headerName: "Prodotto", width: 340 },
+            { field: "tipo", headerName: "Tipo", width: 185 },
+            { field: "um", headerName: "UM", width: 180 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
         scarti: [
-          { field: "ruolo", headerName: "Ruolo", width: 148 },
-          { field: "prodotto", headerName: "Prodotto", width: 340 },
-          { field: "tipo", headerName: "Tipo", width: 185 },
-          { field: "um", headerName: "UM", width: 180 },
-          { field: "quantita", headerName: "Quantità", width: 170 },
-          { field: "azioni", headerName: "Azioni", width: 93 },
+            { field: "ruolo", headerName: "Ruolo", width: 148 },
+            { field: "prodotto", headerName: "Prodotto", width: 340 },
+            { field: "tipo", headerName: "Tipo", width: 185 },
+            { field: "um", headerName: "UM", width: 180 },
+            { field: "quantita", headerName: "Quantità", width: 170 },
+            { field: "azioni", headerName: "Azioni", width: 93 },
         ],
-      };
-    
+    };
+
     // Map tab index to keys in the tabMessages object
     const tabKeys = ["personale", "attrezzature", "mezzi", "prodotti", "semilavorati", "scarti"];
     const currentTabKey = tabKeys[selectedTab];
@@ -184,26 +184,26 @@ export default function ConfiguraModal({ open, close }) {
                         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
                     }}
                 >
-                    <Typography  className="modalTitle" variant="h6" gutterBottom>
+                    <Typography className="modalTitle" variant="h6" gutterBottom>
                         Configura
                     </Typography>
 
                     {/* Tabs */}
                     <Box className="tabBox">
-                    <Box className='tabBoxFlex'>
-                        <CustomTabs
-                            value={selectedTab}
-                            onChange={(event, newValue) => setSelectedTab(newValue)}
-                        >
-                            <CustomTab label="Personale" icon={<Right />} />
-                            <CustomTab label="Attrezzature" icon={<Right />} />
-                            <CustomTab label="Mezzi" icon={<Right />} />
-                            <CustomTab label="Prodotti" icon={<Right />} />
-                            <CustomTab label="Semilavorati" icon={<Right />} />
-                            <CustomTab label="Scarti" icon={<Right />} />
-                           
-                        </CustomTabs>
-                        <Button
+                        <Box className='tabBoxFlex'>
+                            <CustomTabs
+                                value={selectedTab}
+                                onChange={(event, newValue) => setSelectedTab(newValue)}
+                            >
+                                <CustomTab label="Personale" icon={<Right />} />
+                                <CustomTab label="Attrezzature" icon={<Right />} />
+                                <CustomTab label="Mezzi" icon={<Right />} />
+                                <CustomTab label="Prodotti" icon={<Right />} />
+                                <CustomTab label="Semilavorati" icon={<Right />} />
+                                <CustomTab label="Scarti" icon={<Right />} />
+
+                            </CustomTabs>
+                            <Button
                                 variant="contained" // Setting the button variant to "contained" for a filled appearance
                                 startIcon={<AddIcon />} // Adding an icon at the start of the button
                                 className="greenButton"
@@ -211,22 +211,22 @@ export default function ConfiguraModal({ open, close }) {
                             >
                                 Aggiungi
                             </Button>
-                            </Box>
-                        
+                        </Box>
+
 
                     </Box>
                     {/* Dynamic Message */}
                     {message && (
-                        <Box  className="modalNotifationBlock">
-                             <ErrorOutlineIcon/>
+                        <Box className="modalNotifationBlock">
+                            <ErrorOutlineIcon />
                             <Typography
                                 variant="body1"
-                               className="notifactionText"
+                                className="notifactionText"
                             >
                                 {message}
                             </Typography>
-                            </Box>
-                        )}
+                        </Box>
+                    )}
 
                     {/* Conditional Table Rendering */}
                     <TableContainer>

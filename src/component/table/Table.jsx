@@ -435,8 +435,14 @@ const CustomTable = ({ data, form, columns, navData }) => {
 
   // const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
 
+  // const [currentStatuses, setCurrentStatuses] = useState(
+  //   sortedData?.map((item) => item.stato || chipsetLeadData[0])
+  // );
+
   const [currentStatuses, setCurrentStatuses] = useState(
-    sortedData?.map((item) => item.stato || chipsetLeadData[0])
+    (Array.isArray(sortedData) ? sortedData : []).map(
+      (item) => item.stato || chipsetLeadData[0]
+    )
   );
 
   // Function to handle status change on click
@@ -476,6 +482,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
           !window.location.href.includes('/angrafiche/clienti/Documenti') &&
           !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
           !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
+          !window.location.href.includes('/production/list/details') &&
           form !== "form2" ? (
           <SearchTable  
             startDate={startDate}

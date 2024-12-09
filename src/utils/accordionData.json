@@ -20,11 +20,42 @@
         "details": [
           {
             "label": "Attrezzature",
-            "count": 474
+            "count": 474,
+            "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+            "json": [
+              {
+                "ndiserie": "Numero di serie",
+                "nome": "Nome dell’attrezzatura",
+                "attrezzatura": "Categoria"
+              },
+              {
+                "ndiserie": "Numero di serie",
+                "nome": "Nome dell’attrezzatura",
+                "attrezzatura": "Categoria"
+              }
+            ]
           },
           {
             "label": "Collaboratori",
-            "count": 474
+            "count": 474,
+            "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+            "json": [
+              {
+                "iDcollaboratore": "78986",
+                "nome": "Nome Collaboratore",
+                "ruolo": "Contadino"
+              },
+              {
+                "iDcollaboratore": "78986",
+                "nome": "Nome Collaboratore",
+                "ruolo": "Contadino"
+              },
+              {
+                "iDcollaboratore": "78986",
+                "nome": "Nome Collaboratore",
+                "ruolo": "Contadino"
+              }
+            ]
           }
         ]
       },
@@ -45,6 +76,57 @@
           {
             "label": "Collaboratori",
             "count": 474
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Registrazione dati",
+        "status": "In corso",
+        "count": "24g",
+        "details": [
+          {
+            "label": "Semilavorati",
+            "count": 474,
+            "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+            "json": [
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              }
+            ]
           }
         ]
       }
@@ -71,7 +153,28 @@
         "details": [
           {
             "label": "Mezzi",
-            "count": 474
+            "count": 474,
+            "Messg": "Attenzione i mezzi selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
+            "json": [
+              {
+                "targaTrattore": "GH493LC",
+                "rimorchio": "GH493LC",
+                "nomeMezzo": "Nome del mezzo 1",
+                "categoria": "Mezzo"
+              },
+              {
+                "targaTrattore": "GH493LC",
+                "rimorchio": "GH493LC",
+                "nomeMezzo": "Nome del mezzo 2",
+                "categoria": "Mezzo"
+              },
+              {
+                "targaTrattore": "GH493LC",
+                "rimorchio": "GH493LC",
+                "nomeMezzo": "Nome del mezzo 3",
+                "categoria": "Mezzo"
+              }
+            ]
           },
           {
             "label": "Attrezzature",
@@ -100,6 +203,100 @@
           {
             "label": "Collaboratori",
             "count": 474
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Risultato operativo",
+        "status": "In corso",
+        "count": "24g",
+        "details": [
+          {
+            "label": "Semilavorati",
+            "count": 474,
+            "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+            "json": [
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Semilavorato",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              }
+            ]
+          },
+          {
+            "label": "Scarti",
+            "count": 474,
+            "Messg": "Attenzione i prodotti scarti saranno scaricati della giacenze e utilizzati in produzione.",
+            "json": [
+              {
+                "codProdotto": "78986",
+                "categoria": "Scarti",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Scarti",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Scarti",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Scarti",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              }
+            ]
           }
         ]
       }
@@ -155,6 +352,65 @@
           {
             "label": "Collaboratori",
             "count": 474
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Registrazione dati",
+        "status": "In corso",
+        "count": "24g",
+        "details": [
+          {
+            "label": "Sensori",
+            "count": 474
+          },
+          {
+            "label": "Inserimento Automatico",
+            "count": 474
+          },
+          {
+            "label": "Prodotto",
+            "count": 474,
+            "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
+            "json": [
+              {
+                "codProdotto": "78986",
+                "categoria": "Prodotto",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Prodotto",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Prodotto",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              },
+              {
+                "codProdotto": "78986",
+                "categoria": "Prodotto",
+                "nome": "UVA",
+                "dataCarico": "28/11/2024",
+                "unitaDiMisura": "LT",
+                "quantita": 223454,
+                "azione": "⚙️ Carica"
+              }
+            ]
           }
         ]
       }

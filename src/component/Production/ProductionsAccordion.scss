@@ -3,18 +3,22 @@
 
     .ProductionsAccordionRow {
         display: flex;
-        gap: 44px;
-        overflow-x: auto;
+        align-items: flex-start;
+        // gap: 44px;
+        // overflow-x: auto;
 
         .ProductionsAccordionCard {
             min-width: 475px;
             max-width: 475px;
+            position: relative;
+            display: flex;
+            align-items: center;
 
             &__inner {
                 padding: 30px 24px;
                 background-color: #FAFAFA;
                 border-radius: 30px;
-                height: calc(100vh - 380px);
+                // height: calc(100vh - 437px);
                 overflow: auto;
                 overflow-x: hidden;
 
@@ -209,6 +213,7 @@
                             border-radius: 12px;
                             height: 55px;
                             transition: all 0.5s;
+
                             .text {
                                 background-color: #57C70080;
                                 color: #4361EE;
@@ -227,18 +232,21 @@
 
                             &:hover {
                                 padding: 4px;
-                                .text{
+
+                                .text {
                                     background-color: #57C700;
                                     padding: 10px;
                                     color: #fff;
                                 }
                             }
                         }
+
                         .button2 {
                             background-color: #F2F2F2;
                             padding: 10px;
                             border-radius: 12px;
                             transition: all 0.5s;
+
                             .text {
                                 background-color: #57C700;
                                 color: #4361EE;
@@ -258,7 +266,8 @@
 
                             &:hover {
                                 transition: all 0.5s;
-                                .text{
+
+                                .text {
                                     .hoverHide {
                                         display: none;
                                         transition: all 0.5s;
@@ -269,6 +278,115 @@
                     }
                 }
             }
+
+            .slideArrowBtn {
+                height: 34px;
+                margin: 0 5px;
+                width: 34px;
+                border: solid 3px #999999;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: all 0.5s;
+
+                .button {
+                    min-width: unset;
+                    border-radius: 50%;
+                    transition: all 0.5s;
+
+                    svg {
+                        color: #666666;
+                    }
+                }
+
+                &::after,
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background-color: #999999;
+                    height: 42px;
+                    width: 2px;
+                    top: 34px;
+                    bottom: 0;
+                }
+
+                &::before {
+                    bottom: 34px;
+                    top: auto;
+
+                }
+
+                &:hover {
+                    .button {
+                        svg {
+                            color: #57C700;
+                        }
+                    }
+
+                    border-color: #57C700;
+
+                    &::after,
+                    &::before {
+                        background-color: #57C700;
+                        height: 130px;
+                        transition: all 0.5s;
+                    }
+                }
+            }
+            &:last-child {
+                .slideArrowBtn  {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.blockchainBtn {
+    &.MuiButtonBase-root {
+        background-color: #F2F2F2;
+        // position: absolute;
+        // bottom: 0;
+        // width: calc(100% - 30px);
+        // left: 50%;
+        // transform: translate(-50%, 0);
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 4px 6px;
+        transition: 0.5s;
+    }
+
+    .text {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        justify-content: center;
+        background-color: #E5E5E5;
+        border: 1px dashed #CCCCCC;
+        border-radius: 9px;
+        color: #225CA6;
+        font-size: 15px;
+        padding: 7px;
+    }
+
+    .hoverImg {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: 0.5s;
+    }
+
+    &:hover {
+        .text {
+            background-color: #fff;
+        }
+
+        .hoverImg {
+            top: 0;
         }
     }
 }

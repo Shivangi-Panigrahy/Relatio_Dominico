@@ -52,16 +52,16 @@ const Productions = () => {
       <Header />
       <div className="pageTemplate">
         <div className="colaboratory">
-        <div className="ProductionsCards">
-          <ProductionList ordini={OrdiniData} hr={true} />
+          <div className="ProductionsCards">
+            <ProductionList ordini={OrdiniData} hr={true} />
           </div>
-          </div>
-          <Table
-            data={tableData}
-            columns={columns}
-            navData={"Productions"}
-          />
         </div>
+        <Table
+          data={tableData}
+          columns={columns}
+          navData={"Productions"}
+        />
+      </div>
     </>
   );
 };
