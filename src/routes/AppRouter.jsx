@@ -104,6 +104,19 @@ import FornitoriAnagrafiche from "../pages/Anagrafiche/Fornitori/FornitoriAnagra
 import DettaglioAnagrafiche from "../pages/Anagrafiche/Fornitori/Dettaglio/DettaglioAnagrafiche.jsx";
 import ClientiAnagrafiche from "../pages/Anagrafiche/Clienti/ClientiAnagrafiche.jsx";
 import DettaglioClientiAnagrafiche from "../pages/Anagrafiche/Clienti/Dettaglio/DettaglioClientiAnagrafiche.jsx";
+import Prenota from "../pages/Logistica/Prenota/Prenota.jsx";
+import Stabilimenti from "../pages/Logistica/Stabilimenti/Stabilimenti.jsx";
+import SubStabilimenti from "../pages/Logistica/Stabilimenti/SubStabilimenti.jsx";
+import GiacenzeStabilimenti from "../pages/Logistica/Stabilimenti/GiacenzeStabilimenti.jsx";
+import MezziStabiliment from "../pages/Logistica/Stabilimenti/MezziStabiliment.jsx";
+import AttrezzatureStablimenti from "../pages/Logistica/Stabilimenti/AttrezzatureStablimenti.jsx";
+import CollaboratoriStablimenti from "../pages/Logistica/Stabilimenti/CollaboratoriStablimenti.jsx";
+import Mezzi from "../pages/Logistica/Mezzi/Mezzi.jsx";
+import SubMezzi from "../pages/Logistica/Mezzi/SubMezzi.jsx";
+import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
+import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
+import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
+import DDT from "../pages/Logistica/DDT/DDT.jsx";
 
 const Allroutes = () => {
   return (
