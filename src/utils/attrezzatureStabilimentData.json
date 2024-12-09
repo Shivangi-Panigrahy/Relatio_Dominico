@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "tipologia": "Macchinario",
+      "numero": "789073872897",
+      "posizione": "Stabilimento A"
+    },
+    {
+      "id": 2,
+      "tipologia": "Macchinario",
+      "numero": "789073872897",
+      "posizione": "Stabilimento A",
+       "azioni": "..."
+    },
+    {
+      "id": 3,
+      "tipologia": "Macchinario",
+      "numero": "789073872897",
+      "posizione": "Stabilimento A",
+       "azioni": "..."
+    },
+    {
+      "id": 4,
+      "tipologia": "Macchinario",
+      "numero": "789073872897",
+      "posizione": "Stabilimento A",
+       "azioni": "..."
+    },
+    {
+      "id": 5,
+      "tipologia": "Macchinario",
+      "numero": "789073872897",
+      "posizione": "Stabilimento A",
+       "azioni": "..."
+    }
+  ]
+  

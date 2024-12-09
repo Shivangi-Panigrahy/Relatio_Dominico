@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CustomInput from "../../component/form/CustomInput";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid,  } from "@mui/material";
 import CustomSelect from "../../component/form/CustomSelect";
 import { validationSchema3 } from "../../validation/ValidationSchema";
 import "./Form.scss";
 import CustomCheckbox from "../../component/table/Checkbox";
-import { Margin } from "@mui/icons-material";
+
 const selectOptions = [
   { value: "", label: "Select an option" },
   { value: "option1", label: "Option 1" },

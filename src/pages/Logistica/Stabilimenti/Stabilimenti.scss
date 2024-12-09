@@ -1,0 +1,12 @@
+.stabilimenti {
+    .invoiceFilter {
+        .MuiStack-root {
+            grid-template-columns: 1.3fr 3.5fr 25px;
+        }
+    }
+    .customtable  {
+        td {
+            color: #666 !important;
+        }
+    }
+}

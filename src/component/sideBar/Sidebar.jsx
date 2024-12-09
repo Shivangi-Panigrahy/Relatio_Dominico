@@ -158,10 +158,12 @@ const menuItems = [
     textColor: "#4361EE",
     route: "/logistica",
     subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
+      { name: "Prenota", route: "/logistica/prenota" },
+      { name: "Stabilimenti", route: "/logistica/stabilimenti" },
+      { name: "Mezzi", route: "/logistica/mezzi" },
+      { name: "Attrezzature", route: "/logistica/attrezzature" },
+      { name: "Giacenze", route: "/logistica/giacenze" },
+      { name: "DDT", route: "/logistica/DDT" },
     ],
   },
   {

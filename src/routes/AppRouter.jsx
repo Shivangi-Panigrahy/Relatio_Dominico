@@ -1,5 +1,4 @@
 import React from "react";
-import Dashboard from "../pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import PublicRoute from "../auth/PublicRoute";
 import DashboardForm from "../pages/dashboardForm/DashboardForm";
@@ -56,7 +55,6 @@ import Repository from "../pages/Files/Repository/Repository";
 import Archivio from "../pages/Files/Archivio/Archivio";
 import SubImposte from "../pages/Amministrazione/Imposte/SubImposte";
 import Reteizzazione from "../pages/Amministrazione/Imposte/Reteizzazione.jsx";
-import ImposteAllegati from "../pages/Amministrazione/Imposte/ImposteAllegati.jsx";
 import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
 import Listini from "../pages/Cataloghi/Listini/Listini";
@@ -71,7 +69,7 @@ import Scheda_prodotto from "../pages/Cataloghi/Prodotti/Scheda_prodotto.jsx";
 import Distinta_base from "../pages/Cataloghi/Prodotti/Distinta_base.jsx";
 import Opzioni from "../pages/Cataloghi/Prodotti/Opzioni.jsx";
 import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
-import ProdottiAllegati from "../pages/Cataloghi/Prodotti/Allegati.jsx"
+import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx"
 import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
 import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
 import HrCalendario from "../pages/HR/Calendario/Calendario.jsx"
@@ -978,6 +976,150 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Candidato Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/prenota"
+        element={
+          <PublicRoute>
+            <Prenota />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti"
+        element={
+          <PublicRoute>
+            <Stabilimenti />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/Gaicenze"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={GiacenzeStabilimenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/Mezzi"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={MezziStabiliment} />
+          </PublicRoute>
+        }      
+      />
+      <Route
+        path="/logistica/stabilimenti/Attrezzature"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={AttrezzatureStablimenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/Collaboratori"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={CollaboratoriStablimenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/stabilimenti/Contatti"
+        element={
+          <PublicRoute>
+            <SubStabilimenti Component={Contatti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi"
+        element={
+          <PublicRoute>
+            <Mezzi />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi/Scadenze"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi/Allegati"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/mezzi/Gaicenze"
+        element={
+          <PublicRoute>
+            <SubMezzi Component={GiacenzeStabilimenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature"
+        element={
+          <PublicRoute>
+            <Attrezzature />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature/Scadenze"
+        element={
+          <PublicRoute>
+            <SubAttrezzature Component={ReactBigCalendar} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/attrezzature/Allegati"
+        element={
+          <PublicRoute>
+            <SubAttrezzature Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/giacenze"
+        element={
+          <PublicRoute>
+            <LogisticaGiacenze />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/giacenze/subGiacenze"
+        element={
+          <PublicRoute>
+            <SubGiacenze />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/DDT"
+        element={
+          <PublicRoute>
+            <DDT />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/logistica/sub-DDT"
+        element={
+          <PublicRoute>
+            <InvoicePage />
           </PublicRoute>
         }
       />
