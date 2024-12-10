@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "nomeProgetto": "Sviluppo app mobile",
+        "categoria": "Mobile",
+        "commitente": "Azienda Alpha",
+        "teamLeader": "Giulia Rossi",
+        "creatoIl": "01/12/2024",
+        "fine": "10/12/2024",
+        "gUtilizzate": "5",
+        "gResidue": "5",
+        "stato": "In corso",
+        "azioni": "Modifica"
+    },
+    {
+        "id": 2,
+        "nomeProgetto": "Progettazione piattaforma AI",
+        "categoria": "AI",
+        "commitente": "Tech Innovators",
+        "teamLeader": "Luca Bianchi",
+        "creatoIl": "15/11/2024",
+        "fine": "20/12/2024",
+        "gUtilizzate": "15",
+        "gResidue": "10",
+        "stato": "In corso",
+        "azioni": "Visualizza"
+    },
+    {
+        "id": 3,
+        "nomeProgetto": "Implementazione CRM",
+        "categoria": "Software",
+        "commitente": "Business Corp",
+        "teamLeader": "Marco Verdi",
+        "creatoIl": "05/11/2024",
+        "fine": "30/11/2024",
+        "gUtilizzate": "20",
+        "gResidue": "0",
+        "stato": "In corso",
+        "azioni": "Archivia"
+    },
+    {
+        "id": 4,
+        "nomeProgetto": "Analisi Big Data",
+        "categoria": "Data Science",
+        "commitente": "Data Insights Ltd.",
+        "teamLeader": "Francesca Neri",
+        "creatoIl": "10/12/2024",
+        "fine": "25/12/2024",
+        "gUtilizzate": "7",
+        "gResidue": "3",
+        "stato": "In corso",
+        "azioni": "Modifica"
+    },
+    {
+        "id": 5,
+        "nomeProgetto": "Sviluppo e-commerce",
+        "categoria": "Web",
+        "commitente": "Retail Solutions",
+        "teamLeader": "Paolo Galli",
+        "creatoIl": "20/11/2024",
+        "fine": "05/12/2024",
+        "gUtilizzate": "10",
+        "gResidue": "5",
+        "stato": "In corso",
+        "azioni": "Modifica"
+    }
+]

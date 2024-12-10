@@ -17,7 +17,7 @@ const GanttLib = () => {
   const handleSelect = (option) => {
     setSelected(option);
   };
-  console.log(selected, "dfhdh");
+
   return (
     <>
       <Header />

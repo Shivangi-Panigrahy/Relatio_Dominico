@@ -56,6 +56,7 @@ const CustomPagination = ({
         <MenuItem value={10}>10</MenuItem>
         <MenuItem value={25}>25</MenuItem>
       </Select>
+      {/* <Typography variant="body2" color="text.secondary"> */}
       <Typography variant="body2" color="text.secondary">
         {`${page * rowsPerPage + 1}-${Math.min(
           (page + 1) * rowsPerPage,
@@ -78,7 +79,7 @@ const CustomPagination = ({
       </div>
     </Box>
   );
-};
+}
 
 const CustomTable = ({ data, form, columns, navData }) => {
   const [page, setPage] = useState(0);
@@ -451,10 +452,6 @@ const CustomTable = ({ data, form, columns, navData }) => {
         {!window.location.href.includes('/acquisti/fornitori/Documenti') &&
           !window.location.href.includes('/vendite/sub-lead/Documenti') &&
           !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
-          !window.location.href.includes('/anagrafiche/sub-lead/Documenti') &&
-          !window.location.href.includes('/angrafiche/clienti/Documenti') &&
-          !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
-          !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
           form !== "form2" ? (
           <SearchTable
             startDate={startDate}
