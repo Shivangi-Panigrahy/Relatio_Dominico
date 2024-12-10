@@ -1,9 +1,11 @@
 .calenderGantt {
   padding: 0 20px;
+
   &__header {
     display: flex;
     align-items: center;
     justify-content: center;
+
     h6 {
       font-size: 18px;
       line-height: 21px;
@@ -11,17 +13,21 @@
       font-weight: 700;
     }
   }
+
   &__table {
     display: grid;
     grid-template-columns: 1fr 3fr;
+
     .profileBox {
       display: flex;
       align-items: center;
       gap: 8px;
+
       &__img {
         width: 32px;
         height: 32px;
         position: relative;
+
         span {
           position: absolute;
           width: 10px;
@@ -33,10 +39,12 @@
         }
       }
     }
+
     table {
       border-top: 1px solid #cccccc;
       border-collapse: separate;
-      border-spacing: 0 2px;
+      border-spacing: 0 1px;
+
       th {
         padding: 0 16px;
         color: rgba(0, 0, 0, 0.87);
@@ -45,16 +53,21 @@
         text-align: center;
         border: none;
       }
+
       td {
         border: none;
+        padding: 1px 9px;
       }
     }
   }
+
   &__userTable {
     padding-right: 7px;
+
     tr {
       background-color: #fafafa;
     }
+
     td {
       p {
         font-size: 18px;
@@ -62,14 +75,17 @@
         font-weight: 400;
         color: #666666;
       }
+
       &:last-child {
         text-align: right;
       }
     }
+
     thead {
       th {
         padding: 8px 12px 1px;
       }
+
       .heading {
         font-weight: 700;
         font-size: 14px;
@@ -77,6 +93,7 @@
         color: #999999;
         padding: 11px;
         border-radius: 5px 5px 0 0;
+
         &.active {
           box-shadow: 0 -3px 4px #f2f2f2;
           background: #fff;
@@ -84,6 +101,7 @@
       }
     }
   }
+
   &__detailTable {
     thead {
       th {
@@ -95,6 +113,7 @@
           font-weight: 500;
           color: rgb(117, 117, 117);
           background-color: transparent;
+
           &__inner {
             flex: 1 1 0%;
             text-align: center;
@@ -111,9 +130,29 @@
     }
   }
 }
+
 .calenderBoxMain {
   position: relative;
   height: 48px;
+  display: flex;
+
+  &__inner {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #fff;
+
+    &.isWeekend {
+      background-color: transparent;
+    }
+
+    &.isFriday,
+    &.isMonday {
+      width: calc(3.33% - 7px);
+    }
+  }
+
   .calenderBox:nth-child(odd).asas {
     &::before {
       content: "";
@@ -126,11 +165,19 @@
     }
   }
 }
+
 .calenderBox {
   position: absolute;
-  height: 100%;
+  height: 80% !important;
   width: 3.33333%;
   top: -1px;
+  padding: 5px 0;
+  background-color: #F2F2F2;
+
+  &.isWeekend {
+    background-color: transparent;
+  }
+
   span {
     position: absolute;
     top: 50%;
@@ -141,12 +188,15 @@
     transition: 0.3s;
     display: flex;
   }
+
   &:hover span {
     opacity: 1;
   }
 }
+
 .borderedDashed {
   position: relative;
+
   &:before {
     position: absolute;
     content: "";
@@ -157,18 +207,22 @@
     height: calc(100% - 2px);
   }
 }
+
 .moveRow {
   background: rgb(219, 216, 216) !important;
 }
+
 .asas {
   height: 12.5%;
   position: absolute;
   width: 100%;
   transition: 0.4s;
+
   &:hover {
     background-color: #fff;
   }
 }
+
 .calenderGantt {
   .MuiGrid-container {
     margin: 18px 0;
@@ -176,7 +230,114 @@
     justify-content: space-between;
     gap: 10px;
   }
+
   .MuiTypography-body2 {
     padding-bottom: 12px;
+  }
+}
+
+// .calenderGantt__detailTable {
+//   tbody {
+//     tr {
+//       td {
+//         height: 48px;
+//         background-color: #e72276;
+//         padding: 0 !important;
+//       }
+//     }
+//   }
+// }
+
+.calenderBoxmonday,
+.monday {
+  .detailBoxcalender {
+    border-radius: 30px 0px 0px 30px;
+  }
+}
+
+.detailBoxcalender {
+  width: 100%;
+  height: 100%;
+}
+
+.isEndDate {
+  .detailBoxcalender {
+    border-radius: 0px 30px 30px 0px;
+  }
+}
+
+.calenderBox {
+  position: relative;
+
+  .multiImages {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 3px;
+    left: 3px;
+
+    svg {
+      min-width: 32px;
+      min-width: 32px;
+      margin-left: -15px;
+
+      &:first-child {
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  .sigleImages {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+}
+
+.smallBox {
+  >div {
+    height: 38px;
+
+    .MuiSlider-root {
+      height: 38px;
+      border-radius: 30px;
+      padding: 0;
+
+      >span {
+        height: 38px;
+        border-radius: 30px;
+        opacity: 0;
+        // background-color: #4cc9f0;
+      }
+
+      .MuiSlider-thumb {
+        display: none;
+      }
+    }
+  }
+
+  &__Tag {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  &__Images {
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    z-index: 1;
+
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
   }
 }
