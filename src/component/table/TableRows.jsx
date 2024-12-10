@@ -2210,7 +2210,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/production/processes/details")}
+                  onClick={() => navigate("/production/archive/details")}
                   >
                     {/* Custom Checkbox */}
                     <StyledTableCell align="center">

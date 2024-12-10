@@ -117,6 +117,8 @@ import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
 import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
 import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
 import DDT from "../pages/Logistica/DDT/DDT.jsx";
+import ProductionsArchive from "../component/Production/ProductionsArchive.jsx";
+import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
 
 const Allroutes = () => {
   return (
@@ -1445,6 +1447,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <DettaglioClientiAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+         <Route
+        path="/production/archive/details"
+        element={
+          <PublicRoute>
+            <ArchiveDetails />
           </PublicRoute>
         }
       />
