@@ -98,7 +98,7 @@ export default function AccordionModal({ open, onClose, label, message, json }) 
                         </Typography>
 
                         {/* Tabs */}
-                      
+
 
                         {(label === "Attrezzature" || label === "Collaboratori" || label === "Mezzi") && (
                             <Box className="tabBox">
@@ -114,16 +114,16 @@ export default function AccordionModal({ open, onClose, label, message, json }) 
                         )}
                     </div>
                     {(label === "Semilavorati" || label === "Scarti" || label === "Prodotto") && (
-                            <div className="countList">
-                                {Array.isArray(OrdiniData) &&
-                                    OrdiniData.map((item, index) => (
-                                        <div key={index} className="countList__item">
-                                            <h3>{item.status}</h3>
-                                            <p>{item.count}</p>
-                                        </div>
-                                    ))}
-                            </div>
-                        )}
+                        <div className="countList">
+                            {Array.isArray(OrdiniData) &&
+                                OrdiniData.map((item, index) => (
+                                    <div key={index} className="countList__item">
+                                        <h3>{item.status}</h3>
+                                        <p>{item.count}</p>
+                                    </div>
+                                ))}
+                        </div>
+                    )}
                     {/* Dynamic Message */}
                     {message && (
                         <Box className="modalNotifationBlock">
