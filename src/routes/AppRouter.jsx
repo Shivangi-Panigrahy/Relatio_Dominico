@@ -119,6 +119,7 @@ import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
 import DDT from "../pages/Logistica/DDT/DDT.jsx";
 import ProductionsArchive from "../component/Production/ProductionsArchive.jsx";
 import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
+import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
 
 const Allroutes = () => {
   return (
@@ -1455,6 +1456,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <ArchiveDetails />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/attivita/Timesheet"
+        element={
+          <PublicRoute>
+            <Organizza />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/gantt"
+        element={
+          <PublicRoute>
+            <Organizza />
           </PublicRoute>
         }
       />
