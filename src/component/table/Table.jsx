@@ -332,7 +332,27 @@ const CustomTable = ({ data, form, columns, navData }) => {
     }
     if (searchFilters.tipologiaMezzo) {
       result = result.filter((item) => item.tipologiaMezzo === searchFilters.tipologiaMezzo);
+    }    if (searchFilters.prodotto) {
+      result = result.filter((item) => item.prodotto === searchFilters.prodotto);
     }
+    if (searchFilters.fase) {
+      result = result.filter((item) => item.fase === searchFilters.fase);
+    }
+    if (searchFilters.stabilimento) {
+      result = result.filter((item) => item.stabilimento === searchFilters.stabilimento);
+    }
+
+    if (searchFilters.prodottofinale) {
+      result = result.filter((item) => item.prodottofinale === searchFilters.prodottofinale);
+    }
+    if (searchFilters.processo) {
+      result = result.filter((item) => item.processo === searchFilters.processo);
+    }
+
+    if (searchFilters.prodotto) {
+      result = result.filter((item) => item.prodotto === searchFilters.prodotto);
+    }
+
     setFilteredData(result);
     setPage(0);
   };
@@ -415,8 +435,14 @@ const CustomTable = ({ data, form, columns, navData }) => {
 
   // const statuses = ["Approvato", "In Attesa", "Completato", "Rifiutato"];
 
+  // const [currentStatuses, setCurrentStatuses] = useState(
+  //   sortedData?.map((item) => item.stato || chipsetLeadData[0])
+  // );
+
   const [currentStatuses, setCurrentStatuses] = useState(
-    sortedData?.map((item) => item.stato || chipsetLeadData[0])
+    (Array.isArray(sortedData) ? sortedData : []).map(
+      (item) => item.stato || chipsetLeadData[0]
+    )
   );
 
   // Function to handle status change on click
@@ -451,12 +477,14 @@ const CustomTable = ({ data, form, columns, navData }) => {
         {!window.location.href.includes('/acquisti/fornitori/Documenti') &&
           !window.location.href.includes('/vendite/sub-lead/Documenti') &&
           !window.location.href.includes('/hr/sub-colaboratory/Documenti') &&
+          !window.location.href.includes('/production/processes/details') &&
           !window.location.href.includes('/anagrafiche/sub-lead/Documenti') &&
           !window.location.href.includes('/angrafiche/clienti/Documenti') &&
           !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
           !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
+          !window.location.href.includes('/production/list/details') &&
           form !== "form2" ? (
-          <SearchTable
+          <SearchTable  
             startDate={startDate}
             setStartDate={setStartDate}
             endDate={endDate}

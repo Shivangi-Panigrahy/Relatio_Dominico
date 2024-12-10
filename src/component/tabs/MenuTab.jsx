@@ -150,6 +150,14 @@ const TAB_CONFIGURATIONS = {
     { label: "Configurazione", icon: Right },
     { label: "Prodotti", icon: Right },
   ],
+  Configura: [
+    { label: "Personale", icon: Right },
+    { label: "Attrezzature", icon: Right },
+    { label: "Mezzi", icon: Right },
+    { label: "Prodotti", icon: Right },
+    { label: "Semilavorati", icon: Right },
+    { label: "Scarti", icon: Right },
+  ],
   sublistini: [
     { label: "Gruppi", icon: Right },
     { label: "Prodotti", icon: Right },

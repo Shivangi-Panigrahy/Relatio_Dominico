@@ -1,0 +1,39 @@
+.configureAccordion {
+   .section-container {
+    .MuiListItem-root {
+        .MuiButtonBase-root{
+            padding: 14px 10px;
+            background: #FAFAFA;
+            .MuiListItemText-root {
+                .MuiTypography-root {
+                    font-weight: 700;
+                    color: #999999;
+                }
+            }
+        }
+    }
+    .section-content {
+        .MuiPaper-elevation {
+            border-bottom: dashed 1px #999999;
+            .form-content {
+                .top-row {
+                    grid-template-columns: 1fr 120px 0.7fr 135px 160px 30px;
+                    .MuiFormControl-root {
+                        .MuiFormLabel-root {
+                            top: -5px;
+                        }
+                        .MuiInputBase-root {
+                            .MuiInputBase-input {
+                                padding: 10px 16px;
+                            }
+                            fieldset {
+                                border-width: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+   }
+}

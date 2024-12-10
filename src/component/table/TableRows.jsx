@@ -17,6 +17,8 @@ import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
 import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
+import { MoreVert } from "@mui/icons-material";
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -180,6 +182,7 @@ const TableRows = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('data: ', data);
 
   const isSubLeadDocumenti =
     location.pathname === "/vendite/sub-lead/Documenti";
@@ -2062,6 +2065,834 @@ const TableRows = ({
             )}
           </TableBody>
         );
+      case "Productions":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/production/list/details")}
+                  >
+                    {/* Custom Checkbox */}
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customCheckbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+
+                    {/* Table Cells */}
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    <StyledTableCell>{row["creato il"]}</StyledTableCell>
+                    <StyledTableCell>{row.lotto}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto}</StyledTableCell>
+                    <StyledTableCell>{row.fase}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                    <StyledTableCell>{row["data inizio"]}</StyledTableCell>
+                    <StyledTableCell>{row["data fine"]}</StyledTableCell>
+
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    {/* Avatar */}
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+
+                    {/* Status Chip */}
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+                    {/* Menu Options */}
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Processi":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/production/processes/details")}
+                  >
+                    {/* Custom Checkbox */}
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customCheckbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+
+                    {/* Table Cells */}
+                    <StyledTableCell>{row.numero || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row["creatoil"] || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodottofinale || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.processo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.da || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.a || "N/A"}</StyledTableCell>
+                    {/* <StyledTableCell>{row.autore || "N/A"}</StyledTableCell> */}
+                    {/* <StyledTableCell>{row["mod. da"] || "N/A"}</StyledTableCell> */}
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+
+                    {/* Status Chip */}
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    {/* Menu Options */}
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+
+        );
+      case "Archive":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  onClick={() => navigate("/production/archive/details")}
+                  >
+                    {/* Custom Checkbox */}
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customCheckbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+
+                    {/* Table Cells */}
+                    <StyledTableCell>{row.numero || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row["creatoil"] || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.lotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.fase || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.data_inizio || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row["data_fine"] || "N/A"}</StyledTableCell>
+                    {/* <StyledTableCell>{row["mod_da"] || "N/A"}</StyledTableCell> */}
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell sx={{ textAlign: "center" }}>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.stato || "N/A"}</StyledTableCell>
+
+
+                    {/* Status Chip */}
+                    {/* <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={getStatusColor(
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        ).className}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell> */}
+
+                    {/* Menu Options */}
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "ConfigatorModalPersonale":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalAttrezzature":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalMezzi":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalProdotti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "ConfigatorModalSemilavorati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        )
+      case "ConfigatorModalScarti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) =>
+                          handleRowClick(event, row.id)
+                        }
+                        onClick={(event) =>
+                          event.stopPropagation()
+                        }
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell sx={{ margin: "0 auto !important" }}>
+                      <IconButton>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        )
+      case "RisultatiConfigatorModalProdotti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell>
+                      <IconButton sx={{ margin: "0 auto !important" }}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "RisultatiConfigatorModalSemilavorati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell >
+                      <IconButton sx={{ margin: "0 auto !important" }}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "RisultatiConfigatorModalScarti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <TableCell >
+                      <IconButton sx={{ margin: "0 auto !important" }}>
+                        <MoreVert />
+                      </IconButton>
+                    </TableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
+      case "Attrezzature":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                    </StyledTableCell>
+                    <StyledTableCell>{row.ndiserie || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.attrezzatura || "N/A"}</StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Collaboratori":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                    </StyledTableCell>
+                    <StyledTableCell>{row.iDcollaboratore || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Mezzi":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.id || index}>
+                    <StyledTableCell align="center">
+                    </StyledTableCell>
+                    <StyledTableCell>{row.targaTrattore || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.rimorchio || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nomeMezzo || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Semilavorati":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.codProdotto || index}>
+                    <StyledTableCell align="center">
+                      <input type="checkbox" /> {/* Checkbox for selection */}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <ArrowUpwardIcon />
+                        <span>Carica</span>
+                      </IconButton>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={8} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Scarti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.codProdotto || index}>
+                    <StyledTableCell align="center">
+                      <input type="checkbox" /> {/* Checkbox for selection */}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <ArrowUpwardIcon />
+                        <span> Carica</span>
+                      </IconButton>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={8} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Prodotto":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.codProdotto || index}>
+                    <StyledTableCell align="center">
+                      <input type="checkbox" /> {/* Checkbox for selection */}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <ArrowUpwardIcon />
+                        <span>Carica</span>
+                      </IconButton>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={8} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
       case "feriePermisse":
         return (
           <TableBody>

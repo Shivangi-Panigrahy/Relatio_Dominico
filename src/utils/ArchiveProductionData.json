@@ -1,0 +1,1307 @@
+[
+    {
+      "id": 1,
+      "maintitle": "Fase di produzione",
+      "title": "Raccolta UVA",
+      "subtitle": [
+        {
+          "name": "Attività",
+          "accordion": [
+            {
+              "id": 1,
+              "title": "Attività 1",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Attrezzature",
+                  "count": 474,
+                  "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                  "json": [
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    },
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    }
+                  ]
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474,
+                  "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                  "json": [
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Attività 2",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Campioni",
+                  "count": 474
+                },
+                {
+                  "label": "Attrezzature",
+                  "count": 474
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Attività 3",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Semilavorati",
+                  "count": 474,
+                  "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                  "json": [
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "name": "Risultati",
+            "accordion": [
+              {
+                "id": 1,
+                "title": "Prodotti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Attrezzature",
+                    "count": 474,
+                    "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                    "json": [
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      },
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474,
+                    "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                    "json": [
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Semilavorati",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Campioni",
+                    "count": 474
+                  },
+                  {
+                    "label": "Attrezzature",
+                    "count": 474
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Scarti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Semilavorati",
+                    "count": 474,
+                    "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                    "json": [
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+      ],
+      "status": "Completed",
+      "startDate": "2023-12-01",
+      "endDate": "2023-12-08",
+      "days": 7,
+      "location": "Vigneto 1",
+      "cropType": "Uva",
+      "progressPercentage": 70,
+      "priority": "High"
+    },
+    {
+      "id": 2,
+      "maintitle": "Fase di produzione",
+      "title": "Raccolta Mela",
+      "subtitle": [
+        {
+          "name": "Attività",
+          "accordion": [
+            {
+              "id": 1,
+              "title": "Attività 1",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Attrezzature",
+                  "count": 474,
+                  "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                  "json": [
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    },
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    }
+                  ]
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474,
+                  "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                  "json": [
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Attività 2",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Campioni",
+                  "count": 474
+                },
+                {
+                  "label": "Attrezzature",
+                  "count": 474
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Attività 3",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Semilavorati",
+                  "count": 474,
+                  "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                  "json": [
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "name": "Risultati",
+            "accordion": [
+              {
+                "id": 1,
+                "title": "Prodotti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Attrezzature",
+                    "count": 474,
+                    "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                    "json": [
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      },
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474,
+                    "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                    "json": [
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Semilavorati",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Campioni",
+                    "count": 474
+                  },
+                  {
+                    "label": "Attrezzature",
+                    "count": 474
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Scarti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Semilavorati",
+                    "count": 474,
+                    "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                    "json": [
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+      ],
+      "status": "Completed",
+      "startDate": "2023-11-15",
+      "endDate": "2023-11-22",
+      "days": 7,
+      "location": "Frutteto 2",
+      "cropType": "Mela",
+      "progressPercentage": 100,
+      "priority": "Low"
+    },
+    {
+      "id": 3,
+      "maintitle": "Fase di produzione",
+      "title": "Raccolta Banana",
+      "subtitle": [
+        {
+          "name": "Attività",
+          "accordion": [
+            {
+              "id": 1,
+              "title": "Attività 1",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Attrezzature",
+                  "count": 474,
+                  "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                  "json": [
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    },
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    }
+                  ]
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474,
+                  "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                  "json": [
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Attività 2",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Campioni",
+                  "count": 474
+                },
+                {
+                  "label": "Attrezzature",
+                  "count": 474
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Attività 3",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Semilavorati",
+                  "count": 474,
+                  "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                  "json": [
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "name": "Risultati",
+            "accordion": [
+              {
+                "id": 1,
+                "title": "Prodotti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Attrezzature",
+                    "count": 474,
+                    "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                    "json": [
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      },
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474,
+                    "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                    "json": [
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Semilavorati",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Campioni",
+                    "count": 474
+                  },
+                  {
+                    "label": "Attrezzature",
+                    "count": 474
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Scarti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Semilavorati",
+                    "count": 474,
+                    "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                    "json": [
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+      ],
+      "status": "Completed",
+      "startDate": "2023-12-05",
+      "endDate": "2023-12-12",
+      "days": 7,
+      "location": "Campo 3",
+      "cropType": "Banana",
+      "progressPercentage": 50,
+      "priority": "Medium"
+    },
+    {
+      "id": 4,
+      "maintitle": "Fase di produzione",
+      "title": "Raccolta Arancia",
+      "subtitle": [
+        {
+          "name": "Attività",
+          "accordion": [
+            {
+              "id": 1,
+              "title": "Attività 1",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Attrezzature",
+                  "count": 474,
+                  "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                  "json": [
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    },
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    }
+                  ]
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474,
+                  "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                  "json": [
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Attività 2",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Campioni",
+                  "count": 474
+                },
+                {
+                  "label": "Attrezzature",
+                  "count": 474
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Attività 3",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Semilavorati",
+                  "count": 474,
+                  "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                  "json": [
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "name": "Risultati",
+            "accordion": [
+              {
+                "id": 1,
+                "title": "Prodotti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Attrezzature",
+                    "count": 474,
+                    "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                    "json": [
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      },
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474,
+                    "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                    "json": [
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Semilavorati",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Campioni",
+                    "count": 474
+                  },
+                  {
+                    "label": "Attrezzature",
+                    "count": 474
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Scarti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Semilavorati",
+                    "count": 474,
+                    "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                    "json": [
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+      ],
+      "status": "Completed",
+      "startDate": "2023-12-10",
+      "endDate": "2023-12-17",
+      "days": 7,
+      "location": "Citrus Grove",
+      "cropType": "Arancia",
+      "progressPercentage": 0,
+      "priority": "High"
+    },
+    {
+      "id": 5,
+      "maintitle": "Fase di produzione",
+      "title": "Raccolta Kiwi",
+      "subtitle": [
+        {
+          "name": "Attività",
+          "accordion": [
+            {
+              "id": 1,
+              "title": "Attività 1",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Attrezzature",
+                  "count": 474,
+                  "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                  "json": [
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    },
+                    {
+                      "ndiserie": "Numero di serie",
+                      "nome": "Nome dell’attrezzatura",
+                      "attrezzatura": "Categoria"
+                    }
+                  ]
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474,
+                  "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                  "json": [
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    },
+                    {
+                      "iDcollaboratore": "78986",
+                      "nome": "Nome Collaboratore",
+                      "ruolo": "Contadino"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Attività 2",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Campioni",
+                  "count": 474
+                },
+                {
+                  "label": "Attrezzature",
+                  "count": 474
+                },
+                {
+                  "label": "Collaboratori",
+                  "count": 474
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Attività 3",
+              "status": "In corso",
+              "count": "24g",
+              "details": [
+                {
+                  "label": "Semilavorati",
+                  "count": 474,
+                  "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                  "json": [
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    },
+                    {
+                      "codProdotto": "78986",
+                      "categoria": "Semilavorato",
+                      "nome": "UVA",
+                      "dataCarico": "28/11/2024",
+                      "unitaDiMisura": "LT",
+                      "quantita": 223454,
+                      "azione": "⚙️ Carica"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "name": "Risultati",
+            "accordion": [
+              {
+                "id": 1,
+                "title": "Prodotti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Attrezzature",
+                    "count": 474,
+                    "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                    "json": [
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      },
+                      {
+                        "ndiserie": "Numero di serie",
+                        "nome": "Nome dell’attrezzatura",
+                        "attrezzatura": "Categoria"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474,
+                    "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                    "json": [
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      },
+                      {
+                        "iDcollaboratore": "78986",
+                        "nome": "Nome Collaboratore",
+                        "ruolo": "Contadino"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Semilavorati",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Campioni",
+                    "count": 474
+                  },
+                  {
+                    "label": "Attrezzature",
+                    "count": 474
+                  },
+                  {
+                    "label": "Collaboratori",
+                    "count": 474
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Scarti",
+                "status": "In corso",
+                "count": "24g",
+                "details": [
+                  {
+                    "label": "Semilavorati",
+                    "count": 474,
+                    "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                    "json": [
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      },
+                      {
+                        "codProdotto": "78986",
+                        "categoria": "Semilavorato",
+                        "nome": "UVA",
+                        "dataCarico": "28/11/2024",
+                        "unitaDiMisura": "LT",
+                        "quantita": 223454,
+                        "azione": "⚙️ Carica"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+      ],
+      "status": "Completed",
+      "startDate": "2023-12-03",
+      "endDate": "2023-12-10",
+      "days": 7,
+      "location": "Orto 4",
+      "cropType": "Kiwi",
+      "progressPercentage": 80,
+      "priority": "Medium"
+    }
+  ]

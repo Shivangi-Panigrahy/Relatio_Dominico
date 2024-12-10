@@ -2,8 +2,8 @@ import React from "react";
 import {
   AppBar
 } from "@mui/material";
-import HeaderTop from "./HeaderTop";
-import HeaderBelow from "./HeaderBelow";
+import HeaderTop from "../header/HeaderTop";
+import HeaderBelow from "../header/HeaderBelow";
 const Header = () => {
   return (
     <AppBar

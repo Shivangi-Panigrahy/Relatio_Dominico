@@ -1,0 +1,81 @@
+{
+    "prodotti": [
+      {
+        "id": 1,
+        "ruolo": "CD490823",
+        "prodotto": "Zafferano",
+        "tipo": "Prodotto finito",
+        "um": "KG",
+        "quantita": 23094
+      },
+      {
+        "id": 2,
+        "ruolo": "CD490823",
+        "prodotto": "Zafferano",
+        "tipo": "Prodotto finito",
+        "um": "KG",
+        "quantita": 23094
+      },
+      {
+        "id": 3,
+        "ruolo": "CD490823",
+        "prodotto": "Zafferano",
+        "tipo": "Prodotto finito",
+        "um": "KG",
+        "quantita": 23094
+      }
+    ],
+    "semilavorati": [
+      {
+        "id": 1,
+        "ruolo": "CD490823",
+        "prodotto": "Germoglio",
+        "tipo": "Semilavorato",
+        "um": "Gr",
+        "quantita": 23094
+      },
+      {
+        "id": 2,
+        "ruolo": "CD490823",
+        "prodotto": "Germoglio",
+        "tipo": "Semilavorato",
+        "um": "Gr",
+        "quantita": 23094
+      },
+      {
+        "id": 3,
+        "ruolo": "CD490823",
+        "prodotto": "Germoglio",
+        "tipo": "Semilavorato",
+        "um": "Gr",
+        "quantita": 23094
+      }
+    ],
+    "scarti": [
+      {
+        "id": 1,
+        "ruolo": "CD490823",
+        "prodotto": "Fiore",
+        "tipo": "Scarto",
+        "um": "Gr",
+        "quantita": 23094
+      },
+      {
+        "id": 2,
+        "ruolo": "CD490823",
+        "prodotto": "Fiore",
+        "tipo": "Scarto",
+        "um": "Gr",
+        "quantita": 23094
+      },
+      {
+        "id": 3,
+        "ruolo": "CD490823",
+        "prodotto": "Fiore",
+        "tipo": "Scarto",
+        "um": "Gr",
+        "quantita": 23094
+      }
+    ]
+  }
+  

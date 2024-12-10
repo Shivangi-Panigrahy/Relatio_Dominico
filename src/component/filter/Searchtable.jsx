@@ -989,6 +989,111 @@ const SearchTable = ({
         <>
           <SearchField value={searchTerm} onChange={handleSearchChange} />
         </>
+      ) : navData === "Productions" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("prodotto")} // Provide your unique values here
+            value={activeFilters["prodotto"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("prodotto", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Prodotto" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("fase")} // Provide your unique values here
+            value={activeFilters["fase"] || ""} // Set the selected value
+            onChange={(event, newValue) => handleFilterSelect("fase", newValue)} // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Fase" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("stabilimento")} // Provide your unique values here
+            value={activeFilters["stabilimento"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("stabilimento", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Stabilimento" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <SearchField value={searchTerm} onChange={handleSearchChange} />
+          <MenuWithOptions options={options} />
+        </>
+      ) : navData === "Processi" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("prodottofinale")} // Provide your unique values here
+            value={activeFilters["prodottofinale"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("prodottofinale", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Prodotto" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("processo")} // Provide your unique values here
+            value={activeFilters["processo"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("processo", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Fase" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("stato")} // Provide your unique values here
+            value={activeFilters["stato"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("stato", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Stato" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <SearchField value={searchTerm} onChange={handleSearchChange} />
+          <MenuWithOptions options={options} />
+        </>
+      ) : navData === "Archive" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("prodotto")} // Provide your unique values here
+            value={activeFilters["prodotto"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("prodotto", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Prodotto" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("fase")} // Provide your unique values here
+            value={activeFilters["fase"] || ""} // Set the selected value
+            onChange={(event, newValue) => handleFilterSelect("fase", newValue)} // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Fase" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("stabilimento")} // Provide your unique values here
+            value={activeFilters["stabilimento"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("stabilimento", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Stabilimento" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <SearchField value={searchTerm} onChange={handleSearchChange} />
+          <MenuWithOptions options={options} />
+        </>
       ) : (
         <>
           <Autocomplete
@@ -1084,53 +1189,49 @@ const SearchTable = ({
         navData === "lis_prodotti"
           ? ""
           : `
-        ${
-          window.location.pathname === "/vendite/ordini/sub-ordini"
-            ? ""
-            : `
-          ${invoice ? "invoiceFilter fattura" : "invoiceFilter"}
-          ${navData === "leed" ? "leadInvoiceFilter" : ""}
-          ${navData === "repository" ? "repoInvoiceFilter" : ""}
-          ${navData === "budget" ? "budgetInvoiceFilter" : ""}
-          ${navData === "ordini" ? "ordiniInvoiceFilter" : ""}
-          ${navData === "fornitori" ? "fornitoriInvoiceFilter" : ""}
-          ${navData === "preventivi" ? "fornitoriInvoiceFilter" : ""}
-          ${navData === "allegati" ? "allegatiInvoiceFilter" : ""}
-          ${navData === "candidati" ? "candidatiInvoiceFilter" : ""}
-          ${navData === "distinta" ? "distintaInvoiceFilter" : ""}
-          ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
-          ${navData === "colaboratory" ? "colaboratoryInvoiceFilter" : ""}
-          ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
-           ${navData === "giacenze" ? "colaboratoryInvoiceFilter" : ""}
-           ${navData === "mezzi" ? "invoiceFilter" : ""}
-            ${
-              navData === "GiacenzeStabilimenti"
-                ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
-                : ""
-            }
-            ${
-              navData === "mezziStabiliment"
-                ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
-                : ""
-            }
-                   ${
-                     navData === "collaboratoriStablimenti"
-                       ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
-                       : ""
-                   }
-                    ${
-                      navData === "attrezzatureStabiliment"
-                        ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
-                        : ""
-                    }
+      ${
+        window.location.pathname === "/vendite/ordini/sub-ordini"
+          ? ""
+          : `
+        ${invoice ? "invoiceFilter fattura" : "invoiceFilter"}
+        ${navData === "leed" ? "leadInvoiceFilter" : ""}
+        ${navData === "repository" ? "repoInvoiceFilter" : ""}
+        ${navData === "budget" ? "budgetInvoiceFilter" : ""}
+        ${navData === "ordini" ? "ordiniInvoiceFilter" : ""}
+        ${navData === "fornitori" ? "fornitoriInvoiceFilter" : ""}
+        ${navData === "preventivi" ? "fornitoriInvoiceFilter" : ""}
+        ${navData === "allegati" ? "allegatiInvoiceFilter" : ""}
+        ${navData === "candidati" ? "candidatiInvoiceFilter" : ""}
+        ${navData === "distinta" ? "distintaInvoiceFilter" : ""}
+        ${navData === "Giacenze" ? "giacenzeInvoiceFilter" : ""}
+        ${navData === "colaboratory" ? "colaboratoryInvoiceFilter" : ""}
+        ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
+         ${navData === "giacenze" ? "colaboratoryInvoiceFilter" : ""}
+         ${navData === "mezzi" ? "invoiceFilter" : ""}
           ${
-            navData === "AmministragionDocumenti"
-              ? "fornitoriInvoiceFilter"
+            navData === "GiacenzeStabilimenti"
+              ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
               : ""
           }
-        `
-        }
+          ${
+            navData === "mezziStabiliment"
+              ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
+              : ""
+          }
+                 ${
+                   navData === "collaboratoriStablimenti"
+                     ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
+                     : ""
+                 }
+                  ${
+                    navData === "attrezzatureStabiliment"
+                      ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
+                      : ""
+                  }
+        ${navData === "AmministragionDocumenti" ? "fornitoriInvoiceFilter" : ""}
       `
+      }
+    `
       }
     >
       <Stack spacing={2}>

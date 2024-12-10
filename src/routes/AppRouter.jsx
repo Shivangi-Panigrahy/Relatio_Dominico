@@ -85,17 +85,15 @@ import Turni from "../component/Turni/Turni.jsx";
 import Progetti from "../component/Progetti/Progetti.jsx";
 import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
-import Prenota from "../pages/Logistica/Prenota/Prenota.jsx";
-import Stabilimenti from "../pages/Logistica/Stabilimenti/Stabilimenti.jsx";
-import SubStabilimenti from "../pages/Logistica/Stabilimenti/SubStabilimenti.jsx";
-import Mezzi from "../pages/Logistica/Mezzi/Mezzi.jsx";
-import SubMezzi from "../pages/Logistica/Mezzi/SubMezzi.jsx";
-import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
-import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
-import DDT from "../pages/Logistica/DDT/DDT.jsx";
+import ConfigureDetails from "../pages/Production/Configure.jsx"
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
-import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
+import Plan from "../pages/Production/Plan.jsx";
+import Productions from "../pages/Production/Productions.jsx";
+import ProductionsDetails from "../pages/Production/ProductionsDetails.jsx";
+import Processes from "../pages/Production/Processes.jsx";
+import ProcessesDetails from "../pages/Production/ProcessesDetails.jsx";
+import Archive from "../pages/Production/Archive.jsx";
 import LeadAnagrafiche from "../pages/Anagrafiche/Lead/LeadAnagrafiche.jsx";
 import SubLeadAnagrafiche from "../pages/Anagrafiche/Lead/subLead/SubLeadAnagrafiche.jsx";
 import CandidatiAnagrafiche from "../pages/Anagrafiche/Candidati/CandidatiAnagrafiche.jsx";
@@ -106,10 +104,21 @@ import FornitoriAnagrafiche from "../pages/Anagrafiche/Fornitori/FornitoriAnagra
 import DettaglioAnagrafiche from "../pages/Anagrafiche/Fornitori/Dettaglio/DettaglioAnagrafiche.jsx";
 import ClientiAnagrafiche from "../pages/Anagrafiche/Clienti/ClientiAnagrafiche.jsx";
 import DettaglioClientiAnagrafiche from "../pages/Anagrafiche/Clienti/Dettaglio/DettaglioClientiAnagrafiche.jsx";
+import Prenota from "../pages/Logistica/Prenota/Prenota.jsx";
+import Stabilimenti from "../pages/Logistica/Stabilimenti/Stabilimenti.jsx";
+import SubStabilimenti from "../pages/Logistica/Stabilimenti/SubStabilimenti.jsx";
 import GiacenzeStabilimenti from "../pages/Logistica/Stabilimenti/GiacenzeStabilimenti.jsx";
 import MezziStabiliment from "../pages/Logistica/Stabilimenti/MezziStabiliment.jsx";
 import AttrezzatureStablimenti from "../pages/Logistica/Stabilimenti/AttrezzatureStablimenti.jsx";
 import CollaboratoriStablimenti from "../pages/Logistica/Stabilimenti/CollaboratoriStablimenti.jsx";
+import Mezzi from "../pages/Logistica/Mezzi/Mezzi.jsx";
+import SubMezzi from "../pages/Logistica/Mezzi/SubMezzi.jsx";
+import Attrezzature from "../pages/Logistica/Attrezzature/Attrezzature.jsx";
+import SubAttrezzature from "../pages/Logistica/Attrezzature/SubAttrezzature.jsx";
+import SubGiacenze from "../pages/Logistica/Giacenze/SubGiacenze.jsx";
+import DDT from "../pages/Logistica/DDT/DDT.jsx";
+import ProductionsArchive from "../component/Production/ProductionsArchive.jsx";
+import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
 import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
 
 const Allroutes = () => {
@@ -759,7 +768,56 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
+      <Route
+        path="/production/plan"
+        element={
+          <PublicRoute>
+            <Plan />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/production/list"
+        element={
+          <PublicRoute>
+            <Productions />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/production/list/details"
+        element={
+          <PublicRoute>
+            <ProductionsDetails />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/production/processes"
+        element={
+          <PublicRoute>
+            <Processes />
+          </PublicRoute>
+        }
+      />
 
+      <Route
+        path="/production/processes/details"
+        element={
+          <PublicRoute>
+            <ProcessesDetails Component={ConfigureDetails} />
+          </PublicRoute>
+        }
+      />
+
+      <Route
+        path="/production/archive"
+        element={
+          <PublicRoute>
+            <Archive />
+          </PublicRoute>
+        }
+      />
 
       <Route
         path="/hr/calendario"
@@ -1390,6 +1448,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <DettaglioClientiAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+         <Route
+        path="/production/archive/details"
+        element={
+          <PublicRoute>
+            <ArchiveDetails />
           </PublicRoute>
         }
       />

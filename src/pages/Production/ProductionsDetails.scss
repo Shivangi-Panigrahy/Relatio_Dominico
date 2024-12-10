@@ -1,0 +1,79 @@
+.ProductionsDetailsList {
+    .pageTemplate {
+        .colaboratory {
+            .FactureSection {
+                &__inner {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 400px;
+
+                    .MuiGrid-root.MuiGrid-item {
+                        max-width: 100%;
+                        &:last-child {
+                           .statusText {
+                            background-color: #57C70033;
+                            &__content {
+                                &__title {
+                                  color: #160A2A;
+                                }   
+                            }
+                           }
+                        }
+
+                        .statusText {
+                            height: 100%;
+                            box-sizing: border-box;
+                            align-items: flex-start;
+                            &__content {
+                                &__title {
+                                    margin-bottom: 3px;
+                                }
+                                &__count {
+                                    font-size: 20px;
+                                    line-height: 24px;
+                                    color: #100919;
+                                    font-weight: 400;
+                                    margin: 0px;
+                                }
+                                .countList {
+                                    .countListItem {
+                                        display: flex;
+                                        font-size: 16px;
+                                        line-height: 19px;
+                                        font-weight: 700;
+                                        color: #100919;
+                                       
+                                        p {
+                                            margin: 0;
+                                            width: 60px;
+                                        }
+                                        span {
+                                            font-weight: 400;
+                                            color: #666666;
+                                        }
+                                    }
+                                }
+                                .phasetimingList {
+                                    .phasetimingItem {
+                                        display: flex;
+                                        font-size: 16px;
+                                        line-height: 19px;
+                                        font-weight: 400;
+                                        color: #666666;
+                                        gap: 2px;
+                                        p {
+                                            margin: 0;
+                                        }
+                                        span {
+                                            font-weight: 700;
+                                            color: #666666;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
