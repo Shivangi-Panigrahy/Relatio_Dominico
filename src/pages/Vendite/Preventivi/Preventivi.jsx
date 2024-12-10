@@ -55,7 +55,7 @@ const Preventivi = () => {
     { field: "stato", headerName: "Stato", width: 142 },
     { field: "azioni", headerName: "Azioni", width: 95 },
   ];
-  
+
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
   const isProgettiDocumenti = location.pathname === "/attivita/progetti/Documenti";
   const isAnagraficheDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"

@@ -69,6 +69,7 @@ const Budget = () => {
           <InvoiceDashboard budget={budgetData} />
         )}
 
+
         <Table
           data={tableData.tabData.tab1}
           columns={columns}
