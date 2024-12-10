@@ -335,13 +335,19 @@
                     }
                 }
             }
+
             &:last-child {
-                .slideArrowBtn  {
+                .slideArrowBtn {
                     display: none;
                 }
             }
         }
     }
+}
+
+.accordionSubtitle {
+    color: #666666;
+    text-align: center;
 }
 
 .blockchainBtn {
