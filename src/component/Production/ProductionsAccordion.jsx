@@ -110,9 +110,6 @@ function ProductionsAccordion() {
                 }}
                 onMouseDown={handleMouseDown}
             >
-
-            
-                
                 {accordionData.map((item) => {
                     return (
                         <Box className="ProductionsAccordionCard" key={item.id}>
@@ -153,99 +150,119 @@ function ProductionsAccordion() {
                                     />
                                 </Box>
                                 <Box className="ProductionsAccordionList">
-                                    {item?.accordion?.map((item) => {
-                                        return (
-                                            <Accordion className="ProductionsAccordionItem" key={item.id}>
-                                                <AccordionSummary
-                                                    expandIcon={<ExpandMoreIcon />}
-                                                    aria-controls={`panel${item.id}-content`}
-                                                    id={`panel${item.id}-header`}
-                                                >
-                                                    <Box className="contentBox">
-                                                        <Typography className="accordionTitle">
-                                                            {item.title}
-                                                        </Typography>
-                                                        <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
-                                                            <Chip
-                                                                label={item.status}
-                                                                className="customStatus"
-                                                                size="small"
-                                                            />
-                                                            <CustomCheckbox />
-                                                        </Box>
-                                                    </Box>
-                                                </AccordionSummary>
+                                    {item?.subtitle?.length > 0 ? (
+                                        item.subtitle.map((subtitleItem, index) => {
+                                            return (
+                                                <div key={index}>
+                                                    <Typography className="accordionSubtitle">{subtitleItem.name}</Typography>
 
-                                                <AccordionDetails className="accordionDetailBox">
-                                                    <Box className="accordionDetailBox__dateListRow">
-                                                        <Box className="dateCols">
-                                                            <Box className="accordionDetailBox__dateListCol">
-                                                                <Typography>da</Typography>
-                                                                <DatePickerTime
-                                                                    label="Data"
-                                                                    value={startDate}
-                                                                    onDateChange={(formattedDate) => {
-                                                                        handleMinMaxDate(0, formattedDate);
-                                                                        handleFilterSelect("StartDate", formattedDate);
-                                                                        setStartDate(formattedDate);
-                                                                    }}
-                                                                />
-                                                            </Box>
-                                                            <Box className="accordionDetailBox__dateListCol">
-                                                                <Typography>da</Typography>
-                                                                <DatePickerTime
-                                                                    label="Data"
-                                                                    value={endDate}
-                                                                    onDateChange={(formattedDate) => {
-                                                                        handleMinMaxDate(1, formattedDate);
-                                                                        handleFilterSelect("EndDate", formattedDate);
-                                                                        setEndDate(formattedDate);
-                                                                    }}
-                                                                />
-                                                            </Box>
-                                                        </Box>
-                                                        <Box className="accordionDetailBox__countBox">
-                                                            <Typography className="accordionDetailBox__countBox__text">
-                                                                {item.count}
-                                                            </Typography>
-                                                        </Box>
-                                                    </Box>
-                                                    {item?.details.map((detail, index) => {
-                                                        return (
-                                                            <>
-                                                                <Box
-                                                                    className="accordionDetailBox__textListRow"
-                                                                    key={index}
-                                                                    onClick={() => {
-                                                                        handleLabelClick(detail.label, detail.Messg, detail.json || "")
-                                                                    }
-                                                                    }
-
+                                                    {subtitleItem?.accordion?.length > 0 ? (
+                                                        subtitleItem.accordion.map((accordionItem) => (
+                                                            <Accordion
+                                                                className="ProductionsAccordionItem"
+                                                                key={accordionItem.id}
+                                                            >
+                                                                <AccordionSummary
+                                                                    expandIcon={<ExpandMoreIcon />}
+                                                                    aria-controls={`panel${accordionItem.id}-content`}
+                                                                    id={`panel${accordionItem.id}-header`}
                                                                 >
-                                                                    <Typography className="accordionDetailBox__textListRow__title">
-                                                                        {detail.label}
-                                                                    </Typography>
-                                                                    <Box className="accordionDetailBox__countBox">
-                                                                        <Typography className="accordionDetailBox__countBox__text">
-                                                                            {detail.count}
+                                                                    <Box className="contentBox">
+                                                                        <Typography className="accordionTitle">
+                                                                            {accordionItem.title}
                                                                         </Typography>
+                                                                        <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
+                                                                            <Chip
+                                                                                label={accordionItem.status}
+                                                                                className="customStatus"
+                                                                                size="small"
+                                                                            />
+                                                                            <CustomCheckbox />
+                                                                        </Box>
                                                                     </Box>
-                                                                </Box>
-                                                            </>
-                                                        );
-                                                    })}
-                                                </AccordionDetails>
-                                            </Accordion>
-                                        )
-                                    })}
+                                                                </AccordionSummary>
+
+                                                                <AccordionDetails className="accordionDetailBox">
+                                                                    {/* Date Filters */}
+                                                                    <Box className="accordionDetailBox__dateListRow">
+                                                                        <Box className="dateCols">
+                                                                            <Box className="accordionDetailBox__dateListCol">
+                                                                                <Typography>Start Date</Typography>
+                                                                                <DatePickerTime
+                                                                                    label="Start Date"
+                                                                                    value={startDate}
+                                                                                    onDateChange={(formattedDate) => {
+                                                                                        handleMinMaxDate(0, formattedDate);
+                                                                                        handleFilterSelect("StartDate", formattedDate);
+                                                                                        setStartDate(formattedDate);
+                                                                                    }}
+                                                                                />
+                                                                            </Box>
+                                                                            <Box className="accordionDetailBox__dateListCol">
+                                                                                <Typography>End Date</Typography>
+                                                                                <DatePickerTime
+                                                                                    label="End Date"
+                                                                                    value={endDate}
+                                                                                    onDateChange={(formattedDate) => {
+                                                                                        handleMinMaxDate(1, formattedDate);
+                                                                                        handleFilterSelect("EndDate", formattedDate);
+                                                                                        setEndDate(formattedDate);
+                                                                                    }}
+                                                                                />
+                                                                            </Box>
+                                                                        </Box>
+
+                                                                        {/* Item Count */}
+                                                                        <Box className="accordionDetailBox__countBox">
+                                                                            <Typography className="accordionDetailBox__countBox__text">
+                                                                                {accordionItem.count}
+                                                                            </Typography>
+                                                                        </Box>
+                                                                    </Box>
+
+                                                                    {/* Render Item Details */}
+                                                                    {accordionItem?.details?.length > 0 ? (
+                                                                        accordionItem.details.map((detail, index) => (
+                                                                            <Box
+                                                                                className="accordionDetailBox__textListRow"
+                                                                                key={index}
+                                                                                onClick={() => { handleLabelClick(detail.label, detail.Messg, detail.json || ""); }}
+                                                                            >
+                                                                                <Typography className="accordionDetailBox__textListRow__title">
+                                                                                    {detail.label}
+                                                                                </Typography>
+                                                                                <Box className="accordionDetailBox__countBox">
+                                                                                    <Typography className="accordionDetailBox__countBox__text">
+                                                                                        {detail.count}
+                                                                                    </Typography>
+                                                                                </Box>
+                                                                            </Box>
+                                                                        ))
+                                                                    ) : (
+                                                                        <Typography>No details available</Typography>
+                                                                    )}
+                                                                </AccordionDetails>
+                                                            </Accordion>
+                                                        ))
+                                                    ) : (
+                                                        <Typography>No accordion data available</Typography>
+                                                    )}
+                                                </div>
+                                            );
+                                        })
+                                    ) : (
+                                        <Typography>No subtitles available</Typography>
+                                    )}
                                     <AccordionModal
                                         open={modalOpen}
                                         onClose={handleCloseModal}
-                                        label={selectedDetail.label}
-                                        message={selectedDetail.Messg}
-                                        json={selectedDetail.json}
+                                        label={selectedDetail?.label}
+                                        message={selectedDetail?.Messg}
+                                        json={selectedDetail?.json}
                                     />
-                                    <Box className='footerButtons'>
+
+                                    {/* Footer buttons */}
+                                    <Box className="footerButtons">
                                         <Button className="button1" type="button">
                                             <p className="text">Complata attivita</p>
                                         </Button>
