@@ -16,7 +16,7 @@ const columns = [
 
 const CandidatiAnagrafiche = () => {
 
-    return (
+    return ( 
         <>
             <Header />
             <div className="pageTemplate">
