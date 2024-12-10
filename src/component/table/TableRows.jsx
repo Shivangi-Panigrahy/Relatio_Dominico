@@ -187,6 +187,14 @@ const TableRows = ({
     location.pathname === "/acquisti/fornitori/Documenti";
   const isSubcolaboratoryDocumenti =
     location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isAnagraficheLeadDocumenti =
+    location.pathname === "/anagrafiche/sub-lead/Documenti";
+  const isAnagraficheClientiDocumentiPage =
+    location.pathname === "/angrafiche/clienti/Documenti";
+  const isAnagraficheFornitoriDocumentiPage =
+    location.pathname === "/angrafiche/fornitori/Documenti";
+  const isAnagraficheCollaboratoriDocumentiPage =
+    location.pathname === "/angrafiche/sub-colaboratory/Documenti";
 
   const calculateTotal = (month) => {
     const total = data
@@ -255,7 +263,10 @@ const TableRows = ({
                   // Limit to 2 rows for specified paths
                   isSubLeadDocumenti ||
                     isFornitoriDocumenti ||
-                    isSubcolaboratoryDocumenti
+                    isSubcolaboratoryDocumenti ||
+                    isAnagraficheClientiDocumentiPage ||
+                    isAnagraficheFornitoriDocumentiPage ||
+                    isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
                         page * rowsPerPage + 2,
                         page * rowsPerPage + rowsPerPage
@@ -486,7 +497,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/vendite/sub-lead/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/lead")
+                        ? navigate("/vendite/sub-lead/Contatti")
+                        : navigate("/anagrafiche/sub-lead/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -564,7 +579,13 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/acquisti/fornitori")
+                        ? navigate("/acquisti/fornitori/Contatti")
+                        : window.location.href.includes("/angrafiche/clienti")
+                        ? navigate("/angrafiche/clienti/Contatti")
+                        : navigate("/angrafiche/fornitori/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -761,7 +782,11 @@ const TableRows = ({
                   // Limit to 2 rows for specified paths
                   isSubLeadDocumenti ||
                     isFornitoriDocumenti ||
-                    isSubcolaboratoryDocumenti
+                    isSubcolaboratoryDocumenti ||
+                    isAnagraficheLeadDocumenti ||
+                    isAnagraficheClientiDocumentiPage ||
+                    isAnagraficheFornitoriDocumentiPage ||
+                    isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
                         page * rowsPerPage + 2,
                         page * rowsPerPage + rowsPerPage
@@ -1965,7 +1990,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/sub-colaboratory/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/colaboratory")
+                        ? navigate("/hr/sub-colaboratory/Contatti")
+                        : navigate("/angrafiche/sub-colaboratory/Contatti")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2113,7 +2142,7 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  isSubcolaboratoryDocumenti
+                  (isSubcolaboratoryDocumenti || isAnagraficheCollaboratoriDocumentiPage)
                     ? Math.min(
                         page * rowsPerPage + 2,
                         page * rowsPerPage + rowsPerPage
@@ -2182,7 +2211,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/hr/candidati/candidato/Contatti")}
+                    onClick={() =>
+                      window.location.href.includes("/hr/candidati")
+                        ? navigate("/hr/candidati/candidato/Contatti")
+                        : navigate("/angrafiche/candidati/Contatti")
+                    }
                     // onClick={() =>
                     //   window.location.href.includes("/hr/colaboratory")
                     //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
@@ -2615,92 +2648,92 @@ const TableRows = ({
             )}
           </TableBody>
         );
-        case "attrezzatureStabiliment":
-          return (
-            <TableBody>
-              {data?.length > 0 ? (
-                data
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => (
-                    <StyledTableRow
-                      key={index}
-                      selected={isSelected(row.id)}
-                      // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
-                    >
-                      <StyledTableCell align="center">
-                        <CustomCheckbox
-                          className="customChechbox"
-                          color="primary"
-                          checked={isSelected(row.id)}
-                          onChange={(event) => handleRowClick(event, row.id)}
-                          onClick={(event) => event.stopPropagation()}
-                          inputProps={{ "aria-labelledby": row.id }}
-                        />
-                      </StyledTableCell>
-                      <StyledTableCell>{row.tipologia}</StyledTableCell>
-                      <StyledTableCell>{row.numero}</StyledTableCell>
-                      <StyledTableCell>{row.posizione}</StyledTableCell>
-                  
-                      <StyledTableCell
-                        // sx={{ textAlign: "center" }}
+      case "attrezzatureStabiliment":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
                         onClick={(event) => event.stopPropagation()}
-                      >
-                        <MenuWithOptions options={option} />
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  ))
-              ) : (
-                <StyledTableRow>
-                  <StyledTableCell colSpan={12} align="center">
-                    Data not found
-                  </StyledTableCell>
-                </StyledTableRow>
-              )}
-            </TableBody>
-          );
-          case "collaboratoriStablimenti":
-            return (
-              <TableBody>
-                {data?.length > 0 ? (
-                  data
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row, index) => (
-                      <StyledTableRow
-                        key={index}
-                        selected={isSelected(row.id)}
-                        // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
-                      >
-                        <StyledTableCell align="center">
-                          <CustomCheckbox
-                            className="customChechbox"
-                            color="primary"
-                            checked={isSelected(row.id)}
-                            onChange={(event) => handleRowClick(event, row.id)}
-                            onClick={(event) => event.stopPropagation()}
-                            inputProps={{ "aria-labelledby": row.id }}
-                          />
-                        </StyledTableCell>
-                        <StyledTableCell>{row.collaboratore}</StyledTableCell>
-                        <StyledTableCell>{row.ruolo}</StyledTableCell>
-                        <StyledTableCell>{row.livello}</StyledTableCell>
-                    
-                        <StyledTableCell
-                          // sx={{ textAlign: "center" }}
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <MenuWithOptions options={option} />
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    ))
-                ) : (
-                  <StyledTableRow>
-                    <StyledTableCell colSpan={12} align="center">
-                      Data not found
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.tipologia}</StyledTableCell>
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    <StyledTableCell>{row.posizione}</StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
-                )}
-              </TableBody>
-            );
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "collaboratoriStablimenti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.collaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.ruolo}</StyledTableCell>
+                    <StyledTableCell>{row.livello}</StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
       case "mezziStabiliment":
         return (
           <TableBody>
