@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  Container,
   Grid,
   Card,
   CardContent,
@@ -8,10 +7,8 @@ import {
   TextField,
   Button,
   Box,
-  InputAdornment,
   IconButton,
 } from "@mui/material";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import AddIcon from "@mui/icons-material/Add";
 import styles from "./Qualificazione.scss";
 import DeleteIcon from "@mui/icons-material/Delete";

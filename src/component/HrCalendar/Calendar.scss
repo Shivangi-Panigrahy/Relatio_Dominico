@@ -534,6 +534,8 @@
     line-height: 16px;
     color: #100919;
     font-weight: 400;
+    padding-top: 6px;
+
   }
   .event-title_aganda {
     font-size: 14px;
@@ -541,7 +543,7 @@
     display: block;
     font-weight: 400;
     line-height: 16px;
-    font-size: "Public Sans", sans-serif;
+    font-family: "Public Sans", sans-serif;
   }
   .event-content_aganda {
     display: flex;

@@ -3,6 +3,7 @@ import Header from "../../../component/header/Header";
 import Table from "../../../component/table/Table";
 import tableData from "../../../utils/colaboratoryHrData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
+import { useLocation } from "react-router-dom";
 
 const columns = [
   { field: "colaboratore", headerName: "Colaboratore", width: 500 },
@@ -38,13 +39,20 @@ const OrdiniData = [
     color: "#DB0000",
   },
 ];
+
+
+
 const Colaboratory = () => {
+  const location = useLocation();
+  const isLogisticaiCollaboratori = location.pathname === "/logistica/stabilimenti/Collaboratori";
   return (
     <>
-      <Header />
+      {!isLogisticaiCollaboratori && <Header />}
       <div className="pageTemplate">
         <div className="colaboratory">
-          <InvoiceDashboard ordini={OrdiniData} hr={true} />
+          {!isLogisticaiCollaboratori && (
+            <InvoiceDashboard ordini={OrdiniData} hr={true} />
+          )}
           <Table
             data={tableData}
             columns={columns}

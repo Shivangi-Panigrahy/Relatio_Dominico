@@ -223,7 +223,7 @@ const InvoicePage = () => {
 
         {!window.location.href.includes("/acquisti/budget/sub-budget") &&
           !window.location.href.includes("/acquisti/ordini/sub-ordini") &&
-          !window.location.href.includes("/vendite/budget/sub-budget") && (
+          !window.location.href.includes("/vendite/budget/sub-budget") && !window.location.href.includes("/logistica/sub-DDT") && (
             <ProductionInfo  adminiDoc={!window.location.href.includes("/amministrazione/documenti/fattura")}/>
           )}
 

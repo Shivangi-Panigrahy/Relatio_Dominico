@@ -76,7 +76,8 @@
   .searchBoxInner {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 14px 0;
+    padding: 13px 0;
+    border: 2px solid #160A2A1A !important;
   }
 }
 
@@ -103,7 +104,7 @@
     padding: 14px 0;
   }
 }
-
+ 
 .invoiceFilter.budgetInvoiceFilter,
 .invoiceFilter.ordiniInvoiceFilter,
 .invoiceFilter.fornitoriInvoiceFilter {
@@ -366,4 +367,10 @@
   .MuiStack-root {
     grid-template-columns: 155px 155px 1.5fr 3fr 50px;
   }
+}
+
+
+.gaicenzeInvoiceFilter{
+  padding: 0 !important;
+  box-shadow: none !important;
 }

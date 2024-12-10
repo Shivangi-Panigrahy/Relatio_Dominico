@@ -32,7 +32,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   cursor: "pointer",
 }));
 
-
 // const getStatusColor = (stato) => {
 //   console.log(stato,"statogetcolor")
 //   switch (stato) {
@@ -135,12 +134,18 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
-      case "In corso":
-        return {
-          backgroundColor: "#57C70033",
-          color: "#57C700",
-          className: "Approvata",
-        };
+    case "Disponibile":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
+    case "In corso":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -150,14 +155,8 @@ const getStatusColor = (stato) => {
   }
 };
 
-
-
-
 const StatusChip = styled(Box)(({ stato }) => {
-  const {
-    backgroundColor,
-    color,
-  } = getStatusColor(stato);
+  const { backgroundColor, color } = getStatusColor(stato);
 
   return {
     padding: "2px 8px",
@@ -171,7 +170,6 @@ const StatusChip = styled(Box)(({ stato }) => {
     transition: "all 0.3s ease",
   };
 });
-
 
 const TableRows = ({
   data,
@@ -189,9 +187,12 @@ const TableRows = ({
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
-  const isFornitoriDocumenti = location.pathname === "/acquisti/fornitori/Documenti";
-  const isSubcolaboratoryDocumenti = location.pathname === "/hr/sub-colaboratory/Documenti";
+  const isSubLeadDocumenti =
+    location.pathname === "/vendite/sub-lead/Documenti";
+  const isFornitoriDocumenti =
+    location.pathname === "/acquisti/fornitori/Documenti";
+  const isSubcolaboratoryDocumenti =
+    location.pathname === "/hr/sub-colaboratory/Documenti";
   const isProgettiDocumenti = location.pathname === "/attivita/progetti/Documenti";
 
 
@@ -203,7 +204,7 @@ const TableRows = ({
   };
   const dataRender = (navData) => {
     switch (navData) {
-      
+
       case "attivita_progetti":
         return (
           <TableBody>
@@ -222,7 +223,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
                     onClick={() =>
-                      navigate("/attivita/progetti/Task") 
+                      navigate("/attivita/progetti/Task")
                     }
                   >
                     <StyledTableCell align="center">
@@ -237,32 +238,32 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
                     <StyledTableCell>{row.categoria}</StyledTableCell>
-                   
-                  
-                      <StyledTableCell>
-
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
-                        >
-                          <VisibilityOutlinedIcon
-                            sx={{ "&:hover": { color: "#57C700" } }}
-                            fontSize="small"
-                          />
-                          {row.commitente}
-                        </IconButton>
 
 
-                      </StyledTableCell>
-                       <StyledTableCell>{row.teamLeader}</StyledTableCell>
-                       <StyledTableCell>{row.creatoIl}</StyledTableCell>
-                       <StyledTableCell>{row.fine}</StyledTableCell>
-                       <StyledTableCell>{row.gUtilizzate}</StyledTableCell>
+                    <StyledTableCell>
+
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.commitente}
+                      </IconButton>
+
+
+                    </StyledTableCell>
+                    <StyledTableCell>{row.teamLeader}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.fine}</StyledTableCell>
+                    <StyledTableCell>{row.gUtilizzate}</StyledTableCell>
                     <StyledTableCell>{row.gResidue}</StyledTableCell>
                     <StyledTableCell align="center">
                       <StatusChip
@@ -364,8 +365,13 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti)
-                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  isSubLeadDocumenti ||
+                    isFornitoriDocumenti ||
+                    isSubcolaboratoryDocumenti
+                    ? Math.min(
+                      page * rowsPerPage + 2,
+                      page * rowsPerPage + rowsPerPage
+                    )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -375,7 +381,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/ordini") ||
-                        window.location.href.includes("/vendite/sub-lead/Documenti")
+                        window.location.href.includes(
+                          "/vendite/sub-lead/Documenti"
+                        )
                         ? navigate("/vendite/ordini/sub-ordini")
                         : navigate("/acquisti/ordini/sub-ordini")
                     }
@@ -395,7 +403,6 @@ const TableRows = ({
                     <StyledTableCell>{row.numero}</StyledTableCell>
                     {!isSubLeadDocumenti && (
                       <StyledTableCell>
-
                         <IconButton
                           size="small"
                           sx={{
@@ -411,8 +418,6 @@ const TableRows = ({
                           />
                           {row.fornitori}
                         </IconButton>
-
-
                       </StyledTableCell>
                     )}
                     <StyledTableCell sx={{ textAlign: "center" }}>
@@ -430,11 +435,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -489,9 +496,7 @@ const TableRows = ({
                       />
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
-
                       <Files />
-
                     </StyledTableCell>
                     <StyledTableCell>{row.nome}</StyledTableCell>
                     <StyledTableCell>{row.categoria}</StyledTableCell>
@@ -503,7 +508,7 @@ const TableRows = ({
 
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
-                    </StyledTableCell >
+                    </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
@@ -549,9 +554,7 @@ const TableRows = ({
                       />
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
-
                       <Files />
-
                     </StyledTableCell>
                     <StyledTableCell>{row.nome}</StyledTableCell>
                     <StyledTableCell>{row.categoria}</StyledTableCell>
@@ -563,7 +566,7 @@ const TableRows = ({
 
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
-                    </StyledTableCell >
+                    </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
@@ -627,11 +630,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -708,11 +713,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -749,8 +756,13 @@ const TableRows = ({
               data
                 .slice(
                   page * rowsPerPage,
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isProgettiDocumenti)
-                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  isSubLeadDocumenti ||
+                    isFornitoriDocumenti ||
+                    isSubcolaboratoryDocumenti || isProgettiDocumenti
+                    ? Math.min(
+                      page * rowsPerPage + 2,
+                      page * rowsPerPage + rowsPerPage
+                    )
                     : page * rowsPerPage + rowsPerPage
                 )
                 .map((row, index) => (
@@ -759,7 +771,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/budget") ||
-                        window.location.href.includes("/vendite/sub-lead/Documenti")
+                        window.location.href.includes(
+                          "/vendite/sub-lead/Documenti"
+                        )
                         ? navigate("/vendite/budget/sub-budget")
                         : navigate("/acquisti/budget/sub-budget")
                     }
@@ -781,7 +795,6 @@ const TableRows = ({
 
                     {!isSubLeadDocumenti && !isFornitoriDocumenti && (
                       <StyledTableCell>
-
                         <IconButton
                           size="small"
                           sx={{
@@ -797,8 +810,6 @@ const TableRows = ({
                           />
                           {row.fornitori}
                         </IconButton>
-
-
                       </StyledTableCell>
                     )}
 
@@ -817,11 +828,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -858,8 +871,13 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubLeadDocumenti || isFornitoriDocumenti || isSubcolaboratoryDocumenti || isProgettiDocumenti)
-                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  isSubLeadDocumenti ||
+                    isFornitoriDocumenti ||
+                    isSubcolaboratoryDocumenti || isProgettiDocumenti
+                    ? Math.min(
+                      page * rowsPerPage + 2,
+                      page * rowsPerPage + rowsPerPage
+                    )
                     : page * rowsPerPage + rowsPerPage
                 )
 
@@ -868,8 +886,14 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => window.location.href.includes("/vendite/preventivi") ||
-                      window.location.href.includes("/vendite/sub-lead/Documenti") ? navigate("/vendite/preventivi/sub-preventivi") : navigate("/acquisti/preventivi/sub-preventivi")}
+                    onClick={() =>
+                      window.location.href.includes("/vendite/preventivi") ||
+                        window.location.href.includes(
+                          "/vendite/sub-lead/Documenti"
+                        )
+                        ? navigate("/vendite/preventivi/sub-preventivi")
+                        : navigate("/acquisti/preventivi/sub-preventivi")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -919,11 +943,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -963,7 +989,9 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/amministrazione/imposte/Reteizzazione")}
+                    onClick={() =>
+                      navigate("/amministrazione/imposte/Reteizzazione")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1023,7 +1051,9 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={() => navigate("/amministrazione/documenti/fattura")}
+                    onClick={() =>
+                      navigate("/amministrazione/documenti/fattura")
+                    }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1084,7 +1114,7 @@ const TableRows = ({
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       {row.saldata}
                     </StyledTableCell>
-                    <StyledTableCell className="customDasaldareGreen" >
+                    <StyledTableCell className="customDasaldareGreen">
                       {row.dasaldare}
                     </StyledTableCell>
                     <StyledTableCell align="center">
@@ -1094,11 +1124,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -1313,10 +1345,10 @@ const TableRows = ({
                     <StyledTableCell>{row.dataPagamento}</StyledTableCell>
                     <StyledTableCell>{row.rata}</StyledTableCell>
                     <StyledTableCell>{row.importo}</StyledTableCell>
-                    <StyledTableCell className="customDasaldareRed" >
+                    <StyledTableCell className="customDasaldareRed">
                       {row.daSaldare}
                     </StyledTableCell>
-                    <StyledTableCell className="customDasaldareGreen" >
+                    <StyledTableCell className="customDasaldareGreen">
                       {row.saldato}
                     </StyledTableCell>
                     <StyledTableCell align="center">
@@ -1326,11 +1358,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -1342,8 +1376,12 @@ const TableRows = ({
                           : currentStatuses[index]}
                       </StatusChip>
                     </StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
                     <StyledTableCell
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
@@ -1360,7 +1398,7 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-        )
+        );
 
       case "listini":
         return (
@@ -1401,11 +1439,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -1424,7 +1464,9 @@ const TableRows = ({
                       {row.a}
                     </StyledTableCell>
                     <StyledTableCell>{row.priorita}</StyledTableCell>
-                    <StyledTableCell><Avatar1 /></StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
                     <StyledTableCell align="center">
                       <Avatar1 />
                     </StyledTableCell>
@@ -2183,8 +2225,11 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubcolaboratoryDocumenti)
-                    ? Math.min(page * rowsPerPage + 2, page * rowsPerPage + rowsPerPage)
+                  isSubcolaboratoryDocumenti
+                    ? Math.min(
+                      page * rowsPerPage + 2,
+                      page * rowsPerPage + rowsPerPage
+                    )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -2269,7 +2314,9 @@ const TableRows = ({
                     <StyledTableCell>{row.candidato}</StyledTableCell>
                     <StyledTableCell>{row.ruolo}</StyledTableCell>
                     <StyledTableCell>{row.livello}</StyledTableCell>
-                    <StyledTableCell>{row.trattamento_individuato}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.trattamento_individuato}
+                    </StyledTableCell>
                     <StyledTableCell align="center">
                       <StatusChip
                         stato={
@@ -2277,11 +2324,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -2408,6 +2457,527 @@ const TableRows = ({
             )}
           </TableBody>
         );
+      case "stabilimenti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/logistica/stabilimenti/Gaicenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeStabilimento}</StyledTableCell>
+                    <StyledTableCell>{row.tipologia}</StyledTableCell>
+                    <StyledTableCell>{row.indirizzo}</StyledTableCell>
+                    <StyledTableCell>{row.operativoDa}</StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "mezzi":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/logistica/mezzi/Scadenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.tipologiaMezzo}</StyledTableCell>
+                    <StyledTableCell>{row.targhe}</StyledTableCell>
+                    <StyledTableCell>{row.posizione}</StyledTableCell>
+                    <StyledTableCell>{row.km}</StyledTableCell>
+                    <StyledTableCell>{row.da}</StyledTableCell>
+                    <StyledTableCell>{row.a}</StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "attrezzature":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/logistica/attrezzature/Scadenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {row.tipologiaAttrezzature}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.numeroDiSerie}</StyledTableCell>
+                    <StyledTableCell>{row.posizione}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.a}</StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "giacenze":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.cod}</StyledTableCell>
+                    <StyledTableCell>{row.lotto}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.scadenza}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.prodotto}
+                      </IconButton>
+                    </StyledTableCell>
+
+                    <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                    <StyledTableCell>{row.um}</StyledTableCell>
+                    <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                    <StyledTableCell>{row.qta}</StyledTableCell>
+                    <StyledTableCell>{row.valore}</StyledTableCell>
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "attrezzatureStabiliment":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.tipologia}</StyledTableCell>
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    <StyledTableCell>{row.posizione}</StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "collaboratoriStablimenti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.collaboratore}</StyledTableCell>
+                    <StyledTableCell>{row.ruolo}</StyledTableCell>
+                    <StyledTableCell>{row.livello}</StyledTableCell>
+
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "mezziStabiliment":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.tipologiaMezzo}</StyledTableCell>
+                    <StyledTableCell>{row.targhe}</StyledTableCell>
+                    <StyledTableCell>{row.posizione}</StyledTableCell>
+                    <StyledTableCell>{row.km}</StyledTableCell>
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "GiacenzeStabilimenti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.cod}</StyledTableCell>
+                    <StyledTableCell>{row.lotto}</StyledTableCell>
+                    <StyledTableCell>{row.scadenza}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.prodotto}
+                      </IconButton>
+                    </StyledTableCell>
+
+                    <StyledTableCell>{row.marcaSerie}</StyledTableCell>
+                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                    <StyledTableCell>{row.um}</StyledTableCell>
+                    <StyledTableCell>{row.pzUnitario}</StyledTableCell>
+                    <StyledTableCell>{row.qta}</StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "DDT":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/logistica/sub-DDT")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.doc}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.numero}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.fornitori}
+                      </IconButton>
+                    </StyledTableCell>
+                    <StyledTableCell>{row.stabilimento}</StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell
+                      // sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithOptions options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
       default:
         return (
           <TableBody>
@@ -2446,7 +3016,6 @@ const TableRows = ({
                       ""
                     ) : (
                       <StyledTableCell>
-
                         <IconButton
                           size="small"
                           sx={{
@@ -2462,15 +3031,12 @@ const TableRows = ({
                           />
                           {row.clienti}
                         </IconButton>
-
-
                       </StyledTableCell>
                     )}
                     {form === "form2" || form === "form1" ? (
                       ""
                     ) : (
                       <StyledTableCell>
-
                         <IconButton
                           size="small"
                           sx={{
@@ -2486,8 +3052,6 @@ const TableRows = ({
                           />
                           {row.fornitori}
                         </IconButton>
-
-
                       </StyledTableCell>
                     )}
                     <StyledTableCell>{row.data}</StyledTableCell>

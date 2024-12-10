@@ -23,9 +23,8 @@ import Slider from '@mui/joy/Slider';
 
 
 // import { ExpandLessIcon, ExpandMoreIcon } from '@material-ui/icons';
-
 import "./GanttChart.scss";
-import GanttCard from "./GanttCard";
+
 // Function to generate an array of months with days for a given year
 const generateMonths = (year) => {
   return Array.from({ length: 12 }, (_, i) => {

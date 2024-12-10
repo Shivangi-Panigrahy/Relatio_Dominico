@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "tipologiaMezzo": "Furgone",
+        "targhe": "GH325KL",
+        "posizione": "Stabilimenti A",
+        "km": "34.432KM",
+        "azioni": "..."
+    },
+    {
+        "id": 2,
+        "tipologiaMezzo": "Furgone",
+        "targhe": "GH325KL",
+        "posizione": "Stabilimenti A",
+        "km": "34.432KM",
+        "azioni": "..."
+    },
+    {
+        "id": 3,
+        "tipologiaMezzo": "Furgone",
+        "targhe": "GH325KL",
+        "posizione": "Stabilimenti A",
+        "km": "34.432KM",
+        "azioni": "..."
+    },
+    {
+        "id": 4,
+        "tipologiaMezzo": "Furgone",
+        "targhe": "GH325KL",
+        "posizione": "Stabilimenti A",
+        "km": "34.432KM",
+        "azioni": "..."
+    }
+]

@@ -243,6 +243,22 @@
   justify-content: center;
 }
 
+.custom_pagination p {
+  font-family: "Public Sans", sans-serif;
+  font-family: sans-serif;
+  color: #100919;
+}
+
+.custom_pagination .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary fieldset {
+  border: none !important;
+}
+
+.custom_pagination .MuiSelect-select.MuiSelect-outlined {
+  font-family: "Public Sans", sans-serif;
+  color: #100919;
+}
+
+
 // .approvato {
 //   border: 1px solid #2196f3;
 // }
@@ -262,3 +278,44 @@
 // .default {
 //   border: 1px solid #9e9e9e;
 // }
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 10px 0;
+  p {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #100919;
+  }
+  .customSelect {
+    position: relative;
+    background-image: url(../../assets/SelectdownArrow.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    .MuiSelect-select {
+      padding: 0;
+    }
+    .MuiSvgIcon-root {
+      display: none;
+    }
+    fieldset {
+      border: none;
+    }
+  }
+  .iconBtn {
+    display: flex;
+    align-items: center;
+    button {
+      padding: 8px;
+      width: 36px;
+      height: 36px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

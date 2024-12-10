@@ -30,17 +30,17 @@ const columns = [
     {
         field: "anagrafica",
         headerName: "Questa anagrafica",
-        width: 250
+        width: 320
     },
     {
         field: "relationType",
         headerName: "E' di",
-        width: 200
+        width: 320
     },
     {
         field: "anagraficaName",
         headerName: "Questa anagrafica",
-        width: 250
+        width: 320
     },
     {
         field: "fromDate",
@@ -55,7 +55,7 @@ const columns = [
     {
         field: "actions",
         headerName: "Azioni",
-        width: 80
+        width: 95
     }
 ];
 
