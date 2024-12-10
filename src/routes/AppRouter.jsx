@@ -110,6 +110,7 @@ import GiacenzeStabilimenti from "../pages/Logistica/Stabilimenti/GiacenzeStabil
 import MezziStabiliment from "../pages/Logistica/Stabilimenti/MezziStabiliment.jsx";
 import AttrezzatureStablimenti from "../pages/Logistica/Stabilimenti/AttrezzatureStablimenti.jsx";
 import CollaboratoriStablimenti from "../pages/Logistica/Stabilimenti/CollaboratoriStablimenti.jsx";
+import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
 
 const Allroutes = () => {
   return (
@@ -1389,6 +1390,22 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <DettaglioClientiAnagrafiche Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/attivita/Timesheet"
+        element={
+          <PublicRoute>
+            <Organizza />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/gantt"
+        element={
+          <PublicRoute>
+            <Organizza />
           </PublicRoute>
         }
       />
