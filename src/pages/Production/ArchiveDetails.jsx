@@ -43,11 +43,12 @@ const OrdiniData = [
     },
     {
         status: "Stato della produzione",
-        count: "In corso",
-        phasetiming :[
-            { title: "Fase", subtitle: "Piantumazione" },
-            { title: "Tempistica:", subtitle: "Regolare" },
-        ],
+        count: 'Complatata',
+        color: "#DB0000",
+        // phasetiming :[
+        //     { title: "Fase", subtitle: "Piantumazione" },
+        //     { title: "Tempistica:", subtitle: "Regolare" },
+        // ],
         // phase: "Fase Piantumazione",
         // timing: "Tempistica: Regolare",
         color: "#DB0000",
