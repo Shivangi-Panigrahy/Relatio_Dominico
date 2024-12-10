@@ -3,6 +3,131 @@
     "id": 1,
     "maintitle": "Raccolta UVA",
     "title": "Raccolta UVA",
+    "subtitle": [
+      {
+        "name": "Attività",
+        "accordion": [
+          {
+            "id": 1,
+            "title": "Registrazione parcelle e dei vigneti.",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Attrezzature",
+                "count": 474,
+                "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
+                "json": [
+                  {
+                    "ndiserie": "Numero di serie",
+                    "nome": "Nome dell’attrezzatura",
+                    "attrezzatura": "Categoria"
+                  },
+                  {
+                    "ndiserie": "Numero di serie",
+                    "nome": "Nome dell’attrezzatura",
+                    "attrezzatura": "Categoria"
+                  }
+                ]
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474,
+                "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
+                "json": [
+                  {
+                    "iDcollaboratore": "78986",
+                    "nome": "Nome Collaboratore",
+                    "ruolo": "Contadino"
+                  },
+                  {
+                    "iDcollaboratore": "78986",
+                    "nome": "Nome Collaboratore",
+                    "ruolo": "Contadino"
+                  },
+                  {
+                    "iDcollaboratore": "78986",
+                    "nome": "Nome Collaboratore",
+                    "ruolo": "Contadino"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Tracciamento qualità UVA",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Campioni",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Registrazione dati",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Semilavorati",
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                "json": [
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "status": "In corso",
     "startDate": "2023-12-01",
     "endDate": "2023-12-08",
@@ -10,132 +135,174 @@
     "location": "Vigneto 1",
     "cropType": "Uva",
     "progressPercentage": 70,
-    "priority": "High",
-    "accordion": [
-      {
-        "id": 1,
-        "title": "Registrazione parcelle e dei vigneti.",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Attrezzature",
-            "count": 474,
-            "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
-            "json": [
-              {
-                "ndiserie": "Numero di serie",
-                "nome": "Nome dell’attrezzatura",
-                "attrezzatura": "Categoria"
-              },
-              {
-                "ndiserie": "Numero di serie",
-                "nome": "Nome dell’attrezzatura",
-                "attrezzatura": "Categoria"
-              }
-            ]
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474,
-            "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
-            "json": [
-              {
-                "iDcollaboratore": "78986",
-                "nome": "Nome Collaboratore",
-                "ruolo": "Contadino"
-              },
-              {
-                "iDcollaboratore": "78986",
-                "nome": "Nome Collaboratore",
-                "ruolo": "Contadino"
-              },
-              {
-                "iDcollaboratore": "78986",
-                "nome": "Nome Collaboratore",
-                "ruolo": "Contadino"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Tracciamento qualità UVA",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Campioni",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Registrazione dati",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Semilavorati",
-            "count": 474,
-            "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
-            "json": [
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "priority": "High"
   },
   {
     "id": 2,
     "maintitle": "Conferimento in cantina",
     "title": "Raccolta Mela",
+    "subtitle": [
+      {
+        "name": "Attività",
+        "accordion": [
+          {
+            "id": 1,
+            "title": "Trasporto uve",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Mezzi",
+                "count": 474,
+                "Messg": "Attenzione i mezzi selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
+                "json": [
+                  {
+                    "targaTrattore": "GH493LC",
+                    "rimorchio": "GH493LC",
+                    "nomeMezzo": "Nome del mezzo 1",
+                    "categoria": "Mezzo"
+                  },
+                  {
+                    "targaTrattore": "GH493LC",
+                    "rimorchio": "GH493LC",
+                    "nomeMezzo": "Nome del mezzo 2",
+                    "categoria": "Mezzo"
+                  },
+                  {
+                    "targaTrattore": "GH493LC",
+                    "rimorchio": "GH493LC",
+                    "nomeMezzo": "Nome del mezzo 3",
+                    "categoria": "Mezzo"
+                  }
+                ]
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Reg. peso e qualità delle uve",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Campioni",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Risultato operativo",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Semilavorati",
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                "json": [
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  }
+                ]
+              },
+              {
+                "label": "Scarti",
+                "count": 474,
+                "Messg": "Attenzione i prodotti scarti saranno scaricati della giacenze e utilizzati in produzione.",
+                "json": [
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Scarti",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Scarti",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Scarti",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Scarti",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "status": "Completed",
     "startDate": "2023-11-15",
     "endDate": "2023-11-22",
@@ -143,169 +310,118 @@
     "location": "Frutteto 2",
     "cropType": "Mela",
     "progressPercentage": 100,
-    "priority": "Low",
-    "accordion": [
-      {
-        "id": 1,
-        "title": "Trasporto uve",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Mezzi",
-            "count": 474,
-            "Messg": "Attenzione i mezzi selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
-            "json": [
-              {
-                "targaTrattore": "GH493LC",
-                "rimorchio": "GH493LC",
-                "nomeMezzo": "Nome del mezzo 1",
-                "categoria": "Mezzo"
-              },
-              {
-                "targaTrattore": "GH493LC",
-                "rimorchio": "GH493LC",
-                "nomeMezzo": "Nome del mezzo 2",
-                "categoria": "Mezzo"
-              },
-              {
-                "targaTrattore": "GH493LC",
-                "rimorchio": "GH493LC",
-                "nomeMezzo": "Nome del mezzo 3",
-                "categoria": "Mezzo"
-              }
-            ]
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Reg. peso e qualità delle uve",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Campioni",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Risultato operativo",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Semilavorati",
-            "count": 474,
-            "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
-            "json": [
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Semilavorato",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              }
-            ]
-          },
-          {
-            "label": "Scarti",
-            "count": 474,
-            "Messg": "Attenzione i prodotti scarti saranno scaricati della giacenze e utilizzati in produzione.",
-            "json": [
-              {
-                "codProdotto": "78986",
-                "categoria": "Scarti",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Scarti",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Scarti",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Scarti",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "priority": "Low"
   },
   {
     "id": 3,
     "maintitle": "Trasformazione in mosto",
     "title": "Raccolta Banana",
+    "subtitle": [
+      {
+        "name": "Attività",
+        "accordion": [
+          {
+            "id": 1,
+            "title": "Pigiatura",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Mezzi",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Diraspatura",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Campioni",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Registrazione dati",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Sensori",
+                "count": 474
+              },
+              {
+                "label": "Inserimento Automatico",
+                "count": 474
+              },
+              {
+                "label": "Prodotto",
+                "count": 474,
+                "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
+                "json": [
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Prodotto",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Prodotto",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Prodotto",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Prodotto",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "status": "In corso",
     "startDate": "2023-12-05",
     "endDate": "2023-12-12",
@@ -313,113 +429,59 @@
     "location": "Campo 3",
     "cropType": "Banana",
     "progressPercentage": 50,
-    "priority": "Medium",
-    "accordion": [
-      {
-        "id": 1,
-        "title": "Pigiatura",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Mezzi",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Diraspatura",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Campioni",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Registrazione dati",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Sensori",
-            "count": 474
-          },
-          {
-            "label": "Inserimento Automatico",
-            "count": 474
-          },
-          {
-            "label": "Prodotto",
-            "count": 474,
-            "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
-            "json": [
-              {
-                "codProdotto": "78986",
-                "categoria": "Prodotto",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Prodotto",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Prodotto",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              },
-              {
-                "codProdotto": "78986",
-                "categoria": "Prodotto",
-                "nome": "UVA",
-                "dataCarico": "28/11/2024",
-                "unitaDiMisura": "LT",
-                "quantita": 223454,
-                "azione": "⚙️ Carica"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "priority": "Medium"
   },
   {
     "id": 4,
     "maintitle": "Fermentazione",
     "title": "Raccolta Arancia",
+    "subtitle": [
+      {
+        "name": "Attività",
+        "accordion": [
+          {
+            "id": 1,
+            "title": "Trasporto uve",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Mezzi",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Reg. peso e qualità delle uve",
+            "status": "In corso",
+            "count": "24g",
+            "details": [
+              {
+                "label": "Campioni",
+                "count": 474
+              },
+              {
+                "label": "Attrezzature",
+                "count": 474
+              },
+              {
+                "label": "Collaboratori",
+                "count": 474
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "status": "Pending",
     "startDate": "2023-12-10",
     "endDate": "2023-12-17",
@@ -427,54 +489,35 @@
     "location": "Citrus Grove",
     "cropType": "Arancia",
     "progressPercentage": 0,
-    "priority": "High",
-    "accordion": [
-      {
-        "id": 1,
-        "title": "Trasporto uve",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Mezzi",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Reg. peso e qualità delle uve",
-        "status": "In corso",
-        "count": "24g",
-        "details": [
-          {
-            "label": "Campioni",
-            "count": 474
-          },
-          {
-            "label": "Attrezzature",
-            "count": 474
-          },
-          {
-            "label": "Collaboratori",
-            "count": 474
-          }
-        ]
-      }
-    ]
+    "priority": "High"
   },
   {
     "id": 5,
     "maintitle": "Raccolta Kiwi",
     "title": "Raccolta Kiwi",
+    "subtitle": [
+      {
+        "name": "Attività",
+        "accordionData": [
+          {
+            "id": 5,
+            "title": "Phase 5",
+            "status": "Active",
+            "count": 25,
+            "details": [
+              {
+                "label": "Detail M",
+                "count": 12
+              },
+              {
+                "label": "Detail N",
+                "count": 13
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "status": "In corso",
     "startDate": "2023-12-03",
     "endDate": "2023-12-10",
@@ -482,24 +525,6 @@
     "location": "Orto 4",
     "cropType": "Kiwi",
     "progressPercentage": 80,
-    "priority": "Medium",
-    "accordionData": [
-      {
-        "id": 5,
-        "title": "Phase 5",
-        "status": "Active",
-        "count": 25,
-        "details": [
-          {
-            "label": "Detail M",
-            "count": 12
-          },
-          {
-            "label": "Detail N",
-            "count": 13
-          }
-        ]
-      }
-    ]
+    "priority": "Medium"
   }
 ]
