@@ -187,9 +187,9 @@ function ProductionsAccordion() {
                                                                     <Box className="accordionDetailBox__dateListRow">
                                                                         <Box className="dateCols">
                                                                             <Box className="accordionDetailBox__dateListCol">
-                                                                                <Typography>Start Date</Typography>
+                                                                                <Typography>da</Typography>
                                                                                 <DatePickerTime
-                                                                                    label="Start Date"
+                                                                                    label="Date"
                                                                                     value={startDate}
                                                                                     onDateChange={(formattedDate) => {
                                                                                         handleMinMaxDate(0, formattedDate);
@@ -199,9 +199,9 @@ function ProductionsAccordion() {
                                                                                 />
                                                                             </Box>
                                                                             <Box className="accordionDetailBox__dateListCol">
-                                                                                <Typography>End Date</Typography>
+                                                                                <Typography>a</Typography>
                                                                                 <DatePickerTime
-                                                                                    label="End Date"
+                                                                                    label="Date"
                                                                                     value={endDate}
                                                                                     onDateChange={(formattedDate) => {
                                                                                         handleMinMaxDate(1, formattedDate);
@@ -222,22 +222,26 @@ function ProductionsAccordion() {
 
                                                                     {/* Render Item Details */}
                                                                     {accordionItem?.details?.length > 0 ? (
-                                                                        accordionItem.details.map((detail, index) => (
-                                                                            <Box
-                                                                                className="accordionDetailBox__textListRow"
-                                                                                key={index}
-                                                                                onClick={() => { handleLabelClick(detail.label, detail.Messg, detail.json || ""); }}
-                                                                            >
-                                                                                <Typography className="accordionDetailBox__textListRow__title">
-                                                                                    {detail.label}
-                                                                                </Typography>
-                                                                                <Box className="accordionDetailBox__countBox">
-                                                                                    <Typography className="accordionDetailBox__countBox__text">
-                                                                                        {detail.count}
-                                                                                    </Typography>
-                                                                                </Box>
-                                                                            </Box>
-                                                                        ))
+                                                                        accordionItem.details.map((detail, index) => {
+                                                                            return (
+                                                                                <>
+                                                                                    <Box
+                                                                                        className="accordionDetailBox__textListRow"
+                                                                                        key={index}
+                                                                                        onClick={() => { handleLabelClick(detail.label, detail.Messg, detail.json || ""); }}
+                                                                                    >
+                                                                                        <Typography className="accordionDetailBox__textListRow__title">
+                                                                                            {detail.label}
+                                                                                        </Typography>
+                                                                                        <Box className="accordionDetailBox__countBox">
+                                                                                            <Typography className="accordionDetailBox__countBox__text">
+                                                                                                {detail.count}
+                                                                                            </Typography>
+                                                                                        </Box>
+                                                                                    </Box>
+                                                                                </>
+                                                                            )
+                                                                        })
                                                                     ) : (
                                                                         <Typography>No details available</Typography>
                                                                     )}
@@ -253,13 +257,6 @@ function ProductionsAccordion() {
                                     ) : (
                                         <Typography>No subtitles available</Typography>
                                     )}
-                                    <AccordionModal
-                                        open={modalOpen}
-                                        onClose={handleCloseModal}
-                                        label={selectedDetail?.label}
-                                        message={selectedDetail?.Messg}
-                                        json={selectedDetail?.json}
-                                    />
 
                                     {/* Footer buttons */}
                                     <Box className="footerButtons">
@@ -287,6 +284,13 @@ function ProductionsAccordion() {
                     )
                 })}
             </Box>
+            <AccordionModal
+                open={modalOpen}
+                onClose={handleCloseModal}
+                label={selectedDetail?.label}
+                message={selectedDetail?.Messg}
+                json={selectedDetail?.json}
+            />
         </Box>
     );
 }
