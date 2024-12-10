@@ -51,7 +51,7 @@ const OrdiniData = [
         // phase: "Fase Piantumazione",
         // timing: "Tempistica: Regolare",
         color: "#DB0000",
-    },
+    }, 
 ];
 const ArchiveDetails = () => {
     return (
@@ -59,7 +59,7 @@ const ArchiveDetails = () => {
             <Header />
             <div className="pageTemplate">
                 <div className="colaboratory">
-                    <ProductionDetails ordini={OrdiniData}  />
+                    <ProductionDetails archive={OrdiniData}  />
                     <ProductionsArchive />
                 </div>
             </div>
