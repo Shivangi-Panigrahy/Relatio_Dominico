@@ -1212,7 +1212,12 @@
     gap: 14px;
 
     .statusText {
-      min-height: 109px;
+      // min-height: 109px;
+      height: 100%;
+      align-items: flex-start;
+      h4 {
+        margin: 0;
+      }
       .statusText__content {
         .statusText__content__count {
           font-family: "Barlow", sans-serif;
@@ -1221,6 +1226,7 @@
           display: flex !important;
           flex-direction: column;
           gap: 0;
+          margin: 0;
 
           .countListItem {
             display: flex;

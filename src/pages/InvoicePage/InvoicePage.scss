@@ -188,7 +188,7 @@
     line-height: normal;
     background-color: #fff;
     width: calc(100% - 36px);
-    border: 2px solid #e5e5e5;
+    // border: 2px solid #e5e5e5;
     border-radius: 5px;
     font-family: "Barlow", sans-serif;
   }
@@ -489,6 +489,11 @@
         padding: 12px; // Add some padding for content
         min-height: 256px; // Set a minimum height for the text area
       }
+    }
+  }
+  &.SchedaservizioEditor {
+    .editor-toolbar {
+      width: 100%;
     }
   }
   .sidebar {

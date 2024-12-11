@@ -91,7 +91,7 @@ function ProductionsAccordion() {
     };
 
     return (
-        <Box className="ProductionsAccordionBlock"
+        <Box className="ProductionsAccordionBlock opacityBlock"
             sx={{
                 display: "flex",
                 overflow: "hidden",

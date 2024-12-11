@@ -49,7 +49,7 @@ const LoginForm = () => {
           component="a"
           onClick={() => navigate("/forgot-password")}
         >
-          password dimenticata?asassdd
+          password dimenticata?
         </div>
         <TextField
           fullWidth

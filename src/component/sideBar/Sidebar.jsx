@@ -301,7 +301,7 @@ const Sidebar = () => {
                   timeout="auto"
                   unmountOnExit
                 >
-                  <List component="div" disablePadding style={{ paddingBottom: '50px' }}>
+                  <List component="div" disablePadding>
                     {item.subitems.map((subitem) => (
                       <StyledListItem
                         key={subitem.name}

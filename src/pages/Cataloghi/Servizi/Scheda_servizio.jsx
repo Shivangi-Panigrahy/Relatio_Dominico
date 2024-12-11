@@ -9,7 +9,7 @@ const Scheda_servizio = () => {
     <Box sx={{ padding: 4 }}>
       <Grid container spacing={4}>
         {/* Text Editors */}
-        <Grid item xs={12} md={8} className="main_texteditor_container">
+        <Grid item xs={12} md={7} className="main_texteditor_container">
           <Box sx={{ marginBottom: "6px" }}>
             <PreventivoTextEditor />
           </Box>
@@ -19,7 +19,7 @@ const Scheda_servizio = () => {
         </Grid>
 
         {/* Image Gallery */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={5}>
           <ImageGallery />
         </Grid>
       </Grid>

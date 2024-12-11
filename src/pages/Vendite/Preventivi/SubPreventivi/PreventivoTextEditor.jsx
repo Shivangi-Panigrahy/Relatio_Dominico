@@ -77,7 +77,8 @@ const PreventivoTextEditor = () => {
             ]}
           />
         </Box>
-        <Box className="sidebar">
+
+        {/* <Box className="sidebar">
           <Box className="attachments">
             <Box className="attachments__header">
               <h5>
@@ -100,7 +101,8 @@ const PreventivoTextEditor = () => {
               ))}
             </List>
           </Box>
-        </Box>
+        </Box> */}
+
       </Box>
     </ThemeProvider>
   );

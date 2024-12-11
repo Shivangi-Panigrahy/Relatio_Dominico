@@ -37,10 +37,12 @@ const PreventivoTextEditor = () => {
   const handleSave = (data) => {
     console.log("Saved content:", data);
   };
+  const catalog=window.location.href.includes("/cataloghi/servizi/Scheda") || window.location.href.includes("/cataloghi/prodotti/Scheda")
+  console.log(catalog,"catalog")
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className="text-editor">
+      <Box className={catalog ?"text-editor SchedaservizioEditor": "text-editor"  }>
         <Box className="editor-toolbar">
           <MUIRichTextEditor
             label="Campo di testo"
@@ -77,12 +79,13 @@ const PreventivoTextEditor = () => {
             ]}
           />
         </Box>
-        <Box className="sidebar">
-          <Box className="attachments">
-            {
-            !window.location.href.includes('/cataloghi/servizi/Scheda') && 
-            !window.location.href.includes('/cataloghi/prodotti/Scheda') && 
-            (
+        {window.location.href.includes("/cataloghi/prodotti/Scheda") ||
+        window.location.href.includes("/cataloghi/servizi/Scheda") ? (
+          ""
+        ) : (
+          <Box className="sidebar">
+            <Box className="attachments">
+     
               <>
                 <Box className="attachments__header">
                   <h5>
@@ -100,14 +103,16 @@ const PreventivoTextEditor = () => {
                 <List className="attachment-list">
                   {attachments.map((attachment, index) => (
                     <ListItem key={index}>
-                      <DescriptionOutlined /> <ListItemText primary={attachment} />
+                      <DescriptionOutlined />{" "}
+                      <ListItemText primary={attachment} />
                     </ListItem>
                   ))}
                 </List>
               </>
-            )}
+             
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
     </ThemeProvider>
   );

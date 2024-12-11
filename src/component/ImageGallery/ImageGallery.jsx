@@ -17,13 +17,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import img1 from "../../assets/Img_upld1.png";
 import img2 from "../../assets/Img_upld2.png";
 import img3 from "../../assets/Img_upld3.png";
+import "./ImageGallery.scss";
 
 const UploadContainer = styled(Box)(({ theme }) => ({
-  border: "2px dashed #e0e0e0",
-  borderRadius: "8px",
-  padding: "16px",
+  border: "1px dashed #e0e0e0",
+  borderRadius: "12px",
+  padding: "20px",
   textAlign: "center",
   backgroundColor: "#f9f9f9",
+  position: 'relative',
 }));
 
 const RemoveButton = styled(Button)(({ theme }) => ({
@@ -67,27 +69,28 @@ const ImageGallery = () => {
   };
 
   return (
-    <Box sx={{ width: "400px", margin: "auto", textAlign: "center" }}>
-      <Typography
-        variant="h6"
-        gutterBottom
-        style={{
-          fontFamily: '"Public Sans", sans-serif',
-          textAlign: "left",
-          fontSize: "14px",
-          color: "#1C252E",
-        }}
+    <Box className="uploadSection">
+      <label className="uploadSection__title"
+        // variant="h6"
+        // gutterBottom
+        // style={{
+        //   fontFamily: '"Public Sans", sans-serif',
+        //   textAlign: "left",
+        //   fontSize: "14px",
+        //   color: "#1C252E",
+        // }}
       >
         Galleria d'immagini
-      </Typography>
+      </label>
       <UploadContainer
-        style={{
-          position: "relative",
-          borderColor: "#919EAB14",
-          borderWidth: "1px",
-        }}
+        className="uploadfileBox"
+        // style={{
+        //   position: "relative",
+        //   borderColor: "#919EAB33",
+        //   borderWidth: "1px",
+        // }}
       >
-        <Cloudupload fontSize="large" />
+        <Cloudupload  fontSize="large" />
         <Typography>Upload file</Typography>
         <input
           type="file"
@@ -105,17 +108,9 @@ const ImageGallery = () => {
           }}
         />
       </UploadContainer>
-      <Grid container spacing={2} sx={{ marginTop: 2 }}>
+      <div className="uploadedImg">
         {images.map((src, index) => (
-          <Grid item xs={4} key={index}>
-            <Card
-              sx={{
-                position: "relative",
-                borderRadius: "8px",
-                boxShadow: "none",
-                width: "100%",
-              }}
-            >
+            <div className="uploadedImg__inner">
               {typeof src === "string" ? (
                 // <CardMedia
                 //   component="img"
@@ -132,23 +127,14 @@ const ImageGallery = () => {
               ) : (
                 <></> // <Box sx={{ height: 100, width: "100%" }}>{src}</Box>
               )}
-              <IconButton
-                size="small"
-                sx={{
-                  position: "absolute",
-                  top: 4,
-                  right: 4,
-                  backgroundColor: "#0000007A",
-                  color: "#fff",
-                }}
+              <IconButton size="small"
                 onClick={() => handleRemoveImage(index)}
               >
                 <CloseIcon fontSize="small" />
               </IconButton>
-            </Card>
-          </Grid>
+            </div>
         ))}
-      </Grid>
+      </div>
       <Box
         sx={{
           display: "flex",

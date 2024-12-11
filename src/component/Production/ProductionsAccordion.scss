@@ -1,24 +1,23 @@
 .ProductionsAccordionBlock {
   margin-top: 20px;
-
   .ProductionsAccordionRow {
     display: flex;
     align-items: flex-start;
-    // gap: 44px;
-    // overflow-x: auto;
-
+    gap: 17px;
     .ProductionsAccordionCard {
       min-width: 475px;
       max-width: 475px;
       position: relative;
+      height: 100%;
       display: flex;
       align-items: center;
+      gap: 17px;
 
       &__inner {
         padding: 30px 24px;
         background-color: #fafafa;
         border-radius: 30px;
-        // height: calc(100vh - 437px);
+        height: 100%;
         overflow: auto;
         overflow-x: hidden;
 
@@ -56,6 +55,7 @@
           display: flex;
           align-items: center;
           gap: 14px;
+          margin-bottom: 17px;
 
           .MuiFormControl-root {
             max-width: 100%;
@@ -80,6 +80,10 @@
             border: none;
             box-shadow: none;
             background-color: transparent;
+            margin-bottom: 5px;
+            &:last-child {
+              margin: 0;
+            }
 
             &::before {
               content: unset;
@@ -339,11 +343,31 @@
       }
     }
   }
+  &.opacityBlock {
+    .ProductionsAccordionRow {
+      .ProductionsAccordionCard {
+        &__inner {
+          border: 3px solid #57c700;
+          opacity: 0.5;
+        }
+        &:first-child {
+          .ProductionsAccordionCard__inner {
+            border-color: transparent;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
 
 .accordionSubtitle {
-    color: #666666;
-    text-align: center;
+  color: #666666;
+  text-align: center;
+  font-size: 16px !important;
+  line-height: 19px !important;
+  font-weight: 400 !important;
+  margin-bottom: 20px !important;
 }
 
 .blockchainBtn {
@@ -393,8 +417,49 @@
   }
 }
 
-.resultsSection {
-  padding-top: 17px;
+.dataSection {
+  background-color: #57c700;
+  margin-bottom: 23px;
+  padding: 15px 17px;
+  border-radius: 16px;
+  box-shadow: 0 0 2px #919eab33;
+  .dataMessage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    p {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 700;
+      word-break: break-all;
+    }
+  }
+  p {
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+}
+.resultDetails {
+  padding: 0 15px 0 0;
+  position: relative;
+  height: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: #cccccc;
+    right: 0;
+  }
+  &:last-child {
+    padding: 0;
+    &::before {
+      content: unset;
+    }
+  }
 }
 
 .resultItem {
@@ -402,10 +467,13 @@
   border-radius: 16px;
   padding: 9px 18px;
   background-color: #fff;
-
-  display: flex;
-  align-items: center;
-  gap: 40px;
+  margin-bottom: 20px;
+  // display: flex;
+  // align-items: center;
+  // gap: 40px;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 2fr;
+  gap: 10px;
 
   .resultTitle {
     font-family: "Public Sans", sans-serif;
@@ -425,8 +493,7 @@
     width: 90px;
   }
 
-  &.threeResultsValues{
+  &.threeResultsValues {
     align-items: flex-start;
-
   }
 }

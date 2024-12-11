@@ -91,10 +91,11 @@ function ProductionsArchive() {
   const handleMouseUp = () => {
     setIsDragging(false); // Stop dragging
   };
+  const opacityDetails=window.location.href.includes("/production/archive/details")
 
   return (
     <Box
-      className="ProductionsAccordionBlock"
+      className={opacityDetails?"ProductionsAccordionBlock":""}
       sx={{
         display: "flex",
         overflow: "hidden",
@@ -156,7 +157,7 @@ function ProductionsArchive() {
                 }}
               />
             </Box>
-
+            <Typography className="accordionSubtitle">Risultati</Typography>
             {/* Results Section */}
             <Box className="resultsSection">
               <Box className="resultItem">
@@ -169,7 +170,6 @@ function ProductionsArchive() {
                   <Typography className="resultWeight">4986 Kg</Typography>
                 </div>
               </Box>
-
               <Box className="resultItem threeResultsValues">
                 <Box className="resultDetails">
                   <Typography className="resultTitle">Semilavorati</Typography>
@@ -190,19 +190,30 @@ function ProductionsArchive() {
                   <Typography className="detail">In stock: 58 Kg</Typography>
                 </Box>
               </Box>
-
-              <Box className="resultItem">
-                <Typography className="resultTitle">In stock</Typography>
+              <Box className="resultItem threeResultsValues">
                 <Box className="resultDetails">
-                  <Typography className="detail">Distrutti: 732 Kg</Typography>
+                  <Typography className="resultTitle">Semilavorati</Typography>
+                  <Typography className="resultWeight">Germogli</Typography>
+                </Box>
+                <Box className="resultDetails">
+                  <Typography className="resultTitle">Utilizzati</Typography>
                   <Typography className="detail">
-                    Da distruggere: 58 Kg
+                    <span style={{ fontWeight: "700" }}> 732</span> Kg
                   </Typography>
+                  <Typography className="detail">In stock: 58 Kg</Typography>
+                </Box>
+                <Box className="resultDetails">
+                  <Typography className="resultTitle">In stock</Typography>
+                  <Typography className="detail">
+                    <span style={{ fontWeight: "700" }}> 58</span> Kg
+                  </Typography>
+                  <Typography className="detail">In stock: 58 Kg</Typography>
                 </Box>
               </Box>
             </Box>
+            <Typography className="accordionSubtitle">Risultati</Typography>
 
-            <Divider sx={{ margin: "16px 0" }} />
+            {/* <Divider sx={{ margin: "16px 0" }} /> */}
 
             {/* Data Section */}
             <Box className="dataSection">
@@ -213,20 +224,26 @@ function ProductionsArchive() {
                 <Typography className="dataDate">il 20/11/2024</Typography>
               </Box>
               <Typography className="dataHash">
-                8F87B6F61E7D7B9C86D992834B5BA454B4BA5B...
+                8fb7667496495bf679060883e61969e5464a4bba3544af65697db44b7b60d7cf
               </Typography>
             </Box>
 
             {/* Button Section */}
             <Box className="buttonSection">
               <Button
-                className="generateButton"
+                className="greenButton "
                 variant="contained"
                 color="success"
+                style={{ width: "100%" }}
               >
                 Genera Qrcode
               </Button>
             </Box>
+          </Box>
+          <Box className="slideArrowBtn">
+            <Button className="button">
+              <ArrowForwardIosIcon />
+            </Button>
           </Box>
         </Box>
 
