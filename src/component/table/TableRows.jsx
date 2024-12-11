@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TableBody,
   TableRow,
@@ -7,6 +7,7 @@ import {
   IconButton,
   Avatar,
   styled,
+  TextField,
 } from "@mui/material";
 import CustomCheckbox from "./Checkbox";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
@@ -182,7 +183,8 @@ const TableRows = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log('data: ', data);
+  const [dataState, setDataState] = useState(data || []);
+
 
   const isSubLeadDocumenti =
     location.pathname === "/vendite/sub-lead/Documenti";
@@ -205,6 +207,14 @@ const TableRows = ({
       .toFixed(2);
     return `${total}€`;
   };
+
+  const handleInputChange = (event, index, field) => {
+    const updatedData = [...dataState];
+    updatedData[index][field] = event.target.value;
+    setDataState(updatedData); // Update the state with the modified data
+  };
+
+
   const dataRender = (navData) => {
     switch (navData) {
       case "personale":
@@ -2810,8 +2820,23 @@ const TableRows = ({
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.dataCarico || ""}
+                        onChange={(event) => handleInputChange(event, index, "dataCarico")}
+                        variant="outlined"
+                        size="small"
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.quantita || ""}
+                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        variant="outlined"
+                        size="small"
+                        type="number"
+                      />
+                    </StyledTableCell>
                     <StyledTableCell>
                       <IconButton
                         size="small"
@@ -2860,8 +2885,23 @@ const TableRows = ({
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.dataCarico || ""}
+                        onChange={(event) => handleInputChange(event, index, "dataCarico")}
+                        variant="outlined"
+                        size="small"
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.quantita || ""}
+                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        variant="outlined"
+                        size="small"
+                        type="number"
+                      />
+                    </StyledTableCell>
                     <StyledTableCell>
                       <IconButton
                         size="small"
@@ -2888,6 +2928,71 @@ const TableRows = ({
           </TableBody>
         );
       case "Prodotto":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.codProdotto || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.dataCarico || ""}
+                        onChange={(event) => handleInputChange(event, index, "dataCarico")}
+                        variant="outlined"
+                        size="small"
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <TextField
+                        value={row.quantita || ""}
+                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        variant="outlined"
+                        size="small"
+                        type="number"
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <ArrowUpwardIcon />
+                        <span>Carica</span>
+                      </IconButton>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={8} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Automatico":
         return (
           <TableBody>
             {data?.length > 0 ? (
@@ -2937,7 +3042,6 @@ const TableRows = ({
             )}
           </TableBody>
         );
-
       case "feriePermisse":
         return (
           <TableBody>
