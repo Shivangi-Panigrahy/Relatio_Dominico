@@ -2772,7 +2772,14 @@ const TableRows = ({
                 .map((row, index) => (
                   <StyledTableRow key={row.codProdotto || index}>
                     <StyledTableCell align="center">
-                      <input type="checkbox" /> {/* Checkbox for selection */}
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
                     </StyledTableCell>
                     <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>

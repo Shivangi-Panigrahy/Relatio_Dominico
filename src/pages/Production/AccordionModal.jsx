@@ -25,6 +25,7 @@ const OrdiniData = [
 ];
 
 export default function AccordionModal({ open, onClose, label, message, json }) {
+    console.log(label,"lable")
 
     const columns = label === "Attrezzature" ? [
         { field: "ndiserie", headerName: "N di serie", width: 100 },

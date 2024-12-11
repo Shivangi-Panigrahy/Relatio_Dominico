@@ -97,7 +97,7 @@ const CustomTable = ({ data, form, columns, navData }) => {
   const [activeFilters, setActiveFilters] = useState({});
   const option = ["Option 1", "Option 2", "Option 3"];
 
-
+console.log(navData,"navdat")
   const chipsetData = ["Approvato", "In Attesa", "Completato", "Rifiutato"]
   const chipsetLeadData = ["Da contattare", "Contattati", "In trattativa"]
 

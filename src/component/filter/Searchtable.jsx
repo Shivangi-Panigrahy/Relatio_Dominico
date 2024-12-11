@@ -1213,6 +1213,11 @@ const SearchTable = ({
               ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
               : ""
           }
+                 ${
+            navData === "Productions"
+              ? "colaboratoryInvoiceFilter"
+              : ""
+          }
           ${
             navData === "mezziStabiliment"
               ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
