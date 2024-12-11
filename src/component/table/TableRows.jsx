@@ -2243,7 +2243,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  onClick={() => navigate("/production/archive/details")}
+                    onClick={() => navigate("/production/archive/details")}
                   >
                     {/* Custom Checkbox */}
                     <StyledTableCell align="center">
@@ -2698,7 +2698,7 @@ const TableRows = ({
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={row.id || index}>
-                  <StyledTableCell align="center">
+                    <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
                         onChange={(event) => handleRowClick(event, row.id)}
@@ -2730,7 +2730,7 @@ const TableRows = ({
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={row.id || index}>
-                       <StyledTableCell align="center">
+                    <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
                         onChange={(event) => handleRowClick(event, row.id)}
@@ -2763,6 +2763,14 @@ const TableRows = ({
                 .map((row, index) => (
                   <StyledTableRow key={row.id || index}>
                     <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
                     </StyledTableCell>
                     <StyledTableCell>{row.targaTrattore || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.rimorchio || "N/A"}</StyledTableCell>
@@ -2838,7 +2846,14 @@ const TableRows = ({
                 .map((row, index) => (
                   <StyledTableRow key={row.codProdotto || index}>
                     <StyledTableCell align="center">
-                      <input type="checkbox" /> {/* Checkbox for selection */}
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
                     </StyledTableCell>
                     <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
@@ -2880,7 +2895,7 @@ const TableRows = ({
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => (
                   <StyledTableRow key={row.codProdotto || index}>
-                      <StyledTableCell align="center">
+                    <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
                         onChange={(event) => handleRowClick(event, row.id)}
