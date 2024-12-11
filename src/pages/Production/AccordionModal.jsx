@@ -66,7 +66,18 @@ export default function AccordionModal({ open, onClose, label, message, json }) 
         { field: "dataCarico", headerName: "Data carico", width: 120 },
         { field: "quantita", headerName: "Q.tà", width: 90 },
         { field: "azione", headerName: "Azione", width: 90 },
-    ] : []; // Default to empty array if no label matches
+    ] : label === "Prodotto" ? [
+        { field: "codProdotto", headerName: "Cod. prod.", width: 100 },
+        { field: "categoria", headerName: "Categoria", width: 100 },
+        { field: "nome", headerName: "Nome", width: 100 },
+        { field: "unitaDiMisura", headerName: "U.M.", width: 90 },
+        { field: "dataCarico", headerName: "Data carico", width: 120 },
+        { field: "dataCarico", headerName: "Data carico", width: 120 },
+        { field: "quantita", headerName: "Q.tà", width: 90 },
+        { field: "azione", headerName: "Azione", width: 90 },
+    ] 
+    
+    : []; // Default to empty array if no label matches
     return (
         <Modal
             open={open}
