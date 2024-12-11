@@ -21,6 +21,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import AccordionModal from "../../pages/Production/AccordionModal";
 import { ReactComponent as BlockchainBtnImg } from "../../assets/BlockchainBtnImg.svg";
 import { ReactComponent as BlockchainBtnHover } from "../../assets/BlockchainBtnHover.svg";
+import { ReactComponent as Blockchainicon } from "../../assets/blockchainicon.svg";
 
 const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(2),
@@ -93,76 +94,76 @@ function ProductionsAccordion() {
         setIsDragging(false); // Stop dragging
     };
 
-    return (
-        <Box
-            className="ProductionsAccordionBlock"
-            sx={{
-                display: "flex",
-                overflow: "hidden",
-                position: "relative",
-            }}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-        >
-            <Box
-                className="ProductionsAccordionRow"
-                sx={{
-                    display: "flex",
-                    transform: `translateX(${position}px)`,
-                    transition: isDragging ? "none" : "transform 0.3s ease", // Smooth return only if not dragging
-                    cursor: "grab",
-                }}
-                onMouseDown={handleMouseDown}
-            >
-                {accordionData.map((item, index) => {
-                    return (
-                        <Box className="ProductionsAccordionCard" key={item.id}>
-                            <Box className="ProductionsAccordionCard__inner">
-                                <Box className="cardHeader">
-                                    <Typography className="title" variant="h3">
-                                        {item.maintitle} {/* Dynamic title */}
-                                    </Typography>
-                                    <Box className="cardHeader__buttons">
-                                        <IconButton>
-                                            <img src={Inventorybtn} alt="Inventorybtn" />
-                                        </IconButton>
-                                        <Chip label={item.status} className="customChip" />{" "}
-                                        {/* Dynamic status */}
-                                    </Box>
-                                </Box>
-                                <Divider sx={{ margin: "16px 0" }} />
-                                <Box className="giorniDateBlock">
-                                    <DatePickerTime
-                                        label="Data Inizio"
-                                        value={startDate}
-                                        onDateChange={(formattedDate) => {
-                                            handleMinMaxDate(0, formattedDate);
-                                            handleFilterSelect("StartDate", formattedDate);
-                                            setStartDate(dayjs(formattedDate));
-                                        }}
-                                    />
-                                    <Typography className="giorni">
-                                        7 <br /> Giorni
-                                    </Typography>
-                                    <DatePickerTime
-                                        label="Data Fine"
-                                        value={endDate}
-                                        onDateChange={(formattedDate) => {
-                                            handleMinMaxDate(1, formattedDate);
-                                            handleFilterSelect("EndDate", formattedDate);
-                                            setEndDate(dayjs(formattedDate));
-                                        }}
-                                    />
-                                </Box>
-                                <Box className="ProductionsAccordionList">
-                                    {item?.subtitle?.length > 0 ? (
-                                        item.subtitle.map((subtitleItem, index) => {
-                                            return (
-                                                <div key={index}>
-                                                    <Typography className="accordionSubtitle">
-                                                        {subtitleItem.name}
-                                                    </Typography>
+  return (
+    <Box
+      className="ProductionsAccordionBlock"
+      sx={{
+        display: "flex",
+        overflow: "hidden",
+        position: "relative",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
+      <Box
+        className="ProductionsAccordionRow"
+        sx={{
+          display: "flex",
+          transform: `translateX(${position}px)`,
+          transition: isDragging ? "none" : "transform 0.3s ease", // Smooth return only if not dragging
+          cursor: "pointer",
+        }}
+        onMouseDown={handleMouseDown}
+      >
+        {accordionData.map((item, index) => {
+          return (
+            <Box className="ProductionsAccordionCard" key={item.id}>
+              <Box className="ProductionsAccordionCard__inner">
+                <Box className="cardHeader">
+                  <Typography className="title" variant="h3">
+                    {item.maintitle} {/* Dynamic title */}
+                  </Typography>
+                  <Box className="cardHeader__buttons">
+                    <IconButton>
+                      <img src={Inventorybtn} alt="Inventorybtn" />
+                    </IconButton>
+                    <Chip label={item.status} className="customChip" />{" "}
+                    {/* Dynamic status */}
+                  </Box>
+                </Box>
+                <Divider sx={{ margin: "16px 0" }} />
+                <Box className="giorniDateBlock">
+                  <DatePickerTime
+                    label="Data Inizio"
+                    value={startDate}
+                    onDateChange={(formattedDate) => {
+                      handleMinMaxDate(0, formattedDate);
+                      handleFilterSelect("StartDate", formattedDate);
+                      setStartDate(dayjs(formattedDate));
+                    }}
+                  />
+                  <Typography className="giorni">
+                    7 <br /> Giorni
+                  </Typography>
+                  <DatePickerTime
+                    label="Data Fine"
+                    value={endDate}
+                    onDateChange={(formattedDate) => {
+                      handleMinMaxDate(1, formattedDate);
+                      handleFilterSelect("EndDate", formattedDate);
+                      setEndDate(dayjs(formattedDate));
+                    }}
+                  />
+                </Box>
+                <Box className="ProductionsAccordionList">
+                  {item?.subtitle?.length > 0 ? (
+                    item.subtitle.map((subtitleItem, index) => {
+                      return (
+                        <div key={index}>
+                          <Typography className="accordionSubtitle">
+                            {subtitleItem.name}
+                          </Typography>
 
                                                     {subtitleItem?.accordion?.length > 0 ? (
                                                         subtitleItem.accordion.map((accordionItem) => (
@@ -259,7 +260,7 @@ function ProductionsAccordion() {
                                                                                                 );
                                                                                             }}
                                                                                         >
-                                                                                            <Typography className="accordionDetailBox__textListRow__title">
+                                                                                            <Typography className="title">
                                                                                                 {detail.label}
                                                                                             </Typography>
                                                                                             <Box className="accordionDetailBox__countBox">
@@ -290,17 +291,39 @@ function ProductionsAccordion() {
                                         <Typography>No subtitles available</Typography>
                                     )}
 
-                                    {/* Footer buttons */}
-                                    <Box className="footerButtons">
-                                        <Button className="button1" type="button">
-                                            <p className="text">Complata attivita</p>
-                                        </Button>
-                                        <Button className={(index !== 0 && index !== 1) ? "btn blockchainBtn" : "kkk123"} type="button">
-                                            <p className="text">
-                                                {/* <img src={BlockchainBtnImg} alt="" /> */}
-                                                <BlockchainBtnImg />
-                                                Invia dati in blockchain
-                                            </p>
+                  {/* Footer buttons */}
+                  <Box className="footerButtons">
+                    <Button className="button1" type="button">
+                      <p className="text">Complata attivita</p>
+                    </Button>
+                    <Button
+                      className={
+                        index !== 0 && index !== 1
+                          ? "btn blockchainBtn"
+                          : "kkk123"
+                      }
+                      type="button"
+                    >
+                      <p className="text">
+                        {index !== 0 && index !== 1 ? (
+                          <BlockchainBtnImg/>
+                        ) : (
+                          <Blockchainicon />
+                        )}
+
+                        {index !== 0 && index !== 1 ? (
+                          <span className="defaultText">
+                            Dati inviati in blockchain
+                          </span>
+                        ) : (
+                          <>
+                            <span className="defaultText">
+                              Dati inviati in blockchain
+                            </span>
+                            <span className="hoverText">Controlla invio</span>
+                          </>
+                        )}
+                      </p>
 
                                             {index !== 0 && index !== 1 && (
                                                 <BlockchainBtnHover className="hoverImg" />

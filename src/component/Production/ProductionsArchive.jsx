@@ -385,9 +385,9 @@ function ProductionsArchive() {
                                             );
                                           }}
                                         >
-                                          <Typography className="accordionDetailBox__textListRow__title">
+                                          <p className="accordionDetailBox__textListRow__title">
                                             {detail.label}
-                                          </Typography>
+                                          </p>
                                           <Box className="accordionDetailBox__countBox">
                                             <Typography className="accordionDetailBox__countBox__text">
                                               {detail.count}

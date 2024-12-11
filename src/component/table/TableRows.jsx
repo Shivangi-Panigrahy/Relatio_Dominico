@@ -18,6 +18,7 @@ import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
 import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
 import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
+import { ReactComponent as ArrowDown } from "../../assets/ArrowDown.svg";
 import { MoreVert } from "@mui/icons-material";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
@@ -2840,14 +2841,9 @@ const TableRows = ({
                     <StyledTableCell>
                       <IconButton
                         size="small"
-                        sx={{
-                          mr: 1,
-                          color: "action.active",
-                          fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
-                        }}
+                        className="caricaBtn "
                       >
-                        <ArrowUpwardIcon />
+                        <ArrowDown />
                         <span>Carica</span>
                       </IconButton>
                     </StyledTableCell>
@@ -2905,15 +2901,10 @@ const TableRows = ({
                     <StyledTableCell>
                       <IconButton
                         size="small"
-                        sx={{
-                          mr: 1,
-                          color: "action.active",
-                          fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
-                        }}
+                        className="caricaBtn "
                       >
-                        <ArrowUpwardIcon />
-                        <span> Carica</span>
+                        <ArrowDown />
+                        <span>Carica</span>
                       </IconButton>
                     </StyledTableCell>
                   </StyledTableRow>
@@ -2970,14 +2961,9 @@ const TableRows = ({
                     <StyledTableCell>
                       <IconButton
                         size="small"
-                        sx={{
-                          mr: 1,
-                          color: "action.active",
-                          fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
-                        }}
+                        className="caricaBtn "
                       >
-                        <ArrowUpwardIcon />
+                        <ArrowDown />
                         <span>Carica</span>
                       </IconButton>
                     </StyledTableCell>

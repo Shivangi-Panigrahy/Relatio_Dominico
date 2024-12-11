@@ -146,6 +146,7 @@
                 padding: 10px 15px;
                 border-radius: 10px;
                 gap: 15px;
+                justify-content: space-between;
 
                 .dateCols {
                   display: flex;
@@ -190,17 +191,24 @@
                 padding: 10px 15px;
                 border-radius: 10px;
                 gap: 15px;
-
-                &__text {
+              
+                .title {
                   font-size: 16px;
                   line-height: 19px;
                   font-weight: 400;
-                  color: #666666;
+                  color: #666666; // Default color
                 }
-
+              
                 &:hover {
+                  .title {
+                   font-weight: 700;
+                  }
+                  .accordionDetailBox__countBox  {
+                    background-color: #57c70033 !important;
+                  }
                 }
               }
+              
             }
           }
 
@@ -218,7 +226,7 @@
 
               .text {
                 background-color: #57c70080;
-                color: #4361ee;
+                color: #3F37C9;
                 font-size: 16px;
                 line-height: 20px;
                 font-weight: 700;
@@ -226,19 +234,20 @@
                 display: block;
                 width: 100%;
                 border-radius: 12px;
-                padding: 8px;
+                padding: 5px;
                 border: dashed 1px #57c700;
                 text-transform: capitalize;
                 margin: 0;
+                transition: all 0.5s;
               }
 
               &:hover {
                 padding: 4px;
-
                 .text {
                   background-color: #57c700;
                   padding: 10px;
                   color: #fff;
+                  transition: all 0.5s;
                 }
               }
             }
@@ -422,6 +431,16 @@
     overflow: hidden;
     padding: 4px 6px;
     transition: 0.5s;
+     &:hover {
+      .text {
+      .hoverText {
+        display: block;
+      }
+      .defaultText {
+        display: none;
+      }
+     }
+    }
   }
 
   .text {
@@ -437,6 +456,10 @@
     color: white;
     font-size: 15px;
     padding: 7px;
+    text-transform: capitalize;
+    .hoverText {
+      display: none;
+    }
   }
 
   .hoverImg {
@@ -450,10 +473,6 @@
     .text {
       background-color: #57c700;
     }
-    :hover::after {
-      content: "Reply!"
-    }
-
     .hoverImg {
       top: 0;
     }
