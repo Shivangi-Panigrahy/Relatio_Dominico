@@ -410,6 +410,55 @@
     }
   }
 }
+.kkk123 {
+  &.MuiButtonBase-root {
+    background-color: #f2f2f2;
+    // position: absolute;
+    // bottom: 0;
+    // width: calc(100% - 30px);
+    // left: 50%;
+    // transform: translate(-50%, 0);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 4px 6px;
+    transition: 0.5s;
+  }
+
+  .text {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+    background-color: #57c700;
+    border: 1px dashed #cccccc;
+    border-radius: 9px;
+    color: white;
+    font-size: 15px;
+    padding: 7px;
+  }
+
+  .hoverImg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    .text {
+      background-color: #57c700;
+    }
+    :hover::after {
+      content: "Reply!"
+    }
+
+    .hoverImg {
+      top: 0;
+    }
+  }
+}
 
 .dataSection {
   background-color: #57c700;

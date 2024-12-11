@@ -66,7 +66,7 @@ function ProductionsAccordion() {
   const [isDragging, setIsDragging] = useState(false); // Track drag state
   const [startX, setStartX] = useState(0); // Track initial click position
   const cardWidth = 300; // Approximate width of each card
-  const containerWidth = 630; // Approximate width of the container (adjust accordingly)
+  const containerWidth = 250; // Approximate width of the container (adjust accordingly)
   const totalCards = accordionData.length;
   const maxPosition = -(totalCards * cardWidth - containerWidth);
 
@@ -114,7 +114,7 @@ function ProductionsAccordion() {
         }}
         onMouseDown={handleMouseDown}
       >
-        {accordionData.map((item) => {
+        {accordionData.map((item, index) => {
           return (
             <Box className="ProductionsAccordionCard" key={item.id}>
               <Box className="ProductionsAccordionCard__inner">
@@ -292,13 +292,17 @@ function ProductionsAccordion() {
                     <Button className="button1" type="button">
                       <p className="text">Complata attivita</p>
                     </Button>
-                    <Button className="btn blockchainBtn" type="button">
+                    <Button className={(index !== 0 && index !== 1)? "btn blockchainBtn":"kkk123"} type="button">
                       <p className="text">
                         {/* <img src={BlockchainBtnImg} alt="" /> */}
                         <BlockchainBtnImg />
                         Invia dati in blockchain
                       </p>
-                      <BlockchainBtnHover className="hoverImg" />
+
+                      {index !== 0 && index !== 1 && (
+                        <BlockchainBtnHover className="hoverImg" />
+                      )}
+
                       {/* <img  src={BlockchainBtnHover} alt="" /> */}
                     </Button>
                   </Box>
