@@ -91,11 +91,10 @@ function ProductionsArchive() {
   const handleMouseUp = () => {
     setIsDragging(false); // Stop dragging
   };
-  const opacityDetails=window.location.href.includes("/production/archive/details")
 
   return (
     <Box
-      className={opacityDetails?"ProductionsAccordionBlock":""}
+      className="ProductionsAccordionBlock opacityBlock"
       sx={{
         display: "flex",
         overflow: "hidden",
