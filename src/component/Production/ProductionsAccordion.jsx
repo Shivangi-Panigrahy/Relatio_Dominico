@@ -66,7 +66,7 @@ function ProductionsAccordion() {
   const [isDragging, setIsDragging] = useState(false); // Track drag state
   const [startX, setStartX] = useState(0); // Track initial click position
   const cardWidth = 300; // Approximate width of each card
-  const containerWidth = 900; // Approximate width of the container (adjust accordingly)
+  const containerWidth = 630; // Approximate width of the container (adjust accordingly)
   const totalCards = accordionData.length;
   const maxPosition = -(totalCards * cardWidth - containerWidth);
 

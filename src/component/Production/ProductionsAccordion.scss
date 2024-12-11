@@ -5,8 +5,8 @@
     align-items: flex-start;
     gap: 17px;
     .ProductionsAccordionCard {
-      min-width: 475px;
-      max-width: 475px;
+      min-width: 535px;
+      max-width: 535px;
       position: relative;
       height: 100%;
       display: flex;
@@ -95,7 +95,7 @@
                 background-color: #ffff;
                 border-radius: 10px;
                 min-height: 38px;
-                padding: 0 10px;
+                padding: 0 1px 0 5px;
 
                 &.Mui-expanded,
                 &:hover {
@@ -292,17 +292,14 @@
         justify-content: center;
         position: relative;
         transition: all 0.5s;
-
         .button {
           min-width: unset;
           border-radius: 50%;
           transition: all 0.5s;
-
           svg {
             color: #666666;
           }
         }
-
         &::after,
         &::before {
           position: absolute;
@@ -312,22 +309,19 @@
           width: 2px;
           top: 34px;
           bottom: 0;
+          transition: all 0.5s;
         }
-
         &::before {
           bottom: 34px;
           top: auto;
         }
-
         &:hover {
           .button {
             svg {
               color: #57c700;
             }
           }
-
           border-color: #57c700;
-
           &::after,
           &::before {
             background-color: #57c700;
