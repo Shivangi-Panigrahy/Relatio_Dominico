@@ -364,19 +364,19 @@ function ProductionsAccordion() {
                           <Blockchainicon />
                         )}
 
-                        {index !== 0 && index !== 1 ? (
-                          <span className="defaultText">
-                            Dati inviati in blockchain
-                          </span>
-                        ) : (
-                          <>
-                            <span className="defaultText">
-                              Dati inviati in blockchain
-                            </span>
-                            <span className="hoverText">Controlla invio</span>
-                          </>
-                        )}
-                      </p>
+                                                {index !== 0 && index !== 1 ? (
+                                                    <span className="defaultText">
+                                                        Dati inviati in blockchain
+                                                    </span>
+                                                ) : (
+                                                    <>
+                                                        <span className="defaultText">
+                                                            Dati inviati in blockchain
+                                                        </span>
+                                                        <span className="hoverText">Controlla invio</span>
+                                                    </>
+                                                )}
+                                            </p>
 
                       {index !== 0 && index !== 1 && (
                         <BlockchainBtnHover className="hoverImg" />
