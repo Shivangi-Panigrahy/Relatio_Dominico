@@ -118,7 +118,7 @@ const SearchTable = ({
       navData === "attrezzatureStabiliment" ||
       navData === "collaboratoriStablimenti" || navData === "Attrezzature"||
       navData === "Collaboratori"||
-      navData === "Mezzi"||navData === "Prodotto"? (
+      navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati"? (
         ""
       ) : (
         <>
@@ -615,7 +615,7 @@ const SearchTable = ({
         navData === "conf_prodotti" ||
         navData === "lis_prodotti"
         ||navData === "Attrezzature"||
-        navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto" ? (
+        navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati" ? (
         <></>
       ) : navData === "documenti" ? (
         <>
@@ -1228,7 +1228,7 @@ const SearchTable = ({
         navData === "conf_prodotti" ||
         navData === "lis_prodotti"||
          navData === "Attrezzature"||
-         navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"
+         navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati"
           ? ""
           : `
       ${
