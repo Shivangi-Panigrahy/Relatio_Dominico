@@ -41,6 +41,7 @@ function ProductionsAccordion() {
     json: "",
     navData: "",
   });
+  const [dates, setDates] = useState({})
 
   const handleLabelClick = (label, Messg, json, navData) => {
     setSelectedDetail({ label, Messg, json, navData });
@@ -57,13 +58,7 @@ function ProductionsAccordion() {
     console.log(`Filter applied: ${key} = ${value}`);
   };
 
-  const handleMinMaxDate = (type, date) => {
-    if (type === 0) {
-      setStartDate(date);
-    } else {
-      setEndDate(date);
-    }
-  };
+ 
   const [position, setPosition] = useState(0); // Track the horizontal position
   const [isDragging, setIsDragging] = useState(false); // Track drag state
   const [startX, setStartX] = useState(0); // Track initial click position
@@ -110,6 +105,25 @@ function ProductionsAccordion() {
       [id]: (prevState[id] || 0) + 1 >= colors.length ? 0 : (prevState[id] || 0) + 1,
     }));
   };
+  const handleMinMaxDate = (type, date, id) => {
+    setDates((prevDates) => ({
+      ...prevDates,
+      [id]: {
+        ...prevDates[id],
+        [type === 0 ? 'startDate' : 'endDate']: dayjs(date),
+      },
+    }));
+  };
+  // Calculate the difference in days for each item
+  const calculateDaysDifference = (id) => {
+    const start = dayjs(dates[id]?.startDate);
+    const end = dayjs(dates[id]?.endDate);
+    if (!start.isValid() || !end.isValid()) {
+      return 0; // If dates are invalid, return 0
+    }
+    const diff = end.diff(start, "day"); // Adding 1 to include both start and end dates
+    return diff > 0 ? diff : 0; // Ensure non-negative difference
+  };
 
   return (
     <Box
@@ -153,24 +167,28 @@ function ProductionsAccordion() {
                 <Box className="giorniDateBlock">
                   <DatePickerTime
                     label="Data Inizio"
-                    value={startDate}
+                    value={dates[item.id]?.startDate || null}
                     onDateChange={(formattedDate) => {
-                      handleMinMaxDate(0, formattedDate);
-                      handleFilterSelect("StartDate", formattedDate);
-                      setStartDate(dayjs(formattedDate));
+                      const validDate = dayjs(formattedDate, "DD/MM/YYYY");
+                      if (validDate.isValid()) {
+                        handleMinMaxDate(0, validDate, item.id);
+                      }
                     }}
+                    format="DD/MM/YYYY"
                   />
                   <Typography className="giorni">
-                    7 <br /> Giorni
+                    {calculateDaysDifference(item.id)} <br /> Giorni
                   </Typography>
                   <DatePickerTime
                     label="Data Fine"
-                    value={endDate}
+                    value={dates[item.id]?.endDate || null}
                     onDateChange={(formattedDate) => {
-                      handleMinMaxDate(1, formattedDate);
-                      handleFilterSelect("EndDate", formattedDate);
-                      setEndDate(dayjs(formattedDate));
+                      const validDate = dayjs(formattedDate, "DD/MM/YYYY");
+                      if (validDate.isValid()) {
+                        handleMinMaxDate(1, validDate, item.id);
+                      }
                     }}
+                    format="DD/MM/YYYY"
                   />
                 </Box>
                 <Box className="ProductionsAccordionList">

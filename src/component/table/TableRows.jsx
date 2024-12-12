@@ -20,7 +20,10 @@ import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
 import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
 import { ReactComponent as ArrowDown } from "../../assets/ArrowDown.svg";
 import { MoreVert } from "@mui/icons-material";
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -186,7 +189,6 @@ const TableRows = ({
   const location = useLocation();
   const [dataState, setDataState] = useState(data || []);
 
-
   const isSubLeadDocumenti =
     location.pathname === "/vendite/sub-lead/Documenti";
   const isFornitoriDocumenti =
@@ -209,12 +211,16 @@ const TableRows = ({
     return `${total}€`;
   };
 
-  const handleInputChange = (event, index, field) => {
+  const handleInputChange = (newValue, index, field) => {
+    console.log(newValue, index, field, "newValue, index, field");
     const updatedData = [...dataState];
-    updatedData[index][field] = event.target.value;
-    setDataState(updatedData); // Update the state with the modified data
-  };
 
+    // Format the date as DD/MM/YYYY if newValue is a valid Day.js object
+    const value = newValue ? dayjs(newValue).format("DD/MM/YYYY") : null;
+
+    updatedData[index][field] = value;
+    setDataState(updatedData);
+  };
 
   const dataRender = (navData) => {
     switch (navData) {
@@ -282,9 +288,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -294,9 +300,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/ordini") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/ordini/sub-ordini")
                         : navigate("/acquisti/ordini/sub-ordini")
                     }
@@ -396,7 +402,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
 
-                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                    // onClick={() => navigate("/acquisti/sub-ordini")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -454,7 +460,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
 
-                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                    // onClick={() => navigate("/acquisti/sub-ordini")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -597,8 +603,8 @@ const TableRows = ({
                       window.location.href.includes("/acquisti/fornitori")
                         ? navigate("/acquisti/fornitori/Contatti")
                         : window.location.href.includes("/angrafiche/clienti")
-                          ? navigate("/angrafiche/clienti/Contatti")
-                          : navigate("/angrafiche/fornitori/Contatti")
+                        ? navigate("/angrafiche/clienti/Contatti")
+                        : navigate("/angrafiche/fornitori/Contatti")
                     }
                   >
                     <StyledTableCell align="center">
@@ -687,9 +693,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 .map((row, index) => (
@@ -698,9 +704,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/budget") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/budget/sub-budget")
                         : navigate("/acquisti/budget/sub-budget")
                     }
@@ -806,9 +812,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
 
@@ -819,9 +825,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/preventivi") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/preventivi/sub-preventivi")
                         : navigate("/acquisti/preventivi/sub-preventivi")
                     }
@@ -1158,7 +1164,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    // onClick={() => navigate("/acquisti/fornitori/Contatti")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1557,7 +1563,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1618,7 +1624,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1685,7 +1691,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1752,7 +1758,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1819,7 +1825,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1886,7 +1892,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1935,7 +1941,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2126,11 +2132,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -2186,8 +2194,12 @@ const TableRows = ({
 
                     {/* Table Cells */}
                     <StyledTableCell>{row.numero || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row["creatoil"] || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.prodottofinale || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row["creatoil"] || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {row.prodottofinale || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.processo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.da || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.a || "N/A"}</StyledTableCell>
@@ -2208,11 +2220,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -2242,7 +2256,6 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-
         );
       case "Archive":
         return (
@@ -2270,13 +2283,21 @@ const TableRows = ({
 
                     {/* Table Cells */}
                     <StyledTableCell>{row.numero || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row["creatoil"] || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row["creatoil"] || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.lotto || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.prodotto || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.fase || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.stabilimento || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.data_inizio || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row["data_fine"] || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.stabilimento || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {row.data_inizio || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {row["data_fine"] || "N/A"}
+                    </StyledTableCell>
                     {/* <StyledTableCell>{row["mod_da"] || "N/A"}</StyledTableCell> */}
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
@@ -2285,7 +2306,6 @@ const TableRows = ({
                       <Avatar1 />
                     </StyledTableCell>
                     <StyledTableCell>{row.stato || "N/A"}</StyledTableCell>
-
 
                     {/* Status Chip */}
                     {/* <StyledTableCell align="center">
@@ -2341,12 +2361,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2382,12 +2398,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2423,12 +2435,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2464,12 +2472,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2508,12 +2512,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2539,7 +2539,7 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-        )
+        );
       case "ConfigatorModalScarti":
         return (
           <TableBody>
@@ -2551,12 +2551,8 @@ const TableRows = ({
                     <StyledTableCell align="center">
                       <CustomCheckbox
                         checked={isSelected(row.id)}
-                        onChange={(event) =>
-                          handleRowClick(event, row.id)
-                        }
-                        onClick={(event) =>
-                          event.stopPropagation()
-                        }
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
                         inputProps={{
                           "aria-labelledby": row.id,
                         }}
@@ -2582,7 +2578,7 @@ const TableRows = ({
               </StyledTableRow>
             )}
           </TableBody>
-        )
+        );
       case "RisultatiConfigatorModalProdotti":
         return (
           <TableBody>
@@ -2645,7 +2641,7 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell >
+                    <TableCell>
                       <IconButton sx={{ margin: "0 auto !important" }}>
                         <MoreVert />
                       </IconButton>
@@ -2684,7 +2680,7 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell >
+                    <TableCell>
                       <IconButton sx={{ margin: "0 auto !important" }}>
                         <MoreVert />
                       </IconButton>
@@ -2721,7 +2717,9 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ndiserie || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.attrezzatura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.attrezzatura || "N/A"}
+                    </StyledTableCell>
                   </StyledTableRow>
                 ))
             ) : (
@@ -2751,7 +2749,9 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.iDcollaboratore || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.iDcollaboratore || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                   </StyledTableRow>
@@ -2783,7 +2783,9 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.targaTrattore || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.targaTrattore || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.rimorchio || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nomeMezzo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
@@ -2816,33 +2818,60 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.codProdotto || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>
+                      {row.unitaDiMisura || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    {/* <StyledTableCell>
                       <TextField
                         value={row.dataCarico || ""}
                         onChange={(event) => handleInputChange(event, index, "dataCarico")}
                         variant="outlined"
                         size="small"
                       />
+                    </StyledTableCell> */}
+
+                    <StyledTableCell>
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker
+                          value={
+                            row.dataCarico
+                              ? dayjs(row.dataCarico, "DD/MM/YY") // Adjust format to DD/MM/YY
+                              : null
+                          }
+                          onChange={(newValue) =>
+                            handleInputChange(newValue, index, "dataCarico")
+                          }
+                          inputFormat="DD/MM/YY" // Display format set to DD/MM/YY
+                          renderInput={(params) => (
+                            <TextField
+                              {...params}
+                              variant="outlined"
+                              size="small"
+                            />
+                          )}
+                        />
+                      </LocalizationProvider>
                     </StyledTableCell>
+
                     <StyledTableCell>
                       <TextField
                         value={row.quantita || ""}
-                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        onChange={(event) =>
+                          handleInputChange(event, index, "quantita")
+                        }
                         variant="outlined"
                         size="small"
                         type="number"
                       />
                     </StyledTableCell>
                     <StyledTableCell>
-                      <IconButton
-                        size="small"
-                        className="caricaBtn "
-                      >
+                      <IconButton size="small" className="caricaBtn ">
                         <ArrowDown />
                         <span>Carica</span>
                       </IconButton>
@@ -2876,15 +2905,21 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.codProdotto || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.unitaDiMisura || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>
                       <TextField
                         value={row.dataCarico || ""}
-                        onChange={(event) => handleInputChange(event, index, "dataCarico")}
+                        onChange={(event) =>
+                          handleInputChange(event, index, "dataCarico")
+                        }
                         variant="outlined"
                         size="small"
                       />
@@ -2892,17 +2927,16 @@ const TableRows = ({
                     <StyledTableCell>
                       <TextField
                         value={row.quantita || ""}
-                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        onChange={(event) =>
+                          handleInputChange(event, index, "quantita")
+                        }
                         variant="outlined"
                         size="small"
                         type="number"
                       />
                     </StyledTableCell>
                     <StyledTableCell>
-                      <IconButton
-                        size="small"
-                        className="caricaBtn "
-                      >
+                      <IconButton size="small" className="caricaBtn ">
                         <ArrowDown />
                         <span>Carica</span>
                       </IconButton>
@@ -2936,15 +2970,21 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.codProdotto || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.unitaDiMisura || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>
                       <TextField
                         value={row.dataCarico || ""}
-                        onChange={(event) => handleInputChange(event, index, "dataCarico")}
+                        onChange={(event) =>
+                          handleInputChange(event, index, "dataCarico")
+                        }
                         variant="outlined"
                         size="small"
                       />
@@ -2952,17 +2992,16 @@ const TableRows = ({
                     <StyledTableCell>
                       <TextField
                         value={row.quantita || ""}
-                        onChange={(event) => handleInputChange(event, index, "quantita")}
+                        onChange={(event) =>
+                          handleInputChange(event, index, "quantita")
+                        }
                         variant="outlined"
                         size="small"
                         type="number"
                       />
                     </StyledTableCell>
                     <StyledTableCell>
-                      <IconButton
-                        size="small"
-                        className="caricaBtn "
-                      >
+                      <IconButton size="small" className="caricaBtn ">
                         <ArrowDown />
                         <span>Carica</span>
                       </IconButton>
@@ -2996,10 +3035,14 @@ const TableRows = ({
                         }}
                       />
                     </StyledTableCell>
-                    <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.codProdotto || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
-                    <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.unitaDiMisura || "N/A"}
+                    </StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
@@ -3028,56 +3071,60 @@ const TableRows = ({
             )}
           </TableBody>
         );
-        case "Sensori":
-          return (
-            <TableBody>
-              {data?.length > 0 ? (
-                data
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => (
-                    <StyledTableRow key={row.codProdotto || index}>
-                      <StyledTableCell align="center">
-                        <CustomCheckbox
-                          checked={isSelected(row.id)}
-                          onChange={(event) => handleRowClick(event, row.id)}
-                          onClick={(event) => event.stopPropagation()}
-                          inputProps={{
-                            "aria-labelledby": row.id,
-                          }}
-                        />
-                      </StyledTableCell>
-                      <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
-                      <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                      <StyledTableCell>
-                        <IconButton
-                          size="small"
-                          sx={{
-                            mr: 1,
-                            color: "action.active",
-                            fontSize: "15px",
-                            "&:hover": { backgroundColor: "transparent" },
-                          }}
-                        >
-                          <ArrowUpwardIcon />
-                          <span>Carica</span>
-                        </IconButton>
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  ))
-              ) : (
-                <StyledTableRow>
-                  <StyledTableCell colSpan={8} align="center">
-                    No data found
-                  </StyledTableCell>
-                </StyledTableRow>
-              )}
-            </TableBody>
-          );
+      case "Sensori":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow key={row.codProdotto || index}>
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{
+                          "aria-labelledby": row.id,
+                        }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {row.codProdotto || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      {row.unitaDiMisura || "N/A"}
+                    </StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                    <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <ArrowUpwardIcon />
+                        <span>Carica</span>
+                      </IconButton>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={8} align="center">
+                  No data found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
       case "feriePermisse":
         return (
           <TableBody>
@@ -3162,11 +3209,12 @@ const TableRows = ({
                 .slice(
                   page * rowsPerPage,
                   // Limit to 2 rows for specified paths
-                  (isSubcolaboratoryDocumenti || isAnagraficheCollaboratoriDocumentiPage)
+                  isSubcolaboratoryDocumenti ||
+                    isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -3236,11 +3284,11 @@ const TableRows = ({
                         ? navigate("/hr/candidati/candidato/Contatti")
                         : navigate("/angrafiche/candidati/Contatti")
                     }
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
-                  //     : navigate("/hr/candidati")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
+                    //     : navigate("/hr/candidati")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3315,11 +3363,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
-                  //     : navigate("/acquisti/ordini/sub-ordini")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3361,11 +3409,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
-                  //     : navigate("/acquisti/ordini/sub-ordini")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3678,7 +3726,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3721,7 +3769,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3764,7 +3812,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3807,7 +3855,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3929,11 +3977,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/vendite/preventivi")
-                  //     ? navigate("/vendite/preventivi/sub-preventivi")
-                  //     : navigate("/acquisti/preventivi/sub-preventivi")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/vendite/preventivi")
+                    //     ? navigate("/vendite/preventivi/sub-preventivi")
+                    //     : navigate("/acquisti/preventivi/sub-preventivi")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox

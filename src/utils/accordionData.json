@@ -16,16 +16,18 @@
               {
                 "id": 1,
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -35,21 +37,24 @@
               {
                 "id": 2,
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -70,16 +75,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -88,21 +95,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -123,16 +133,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -141,21 +153,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -172,29 +187,33 @@
             "details": [
               {
                 "label": "Mezzi",
-                "navData":"Mezzi",
+                "navData": "Mezzi",
                 "count": 474,
                 "Messg": "Attenzione i mezzi selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 1",
                     "categoria": "Mezzo"
                   },
                   {
+                    "id": 2,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 2",
                     "categoria": "Mezzo"
                   },
                   {
+                    "id": 3,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 3",
                     "categoria": "Mezzo"
                   },
                   {
+                    "id": 4,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 4",
@@ -204,16 +223,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -222,21 +243,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -258,11 +282,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -272,6 +297,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -281,6 +307,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -290,6 +317,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -310,11 +338,12 @@
             "details": [
               {
                 "label": "Sensori",
-                "navData":"Sensori",
+                "navData": "Sensori",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -324,6 +353,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -333,6 +363,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -342,6 +373,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -359,6 +391,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -368,6 +401,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -377,6 +411,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -386,6 +421,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -395,6 +431,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -407,11 +444,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -421,6 +459,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -430,6 +469,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -439,6 +479,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -479,23 +520,26 @@
             "details": [
               {
                 "label": "Mezzi",
-                "navData":"Mezzi",
+                "navData": "Mezzi",
                 "count": 474,
                 "Messg": "Attenzione i mezzi selezionati saranno resi indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 1",
                     "categoria": "Mezzo"
                   },
                   {
+                    "id": 2,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 2",
                     "categoria": "Mezzo"
                   },
                   {
+                    "id": 3,
                     "targaTrattore": "GH493LC",
                     "rimorchio": "GH493LC",
                     "nomeMezzo": "Nome del mezzo 3",
@@ -505,16 +549,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -523,21 +569,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -554,11 +603,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -568,6 +618,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -577,6 +628,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -586,6 +638,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -598,16 +651,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -616,21 +671,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -652,11 +710,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -666,6 +725,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -675,6 +735,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -684,6 +745,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -713,6 +775,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -722,6 +785,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -731,6 +795,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -740,6 +805,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -749,6 +815,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -761,11 +828,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -775,6 +843,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -784,6 +853,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -793,6 +863,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -833,11 +904,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -847,6 +919,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -856,6 +929,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -865,6 +939,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -877,16 +952,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -895,21 +972,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -926,11 +1006,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -940,6 +1021,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -949,6 +1031,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -958,6 +1041,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -970,16 +1054,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -988,21 +1074,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -1024,11 +1113,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1038,6 +1128,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1047,6 +1138,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1056,6 +1148,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1068,11 +1161,12 @@
               },
               {
                 "label": "Scarti",
-                "navData":"Scarti",
+                "navData": "Scarti",
                 "count": 474,
                 "Messg": "Attenzione i prodotti scarti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Scarti",
                     "nome": "Raspi",
@@ -1082,6 +1176,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Scarti",
                     "nome": "Raspi",
@@ -1091,6 +1186,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Scarti",
                     "nome": "Raspi",
@@ -1100,6 +1196,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Scarti",
                     "nome": "Raspi",
@@ -1129,6 +1226,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1138,6 +1236,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1147,6 +1246,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1156,6 +1256,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1165,6 +1266,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1177,11 +1279,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1191,6 +1294,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1200,6 +1304,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1209,6 +1314,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1249,11 +1355,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1263,6 +1370,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1272,6 +1380,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1281,6 +1390,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1293,16 +1403,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -1311,21 +1423,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -1347,11 +1462,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1361,6 +1477,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1370,6 +1487,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1379,6 +1497,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1408,6 +1527,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1417,6 +1537,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1426,6 +1547,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1435,6 +1557,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1444,6 +1567,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1456,11 +1580,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1470,6 +1595,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1479,6 +1605,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1488,6 +1615,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1528,11 +1656,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1542,6 +1671,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1551,6 +1681,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1560,6 +1691,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1572,16 +1704,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -1590,21 +1724,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -1621,11 +1758,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1635,6 +1773,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1644,6 +1783,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1653,6 +1793,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1665,16 +1806,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -1683,21 +1826,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -1719,11 +1865,12 @@
             "details": [
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1733,6 +1880,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1742,6 +1890,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1751,6 +1900,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1780,6 +1930,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1789,6 +1940,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1798,6 +1950,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1807,6 +1960,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1816,6 +1970,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1828,11 +1983,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1842,6 +1998,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1851,6 +2008,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1860,6 +2018,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1900,11 +2059,12 @@
             "details": [
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1914,6 +2074,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1923,6 +2084,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1932,6 +2094,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -1944,11 +2107,12 @@
               },
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1958,6 +2122,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1967,6 +2132,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1976,6 +2142,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -1988,16 +2155,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -2006,21 +2175,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -2037,11 +2209,12 @@
             "details": [
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2051,6 +2224,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2060,6 +2234,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2069,6 +2244,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2081,11 +2257,12 @@
               },
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2095,6 +2272,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2104,6 +2282,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2113,6 +2292,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2125,16 +2305,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -2143,21 +2325,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -2174,11 +2359,12 @@
             "details": [
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2188,6 +2374,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2197,6 +2384,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2206,6 +2394,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2218,11 +2407,12 @@
               },
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2232,6 +2422,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2241,6 +2432,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2250,6 +2442,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2262,16 +2455,18 @@
               },
               {
                 "label": "Attrezzature",
-                "navData":"Attrezzature",
+                "navData": "Attrezzature",
                 "count": 474,
                 "Messg": "Attenzione le attrezzature selezionate saranno rese indisponibili nel magazzino fino alla data di fine attività.",
                 "json": [
                   {
+                    "id": 1,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
                   },
                   {
+                    "id": 2,
                     "ndiserie": "Numero di serie",
                     "nome": "Nome dell’attrezzatura",
                     "attrezzatura": "Categoria"
@@ -2280,21 +2475,24 @@
               },
               {
                 "label": "Collaboratori",
-                "navData":"Collaboratori",
+                "navData": "Collaboratori",
                 "count": 474,
                 "Messg": "Attention notice: Selected collaborators will be made unavailable until the end activity date.",
                 "json": [
                   {
+                    "id": 1,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 2,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
                   },
                   {
+                    "id": 3,
                     "iDcollaboratore": "78986",
                     "nome": "Nome Collaboratore",
                     "ruolo": "Contadino"
@@ -2316,11 +2514,12 @@
             "details": [
               {
                 "label": "Semilavorati",
-                "navData":"Semilavorati",
+                "navData": "Semilavorati",
                 "count": 474,
                 "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2330,6 +2529,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2339,6 +2539,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2348,6 +2549,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2377,6 +2579,7 @@
                 "Messg": "Attenzione i dati inseriti sono il risultato dei dati prodtti e delle movimentazioni di giacenza",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2386,6 +2589,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2395,6 +2599,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2404,6 +2609,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2413,6 +2619,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 5,
                     "codProdotto": "78986",
                     "categoria": "Semilavorato",
                     "nome": "UVA",
@@ -2425,11 +2632,12 @@
               },
               {
                 "label": "Prodotto",
-                "navData":"Prodotto",
+                "navData": "Prodotto",
                 "count": 474,
                 "Messg": "Attenzione i prodotti finiti saranno caricati nelle giacenze.",
                 "json": [
                   {
+                    "id": 1,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2439,6 +2647,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 2,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2448,6 +2657,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 3,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
@@ -2457,6 +2667,7 @@
                     "azione": "⚙️ Carica"
                   },
                   {
+                    "id": 4,
                     "codProdotto": "78986",
                     "categoria": "Prodotto",
                     "nome": "UVA",
