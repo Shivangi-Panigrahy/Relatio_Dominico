@@ -1,7 +1,7 @@
 import * as React from "react";
-import { BarChart } from "@mui/x-charts/BarChart";
+import { BarChart } from "@mui/x-charts";
 
-export default function TemperatureBarChart() {
+const TemperatureBarChart = () => {
     const dataset = [
         { time: "14:00h", "Temp. -0°-15°": 5, "Temp. 7°-10°": 10, "Temp. 20°-29°": 15, "Temp. 30°-35°": 10 },
         { time: "14:20h", "Temp. -0°-15°": 6, "Temp. 7°-10°": 9, "Temp. 20°-29°": 14, "Temp. 30°-35°": 8 },
@@ -16,30 +16,92 @@ export default function TemperatureBarChart() {
         { time: "17:20h", "Temp. -0°-15°": 5, "Temp. 7°-10°": 9, "Temp. 20°-29°": 13, "Temp. 30°-35°": 8 },
         { time: "17:40h", "Temp. -0°-15°": 8, "Temp. 7°-10°": 11, "Temp. 20°-29°": 16, "Temp. 30°-35°": 10 },
         { time: "18:00h", "Temp. -0°-15°": 9, "Temp. 7°-10°": 13, "Temp. 20°-29°": 17, "Temp. 30°-35°": 12 },
-    ];
+      ];
+  return (
+    <BarChart
+      dataset={dataset}
+      series={[
+        { 
+          dataKey: "Temp. -0°-15°", 
+          stack: "temperature", 
+          color: "#D3D3D3",
+          label: "Temp. -0°-15°"
+        },
+        { 
+          dataKey: "Temp. 7°-10°", 
+          stack: "temperature", 
+          color: "#00B050",
+          label: "Temp. 7°-10°"
+        },
+        { 
+          dataKey: "Temp. 20°-29°", 
+          stack: "temperature", 
+          color: "#FFC000",
+          label: "Temp. 20°-29°"
+        },
+        { 
+          dataKey: "Temp. 30°-35°", 
+          stack: "temperature", 
+          color: "#FF0000",
+          label: "Temp. 30°-35°"
+        }
+      ]}
+      xAxis={[{ 
+        scaleType: "band", 
+        dataKey: "time",
+        tickLabelStyle: {
+          angle: 0,
+          textAnchor: 'middle'
+        }
+      }]}
+      yAxis={[{
+        gridLines: {
+          display: true,
+          color: "#e0e0e0",
+          dashArray: [2, 2]
+        }
+      }]}
+      slotProps={{
+        legend: {
+          direction: "row",
+          position: { vertical: 'top', horizontal: 'middle' },
+          padding: { top: 0 },
+          itemGap: 20,
+          sx: {
+            transform: 'translateY(-20px)',  // Move legend up
+            position: 'relative',
+            zIndex: 1
+          }
+        }
+      }}
+      grid={{
+        horizontal: {
+          strokeDasharray: '3 3',
+          stroke: '#e0e0e0',
+        },
+        vertical: false
+      }}
+      width={1200}
+      height={400}
+      margin={{ 
+        top: 40,
+        bottom: 30, 
+        left: 40, 
+        right: 40 
+      }}
+      sx={{
+        "& .MuiChartsAxis-line": {
+          display: "none"
+        },
+        "& .MuiChartsAxis-tick": {
+          display: "none"
+        },
+        "& .MuiChartsGrid-root": {
+          zIndex: 0
+        }
+      }}
+    />
+  );
+};
 
-    const series = [
-        { label: "Temp. -0°-15°", dataKey: "Temp. -0°-15°", stack: "temperature", color: "#D3D3D3" },
-        { label: "Temp. 7°-10°", dataKey: "Temp. 7°-10°", stack: "temperature", color: "#00B050" },
-        { label: "Temp. 20°-29°", dataKey: "Temp. 20°-29°", stack: "temperature", color: "#FFC000" },
-        { label: "Temp. 30°-35°", dataKey: "Temp. 30°-35°", stack: "temperature", color: "#FF0000" },
-    ];
-
-    return (
-        <BarChart
-            dataset={dataset}
-            series={series}
-            xAxis={[{ scaleType: "band", dataKey: "time" }]}
-            slotProps={{
-                legend: {
-                    position: "top",
-                    horizontalAlign: "center",
-                    itemGap: 20,
-                },
-            }}
-            grid={{ horizontalLines: true, verticalLines: false }}
-            width={1200}
-            height={400}
-        />
-    );
-}
+export default TemperatureBarChart;

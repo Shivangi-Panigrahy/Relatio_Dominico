@@ -238,14 +238,6 @@ const Allroutes = () => {
         }
       />
       <Route
-        path="/dashboard"
-        element={
-          <PublicRoute>
-            <Dashboard />
-          </PublicRoute>
-        }
-      />
-      <Route
         path="/dashboard/profitti"
         element={
           <PublicRoute>

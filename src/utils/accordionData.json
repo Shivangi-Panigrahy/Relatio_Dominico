@@ -338,51 +338,9 @@
             "details": [
               {
                 "label": "Sensori",
-                "navData": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
-                "json": [
-                  {
-                    "id": 1,
-                    "codProdotto": "78986",
-                    "categoria": "Semilavorato",
-                    "nome": "UVA",
-                    "dataCarico": "28/11/2024",
-                    "unitaDiMisura": "LT",
-                    "quantita": 223454,
-                    "azione": "⚙️ Carica"
-                  },
-                  {
-                    "id": 2,
-                    "codProdotto": "78986",
-                    "categoria": "Semilavorato",
-                    "nome": "UVA",
-                    "dataCarico": "28/11/2024",
-                    "unitaDiMisura": "LT",
-                    "quantita": 223454,
-                    "azione": "⚙️ Carica"
-                  },
-                  {
-                    "id": 3,
-                    "codProdotto": "78986",
-                    "categoria": "Semilavorato",
-                    "nome": "UVA",
-                    "dataCarico": "28/11/2024",
-                    "unitaDiMisura": "LT",
-                    "quantita": 223454,
-                    "azione": "⚙️ Carica"
-                  },
-                  {
-                    "id": 4,
-                    "codProdotto": "78986",
-                    "categoria": "Semilavorato",
-                    "nome": "UVA",
-                    "dataCarico": "28/11/2024",
-                    "unitaDiMisura": "LT",
-                    "quantita": 223454,
-                    "azione": "⚙️ Carica"
-                  }
-                ]
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
+              
               },
               {
                 "label": "Inserimento Automatico",
@@ -1217,7 +1175,8 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
               },
               {
                 "label": "Inserimento Automatico",
@@ -1518,7 +1477,8 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
               },
               {
                 "label": "Inserimento Automatico",
@@ -1921,7 +1881,8 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
               },
               {
                 "label": "Inserimento Automatico",
@@ -2570,7 +2531,8 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
               },
               {
                 "label": "Inserimento Automatico",

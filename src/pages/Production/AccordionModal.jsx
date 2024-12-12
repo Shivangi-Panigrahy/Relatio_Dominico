@@ -1,10 +1,12 @@
-import React from "react";
-import { Modal, Backdrop, Fade, Paper, Box, Typography, Button, } from "@mui/material";
+import React, { useState } from "react";
+import { Modal, Backdrop, Fade, Paper, Box, Typography, Button, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add"; // Importing the Add icon from Material-UI icons
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Table from "../../component/table/Table";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { Add } from "@mui/icons-material";
 import "./ConfigatorModal.scss";
+import TemperatureBarChart from "../../component/TemperatureBarChart/TemperatureBarChart";
 
 
 
@@ -84,7 +86,26 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                     color: "#FFA903",
                 },
             ];
+        } else if (label === "Sensori") {
+            return [
+                {
+                    status: "Totale sensori",
+                    count: 55,
+                    color: "#100919",
+                },
+                {
+                    status: "Totale Rilvezioni",
+                    count: 485873,
+                    color: "#57C700",
+                },
+                {
+                    status: "Tipologie di dati",
+                    count: 5,
+                    color: "#FFA903",
+                },
+            ];
         }
+
 
         // Default data for other cases
         return [
@@ -156,17 +177,17 @@ export default function AccordionModal({ open, onClose, label, message, json, na
         { field: "quantita", headerName: "Q.tà", width: 90 },
         { field: "azione", headerName: "Azione", width: 90 },
     ]
-    : navData === "Sensori" ? [
-        { field: "codProdotto", headerName: "Cod. prod.", width: 100 },
-        { field: "categoria", headerName: "Categoria", width: 100 },
-        { field: "nome", headerName: "Nome", width: 100 },
-        { field: "unitaDiMisura", headerName: "U.M.", width: 90 },
-        { field: "dataCarico", headerName: "Data carico", width: 120 },
-        { field: "dataCarico", headerName: "Data carico", width: 120 },
-        { field: "quantita", headerName: "Q.tà", width: 90 },
-        { field: "azione", headerName: "Azione", width: 90 },
-    ]
-        : []; // Default to empty array if no label matches
+        : navData === "Sensori" ? [
+            { field: "codProdotto", headerName: "Cod. prod.", width: 100 },
+            { field: "categoria", headerName: "Categoria", width: 100 },
+            { field: "nome", headerName: "Nome", width: 100 },
+            { field: "unitaDiMisura", headerName: "U.M.", width: 90 },
+            { field: "dataCarico", headerName: "Data carico", width: 120 },
+            { field: "dataCarico", headerName: "Data carico", width: 120 },
+            { field: "quantita", headerName: "Q.tà", width: 90 },
+            { field: "azione", headerName: "Azione", width: 90 },
+        ]
+            : []; // Default to empty array if no label matches
     return (
         <Modal
             open={open}
@@ -213,7 +234,8 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                             </Box>
                         )}
                     </div>
-                    {(label === "Semilavorati" || label === "Scarti" || label === "Prodotto" || label === "Inserimento Automatico"||label==="Sensori") && (
+
+                    {(label === "Semilavorati" || label === "Scarti" || label === "Prodotto" || label === "Inserimento Automatico" || label === "Sensori") && (
                         <div className="countList">
                             {Array.isArray(getOrdiniData()) &&
                                 getOrdiniData().map((item, index) => (
@@ -224,6 +246,7 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                                 ))}
                         </div>
                     )}
+
                     {/* Dynamic Message */}
                     {message && (
                         <Box className="modalNotifationBlock">
@@ -236,13 +259,106 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                             </Typography>
                         </Box>
                     )}
+                    {label === "Sensori" ? (
+                        <Box>
+                            {/* Fixed Accordion */}
+                            <Accordion disabled>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel-fixed-content"
+                                    id="panel-fixed-header"
+                                >
+                                    <Typography>ID</Typography>
+                                    <Typography>Tipo di sensore</Typography>
+                                    <Typography>Tipo di rilevazione</Typography>
+                                    <Typography>Posizione</Typography>
+                                </AccordionSummary>
+                            </Accordion>
 
-                    {/* Conditional Table Rendering */}
-                    <Table
-                        data={json}
-                        columns={columns}
-                        navData={navData}
-                    />
+                            {/* Expandable Accordion 1 */}
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                    <Typography>56843093</Typography>
+                                    <Typography>Centralina N23</Typography>
+                                    <Box sx={{ display: 'flex', gap: 1 }}>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>UMIDITÀ</Typography>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>TEMPERATURA</Typography>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>CARICA BATTERIA</Typography>
+                                    </Box>
+                                    <Typography>Impianto xy, Particella xy</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
+                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                        <Typography sx={{ width: '50px' }}>38573</Typography>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
+                                        </Box>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <InfoIcon /> */}
+                                        </Box>
+                                    </Box>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
+                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                        <Typography sx={{ width: '50px' }}>38573</Typography>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
+                                        </Box>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <InfoIcon /> */}
+                                        </Box>
+                                    </Box>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
+                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                        <Typography sx={{ width: '50px' }}>38573</Typography>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
+                                        </Box>
+                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                            {/* <InfoIcon /> */}
+                                        </Box>
+                                    </Box>
+                                </AccordionDetails>
+                            </Accordion>
+
+                            {/* Expandable Accordion 2 */}
+                            <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel2a-content"
+                                    id="panel2a-header"
+                                >
+                                    <Typography>56843093</Typography>
+                                    <Typography>Centralina N23</Typography>
+                                    <Box sx={{ display: 'flex', gap: 1 }}>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>UMIDITÀ</Typography>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>TEMPERATURA</Typography>
+                                        <Typography sx={{ backgroundColor: '#e0e0e0', padding: '2px 6px', borderRadius: '4px' }}>CARICA BATTERIA</Typography>
+                                    </Box>
+                                    <Typography>Impianto xy, Particella xy</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Box>
+                                        <TemperatureBarChart />
+                                    </Box>
+                                </AccordionDetails>
+                            </Accordion>
+                        </Box>
+                    ) : (
+                        <Table
+                            data={json}
+                            columns={columns}
+                            navData={navData}
+                        />
+                    )}
+
                     {(label === "Semilavorati" || label === "Scarti" || label === "Prodotto") && (
                         <Button
                             startIcon={<Add />}
