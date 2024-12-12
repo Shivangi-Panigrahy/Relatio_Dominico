@@ -1,5 +1,6 @@
 [
-    {
+  {
+      "id": "1",
       "numero": "213243254",
       "creato il": "20/11/2024",
       "lotto": "ASRE8928",
@@ -12,8 +13,9 @@
       "autore": "Author A",
       "stato": "In corso",
       "azioni": "Azione 1"
-    },
-    {
+  },
+  {
+      "id": "2",
       "numero": "213243255",
       "creato il": "21/11/2024",
       "lotto": "ASRE8929",
@@ -24,10 +26,11 @@
       "data fine": "01/12/2023",
       "mod. da": "User B",
       "autore": "Author B",
-      "stato": "Completato",
+      "stato": "In corso",
       "azioni": "Azione 2"
-    },
-    {
+  },
+  {
+      "id": "3",
       "numero": "213243256",
       "creato il": "22/11/2024",
       "lotto": "ASRE8930",
@@ -38,10 +41,11 @@
       "data fine": "03/12/2023",
       "mod. da": "User C",
       "autore": "Author C",
-      "stato": "In attesa",
+     "stato": "In corso",
       "azioni": "Azione 3"
-    },
-    {
+  },
+  {
+      "id": "4",
       "numero": "213243257",
       "creato il": "23/11/2024",
       "lotto": "ASRE8931",
@@ -54,8 +58,9 @@
       "autore": "Author D",
       "stato": "In corso",
       "azioni": "Azione 4"
-    },
-    {
+  },
+  {
+      "id": "5",
       "numero": "213243258",
       "creato il": "24/11/2024",
       "lotto": "ASRE8932",
@@ -66,10 +71,11 @@
       "data fine": "07/12/2023",
       "mod. da": "User E",
       "autore": "Author E",
-      "stato": "Completato",
+      "stato": "In corso",
       "azioni": "Azione 5"
-    },
-    {
+  },
+  {
+      "id": "6",
       "numero": "213243259",
       "creato il": "25/11/2024",
       "lotto": "ASRE8933",
@@ -80,10 +86,11 @@
       "data fine": "09/12/2023",
       "mod. da": "User F",
       "autore": "Author F",
-      "stato": "In attesa",
+     "stato": "In corso",
       "azioni": "Azione 6"
-    },
-    {
+  },
+  {
+      "id": "7",
       "numero": "213243260",
       "creato il": "26/11/2024",
       "lotto": "ASRE8934",
@@ -96,8 +103,9 @@
       "autore": "Author G",
       "stato": "In corso",
       "azioni": "Azione 7"
-    },
-    {
+  },
+  {
+      "id": "8",
       "numero": "213243261",
       "creato il": "27/11/2024",
       "lotto": "ASRE8935",
@@ -108,10 +116,11 @@
       "data fine": "13/12/2023",
       "mod. da": "User H",
       "autore": "Author H",
-      "stato": "Completato",
+     "stato": "In corso",
       "azioni": "Azione 8"
-    },
-    {
+  },
+  {
+      "id": "9",
       "numero": "213243262",
       "creato il": "28/11/2024",
       "lotto": "ASRE8936",
@@ -122,10 +131,11 @@
       "data fine": "15/12/2023",
       "mod. da": "User I",
       "autore": "Author I",
-      "stato": "In attesa",
+     "stato": "In corso",
       "azioni": "Azione 9"
-    },
-    {
+  },
+  {
+      "id": "10",
       "numero": "213243263",
       "creato il": "29/11/2024",
       "lotto": "ASRE8937",
@@ -138,6 +148,5 @@
       "autore": "Author J",
       "stato": "In corso",
       "azioni": "Azione 10"
-    }
-  ]
-  
+  }
+]

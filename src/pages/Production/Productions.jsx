@@ -5,18 +5,18 @@ import tableData from "../../utils/ProductionList.json";
 import ProductionList from "../../component/Production/ProductionList";
 
 const columns = [
-  { field: "numero", headerName: "Numero", width: 100 },
-  { field: "creato il", headerName: "Creato il", width: 100 },
-  { field: "lotto", headerName: "Lotto", width: 90 },
-  { field: "prodotto", headerName: "Prodotto", width: 180 },
-  { field: "fase", headerName: "Fase", width: 120 },
-  { field: "stabilimento", headerName: "Stabilimento", width: 120 },
-  { field: "data inizio", headerName: "Data inizio", width: 120 },
-  { field: "data fine", headerName: "Data fine", width: 90 },
-  { field: "mod. da", headerName: "Mod. da", width: 90 },
-  { field: "autore", headerName: "Autore", width: 90 },
-  { field: "stato", headerName: "Stato", width: 90 },
-  { field: "azioni", headerName: "Azioni", width: 90 },
+  { field: "numero", headerName: "Numero", width: 90 },
+  { field: "creato il", headerName: "Creato il", width: 95 },
+  { field: "lotto", headerName: "Lotto", width: 165 },
+  { field: "prodotto", headerName: "Prodotto", width: 320 },
+  { field: "fase", headerName: "Fase", width: 215 },
+  { field: "stabilimento", headerName: "Stabilimento", width: 185 },
+  { field: "data inizio", headerName: "Data inizio", width: 130 },
+  { field: "data fine", headerName: "Data fine", width: 130 },
+  { field: "mod. da", headerName: "Mod. da", width: 95 },
+  { field: "autore", headerName: "Autore", width: 95 },
+  { field: "stato", headerName: "Stato", width: 140 },
+  { field: "azioni", headerName: "Azioni", width: 95 },
 ];
 
 const OrdiniData = [

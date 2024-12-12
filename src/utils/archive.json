@@ -1,62 +1,67 @@
-[  
-    {  
-        "numero": "213243254",  
-        "creatoil": "20/11/2024",  
-        "lotto": "ASRE8928",  
-        "prodotto": "Nome del prodotto da produrre",  
-        "fase": "Preliminare",  
-        "stabilimento": "Stabilimento A",  
-        "data_inizio": "29/11/2023",  
-        "data_fine": "29/11/2023",  
-        "mod_da": "Autore",  
-        "stato": "In corso"  
-    },  
-    {  
-        "numero": "213243254",  
-        "creatoil": "20/11/2024",  
-        "lotto": "ASRE8928",  
-        "prodotto": "Nome del prodotto da produrre",  
-        "fase": "Preliminare",  
-        "stabilimento": "Stabilimento A",  
-        "data_inizio": "29/11/2023",  
-        "data_fine": "29/11/2023",  
-        "mod_da": "Autore",  
-        "stato": "In corso"  
-    },  
-    {  
-        "numero": "213243254",  
-        "creatoil": "20/11/2024",  
-        "lotto": "ASRE8928",  
-        "prodotto": "Nome del prodotto da produrre",  
-        "fase": "Preliminare",  
-        "stabilimento": "Stabilimento A",  
-        "data_inizio": "29/11/2023",  
-        "data_fine": "29/11/2023",  
-        "mod_da": "Autore",  
-        "stato": "In corso"  
-    },  
-    {  
-        "numero": "213243254",  
-        "creatoil": "20/11/2024",  
-        "lotto": "ASRE8928",  
-        "prodotto": "Nome del prodotto da produrre",  
-        "fase": "Preliminare",  
-        "stabilimento": "Stabilimento A",  
-        "data_inizio": "29/11/2023",  
-        "data_fine": "29/11/2023",  
-        "mod_da": "Autore",  
-        "stato": "In corso"  
-    },  
-    {  
-        "numero": "213243254",  
-        "creatoil": "20/11/2024",  
-        "lotto": "ASRE8928",  
-        "prodotto": "Nome del prodotto da produrre",  
-        "fase": "Preliminare",  
-        "stabilimento": "Stabilimento A",  
-        "data_inizio": "29/11/2023",  
-        "data_fine": "29/11/2023",  
-        "mod_da": "Autore",  
-        "stato": "In corso"  
-    }  
+[
+    {
+        "id": 1,
+        "numero": "123456789",
+        "creatoil": "15/11/2024",
+        "lotto": "ZXCV1234",
+        "prodotto": "Prodotto A",
+        "fase": "Iniziale",
+        "stabilimento": "Stabilimento B",
+        "data_inizio": "01/11/2023",
+        "data_fine": "05/11/2023",
+        "mod_da": "Mario Rossi",
+        "stato": "In corso"
+    },
+    {
+        "id": 2,
+        "numero": "987654321",
+        "creatoil": "18/11/2024",
+        "lotto": "QWER5678",
+        "prodotto": "Prodotto B",
+        "fase": "Intermedia",
+        "stabilimento": "Stabilimento C",
+        "data_inizio": "10/11/2023",
+        "data_fine": "15/11/2023",
+        "mod_da": "Luigi Bianchi",
+        "stato": "In corso"
+    },
+    {
+        "id": 3,
+        "numero": "456789123",
+        "creatoil": "22/11/2024",
+        "lotto": "ASDF9012",
+        "prodotto": "Prodotto C",
+        "fase": "Finale",
+        "stabilimento": "Stabilimento D",
+        "data_inizio": "20/11/2023",
+        "data_fine": "25/11/2023",
+        "mod_da": "Carla Verdi",
+       "stato": "In corso"
+    },
+    {
+        "id": 4,
+        "numero": "321654987",
+        "creatoil": "25/11/2024",
+        "lotto": "TYUI3456",
+        "prodotto": "Prodotto D",
+        "fase": "Confezionamento",
+        "stabilimento": "Stabilimento E",
+        "data_inizio": "25/11/2023",
+        "data_fine": "30/11/2023",
+        "mod_da": "Paolo Neri",
+        "stato": "In corso"
+    },
+    {
+        "id": 5,
+        "numero": "789123456",
+        "creatoil": "30/11/2024",
+        "lotto": "GHJK6789",
+        "prodotto": "Prodotto E",
+        "fase": "Verifica",
+        "stabilimento": "Stabilimento F",
+        "data_inizio": "28/11/2023",
+        "data_fine": "29/11/2023",
+        "mod_da": "Anna Blu",
+        "stato": "In corso"
+    }
 ]

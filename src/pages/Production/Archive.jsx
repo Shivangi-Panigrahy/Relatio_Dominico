@@ -5,18 +5,18 @@ import tableData from "../../utils/archive.json";
 import ArchiveList from "../../component/Production/ArchiveList";
 
 const columns = [
-    { field: "numero", headerName: "Numero", width: 100 },
-    { field: "creatoil", headerName: "Creato il", width: 100 },
-    { field: "lotto", headerName: "Lotto", width: 90 },
-    { field: "prodotto", headerName: "Prodotto", width: 180 },
-    { field: "fase", headerName: "Fase", width: 120 },
-    { field: "stabilimento", headerName: "Stabilimento", width: 120 },
-    { field: "datainizio", headerName: "Data inizio", width: 120 },
-    { field: "datafine", headerName: "Data fine", width: 90 },
-    { field: "modda", headerName: "Mod. da", width: 90 },
-    { field: "autore", headerName: "Autore", width: 90 },
-    { field: "stato", headerName: "Stato", width: 90 },
-    { field: "azioni", headerName: "Azioni", width: 90 },
+    { field: "numero", headerName: "Numero", width: 90 },
+    { field: "creatoil", headerName: "Creato il", width: 95 },
+    { field: "lotto", headerName: "Lotto", width: 165 },
+    { field: "prodotto", headerName: "Prodotto", width: 320 },
+    { field: "fase", headerName: "Fase", width: 215 },
+    { field: "stabilimento", headerName: "Stabilimento", width: 185 },
+    { field: "datainizio", headerName: "Data inizio", width: 130 },
+    { field: "datafine", headerName: "Data fine", width: 130 },
+    { field: "modda", headerName: "Mod. da", width: 95 },
+    { field: "autore", headerName: "Autore", width: 95 },
+    { field: "stato", headerName: "Stato", width: 140 },
+    { field: "azioni", headerName: "Azioni", width: 95 },
 ];
 
 const OrdiniData = [
@@ -54,7 +54,7 @@ const Archive = () => {
             <div className="pageTemplate ProductionsProcessiPage">
                 <div className="colaboratory">
                     <div className="ProductionsCards">
-                        <ArchiveList ordini={OrdiniData} hr={true} />
+                        <ArchiveList ordini={OrdiniData}  />
                     </div>
                     <Table
                         data={tableData}

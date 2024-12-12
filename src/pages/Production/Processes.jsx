@@ -5,16 +5,16 @@ import tableData from "../../utils/Processi.json";
 import ProcessesList from "../../component/Production/ProcessesList";
 
 const columns = [
-    { field: "numero", headerName: "numero", width: 100 },
-    { field: "creatoil", headerName: "Creato il", width: 100 },
-    { field: "prodottofinale", headerName: "Prodotto finale", width: 90 },
-    { field: "processo", headerName: "Processo", width: 180 },
-    { field: "da", headerName: "Da", width: 120 },
-    { field: "a", headerName: "A", width: 120 },
-    { field: "autore", headerName: "Autore", width: 120 },
-    { field: "mod. da", headerName: "Mod. da", width: 90 },
-    { field: "stato", headerName: "Stato", width: 90 },
-    { field: "azioni", headerName: "Azioni", width: 90 },
+    { field: "numero", headerName: "numero", width: 90 },
+    { field: "creatoil", headerName: "Creato il", width: 95 },
+    { field: "prodottofinale", headerName: "Prodotto finale", width: 635 },
+    { field: "processo", headerName: "Processo", width: 266 },
+    { field: "da", headerName: "Da", width: 130 },
+    { field: "a", headerName: "A", width: 130 },
+    { field: "autore", headerName: "Autore", width: 85 },
+    { field: "mod. da", headerName: "Mod. da", width: 85 },
+    { field: "stato", headerName: "Stato", width: 145 },
+    { field: "azioni", headerName: "Azioni", width: 95 },
 ];
 
 const OrdiniData = [

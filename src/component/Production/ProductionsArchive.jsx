@@ -55,7 +55,6 @@ function ProductionsArchive() {
     console.log(`Filter applied: ${key} = ${value}`);
   };
 
-
   const [position, setPosition] = useState(0); // Track the horizontal position
   const [isDragging, setIsDragging] = useState(false); // Track drag state
   const [startX, setStartX] = useState(0); // Track initial click position
@@ -90,7 +89,7 @@ function ProductionsArchive() {
       ...prevDates,
       [id]: {
         ...prevDates[id],
-        [type === 0 ? 'startDate' : 'endDate']: dayjs(date),
+        [type === 0 ? "startDate" : "endDate"]: dayjs(date),
       },
     }));
   };
@@ -107,6 +106,26 @@ function ProductionsArchive() {
   const getMinEndDate = (id) => {
     const start = dayjs(dates[id]?.startDate);
     return start.isValid() ? start : null;
+  };
+
+  const colors = [
+    { background: "#f5e4c3", text: "#fead0f" },
+    { background: "#d3eac2", text: "#57c700" },
+    { background: "#eec2c2", text: "#de2424" },
+  ];
+
+  // State to track the color index for each accordion item
+  const [chipColors, setChipColors] = useState({});
+
+  // Handle color change for a specific chip
+  const handleClick = (id) => {
+    setChipColors((prevState) => ({
+      ...prevState,
+      [id]:
+        (prevState[id] || 0) + 1 >= colors.length
+          ? 0
+          : (prevState[id] || 0) + 1,
+    }));
   };
   return (
     <Box
@@ -150,33 +169,33 @@ function ProductionsArchive() {
 
             {/* Date Picker Section */}
             <Box className="giorniDateBlock">
-                  <DatePickerTime
-                    label="Data Inizio"
-                    value={dates.startDate || null}
-                    onDateChange={(formattedDate) => {
-                      const validDate = dayjs(formattedDate, "DD/MM/YYYY");
-                      if (validDate.isValid()) {
-                        handleMinMaxDate(0, validDate);
-                      }
-                    }}
-                    format="DD/MM/YYYY"
-                  />
-                  <Typography className="giorni">
-                    {calculateDaysDifference()} <br /> Giorni
-                  </Typography>
-                  <DatePickerTime
-                    label="Data Fine"
-                    value={dates?.endDate || null}
-                    minDate={getMinEndDate()}
-                    onDateChange={(formattedDate) => {
-                      const validDate = dayjs(formattedDate, "DD/MM/YYYY");
-                      if (validDate.isValid()) {
-                        handleMinMaxDate(1, validDate);
-                      }
-                    }}
-                    format="DD/MM/YYYY"
-                  />
-                </Box>
+              <DatePickerTime
+                label="Data Inizio"
+                value={dates.startDate || null}
+                onDateChange={(formattedDate) => {
+                  const validDate = dayjs(formattedDate, "DD/MM/YYYY");
+                  if (validDate.isValid()) {
+                    handleMinMaxDate(0, validDate);
+                  }
+                }}
+                format="DD/MM/YYYY"
+              />
+              <Typography className="giorni">
+                {calculateDaysDifference()} <br /> Giorni
+              </Typography>
+              <DatePickerTime
+                label="Data Fine"
+                value={dates?.endDate || null}
+                minDate={getMinEndDate()}
+                onDateChange={(formattedDate) => {
+                  const validDate = dayjs(formattedDate, "DD/MM/YYYY");
+                  if (validDate.isValid()) {
+                    handleMinMaxDate(1, validDate);
+                  }
+                }}
+                format="DD/MM/YYYY"
+              />
+            </Box>
             <Typography className="accordionSubtitle">Risultati</Typography>
             {/* Results Section */}
             <Box className="resultsSection">
@@ -207,7 +226,17 @@ function ProductionsArchive() {
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 58</span> Kg
                   </Typography>
-                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
+                  <Typography
+                    className="detail"
+                    style={{
+                      color: "#666666",
+                      font: "400",
+                      lineHeight: "19.2px",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    il 20/11/2024
+                  </Typography>
                 </Box>
               </Box>
               <Box className="resultItem threeResultsValues">
@@ -220,14 +249,34 @@ function ProductionsArchive() {
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 732</span> Kg
                   </Typography>
-                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
+                  <Typography
+                    className="detail"
+                    style={{
+                      color: "#666666",
+                      font: "400",
+                      lineHeight: "19.2px",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    il 20/11/2024
+                  </Typography>
                 </Box>
                 <Box className="resultDetails">
                   <Typography className="resultTitle">Da distrugere</Typography>
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 58</span> Kg
                   </Typography>
-                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
+                  <Typography
+                    className="detail"
+                    style={{
+                      color: "#666666",
+                      font: "400",
+                      lineHeight: "19.2px",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    il 20/11/2024
+                  </Typography>
                 </Box>
               </Box>
             </Box>
@@ -347,6 +396,20 @@ function ProductionsArchive() {
                                         label={accordionItem.status}
                                         className="customStatus"
                                         size="small"
+                                        onClick={(event) => {
+                                          event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
+                                          handleClick(accordionItem.id);
+                                        }}
+                                        style={{
+                                          backgroundColor:
+                                            colors[
+                                              chipColors[accordionItem.id] || 0
+                                            ].background,
+                                          color:
+                                            colors[
+                                              chipColors[accordionItem.id] || 0
+                                            ].text,
+                                        }}
                                       />
                                     </Box>
                                   </Box>

@@ -147,6 +147,18 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
+      case "In corso":
+        return {
+          backgroundColor: "#57C70033",
+          color: "#57C700",
+          className: "Approvata",
+        };
+        case "Consolidato":
+          return {
+            backgroundColor: "#57C70033",
+            color: "#57C700",
+            className: "Approvata",
+          };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -2305,10 +2317,10 @@ const TableRows = ({
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
-                    <StyledTableCell>{row.stato || "N/A"}</StyledTableCell>
+                    {/* <StyledTableCell>{row.stato || "N/A"}</StyledTableCell> */}
 
                     {/* Status Chip */}
-                    {/* <StyledTableCell align="center">
+                    <StyledTableCell align="center">
                       <StatusChip
                         stato={
                           searchFilters?.stato
@@ -2330,7 +2342,7 @@ const TableRows = ({
                           ? row.stato
                           : currentStatuses[index]}
                       </StatusChip>
-                    </StyledTableCell> */}
+                    </StyledTableCell>
 
                     {/* Menu Options */}
                     <StyledTableCell
