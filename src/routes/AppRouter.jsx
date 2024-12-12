@@ -120,6 +120,7 @@ import DDT from "../pages/Logistica/DDT/DDT.jsx";
 import ProductionsArchive from "../component/Production/ProductionsArchive.jsx";
 import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
 import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
 
 const Allroutes = () => {
   return (
@@ -233,6 +234,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <GanttLib />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/dashboard"
+        element={
+          <PublicRoute>
+            <Dashboard />
           </PublicRoute>
         }
       />
@@ -1025,7 +1034,7 @@ const Allroutes = () => {
           <PublicRoute>
             <SubStabilimenti Component={MezziStabiliment} />
           </PublicRoute>
-        }      
+        }
       />
       <Route
         path="/logistica/stabilimenti/Attrezzature"
@@ -1451,7 +1460,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-         <Route
+      <Route
         path="/production/archive/details"
         element={
           <PublicRoute>
@@ -1459,7 +1468,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/attivita/Timesheet"
         element={
           <PublicRoute>
