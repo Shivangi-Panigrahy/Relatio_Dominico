@@ -3046,18 +3046,22 @@ const TableRows = ({
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                    
                     <StyledTableCell>
                       <IconButton
                         size="small"
                         sx={{
                           mr: 1,
-                          color: "action.active",
+                          color: row.azione === "Carica" ? "green" : "red", // Dynamically set the color based on row.azione
                           fontSize: "15px",
-                          "&:hover": { backgroundColor: "transparent" },
+                          "&:hover": {
+                            backgroundColor: "transparent",
+                          },
                         }}
+                        style={{ color: row.azione === "Carica" ? "#57C700" : "#DB0000"}}
                       >
-                        <ArrowUpwardIcon />
-                        <span>Carica</span>
+                        {row.azione=="Carica"?<ArrowUpwardIcon  sx={{ color: "#57C700" }}/>:<ArrowDown sx={{ color: "currentColor" }} />}
+                        {row.azione}
                       </IconButton>
                     </StyledTableCell>
                   </StyledTableRow>

@@ -116,7 +116,9 @@ const SearchTable = ({
       navData === "GiacenzeStabilimenti" ||
       navData === "mezziStabiliment" ||
       navData === "attrezzatureStabiliment" ||
-      navData === "collaboratoriStablimenti" ? (
+      navData === "collaboratoriStablimenti" || navData === "Attrezzature"||
+      navData === "Collaboratori"||
+      navData === "Mezzi"||navData === "Prodotto"? (
         ""
       ) : (
         <>
@@ -611,7 +613,9 @@ const SearchTable = ({
         navData === "Gruppi" ||
         navData === "product" ||
         navData === "conf_prodotti" ||
-        navData === "lis_prodotti" ? (
+        navData === "lis_prodotti"
+        ||navData === "Attrezzature"||
+        navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto" ? (
         <></>
       ) : navData === "documenti" ? (
         <>
@@ -1094,6 +1098,42 @@ const SearchTable = ({
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
+      )
+      : navData === "Automatico" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("categoria")} // Provide your unique values here
+            value={activeFilters["categoria"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("categoria", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Categoria" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("nome")} // Provide your unique values here
+            value={activeFilters["nome"] || ""} // Set the selected value
+            onChange={(event, newValue) => handleFilterSelect("nome", newValue)} // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Nome" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("stabilimento")} // Provide your unique values here
+            value={activeFilters["stabilimento"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("stabilimento", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Stabilimento" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+     
+        
+        </>
       ) : (
         <>
           <Autocomplete
@@ -1186,7 +1226,9 @@ const SearchTable = ({
         navData === "Gruppi" ||
         navData === "product" ||
         navData === "conf_prodotti" ||
-        navData === "lis_prodotti"
+        navData === "lis_prodotti"||
+         navData === "Attrezzature"||
+         navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"
           ? ""
           : `
       ${
@@ -1208,6 +1250,7 @@ const SearchTable = ({
         ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
          ${navData === "giacenze" ? "colaboratoryInvoiceFilter" : ""}
          ${navData === "mezzi" ? "invoiceFilter" : ""}
+         ${navData === "Automatico" ? "invoiceFilter" : ""}
           ${
             navData === "GiacenzeStabilimenti"
               ? "distintaInvoiceFilter gaicenzeInvoiceFilter"

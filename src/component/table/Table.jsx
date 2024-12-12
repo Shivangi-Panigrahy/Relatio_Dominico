@@ -482,7 +482,7 @@ console.log(navData,"navdat")
           !window.location.href.includes('/angrafiche/clienti/Documenti') &&
           !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
           !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
-          !window.location.href.includes('/production/list/details') &&
+          
           form !== "form2" ? (
           <SearchTable  
             startDate={startDate}

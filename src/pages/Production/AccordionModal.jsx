@@ -9,7 +9,7 @@ import "./ConfigatorModal.scss";
 
 
 export default function AccordionModal({ open, onClose, label, message, json, navData }) {
-    console.log(navData, label, "navData")
+    console.log(navData, "navData")
 
     const getOrdiniData = () => {
         if (navData === "Prodotto") {
