@@ -122,7 +122,8 @@ const SearchTable = ({
       navData === "Mezzi" ||
       navData === "Prodotto" ||
       navData === "Semilavorati" ||
-      navData === "Scarti" ? (
+      navData === "Scarti" ||
+      navData === "Sensori" ? (
         ""
       ) : (
         <>
@@ -623,7 +624,8 @@ const SearchTable = ({
         navData === "Mezzi" ||
         navData === "Prodotto" ||
         navData === "Semilavorati" ||
-        navData === "Scarti" ? (
+        navData === "Scarti" ||
+        navData === "Sensori" ? (
         <></>
       ) : navData === "documenti" ? (
         <>
@@ -1239,7 +1241,8 @@ const SearchTable = ({
         navData === "Mezzi" ||
         navData === "Prodotto" ||
         navData === "Semilavorati" ||
-        navData === "Scarti"
+        navData === "Scarti" ||
+        navData === "Sensori"
           ? ""
           : `
       ${
