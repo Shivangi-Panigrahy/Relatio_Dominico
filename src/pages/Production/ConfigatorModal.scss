@@ -41,7 +41,6 @@
   }
 
   .MuiPaper-root {
-
     .modalTitle {
       font-size: 20px;
       line-height: 23px;
@@ -72,12 +71,12 @@
 
           button.MuiButtonBase-root.Mui-selected,
           button.MuiButtonBase-root:hover {
-            color: #160A2A;
-            border-color: #225CA6;
+            color: #160a2a;
+            border-color: #225ca6;
             opacity: 100%;
 
             svg {
-              color: #160A2A;
+              color: #160a2a;
             }
           }
         }
@@ -91,7 +90,7 @@
     }
 
     .modalNotifationBlock {
-      background-color: #57C7001A;
+      background-color: #57c7001a;
       border-radius: 16px;
       padding: 10px 26px;
       display: flex;
@@ -104,12 +103,12 @@
         font-size: 16px;
         line-height: 19.5px;
         font-weight: 500;
-        color: #225CA6;
+        color: #225ca6;
         font-family: "Barlow", sans-serif;
       }
 
       svg {
-        color: #57C700;
+        color: #57c700;
       }
     }
 
@@ -117,7 +116,7 @@
       table {
         thead {
           tr {
-            background-color: #FAFAFA;
+            background-color: #fafafa;
           }
         }
       }
@@ -134,13 +133,13 @@
   &__item {
     padding: 9px 18px 5px;
     background-color: #fff;
-    box-shadow: 0 0 12px #919EAB33;
+    box-shadow: 0 0 12px #919eab33;
     border-radius: 16px;
 
     h3 {
       font-size: 14px;
       line-height: 16px;
-      color: #225CA6;
+      color: #225ca6;
       font-weight: 700;
       margin: 0;
       margin-bottom: 4px;
@@ -160,5 +159,88 @@
     padding: 0px;
     box-shadow: none;
     background: transparent;
+  }
+}
+.sensoriModalAccordion {
+  .MuiPaper-root {
+    border: none;
+    box-shadow: none;
+    margin: 4px 0 !important;
+    &::before {
+      content: unset;
+    }
+    .MuiAccordion-heading {
+      .MuiButtonBase-root {
+        flex-direction: row-reverse;
+        padding: 0px;
+        background: #fafafa;
+        .MuiAccordionSummary-content {
+          display: grid;
+          padding: 10px;
+          grid-template-columns: 137px 160px 1fr 215px;
+          gap: 10px;
+          margin: 0;
+          p {
+            font-size: 14px;
+            line-height: normal;
+            font-weight: bold;
+            color: #999999;
+          }
+          > div {
+           
+            p {
+              font-size: 12px;
+              line-height: normal;
+            font-weight: bold;
+              color: #225CA6;
+              background-color: #D9D9D9;
+              padding: 4px 8px;
+              border-radius: 7px;
+            }
+          }
+        }
+        .MuiAccordionSummary-expandIconWrapper {
+          background-color: #f2f2f2;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          width: 34px;
+          transform: unset;
+          svg {
+            margin:0 auto;
+          }
+          &.Mui-expanded {
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+    .MuiCollapse-root {
+      .MuiAccordionDetails-root {
+        padding-left: 30px;
+        .AccordionDetailsRow {
+          display: grid;
+          grid-template-columns: 137px 160px 1fr 215px;
+          gap: 10px;
+         .td {
+          padding: 8px;
+          p {
+            font-size: 14px;
+            line-height: normal;
+            font-weight: normal;
+            color: #999999;
+            width: 100%;
+          }
+         }
+        }
+        .graphChart {
+          > div {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

@@ -260,7 +260,7 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                         </Box>
                     )}
                     {label === "Sensori" ? (
-                        <Box>
+                        <Box className='sensoriModalAccordion'>
                             {/* Fixed Accordion */}
                             <Accordion disabled>
                                 <AccordionSummary
@@ -292,38 +292,44 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                                     <Typography>Impianto xy, Particella xy</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
-                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                    <Box className='AccordionDetailsRow' sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                        <Box className='td'>
+                                        <Typography sx={{ width: '150px' }}>281124/1439/01</Typography>
+                                        </Box>
+                                        <Box className='td'>
+                                        <Typography sx={{ width: '30px' }}>28/11/20245 h 14:39</Typography>
+                                        </Box>
+                                        <Box className='td'>
                                         <Typography sx={{ width: '50px' }}>38573</Typography>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
                                         </Box>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <InfoIcon /> */}
-                                        </Box>
+                                        <Box className='td'></Box>
+                                        <Box className='td'></Box>
                                     </Box>
-                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
-                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                    <Box  className='AccordionDetailsRow' sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                    <Box className='td'>
+                                        <Typography sx={{ width: '150px' }}>281124/1439/01</Typography>
+                                        </Box>
+                                        <Box className='td'>
+                                        <Typography sx={{ width: '30px' }}>28/11/20245 h 14:39</Typography>
+                                        </Box>
+                                        <Box className='td'>
                                         <Typography sx={{ width: '50px' }}>38573</Typography>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
                                         </Box>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <InfoIcon /> */}
-                                        </Box>
+                                        <Box className='td'></Box>
+                                        <Box className='td'></Box>
                                     </Box>
-                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                                        <Typography sx={{ width: '150px' }}>28/11/2024 14:39</Typography>
-                                        <Typography sx={{ width: '30px' }}>%</Typography>
+                                    <Box  className='AccordionDetailsRow' sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                    <Box className='td'>
+                                        <Typography sx={{ width: '150px' }}>281124/1439/01</Typography>
+                                        </Box>
+                                        <Box className='td'>
+                                        <Typography sx={{ width: '30px' }}>28/11/20245 h 14:39</Typography>
+                                        </Box>
+                                        <Box className='td'>
                                         <Typography sx={{ width: '50px' }}>38573</Typography>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <WarningIcon sx={{ color: 'orange' }} /> */}
                                         </Box>
-                                        <Box sx={{ width: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                            {/* <InfoIcon /> */}
-                                        </Box>
+                                        <Box className='td'></Box>
+                                        <Box className='td'></Box>
                                     </Box>
                                 </AccordionDetails>
                             </Accordion>
@@ -345,7 +351,7 @@ export default function AccordionModal({ open, onClose, label, message, json, na
                                     <Typography>Impianto xy, Particella xy</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                    <Box>
+                                    <Box className='graphChart'>
                                         <TemperatureBarChart />
                                     </Box>
                                 </AccordionDetails>
