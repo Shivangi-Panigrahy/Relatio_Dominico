@@ -310,7 +310,47 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "navData":"Sensori",
+                "count": 474,
+                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione.",
+                "json": [
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  },
+                  {
+                    "codProdotto": "78986",
+                    "categoria": "Semilavorato",
+                    "nome": "UVA",
+                    "dataCarico": "28/11/2024",
+                    "unitaDiMisura": "LT",
+                    "quantita": 223454,
+                    "azione": "⚙️ Carica"
+                  }
+                ]
               },
               {
                 "label": "Inserimento Automatico",

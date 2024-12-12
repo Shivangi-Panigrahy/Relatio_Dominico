@@ -3028,6 +3028,56 @@ const TableRows = ({
             )}
           </TableBody>
         );
+        case "Sensori":
+          return (
+            <TableBody>
+              {data?.length > 0 ? (
+                data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row, index) => (
+                    <StyledTableRow key={row.codProdotto || index}>
+                      <StyledTableCell align="center">
+                        <CustomCheckbox
+                          checked={isSelected(row.id)}
+                          onChange={(event) => handleRowClick(event, row.id)}
+                          onClick={(event) => event.stopPropagation()}
+                          inputProps={{
+                            "aria-labelledby": row.id,
+                          }}
+                        />
+                      </StyledTableCell>
+                      <StyledTableCell>{row.codProdotto || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.categoria || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.nome || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.unitaDiMisura || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
+                      <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
+                      <StyledTableCell>
+                        <IconButton
+                          size="small"
+                          sx={{
+                            mr: 1,
+                            color: "action.active",
+                            fontSize: "15px",
+                            "&:hover": { backgroundColor: "transparent" },
+                          }}
+                        >
+                          <ArrowUpwardIcon />
+                          <span>Carica</span>
+                        </IconButton>
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))
+              ) : (
+                <StyledTableRow>
+                  <StyledTableCell colSpan={8} align="center">
+                    No data found
+                  </StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          );
       case "feriePermisse":
         return (
           <TableBody>

@@ -179,34 +179,34 @@ function ProductionsArchive() {
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 732</span> Kg
                   </Typography>
-                  <Typography className="detail">In stock: 58 Kg</Typography>
+                  <Typography className="detail">il 20/11/2024</Typography>
                 </Box>
                 <Box className="resultDetails">
                   <Typography className="resultTitle">In stock</Typography>
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 58</span> Kg
                   </Typography>
-                  <Typography className="detail">In stock: 58 Kg</Typography>
+                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
                 </Box>
               </Box>
               <Box className="resultItem threeResultsValues">
                 <Box className="resultDetails">
-                  <Typography className="resultTitle">Semilavorati</Typography>
-                  <Typography className="resultWeight">Germogli</Typography>
+                  <Typography className="resultTitle">Scarti</Typography>
+                  <Typography className="resultWeight">Fiori</Typography>
                 </Box>
                 <Box className="resultDetails">
-                  <Typography className="resultTitle">Utilizzati</Typography>
+                  <Typography className="resultTitle">Distrutti</Typography>
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 732</span> Kg
                   </Typography>
-                  <Typography className="detail">In stock: 58 Kg</Typography>
+                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
                 </Box>
                 <Box className="resultDetails">
-                  <Typography className="resultTitle">In stock</Typography>
+                  <Typography className="resultTitle">Da distrugere</Typography>
                   <Typography className="detail">
                     <span style={{ fontWeight: "700" }}> 58</span> Kg
                   </Typography>
-                  <Typography className="detail">In stock: 58 Kg</Typography>
+                  <Typography className="detail" style={{color:"#666666",font:"400",lineHeight:"19.2px",fontSize:"1rem"}}>il 20/11/2024</Typography>
                 </Box>
               </Box>
             </Box>

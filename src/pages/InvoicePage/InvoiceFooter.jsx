@@ -8,9 +8,10 @@ import {
   Typography,
   Button,
   Menu,
+  Autocomplete,
 } from "@mui/material";
 import "./InvoicePage.scss";
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { AddButton } from "../../component/button/AddButton";
 import { ReactComponent as InfoIcon } from "../../assets/InfoIcon.svg";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -85,6 +86,16 @@ const InvoiceFooter = () => {
       )
     );
   };
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const options = [
+    { label: "Ritenuta 1", value: "ritenuta1" },
+    { label: "Ritenuta 2", value: "ritenuta2" },
+  ];
+
+  const handleChange1 = (event, newValue) => {
+    setSelectedValue(newValue);
+  };
   return (
     <>
       <Box className="infoBlock">
@@ -94,7 +105,7 @@ const InvoiceFooter = () => {
         <Box className="infoBlock__list">
           {/* Column 1 */}
           <Box className="infoBlock__list-column">
-            <Select
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.ritenuta}
@@ -110,7 +121,18 @@ const InvoiceFooter = () => {
               )}
               <MenuItem value="ritenuta1">Ritenuta 1</MenuItem>
               <MenuItem value="ritenuta2">Ritenuta 2</MenuItem>
-            </Select>
+            </Select> */}
+
+            <Autocomplete
+              disablePortal
+              options={options} // Provide your unique values here
+              // value={activeFilters["valore"] || ""} // Set the selected value
+              // onChange={(event, newValue) =>
+              //   handleFilterSelect("valore", newValue)
+              // } // Update the selected value
+              renderInput={(params) => <TextField {...params} label="Ritenuta" />} // Customize the label
+              // sx={{ width: 300 }} // Optional styling
+            />
             <Select
               className="formSelect"
               displayEmpty
@@ -122,7 +144,7 @@ const InvoiceFooter = () => {
             >
               {!clicked.bollo && (
                 <MenuItem value="" disabled style={{ color: "#CCCCCC" }}>
-                  <span style={{ color: '#CCCCCC' }}>Seleziona Bollo</span>
+                  <span style={{ color: "#CCCCCC" }}>Seleziona Bollo</span>
                 </MenuItem>
               )}
               <MenuItem value="bollo1">Bollo 1</MenuItem>
@@ -141,7 +163,7 @@ const InvoiceFooter = () => {
               {!clicked.rivalza && (
                 <MenuItem value="" disabled style={{ color: "#CCCCCC" }}>
                   {/* Seleziona Rivalza */}
-                  <span style={{ color: '#CCCCCC' }}> Seleziona Rivalza</span>
+                  <span style={{ color: "#CCCCCC" }}> Seleziona Rivalza</span>
                 </MenuItem>
               )}
               <MenuItem value="rivalza1">Rivalza 1</MenuItem>
@@ -161,7 +183,9 @@ const InvoiceFooter = () => {
             >
               {!clicked.condizioniPagamento && (
                 <MenuItem value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Condizioni di Pagamento</span>
+                  <span style={{ color: "#CCCCCC" }}>
+                    Condizioni di Pagamento
+                  </span>
                 </MenuItem>
               )}
               <MenuItem value="condizione1">Condizione 1</MenuItem>
@@ -178,7 +202,7 @@ const InvoiceFooter = () => {
             >
               {!clicked.esigibilitaIVA && (
                 <MenuItem value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Esigibilità IVA</span>
+                  <span style={{ color: "#CCCCCC" }}>Esigibilità IVA</span>
                 </MenuItem>
               )}
               <MenuItem value="iva1">IVA 1</MenuItem>
@@ -195,7 +219,7 @@ const InvoiceFooter = () => {
             >
               {!clicked.tipoPagamento && (
                 <MenuItem value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Tipo di Pagamento</span>
+                  <span style={{ color: "#CCCCCC" }}>Tipo di Pagamento</span>
                 </MenuItem>
               )}
               <MenuItem value="tipo1">Tipo 1</MenuItem>
@@ -215,7 +239,7 @@ const InvoiceFooter = () => {
             >
               {!clicked.metodoPagamento && (
                 <MenuItem value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Metodo di Pagamento</span>
+                  <span style={{ color: "#CCCCCC" }}>Metodo di Pagamento</span>
                 </MenuItem>
               )}
               <MenuItem value="metodo1">Metodo 1</MenuItem>
@@ -232,7 +256,9 @@ const InvoiceFooter = () => {
             >
               {!clicked.modalitaPagamento && (
                 <Menu value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Modalità di Pagamento</span>
+                  <span style={{ color: "#CCCCCC" }}>
+                    Modalità di Pagamento
+                  </span>
                 </Menu>
               )}
               <MenuItem value="modalita1">Modalità 1</MenuItem>
@@ -249,7 +275,7 @@ const InvoiceFooter = () => {
             >
               {!clicked.canalePagamento && (
                 <MenuItem value="" disabled>
-                  <span style={{ color: '#CCCCCC' }}>Canale di Pagamento</span>
+                  <span style={{ color: "#CCCCCC" }}>Canale di Pagamento</span>
                 </MenuItem>
               )}
               <MenuItem value="canale1">Canale 1</MenuItem>
@@ -284,7 +310,7 @@ const InvoiceFooter = () => {
                   handleFieldChange(card.id, "orderType", e.target.value)
                 }
               >
-                <MenuItem value=""  >Ordine di acquisto</MenuItem>
+                <MenuItem value="">Ordine di acquisto</MenuItem>
               </Select>
               <TextField
                 className="document-field"
