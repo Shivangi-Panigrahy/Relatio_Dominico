@@ -9,6 +9,8 @@ import {
   Button,
   Menu,
   Autocomplete,
+  TextareaAutosize,
+  styled,
 } from "@mui/material";
 import "./InvoicePage.scss";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -96,6 +98,32 @@ const InvoiceFooter = () => {
   const handleChange1 = (event, newValue) => {
     setSelectedValue(newValue);
   };
+  const EmptyTextarea = ({ placeholder }) => {
+    const Textarea = styled(TextareaAutosize)(
+      ({ theme }) => `
+      box-sizing: border-box;
+      width: 100%;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      padding: 12px;
+      border-radius: 5px;
+      color: #160A2A;
+      background: ${"#fff"};
+      border: 2px solid #e5e5e5;
+    `
+    );
+  
+    return (
+      <Textarea
+        aria-label="empty textarea"
+        placeholder={placeholder}
+        minRows={4}
+      />
+    );
+  };
+
   return (
     <>
       <Box className="infoBlock">
@@ -125,15 +153,21 @@ const InvoiceFooter = () => {
 
             <Autocomplete
               disablePortal
-              options={options} // Provide your unique values here
-              // value={activeFilters["valore"] || ""} // Set the selected value
-              // onChange={(event, newValue) =>
-              //   handleFilterSelect("valore", newValue)
-              // } // Update the selected value
-              renderInput={(params) => <TextField {...params} label="Ritenuta" />} // Customize the label
-              // sx={{ width: 300 }} // Optional styling
+              options={options} 
+           
+              renderInput={(params) => (
+                <TextField {...params} label="Ritenuta" />
+              )} 
+             
             />
-            <Select
+            <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Bollo" />
+              )}
+            />
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.bollo}
@@ -149,8 +183,15 @@ const InvoiceFooter = () => {
               )}
               <MenuItem value="bollo1">Bollo 1</MenuItem>
               <MenuItem value="bollo2">Bollo 2</MenuItem>
-            </Select>
-            <Select
+            </Select> */}
+            <Autocomplete
+              disablePortal
+              options={options}
+              renderInput={(params) => (
+                <TextField {...params} label="Rivalza" />
+              )}
+            />
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.rivalza}
@@ -162,17 +203,17 @@ const InvoiceFooter = () => {
             >
               {!clicked.rivalza && (
                 <MenuItem value="" disabled style={{ color: "#CCCCCC" }}>
-                  {/* Seleziona Rivalza */}
+           
                   <span style={{ color: "#CCCCCC" }}> Seleziona Rivalza</span>
                 </MenuItem>
               )}
               <MenuItem value="rivalza1">Rivalza 1</MenuItem>
               <MenuItem value="rivalza2">Rivalza 2</MenuItem>
-            </Select>
+            </Select> */}
           </Box>
           {/* Column 2 */}
           <Box className="infoBlock__list-column">
-            <Select
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.condizioniPagamento}
@@ -190,8 +231,29 @@ const InvoiceFooter = () => {
               )}
               <MenuItem value="condizione1">Condizione 1</MenuItem>
               <MenuItem value="condizione2">Condizione 2</MenuItem>
-            </Select>
-            <Select
+            </Select> */}
+               <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Condizioni di Pagamento" />
+              )}
+            />
+                <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Esigibilità IVA" />
+              )}
+            />
+                <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Tipo di Pagamento" />
+              )}
+            />
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.esigibilitaIVA}
@@ -224,11 +286,34 @@ const InvoiceFooter = () => {
               )}
               <MenuItem value="tipo1">Tipo 1</MenuItem>
               <MenuItem value="tipo2">Tipo 2</MenuItem>
-            </Select>
+            </Select> */}
           </Box>
           {/* Column 3 */}
           <Box className="infoBlock__list-column">
-            <Select
+
+          <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Metodo di Pagamento" />
+              )}
+            />
+                <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Modalità di Pagamento" />
+              )}
+            />
+                <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Canale di Pagamento" />
+              )}
+            />
+
+            {/* <Select
               className="formSelect"
               displayEmpty
               value={selectedValues.metodoPagamento}
@@ -280,17 +365,18 @@ const InvoiceFooter = () => {
               )}
               <MenuItem value="canale1">Canale 1</MenuItem>
               <MenuItem value="canale2">Canale 2</MenuItem>
-            </Select>
+            </Select> */}
           </Box>
           {/* Column 4 */}
           <Box className="infoBlock__list-column">
-            <TextField
+            <EmptyTextarea placeholder="Campo di testo"/>
+            {/* <TextField
               className="formTextField"
               multiline
               placeholder="Campo di testo"
               rows={6.5}
               variant="outlined"
-            />
+            /> */}
           </Box>
         </Box>
       </Box>
@@ -301,7 +387,7 @@ const InvoiceFooter = () => {
         {documentCards.map((card, index) => (
           <Box key={card.id} className="infoBlock__documentCard">
             <div className="infoBlock__documentCard-field">
-              <Select
+              {/* <Select
                 className="document-select"
                 displayEmpty
                 IconComponent={KeyboardArrowDownIcon}
@@ -311,10 +397,17 @@ const InvoiceFooter = () => {
                 }
               >
                 <MenuItem value="">Ordine di acquisto</MenuItem>
-              </Select>
+              </Select> */}
+                    <Autocomplete
+              disablePortal
+              options={options} 
+              renderInput={(params) => (
+                <TextField {...params} label="Ordine di acquisto" />
+              )}
+            />
               <TextField
                 className="document-field"
-                placeholder="Id/Numero Documento"
+                label="Id/Numero Documento"
                 variant="outlined"
                 value={card.documentId}
                 onChange={(e) =>
@@ -323,7 +416,7 @@ const InvoiceFooter = () => {
               />
               <TextField
                 className="document-field"
-                placeholder="Data"
+                label="Data"
                 variant="outlined"
                 value={card.date}
                 onChange={(e) =>
@@ -332,7 +425,7 @@ const InvoiceFooter = () => {
               />
               <TextField
                 className="document-field"
-                placeholder="Commessa"
+                label="Commessa"
                 variant="outlined"
                 value={card.commessa}
                 onChange={(e) =>
@@ -341,7 +434,7 @@ const InvoiceFooter = () => {
               />
               <TextField
                 className="document-field"
-                placeholder="CUP"
+                label="CUP"
                 variant="outlined"
                 value={card.cup}
                 onChange={(e) =>
@@ -350,7 +443,7 @@ const InvoiceFooter = () => {
               />
               <TextField
                 className="document-field"
-                placeholder="CIG"
+                label="CIG"
                 variant="outlined"
                 value={card.cig}
                 onChange={(e) =>

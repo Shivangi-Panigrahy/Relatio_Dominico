@@ -251,7 +251,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 1,
+            "id": 5,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -303,7 +303,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 6,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -472,7 +472,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 1,
+            "id": 7,
             "title": "Trasporto uve",
             "status": "In corso",
             "count": "24g",
@@ -547,7 +547,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 8,
             "title": "Reg. peso e qualità delle uve",
             "status": "In corso",
             "count": "24g",
@@ -645,7 +645,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 1,
+            "id": 9,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -697,7 +697,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 10,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -826,7 +826,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 1,
+            "id": 11,
             "title": "Pigiatura",
             "status": "In corso",
             "count": "24g",
@@ -919,7 +919,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 12,
             "title": "Diraspatura",
             "status": "In corso",
             "count": "24g",
@@ -1017,7 +1017,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 1,
+            "id": 13,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -1113,7 +1113,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 14,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -1242,7 +1242,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 1,
+            "id": 15,
             "title": "Monitoraggio fermentazione",
             "status": "In corso",
             "count": "24g",
@@ -1340,7 +1340,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 1,
+            "id": 16,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -1392,7 +1392,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 17,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -1893,7 +1893,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 1,
+            "id": 17,
             "title": "Calcolo rese",
             "status": "In corso",
             "count": "24g",
@@ -2030,7 +2030,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 18,
             "title": "Imbottigliamento",
             "status": "In corso",
             "count": "24g",
@@ -2167,7 +2167,7 @@
             ]
           },
           {
-            "id": 3,
+            "id": 19,
             "title": "Etichettatura",
             "status": "In corso",
             "count": "24g",
@@ -2309,7 +2309,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 1,
+            "id": 20,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -2361,7 +2361,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 21,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",

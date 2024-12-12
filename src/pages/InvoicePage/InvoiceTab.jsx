@@ -40,6 +40,8 @@ const toolbarItems = [
     caption: "Modifica da",
     isUser: true,
   },
+  { icon: Scarica, title: "Successivo", caption: "Successivo" },
+  { icon: Scarica, title: "Origine", caption: "Origine" },
   { icon: Scarica, title: "Scarica PDF", caption: "Scarica PDF" },
   { icon: Xml, title: "XML", caption: "XML" },
 ];
