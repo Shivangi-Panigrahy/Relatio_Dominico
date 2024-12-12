@@ -176,7 +176,7 @@ export default function AccordionModal({ open, onClose, label, message, json, na
             BackdropProps={{
                 timeout: 500,
             }}
-            className="risultatiConfigatorModal"
+            className="risultatiConfigatorModal hideSearchBg"
         >
             <Fade in={open}>
                 <Paper

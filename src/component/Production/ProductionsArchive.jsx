@@ -126,7 +126,7 @@ function ProductionsArchive() {
           display: "flex",
           transform: `translateX(${position}px)`,
           transition: isDragging ? "none" : "transform 0.3s ease", // Smooth return only if not dragging
-          cursor: "grab",
+          cursor: "pointer",
         }}
         onMouseDown={handleMouseDown}
       >

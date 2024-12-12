@@ -155,3 +155,10 @@
     }
   }
 }
+.hideSearchBg {
+  .invoiceFilter {
+    padding: 0px;
+    box-shadow: none;
+    background: transparent;
+  }
+}

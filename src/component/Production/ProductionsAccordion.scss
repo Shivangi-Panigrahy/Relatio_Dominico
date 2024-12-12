@@ -12,15 +12,18 @@
       display: flex;
       align-items: center;
       gap: 17px;
-
       &__inner {
         padding: 30px 24px;
         background-color: #fafafa;
         border-radius: 30px;
-        height: 100%;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        height: calc(100vh - 340px);
         overflow: auto;
         overflow-x: hidden;
-
+        &::-webkit-scrollbar {
+          display: none;
+        }
         .cardHeader {
           display: flex;
           align-items: center;
