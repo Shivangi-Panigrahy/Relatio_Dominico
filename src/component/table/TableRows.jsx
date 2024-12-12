@@ -2060,7 +2060,7 @@ const TableRows = ({
                           : currentStatuses[index]}
                       </StatusChip>
                     </StyledTableCell>
-                    <StyledTableCell>{row.inixio}</StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
                     <StyledTableCell>{row.fine}</StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
@@ -3518,7 +3518,7 @@ const TableRows = ({
                     <StyledTableCell>{row.targhe}</StyledTableCell>
                     <StyledTableCell>{row.posizione}</StyledTableCell>
                     <StyledTableCell>{row.km}</StyledTableCell>
-                    <StyledTableCell>{row.da}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
                     <StyledTableCell>{row.a}</StyledTableCell>
                     <StyledTableCell>
                       <Avatar1 />

@@ -4,7 +4,7 @@
   background: #fafafa;
   padding: 14px;
   border-radius: 16px;
-  gap: 25px;
+  gap: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,13 +13,13 @@
   &__approvatoBlock {
     border-right: solid 1px #cccccc;
     width: 100%;
-    max-width: 304px;
+    max-width: 220px;
     padding-right: 17px;
     &__Box {
       width: 100%;
       border-radius: 6px;
       padding: 16px 20px;
-      max-width: 264px;
+      max-width: 199px;
       background-color: #57c70033;
     }
     &__text {
@@ -74,14 +74,16 @@
     }
   }
   &__list {
-    gap: 25px;
+    gap: 20px;
     display: flex;
     align-items: stretch;
     justify-content: end;
     .toolbarContainer__items:last-child,
-    .toolbarContainer__items:nth-last-child(2) {
+    .toolbarContainer__items:nth-last-child(2),
+    .toolbarContainer__items:nth-last-child(3),
+    .toolbarContainer__items:nth-last-child(4) {
       border-left: 1px solid #cccccc;
-      padding-left: 25px;
+      padding-left: 20px;
     }
   }
   &__items {
