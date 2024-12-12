@@ -104,7 +104,10 @@ function ProductionsArchive() {
     const diff = end.diff(start, "day"); // Adding 1 to include both start and end dates
     return diff > 0 ? diff : 0; // Ensure non-negative difference
   };
-
+  const getMinEndDate = (id) => {
+    const start = dayjs(dates[id]?.startDate);
+    return start.isValid() ? start : null;
+  };
   return (
     <Box
       className="ProductionsAccordionBlock opacityBlock"
@@ -164,6 +167,7 @@ function ProductionsArchive() {
                   <DatePickerTime
                     label="Data Fine"
                     value={dates?.endDate || null}
+                    minDate={getMinEndDate()}
                     onDateChange={(formattedDate) => {
                       const validDate = dayjs(formattedDate, "DD/MM/YYYY");
                       if (validDate.isValid()) {
@@ -298,6 +302,7 @@ function ProductionsArchive() {
                   <DatePickerTime
                     label="Data Fine"
                     value={dates[item.id]?.endDate || null}
+                    minDate={getMinEndDate(item.id)}
                     onDateChange={(formattedDate) => {
                       const validDate = dayjs(formattedDate, "DD/MM/YYYY");
                       if (validDate.isValid()) {
