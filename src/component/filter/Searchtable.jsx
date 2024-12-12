@@ -116,9 +116,13 @@ const SearchTable = ({
       navData === "GiacenzeStabilimenti" ||
       navData === "mezziStabiliment" ||
       navData === "attrezzatureStabiliment" ||
-      navData === "collaboratoriStablimenti" || navData === "Attrezzature"||
-      navData === "Collaboratori"||
-      navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati"? (
+      navData === "collaboratoriStablimenti" ||
+      navData === "Attrezzature" ||
+      navData === "Collaboratori" ||
+      navData === "Mezzi" ||
+      navData === "Prodotto" ||
+      navData === "Semilavorati" ||
+      navData === "Scarti" ? (
         ""
       ) : (
         <>
@@ -613,9 +617,13 @@ const SearchTable = ({
         navData === "Gruppi" ||
         navData === "product" ||
         navData === "conf_prodotti" ||
-        navData === "lis_prodotti"
-        ||navData === "Attrezzature"||
-        navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati" ? (
+        navData === "lis_prodotti" ||
+        navData === "Attrezzature" ||
+        navData === "Collaboratori" ||
+        navData === "Mezzi" ||
+        navData === "Prodotto" ||
+        navData === "Semilavorati" ||
+        navData === "Scarti" ? (
         <></>
       ) : navData === "documenti" ? (
         <>
@@ -1098,8 +1106,7 @@ const SearchTable = ({
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
-      )
-      : navData === "Automatico" ? (
+      ) : navData === "Automatico" ? (
         <>
           <Autocomplete
             disablePortal
@@ -1108,7 +1115,9 @@ const SearchTable = ({
             onChange={(event, newValue) =>
               handleFilterSelect("categoria", newValue)
             } // Update the selected value
-            renderInput={(params) => <TextField {...params} label="Categoria" />} // Customize the label
+            renderInput={(params) => (
+              <TextField {...params} label="Categoria" />
+            )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
@@ -1131,8 +1140,6 @@ const SearchTable = ({
             )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
-     
-        
         </>
       ) : (
         <>
@@ -1226,9 +1233,13 @@ const SearchTable = ({
         navData === "Gruppi" ||
         navData === "product" ||
         navData === "conf_prodotti" ||
-        navData === "lis_prodotti"||
-         navData === "Attrezzature"||
-         navData === "Collaboratori"||navData === "Mezzi"||navData === "Prodotto"||navData === "Semilavorati"
+        navData === "lis_prodotti" ||
+        navData === "Attrezzature" ||
+        navData === "Collaboratori" ||
+        navData === "Mezzi" ||
+        navData === "Prodotto" ||
+        navData === "Semilavorati" ||
+        navData === "Scarti"
           ? ""
           : `
       ${
@@ -1256,11 +1267,7 @@ const SearchTable = ({
               ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
               : ""
           }
-                 ${
-            navData === "Productions"
-              ? "colaboratoryInvoiceFilter"
-              : ""
-          }
+                 ${navData === "Productions" ? "colaboratoryInvoiceFilter" : ""}
           ${
             navData === "mezziStabiliment"
               ? "distintaInvoiceFilter gaicenzeInvoiceFilter"
