@@ -81,7 +81,7 @@ const TemperatureBarChart = () => {
         },
         vertical: false
       }}
-      width={1200}
+      width={1100}
       height={400}
       margin={{ 
         top: 40,

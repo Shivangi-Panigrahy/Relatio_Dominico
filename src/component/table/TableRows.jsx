@@ -24,6 +24,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import MenuWithPDF from "../filter/MenuWithPDF";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -147,18 +148,18 @@ const getStatusColor = (stato) => {
         color: "#57C700",
         className: "Approvata",
       };
-      case "In corso":
-        return {
-          backgroundColor: "#57C70033",
-          color: "#57C700",
-          className: "Approvata",
-        };
-        case "Consolidato":
-          return {
-            backgroundColor: "#57C70033",
-            color: "#57C700",
-            className: "Approvata",
-          };
+    case "In corso":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
+    case "Consolidato":
+      return {
+        backgroundColor: "#57C70033",
+        color: "#57C700",
+        className: "Approvata",
+      };
     default:
       return {
         backgroundColor: "#F5F5F5",
@@ -2382,10 +2383,8 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2419,10 +2418,8 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2456,10 +2453,8 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2496,10 +2491,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2536,10 +2529,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2575,10 +2566,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }}>
-                      <IconButton>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2614,10 +2603,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell>
-                      <IconButton sx={{ margin: "0 auto !important" }}>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2653,10 +2640,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell>
-                      <IconButton sx={{ margin: "0 auto !important" }}>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -2692,10 +2677,8 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell>
-                      <IconButton sx={{ margin: "0 auto !important" }}>
-                        <MoreVert />
-                      </IconButton>
+                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                      <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
                 ))
@@ -3082,7 +3065,7 @@ const TableRows = ({
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.dataCarico || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    
+
                     <StyledTableCell>
                       <IconButton
                         size="small"
@@ -3094,9 +3077,9 @@ const TableRows = ({
                             backgroundColor: "transparent",
                           },
                         }}
-                        style={{ color: row.azione === "Carica" ? "#57C700" : "#DB0000"}}
+                        style={{ color: row.azione === "Carica" ? "#57C700" : "#DB0000" }}
                       >
-                        {row.azione=="Carica"?<ArrowUpwardIcon  sx={{ color: "#57C700" }}/>:<ArrowDown sx={{ color: "currentColor" }} />}
+                        {row.azione == "Carica" ? <ArrowUpwardIcon sx={{ color: "#57C700" }} /> : <ArrowDown sx={{ color: "currentColor" }} />}
                         {row.azione}
                       </IconButton>
                     </StyledTableCell>
