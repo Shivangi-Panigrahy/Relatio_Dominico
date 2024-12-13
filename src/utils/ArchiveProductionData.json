@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": 631,
       "maintitle": "Fase di produzione",
       "title": "Raccolta UVA",
       "subtitle": [
@@ -8,7 +8,7 @@
           "name": "Attività",
           "accordion": [
             {
-              "id": 1,
+              "id": 101,
               "title": "Attività 1",
               "status": "In corso",
               "count": "24g",
@@ -55,7 +55,7 @@
               ]
             },
             {
-              "id": 2,
+              "id": 102,
               "title": "Attività 2",
               "status": "In corso",
               "count": "24g",
@@ -75,7 +75,7 @@
               ]
             },
             {
-              "id": 3,
+              "id": 103,
               "title": "Attività 3",
               "status": "In corso",
               "count": "24g",
@@ -261,7 +261,7 @@
       "priority": "High"
     },
     {
-      "id": 2,
+      "id": 502,
       "maintitle": "Fase di produzione",
       "title": "Raccolta Mela",
       "subtitle": [
@@ -269,7 +269,7 @@
           "name": "Attività",
           "accordion": [
             {
-              "id": 1,
+              "id": 11,
               "title": "Attività 1",
               "status": "In corso",
               "count": "24g",
@@ -316,7 +316,7 @@
               ]
             },
             {
-              "id": 2,
+              "id": 12,
               "title": "Attività 2",
               "status": "In corso",
               "count": "24g",
@@ -336,7 +336,7 @@
               ]
             },
             {
-              "id": 3,
+              "id": 13,
               "title": "Attività 3",
               "status": "In corso",
               "count": "24g",
@@ -392,7 +392,7 @@
             "name": "Risultati",
             "accordion": [
               {
-                "id": 1,
+                "id": 601,
                 "title": "Prodotti",
                 "status": "In corso",
                 "count": "24g",
@@ -439,7 +439,7 @@
                 ]
               },
               {
-                "id": 2,
+                "id":852,
                 "title": "Semilavorati",
                 "status": "In corso",
                 "count": "24g",
@@ -459,7 +459,7 @@
                 ]
               },
               {
-                "id": 3,
+                "id": 5623,
                 "title": "Scarti",
                 "status": "In corso",
                 "count": "24g",
@@ -522,7 +522,7 @@
       "priority": "Low"
     },
     {
-      "id": 3,
+      "id": 1523,
       "maintitle": "Fase di produzione",
       "title": "Raccolta Banana",
       "subtitle": [
@@ -530,7 +530,7 @@
           "name": "Attività",
           "accordion": [
             {
-              "id": 1,
+              "id": 21,
               "title": "Attività 1",
               "status": "In corso",
               "count": "24g",
@@ -577,7 +577,7 @@
               ]
             },
             {
-              "id": 2,
+              "id": 222,
               "title": "Attività 2",
               "status": "In corso",
               "count": "24g",
@@ -597,7 +597,7 @@
               ]
             },
             {
-              "id": 3,
+              "id": 33,
               "title": "Attività 3",
               "status": "In corso",
               "count": "24g",
@@ -653,7 +653,7 @@
             "name": "Risultati",
             "accordion": [
               {
-                "id": 1,
+                "id": 61,
                 "title": "Prodotti",
                 "status": "In corso",
                 "count": "24g",
@@ -700,7 +700,7 @@
                 ]
               },
               {
-                "id": 2,
+                "id": 62,
                 "title": "Semilavorati",
                 "status": "In corso",
                 "count": "24g",
@@ -720,7 +720,7 @@
                 ]
               },
               {
-                "id": 3,
+                "id": 63,
                 "title": "Scarti",
                 "status": "In corso",
                 "count": "24g",
@@ -783,7 +783,7 @@
       "priority": "Medium"
     },
     {
-      "id": 4,
+      "id": 8564,
       "maintitle": "Fase di produzione",
       "title": "Raccolta Arancia",
       "subtitle": [
@@ -791,7 +791,7 @@
           "name": "Attività",
           "accordion": [
             {
-              "id": 1,
+              "id": 71,
               "title": "Attività 1",
               "status": "In corso",
               "count": "24g",
@@ -838,7 +838,7 @@
               ]
             },
             {
-              "id": 2,
+              "id": 72,
               "title": "Attività 2",
               "status": "In corso",
               "count": "24g",
@@ -858,7 +858,7 @@
               ]
             },
             {
-              "id": 3,
+              "id": 73,
               "title": "Attività 3",
               "status": "In corso",
               "count": "24g",
@@ -914,7 +914,7 @@
             "name": "Risultati",
             "accordion": [
               {
-                "id": 1,
+                "id": 5351,
                 "title": "Prodotti",
                 "status": "In corso",
                 "count": "24g",
@@ -1052,7 +1052,7 @@
           "name": "Attività",
           "accordion": [
             {
-              "id": 1,
+              "id": 81,
               "title": "Attività 1",
               "status": "In corso",
               "count": "24g",
@@ -1099,7 +1099,7 @@
               ]
             },
             {
-              "id": 2,
+              "id": 82,
               "title": "Attività 2",
               "status": "In corso",
               "count": "24g",
@@ -1119,7 +1119,7 @@
               ]
             },
             {
-              "id": 3,
+              "id": 83,
               "title": "Attività 3",
               "status": "In corso",
               "count": "24g",
@@ -1175,7 +1175,7 @@
             "name": "Risultati",
             "accordion": [
               {
-                "id": 1,
+                "id": 78591,
                 "title": "Prodotti",
                 "status": "In corso",
                 "count": "24g",

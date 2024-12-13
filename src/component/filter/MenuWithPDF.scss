@@ -1,0 +1,25 @@
+.pdfmenuoptional {
+  .MuiMenu-paper {
+    box-shadow: 0 0 6px #cccccc !important;
+    background-color: #fff !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+  }
+  ul {
+    padding: 10px;
+    li {
+      margin: 0;
+      padding: 10px;
+      gap: 6px;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #160a2a;
+      transition: 0.3s;
+      border-radius: 6px;
+      &:hover {
+        color: #57c700;
+      }
+    }
+  }
+}

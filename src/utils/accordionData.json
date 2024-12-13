@@ -8,7 +8,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 1,
+            "id": 101,
             "title": "Registrazione parcelle e dei vigneti.",
             "status": "In corso",
             "count": "24g",
@@ -64,7 +64,7 @@
             ]
           },
           {
-            "id": 2,
+            "id": 102,
             "title": "Tracciamento qualità UVA",
             "status": "In corso",
             "count": "24g",
@@ -122,7 +122,7 @@
             ]
           },
           {
-            "id": 3,
+            "id": 103,
             "title": "Reg.anomalie e problematiche",
             "status": "In corso",
             "count": "24g",
@@ -180,7 +180,7 @@
             ]
           },
           {
-            "id": 4,
+            "id": 104,
             "title": "Raccolta",
             "status": "In corso",
             "count": "24g",
@@ -275,7 +275,7 @@
         "name": "Risultati",
         "accordion": [
           {
-            "id": 5,
+            "id": 105,
             "title": "Risultato operativo",
             "status": "In corso",
             "count": "24g",
@@ -331,7 +331,7 @@
             ]
           },
           {
-            "id": 6,
+            "id":106,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -471,7 +471,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id": 7,
+            "id":107,
             "title": "Trasporto uve",
             "status": "In corso",
             "count": "24g",
@@ -554,7 +554,7 @@
             ]
           },
           {
-            "id": 8,
+            "id": 108,
             "title": "Reg. peso e qualità delle uve",
             "status": "In corso",
             "count": "24g",

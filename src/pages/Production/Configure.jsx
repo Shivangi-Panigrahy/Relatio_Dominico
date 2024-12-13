@@ -80,7 +80,7 @@ export default function ConfigureDetails() {
 
           <Collapse in={openSections.includes(section.id)} timeout="auto">
             <List component="div" disablePadding className="section-content">
-              {/* {section.id === "Nomefase" && (
+              {section.id === "Nomefase" && (
                 <>
                   {dimensions.map((dimension) => (
                     <Nomefase
@@ -97,7 +97,7 @@ export default function ConfigureDetails() {
                     Aggiungi riga
                   </Button>
                 </>
-              )} */}
+              )}
 
               {section.id === "Attività" && (
                 <>
@@ -110,15 +110,10 @@ export default function ConfigureDetails() {
                   ))}
                   <Button
                     startIcon={<Add />}
-                    className="add-color-button"
+                   className="add-row-button"
                     variant="text"
                     onClick={handleAddColori}
-                    style={{
-                      color: "#160a2a",
-                      fontWeight: 700,
-                      textTransform: "unset",
-                      backgroundColor: "transparent",
-                    }}
+                   
                   >
                     Aggiungi riga
                   </Button>

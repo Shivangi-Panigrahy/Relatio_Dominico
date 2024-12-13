@@ -113,7 +113,12 @@ function ProductionsArchive() {
     { background: "#d3eac2", text: "#57c700" },
     { background: "#eec2c2", text: "#de2424" },
   ];
-
+  const colorsStatic = [
+     // Green
+    { background: "#eec2c2", text: "#de2424" }, // Red
+    { background: "#f5e4c3", text: "#fead0f" },
+    { background: "#d3eac2", text: "#57c700" }, // Yellow
+  ];
   // State to track the color index for each accordion item
   const [chipColors, setChipColors] = useState({});
 
@@ -126,6 +131,12 @@ function ProductionsArchive() {
           ? 0
           : (prevState[id] || 0) + 1,
     }));
+  };
+  const [colorIndex, setColorIndex] = useState(1);
+
+  const handleClickStaic = () => {
+    // Increment color index and wrap around using modulo
+    setColorIndex((prevIndex) => (prevIndex + 1) % colorsStatic.length);
   };
   return (
     <Box
@@ -160,7 +171,16 @@ function ProductionsArchive() {
                 <IconButton>
                   <img src={Inventorybtn} alt="Inventorybtn" />
                 </IconButton>
-                <Chip label={"Completo"} className="customChip" />{" "}
+                <Chip
+                  label="Completo"
+                  className="customChip"
+                  onClick={handleClickStaic}
+                  style={{
+                    backgroundColor: colors[colorIndex].background,
+                    color: colors[colorIndex].text,
+                    cursor: "pointer",
+                  }}
+                />
                 {/* Dynamic status */}
               </Box>
             </Box>
@@ -328,7 +348,20 @@ function ProductionsArchive() {
                     <IconButton>
                       <img src={Inventorybtn} alt="Inventorybtn" />
                     </IconButton>
-                    <Chip label={item.status} className="customChip" />{" "}
+                    <Chip
+                      label={item?.status}
+                      className="customStatus"
+                      size="small"
+                      onClick={(event) => {
+                        event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
+                        handleClick(item?.id);
+                      }}
+                      style={{
+                        backgroundColor:
+                          colors[chipColors[item?.id] || 0].background,
+                        color: colors[chipColors[item?.id] || 0].text,
+                      }}
+                    />
                     {/* Dynamic status */}
                   </Box>
                 </Box>

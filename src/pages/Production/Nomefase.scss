@@ -1,0 +1,14 @@
+.customFormContent{
+    .top-row{
+        .category-name-select {
+            .MuiInputBase-root {
+                .MuiInputBase-input, .category-select{
+                    background-color: #fff;
+                }
+                fieldset {
+                    border-color: #e2e8f0;
+                }
+            }
+        }
+    }
+}

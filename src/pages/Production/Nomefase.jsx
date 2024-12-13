@@ -7,9 +7,11 @@ import {
   MenuItem,
   IconButton,
   Paper,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
-// import "./Face.scss";
+import "./Nomefase.scss";
 
 export default function Nomefase({ id, onDelete }) {
   return (
@@ -18,27 +20,37 @@ export default function Nomefase({ id, onDelete }) {
       style={{ backgroundColor: "#f3f3f3" }}
       elevation={0}
     >
-      <Box className="form-content">
+      <Box className="form-content customFormContent">
         <Box className="top-row">
           <TextField
-            placeholder="Nome della fase"
-            className="phase-name"
+            id="outlined-basic"
+            label="Nome della fase"
             variant="outlined"
+            className="category-name-select"
             fullWidth
+            style={{ marginRight: "16px" }}
           />
-
-          <Select defaultValue="" className="priority-select" displayEmpty>
-            <MenuItem value="">Priorità</MenuItem>
-            <MenuItem value="1">Alta</MenuItem>
-            <MenuItem value="2">Media</MenuItem>
-            <MenuItem value="3">Bassa</MenuItem>
-          </Select>
+          <FormControl className="top-row">
+            <Box className='category-name-select'>
+            <InputLabel id="category-select-label">Priorità</InputLabel>
+            <Select
+              labelId="category-select-label"
+              id="category-select"
+              label="Fase (es. Trasformazioni in mosto)"
+              className="phase-select"
+            >
+              <MenuItem value="0">Priorità</MenuItem>
+              <MenuItem value="1">Priorità</MenuItem>
+              <MenuItem value="2">Priorità</MenuItem>
+            </Select>
+            </Box>
+          </FormControl>
 
           <IconButton className="delete-button" onClick={() => onDelete(id)}>
             <Delete />
           </IconButton>
         </Box>
-
+      <Box className='className="top-row"'>
         <TextField
           placeholder="Descrizione"
           className="description"
@@ -47,7 +59,7 @@ export default function Nomefase({ id, onDelete }) {
           rows={4}
           fullWidth
         />
-        
+        </Box>
       </Box>
     </Paper>
   );

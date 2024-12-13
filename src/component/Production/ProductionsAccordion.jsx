@@ -163,7 +163,26 @@ function ProductionsAccordion() {
                     <IconButton>
                       <img src={Inventorybtn} alt="Inventorybtn" />
                     </IconButton>
-                    <Chip label={item.status} className="customChip" />{" "}
+                    {/* <Chip label={} className="customChip" />{" "} */}
+                    <Chip
+                                        label={item.status}
+                                        className="customStatus"
+                                        size="small"
+                                        onClick={(event) => {
+                                          event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
+                                          handleClick(item?.id);
+                                        }}
+                                        style={{
+                                          backgroundColor:
+                                            colors[
+                                              chipColors[item?.id] || 0
+                                            ].background,
+                                          color:
+                                            colors[
+                                              chipColors[item?.id] || 0
+                                            ].text,
+                                        }}
+                                      />
                     {/* Dynamic status */}
                   </Box>
                 </Box>

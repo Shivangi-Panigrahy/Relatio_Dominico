@@ -29,6 +29,9 @@
     font-weight: 700;
     text-transform: unset;
     background-color: transparent !important;
+    &:hover {
+      color: #57c700;
+    }
   }
 }
 
@@ -177,7 +180,7 @@
         .MuiAccordionSummary-content {
           display: grid;
           padding: 10px;
-          grid-template-columns: 137px 160px 1fr 215px;
+          grid-template-columns: 1fr 1fr 3fr 1.8fr;
           gap: 10px;
           margin: 0;
           p {
@@ -187,13 +190,12 @@
             color: #999999;
           }
           > div {
-           
             p {
               font-size: 12px;
               line-height: normal;
-            font-weight: bold;
-              color: #225CA6;
-              background-color: #D9D9D9;
+              font-weight: bold;
+              color: #225ca6;
+              background-color: #d9d9d9;
               padding: 4px 8px;
               border-radius: 7px;
             }
@@ -207,7 +209,7 @@
           width: 34px;
           transform: unset;
           svg {
-            margin:0 auto;
+            margin: 0 auto;
           }
           &.Mui-expanded {
             svg {
@@ -222,18 +224,18 @@
         padding-left: 30px;
         .AccordionDetailsRow {
           display: grid;
-          grid-template-columns: 137px 160px 1fr 215px;
+          grid-template-columns: 1fr 1fr 3fr 1.8fr;
           gap: 10px;
-         .td {
-          padding: 8px;
-          p {
-            font-size: 14px;
-            line-height: normal;
-            font-weight: normal;
-            color: #999999;
-            width: 100%;
+          .td {
+            padding: 8px;
+            p {
+              font-size: 14px;
+              line-height: normal;
+              font-weight: normal;
+              color: #999999;
+              width: 100%;
+            }
           }
-         }
         }
         .graphChart {
           > div {
@@ -242,5 +244,61 @@
         }
       }
     }
+  }
+  .umiditaBtn {
+    font-size: 12px;
+    line-height: normal;
+    font-weight: bold;
+    color: #225ca6;
+    background-color: #d9d9d9;
+    padding: 4px 8px;
+    border-radius: 7px;
+  }
+}
+.infoBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  &__alert {
+    width: 48px;
+    height: 48px;
+    background-color: #ffab0014;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+.custominputBox {
+  .MuiFormLabel-root {
+    top: -4px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #666666;
+    font-weight: 400;
+    &.Mui-focused {
+      top: 0;
+    }
+  }
+  input {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  fieldset {
+    border: 2px solid #ccc;
+  }
+  .MuiInputBase-root:hover fieldset {
+    border: 2px solid #ccc;
   }
 }
