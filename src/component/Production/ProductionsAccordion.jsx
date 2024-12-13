@@ -41,7 +41,7 @@ function ProductionsAccordion() {
     json: "",
     navData: "",
   });
-  const [dates, setDates] = useState({})
+  const [dates, setDates] = useState({});
 
   const handleLabelClick = (label, Messg, json, navData) => {
     setSelectedDetail({ label, Messg, json, navData });
@@ -58,7 +58,6 @@ function ProductionsAccordion() {
     console.log(`Filter applied: ${key} = ${value}`);
   };
 
- 
   const [position, setPosition] = useState(0); // Track the horizontal position
   const [isDragging, setIsDragging] = useState(false); // Track drag state
   const [startX, setStartX] = useState(0); // Track initial click position
@@ -92,17 +91,36 @@ function ProductionsAccordion() {
     { background: "#f5e4c3", text: "#fead0f" },
     { background: "#d3eac2", text: "#57c700" },
     { background: "#eec2c2", text: "#de2424" },
-    
+  ];
+  const colorsMain = [
+    { background: "#d3eac2", text: "#57c700" },
+    { background: "#f5e4c3", text: "#fead0f" },
+    { background: "#eec2c2", text: "#de2424" },
+
+  
   ];
 
   // State to track the color index for each accordion item
   const [chipColors, setChipColors] = useState({});
+  const [chipColorsMain, setChipColorsMain] = useState({});
 
   // Handle color change for a specific chip
   const handleClick = (id) => {
     setChipColors((prevState) => ({
       ...prevState,
-      [id]: (prevState[id] || 0) + 1 >= colors.length ? 0 : (prevState[id] || 0) + 1,
+      [id]:
+        (prevState[id] || 0) + 1 >= colors.length
+          ? 0
+          : (prevState[id] || 0) + 1,
+    }));
+  };
+  const handleClickMain = (id) => {
+    setChipColorsMain((prevState) => ({
+      ...prevState,
+      [id]:
+        (prevState[id] || 0) + 1 >= colorsMain.length
+          ? 0
+          : (prevState[id] || 0) + 1,
     }));
   };
   const handleMinMaxDate = (type, date, id) => {
@@ -110,7 +128,7 @@ function ProductionsAccordion() {
       ...prevDates,
       [id]: {
         ...prevDates[id],
-        [type === 0 ? 'startDate' : 'endDate']: dayjs(date),
+        [type === 0 ? "startDate" : "endDate"]: dayjs(date),
       },
     }));
   };
@@ -165,24 +183,19 @@ function ProductionsAccordion() {
                     </IconButton>
                     {/* <Chip label={} className="customChip" />{" "} */}
                     <Chip
-                                        label={item.status}
-                                        className="customStatus"
-                                        size="small"
-                                        onClick={(event) => {
-                                          event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
-                                          handleClick(item?.id);
-                                        }}
-                                        style={{
-                                          backgroundColor:
-                                            colors[
-                                              chipColors[item?.id] || 0
-                                            ].background,
-                                          color:
-                                            colors[
-                                              chipColors[item?.id] || 0
-                                            ].text,
-                                        }}
-                                      />
+                      label={item.status}
+                      className="customStatus"
+                      size="small"
+                      onClick={(event) => {
+                        event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
+                        handleClickMain(item?.id);
+                      }}
+                      style={{
+                        backgroundColor:
+                          colorsMain[chipColorsMain[item?.id] || 0].background,
+                        color: colorsMain[chipColorsMain[item?.id] || 0].text,
+                      }}
+                    />
                     {/* Dynamic status */}
                   </Box>
                 </Box>
@@ -388,19 +401,19 @@ function ProductionsAccordion() {
                           <Blockchainicon />
                         )}
 
-                                                {index !== 0 && index !== 1 ? (
-                                                    <span className="defaultText">
-                                                        Dati inviati in blockchain
-                                                    </span>
-                                                ) : (
-                                                    <>
-                                                        <span className="defaultText">
-                                                            Dati inviati in blockchain
-                                                        </span>
-                                                        <span className="hoverText">Controlla invio</span>
-                                                    </>
-                                                )}
-                                            </p>
+                        {index !== 0 && index !== 1 ? (
+                          <span className="defaultText">
+                            Dati inviati in blockchain
+                          </span>
+                        ) : (
+                          <>
+                            <span className="defaultText">
+                              Dati inviati in blockchain
+                            </span>
+                            <span className="hoverText">Controlla invio</span>
+                          </>
+                        )}
+                      </p>
 
                       {index !== 0 && index !== 1 && (
                         <BlockchainBtnHover className="hoverImg" />

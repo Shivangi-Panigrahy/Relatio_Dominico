@@ -113,6 +113,13 @@ function ProductionsArchive() {
     { background: "#d3eac2", text: "#57c700" },
     { background: "#eec2c2", text: "#de2424" },
   ];
+  const colorsMain = [
+    { background: "#d3eac2", text: "#57c700" },
+    { background: "#eec2c2", text: "#de2424" },
+    { background: "#f5e4c3", text: "#fead0f" },
+   
+   
+  ];
   const colorsStatic = [
      // Green
     { background: "#eec2c2", text: "#de2424" }, // Red
@@ -121,10 +128,20 @@ function ProductionsArchive() {
   ];
   // State to track the color index for each accordion item
   const [chipColors, setChipColors] = useState({});
+  const [chipColorsmain, setChipColorsMain] = useState({});
 
   // Handle color change for a specific chip
   const handleClick = (id) => {
     setChipColors((prevState) => ({
+      ...prevState,
+      [id]:
+        (prevState[id] || 0) + 1 >= colors.length
+          ? 0
+          : (prevState[id] || 0) + 1,
+    }));
+  };
+  const handleClickMain = (id) => {
+    setChipColorsMain((prevState) => ({
       ...prevState,
       [id]:
         (prevState[id] || 0) + 1 >= colors.length
@@ -354,12 +371,12 @@ function ProductionsArchive() {
                       size="small"
                       onClick={(event) => {
                         event.stopPropagation(); // Prevent click event from propagating to AccordionSummary
-                        handleClick(item?.id);
+                        handleClickMain(item?.id);
                       }}
                       style={{
                         backgroundColor:
-                          colors[chipColors[item?.id] || 0].background,
-                        color: colors[chipColors[item?.id] || 0].text,
+                          colorsMain[chipColorsmain[item?.id] || 0].background,
+                        color: colorsMain[chipColorsmain[item?.id] || 0].text,
                       }}
                     />
                     {/* Dynamic status */}
