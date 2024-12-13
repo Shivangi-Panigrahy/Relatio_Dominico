@@ -1,5 +1,6 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts";
+import { chartsGridClasses } from '@mui/x-charts/ChartsGrid';
 
 const TemperatureBarChart = () => {
     const dataset = [
@@ -114,7 +115,8 @@ const TemperatureBarChart = () => {
         },
         "& .MuiChartsGrid-root": {
           zIndex: 0
-        }
+        },
+        [`& .${chartsGridClasses.line}`]: { strokeDasharray: '5 3', strokeWidth: 2 },
       }}
     />
   );
