@@ -284,6 +284,43 @@ const SearchTable = ({
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
+      )
+      : navData === "sensori" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("Tipodisensore")} // Provide your unique values here
+            value={activeFilters["Tipodisensore"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("Tipodisensore", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Tipo di sensore" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("Tipodirilevazione")} // Provide your unique values here
+            value={activeFilters["Tipodirilevazione"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("Tipodirilevazione", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Tipo di rilevazione" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("TipodiPosizione")} // Provide your unique values here
+            value={activeFilters["TipodiPosizione"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("TipodiPosizione", newValue)
+            } // Update the selected value
+            renderInput={(params) => <TextField {...params} label="Tipo di Posizione" />} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+     
+        </>
       ) : navData === "AmministragioneImposte" ? (
         <>
           <Autocomplete
