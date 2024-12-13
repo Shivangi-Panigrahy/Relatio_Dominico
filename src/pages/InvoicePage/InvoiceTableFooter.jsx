@@ -109,6 +109,34 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
     );
   };
 
+  const handleAddSelectedRows = () => {
+    const selectedRows = sampleData.filter((service) =>
+      selectedServices.includes(service.id)
+    );
+
+    const transformedRows = selectedRows.map((row) => ({
+      id: `selected-${row.id}-${Date.now()}`,
+      prodotto: row.name,
+      quantita: row.quantity.toString(),
+      prezzo: "45",
+      sconto: "20%,PZ",
+      iva_type: row.unit,
+      iva_percentage: "22%,PZ",
+      esenzione: "esenzione",
+      totale: "0",
+      iva: "22%,es",
+      pz: row.code,
+      codice: row.code
+    }));
+
+    const updatedData = [...dummyData, ...transformedRows];
+
+    setFilteredData(updatedData);
+
+    setOpen(false);
+    setSelectedServices([]);
+  };
+
   const handleMenuOpen = (event, serviceId) => {
     setAnchorEl(event.currentTarget);
     setMenuService(serviceId);
@@ -173,12 +201,16 @@ const InvoiceTableFooter = ({ dummyData, setFilteredData }) => {
               variant="h6"
               style={{ fontWeight: "bold", fontSize: "24px" }}
             >
-              Selezione un o più servizio
+              Selezione un o più servizios
             </Typography>
-              <AddButton title="Inserisci" />
+            <AddButton
+              title="Inserisci"
+              onClick={handleAddSelectedRows}
+              disabled={selectedServices.length === 0}
+            />
           </div>
           <Typography variant="subtitle2" color="#100919" fontSize={"14px"}>
-            SELEZIONA IL DOCUMENTO CHE VUOI CREARE
+            {`${selectedServices.length} servizi selezionati`}
           </Typography>
         </DialogTitle>
         <DialogContent>

@@ -331,7 +331,7 @@
             ]
           },
           {
-            "id":106,
+            "id": 106,
             "title": "Registrazione dati",
             "status": "In corso",
             "count": "24g",
@@ -339,8 +339,7 @@
               {
                 "label": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
-              
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
@@ -471,7 +470,7 @@
         "name": "Attività",
         "accordion": [
           {
-            "id":107,
+            "id": 107,
             "title": "Trasporto uve",
             "status": "In corso",
             "count": "24g",
@@ -724,7 +723,8 @@
             "details": [
               {
                 "label": "Sensori",
-                "count": 474
+                "count": 474,
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
@@ -1176,7 +1176,7 @@
               {
                 "label": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
@@ -1478,7 +1478,7 @@
               {
                 "label": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
@@ -1882,7 +1882,7 @@
               {
                 "label": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
@@ -2532,7 +2532,7 @@
               {
                 "label": "Sensori",
                 "count": 474,
-                "Messg": "Attenzione i prodotti semilavorati saranno scaricati della giacenze e utilizzati in produzione."
+                "Messg": "Attenzione i dati rilevati  saranno salvati in Blockchain dopo le 24 ore "
               },
               {
                 "label": "Inserimento Automatico",
