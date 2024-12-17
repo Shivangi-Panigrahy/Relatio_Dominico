@@ -1,7 +1,6 @@
 import * as React from "react";
 import { BarChart } from "@mui/x-charts";
 import { chartsGridClasses } from '@mui/x-charts/ChartsGrid';
-
 const TemperatureBarChart = () => {
     const dataset = [
         { time: "14:00h", "Temp. -0°-15°": 5, "Temp. 7°-10°": 10, "Temp. 20°-29°": 15, "Temp. 30°-35°": 10 },

@@ -47,3 +47,271 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #e72276 #f0f0f0;
 }
+
+
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+.DashboardContainer {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+/* .DashboardContainer .DashboardInner {
+  padding: 20px;
+} */
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e72276;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e72276;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e72276 #f0f0f0;
+}
+
+
+#gantt {
+  height: 700px;
+}
+
+.custom-task-color-0 {
+  background-color: #5c57c9;
+}
+
+.custom-task-color-1 {
+  background-color: #35b86b;
+}
+
+.custom-task-color-2 {
+  background-color: #4796ce;
+}
+
+.custom-task-color-3 {
+  background-color: #ce4776;
+}
+
+.custom-task-color-4 {
+  background-color: #ce5b47;
+}
+
+.custom-task-color-5 {
+  background-color: #f78119;
+}
+
+.custom-task-color-6 {
+  background-color: #9f47ce;
+}
+
+.custom-task {
+  max-height: 36px;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border-radius : 30px;
+  margin-left: 5px;
+}
+
+.custom-task-wrapper {
+  padding: 8px;
+  color: #fff;
+}
+
+.custom-task-wrapper > * {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-task-img-wrapper {
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 2px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.custom-task-img {
+  width: 32px;
+}
+
+.custom-task-title {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.custom-task-row {
+  font-size: 11px;
+}
+
+.custom-task-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dx-gantt .dx-row {
+  height: 48px;
+}
+
+.timesheet-main-box{
+  margin-top: 0px;
+}
+.timesheet-main-box *{
+  font-family: "Public Sans", sans-serif !important;
+}
+.timesheet-main-box .dx-gantt .dx-gantt-altRow, 
+.timesheet-main-box .dx-treelist .dx-row-lines>td.dx-gantt .dx-gantt-collapsable-row{
+  background-color: #fff;
+}
+
+.timesheet-main-box .dx-treelist .dx-row-lines>td{
+  border-bottom: 1px solid #fff;
+}
+
+.timesheet-main-box .dx-gantt .dx-gantt-altRow, 
+.timesheet-main-box .dx-gantt .dx-gantt-collapsable-row{
+  background-color: #f3f4f6;
+}
+.timesheet-main-box .ArrowDown-icon path{
+  fill-opacity:1;
+}
+
+.timesheet-main-box .dx-treelist-rowsview .dx-treelist-expanded span::before{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-right-style: solid;
+  border-right-width: 2px;
+  content: "";
+  display: inline-block;
+  height: 10px;
+  left: 14px;
+  position: absolute;
+  top: 22px;
+  width: 10px !important;
+  border-color: #666666;
+  transform: rotate(226deg);
+}
+
+.timesheet-main-box .dx-treelist-rowsview .dx-treelist-collapsed span::before{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-right-style: solid;
+  border-right-width: 2px;
+  content: "";
+  display: inline-block;
+  height: 10px;
+  left: 14px;
+  position: absolute;
+  top: 17px;
+  width: 10px !important;
+  border-color: #666666;
+  transform: rotate(45deg);
+}
+
+.timesheet-main-box  .dx-gantt .dx-gantt-header .dx-gantt-hb, .dx-gantt .dx-gantt-header .dx-gantt-tsa, 
+.timesheet-main-box .dx-gantt .dx-gantt-header .dx-gantt-tsac, .dx-gantt .dx-gantt-header .dx-gantt-vb{
+  border: none;
+}
+
+.timesheet-main-box  .dx-gantt .dx-gantt-vb{
+  border: none;
+}
+.timesheet-main-box .dx-gantt .dx-gantt-hb{
+  border-top: 1px solid #fff;
+}
+.timesheet-main-box .dx-gantt .dx-gantt-view{
+  background-color: #f3f4f6;
+}
+.timesheet-main-box .dx-gantt .dx-gantt-sel{
+  background-color:transparent;
+}
+.timesheet-main-box .dx-gantt .dx-treelist .dx-treelist-rowsview .dx-selection.dx-row>td{
+  background-color:#fff !important;
+}
+.timesheet-main-box .dx-gantt .dx-treelist-rowsview .dx-selection.dx-row.dx-row-lines>td{
+  border-bottom-color: #fff !important; 
+}
+.timesheet-main-box .dx-splitter-bar.dx-splitter-inactive{
+  display: none !important;
+}
+.timesheet-main-box .dx-treelist-headers .dx-treelist-table .dx-row>td{
+  border-bottom-color: #fff !important; 
+}
+.timesheet-main-box .dx-gantt{
+  border:none;
+}
+
+.timesheet-main-box .dx-gantt-collapsable-row .dx-treelist-cell-expandable{
+  background-color: #fff !important;
+}
+.timesheet-main-box  .dx-column-lines .dx-treelist-cell-expandable{
+  background-color: #fafafa;
+}
+.timesheet-main-box .dx-gantt-collapsable-row .dx-treelist-cell-expandable .dx-treelist-icon-container{
+  display: inline-block !important;
+}
+.timesheet-main-box  .dx-column-lines .dx-treelist-cell-expandable .dx-treelist-icon-container{
+  display: none;
+}
+
+.timesheet-main-box .dx-gantt-view .dx-gantt-header .dx-gantt-tsac .dx-gantt-tsa:first-child{
+  opacity: 0;
+}
+.timesheet-main-box .dx-gantt .dx-gantt-toolbar-wrapper{
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #FAFAFA;
+  position: relative;
+  bottom: -10px;
+  z-index: 9;
+}
+.timesheet-main-box .dx-item.dx-toolbar-item.dx-toolbar-button{
+  background-color: #FAFAFA;
+}
+
+.timesheet-main-box .dx-treelist-table{
+  background-color: #FAFAFA;
+}
+
+.timesheet-main-box .dx-gantt .dx-gantt-header .dx-gantt-tsac,
+.timesheet-main-box .dx-gantt .dx-gantt-header .dx-gantt-tsa{
+  background-color: #FAFAFA;
+}
+
+.timesheet-main-box  .dx-gantt-header .dx-gantt-si{
+  color: #000;
+}
+.dx-toolbar-center{
+  left:calc(100% - 640px) ;
+  position: relative;
+}
+.dx-gantt-task-edit-tooltip{
+  border-radius: 10px !important;
+}
+.dx-gantt-task-edit-tooltip-default.dx-gantt-task-edit-tooltip-after{
+  border-radius: 10px !important;
+  margin-top: -0.5px !important;
+}

@@ -20,6 +20,8 @@
     "babel-plugin-module-resolver": "^5.0.2",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
+    "devextreme": "^24.2.3",
+    "devextreme-react": "^24.2.3",
     "frappe-gantt": "^0.6.0",
     "lucide-react": "^0.454.0",
     "moment": "^2.30.1",

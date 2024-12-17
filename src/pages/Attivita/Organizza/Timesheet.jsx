@@ -1,10 +1,11 @@
-import TimelineCalendar from "../../../component/gantt/GanttCustom"
+import TimelineCalendar from "../../../component/gantt/TimelineCalender"
+
 
 
 const Timesheet = () => {
   return (
     <div>
- <TimelineCalendar/>
+<TimelineCalendar/>
     </div>
   )
 }

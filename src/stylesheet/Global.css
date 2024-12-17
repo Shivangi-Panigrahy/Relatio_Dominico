@@ -25,7 +25,9 @@
   align-items: center;
   justify-content: center;
 }
-
+/* .sidebarMenu .MuiList-root .MuiListItem-root .mainMenu .MuiSvgIcon-root {
+  transform: rotate(90deg);
+} */
 .sidebarMenu .MuiList-root .MuiListItemText-root {
   margin: 0px;
 }

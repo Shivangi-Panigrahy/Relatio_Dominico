@@ -27,6 +27,7 @@ import "../../stylesheet/Global.css";
 import deskLogo from "../../../src/assets/deskLogo.svg";
 import mobileLogo from "../../../src/assets/mobileLogo.svg";
 import { ExpandLess, ExpandMore, ChevronRight } from "@mui/icons-material";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useNavigate } from "react-router-dom";
 const drawerWidth = 284;
 const collapsedDrawerWidth = 80;
@@ -152,6 +153,16 @@ const menuItems = [
     ],
   },
   {
+    name: "File",
+    icon: FileLogo,
+    textColor: "#4361EE",
+    route: "/file",
+    subitems: [
+      { name: "Repository", route: "/file/repository" },
+      { name: "Archivio", route: "/file/archivio" },
+    ],
+  },
+  {
     name: "Logistica",
     icon: LogisticaLogo,
     textColor: "#4361EE",
@@ -202,40 +213,31 @@ const menuItems = [
       { name: "Candidati", route: "/angrafiche/candidati" },
     ],
   },
-  {
-    name: "Formazione",
-    icon: FormazioneLogo,
-    textColor: "#4AAFF0",
-    route: "/formazione",
-    subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-    ],
-  },
-  {
-    name: "Salute",
-    icon: SaluteLogo,
-    textColor: "#4895EF",
-    route: "/salute",
-    subitems: [
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-      "Sotto sezione",
-    ],
-  },
-  {
-    name: "File",
-    icon: FileLogo,
-    textColor: "#4361EE",
-    route: "/file",
-    subitems: [
-      { name: "Repository", route: "/file/repository" },
-      { name: "Archivio", route: "/file/archivio" },
-    ],
-  },
+  // {
+  //   name: "Formazione",
+  //   icon: FormazioneLogo,
+  //   textColor: "#4AAFF0",
+  //   route: "/formazione",
+  //   subitems: [
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //   ],
+  // },
+  // {
+  //   name: "Salute",
+  //   icon: SaluteLogo,
+  //   textColor: "#4895EF",
+  //   route: "/salute",
+  //   subitems: [
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //     "Sotto sezione",
+  //   ],
+  // },
+
 ];
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -293,7 +295,7 @@ const Sidebar = () => {
                 {open && <ListItemText primary={item.name} />}
                 {open &&
                   item.subitems &&
-                  (openSubmenu === item.name ? <ExpandLess /> : <ExpandMore />)}
+                  (openSubmenu === item.name ? <ExpandMore sx={{ color: item?.textColor }} /> : <ChevronLeftIcon sx={{ color: item?.textColor }}  />)}
               </div>
               {item.subitems && open && (
                 <Collapse
