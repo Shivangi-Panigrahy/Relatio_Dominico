@@ -34,7 +34,7 @@ const Documenti = ({ data }) => {
   const handleValoreFilter = (selectedValore) => {
     setValoreFilter(selectedValore);
     setPage(0);
-  }
+  };
 
   // Helper function to determine current route
   const getCurrentRoute = () => {
@@ -43,15 +43,27 @@ const Documenti = ({ data }) => {
       isProgettiTaskPage: path.includes("/attivita/progetti/Task"),
       isProgettiAssetPage: path.includes("/attivita/progetti/Asset"),
       isProgettiDocumentiPage: path.includes("/attivita/progetti/Documenti"),
-      isHREquipagiamentoPage: path.includes("/hr/sub-colaboratory/Equipagiamento"),
+      isHREquipagiamentoPage: path.includes(
+        "/hr/sub-colaboratory/Equipagiamento"
+      ),
       isHRDocumentiPage: path.includes("/hr/sub-colaboratory/Documenti"),
       isAcquistiDocumentiPage: path.includes("/acquisti/fornitori/Documenti"),
       isVenditeDocumentiPage: path.includes("/vendite/sub-lead/Documenti"),
-      isAnagraficheLeadDocumentiPage: path.includes("/anagrafiche/sub-lead/Documenti"),
-      isAnagraficheClientiDocumentiPage: path.includes("/angrafiche/clienti/Documenti"),
-      isAnagraficheFornitoriDocumentiPage: path.includes("/angrafiche/fornitori/Documenti"),
-      isAnagraficheCollaboratoriDocumentiPage: path.includes("/angrafiche/sub-colaboratory/Documenti"),
-      isAnagraficheEquipagiamentoDocumentiPage:path.includes("/angrafiche/sub-colaboratory/Equipagiamento"),
+      isAnagraficheLeadDocumentiPage: path.includes(
+        "/anagrafiche/sub-lead/Documenti"
+      ),
+      isAnagraficheClientiDocumentiPage: path.includes(
+        "/angrafiche/clienti/Documenti"
+      ),
+      isAnagraficheFornitoriDocumentiPage: path.includes(
+        "/angrafiche/fornitori/Documenti"
+      ),
+      isAnagraficheCollaboratoriDocumentiPage: path.includes(
+        "/angrafiche/sub-colaboratory/Documenti"
+      ),
+      isAnagraficheEquipagiamentoDocumentiPage: path.includes(
+        "/angrafiche/sub-colaboratory/Equipagiamento"
+      ),
     };
   };
 
@@ -64,7 +76,6 @@ const Documenti = ({ data }) => {
     const route = getCurrentRoute();
 
     const sections = [];
-
 
     // Equipagiamento route
     if (route.isHREquipagiamentoPage) {
@@ -81,7 +92,10 @@ const Documenti = ({ data }) => {
         { label: "Budget", content: <AcquistiBudget /> },
         { label: "Preventivi", content: <AcquistiPreventivi /> },
         { label: "Ordini", content: <AcquistiOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
@@ -92,7 +106,10 @@ const Documenti = ({ data }) => {
         { label: "Budget", content: <AcquistiBudget /> },
         { label: "Preventivi", content: <AcquistiPreventivi /> },
         { label: "Ordini", content: <AcquistiOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
@@ -101,7 +118,7 @@ const Documenti = ({ data }) => {
     if (route.isVenditeDocumentiPage) {
       sections.push(
         { label: "Budget", content: <VenditeBudget /> },
-        { label: "Preventivi", content: <VenditePreventivi /> },
+        { label: "Preventivi", content: <VenditePreventivi /> }
       );
     }
 
@@ -127,7 +144,10 @@ const Documenti = ({ data }) => {
       sections.push(
         { label: "Budget", content: <VenditeBudget /> },
         { label: "Preventivi", content: <VenditePreventivi /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
@@ -135,7 +155,7 @@ const Documenti = ({ data }) => {
     if (route.isAnagraficheLeadDocumentiPage) {
       sections.push(
         { label: "Budget", content: <VenditeBudget /> },
-        { label: "Preventivi", content: <VenditePreventivi /> },
+        { label: "Preventivi", content: <VenditePreventivi /> }
       );
     }
 
@@ -144,7 +164,10 @@ const Documenti = ({ data }) => {
         { label: "Budget", content: <AcquistiBudget /> },
         { label: "Preventivi", content: <AcquistiPreventivi /> },
         { label: "Ordini", content: <AcquistiOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
@@ -154,7 +177,10 @@ const Documenti = ({ data }) => {
         { label: "Budget", content: <AcquistiBudget /> },
         { label: "Preventivi", content: <AcquistiPreventivi /> },
         { label: "Ordini", content: <AcquistiOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
@@ -165,11 +191,14 @@ const Documenti = ({ data }) => {
         { label: "Budget", content: <AcquistiBudget /> },
         { label: "Preventivi", content: <AcquistiPreventivi /> },
         { label: "Ordini", content: <AcquistiOrdini /> },
-        { label: "Documenti contabili", content: "Documenti contabili details" },
+        {
+          label: "Documenti contabili",
+          content: "Documenti contabili details",
+        },
         { label: "DDT", content: "DDT-related information" }
       );
     }
-      if (route.isAnagraficheEquipagiamentoDocumentiPage) {
+    if (route.isAnagraficheEquipagiamentoDocumentiPage) {
       sections.push(
         { label: "Attrezzature", content: "Attrezzature content" },
         { label: "Mezzi", content: "Mezzi content" }
@@ -228,7 +257,7 @@ const Documenti = ({ data }) => {
       baseStats.push(
         { label: "Fasi", value: 12604 },
         { label: "Task totalli", value: 12604 },
-        { label: "Task Da completi", value: 604 },
+        { label: "Task Da completi", value: 604, color: "red" },
         { label: "Task completi", value: 604 }
       );
     }
@@ -283,9 +312,6 @@ const Documenti = ({ data }) => {
         { label: "Buste paga", value: 604 }
       );
     }
-
-
-
 
     return baseStats;
   };
@@ -372,7 +398,7 @@ const Documenti = ({ data }) => {
                   fontSize: "20px",
                   fontWeight: 700,
                   lineHeight: "24px",
-                  color: "#57C700",
+                  color: `${stat.color ? "red" : "#57C700"}`,
                   fontFamily: '"Barlow", sans-serif',
                 }}
               >
@@ -385,30 +411,25 @@ const Documenti = ({ data }) => {
 
       <div className="documentiSearchFilter">
         <>
-          {!window.location.href.includes('/attivita/progetti/Task') &&
-            !window.location.href.includes('/attivita/progetti/Asset')
-            // !window.location.href.includes('/hr/sub-colaboratory/Documenti') 
-            ?
-            (
-              <SearchTable
-                startDate={startDate}
-                setStartDate={setStartDate}
-                endDate={endDate}
-                setEndDate={setEndDate}
-                onValoreFilter={handleValoreFilter}
-                onSearch={handleSearch}
-                applyFilters={applyFilters}
-                setSearchFilters={setSearchFilters}
-                activeFilters={activeFilters}
-                setActiveFilters={setActiveFilters}
-                searchFilters={searchFilters}
-                navData={"documenti"}
-              />
-            ) : null}
+          {!window.location.href.includes("/attivita/progetti/Task") &&
+          !window.location.href.includes("/attivita/progetti/Asset") ? (
+            // !window.location.href.includes('/hr/sub-colaboratory/Documenti')
+            <SearchTable
+              startDate={startDate}
+              setStartDate={setStartDate}
+              endDate={endDate}
+              setEndDate={setEndDate}
+              onValoreFilter={handleValoreFilter}
+              onSearch={handleSearch}
+              applyFilters={applyFilters}
+              setSearchFilters={setSearchFilters}
+              activeFilters={activeFilters}
+              setActiveFilters={setActiveFilters}
+              searchFilters={searchFilters}
+              navData={"documenti"}
+            />
+          ) : null}
         </>
-
-
-
       </div>
 
       <Box className="customAccordion">
@@ -435,7 +456,7 @@ const Documenti = ({ data }) => {
   );
 };
 
-export default Documenti
+export default Documenti;
 
 // import React, { useState } from "react";
 // import {
