@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nomeTurno": "Turno ufficio",
+    "tipologia": "Turno annuale",
+    "stato": "Attivo",
+    "creatoil": "28/11/2024",
+    "utente": "User1",
+    "azioni": "..."
+  },
+  {
+    "id": 2,
+    "nomeTurno": "Turno remoto",
+    "tipologia": "Turno mensile",
+    "stato": "Attivo",
+    "creatoil": "15/10/2024",
+    "utente": "User2",
+    "azioni": "..."
+  },
+  {
+    "id": 3,
+    "nomeTurno": "Turno notte",
+    "tipologia": "Turno settimanale",
+    "stato": "Attivo",
+    "creatoil": "05/09/2024",
+    "utente": "User3",
+    "azioni": "..."
+  },
+  {
+    "id": 4,
+    "nomeTurno": "Turno festivo",
+    "tipologia": "Turno speciale",
+    "stato": "Attivo",
+    "creatoil": "12/12/2024",
+    "utente": "User4",
+    "azioni": "..."
+  },
+  {
+    "id": 5,
+    "nomeTurno": "Turno straordinario",
+    "tipologia": "Turno extra",
+    "stato": "Attivo",
+    "creatoil": "20/11/2024",
+    "utente": "User5",
+    "azioni": "..."
+  }
+]

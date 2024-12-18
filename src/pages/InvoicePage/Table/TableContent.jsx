@@ -18,6 +18,7 @@ import { ReactComponent as UpdwardIcon } from "../../../assets/UpdwardIcon.svg";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import "../InvoicePage.scss";
 import MenuWithOptions from "../../../component/filter/MenuWithOptions";
+import MenuWithPDF from "../../../component/filter/MenuWithPDF";
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: "none",
@@ -30,8 +31,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   borderBottom: "none",
 }));
-const TableContent = ({ data, columns, selected, handleRowClick }) => {
-  const option = ["Option 1", "Option 2", "Option 3"];
+const TableContent = ({
+  data,
+  columns,
+  selected,
+  handleRowClick,
+  menuOptions,
+  handleDelete,
+}) => {
+  console.log(menuOptions, "colums");
+
   const [expandedRow, setExpandedRow] = useState(null);
   const [tasks, setTasks] = useState(data || []);
   const [activeMoveRowIndexFirst, setActiveMoveRowIndexFirst] = useState(null);
@@ -156,7 +165,11 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                           )}
                         </IconButton>
                         <IconButton size="small">
-                          <MenuWithOptions options={option} />
+                          <MenuWithPDF
+                            options={menuOptions}
+                            handleDelete={handleDelete}
+                            id={row.id}
+                          />
                         </IconButton>
                       </div>
                     </StyledTableCell>
@@ -168,7 +181,7 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                       <Box className="twoField">
                         <TextField
                           // value={row[column.field][0]}
-                          placeholder={row[column.field]}
+                          placeholder={row[column?.field]}
                           onChange={(e) =>
                             handleInputChange(
                               index,
@@ -182,7 +195,7 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                         />
                         <TextField
                           // value={row[column.field][1]}
-                          placeholder={row[column.field]}
+                          placeholder={row[column?.field]}
                           onChange={(e) =>
                             handleInputChange(
                               index,
@@ -200,9 +213,13 @@ const TableContent = ({ data, columns, selected, handleRowClick }) => {
                     ) : (
                       <TextField
                         // value={row[column.field]}
-                        placeholder={row[column.field]}
+                        placeholder={row[column?.field]}
                         onChange={(e) =>
-                          handleInputChange(index, column.field, e.target.value)
+                          handleInputChange(
+                            index,
+                            column?.field,
+                            e.target.value
+                          )
                         }
                         variant="outlined"
                         size="small"

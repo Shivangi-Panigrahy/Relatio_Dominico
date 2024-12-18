@@ -15,12 +15,13 @@ import {
 } from "@mui/material";
 import "./AddResourcesDialog.scss";
 import CustomCheckbox from "../table/Checkbox";
+import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 const AddResourcesDialog = ({ handleClose }) => {
   const [selectedUsers, setSelectedUsers] = useState([]);
 
   const users = Array(10).fill({
     name: "Matteo Vellone",
-    avatar: "https://via.placeholder.com/40",
+    avatar: <Avatar />,
   });
 
   const handleToggle = (index) => {
@@ -49,11 +50,11 @@ const AddResourcesDialog = ({ handleClose }) => {
                 inputProps={{ "aria-labelledby": index }}
               />
               <ListItemAvatar>
-                <Avatar
-                  src={user.avatar}
-                  alt={user.name}
-                  height={28}
-                  width={28}
+                <Avatar1
+                // src={user.avatar}
+                // alt={user.name}
+                // height={28}
+                // width={28}
                 />
               </ListItemAvatar>
               <ListItemText primary={user.name} />

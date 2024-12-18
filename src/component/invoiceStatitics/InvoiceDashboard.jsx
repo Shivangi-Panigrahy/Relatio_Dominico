@@ -139,10 +139,11 @@ const InvoiceDashboard = ({
   mezzi = false,
   attrezzature = false,
   giacenze = false,
+  turni = false,
 }) => {
   const classes = useStyles();
 
-  console.log(amministrazioneDocumenti, "amministrazioneDocumenti");
+
 
   const dataSources = {
     acquisti: acquisti,
@@ -162,6 +163,7 @@ const InvoiceDashboard = ({
     attrezzature: attrezzature,
     giacenze: giacenze,
     leadAnagrafiche: leadAnagrafiche,
+    turni: turni,
   };
   // Determine which data to render based on the props
   const selectedData = Object.entries({
@@ -180,18 +182,31 @@ const InvoiceDashboard = ({
     attrezzature,
     giacenze,
     leadAnagrafiche,
+    turni,
   })
     .filter(([key, value]) => value) // Filter props with `true` values
     .map(([key]) => dataSources[key]) // Map to corresponding data arrays
     .flat(); // Flatten in case multiple props are true
-
+    console.log(reteizzazione , "amministrazioneDocumenti");
   return (
     <Box className="FactureSection">
       <Grid container className="FactureSection__inner" spacing={2}>
         {selectedData.map((data, index) => (
           <Grid
             item
-            lg={reteizzazione ? 4 : giacenze ? "2.4" : attrezzature ? 4:mezzi?4: 3}
+            lg={
+              reteizzazione
+                ? 4
+                : giacenze
+                ? "2.4"
+                : attrezzature
+                ? 4
+                : mezzi
+                ? 4
+                : turni
+                ? 4
+                : 3
+            }
             md={6}
             xs={12}
             key={index}

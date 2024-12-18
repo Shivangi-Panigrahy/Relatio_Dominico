@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   &__approvatoBlock {
     border-right: solid 1px #cccccc;
     width: 100%;

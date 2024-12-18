@@ -34,8 +34,8 @@ const events = [
     id: 0,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 2, 10, 0, 0),
-    end: new Date(2024, 11, 2, 15, 0, 0),
+    start: new Date(2024, 11, 17, 10, 0, 0),
+    end: new Date(2024, 11, 17, 15, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
@@ -45,8 +45,8 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 3, 13, 0, 0),
-    end: new Date(2024, 11, 3, 18, 0, 0),
+    start: new Date(2024, 11, 16, 13, 0, 0),
+    end: new Date(2024, 11, 16, 18, 0, 0),
     desc: "Panel discussions with industry leaders",
     eventType: "Call",
     assignedTo: "Other",
@@ -114,6 +114,7 @@ export default function ReactBigCalendar({
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState(hrView ? "week" : "month");
   const [particularEvent, setparticularEvent] = useState({});
+  const [openModel, setOpenModel] = useState(false);
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
@@ -170,6 +171,9 @@ export default function ReactBigCalendar({
       };
     }
     return {}; // No additional styling for other views
+  };
+  const handleModelopen = () => {
+    setOpenModel(true);
   };
 
   const CustomEvent = ({ event }) => (
@@ -232,7 +236,11 @@ export default function ReactBigCalendar({
         <img src={avatart_img} alt="" />
         <img src={avatart_img} alt="" />
       </div>
-      <a href="javascript:void(0)" className="event_link">
+      <a
+        href="javascript:void(0)"
+        className="event_link"
+        onClick={handleModelopen}
+      >
         Aggiungi risorse
       </a>
     </div>
@@ -308,6 +316,8 @@ export default function ReactBigCalendar({
       : setView("month");
   }, [hrView]);
 
+  console.log(openModel,"openmodel")
+       
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
@@ -477,10 +487,12 @@ export default function ReactBigCalendar({
           }}
         />
       )}
-      {formOpen &&
+      {formOpen  &&
         (hr ? (
-          hrView ? (
-            <AddResourcesDialog handleClose={() => setFormOpen(false)} />
+          hrView  ? (
+            <AddResourcesDialog
+              handleClose={(() => setFormOpen(false))}
+            />
           ) : (
             <PresenzeModal open={formOpen} handleClose={handleOpenDialog} />
           )
@@ -491,6 +503,10 @@ export default function ReactBigCalendar({
             event={particularEvent}
           />
         ))}
+
+        {openModel &&   <AddResourcesDialog
+              handleClose={(() => setOpenModel(false))}
+            /> }
     </div>
   );
 }

@@ -121,6 +121,7 @@ import ProductionsArchive from "../component/Production/ProductionsArchive.jsx";
 import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
 import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
+import OrganizzaCalendra from "../pages/HR/Calendario/OrganizzaCalendra.jsx";
 
 const Allroutes = () => {
   return (
@@ -833,6 +834,14 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <HrCalendario />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/hr/organizza/calender"
+        element={
+          <PublicRoute>
+            <OrganizzaCalendra/>
           </PublicRoute>
         }
       />

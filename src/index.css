@@ -57,6 +57,7 @@ body {
 .DashboardContainer {
   margin-left: 80px;
   width: calc(100% - 80px);
+ 
 }
 /* .DashboardContainer .DashboardInner {
   padding: 20px;

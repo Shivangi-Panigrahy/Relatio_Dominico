@@ -284,8 +284,7 @@ const SearchTable = ({
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
-      )
-      : navData === "sensori" ? (
+      ) : navData === "sensori" ? (
         <>
           <Autocomplete
             disablePortal
@@ -306,7 +305,9 @@ const SearchTable = ({
             onChange={(event, newValue) =>
               handleFilterSelect("Tipodirilevazione", newValue)
             } // Update the selected value
-            renderInput={(params) => <TextField {...params} label="Tipo di rilevazione" />} // Customize the label
+            renderInput={(params) => (
+              <TextField {...params} label="Tipo di rilevazione" />
+            )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
           <Autocomplete
@@ -316,10 +317,11 @@ const SearchTable = ({
             onChange={(event, newValue) =>
               handleFilterSelect("TipodiPosizione", newValue)
             } // Update the selected value
-            renderInput={(params) => <TextField {...params} label="Tipo di Posizione" />} // Customize the label
+            renderInput={(params) => (
+              <TextField {...params} label="Tipo di Posizione" />
+            )} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
-     
         </>
       ) : navData === "AmministragioneImposte" ? (
         <>
@@ -363,6 +365,36 @@ const SearchTable = ({
             renderInput={(params) => <TextField {...params} label="Saldato" />} // Customize the label
             // sx={{ width: 300 }} // Optional styling
           />
+          <SearchField value={searchTerm} onChange={handleSearchChange} />
+          <MenuWithOptions options={options} />
+        </>
+      ) : navData === "Turni" ? (
+        <>
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("nomeTurno")} // Provide your unique values here
+            value={activeFilters["nomeTurno"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("nomeTurno", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Nome Turno" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+          <Autocomplete
+            disablePortal
+            options={extractUniqueValues("tipologia")} // Provide your unique values here
+            value={activeFilters["tipologia"] || ""} // Set the selected value
+            onChange={(event, newValue) =>
+              handleFilterSelect("tipologia", newValue)
+            } // Update the selected value
+            renderInput={(params) => (
+              <TextField {...params} label="Tipologia" />
+            )} // Customize the label
+            // sx={{ width: 300 }} // Optional styling
+          />
+
           <SearchField value={searchTerm} onChange={handleSearchChange} />
           <MenuWithOptions options={options} />
         </>
@@ -1301,6 +1333,7 @@ const SearchTable = ({
         ${navData === "prodotti" ? "colaboratoryInvoiceFilter" : ""}
          ${navData === "giacenze" ? "colaboratoryInvoiceFilter" : ""}
          ${navData === "mezzi" ? "invoiceFilter" : ""}
+          ${navData === "Truni" ? "colaboratoryInvoiceFilter" : ""}
          ${navData === "Automatico" ? "invoiceFilter" : ""}
           ${
             navData === "GiacenzeStabilimenti"

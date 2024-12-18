@@ -13,7 +13,7 @@ const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
   },
 }));
 
-const ProductTable = ({ dummyData, columns }) => {
+const ProductTable = ({ dummyData, columns,menuOptions,handleDelete }) => {
   const [selected, setSelected] = useState([]);
   const [sortConfig, setSortConfig] = useState({
     field: null,
@@ -78,6 +78,8 @@ const ProductTable = ({ dummyData, columns }) => {
           columns={columns}
           selected={selected}
           handleRowClick={handleRowClick}
+          menuOptions={menuOptions}
+          handleDelete={handleDelete}
         />
       </Table>
     </StyledTableContainer>

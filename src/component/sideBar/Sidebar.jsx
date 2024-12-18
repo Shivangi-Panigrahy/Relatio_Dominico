@@ -25,9 +25,11 @@ import { ReactComponent as SaluteLogo } from "../../../src/assets/SideBarIcons/S
 import { ReactComponent as FileLogo } from "../../../src/assets/SideBarIcons/File.svg";
 import "../../stylesheet/Global.css";
 import deskLogo from "../../../src/assets/deskLogo.svg";
+import LogoIcon from "../../../src/assets/LogoIcon.svg";
+import LogoText from "../../../src/assets/LogoText.svg";
 import mobileLogo from "../../../src/assets/mobileLogo.svg";
 import { ExpandLess, ExpandMore, ChevronRight } from "@mui/icons-material";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useNavigate } from "react-router-dom";
 const drawerWidth = 284;
 const collapsedDrawerWidth = 80;
@@ -196,7 +198,10 @@ const menuItems = [
     subitems: [
       { name: "Servizi", route: "/cataloghi/servizi" },
       { name: "Prodotti", route: "/cataloghi/prodotti" },
-      { name: "Configuratore", route: "/cataloghi/configuratore/Configurazione" },
+      {
+        name: "Configuratore",
+        route: "/cataloghi/configuratore/Configurazione",
+      },
       { name: "Listini", route: "/cataloghi/listini" },
     ],
   },
@@ -237,7 +242,6 @@ const menuItems = [
   //     "Sotto sezione",
   //   ],
   // },
-
 ];
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -251,6 +255,7 @@ const Sidebar = () => {
   const handleSubmenuItemClick = (route) => {
     navigate(route); // Navigate to the submenu route
   };
+  console.log(open,"open")
   return (
     <StyledDrawer
       variant="permanent"
@@ -268,13 +273,15 @@ const Sidebar = () => {
           justifyContent: open ? "flex-start" : "center",
         }}
       >
-        {open ? (
-          <img src={deskLogo} height="33" width="auto" alt="#" />
+        <img src={LogoText} height="33" width="auto" alt="#" />
+        <img className={open ? "" : "logo-text"} src={LogoIcon} height="33" width="auto" alt="#" />
+        {/* {open ? (
+          <>
+          </>
         ) : (
-          <img src={mobileLogo} height="33" width="auto" alt="#" />
-        )}
+        )} */}
       </Box>
-      <List >
+      <List>
         {menuItems.map((item) => (
           <React.Fragment key={item.name}>
             <StyledListItem
@@ -295,7 +302,11 @@ const Sidebar = () => {
                 {open && <ListItemText primary={item.name} />}
                 {open &&
                   item.subitems &&
-                  (openSubmenu === item.name ? <ExpandMore sx={{ color: item?.textColor }} /> : <ChevronLeftIcon sx={{ color: item?.textColor }}  />)}
+                  (openSubmenu === item.name ? (
+                    <ExpandMore sx={{ color: item?.textColor }} />
+                  ) : (
+                    <ChevronLeftIcon sx={{ color: item?.textColor }} />
+                  ))}
               </div>
               {item.subitems && open && (
                 <Collapse
@@ -311,7 +322,6 @@ const Sidebar = () => {
                         sx={{ pl: 4 }}
                         open={open}
                         onClick={() => handleSubmenuItemClick(subitem.route)} // Navigate on submenu click
-
                       >
                         <ListItemText primary={subitem.name} />
                       </StyledListItem>

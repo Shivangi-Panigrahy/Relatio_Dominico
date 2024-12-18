@@ -247,12 +247,15 @@ const TAB_CONFIGURATIONS = {
     { label: "Gantt", icon: Agenda },
   ],
 
+  organizzaCalender: [
+    { label: "organizza", icon: Mese },
+  ],
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche,isorganizza) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche,isorganizza,isorganizzaCalender) => {
 
-
+console.log(isorganizzaCalender,"isorganizzaCalender")
   if (isLead) return `/vendite/sub-lead/${label}`;
 
   if (isFornitori) return `/acquisti/fornitori/${label}`;
@@ -294,6 +297,7 @@ const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte
   if (isClientiAnagrafiche)
     return `/angrafiche/clienti/${label}`;
   if (isorganizza) return `/attivita/${label}`;
+  if (isorganizzaCalender) return `/hr/organizza/calender`;
 
   return `/dashboard/${label}`;
 
@@ -328,7 +332,8 @@ const MenuTab = ({
   colaboratoryAnagrafiche = false,
   fornitoriAnagrafiche=false,
   clientiAnagrafiche=false,
-  organizza=false
+  organizza=false,
+  organizzaCalender=false
 
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
@@ -362,10 +367,11 @@ const MenuTab = ({
     if (fornitoriAnagrafiche) return TAB_CONFIGURATIONS.fornitoriAnagrafiche;
     if (clientiAnagrafiche) return TAB_CONFIGURATIONS.clientiAnagrafiche;
     if (organizza) return TAB_CONFIGURATIONS.organizza;
+    if (organizzaCalender) return TAB_CONFIGURATIONS.organizzaCalender;
 
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender]);
 
   const tabsConfig = getActiveConfig();
 
@@ -384,7 +390,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender);
       navigate(path);
 
       // Invoke parent callback
@@ -392,7 +398,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender]
   );
 
   return (

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import CustomCheckbox from "./Checkbox";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import MenuWithOptions from "../filter/MenuWithOptions";
+import MenuWithPDF from "../filter/MenuWithPDF";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as Avatar1 } from "../../assets/Avatar1.svg";
 import { ReactComponent as BlackProfile } from "../../assets/blackProfile.svg";
@@ -19,12 +19,12 @@ import { ReactComponent as Files } from "../../assets/files.svg";
 import { ReactComponent as SIIcon } from "../../assets/SIIcon.svg";
 import { ReactComponent as ProductIcon } from "../../assets/ProductIcon.svg";
 import { ReactComponent as ArrowDown } from "../../assets/ArrowDown.svg";
+
 import { MoreVert } from "@mui/icons-material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-import MenuWithPDF from "../filter/MenuWithPDF";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   padding: "12px 16px",
@@ -197,6 +197,7 @@ const TableRows = ({
   option,
   form,
   navData,
+  handleDelete,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -301,9 +302,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -313,9 +314,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/ordini") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/ordini/sub-ordini")
                         : navigate("/acquisti/ordini/sub-ordini")
                     }
@@ -391,7 +392,10 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF
+                        options={option}
+                        handleDelete={handleDelete}
+                      />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -415,7 +419,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
 
-                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                    // onClick={() => navigate("/acquisti/sub-ordini")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -449,7 +453,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -473,7 +477,7 @@ const TableRows = ({
                     key={index}
                     selected={isSelected(row.id)}
 
-                  // onClick={() => navigate("/acquisti/sub-ordini")}
+                    // onClick={() => navigate("/acquisti/sub-ordini")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -507,7 +511,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -589,7 +593,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -616,8 +620,8 @@ const TableRows = ({
                       window.location.href.includes("/acquisti/fornitori")
                         ? navigate("/acquisti/fornitori/Contatti")
                         : window.location.href.includes("/angrafiche/clienti")
-                          ? navigate("/angrafiche/clienti/Contatti")
-                          : navigate("/angrafiche/fornitori/Contatti")
+                        ? navigate("/angrafiche/clienti/Contatti")
+                        : navigate("/angrafiche/fornitori/Contatti")
                     }
                   >
                     <StyledTableCell align="center">
@@ -678,7 +682,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -706,9 +710,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 .map((row, index) => (
@@ -717,9 +721,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/budget") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/budget/sub-budget")
                         : navigate("/acquisti/budget/sub-budget")
                     }
@@ -796,7 +800,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -825,9 +829,9 @@ const TableRows = ({
                     isAnagraficheFornitoriDocumentiPage ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
 
@@ -838,9 +842,9 @@ const TableRows = ({
                     selected={isSelected(row.id)}
                     onClick={() =>
                       window.location.href.includes("/vendite/preventivi") ||
-                        window.location.href.includes(
-                          "/vendite/sub-lead/Documenti"
-                        )
+                      window.location.href.includes(
+                        "/vendite/sub-lead/Documenti"
+                      )
                         ? navigate("/vendite/preventivi/sub-preventivi")
                         : navigate("/acquisti/preventivi/sub-preventivi")
                     }
@@ -916,7 +920,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -978,7 +982,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1096,7 +1100,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1154,7 +1158,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1177,7 +1181,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/acquisti/fornitori/Contatti")}
+                    // onClick={() => navigate("/acquisti/fornitori/Contatti")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1212,7 +1216,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1260,7 +1264,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1336,7 +1340,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1425,7 +1429,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1478,7 +1482,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1546,7 +1550,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1576,7 +1580,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1637,7 +1641,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1674,7 +1678,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1704,7 +1708,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1741,7 +1745,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1771,7 +1775,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1808,7 +1812,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1838,7 +1842,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1875,7 +1879,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -1905,7 +1909,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -1954,7 +1958,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/cataloghi/listini/Gruppi")}
+                    // onClick={() => navigate("/cataloghi/listini/Gruppi")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -2004,7 +2008,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -2082,7 +2086,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -2168,7 +2172,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -2257,7 +2261,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -2328,11 +2332,13 @@ const TableRows = ({
                             ? row.stato
                             : currentStatuses[index]
                         }
-                        className={getStatusColor(
-                          searchFilters?.stato
-                            ? row.stato
-                            : currentStatuses[index]
-                        ).className}
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
@@ -2350,7 +2356,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -2383,7 +2389,10 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2418,7 +2427,10 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2453,7 +2465,10 @@ const TableRows = ({
                     </StyledTableCell>
                     <StyledTableCell>{row.ruolo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2491,7 +2506,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2529,7 +2547,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2566,7 +2587,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2603,7 +2627,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2640,7 +2667,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -2677,7 +2707,10 @@ const TableRows = ({
                     <StyledTableCell>{row.tipo || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.um || "N/A"}</StyledTableCell>
                     <StyledTableCell>{row.quantita || "N/A"}</StyledTableCell>
-                    <TableCell sx={{ margin: "0 auto !important" }} onClick={(event) => event.stopPropagation()}>
+                    <TableCell
+                      sx={{ margin: "0 auto !important" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <MenuWithPDF options={option} />
                     </TableCell>
                   </StyledTableRow>
@@ -3077,9 +3110,16 @@ const TableRows = ({
                             backgroundColor: "transparent",
                           },
                         }}
-                        style={{ color: row.azione === "Carica" ? "#57C700" : "#DB0000" }}
+                        style={{
+                          color:
+                            row.azione === "Carica" ? "#57C700" : "#DB0000",
+                        }}
                       >
-                        {row.azione == "Carica" ? <ArrowUpwardIcon sx={{ color: "#57C700" }} /> : <ArrowDown sx={{ color: "currentColor" }} />}
+                        {row.azione == "Carica" ? (
+                          <ArrowUpwardIcon sx={{ color: "#57C700" }} />
+                        ) : (
+                          <ArrowDown sx={{ color: "currentColor" }} />
+                        )}
                         {row.azione}
                       </IconButton>
                     </StyledTableCell>
@@ -3174,13 +3214,14 @@ const TableRows = ({
                     <StyledTableCell>{row.evento}</StyledTableCell>
                     <StyledTableCell>{row.da}</StyledTableCell>
                     <StyledTableCell>{row.creatoil}</StyledTableCell>
+                    <StyledTableCell>{row.totOre}</StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
                     <StyledTableCell sx={{ textAlign: "center" }}>
                       <Avatar1 />
                     </StyledTableCell>
-                    <StyledTableCell>{row.modDa}</StyledTableCell>
+
                     <StyledTableCell align="center">
                       <StatusChip
                         stato={
@@ -3211,7 +3252,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3235,9 +3276,9 @@ const TableRows = ({
                   isSubcolaboratoryDocumenti ||
                     isAnagraficheCollaboratoriDocumentiPage
                     ? Math.min(
-                      page * rowsPerPage + 2,
-                      page * rowsPerPage + rowsPerPage
-                    )
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
                     : page * rowsPerPage + rowsPerPage
                 )
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -3279,7 +3320,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3307,11 +3348,11 @@ const TableRows = ({
                         ? navigate("/hr/candidati/candidato/Contatti")
                         : navigate("/angrafiche/candidati/Contatti")
                     }
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
-                  //     : navigate("/hr/candidati")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory/Contatti")
+                    //     : navigate("/hr/candidati")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3363,7 +3404,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3386,11 +3427,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
-                  //     : navigate("/acquisti/ordini/sub-ordini")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3409,7 +3450,83 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+      case "Turni":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={()=>navigate("/hr/organizza/calender")}
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeTurno}</StyledTableCell>
+                    <StyledTableCell>{row.tipologia}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+                    <StyledTableCell>{row.creatoil}</StyledTableCell>
+                    <StyledTableCell>
+                      <Avatar1 />
+                    </StyledTableCell>
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3432,11 +3549,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/hr/colaboratory")
-                  //     ? navigate("/hr/colaboratory/sub-colaboratory")
-                  //     : navigate("/acquisti/ordini/sub-ordini")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/hr/colaboratory")
+                    //     ? navigate("/hr/colaboratory/sub-colaboratory")
+                    //     : navigate("/acquisti/ordini/sub-ordini")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3456,7 +3573,7 @@ const TableRows = ({
                       sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3502,7 +3619,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3580,7 +3697,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3659,7 +3776,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3726,7 +3843,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3749,7 +3866,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3769,7 +3886,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3792,7 +3909,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3812,7 +3929,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3835,7 +3952,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3855,7 +3972,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -3878,7 +3995,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
+                    // onClick={() => navigate("/logistica/giacenze/subGiacenze")}
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -3977,7 +4094,7 @@ const TableRows = ({
                       // sx={{ textAlign: "center" }}
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))
@@ -4000,11 +4117,11 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                  // onClick={() =>
-                  //   window.location.href.includes("/vendite/preventivi")
-                  //     ? navigate("/vendite/preventivi/sub-preventivi")
-                  //     : navigate("/acquisti/preventivi/sub-preventivi")
-                  // }
+                    // onClick={() =>
+                    //   window.location.href.includes("/vendite/preventivi")
+                    //     ? navigate("/vendite/preventivi/sub-preventivi")
+                    //     : navigate("/acquisti/preventivi/sub-preventivi")
+                    // }
                   >
                     <StyledTableCell align="center">
                       <CustomCheckbox
@@ -4096,7 +4213,7 @@ const TableRows = ({
                     <StyledTableCell
                       onClick={(event) => event.stopPropagation()}
                     >
-                      <MenuWithOptions options={option} />
+                      <MenuWithPDF options={option} />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))

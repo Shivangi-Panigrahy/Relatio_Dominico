@@ -11,6 +11,14 @@ import InvoiceTab from "./InvoiceTab";
 import InvoiceTableFooter from "./InvoiceTableFooter";
 import PreventivoTextEditor from "./PreventivoTextEditor";
 import ProductionInfo from "./productInfo";
+import { ReactComponent as FileIcon } from "../../assets/simIcon.svg";
+import { ReactComponent as DownloadIcon } from "../../assets/downloadIcon.svg";
+import { ReactComponent as DeleteIcon } from "../../assets/DeleteIcon.svg";
+import { ReactComponent as CoppyIcon } from "../../assets/coppyIcon.svg";
+import { ReactComponent as EuroIcon } from "../../assets/EuroIcon.svg";
+import { ReactComponent as RedIcon } from "../../assets/redIcon.svg";
+import { ReactComponent as GreenIcon } from "../../assets/greenIcon.svg";
+import { ReactComponent as UploadIcon } from "../../assets/uploadIcon.svg";
 
 const InvoicePage = () => {
   // State to track the active main tab
@@ -206,6 +214,24 @@ const InvoicePage = () => {
   ];
 
   console.log(filteredData, "filteredData");
+  const handleDelete = (id) => {
+    console.log(id, "id");
+  
+    // Update the filteredData state by excluding the item with the specified id
+    setFilteredData((prevData) => prevData.filter((item) => item.id !== id));
+  };
+  
+  const menuOptions = [
+    { label: "Scarica in pdf", icon: <FileIcon /> },
+    { label: "Importa dati", icon: <DownloadIcon /> }, // Added green color
+    { label: "Esporta dati", icon: <UploadIcon /> },
+    { label: "Elimina", icon: <DeleteIcon />, action: handleDelete },
+    { label: "Duplica", icon: <CoppyIcon /> },
+    { label: "Pagamenti", icon: <EuroIcon /> },
+    { label: "Centri di costo", icon: <RedIcon /> },
+    { label: "Centri di costo", icon: <GreenIcon /> },
+];
+console.log(filteredData,"filterdate")
   return (
     <>
       <Header />
@@ -253,7 +279,7 @@ const InvoicePage = () => {
         )}
 
         <div className="invoiceTable">
-          <ProductTable dummyData={filteredData} columns={columns} />
+          <ProductTable dummyData={filteredData} columns={columns} menuOptions={menuOptions} handleDelete={handleDelete} />
         </div>
         <InvoiceTableFooter dummyData={filteredData} setFilteredData={setFilteredData} />
         <InvoiceFooter />
