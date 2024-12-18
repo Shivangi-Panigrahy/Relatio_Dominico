@@ -1,0 +1,17 @@
+.pageTemplate {
+    .truniInvoiceFilter {
+        .invoiceFilter {
+            .MuiStack-root {
+                grid-template-columns: 144px 144px 1.3fr 1.3fr 2fr 24px ;
+              }
+        }
+        
+      } 
+      .calender {
+        .tabBox  {
+            .MuiTabs-root {
+                border-bottom: none;
+            }
+        }
+      }
+}

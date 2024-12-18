@@ -7,6 +7,7 @@ import { ReactComponent as Mese } from "../../../assets/Mese.svg";
 import Table from "../../../component/table/Table";
 import tableData from "../../../utils/hrTurniData.json";
 import InvoiceDashboard from "../../../component/invoiceStatitics/InvoiceDashboard";
+import './Calendario.scss'
 
 const columns = [
   { field: "nomeTurno", headerName: "Nome del turno", width: 1150 },
@@ -66,7 +67,7 @@ const Calendario = () => {
               <ReactBigCalendar hr={true} />
             </div>
           ) : (
-            <div className="feriePermisse">
+            <div className="truniInvoiceFilter">
               <InvoiceDashboard turni={OrdiniData} />
               <Table data={tableData} columns={columns} navData={"Turni"} />
             </div>

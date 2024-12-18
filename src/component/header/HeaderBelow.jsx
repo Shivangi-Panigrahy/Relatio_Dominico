@@ -898,6 +898,34 @@ const HeaderBelow = () => {
               </IconButton>
               <Typography variant="h2">Pianifica</Typography>
             </>
+          ) : window.location.href.includes("/attivita/progetti/") ? (
+            <>
+              <Typography variant="h2">Attività</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Progetti</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Nome del progetto</Typography>
+            </>
+          ) : window.location.href.includes("/attivita/progetti") ? (
+            <>
+              <Typography variant="h2">Attività</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Progetti</Typography>
+            </>
+          ) : window.location.href.includes("/attivita/calendario") ? (
+            <>
+              <Typography variant="h2">Attività</Typography>
+              <IconButton edge="start" color="inherit">
+                <ArrowForwardIcon />
+              </IconButton>
+              <Typography variant="h2">Calendario</Typography>
+            </>
           ) : (
             <Typography variant="h2">Titolo della Pagina</Typography>
           )}

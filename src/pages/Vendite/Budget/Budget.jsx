@@ -58,13 +58,14 @@ const Budget = () => {
 
   const isSubLeadDocumenti = location.pathname === "/vendite/sub-lead/Documenti";
   const isAnagraficheDocumenti = location.pathname === "/anagrafiche/sub-lead/Documenti"
+   const isProgettiDocumentiPage = location.pathname === "/attivita/progetti/Documenti"
 
   return (
     <>
-      {!isSubLeadDocumenti && !isAnagraficheDocumenti && <Header />}
+      {!isSubLeadDocumenti && !isAnagraficheDocumenti && !isProgettiDocumentiPage && <Header />}
 
       <div className="pageTemplate">
-        {!isSubLeadDocumenti && !isAnagraficheDocumenti && (
+        {!isSubLeadDocumenti && !isAnagraficheDocumenti && !isProgettiDocumentiPage && (
           <InvoiceDashboard budget={budgetData} />
         )}
 

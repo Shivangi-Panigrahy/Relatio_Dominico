@@ -122,6 +122,10 @@ import ArchiveDetails from "../pages/Production/ArchiveDetails.jsx";
 import Organizza from "../pages/Attivita/Organizza/Organizza.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import OrganizzaCalendra from "../pages/HR/Calendario/OrganizzaCalendra.jsx";
+import AttivitaProgetti from "../pages/Attivita/Progetti/Progetti.jsx";
+import SubProgetti from "../pages/Attivita/Progetti/SubProgetti.jsx";
+import Economia from "../component/Economia/Economia.jsx";
+import AttivitaCalendar from "../pages/Attivita/Calendario/Calendario.jsx";
 
 const Allroutes = () => {
   return (
@@ -1482,6 +1486,70 @@ const Allroutes = () => {
         element={
           <PublicRoute>
             <Organizza />
+          </PublicRoute>
+        }
+      />
+            <Route
+        path="/attivita/progetti"
+        element={
+          <PublicRoute>
+            <AttivitaProgetti />
+          </PublicRoute>
+        }
+      />
+          <Route
+        path="/attivita/calendario"
+        element={
+          <PublicRoute>
+            <AttivitaCalendar />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Task"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Asset"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Allegati"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={Allegati} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Documenti"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={Documenti} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Economia"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={Economia} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/attivita/progetti/Dashboard"
+        element={
+          <PublicRoute>
+            <SubProgetti Component={ReactBigCalendar} />
           </PublicRoute>
         }
       />

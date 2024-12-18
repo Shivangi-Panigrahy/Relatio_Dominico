@@ -23,6 +23,7 @@ import { ReactComponent as Dati } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
+import { ReactComponent as Organizzse  } from "../../assets/organise.svg";
 import { ReactComponent as Right } from "../../assets/right.svg";
 import { ReactComponent as Mese } from "../../assets/Mese.svg";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -182,7 +183,7 @@ const TAB_CONFIGURATIONS = {
   ],
   hrcalendario: [
     { label: "Calendario", icon: Mese },
-    { label: "Organizza", icon: Agenda },
+    { label: "Organizza", icon: Organizzse  },
   ],
   leadAnagrafiche: [
     { label: "Contatti", icon: Contatti },
@@ -248,12 +249,20 @@ const TAB_CONFIGURATIONS = {
   ],
 
   organizzaCalender: [
-    { label: "organizza", icon: Mese },
+    { label: "organizza", icon: Organizzse  },
+  ],
+  subProgetti: [
+    { label: "Task", icon: Agenda },
+    { label: "Asset", icon: Documenti },
+    { label: "Allegati", icon: Documenti },
+    { label: "Documenti", icon: Documenti },
+    { label: "Economia", icon: Documenti },
+    { label: "Dashboard", icon: Documenti },
   ],
 };
 
 
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche,isorganizza,isorganizzaCalender) => {
+const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche,isorganizza,isorganizzaCalender,subProgetti) => {
 
 console.log(isorganizzaCalender,"isorganizzaCalender")
   if (isLead) return `/vendite/sub-lead/${label}`;
@@ -298,7 +307,7 @@ console.log(isorganizzaCalender,"isorganizzaCalender")
     return `/angrafiche/clienti/${label}`;
   if (isorganizza) return `/attivita/${label}`;
   if (isorganizzaCalender) return `/hr/organizza/calender`;
-
+  if (subProgetti) return `/attivita/progetti/${label}`;
   return `/dashboard/${label}`;
 
 };
@@ -333,7 +342,8 @@ const MenuTab = ({
   fornitoriAnagrafiche=false,
   clientiAnagrafiche=false,
   organizza=false,
-  organizzaCalender=false
+  organizzaCalender=false,
+  subProgetti = false,
 
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
@@ -368,10 +378,11 @@ const MenuTab = ({
     if (clientiAnagrafiche) return TAB_CONFIGURATIONS.clientiAnagrafiche;
     if (organizza) return TAB_CONFIGURATIONS.organizza;
     if (organizzaCalender) return TAB_CONFIGURATIONS.organizzaCalender;
+    if (subProgetti) return TAB_CONFIGURATIONS.subProgetti;
 
 
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender]);
+  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti]);
 
   const tabsConfig = getActiveConfig();
 
@@ -390,7 +401,7 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender);
+      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti);
       navigate(path);
 
       // Invoke parent callback
@@ -398,7 +409,7 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender]
+    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti]
   );
 
   return (

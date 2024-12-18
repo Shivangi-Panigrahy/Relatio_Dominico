@@ -169,7 +169,7 @@ console.log(navData,"navdat")
           item?.lotto,  item?.marcaSerie,  item?.stabilimento,  item?.qta,  item?.pzUnitario,
           item?.code,  item.name,  item?.nome_del_prodotto,  item?.mese,  item?.collaboratore,  item?.colaboratore,  item?.evento,  item?.trattamento,
           item?.ore,  item?.turno,  item?.totaleOreLavorate,  item?.nomeProgetto,  item?.al, item?.indirizzo, item?.operativoDa,item?.tipologiaAttrezzature,item?.posizione,
-          item?.targhe,item?.tipologiaMezzo,item?.nomeTurno
+          item?.targhe,item?.tipologiaMezzo,item?.nomeTurno,item?.teamLeader
            ]
           .map((field) => field?.toLowerCase() || "")
           .some((value) => value.includes(term))
@@ -376,6 +376,9 @@ console.log(navData,"navdat")
       result = result.filter((item) => item.nomeTurno === searchFilters.nomeTurno);
     }
 
+    if (searchFilters.teamLeader) {
+      result = result.filter((item) => item.teamLeader === searchFilters.teamLeader);
+    }
     setFilteredData(result);
     setPage(0);
   };
@@ -505,6 +508,7 @@ console.log(navData,"navdat")
           !window.location.href.includes('/angrafiche/clienti/Documenti') &&
           !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
           !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti') &&
+          !window.location.href.includes('/attivita/progetti/Documenti') &&
           
           form !== "form2" ? (
           <SearchTable  
@@ -562,7 +566,8 @@ console.log(navData,"navdat")
             !window.location.href.includes('/anagrafiche/sub-lead/Documenti') &&
             !window.location.href.includes('/angrafiche/clienti/Documenti') &&
             !window.location.href.includes('/angrafiche/fornitori/Documenti') &&
-            !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti')
+            !window.location.href.includes('/angrafiche/sub-colaboratory/Documenti')&& 
+            !window.location.href.includes('/attivita/progetti/Documenti') 
             ? (
               <CustomPagination
                 count={sortedData?.length}

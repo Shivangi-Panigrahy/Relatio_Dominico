@@ -217,6 +217,9 @@ const TableRows = ({
     location.pathname === "/angrafiche/fornitori/Documenti";
   const isAnagraficheCollaboratoriDocumentiPage =
     location.pathname === "/angrafiche/sub-colaboratory/Documenti";
+    const isProgettiDocumentiPage =
+    location.pathname === "/attivita/progetti/Documenti";
+   
 
   const calculateTotal = (month) => {
     const total = data
@@ -238,6 +241,113 @@ const TableRows = ({
 
   const dataRender = (navData) => {
     switch (navData) {
+      case "attivita_progetti":
+        return (
+          <TableBody>
+            {data?.length > 0 ? (
+              data
+                .slice(
+                  page * rowsPerPage,
+                  // Limit to 2 rows for specified paths
+                  isSubLeadDocumenti ||
+                    isFornitoriDocumenti ||
+                    isSubcolaboratoryDocumenti
+                    ? Math.min(
+                        page * rowsPerPage + 2,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                    : page * rowsPerPage + rowsPerPage
+                )
+                // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => (
+                  <StyledTableRow
+                    key={index}
+                    selected={isSelected(row.id)}
+                    onClick={() => navigate("/attivita/progetti/Task")}
+                  >
+                    <StyledTableCell align="center">
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={isSelected(row.id)}
+                        onChange={(event) => handleRowClick(event, row.id)}
+                        onClick={(event) => event.stopPropagation()}
+                        inputProps={{ "aria-labelledby": row.id }}
+                      />
+                    </StyledTableCell>
+                    <StyledTableCell>{row.nomeProgetto}</StyledTableCell>
+                    <StyledTableCell>{row.categoria}</StyledTableCell>
+
+                    <StyledTableCell>
+                      <IconButton
+                        size="small"
+                        sx={{
+                          mr: 1,
+                          color: "action.active",
+                          fontSize: "15px",
+                          "&:hover": { backgroundColor: "transparent" },
+                        }}
+                      >
+                        <VisibilityOutlinedIcon
+                          sx={{ "&:hover": { color: "#57C700" } }}
+                          fontSize="small"
+                        />
+                        {row.commitente}
+                      </IconButton>
+                    </StyledTableCell>
+                    <StyledTableCell>{row.teamLeader}</StyledTableCell>
+                    <StyledTableCell>{row.creatoIl}</StyledTableCell>
+                    <StyledTableCell>{row.fine}</StyledTableCell>
+                    <StyledTableCell>{row.gUtilizzate}</StyledTableCell>
+                    <StyledTableCell>{row.gResidue}</StyledTableCell>
+                    <StyledTableCell align="center">
+                      <StatusChip
+                        stato={
+                          searchFilters?.stato
+                            ? row.stato
+                            : currentStatuses[index]
+                        }
+                        className={
+                          getStatusColor(
+                            searchFilters?.stato
+                              ? row.stato
+                              : currentStatuses[index]
+                          ).className
+                        }
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStatusClick(index);
+                          // classActice(row.stato);
+                        }}
+                      >
+                        {searchFilters?.stato
+                          ? row.stato
+                          : currentStatuses[index]}
+                      </StatusChip>
+                    </StyledTableCell>
+
+                    <StyledTableCell
+                      sx={{ textAlign: "center" }}
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      <MenuWithPDF
+                        options={option}
+                        handleDelete={handleDelete}
+                      />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+            ) : (
+              <StyledTableRow>
+                <StyledTableCell colSpan={12} align="center">
+                  Data not found
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+          </TableBody>
+        );
+
       case "personale":
         return (
           <TableBody className={"customTableChanges"}>
@@ -708,7 +818,8 @@ const TableRows = ({
                     isAnagraficheLeadDocumenti ||
                     isAnagraficheClientiDocumentiPage ||
                     isAnagraficheFornitoriDocumentiPage ||
-                    isAnagraficheCollaboratoriDocumentiPage
+                    isAnagraficheCollaboratoriDocumentiPage||
+                    isProgettiDocumentiPage 
                     ? Math.min(
                         page * rowsPerPage + 2,
                         page * rowsPerPage + rowsPerPage
@@ -827,7 +938,8 @@ const TableRows = ({
                     isAnagraficheLeadDocumenti ||
                     isAnagraficheClientiDocumentiPage ||
                     isAnagraficheFornitoriDocumentiPage ||
-                    isAnagraficheCollaboratoriDocumentiPage
+                    isAnagraficheCollaboratoriDocumentiPage||
+                    isProgettiDocumentiPage
                     ? Math.min(
                         page * rowsPerPage + 2,
                         page * rowsPerPage + rowsPerPage
@@ -3473,7 +3585,7 @@ const TableRows = ({
                   <StyledTableRow
                     key={index}
                     selected={isSelected(row.id)}
-                    onClick={()=>navigate("/hr/organizza/calender")}
+                    onClick={() => navigate("/hr/organizza/calender")}
                     // onClick={() =>
                     //   window.location.href.includes("/hr/colaboratory")
                     //     ? navigate("/hr/colaboratory/sub-colaboratory")
