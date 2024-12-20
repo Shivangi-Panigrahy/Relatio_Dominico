@@ -229,7 +229,7 @@
     }
     .rbc-event {
       width: unset !important;
-      height: unset !important;
+      // height: unset !important;
       left: unset !important;
     }
     .event-dot {
@@ -306,7 +306,7 @@
       padding: 4px 9px;
       border-radius: 4px;
       flex-wrap: wrap;
-      height: 100%;
+      // height: 100%;
       display: block;
       width: 100%;
       transition: background-color 0.3s ease;

@@ -12,11 +12,11 @@ import { ReactComponent as Settimana } from "../../assets/Settimana.svg";
 import { ReactComponent as Giorana } from "../../assets/Giorana.svg";
 import { ReactComponent as Agenda } from "../../assets/Agenda.svg";
 import AddCalendarEvent from "../Modal/AddCalendarEvent";
-import "./Calendar.scss";
+import "./CalendarMain.scss";
 import CustomWeekHeader from "./CustomWeekHeader";
 import CustomDayHeader from "./CustomDayHeader";
 import CustomToolbar from "./CustomToolbar";
-import EventDialog from "../../component/Modal/EventDialog/EventDialog";
+import EventDialog from "../Modal/EventDialog/EventDialog";
 import { ReactComponent as CalendarAvatar } from "../../assets/CalendarAvatar.svg";
 const events = [
   {
@@ -156,7 +156,29 @@ const events = [
     title: `Tech Innovators Conference`,
     allDay: false,
     start: new Date(2024, 11, 20, 10, 0, 0),
-    end: new Date(2024, 11, 20, 12, 0, 0),
+    end: new Date(2024, 11, 20, 17, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 12,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 20, 8, 0, 0),
+    end: new Date(2024, 11, 20, 10, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 12,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 20, 17, 0, 0),
+    end: new Date(2024, 11, 20, 20, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to

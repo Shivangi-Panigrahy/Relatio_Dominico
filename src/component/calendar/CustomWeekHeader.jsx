@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import "./Calendar.scss";
+import "./CalendarMain.scss";
 
 const CustomWeekHeader = ({ date }) => {
   const dayName = moment(date).format("dddd"); // Example: "Monday"
