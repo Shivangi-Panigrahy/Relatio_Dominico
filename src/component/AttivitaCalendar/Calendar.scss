@@ -208,7 +208,8 @@
       z-index: 2;
 
       &:hover {
-        background: rgba(87, 199, 0, 0.2) !important;
+        // background: rgba(87, 199, 0, 0.2) !important;
+        background-color: #E5E5E5 !important;
       }
     }
     .event-dot {

@@ -389,7 +389,7 @@ const GanttChart = () => {
                                 isToday
                                   ? "borderedDashed calenderBox"
                                   : "calenderBox"
-                              } ${isTaskDay ? "calenderBox asas" : ""}`}
+                              } ${isTaskDay ? "calenderBox indexNumberBox" : ""}`}
                               // className="borderedDashed"
                               key={dayIndex}
                               style={{
@@ -414,7 +414,7 @@ const GanttChart = () => {
                                 Array.from({ length: 8 }, (_, index) => (
                                   <div
                                     key={index}
-                                    className="asas"
+                                    className="indexNumberBox"
                                     style={{
                                       top: `${(index / 8) * 100}%`, // Position each div from 0% to 87.5% from the top
                                     }}

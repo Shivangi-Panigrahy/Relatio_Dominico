@@ -87,10 +87,9 @@ const EventItem = styled(Paper)(({ theme, status }) => ({
   alignItems: 'center',
   backgroundColor: statusConfig[status].bgColor,
 }));
- const  EventDialog = ({open})=> {
-  console.log(open,'setOpenEVentDialog');
+ const  EventDialog = ({open,onClose})=> {
   return (
-    <Dialog className="MainEventModel" open={open} maxWidth="sm" fullWidth>
+    <Dialog className="MainEventModel" open={open} onClose={() => onClose(false)} maxWidth="sm" fullWidth>
       <h3 className='MainEventModel__title'>
         Eventi del 28/11/2024
       </h3>

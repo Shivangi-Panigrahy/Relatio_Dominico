@@ -450,7 +450,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
               ); // Get all events for the day
               const currentEventIndex = dayEvents.findIndex((e) => e.id === event.id);
               return (
-                <CustomEvent
+                <CustomEvent className="asas"
                   event={event}
                   dayEvents={dayEvents}
                   currentEventIndex={currentEventIndex}

@@ -154,7 +154,7 @@
     }
   }
 
-  .calenderBox:nth-child(odd).asas {
+  .calenderBox:nth-child(odd).indexNumberBox {
     &::before {
       content: "";
       position: absolute;
@@ -213,7 +213,7 @@
   background: rgb(219, 216, 216) !important;
 }
 
-.asas {
+.indexNumberBox {
   height: 12.5%;
   position: absolute;
   width: 100%;

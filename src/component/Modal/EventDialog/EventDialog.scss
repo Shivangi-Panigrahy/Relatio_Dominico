@@ -9,7 +9,11 @@
       background: #fff;
     }
     &__body {
-      background-color: #fafafa;
+      &.MuiDialogContent-root {
+        background-color: #fafafa;
+        padding: 24px;
+        padding-bottom: 32px;        
+      }
     }
   //   &__footer {
   //     padding: 24px;
@@ -18,8 +22,9 @@
   //     height: 84px;
   //   }
     .EventItem {
-      padding: 5px;
+      padding: 6px 9px 7px 6px;
       margin-bottom: 12px;
+      box-shadow: unset;
       h5,
       p {
         margin: 0;

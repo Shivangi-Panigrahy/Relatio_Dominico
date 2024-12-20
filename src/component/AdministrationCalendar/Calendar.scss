@@ -149,6 +149,24 @@
       border-top: 1px solid #f2f2f2;
       border-bottom: 1px solid #f2f2f2;
     }
+    .rbc-day-bg {
+      position: relative;
+      // z-index: 9;
+      &::before {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        opacity: 0;
+        transition: 0.3s;
+        color: #ccc;
+        font-size: 26px;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
     .rbc-day-bg + .rbc-day-bg,
     .rbc-month-row + .rbc-month-row {
       border-color: #919eab29;
@@ -208,6 +226,11 @@
       &:hover {
         background: rgba(87, 199, 0, 0.2) !important;
       }
+    }
+    .rbc-event {
+      width: unset !important;
+      height: unset !important;
+      left: unset !important;
     }
     .event-dot {
       background-color: #57c700;
@@ -286,6 +309,11 @@
       height: 100%;
       display: block;
       width: 100%;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #F2F2F2;
+      }
       &-inner {
         display: flex;
         align-items: center;
@@ -314,7 +342,8 @@
       p {
         margin-top: -5px;
       }
-      h2,p {
+      h2,
+      p {
         font-size: 14px;
         line-height: 16px;
         font-weight: 400;
@@ -529,7 +558,6 @@
     line-height: 16px;
     color: #100919;
     font-weight: 400;
-    
   }
   .event-title_aganda {
     font-size: 14px;

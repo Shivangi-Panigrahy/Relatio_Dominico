@@ -1,6 +1,10 @@
 .sidebarMenu .MuiPaper-root {
   /* padding: 50px 20px 30px 20px; */
   padding: 50px 15px 20px;
+  overflow: auto !important;
+}
+.sidebarMenu .MuiPaper-root::-webkit-scrollbar {
+  display: none;
 }
 .sidebarMenu .logo {
   margin-bottom: 20px;
@@ -45,7 +49,7 @@
 }
 .sidebarMenu .MuiCollapse-root {
   width: 100%;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .sidebarMenu .MuiCollapse-root .MuiCollapse-wrapper .MuiList-root {
   gap: 0;
@@ -58,6 +62,15 @@
   .MuiListItem-root {
   color: #cccccc;
   padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sidebarMenu
+  .MuiCollapse-root
+  .MuiCollapse-wrapper
+  .MuiList-root
+  .MuiListItem-root:last-child {
+  padding-bottom: 0;
 }
 .sidebarMenu
   .MuiCollapse-root
