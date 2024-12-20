@@ -245,6 +245,7 @@ export default function ReactBigCalendar({
             padding: "5px 28px",
             gap: "16px",
           }}
+          onClick={() => setFormOpen(true)}
         >
           <div
             style={{
@@ -279,7 +280,7 @@ export default function ReactBigCalendar({
                   lineHeight: "16px",
                   color: "#000",
                 }}
-                onClick={() => setFormOpen(true)}
+               
               >
                 Presenti
               </p>
@@ -310,6 +311,7 @@ export default function ReactBigCalendar({
             padding: "5px 28px",
             gap: "16px",
           }}
+          onClick={() => setAbsentModel(true)}
         >
           <div
             style={{
@@ -344,7 +346,7 @@ export default function ReactBigCalendar({
                   lineHeight: "16px",
                   color: "#000",
                 }}
-                onClick={() => setAbsentModel(true)}
+               
               >
                 Assenti
               </p>
