@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -13,30 +13,59 @@ import CircleIcon from "@mui/icons-material/Circle";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Presenze.scss";
 const PresenzeModal = ({ open, handleClose }) => {
-  const data = [
+  // const data = [
+  //   { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
+  //   { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
+  //   {
+  //     time: "09:00 - 13:30",
+  //     name: "Matteo Vellone",
+  //     status: "Assente",
+  //     reason: "Malattia",
+  //   },
+  //   {
+  //     time: "09:00 - 13:30",
+  //     name: "Matteo Vellone",
+  //     status: "Assente",
+  //     reason: "Malattia",
+  //   },
+  //   { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
+  //   { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
+  //   {
+  //     time: "09:00 - 13:30",
+  //     name: "Matteo Vellone",
+  //     status: "Assente",
+  //     reason: "Malattia",
+  //   },
+  // ];
+  const [data, setData] = useState([
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
     { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
     { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
-    {
-      time: "09:00 - 13:30",
-      name: "Matteo Vellone",
-      status: "Assente",
-      reason: "Malattia",
-    },
-    {
-      time: "09:00 - 13:30",
-      name: "Matteo Vellone",
-      status: "Assente",
-      reason: "Malattia",
-    },
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
     { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Completo" },
     { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
-    {
-      time: "09:00 - 13:30",
-      name: "Matteo Vellone",
-      status: "Assente",
-      reason: "Malattia",
-    },
-  ];
+    { time: "09:00 - 13:30", name: "Matteo Vellone", status: "Presente" },
+  ]);
+  const handleStatusChange = (index) => {
+    setData((prevData) =>
+      prevData.map((item, i) => {
+        if (i === index) {
+          // Cycle through statuses: Presente -> Completo -> Assente -> Presente
+          const newStatus =
+            item.status === "Presente"
+              ? "Completo"
+              : item.status === "Completo"
+              ? "Assente"
+              : "Presente";
+          return { ...item, status: newStatus };
+        }
+        return item;
+      })
+    );
+  };
 
   return (
     <Modal
@@ -74,7 +103,7 @@ const PresenzeModal = ({ open, handleClose }) => {
                 // mb: 1,
                 backgroundColor:
                   item.status === "Completo"
-                    ? "#e8f5e9"
+                    ? "#57C700"
                     : item.status === "Assente"
                     ? "#ffebee"
                     : "transparent",
@@ -104,10 +133,11 @@ const PresenzeModal = ({ open, handleClose }) => {
                   <p>{item.name}</p>
                 </div>
               </div>
-              <div>
+              <div className="btnPart">
                 <Chip
                   label={item.status}
                   size="small"
+                  onClick={() => handleStatusChange(index)}
                   sx={{
                     backgroundColor:
                       item.status === "Completo"
@@ -121,10 +151,10 @@ const PresenzeModal = ({ open, handleClose }) => {
                         : "#388e3c",
                     fontWeight: "bold",
                     fontSize: "0.75rem",
-                    marginRight: item.reason ? 1 : 0,
+                    cursor: "pointer", // Ensure it's clickable
                   }}
                 />
-                {item.reason && (
+                {/* {item.reason && (
                   <Chip
                     label={item.reason}
                     size="small"
@@ -135,29 +165,8 @@ const PresenzeModal = ({ open, handleClose }) => {
                       fontSize: "0.75rem",
                     }}
                   />
-                )}
+                )} */}
               </div>
-              {/* <Grid container alignItems="center" spacing={1}>
-                <Grid item></Grid>
-                <Grid item>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{
-                      fontWeight: 500,
-                      fontSize: "0.875rem",
-                      color: item.status === "Assente" ? "#f44336" : "black",
-                    }}
-                  >
-                    {item.time}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{ fontSize: "0.75rem", color: "gray" }}
-                  >
-                    {item.name}
-                  </Typography>
-                </Grid>
-              </Grid> */}
             </Paper>
           ))}
         </div>

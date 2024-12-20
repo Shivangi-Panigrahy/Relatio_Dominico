@@ -1,64 +1,94 @@
 .PresenzeModel {
+  display: flex;
+  &__inner {
+    max-width: 371px;
+    margin: auto;
+    max-height: 80vh;
+    background-color: #fff;
+    border-radius: 45px;
+    width: 100%;
+    overflow: hidden;
+    outline: none;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    padding: 24px;
+  }
+  &__body {
+    padding: 24px;
+    overflow: auto;
+    max-height: calc(80vh - 124px);
+    background-color: #fafafa;
+    min-height: 590px;
+  }
+  .btnPart {
     display: flex;
-    &__inner {
-      max-width: 371px;
-      margin: auto;
-      max-height: 80vh;
-      background-color: #fff;
-      border-radius: 45px;
-      width: 100%;
-      overflow: hidden;
-      outline: none;
+    align-items: center;
+    gap: 5px;
+    .MuiChip-root span {
+      border-radius: 6px !important;
     }
-    &__title {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 28px;
-      margin: 0;
-      padding: 24px;
-    }
-    &__body {
-      padding: 24px;
-      overflow: auto;
-      max-height: calc(80vh - 124px);
-      background-color: #fafafa;
-    }
-    &__box {
+  }
+  &__box {
+    &.MuiPaper-root {
       margin-bottom: 12px;
-      box-shadow: unset !important;
+      box-shadow: unset;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 8px 3px;
-      &__content {
-        display: flex;
-        gap: 5px;
-        svg {
-          width: 8px;
-          height: 8px;
-          margin-top: 7px;
-        }
-        h4 {
-          font-size: 14px;
-          line-height: 22px;
-          color: #100919;
-          font-weight: 600;
-          margin: 0;
-        }
-        p {
-          color: #100919;
-          font-size: 14px;
-          line-height: 16px;
-          font-weight: 400;
-          margin: 0;
-        }
+      padding: 2px 8px;
+      &:hover {
+        background-color: #57C70033;
       }
+    }
+    &__content {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      svg {
+        width: 8px;
+        height: 8px;
+        margin-top: 7px;
+      }
+      h4 {
+        font-size: 14px;
+        line-height: 22px;
+        color: #100919;
+        font-weight: 600;
+        margin: 0;
+      }
+      p {
+        color: #100919;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+    .MuiChip-root {
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 700;
+    }
+  }
+  &.absenseModel {
+    .btnPart {
       .MuiChip-root {
-        border-radius: 6px;
-        font-size: 12px;
-        line-height: 20px;
-        font-weight: 700;
+        line-height: normal;
+        height: auto;
+      }
+    }
+    .PresenzeModel__box  {
+      &.MuiPaper-root {
+        background-color: transparent;
+        &:hover {
+          background-color: #DB000033;
+        }
       }
     }
   }
-  
+}

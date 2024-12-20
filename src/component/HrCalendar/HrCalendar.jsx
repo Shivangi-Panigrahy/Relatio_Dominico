@@ -28,6 +28,7 @@ import PresenzeModal from "../Modal/Presenze";
 import AddResourcesDialog from "../Modal/AddResourcesDialog";
 
 import avatart_img from "../../assets/Img_Avatar_1.png";
+import AbsentModal from "../Modal/Absent";
 
 const events = [
   {
@@ -115,6 +116,9 @@ export default function ReactBigCalendar({
   const [view, setView] = useState(hrView ? "week" : "month");
   const [particularEvent, setparticularEvent] = useState({});
   const [openModel, setOpenModel] = useState(false);
+  const [absentModel, setAbsentModel] = useState(false);
+
+
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
@@ -125,9 +129,19 @@ export default function ReactBigCalendar({
       setFormOpen(false);
     }
   };
+  const handleOpenAbsentDialog = (value) => {
+    if (!value) {
+      setparticularEvent({});
+    }
+    setAbsentModel(value); // Open dialog when AddButton is clicked
+
+    if (formOpen) {
+      setAbsentModel(false);
+    }
+  };
 
   const handleSelect = ({ start, end }) => {
-    setFormOpen(true);
+    // setFormOpen(true);
   };
 
   const CustomTimeGutterHeader = () => (
@@ -163,60 +177,199 @@ export default function ReactBigCalendar({
     setCurrentDate(new Date());
   };
 
-  const dayPropGetter = (date) => {
-    // Only apply the hover effect if the current view is "month"
-    if (view === "month") {
-      return {
-        className: "calendar-day",
-      };
-    }
-    return {}; // No additional styling for other views
-  };
+  // const dayPropGetter = (date) => {
+  //   // Only apply the hover effect if the current view is "month"
+  //   if (view === "month") {
+  //     return {
+  //       className: "calendar-day",
+  //     };
+  //   }
+  //   return {}; // No additional styling for other views
+  // };
   const handleModelopen = () => {
     setOpenModel(true);
   };
 
-  const CustomEvent = ({ event }) => (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        width: "100%",
-        gap: "22px",
-        padding: "0 28px",
-        paddingBottom: "5px",
-      }}
-    >
-      <p style={{ display: "flex", margin: "0" }}>
-        <span
-          className="event-dot"
+  // const CustomEvent = ({ event }) => (
+  //   <div
+  //     style={{
+  //       display: "flex",
+  //       alignItems: "center",
+  //       justifyContent: "flex-start",
+  //       width: "100%",
+  //       gap: "22px",
+  //       padding: "0 28px",
+  //       paddingBottom: "5px",
+  //     }}
+  //   >
+  //     <p style={{ display: "flex", margin: "0" }}>
+  //       <span
+  //         className="event-dot"
+  //         style={{
+  //           marginTop: "4px",
+  //           display: "block",
+  //           backgroundColor: event.eventType === "Meeting" && "#DB0000",
+  //         }}
+  //       />{" "}
+  //       {/* This is the colored dot */}
+  //       <span style={{ display: "block" }}>
+  //         <span style={{ fontWeight: "600" }}>09:00 - 13:30</span>
+  //         <span style={{ display: "block" }}>Presenti</span>
+  //       </span>
+  //     </p>
+  //     <p
+  //       style={{
+  //         padding: "2px 6px",
+  //         backgroundColor:
+  //           event.eventType === "Meeting" ? "#DB000033" : "#57C70033",
+  //         color: event.eventType === "Meeting" ? "#DB0000" : "#57C700",
+  //         borderRadius: "6px",
+  //         margin: "0",
+  //       }}
+  //     >
+  //       36
+  //     </p>
+  //   </div>
+  // );
+
+  const CustomEvent = () => {
+    return (
+      <div>
+        {/* Presenti */}
+        <div
           style={{
-            marginTop: "4px",
-            display: "block",
-            backgroundColor: event.eventType === "Meeting" && "#DB0000",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            padding: "5px 28px",
+            gap: "16px",
           }}
-        />{" "}
-        {/* This is the colored dot */}
-        <span style={{ display: "block" }}>
-          <span style={{ fontWeight: "600" }}>09:00 - 13:30</span>
-          <span style={{ display: "block" }}>Presenti</span>
-        </span>
-      </p>
-      <p
-        style={{
-          padding: "2px 6px",
-          backgroundColor:
-            event.eventType === "Meeting" ? "#DB000033" : "#57C70033",
-          color: event.eventType === "Meeting" ? "#DB0000" : "#57C700",
-          borderRadius: "6px",
-          margin: "0",
-        }}
-      >
-        36
-      </p>
-    </div>
-  );
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <span
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "50%",
+                backgroundColor: "#57C700",
+              }}
+            ></span>
+            <div>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "18px",
+                }}
+              >
+                09:00 - 13:30
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  color: "#000",
+                }}
+                onClick={() => setFormOpen(true)}
+              >
+                Presenti
+              </p>
+            </div>
+          </div>
+          <p
+            style={{
+              padding: "2px 8px",
+              backgroundColor: "#57C70033",
+              color: "#57C700",
+              borderRadius: "6px",
+              fontSize: "12px",
+              fontWeight: "600",
+              margin: 0,
+            }}
+          >
+            36
+          </p>
+        </div>
+
+        {/* Assenti */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            padding: "5px 28px",
+            gap: "16px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <span
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "50%",
+                backgroundColor: "#DB0000",
+              }}
+            ></span>
+            <div>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "18px",
+                }}
+              >
+                09:00 - 13:30
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  color: "#000",
+                }}
+                onClick={() => setAbsentModel(true)}
+              >
+                Assenti
+              </p>
+            </div>
+          </div>
+          <p
+            style={{
+              padding: "2px 8px",
+              backgroundColor: "#DB000033",
+              color: "#DB0000",
+              borderRadius: "6px",
+              fontSize: "12px",
+              fontWeight: "600",
+              margin: 0,
+            }}
+          >
+            4
+          </p>
+        </div>
+      </div>
+    );
+  };
+ const handleCloseAbsentModal = (value) =>{
+  setAbsentModel(value)
+  }
 
   const CustomWeekEvent = ({ event }) => (
     <div className="custom-week-event">
@@ -237,7 +390,7 @@ export default function ReactBigCalendar({
         <img src={avatart_img} alt="" />
       </div>
       <a
-        href="javascript:void(0)"
+        // href="javascript:void(0)"
         className="event_link"
         onClick={handleModelopen}
       >
@@ -316,8 +469,16 @@ export default function ReactBigCalendar({
       : setView("month");
   }, [hrView]);
 
-  console.log(openModel,"openmodel")
-       
+  // const dayPropGetter = (date) => {
+  //   // Only apply the hover effect if the current view is "month"
+  //   if (view === "month") {
+  //     return {
+  //       className: "calendar-day",
+  //     };
+  //   }
+  //   return {}; // No additional styling for other views
+  // };
+
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
@@ -471,7 +632,7 @@ export default function ReactBigCalendar({
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
           toolbar={false}
-          dayPropGetter={dayPropGetter}
+          // dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
           components={{
             event: view === "month" ? CustomEvent : CustomWeekEvent,
@@ -487,12 +648,10 @@ export default function ReactBigCalendar({
           }}
         />
       )}
-      {formOpen  &&
+      {formOpen &&
         (hr ? (
-          hrView  ? (
-            <AddResourcesDialog
-              handleClose={(() => setFormOpen(false))}
-            />
+          hrView ? (
+            <AddResourcesDialog handleClose={() => setFormOpen(false)} />
           ) : (
             <PresenzeModal open={formOpen} handleClose={handleOpenDialog} />
           )
@@ -504,9 +663,10 @@ export default function ReactBigCalendar({
           />
         ))}
 
-        {openModel &&   <AddResourcesDialog
-              handleClose={(() => setOpenModel(false))}
-            /> }
+      {openModel && (
+        <AddResourcesDialog handleClose={() => setOpenModel(false)} />
+      )}
+      {absentModel && <AbsentModal open={absentModel} handleClose={handleCloseAbsentModal} />}
     </div>
   );
 }
