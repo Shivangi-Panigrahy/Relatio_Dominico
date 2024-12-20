@@ -151,6 +151,17 @@ const events = [
     assignedTo: "Me", // Assigned to
     color: "#ED1E79", // Color
   },
+  {
+    id: 11,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 20, 10, 0, 0),
+    end: new Date(2024, 11, 20, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
 ];
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
@@ -239,26 +250,43 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
       </span>
     </>
   );
-  const CustomWeekEvent = ({ event }) => (
-    <div
-      className="custom-week-event"
-      style={{
-        backgroundColor: event.eventType === "Appointment" && "#FFA90333",
-      }}
-    >
-      <div className="custom-week-event-inner">
-        <h2>Nome del Cliente</h2>
-        <div className="userbox">
-          <span>2h</span>
-          <div className="userbox__img">
-            <CalendarAvatar />
-            <CalendarAvatar />
+  const CustomWeekEvent = ({ event }) => {
+    // Log the event object
+
+  
+    return (
+      <div
+        className="custom-week-event"
+        style={{
+          backgroundColor: event.eventType === "Appointment" ? "#FFA90333" : undefined,
+          transition: "background-color 0.3s",
+        }}
+        onMouseEnter={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#E5E5E5";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#FFA90333";
+          }
+        }}
+      >
+        <div className="custom-week-event-inner">
+          <h2>Nome del Cliente</h2>
+          <div className="userbox">
+            <span>2h</span>
+            <div className="userbox__img">
+              <CalendarAvatar />
+              <CalendarAvatar />
+            </div>
           </div>
         </div>
+        <p>Attività (incontro ecc. ecc. )</p>
       </div>
-      <p>Attività (incontro ecc. ecc. )</p>
-    </div>
-  );
+    );
+  };
+  
   const eventStyleGetter = (event, start, end, isSelected) => {
     return {
       style: {
@@ -326,6 +354,8 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   }, []);
 
   const handleEventClick = useCallback((event) => {
+  
+
     // alert(`Event: ${event.title}\nDescription: ${event.desc}`);
   }, []);
   const resetCalendarData = () => {

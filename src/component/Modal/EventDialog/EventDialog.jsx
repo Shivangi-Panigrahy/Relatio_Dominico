@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import "./EventDialog.scss"
+import {ReactComponent as Avatar1} from "../../../assets/Avatar1.svg"
 const events = [
   {
     clientName: "Nome del Cliente",
@@ -109,8 +110,8 @@ const EventItem = styled(Paper)(({ theme, status }) => ({
                 size="small"
               />
               <h6  color="text.secondary">{event.duration}</h6>
-              <Avatar src={event.avatarUrl} sx={{ width: 28, height: 28 }}>
-                NC
+              <Avatar sx={{ width: 28, height: 28 }}>
+                <Avatar1/>
               </Avatar>
             </Box>
           </EventItem>
