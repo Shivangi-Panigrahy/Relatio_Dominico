@@ -136,11 +136,11 @@ const menuItems = [
     textColor: "#3A0CA3",
     route: "/hr",
     subitems: [
-      { name: "Calendario", route: "/hr/calendario" },
-      { name: "Colaboratory", route: "/hr/colaboratory" },
-      { name: "Ferie e permisse", route: "/hr/ferie-e-permisse" },
-      { name: "Busta page", route: "/hr/buste-page" },
-      { name: "Candidati", route: "/hr/candidati" },
+      { name: "Turni", route: "/hr/calendario" },
+      { name: "Collaboratori", route: "/hr/colaboratory" },
+      { name: "Eventi", route: "/hr/ferie-e-permisse" },
+      { name: "Buste paga", route: "/hr/buste-page" },
+      { name: "Condidati", route: "/hr/candidati" },
     ],
   },
   {
