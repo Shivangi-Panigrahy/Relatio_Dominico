@@ -173,17 +173,7 @@ const events = [
     assignedTo: "Me", // Assigned to
     color: "#ED1E79", // Color
   },
-  {
-    id: 12,
-    title: `Tech Innovators Conference`,
-    allDay: false,
-    start: new Date(2024, 11, 20, 17, 0, 0),
-    end: new Date(2024, 11, 20, 20, 0, 0),
-    desc: "Exploring the latest in tech innovation", // Description field
-    eventType: "Meeting", // Event type
-    assignedTo: "Me", // Assigned to
-    color: "#ED1E79", // Color
-  },
+
 ];
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
