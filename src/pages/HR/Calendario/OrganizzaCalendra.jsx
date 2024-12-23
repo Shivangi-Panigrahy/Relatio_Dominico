@@ -53,7 +53,7 @@ const OrganizzaCalendra = () => {
           />
           <div className="calenderCard">
             {/* Calendar Component */}
-            <ReactBigCalendar hr={true} hrView={true} />
+            <ReactBigCalendar hrCalendro={true} hrView={true} />
           </div>
         </div>
       </div>

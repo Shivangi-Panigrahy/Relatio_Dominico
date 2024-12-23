@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import React, { Fragment, useCallback, useState } from "react";
+import { Calendar, Views, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "moment/locale/it";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -12,12 +12,13 @@ import { ReactComponent as Settimana } from "../../assets/Settimana.svg";
 import { ReactComponent as Giorana } from "../../assets/Giorana.svg";
 import { ReactComponent as Agenda } from "../../assets/Agenda.svg";
 import AddCalendarEvent from "../Modal/AddCalendarEvent";
-import "./Calendar.scss";
+// import "./CalendarMain.scss";
 import CustomWeekHeader from "./CustomWeekHeader";
 import CustomDayHeader from "./CustomDayHeader";
 import CustomToolbar from "./CustomToolbar";
-import EventDialog from "../../component/Modal/EventDialog/EventDialog";
+import EventDialog from "../Modal/EventDialog/EventDialog";
 import { ReactComponent as CalendarAvatar } from "../../assets/CalendarAvatar.svg";
+import EventActivitaDialog from "../Modal/EventDialog/EventActivitaDialog";
 const events = [
   {
     id: 0,
@@ -34,6 +35,28 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 2,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 3,
+    title: `Tech Innovators Conference`,
+    allDay: false,
     start: new Date(2024, 11, 3, 13, 0, 0),
     end: new Date(2024, 11, 3, 15, 0, 0),
     desc: "Panel discussions with industry leaders",
@@ -42,49 +65,116 @@ const events = [
     color: "#B5179E",
   },
   {
-    id: 2,
+    id: 4,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 4, 15, 0, 0),
-    end: new Date(2024, 11, 4, 19, 0, 0),
+    start: new Date(2024, 11, 27, 15, 0, 0),
+    end: new Date(2024, 11, 27, 19, 0, 0),
     desc: "Hands-on workshops",
     eventType: "Meeting",
     assignedTo: "Me",
     color: "#7209B7",
   },
   {
-    id: 3,
+    id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 5, 20, 0, 0),
-    end: new Date(2024, 11, 5, 22, 0, 0),
+    start: new Date(2024, 11, 27, 20, 0, 0),
+    end: new Date(2024, 11, 27, 22, 0, 0),
     desc: "Networking session",
     eventType: "Appointment",
     assignedTo: "Other",
     color: "#3A0CA3",
   },
   {
-    id: 4,
+    id: 6,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 6, 9, 0, 0),
-    end: new Date(2024, 11, 6, 17, 0, 0),
+    start: new Date(2024, 11, 26, 9, 0, 0),
+    end: new Date(2024, 11, 26, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
     color: "#4361EE",
   },
   {
-    id: 5,
+    id: 7,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 7, 14, 0, 0),
-    end: new Date(2024, 11, 7, 20, 0, 0),
+    start: new Date(2024, 11, 25, 14, 0, 0),
+    end: new Date(2024, 11, 25, 20, 0, 0),
     desc: "Closing ceremony",
     eventType: "Appointment",
     assignedTo: "Other",
     color: "#4AAFF0",
   },
+  {
+    id: 8,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 9,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 10,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 2, 10, 0, 0),
+    end: new Date(2024, 11, 2, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 11,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 19, 10, 0, 0),
+    end: new Date(2024, 11, 19, 12, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 11,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 20, 10, 0, 0),
+    end: new Date(2024, 11, 20, 17, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+  {
+    id: 12,
+    title: `Tech Innovators Conference`,
+    allDay: false,
+    start: new Date(2024, 11, 20, 8, 0, 0),
+    end: new Date(2024, 11, 20, 10, 0, 0),
+    desc: "Exploring the latest in tech innovation", // Description field
+    eventType: "Meeting", // Event type
+    assignedTo: "Me", // Assigned to
+    color: "#ED1E79", // Color
+  },
+
 ];
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
@@ -100,27 +190,27 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
 
   const [particularEvent, setparticularEvent] = useState({});
   // const [openEVentDialog, setOpenEVentDialog] = useState(false);
-  const [toggleEvent, setToggleEvent] = useState(false)
-  console.log(toggleEvent, 'setToggleEvent');
+  const [toggleEvent, setToggleEvent] = useState(false);
+
+
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
     }
     setFormOpen(value); // Open dialog when AddButton is clicked
   };
-  console.log(eventsData, "eventsData");
-  const handleSelect = ({ start, end }) => {
-    setFormOpen(true);
+
+  const handleToggleViewMoreEvent = (value) => {
+    setToggleEvent(value);
+    setView("month");
   };
+
   const CustomTimeGutterHeader = () => (
     <div className="custom-time-gutter-header">
       <strong>Tutto il giorno</strong>
     </div>
   );
-  const handleEventClick = (event) => {
-    setSelectedEvent(event);
-    setShowEventOpen(true);
-  };
+
   const handleAddEvent = (newEvent) => {
     setEventsData([...eventsData, newEvent]);
     setFormOpen(false);
@@ -138,15 +228,21 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const handleToday = () => {
     setCurrentDate(new Date());
   };
-  const dayPropGetter = (date) => {
-    // Only apply the hover effect if the current view is "month"
-    if (view === "month") {
-      return {
-        className: "calendar-day",
-      };
-    }
-    return {}; // No additional styling for other views
-  };
+
+  const localizer = momentLocalizer(moment);
+  const [myEvents, setEvents] = useState(events);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  // const dayPropGetter = (date) => {
+  //   // Only apply the hover effect if the current view is "month"
+  //   if (view === "month") {
+  //     return {
+  //       className: "calendar-day",
+  //     };
+  //   }
+  //   return {}; // No additional styling for other views
+  // };
+
   const CustomEvent = ({ event }) => (
     <>
       <span>
@@ -165,32 +261,45 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
         </span>
         <span>{event.title}</span>
       </span>
-      <button
-        style={{ cursor: "crosshair" }}
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent calendar's event handling
-          console.log("Button clicked inside CustomEvent");
-        }}
-      >
-        Vedi tutti
-      </button>
     </>
   );
-  const CustomWeekEvent = ({ event }) => (
-    <div className="custom-week-event" style={{ backgroundColor: event.eventType === "Appointment" && "#FFA90333" }}>
-      <div className="custom-week-event-inner">
-        <h2>Nome del Cliente</h2>
-        <div className="userbox">
-          <span>2h</span>
-          <div className="userbox__img">
-            <CalendarAvatar />
-            <CalendarAvatar />
+  const CustomWeekEvent = ({ event }) => {
+    // Log the event object
+
+  
+    return (
+      <div
+        className="custom-week-event"
+        style={{
+          backgroundColor: event.eventType === "Appointment" ? "#FFA90333" : undefined,
+          transition: "background-color 0.3s",
+        }}
+        onMouseEnter={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#E5E5E5";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#FFA90333";
+          }
+        }}
+      >
+        <div className="custom-week-event-inner">
+          <h2>Nome del Cliente</h2>
+          <div className="userbox">
+            <span>2h</span>
+            <div className="userbox__img">
+              <CalendarAvatar />
+              <CalendarAvatar />
+            </div>
           </div>
         </div>
+        <p>Attività (incontro ecc. ecc. )</p>
       </div>
-      <p>Attività (incontro ecc. ecc. )</p>
-    </div>
-  );
+    );
+  };
+  
   const eventStyleGetter = (event, start, end, isSelected) => {
     return {
       style: {
@@ -228,7 +337,6 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     });
   };
   const handleOpenEventDialog = (event) => {
-    console.log("coming in here to open");
     setparticularEvent(event);
     setFormOpen(true);
   };
@@ -248,11 +356,30 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
     const month = date.getMonth() + 1;
     return `${day} ${dateNum}/${month}`;
   };
+  const handleShowMore = (events, date) => {
+    setView("month");
+    setToggleEvent(true);
+    resetCalendarData();
+  };
+
+  const handleSelect = useCallback(({ start, end }) => {
+    setFormOpen(true);
+  }, []);
+
+  const handleEventClick = useCallback((event) => {
+    setFormOpen(true);
+
+    // alert(`Event: ${event.title}\nDescription: ${event.desc}`);
+  }, []);
+  const resetCalendarData = () => {
+    setEventsData([]); // Clear the existing events
+   setEventsData(events) // Fetch or reset events data (implement this function)
+  };
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-          {!acquisti_agenda &&  (
+          {!acquisti_agenda && (
             <>
               <Button
                 startIcon={<Mese />}
@@ -334,13 +461,19 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                            event.end
-                          )}`}
+                              event.end
+                            )}`}
                       </span>
                       <div className="event-content_aganda">
-                        <span className="event-dot_aganda" style={{
-                          backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
-                        }}></span>
+                        <span
+                          className="event-dot_aganda"
+                          style={{
+                            backgroundColor:
+                              event.eventType === "Appointment"
+                                ? "#FFA903"
+                                : "#57C700",
+                          }}
+                        ></span>
                         <div className="event-details_aganda">
                           <span className="event-title_aganda">
                             {event.title}
@@ -391,8 +524,9 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
           toolbar={false}
-          dayPropGetter={dayPropGetter}
+          // dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
+          scrollToTime={new Date()}
           components={{
             event: view === "month" ? CustomEvent : CustomWeekEvent,
             timeGutterHeader: CustomTimeGutterHeader,
@@ -405,6 +539,21 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
               ), // Pass the currentDate as date prop
             },
           }}
+          popup={false}
+          messages={{
+            showMore: (count) => (
+              <span
+                style={{
+                  textDecoration: "underline",
+                  margin: "0 10px",
+                  cursor: "pointer",
+                }}
+              >
+                Vedi tutti
+              </span>
+            ),
+          }}
+          onShowMore={handleShowMore}
         />
       )}
       {formOpen && (
@@ -414,7 +563,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
           event={particularEvent}
         />
       )}
-      <EventDialog open={toggleEvent} />
+      <EventActivitaDialog open={toggleEvent} onClose={handleToggleViewMoreEvent} />
     </div>
   );
 }

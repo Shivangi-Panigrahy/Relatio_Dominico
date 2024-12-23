@@ -90,8 +90,8 @@ const events = [
     id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 7, 14, 0, 0),
-    end: new Date(2024, 11, 7, 20, 0, 0),
+    start: new Date(2024, 11, 27, 14, 0, 0),
+    end: new Date(2024, 11, 27, 20, 0, 0),
     desc: "Closing ceremony",
     eventType: "Meeting",
     assignedTo: "Other",
@@ -107,6 +107,7 @@ export default function ReactBigCalendar({
   acquisti_agenda = false,
   hr,
   hrView,
+  hrCalendro,
 }) {
   const [eventsData, setEventsData] = useState(events);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -117,7 +118,6 @@ export default function ReactBigCalendar({
   const [particularEvent, setparticularEvent] = useState({});
   const [openModel, setOpenModel] = useState(false);
   const [absentModel, setAbsentModel] = useState(false);
-
 
   const handleOpenDialog = (value) => {
     if (!value) {
@@ -231,37 +231,22 @@ export default function ReactBigCalendar({
   //     </p>
   //   </div>
   // );
-
+  const [isHovered, setIsHovered] = useState(false);
   const CustomEvent = () => {
     return (
-      <div>
-        {/* Presenti */}
+      <>
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-            padding: "5px 28px",
-            gap: "16px",
-          }}
+          className="calenderDetailBox"
+          // style={{
+          //   backgroundColor: isHovered ? "#57C70033" : "transparent",
+          //   transition: "background-color 0.3s ease",
+          // }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           onClick={() => setFormOpen(true)}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span
-              style={{
-                width: "10px",
-                height: "10px",
-                borderRadius: "50%",
-                backgroundColor: "#57C700",
-              }}
-            ></span>
+          <div className="calenderDetailBox__inner">
+            <span className="calenderDetailBox__dots"></span>
             <div>
               <p
                 style={{
@@ -280,37 +265,25 @@ export default function ReactBigCalendar({
                   lineHeight: "16px",
                   color: "#000",
                 }}
-               
               >
                 Presenti
               </p>
             </div>
           </div>
-          <p
-            style={{
-              padding: "2px 8px",
-              backgroundColor: "#57C70033",
-              color: "#57C700",
-              borderRadius: "6px",
-              fontSize: "12px",
-              fontWeight: "600",
-              margin: 0,
-            }}
-          >
-            36
-          </p>
+          <p className="calenderDetailBox__label">36</p>
         </div>
 
         {/* Assenti */}
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-            padding: "5px 28px",
-            gap: "16px",
-          }}
+          className="calenderDetailBoxAbsent"
+          // style={{
+          //   display: "flex",
+          //   alignItems: "center",
+          //   justifyContent: "space-between",
+          //   width: "100%",
+          //   padding: "5px 28px",
+          //   gap: "16px",
+          // }}
           onClick={() => setAbsentModel(true)}
         >
           <div
@@ -346,7 +319,6 @@ export default function ReactBigCalendar({
                   lineHeight: "16px",
                   color: "#000",
                 }}
-               
               >
                 Assenti
               </p>
@@ -366,12 +338,12 @@ export default function ReactBigCalendar({
             4
           </p>
         </div>
-      </div>
+      </>
     );
   };
- const handleCloseAbsentModal = (value) =>{
-  setAbsentModel(value)
-  }
+  const handleCloseAbsentModal = (value) => {
+    setAbsentModel(value);
+  };
 
   const CustomWeekEvent = ({ event }) => (
     <div className="custom-week-event">
@@ -485,7 +457,7 @@ export default function ReactBigCalendar({
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
         <Box className="calenderBlock__viewAction">
-          {!acquisti_agenda && !hr && (
+          {!acquisti_agenda && !hr && !hrCalendro && (
             <>
               <Button
                 startIcon={<Mese />}
@@ -531,6 +503,7 @@ export default function ReactBigCalendar({
               Mese
             </Button>
           )}
+       
         </Box>
 
         <Box className="calenderBlock__title">
@@ -630,7 +603,7 @@ export default function ReactBigCalendar({
           onView={setView}
           defaultDate={new Date()}
           events={eventsData}
-          className="calendar-container"
+          className="calendar-container CustomCalender"
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
           toolbar={false}
@@ -668,7 +641,9 @@ export default function ReactBigCalendar({
       {openModel && (
         <AddResourcesDialog handleClose={() => setOpenModel(false)} />
       )}
-      {absentModel && <AbsentModal open={absentModel} handleClose={handleCloseAbsentModal} />}
+      {absentModel && (
+        <AbsentModal open={absentModel} handleClose={handleCloseAbsentModal} />
+      )}
     </div>
   );
 }

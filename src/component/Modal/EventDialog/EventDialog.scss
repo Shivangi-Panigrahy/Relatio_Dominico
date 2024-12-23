@@ -1,61 +1,92 @@
 .MainEventModel {
-    &__title {
-      font-size: 18px;
-      line-height: 28px;
-      font-weight: 600;
-      color: #100919;
+  &__title {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #100919;
+    padding: 24px;
+    margin: 0;
+    background: #fff;
+  }
+  &__body {
+    &.MuiDialogContent-root {
+      background-color: #fafafa;
       padding: 24px;
-      margin: 0;
-      background: #fff;
+      padding-bottom: 32px;
     }
-    &__body {
-      &.MuiDialogContent-root {
-        background-color: #fafafa;
-        padding: 24px;
-        padding-bottom: 32px;        
-      }
-    }
+  }
   //   &__footer {
   //     padding: 24px;
   //     margin: 0;
   //     background: #fff;
   //     height: 84px;
   //   }
-    .EventItem {
-      padding: 6px 9px 7px 6px;
-      margin-bottom: 12px;
-      box-shadow: unset;
-      h5,
-      p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 16px;
-        font-weight: 400;
-        color: #100919;
-      }
-      h6 {
-        font-size: 14px;
-        line-height: 22px;
-        font-weight: 600;
-        margin: 0;
-        color: #100919;
-      }
-      &__left {
-        width: calc(100% - 0px);
-      }
-      &__user {
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
-        &__tag {
-          border-radius: 6px;
-          p {
-            padding: 2px 6px;
-          }
+  .EventItem {
+    padding: 6px 9px 7px 6px;
+    margin-bottom: 12px;
+    box-shadow: unset;
+    h5,
+    p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #100919;
+    }
+    h6 {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      margin: 0;
+      color: #100919;
+    }
+    &__left {
+      width: calc(100% - 0px);
+    }
+    &__user {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      &__tag {
+        border-radius: 6px;
+        p {
+          padding: 2px 6px;
         }
       }
     }
   }
-  
+}
+.activaEventModel {
+  .EventItem {
+    display: block;
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  .CustomCheckbox {
+    margin-left: 0;
+    margin-right: 5px !important;
+    span {
+      padding: 0;
+      background-color: #fff;
+    }
+    input:checked ~ span::before {
+      background-color: #57c700;
+      border-radius: 4px;
+    }
+    // &.Mui-checked {
+    //   span {
+    //   }
+    // }
+  }
+  .label {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #100919;
+  }
+}
