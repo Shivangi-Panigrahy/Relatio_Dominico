@@ -1,9 +1,11 @@
+import TimelineGant from "../../../component/gantt/TimelineGantt";
+
 const Gantt = () => {
-    return (
-      <div>
-        Gantt
-      </div>
-    )
-  }
-  
-  export default Gantt
+  return (
+    <div>
+      <TimelineGant />
+    </div>
+  );
+};
+
+export default Gantt;

@@ -23,7 +23,7 @@ const Organizza = () => {
       case "Gantt":
         return <Gantt />;
       default:
-        return <Timesheet />;
+        return ;
     }
   };
 
