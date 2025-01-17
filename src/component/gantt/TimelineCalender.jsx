@@ -9,7 +9,12 @@ import Gantt, {
   Toolbar,
   Item,
 } from "devextreme-react/gantt";
-import { tasks as initialTasks, dependencies, resources, resourceAssignments } from "./data.js";
+import {
+  tasks as initialTasks,
+  dependencies,
+  resources,
+  resourceAssignments,
+} from "./data.js";
 import TaskTemplate from "./TaskTemplate.js";
 import { ReactComponent as CalendarAvatar } from "../../assets/CalendarAvatar.svg";
 import { ReactComponent as ArrowUpNew } from "../../assets/ArrowUpNew.svg";
@@ -43,7 +48,7 @@ const TimelineCalendar = () => {
   const [tasks, setTasks] = useState(initialTasks);
 
   const moveChildUp = (taskId) => {
-    console.log(tasks,'ttt'); 
+    console.log(tasks, "ttt");
     setTasks((prevTasks) => {
       const index = prevTasks.findIndex((user) => user.id === taskId);
       if (index > 0) {
@@ -57,7 +62,7 @@ const TimelineCalendar = () => {
       return prevTasks;
     });
   };
-  
+
   const moveChildDown = (taskId) => {
     setTasks((prevTasks) => {
       const index = prevTasks.findIndex((user) => user.id === taskId);
@@ -74,8 +79,8 @@ const TimelineCalendar = () => {
   };
 
   const moveParent = (taskId, direction) => {
-    console.log('direction: ', direction);
-    console.log('UptaskId: ', taskId);
+    console.log("direction: ", direction);
+    console.log("UptaskId: ", taskId);
     // const index = tasks.findIndex((section) => section.id === taskId);
     // console.log('index: ', index);
 
@@ -100,8 +105,7 @@ const TimelineCalendar = () => {
     // Update state
     //console.log('updatedSections: ', updatedSections);
     //setTasks(updatedSections); // Toggle sorting order
-
-  }
+  };
 
   // Navigate to the previous month
   const handlePrevMonth = () => {
@@ -121,11 +125,11 @@ const TimelineCalendar = () => {
     const movedTask = e.newValues;
     if (movedTask) {
       const parentId = e.values.parentId || e.values.id;
-      const childTasks = tasks.filter(task => task.parentId === parentId);
+      const childTasks = tasks.filter((task) => task.parentId === parentId);
 
-      childTasks.forEach(child => {
+      childTasks.forEach((child) => {
         const offset = movedTask.start - e.values.start; // Calculate the time difference
-        child.start = new Date(child.start.getTime() + offset / 100 );
+        child.start = new Date(child.start.getTime() + offset / 100);
         child.end = new Date(child.end.getTime() + offset / 100);
       });
     }
@@ -152,8 +156,6 @@ const TimelineCalendar = () => {
         (taskStartDate >= startOfPrevMonth && taskEndDate <= endOfPrevMonth) ||
         (taskStartDate >= startOfMonth && taskEndDate <= endOfMonth)
       );
-
-
     });
   }, [tasks, currentDate]);
 
@@ -177,21 +179,21 @@ const TimelineCalendar = () => {
     if (scaleType === "days") {
       console.log("Processing day:", startDate.getDate());
       scaleElement.innerHTML = `${startDate.getDate()}`;
-      
+
       // Set the left position dynamically
       // scaleElement.style.left = `${leftPosition}px`;
       scaleElement.style.color = "#000";
       scaleElement.style.position = "absolute"; // Ensure positioning works properly
-  
+
       // Increment the position for the next cell
       leftPosition += 40; // Increase by 30px
     }
   };
   const handleScaleChange = (scale) => {
-    console.log(scale,'scale');
+    console.log(scale, "scale");
     setScaleType(scale);
   };
-  
+
   const startDay = new Date(startOfPrevMonth);
   startDay.setDate(startDay.getDate() - 1);
   const nextDay = new Date(endOfMonth);
@@ -244,22 +246,22 @@ const TimelineCalendar = () => {
           taskListWidth={500}
           height={700}
           scaleType={scaleTypes}
-          width={"2000px"}
+          // width={"2000px"}
           // scaleUnit="days"
           // startDateRange={startOfMonth}
           // endDateRange={nextDay}
           // onScaleCellPrepared={onScaleCellPrepared}
-          startDateRange={new Date('2025-01-01')}
-          endDateRange={new Date('2025-01-31')}
-          onScaleCellPrepared={onScaleCellPrepared} 
+          startDateRange={scaleTypes === "quarters" ? yearStartDate : startDay}
+          endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
+          // onScaleCellPrepared={onScaleCellPrepared}
           taskContentRender={TaskTemplate}
           onTaskMoving={handleTaskMoving}
-          headerCellTemplate={(headerInfo) => (
-            <div>
-              {/* Format the date to display only the number */}
-              {headerInfo.date.getDate()}
-            </div>
-          )}
+          // headerCellTemplate={(headerInfo) => (
+          //   <div>
+          //     {/* Format the date to display only the number */}
+          //     {headerInfo.date.getDate()}
+          //   </div>
+          // )}
           // width="100%"
         >
           <Toolbar>
@@ -293,10 +295,12 @@ const TimelineCalendar = () => {
             caption=""
             width={500}
             headerCellRender={() => (
-              <div style={{
-                position:"relative",
-                zIndex:"9"
-              }}>
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: "9",
+                }}
+              >
                 {/* <Button
                   style={{
                     color: "#57c700",
@@ -318,8 +322,8 @@ const TimelineCalendar = () => {
                       style={{
                         color: scaleTypes === value ? "#57c700" : "black",
                         textTransform: "capitalize",
-                        fontWeight:"normal",
-                        padding:"8px 12px"
+                        fontWeight: "normal",
+                        padding: "8px 12px",
                       }}
                     >
                       <CalenderIcon />
@@ -363,30 +367,30 @@ const TimelineCalendar = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    {
-                      cellData.data.parentId !== 0 && (
-                          <>
-                            <button onClick={() => moveChildUp(cellData.data.id)}>
-                              <ArrowUpNew className="h-6 w-6 ArrowUpNew-icon" />
-                            </button>
-                            <button onClick={() => moveChildDown(cellData.data.id)}>
-                              <ArrowDown className="h-6 w-6 ArrowDown-icon" />
-                            </button>
-                          </>    
-                      )
-                    }
-                    {
-                      cellData.data.parentId === 0 && (
-                          <>
-                            <button   onClick={() => swapTeams(cellData.data.id, "up")}>
-                              <ArrowUpNew className="h-6 w-6 ArrowUpNew-icon" />
-                            </button>
-                            <button onClick={() => swapTeams(cellData.data.id, "down")}>
-                              <ArrowDown className="h-6 w-6 ArrowDown-icon" />
-                            </button>
-                          </>    
-                      )
-                    }
+                    {cellData.data.parentId !== 0 && (
+                      <>
+                        <button onClick={() => moveChildUp(cellData.data.id)}>
+                          <ArrowUpNew className="h-6 w-6 ArrowUpNew-icon" />
+                        </button>
+                        <button onClick={() => moveChildDown(cellData.data.id)}>
+                          <ArrowDown className="h-6 w-6 ArrowDown-icon" />
+                        </button>
+                      </>
+                    )}
+                    {cellData.data.parentId === 0 && (
+                      <>
+                        <button
+                          onClick={() => swapTeams(cellData.data.id, "up")}
+                        >
+                          <ArrowUpNew className="h-6 w-6 ArrowUpNew-icon" />
+                        </button>
+                        <button
+                          onClick={() => swapTeams(cellData.data.id, "down")}
+                        >
+                          <ArrowDown className="h-6 w-6 ArrowDown-icon" />
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               );
