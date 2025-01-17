@@ -428,7 +428,7 @@ const TimelineGant = () => {
                       </div>
                     )}
                     {!cellData.data.heading && (
-                      <div className="w-2/4 text-base leading-5 text-[#666666]">
+                      <div className="w-2/4 text-base leading-5 font-bold text-[#666666]">
                         {cellData.data.title}
                       </div>
                     )}
