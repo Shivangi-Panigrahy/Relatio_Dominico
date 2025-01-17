@@ -23,6 +23,7 @@ import { ReactComponent as CalenderIcon } from "../../assets/Calender_Two.svg";
 import { Button } from "@mui/material";
 import { ReactComponent as ExpandLeft } from "../../assets/ExpandLeft.svg";
 import { ReactComponent as ExpandRight } from "../../assets/ExpandRight.svg";
+import CustomCheckbox from "../table/Checkbox.jsx";
 
 const Avatar = ({ progress, color }) => (
   <div
@@ -34,15 +35,9 @@ const Avatar = ({ progress, color }) => (
   </div>
 );
 
-
 const Tag = ({ tag }) => (
   <button className="bg-[#10091933] text-[#100919] font-bold py-2 px-4 rounded-full">
     {tag}
-  </button>
-);
-const Status = ({ status }) => (
-  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-    {status}
   </button>
 );
 
@@ -58,6 +53,62 @@ const TimelineGant = () => {
   const [currentDate, setCurrentDate] = useState(today);
   const [scaleTypes, setScaleType] = useState("days");
   const [tasks, setTasks] = useState(initialTasks);
+
+  //   const Status = ({ status }) => {
+  //     return (
+  //       <button
+  //         onClick={() => console.log("hii")}
+  //         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+  //       >
+  //         {status}
+  //       </button>
+  //     );
+  //   };
+
+  const data = [
+    {
+      textColor: "text-[#FFA903]",
+      bgColor: "bg-[#FFA90333]",
+    },
+    {
+      textColor: "text-[#FFA903]",
+      bgColor: "bg-[#FFA90333]",
+    },
+    {
+      textColor: "text-[#FFA903]",
+      bgColor: "bg-[#FFA90333]",
+    },
+  ];
+
+  const handleContentReady = (e) => {
+    e.component.collapseAll();
+  };
+
+  const getButtonClasses = (data, index) => {
+    const { textColor, bgColor } = data[index];
+    return `${bgColor} ${textColor}`;
+  };
+
+  const Status = ({ status }) => {
+    const [index, setIndex] = useState(0);
+
+    // Function to handle toggle
+    const handleClick = () => {
+      setIndex((prevIndex) => (prevIndex + 1) % data.length);
+    };
+
+    return (
+      <button
+        onClick={handleClick}
+        className={`${getButtonClasses(
+          data,
+          index
+        )} font-bold py-2 px-4 rounded-full`}
+      >
+        {status}
+      </button>
+    );
+  };
 
   const moveChildUp = (taskId) => {
     console.log(tasks, "ttt");
@@ -163,6 +214,7 @@ const TimelineGant = () => {
     return tasks.filter((task) => {
       const taskStartDate = new Date(task.start);
       const taskEndDate = new Date(task.end);
+      console.log(taskStartDate, taskEndDate);
       //return taskStartDate >= startOfMonth && taskEndDate <= endOfMonth;
       return (
         (taskStartDate >= startOfPrevMonth && taskEndDate <= endOfPrevMonth) ||
@@ -250,12 +302,12 @@ const TimelineGant = () => {
     const updatedTeams = updatedGroups.flat();
     setTasks(updatedTeams);
   };
-
+  console.log(tasks, "foltertasj", filteredTasks);
   return (
     <div id="form-demo" className="timesheet-main-box">
-      <div className="widget-container" s>
+      <div className="widget-container">
         <Gantt
-          taskListWidth={500}
+          taskListWidth={600}
           height={700}
           scaleType={scaleTypes}
           // width={"2000px"}
@@ -268,6 +320,8 @@ const TimelineGant = () => {
           // onScaleCellPrepared={onScaleCellPrepared}
           taskContentRender={TaskTemplate}
           onTaskMoving={handleTaskMoving}
+          //   onContentReady={handleContentReady}
+
           // headerCellTemplate={(headerInfo) => (
           //   <div>
           //     {/* Format the date to display only the number */}
@@ -297,11 +351,12 @@ const TimelineGant = () => {
               )}
             />
           </Toolbar>
-          <Tasks dataSource={filteredTasks} />
-          {/* <Tasks dataSource={tasks} /> */}
+          {/* <Tasks dataSource={filteredTasks} /> */}
+          <Tasks dataSource={tasks} />
           <Dependencies dataSource={dependencies} />
           <Resources dataSource={resources} />
           <ResourceAssignments dataSource={resourceAssignments} />
+
           <Column
             dataField=""
             caption=""
@@ -351,7 +406,7 @@ const TimelineGant = () => {
               const imgSrc = task?.image; // Use default avatar if no image is specified
               const tag = task?.tag;
               const status = task?.status;
-              console.log(status);
+              console.log(cellData, "cellData");
               return (
                 <div
                   className={`flex w-full flex-none items-center gap-2 ${
@@ -359,6 +414,14 @@ const TimelineGant = () => {
                   } pl-4 pr-5 `}
                 >
                   <div className="min-w-0 flex-1 flex items-center">
+                    {cellData.data.parentId !== 0 && (
+                      <CustomCheckbox
+                        className="customChechbox"
+                        color="primary"
+                        checked={false}
+                      />
+                    )}
+
                     {cellData.data.heading && (
                       <div className="w-2/4 text-base leading-5  font-bold text-[#666666]">
                         {cellData.data.title}

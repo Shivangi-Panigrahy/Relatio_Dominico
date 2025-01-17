@@ -158,6 +158,7 @@ const TimelineCalendar = () => {
       );
     });
   }, [tasks, currentDate]);
+  console.log(filteredTasks, "filter");
 
   // Update scale when currentMonth changes
   useEffect(() => {
