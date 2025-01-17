@@ -17,7 +17,7 @@ export default function TaskTemplate({ taskData, taskSize, taskResources }) {
   return (
     <div
       className={`custom-task text-sm font-medium text-white items-center justify-between pr-4 !flex`}
-      style={{ width: `${taskSize.width}px`, backgroundColor: taskResources[0].color }}
+      style={{ width: `${taskSize?.width}px`, backgroundColor: taskResources[0]?.color }}
     >
       <div className="custom-task-img-wrapper">
         <img
@@ -27,7 +27,7 @@ export default function TaskTemplate({ taskData, taskSize, taskResources }) {
         />
       </div>
       <div className="font-medium">
-        {taskResources[0].textVal} 5
+        {taskResources[0]?.textVal} 5
       </div>
       {/* <div className="custom-task-wrapper">
         <div className="custom-task-title">{taskData.title}</div>
