@@ -60,6 +60,7 @@ const TimelineGant = () => {
     // State to manage the current index for background and text colors
     const [bgIndex, setBgIndex] = useState(0); 
     const [textIndex, setTextIndex] = useState(0); 
+    const [chipIndex,setChipIndex] = useState(0)
   
 
   //   const Status = ({ status }) => {
@@ -97,7 +98,7 @@ const TimelineGant = () => {
     return `${bgColor} ${textColor}`;
   };
 
-  const Status = ({ status }) => {
+  const Status = ({ status,rowindex }) => {
     const [index, setIndex] = useState(0);
 
     // Function to handle toggle
@@ -105,6 +106,7 @@ const TimelineGant = () => {
       setIndex((prevIndex) => (prevIndex + 1) % data.length);
       setBgIndex((prevIndex) => (prevIndex + 1) % bgColors.length);
       setTextIndex((prevIndex) => (prevIndex + 1) % textColors.length);
+      setChipIndex(rowindex);
     };
     
       console.log(textColors[textIndex],'bgColors[bgIndex]');
@@ -115,7 +117,7 @@ const TimelineGant = () => {
         className={`${getButtonClasses(
           data,
           index
-        )} font-bold py-2 px-4 rounded-full bg-[${bgColors[bgIndex]}] text-[${textColors[textIndex]}]`}
+        )} font-bold py-2 px-4 rounded-full ${chipIndex===rowindex && `bg-[${bgColors[bgIndex]}] text-[${textColors[textIndex]}]`} `}
       >
         {status}
       </button>
@@ -426,6 +428,8 @@ const TimelineGant = () => {
               const imgSrc = task?.image; // Use default avatar if no image is specified
               const tag = task?.tag;
               const status = task?.status;
+
+              console.log(cellData,'st--- index');
               return (
                 <div
                   className={`${
@@ -464,7 +468,7 @@ const TimelineGant = () => {
                     </div>
                   </div>
                   {tag && <Tag tag={cellData.data.tag} />}
-                  {status && <Status status={cellData.data.status} />}
+                  {status && <Status status={cellData.data.status}  rowindex={cellData.rowIndex} />}
                   {imgSrc && (
                     <Avatar
                       progress={cellData.data.progress}
