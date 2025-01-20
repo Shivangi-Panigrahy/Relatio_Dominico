@@ -429,7 +429,6 @@ const TimelineGant = () => {
               const tag = task?.tag;
               const status = task?.status;
 
-              console.log(cellData,'st--- index');
               return (
                 <div
                   className={`${
