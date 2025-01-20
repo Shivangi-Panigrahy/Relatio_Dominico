@@ -141,11 +141,11 @@ const TimelineCalendar = () => {
   // Calculate the current month & previous month
   const startOfPrevMonth = new Date(currentYear, currentDate.getMonth() - 1, 1);
   const endOfPrevMonth = new Date(currentYear, currentDate.getMonth(), 0);
-
+ 
   // Calculate the start and end dates of the current month
   const startOfMonth = new Date(currentYear, currentDate.getMonth(), 1);
   const endOfMonth = new Date(currentYear, currentDate.getMonth() + 1, 0);
-
+  const endOfTheMonth = new Date(currentYear, 11, 31);
   // Filter tasks based on the current month
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) => {
@@ -158,7 +158,7 @@ const TimelineCalendar = () => {
       );
     });
   }, [tasks, currentDate]);
-  console.log(filteredTasks, "filter");
+
 
   // Update scale when currentMonth changes
   useEffect(() => {
@@ -191,7 +191,6 @@ const TimelineCalendar = () => {
     }
   };
   const handleScaleChange = (scale) => {
-    console.log(scale, "scale");
     setScaleType(scale);
   };
 
@@ -240,6 +239,7 @@ const TimelineCalendar = () => {
     setTasks(updatedTeams);
   };
 
+
   return (
     <div id="form-demo" className="timesheet-main-box">
       <div className="widget-container" s>
@@ -253,7 +253,14 @@ const TimelineCalendar = () => {
           // endDateRange={nextDay}
           // onScaleCellPrepared={onScaleCellPrepared}
           startDateRange={scaleTypes === "quarters" ? yearStartDate : startDay}
-          endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
+          endDateRange={
+            scaleTypes === "quarters"
+              ? yearEndDate
+              : scaleTypes === "months"
+              ? endOfTheMonth
+              : nextDay
+          }
+          // endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
           // onScaleCellPrepared={onScaleCellPrepared}
           taskContentRender={TaskTemplate}
           onTaskMoving={handleTaskMoving}

@@ -207,14 +207,14 @@ const TimelineGant = () => {
 
   // Calculate the start and end dates of the current month
   const startOfMonth = new Date(currentYear, currentDate.getMonth(), 1);
-  const endOfMonth = new Date(currentYear, currentDate.getMonth() + 1, 0);
+  const endOfMonth = new Date(currentYear, currentDate.getMonth() + 11, 0);
+  const endOfTheMonth = new Date(currentYear, 11, 31);
 
   // Filter tasks based on the current month
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) => {
       const taskStartDate = new Date(task.start);
       const taskEndDate = new Date(task.end);
-      console.log(taskStartDate, taskEndDate);
       //return taskStartDate >= startOfMonth && taskEndDate <= endOfMonth;
       return (
         (taskStartDate >= startOfPrevMonth && taskEndDate <= endOfPrevMonth) ||
@@ -254,7 +254,6 @@ const TimelineGant = () => {
     }
   };
   const handleScaleChange = (scale) => {
-    console.log(scale, "scale");
     setScaleType(scale);
   };
 
@@ -302,7 +301,6 @@ const TimelineGant = () => {
     const updatedTeams = updatedGroups.flat();
     setTasks(updatedTeams);
   };
-  console.log(tasks, "foltertasj", filteredTasks);
   return (
     <div id="form-demo" className="timesheet-main-box">
       <div className="widget-container">
@@ -313,15 +311,24 @@ const TimelineGant = () => {
           // width={"2000px"}
           // scaleUnit="days"
           // startDateRange={startOfMonth}
-          // endDateRange={nextDay}
+          // endDateRange={endOfMonth}
           // onScaleCellPrepared={onScaleCellPrepared}
+          // startDateRange={scaleTypes === "quarters" ? yearStartDate : startDay}
+          // endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
           startDateRange={scaleTypes === "quarters" ? yearStartDate : startDay}
-          endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
+          endDateRange={
+            scaleTypes === "quarters"
+              ? yearEndDate
+              : scaleTypes === "months"
+              ? endOfTheMonth
+              : nextDay
+          }
+          // endDateRange={scaleTypes === "quarters" ? yearEndDate : nextDay}
+          // startDateRange={new Date(2025, 11, 1)}
+          // endDateRange={new Date(2026, 11, 1)}
           // onScaleCellPrepared={onScaleCellPrepared}
           taskContentRender={TaskTemplate}
           onTaskMoving={handleTaskMoving}
-          //   onContentReady={handleContentReady}
-
           // headerCellTemplate={(headerInfo) => (
           //   <div>
           //     {/* Format the date to display only the number */}
@@ -406,7 +413,6 @@ const TimelineGant = () => {
               const imgSrc = task?.image; // Use default avatar if no image is specified
               const tag = task?.tag;
               const status = task?.status;
-              console.log(cellData, "cellData");
               return (
                 <div
                   className={`${
@@ -420,7 +426,6 @@ const TimelineGant = () => {
                       <CustomCheckbox
                         className="customChechbox"
                         color="primary"
-                        checked={false}
                       />
                     )}
 

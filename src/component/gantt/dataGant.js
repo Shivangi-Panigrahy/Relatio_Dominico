@@ -5,13 +5,14 @@ export const tasks = [
     parentId: 0,
     title: "Nome del progetto di sviluppo",
     start: new Date("2025-01-01T00:00:00.000Z"),
-    end: new Date("2025-01-10T00:00:00.000Z"),
+    end: new Date("2025-10-10T00:00:00.000Z"),
     progress: 40,
     status: "In Progress",
     assignedTo: "John Doe",
     tag: "PSP",
     image: avatart_img,
     color: "#57C700",
+    heading: true,
   },
   {
     id: 2,
@@ -70,7 +71,7 @@ export const tasks = [
   {
     id: 8,
     parentId: 0,
-    title: "Nome del progetto di sviluppo",
+    title: "Nome del progetto di",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-10T00:00:00.000Z"),
     progress: 30,
@@ -79,6 +80,7 @@ export const tasks = [
     tag: "PSP",
     image: avatart_img,
     color: "#57C700",
+    heading: true,
   },
   {
     id: 9,
@@ -135,7 +137,6 @@ export const tasks = [
     assignedTo: "Alice Smith",
   },
 ];
-
 export const dependencies = [
   { id: 1, predecessorId: 1, successorId: 2, type: 0 },
   { id: 2, predecessorId: 2, successorId: 3, type: 0 },
