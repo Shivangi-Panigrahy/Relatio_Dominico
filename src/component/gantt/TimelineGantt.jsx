@@ -53,6 +53,14 @@ const TimelineGant = () => {
   const [currentDate, setCurrentDate] = useState(today);
   const [scaleTypes, setScaleType] = useState("days");
   const [tasks, setTasks] = useState(initialTasks);
+    // Define the color arrays
+    const bgColors = ["#fbeac9","#f4c8c8", "#d9f0c8"];
+    const textColors = ["#ffa903","#e13232", "#57c700"];
+  
+    // State to manage the current index for background and text colors
+    const [bgIndex, setBgIndex] = useState(0); 
+    const [textIndex, setTextIndex] = useState(0); 
+  
 
   //   const Status = ({ status }) => {
   //     return (
@@ -95,7 +103,11 @@ const TimelineGant = () => {
     // Function to handle toggle
     const handleClick = () => {
       setIndex((prevIndex) => (prevIndex + 1) % data.length);
+      setBgIndex((prevIndex) => (prevIndex + 1) % bgColors.length);
+      setTextIndex((prevIndex) => (prevIndex + 1) % textColors.length);
     };
+    
+      console.log(textColors[textIndex],'bgColors[bgIndex]');
 
     return (
       <button
@@ -103,7 +115,7 @@ const TimelineGant = () => {
         className={`${getButtonClasses(
           data,
           index
-        )} font-bold py-2 px-4 rounded-full`}
+        )} font-bold py-2 px-4 rounded-full bg-[${bgColors[bgIndex]}] text-[${textColors[textIndex]}]`}
       >
         {status}
       </button>
@@ -268,6 +280,7 @@ const TimelineGant = () => {
   const swapTeams = (currentTeamId, direction) => {
     // Find all team groups
     const teamGroups = tasks.reduce((acc, team) => {
+      console.log(acc, team,'acc, team');
       if (team.heading) {
         acc.push([]);
       }
