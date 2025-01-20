@@ -3,7 +3,7 @@ export const tasks = [
   {
     id: 1,
     parentId: 0,
-    title: "Software Development",
+    title: "Nome del progetto di sviluppo",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-10T00:00:00.000Z"),
     progress: 40,
@@ -16,7 +16,7 @@ export const tasks = [
   {
     id: 2,
     parentId: 1,
-    title: "Task 1",
+    title: "Task del progetto",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-03T00:00:00.000Z"),
     progress: 50,
@@ -25,7 +25,7 @@ export const tasks = [
   {
     id: 3,
     parentId: 1,
-    title: "Task 2",
+    title: "Task del progetto",
     start: new Date("2025-01-02T00:00:00.000Z"),
     end: new Date("2025-01-03T00:00:00.000Z"),
     progress: 20,
@@ -34,7 +34,7 @@ export const tasks = [
   {
     id: 4,
     parentId: 2,
-    title: "Sub-task 1.1",
+    title: "Sub-task",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-02T00:00:00.000Z"),
     progress: 100,
@@ -43,7 +43,7 @@ export const tasks = [
   {
     id: 5,
     parentId: 2,
-    title: "Sub-task 1.2",
+    title: "Sub-task",
     start: new Date("2025-01-02T00:00:00.000Z"),
     end: new Date("2025-01-03T00:00:00.000Z"),
     progress: 80,
@@ -52,7 +52,7 @@ export const tasks = [
   {
     id: 6,
     parentId: 3,
-    title: "Sub-task 2.1",
+    title: "Sub-task",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-07T00:00:00.000Z"),
     progress: 60,
@@ -61,7 +61,7 @@ export const tasks = [
   {
     id: 7,
     parentId: 3,
-    title: "Sub-task 2.2",
+    title: "Sub-task",
     start: new Date("2025-01-08T00:00:00.000Z"),
     end: new Date("2025-01-15T00:00:00.000Z"),
     progress: 40,
@@ -70,7 +70,7 @@ export const tasks = [
   {
     id: 8,
     parentId: 0,
-    title: "Software Development 2",
+    title: "Nome del progetto di sviluppo",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-10T00:00:00.000Z"),
     progress: 30,
@@ -83,7 +83,7 @@ export const tasks = [
   {
     id: 9,
     parentId: 8,
-    title: "Task A",
+    title: "Task del progetto",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-05T00:00:00.000Z"),
     progress: 50,
@@ -92,7 +92,7 @@ export const tasks = [
   {
     id: 10,
     parentId: 8,
-    title: "Task B",
+    title: "Task del progetto",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-08T00:00:00.000Z"),
     progress: 20,
@@ -101,7 +101,7 @@ export const tasks = [
   {
     id: 11,
     parentId: 9,
-    title: "Sub-task A.1",
+    title: "Sub-task",
     start: new Date("2025-01-01T00:00:00.000Z"),
     end: new Date("2025-01-04T00:00:00.000Z"),
     progress: 100,
@@ -110,7 +110,7 @@ export const tasks = [
   {
     id: 12,
     parentId: 9,
-    title: "Sub-task A.2",
+    title: "Sub-task",
     start: new Date("2025-01-04T00:00:00.000Z"),
     end: new Date("2025-01-05T00:00:00.000Z"),
     progress: 70,
@@ -119,7 +119,7 @@ export const tasks = [
   {
     id: 13,
     parentId: 10,
-    title: "Sub-task B.1",
+    title: "Sub-task",
     start: new Date("2025-01-05T00:00:00.000Z"),
     end: new Date("2025-01-07T00:00:00.000Z"),
     progress: 50,
@@ -128,7 +128,7 @@ export const tasks = [
   {
     id: 14,
     parentId: 10,
-    title: "Sub-task B.2",
+    title: "Sub-task",
     start: new Date("2025-01-07T00:00:00.000Z"),
     end: new Date("2025-01-08T00:00:00.000Z"),
     progress: 30,

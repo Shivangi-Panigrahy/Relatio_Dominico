@@ -307,7 +307,7 @@ const TimelineGant = () => {
     <div id="form-demo" className="timesheet-main-box">
       <div className="widget-container">
         <Gantt
-          taskListWidth={600}
+          taskListWidth={650}
           height={700}
           scaleType={scaleTypes}
           // width={"2000px"}
@@ -409,7 +409,9 @@ const TimelineGant = () => {
               console.log(cellData, "cellData");
               return (
                 <div
-                  className={`flex w-full flex-none items-center gap-2 ${
+                  className={`${
+                    cellData.data.title.includes("Sub-task") && "pl-[70px]"
+                  } flex w-full flex-none items-center gap-2 ${
                     cellData.data.heading ? "py-[5px]" : ""
                   } pl-4 pr-5 `}
                 >
@@ -428,7 +430,13 @@ const TimelineGant = () => {
                       </div>
                     )}
                     {!cellData.data.heading && (
-                      <div className="w-2/4 text-base leading-5 font-bold text-[#666666]">
+                      <div
+                        className={`w-2/4 text-base leading-5 text-[#666666] ${
+                          cellData.data.parentId !== 0
+                            ? "font-light"
+                            : "font-bold"
+                        }`}
+                      >
                         {cellData.data.title}
                       </div>
                     )}
