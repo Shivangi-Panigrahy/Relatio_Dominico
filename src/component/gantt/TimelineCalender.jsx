@@ -49,35 +49,38 @@ const TimelineCalendar = () => {
 
   const moveChildUp = (taskId) => {
     console.log(tasks, "ttt");
-    setTasks((prevTasks) => {
-      const index = prevTasks.findIndex((user) => user.id === taskId);
-      if (index > 0) {
-        return [
-          ...prevTasks.slice(0, index - 1),
-          prevTasks[index],
-          prevTasks[index - 1],
-          ...prevTasks.slice(index + 1),
-        ];
-      }
-      return prevTasks;
-    });
+    setTimeout(() => {
+      setTasks((prevTasks) => {
+        const index = prevTasks.findIndex((user) => user.id === taskId);
+        if (index > 0) {
+          return [
+            ...prevTasks.slice(0, index - 1),
+            prevTasks[index],
+            prevTasks[index - 1],
+            ...prevTasks.slice(index + 1),
+          ];
+        }
+        return prevTasks;
+      });
+    }, 500); // 500ms delay
   };
 
   const moveChildDown = (taskId) => {
-    setTasks((prevTasks) => {
-      const index = prevTasks.findIndex((user) => user.id === taskId);
-      if (index < prevTasks.length - 1) {
-        return [
-          ...prevTasks.slice(0, index),
-          prevTasks[index + 1],
-          prevTasks[index],
-          ...prevTasks.slice(index + 2),
-        ];
-      }
-      return prevTasks;
-    });
+    setTimeout(() => {
+      setTasks((prevTasks) => {
+        const index = prevTasks.findIndex((user) => user.id === taskId);
+        if (index < prevTasks.length - 1) {
+          return [
+            ...prevTasks.slice(0, index),
+            prevTasks[index + 1],
+            prevTasks[index],
+            ...prevTasks.slice(index + 2),
+          ];
+        }
+        return prevTasks;
+      });
+    }, 500); // 500ms delay
   };
-
   const moveParent = (taskId, direction) => {
     console.log("direction: ", direction);
     console.log("UptaskId: ", taskId);
@@ -141,7 +144,7 @@ const TimelineCalendar = () => {
   // Calculate the current month & previous month
   const startOfPrevMonth = new Date(currentYear, currentDate.getMonth() - 1, 1);
   const endOfPrevMonth = new Date(currentYear, currentDate.getMonth(), 0);
- 
+
   // Calculate the start and end dates of the current month
   const startOfMonth = new Date(currentYear, currentDate.getMonth(), 1);
   const endOfMonth = new Date(currentYear, currentDate.getMonth() + 1, 0);
@@ -158,7 +161,6 @@ const TimelineCalendar = () => {
       );
     });
   }, [tasks, currentDate]);
-
 
   // Update scale when currentMonth changes
   useEffect(() => {
@@ -228,17 +230,29 @@ const TimelineCalendar = () => {
     const targetGroupIndex =
       direction === "up" ? currentGroupIndex - 1 : currentGroupIndex + 1;
 
-    // Swap the current group with the target group
+    // Create a copy of the groups and swap them
     const updatedGroups = [...teamGroups];
     const temp = updatedGroups[currentGroupIndex];
     updatedGroups[currentGroupIndex] = updatedGroups[targetGroupIndex];
     updatedGroups[targetGroupIndex] = temp;
 
-    // Flatten the updated groups back into a single array
+    // Introduce a delay for the swap animation
     const updatedTeams = updatedGroups.flat();
-    setTasks(updatedTeams);
-  };
 
+    // Add a temporary animation effect
+    setTasks((prevTasks) =>
+      prevTasks.map((team) =>
+        team.id === currentTeamId
+          ? { ...team, isSwapping: true } // Add a temporary "isSwapping" flag
+          : team
+      )
+    );
+
+    // Delay the actual update for the swap
+    setTimeout(() => {
+      setTasks(updatedTeams);
+    }, 300); // Adjust the delay (in milliseconds) as needed
+  };
 
   return (
     <div id="form-demo" className="timesheet-main-box">

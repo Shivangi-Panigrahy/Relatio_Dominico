@@ -150,9 +150,10 @@ export const dependencies = [
 export const resources = [
   { id: 1, text: "John Doe", color: "#4CC9F0" },
   { id: 2, text: "Jane Doe", color: "#4CC9F0" },
-  { id: 3, text: "Alice Smith", color: "#4CC9F0" },
-  { id: 4, text: "Bob Johnson", color: "#4CC9F0" },
+  { id: 3, text: "Alice Smith", color: "#4361EE" },
+  { id: 4, text: "Bob Johnson", color: "#4361EE" },
 ];
+
 export const resourceAssignments = [
   { id: 1, taskId: 1, resourceId: 1 },
   { id: 2, taskId: 2, resourceId: 2 },

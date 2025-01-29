@@ -53,18 +53,14 @@ const TimelineGant = () => {
   const [currentDate, setCurrentDate] = useState(today);
   const [scaleTypes, setScaleType] = useState("days");
   const [tasks, setTasks] = useState(initialTasks);
-    const [activeMoveRowIndexFirst, setActiveMoveRowIndexFirst] = useState(null);
-    const [movingIndex, setMovingIndex] = useState(null);
-    const [direction, setDirection] = useState(null);
-    // Define the color arrays
-    const bgColors = ["#fbeac9","#f4c8c8", "#d9f0c8"];
-    const textColors = ["#ffa903","#e13232", "#57c700"];
-  
-    // State to manage the current index for background and text colors
-    const [bgIndex, setBgIndex] = useState(0); 
-    const [textIndex, setTextIndex] = useState(0); 
-    const [chipIndex,setChipIndex] = useState(0)
-  
+  // Define the color arrays
+  const bgColors = ["#fbeac9", "#efb6b6", "#c9e5d0"];
+  const textColors = ["#ffa903", "#e13232", "#57c700"];
+
+  // State to manage the current index for background and text colors
+  const [bgIndex, setBgIndex] = useState(0);
+  const [textIndex, setTextIndex] = useState(0);
+  const [chipIndex, setChipIndex] = useState(0);
 
   //   const Status = ({ status }) => {
   //     return (
@@ -83,12 +79,12 @@ const TimelineGant = () => {
       bgColor: "bg-[#FFA90333]",
     },
     {
-      textColor: "text-[#FFA903]",
-      bgColor: "bg-[#FFA90333]",
+      textColor: "text-[#efb6b6]",
+      bgColor: "bg-[#efb6b6]",
     },
     {
       textColor: "text-[#FFA903]",
-      bgColor: "bg-[#FFA90333]",
+      bgColor: "bg-[#c9e5d0]",
     },
   ];
 
@@ -97,6 +93,7 @@ const TimelineGant = () => {
   };
 
   const getButtonClasses = (data, index) => {
+    console.log(data, index);
     const { textColor, bgColor } = data[index];
     return `${bgColor} ${textColor}`;
   };
@@ -113,8 +110,8 @@ const TimelineGant = () => {
       setTextIndex((prevIndex) => (prevIndex + 1) % textColors.length);
       setChipIndex(rowindex);
     };
-    
-      console.log(textColors[textIndex],'bgColors[bgIndex]');
+
+    console.log(bgColors[bgIndex], "bgColors[bgIndex]");
 
     return (
       <button
@@ -122,7 +119,11 @@ const TimelineGant = () => {
         className={`${getButtonClasses(
           data,
           index
-        )} font-bold py-2 px-4 rounded-full ${chipIndex===rowindex && `bg-[${bgColors[bgIndex]}] text-[${textColors[textIndex]}]`} `}
+        )} font-bold py-2 px-4 rounded-full ${
+          chipIndex === rowindex
+            ? `bg-[${bgColors[bgIndex]}] text-[${textColors[textIndex]}]`
+            : ""
+        }`}
       >
         {status}
       </button>
@@ -146,7 +147,7 @@ const TimelineGant = () => {
       });
     }, 500); // 500ms delay
   };
-  
+
   const moveChildDown = (taskId) => {
     setTimeout(() => {
       setTasks((prevTasks) => {
@@ -297,32 +298,32 @@ const TimelineGant = () => {
       acc[acc.length - 1].push(team);
       return acc;
     }, []);
-  
+
     // Find the index of the selected team group
     const currentGroupIndex = teamGroups.findIndex(
       (group) => group[0].id === currentTeamId
     );
-  
+
     if (
       (direction === "up" && currentGroupIndex === 0) || // Can't move up the first group
       (direction === "down" && currentGroupIndex === teamGroups.length - 1) // Can't move down the last group
     ) {
       return;
     }
-  
+
     // Determine the target group index based on the direction
     const targetGroupIndex =
       direction === "up" ? currentGroupIndex - 1 : currentGroupIndex + 1;
-  
+
     // Create a copy of the groups and swap them
     const updatedGroups = [...teamGroups];
     const temp = updatedGroups[currentGroupIndex];
     updatedGroups[currentGroupIndex] = updatedGroups[targetGroupIndex];
     updatedGroups[targetGroupIndex] = temp;
-  
+
     // Introduce a delay for the swap animation
     const updatedTeams = updatedGroups.flat();
-  
+
     // Add a temporary animation effect
     setTasks((prevTasks) =>
       prevTasks.map((team) =>
@@ -331,35 +332,14 @@ const TimelineGant = () => {
           : team
       )
     );
-  
+
     // Delay the actual update for the swap
     setTimeout(() => {
       setTasks(updatedTeams);
     }, 300); // Adjust the delay (in milliseconds) as needed
   };
 
-  const handleMoveUp = (index) => {
-    if (index > 0) {    
-      setActiveMoveRowIndexFirst(index);
-      setMovingIndex(index);
-      setDirection("up");
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(index - 1);
-        setDirection(null); // Reset direction after animation
-      }, 400);
-      setTimeout(() => {
-        setActiveMoveRowIndexFirst(null);
-      }, 900);
-      const newProjects = [...tasks];
-      const temp = newProjects[index];
-      newProjects[index] = newProjects[index - 1];
-      newProjects[index - 1] = temp;
-      setTimeout(() => {
-        setTasks(newProjects);
-        setMovingIndex(null); // Reset moving index after update
-      }, 400);
-    }
-  };
+
 
   return (
     <div id="form-demo" className="timesheet-main-box">
@@ -480,19 +460,20 @@ const TimelineGant = () => {
                     cellData.data.title.includes("Sub-task") && "pl-[70px]"
                   } flex w-full flex-none items-center gap-2 ${
                     cellData.data.heading ? "py-[5px]" : ""
-                  } pl-4 pr-5 ${activeMoveRowIndexFirst === cellData.rowIndex && "moveRow"} `}
-
-                  style={{
-                    transition:
-                      movingIndex === cellData.rowIndex ? "transform 0.4s ease" : "none",
-                    transform:
-                      movingIndex === cellData.rowIndex && direction === "up"
-                        ? "translateY(-100%)"
-                        : movingIndex === cellData.rowIndex && direction === "down"
-                        ? "translateY(100%)"
-                        : "none",
-                  }}
-
+                  } pl-4 pr-5 `}
+                  // style={{
+                  //   transition:
+                  //     movingIndex === cellData.rowIndex
+                  //       ? "transform 0.4s ease"
+                  //       : "none",
+                  //   transform:
+                  //     movingIndex === cellData.rowIndex && direction === "up"
+                  //       ? "translateY(-100%)"
+                  //       : movingIndex === cellData.rowIndex &&
+                  //         direction === "down"
+                  //       ? "translateY(100%)"
+                  //       : "none",
+                  // }}
                 >
                   <div className="min-w-0 flex-1 flex items-center">
                     {cellData.data.parentId !== 0 && (
@@ -524,7 +505,12 @@ const TimelineGant = () => {
                     </div>
                   </div>
                   {tag && <Tag tag={cellData.data.tag} />}
-                  {status && <Status status={cellData.data.status}  rowindex={cellData.rowIndex} />}
+                  {status && (
+                    <Status
+                      status={cellData.data.status}
+                      rowindex={cellData.rowIndex}
+                    />
+                  )}
                   {imgSrc && (
                     <Avatar
                       progress={cellData.data.progress}
@@ -535,7 +521,11 @@ const TimelineGant = () => {
                   <div className="flex items-center gap-1">
                     {cellData.data.parentId !== 0 && (
                       <>
-                        <button onClick={() => {moveChildUp(cellData.data.id) } }>
+                        <button
+                          onClick={() => {
+                            moveChildUp(cellData.data.id);
+                          }}
+                        >
                           <ArrowUpNew className="h-6 w-6 ArrowUpNew-icon" />
                         </button>
                         <button onClick={() => moveChildDown(cellData.data.id)}>
