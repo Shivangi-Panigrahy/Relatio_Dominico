@@ -91,6 +91,13 @@
     .invoiceFilter {
         .MuiStack-root {
             grid-template-columns: 144px 144px 106px 124px 0.5fr 0.7fr 120px 120px 0.9fr 1fr 50px;
+            @media only screen and (max-width: 1750px) {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                height: auto;
+                .customDatePicker {
+                    max-width: 100%;
+                }
+            }
             .MuiFormControl-root {
                 min-width: 100px;
             }

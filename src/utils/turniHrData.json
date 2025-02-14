@@ -23,7 +23,7 @@
     {
       "id": 4,
       "creatoIl": "01/12/2024",
-      "turno": "12:00 / 21:00",
+      "turno": "12:00 / 21:00", 
       "ore": "08",
       "azioni": "Aggiornamento database"
     }

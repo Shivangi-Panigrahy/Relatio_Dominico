@@ -7,6 +7,8 @@ import {
   Collapse,
   Button,
   Box,
+  Tab,
+  Tabs,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
 import "./Opzioni.scss";
@@ -15,24 +17,18 @@ import Colori from "./Colori";
 
 export default function Opzioni() {
   const [openSections, setOpenSections] = useState([]);
-  const [dimensions, setDimensions] = useState([]); // Array to track Dimension rows
-  const [colors, setColors] = useState([]); // Array to track Colori rows
-  const [components, setComponents] = useState([]); // Array to track Componenti rows
+  const [dimensions, setDimensions] = useState([]);
+  const [colors, setColors] = useState([]);
+  const [components, setComponents] = useState([]);
+  const [tabValue, setTabValue] = useState(0);
 
-  const sections = [
-    {
-      id: "dimensions",
-      title: "Dimensioni, volume e peso",
-    },
-    {
-      id: "colors",
-      title: "Colori e finiture",
-    },
-    {
-      id: "components",
-      title: "Componenti e accessori",
-    },
+  const tabs = [
+    { label: "Dimensioni, Volume e peso", id: "dimensions" },
+    { label: "Colori e finiture", id: "colors" },
+    { label: "Componenti e accessori", id: "components" },
   ];
+
+  const handleTabChange = (event, newValue) => setTabValue(newValue);
 
   const handleSectionClick = (sectionId) => {
     setOpenSections((prev) =>
@@ -42,121 +38,103 @@ export default function Opzioni() {
     );
   };
 
-  const handleAddDimension = () => {
-    setDimensions((prev) => [...prev, { id: Date.now() }]); // Add a new dimension with a unique ID
-  };
+  const handleAddRow = (setter) =>
+    setter((prev) => [...prev, { id: Date.now() }]);
 
-  const handleAddColori = () => {
-    setColors((prev) => [...prev, { id: Date.now() }]); // Add a new colori with a unique ID
-  };
+  const handleDeleteRow = (setter, id) =>
+    setter((prev) => prev.filter((item) => item.id !== id));
 
-  const handleAddComponenti = () => {
-    setComponents((prev) => [...prev, { id: Date.now() }]); // Add a new componenti with a unique ID
-  };
+  const renderRows = (rows, Component, handleDelete) =>
+    rows.map((row) => (
+      <Component key={row.id} id={row.id} onDelete={handleDelete} />
+    ));
 
-  const handleDeleteDimension = (id) => {
-    setDimensions((prev) => prev.filter((item) => item.id !== id)); // Remove the Dimension with the given ID
-  };
+  const Section = ({ id, title, rows, Component, onAdd, onDelete }) => (
+    <Box className="section-container">
+      <ListItem disablePadding className="section-header">
+        <ListItemButton onClick={() => handleSectionClick(id)}>
+          {openSections.includes(id) ? <ExpandLess /> : <ExpandMore />}
+          <ListItemText primary={title} />
+        </ListItemButton>
+      </ListItem>
 
-  const handleDeleteColori = (id) => {
-    setColors((prev) => prev.filter((item) => item.id !== id)); // Remove the Colori with the given ID
-  };
-
-  const handleDeleteComponenti = (id) => {
-    setComponents((prev) => prev.filter((item) => item.id !== id)); // Remove the Componenti with the given ID
-  };
+      <Collapse in={openSections.includes(id)} timeout="auto">
+        <List component="div" disablePadding className="section-content">
+          {renderRows(rows, Component, onDelete)}
+          <Button
+            startIcon={<Add />}
+            className="add-row-button"
+            onClick={onAdd}
+          >
+            Aggiungi riga
+          </Button>
+        </List>
+      </Collapse>
+    </Box>
+  );
 
   return (
-    <List className="expandable-list">
-      {sections.map((section) => (
-        <Box key={section.id} className="section-container">
-          <ListItem disablePadding className="section-header">
-            <ListItemButton onClick={() => handleSectionClick(section.id)}>
-              {openSections.includes(section.id) ? (
-                <ExpandLess />
-              ) : (
-                <ExpandMore />
-              )}
-              <ListItemText primary={section.title} />
-            </ListItemButton>
-          </ListItem>
+    <Box className='opzioniTabBlock'>
+      <Tabs
+        value={tabValue}
+        onChange={handleTabChange}
+        aria-label="menu tabs"
+        className="tabs"
+        TabIndicatorProps={{ style: { display: "none" } }}
+      
+      >
+        {tabs.map((tab, index) => (
+          <Tab
+            key={tab.id}
+            label={tab.label}
+            sx={{
+              fontWeight: tabValue === index ? "bold" : "normal",
+              color: tabValue === index ? "blue" : "black",
+            }}
+          />
+        ))}
+      </Tabs>
 
-          <Collapse in={openSections.includes(section.id)} timeout="auto">
-            <List component="div" disablePadding className="section-content">
-              {section.id === "dimensions" && (
-                <>
-                  {dimensions.map((dimension) => (
-                    <Dimension
-                      key={dimension.id}
-                      id={dimension.id}
-                      onDelete={handleDeleteDimension}
-                    />
-                  ))}
-                  <Button
-                    startIcon={<Add />}
-                    className="add-row-button"
-                    onClick={handleAddDimension}
-                  >
-                    Aggiungi riga
-                  </Button>
-                </>
-              )}
+      {tabValue === 0 && (
+        <List className="expandable-list">
+          <Section
+            id="dimensions"
+            title="Dimensioni, volume e peso"
+            rows={dimensions}
+            Component={Dimension}
+            onAdd={() => handleAddRow(setDimensions)}
+            onDelete={(id) => handleDeleteRow(setDimensions, id)}
+          />
+        </List>
+      )}
 
-              {section.id === "colors" && (
-                <>
-                  {colors.map((color) => (
-                    <Colori
-                      key={color.id}
-                      id={color.id}
-                      onDelete={handleDeleteColori}
-                    />
-                  ))}
-                  <Button
-                    startIcon={<Add />}
-                    className="add-color-button"
-                    variant="text"
-                    onClick={handleAddColori}
-                    style={{
-                      color: "#160a2a",
-                      fontWeight: 700,
-                      textTransform: "unset",
-                      backgroundColor: "transparent",
-                    }}
-                  >
-                    Aggiungi colore
-                  </Button>
-                </>
-              )}
+      {tabValue === 1 && (
+        <List className="expandable-list">
+          <Section
+            id="colors"
+            title="Colori e finiture"
+            rows={colors}
+            Component={Colori}
+            onAdd={() => handleAddRow(setColors)}
+            onDelete={(id) => handleDeleteRow(setColors, id)}
+          />
+        </List>
+      )}
 
-              {section.id === "components" && (
-                <>
-                  {components.map((component) => (
-                    <Colori
-                      key={component.id}
-                      id={component.id}
-                      onDelete={handleDeleteComponenti}
-                    />
-                  ))}
-                  <Button
-                    startIcon={<Add />}
-                    className="add-component-button"
-                    variant="text"
-                    onClick={handleAddComponenti}
-                    style={{
-                      color: "#160a2a",
-                      fontWeight: 700,
-                      textTransform: "unset",
-                      backgroundColor: "transparent",
-                    }}
-                  >
-                    Aggiungi componente
-                  </Button>
-                </>
-              )}
-            </List>
-          </Collapse>
-        </Box>
-      ))}
-    </List>
+      {tabValue === 2 && (
+        <List className="expandable-list">
+          <Section
+            id="components"
+            title="Componenti e accessori"
+            rows={components}
+            Component={(props) => (
+              <Colori {...props} title={"components"} />
+            )}
+            onAdd={() => handleAddRow(setComponents)}
+            onDelete={(id) => handleDeleteRow(setComponents, id)}
+          />
+        </List>
+      )}
+    </Box>
   );
 }

@@ -92,7 +92,7 @@
 
 .invoiceFilter.repoInvoiceFilter {
   .MuiStack-root {
-    grid-template-columns: 144px 144px 341px 286px 286px 414px 24px !important;
+    grid-template-columns: 144px 144px 1fr 0.6fr 0.6fr 1fr 24px !important;
   }
 
   .customDatePicker {
@@ -142,9 +142,13 @@
     padding: 14px 0;
   }
 }
-.invoiceFilter.candidatiInvoiceFilter, .invoiceFilter.colaboratoryInvoiceFilter {
+.invoiceFilter.candidatiInvoiceFilter,
+ .invoiceFilter.colaboratoryInvoiceFilter {
   .MuiStack-root {
     grid-template-columns: 155px 155px 1.5fr 1.5fr 1.5fr 1.5fr 50px;
+    @media only screen and (max-width: 1880px) {
+
+    }
   }
 }
 .invoiceFilter.allegatiInvoiceFilter {

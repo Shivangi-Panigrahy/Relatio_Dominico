@@ -4,8 +4,11 @@
             .FactureSection {
                 &__inner {
                     display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 400px;
-
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 2fr !important;
+                   
+                    @media only screen and (max-width: 1550px) {
+                        grid-template-columns: 1fr 1fr 1fr 1fr !important;
+                    }
                     .MuiGrid-root.MuiGrid-item {
                         max-width: 100%;
                         &:last-child {

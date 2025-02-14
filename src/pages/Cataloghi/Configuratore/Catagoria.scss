@@ -68,6 +68,25 @@
 .category-form {
   .top-row.MuiBox-root {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-columns: 1fr 10px 0.5fr 25px 0.5fr 0.3fr auto 40px  !important;
+    .MuiAutocomplete-root  {
+      .MuiFormControl-root {
+        .MuiInputLabel-root {
+         top: -7px;
+        }
+        .MuiInputLabel-root.Mui-focused {
+         top: 0px;
+        }
+        .MuiInputBase-root {
+          background-color: #fff;
+          fieldset {
+            border: 2px solid rgba(22, 10, 42, 0.1019607843)
+          }
+          .MuiInputBase-input  {
+            padding: 0px;
+          }
+        }
+      }
+    }
   }
 }

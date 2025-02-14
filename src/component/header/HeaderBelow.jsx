@@ -946,7 +946,8 @@ const HeaderBelow = () => {
           !location.pathname.includes("/production/plan") &&
           !location.pathname.includes("/production/list/details") &&
           !location.pathname.includes("/production/processes/details") &&
-          !location.pathname.includes("/logistica/sub-DDT") && (
+          !location.pathname.includes("/logistica/sub-DDT") &&
+          !location.pathname.includes("/hr/calendario") && (
             <AddButton title="Aggiungi" onClick={() => setOpen(true)} />
           )}
 

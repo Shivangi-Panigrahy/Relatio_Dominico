@@ -10,11 +10,21 @@
   justify-content: space-between;
   margin-bottom: 24px;
   flex-wrap: nowrap;
+  position: relative;
+  @media only screen and (max-width: 1750px) {
+    padding-bottom: 80px;
+  }
   &__approvatoBlock {
     border-right: solid 1px #cccccc;
     width: 100%;
     max-width: 220px;
     padding-right: 17px;
+    @media only screen and (max-width: 1850px) {
+      max-width: 180px;
+    }
+    @media only screen and (max-width: 1750px) {
+      border-right: solid 0px #cccccc;
+    }
     &__Box {
       width: 100%;
       border-radius: 6px;
@@ -74,7 +84,16 @@
     }
   }
   &__list {
-    gap: 20px;
+    gap: 15px;
+    @media only screen and (max-width: 1850px) {
+      gap: 12px;
+    }
+    @media only screen and (max-width: 1750px) {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      justify-content: center;
+    }
     display: flex;
     align-items: stretch;
     justify-content: end;
@@ -123,7 +142,7 @@
     }
     .user-info {
       border-left: 1px solid #cccccc;
-      padding-left: 25px;
+      padding-left: 14px;
       button {
         padding: 0;
         display: flex;
@@ -161,10 +180,13 @@
     gap: 14px;
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
-    padding: 0 25px;
+    padding: 0 20px;
     font-family: "Barlow", sans-serif;
+    @media only screen and (max-width: 1850px) {
+      padding: 0 12px;
+    }
     p {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 20px;
       color: #160a2a;
       font-weight: 700;
@@ -247,6 +269,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 15px;
+    @media only screen and (max-width: 1850px) {
+      gap: 12px;
+    }
     &-column {
       display: flex;
       flex-direction: column;

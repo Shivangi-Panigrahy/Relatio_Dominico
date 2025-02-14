@@ -35,8 +35,8 @@ const events = [
     id: 0,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 17, 10, 0, 0),
-    end: new Date(2024, 11, 17, 15, 0, 0),
+    start: new Date(2025, 1, 10, 10, 0, 0),
+    end: new Date(2025, 1, 10, 15, 0, 0),
     desc: "Exploring the latest in tech innovation", // Description field
     eventType: "Meeting", // Event type
     assignedTo: "Me", // Assigned to
@@ -46,8 +46,8 @@ const events = [
     id: 1,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 16, 13, 0, 0),
-    end: new Date(2024, 11, 16, 18, 0, 0),
+    start: new Date(2025, 1, 12, 13, 0, 0),
+    end: new Date(2025, 1, 12, 18, 0, 0),
     desc: "Panel discussions with industry leaders",
     eventType: "Call",
     assignedTo: "Other",
@@ -57,8 +57,8 @@ const events = [
     id: 2,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 4, 15, 0, 0),
-    end: new Date(2024, 11, 4, 19, 0, 0),
+    start: new Date(2025, 1, 10, 15, 0, 0),
+    end: new Date(2025, 1, 10, 19, 0, 0),
     desc: "Hands-on workshops",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -68,8 +68,8 @@ const events = [
     id: 3,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 5, 20, 0, 0),
-    end: new Date(2024, 11, 5, 22, 0, 0),
+    start: new Date(2025, 1, 5, 20, 0, 0),
+    end: new Date(2025, 1, 5, 22, 0, 0),
     desc: "Networking session",
     eventType: "Call",
     assignedTo: "Other",
@@ -79,8 +79,8 @@ const events = [
     id: 4,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 6, 9, 0, 0),
-    end: new Date(2024, 11, 6, 17, 0, 0),
+    start: new Date(2025, 2, 6, 9, 0, 0),
+    end: new Date(2025, 2, 6, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
@@ -90,8 +90,8 @@ const events = [
     id: 5,
     title: `Tech Innovators Conference`,
     allDay: false,
-    start: new Date(2024, 11, 27, 14, 0, 0),
-    end: new Date(2024, 11, 27, 20, 0, 0),
+    start: new Date(2025, 2, 27, 14, 0, 0),
+    end: new Date(2025, 2, 27, 20, 0, 0),
     desc: "Closing ceremony",
     eventType: "Meeting",
     assignedTo: "Other",
@@ -452,7 +452,18 @@ export default function ReactBigCalendar({
   //   }
   //   return {}; // No additional styling for other views
   // };
-
+  const CustomToolbarButton = ({ label, onNavigate }) => {
+    return (
+      <div className="custom-calendarButtons">
+        <Button className="greenBtn" onClick={() => onNavigate("PREV")}>
+          Prev
+        </Button>
+        <Button className="greenBtn" onClick={() => onNavigate("NEXT")}>
+          Next
+        </Button>
+      </div>
+    );
+  };
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
@@ -606,10 +617,12 @@ export default function ReactBigCalendar({
           className="calendar-container CustomCalender"
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
-          toolbar={false}
+          toolbar={true}
           // dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
           components={{
+            toolbar: (props) =>
+              view === "day" ? "" : <CustomToolbarButton {...props} />,
             event: view === "month" ? CustomEvent : CustomWeekEvent,
             timeGutterHeader: CustomTimeGutterHeader,
             week: {

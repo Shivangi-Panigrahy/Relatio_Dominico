@@ -7,11 +7,18 @@ import {
   MenuItem,
   IconButton,
   Paper,
+  Button,
+  Autocomplete,
 } from "@mui/material";
 import { CloudUpload, Delete } from "@mui/icons-material";
 import "./Colori.scss";
+const options = [
+  { label: "Dimensioni 1", value: "Dimensioni1" },
+  { label: "Dimensioni 2", value: "Dimensioni2" },
+];
 
-export default function Colori({ id, onDelete }) {
+export default function Colori({ id, onDelete, title }) {
+  console.log(title, "title");
   return (
     <Paper
       className="color-form"
@@ -25,7 +32,6 @@ export default function Colori({ id, onDelete }) {
           <label
             htmlFor="file-upload"
             className="upload-label"
-            style={{ flexDirection: "row" }}
           >
             <CloudUpload
               className="upload-icon"
@@ -35,64 +41,69 @@ export default function Colori({ id, onDelete }) {
           </label>
         </Box>
       </div>
-
+    <div>
       {/* Color Selection */}
       <div className="dimention_box_container">
-        <Select
-          defaultValue="l"
-          className="color-select custom_padding"
-          style={{ width: "100%" }}
-        >
-          <MenuItem value="l">Colore</MenuItem>
-          <MenuItem value="1">Color 1</MenuItem>
-          <MenuItem value="2">Color 2</MenuItem>
-        </Select>
+        <Autocomplete
+          disablePortal
+          className="cmtDropDownField"
+          style={{ width: "90px" }}
+          options={options}
+          renderInput={(params) => <TextField {...params} label="Accessori" />}
+        />
       </div>
 
       {/* Color Name */}
+
       <div className="dimention_box_container">
-        <TextField
-          placeholder="Rosso"
-          className="color-name custom_padding"
-          variant="outlined"
-        />
+        {title === "components" ? (
+          <Button
+            variant="contained" // Setting the button variant to "contained" for a filled appearance
+            // Adding an icon at the start of the button
+            onClick={() => {}} // Trigger the passed onClick function
+            className="greenButton"
+            sx={{ background: "57C700" }}
+          >
+            Seleziona
+          </Button>
+        ) : (
+          <TextField
+            label="Rosso"
+            className="ctmTextFlield"
+            variant="outlined"
+          />
+        )}
       </div>
 
       {/* Price Markup */}
       <div className="dimention_box_container">
         <TextField
-          placeholder="Magg. sul prezzo di listino"
-          className="price-markup custom_padding"
+          label="Magg. sul prezzo di listino"
+          className="ctmTextFlield"
           variant="outlined"
         />
       </div>
 
       {/* Phase Selection */}
       <div className="dimention_box_container">
-        <Select
-          defaultValue=""
-          className="phase-select custom_padding"
-          displayEmpty
-          style={{ width: "100%" }}
-        >
-          <MenuItem value="">Fase</MenuItem>
-          <MenuItem value="1">Fase 1</MenuItem>
-          <MenuItem value="2">Fase 2</MenuItem>
-        </Select>
+        <Autocomplete
+          disablePortal
+          className="cmtDropDownField"
+          style={{ width: "90px" }}
+          options={options}
+          renderInput={(params) => <TextField {...params} label="fase" />}
+        />
       </div>
 
       {/* Category Selection */}
       <div className="dimention_box_container">
-        <Select
-          defaultValue=""
-          className="category-select custom_padding"
-          displayEmpty
-          style={{ width: "100%" }}
-        >
-          <MenuItem value="">Categoria</MenuItem>
-          <MenuItem value="1">Categoria 1</MenuItem>
-          <MenuItem value="2">Categoria 2</MenuItem>
-        </Select>
+        <Autocomplete
+          disablePortal
+          className="cmtDropDownField"
+          style={{ width: "90px" }}
+          options={options}
+          renderInput={(params) => <TextField {...params} label="Categoria" />}
+        />
       </div>
 
       {/* Delete Button */}
@@ -100,6 +111,7 @@ export default function Colori({ id, onDelete }) {
         <IconButton className="delete-button" onClick={() => onDelete(id)}>
           <Delete />
         </IconButton>
+      </div>
       </div>
     </Paper>
   );

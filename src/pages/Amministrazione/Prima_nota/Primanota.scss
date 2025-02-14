@@ -1,9 +1,23 @@
 .PrimanotaTopCards {
     .FactureSection__inner {
         display: grid;
-    grid-template-columns: 210px 210px 210px 210px 244px 244px 1fr;
-    gap: 14px;
+        grid-template-columns: repeat(4, 210px) repeat(2, 230px) 1fr;
+       gap: 14px;
+       @media only screen and (max-width: 1880px) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0px;
+       }
         &__card {
+            @media only screen and (max-width: 1880px) {
+                width: 25%;
+                padding: 8px;
+                &:nth-child(5), &:nth-child(6), &:nth-child(7) {
+                  width: 33.3%;
+                }
+               }
+           
             .statusText{
                 &__content{
                     .countWord {
@@ -42,6 +56,13 @@
     .invoiceFilter {
         .MuiStack-root {
             grid-template-columns: 144px 144px 106px 124px 0.5fr 0.7fr 120px 120px 0.9fr 1fr 50px;
+            @media only screen and (max-width: 1750px) {
+                grid-template-columns: repeat(6, 1fr);
+                height: auto;
+                .customDatePicker  {
+                    max-width: 100%;
+                }
+            }
             .MuiFormControl-root {
                 min-width: 100px;
             }

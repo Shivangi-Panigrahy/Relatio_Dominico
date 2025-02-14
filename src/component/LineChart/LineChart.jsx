@@ -260,7 +260,7 @@ export default function RevenueLineChart({
                 style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}
               >
                 <h3>{dataPie[0].message}</h3>
-                <div style={{ marginLeft: "65px", textAlign: "center" }}>
+                <div style={{  textAlign: "center", display:"flex",  }}>
                   <PieChart
                     series={[
                       {
@@ -269,8 +269,9 @@ export default function RevenueLineChart({
                       },
                     ]}
                     width={400}
-                    height={400}
+                    height={300}
                     sx={{
+                   marginRight:"-68px", transform:"scale(1.3)",
                       [`& .${pieArcLabelClasses.root}`]: {
                         fill: "white",
                         fontSize: 14,
@@ -282,9 +283,11 @@ export default function RevenueLineChart({
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    gap: "20px",
+                    gap: "16px",
+                    borderTop:"dashed 1px #e0e0e0",
                     marginTop: "10px",
                     flexWrap: "wrap",
+                    paddingTop: "25px",
                   }}
                 >
                   {dataPie &&

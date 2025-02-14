@@ -35,13 +35,57 @@ const events = [
     id: 1, // Changed id to make it unique
     title: `Produzione 344554-`, // Updated title
     allDay: false,
-    start: new Date(2024, 11, 3, 10, 30, 0), // 26th December 2024 at 10:30
-    end: new Date(2024, 11, 3, 17, 0, 0),
+    start: new Date(2024, 11, 4, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 4, 17, 0, 0),
     desc: "Annual industry conference",
     eventType: "Meeting",
     assignedTo: "Me",
     color: "#4361EE",
-  }
+  },
+  {
+    id: 2,
+    title: `Produzione 344554-`, // Updated title
+    allDay: false,
+    start: new Date(2024, 11, 5, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 5, 17, 0, 0),
+    desc: "Annual industry conference",
+    eventType: "Meeting",
+    assignedTo: "Me",
+    color: "#4361EE",
+  },
+  {
+    id: 3, // Changed id to make it unique
+    title: `Produzione 344554-`, // Updated title
+    allDay: false,
+    start: new Date(2024, 11, 6, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 6, 17, 0, 0),
+    desc: "Annual industry conference",
+    eventType: "Meeting",
+    assignedTo: "Me",
+    color: "#4361EE",
+  },
+  {
+    id: 4,
+    title: `Produzione 344554-`, // Updated title
+    allDay: false,
+    start: new Date(2024, 11, 8, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 8, 17, 0, 0),
+    desc: "Annual industry conference",
+    eventType: "Meeting",
+    assignedTo: "Me",
+    color: "#4361EE",
+  },
+  {
+    id: 5, // Changed id to make it unique
+    title: `Produzione 344554-`, // Updated title
+    allDay: false,
+    start: new Date(2024, 11, 8, 10, 30, 0), // 26th December 2024 at 10:30
+    end: new Date(2024, 11, 8, 17, 0, 0),
+    desc: "Annual industry conference",
+    eventType: "Meeting",
+    assignedTo: "Me",
+    color: "#4361EE",
+  },
 ];
 
 // Set the locale for Italian
@@ -56,7 +100,7 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
   const [view, setView] = useState(acquisti_agenda ? "agenda" : "month");
   const [particularEvent, setparticularEvent] = useState({});
   // const [openEVentDialog, setOpenEVentDialog] = useState(false);
-  const [toggleEvent, setToggleEvent] = useState(false)
+  const [toggleEvent, setToggleEvent] = useState(false);
   const handleOpenDialog = (value) => {
     if (!value) {
       setparticularEvent({});
@@ -101,55 +145,71 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
     }
     return {}; // No additional styling for other views
   };
-  const CustomEvent = ({ event }) => {
-    return (
-      <>
+  const CustomEvent = ({ event }) => (
+    <>
+      <span>
         <span>
-          <span>
-            <span
-              className="event-dot"
-              style={{
-                backgroundColor:
-                  event.eventType === "Appointment" ? "#FFA903" : "#57C700",
-              }}
-            />{" "}
-            <span className="custom-week-event-time">
-              {moment(event.start).format("HH:mm")}-
-              {/* {moment(event.end).format("HH:mm")} */}
-            </span>
+          <span
+            className="event-dot"
+            style={{
+              backgroundColor:
+                event.eventType === "Appointment" ? "#FFA903" : "#57C700",
+            }}
+          />{" "}
+          <span className="custom-week-event-time">
+            {moment(event.start).format("HH:mm")}-
+            {moment(event.end).format("HH:mm")}
           </span>
-          <span>{event.title}</span>
         </span>
-        <button
-          style={{ cursor: "crosshair" }}
-          onClick={(e) => {
-            e.stopPropagation(); // Prevent calendar's event handling
-            console.log("Button clicked inside CustomEvent");
-          }}
-        >
-          Vedi tutti
-        </button>
-      </>
-    )
-  };
+        <span>{event.title}</span>
+      </span>
+    </>
+  );
   const CustomWeekEvent = ({ event }) => {
-    console.log('event: ', event);
+    // Log the event object
+
     return (
-      <div className="custom-week-event" style={{ backgroundColor: event.eventType === "Appointment" && "#FFA90333" }}>
+      <div
+        className="custom-week-event"
+        style={{
+          backgroundColor:
+            event.eventType === "Appointment" ? "#FFA90333" : undefined,
+          transition: "background-color 0.3s",
+        }}
+        onMouseEnter={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#E5E5E5";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (event.eventType === "Appointment") {
+            e.target.style.backgroundColor = "#FFA90333";
+          }
+        }}
+      >
         <div className="custom-week-event-inner">
           <h2>Nome del Cliente</h2>
           <div className="userbox">
             <span>2h</span>
             <div className="userbox__img">
-              {/* <CalendarAvatar />
-              <CalendarAvatar /> */}
+              <CalendarAvatar />
+              <CalendarAvatar />
             </div>
           </div>
         </div>
         <p>Attività (incontro ecc. ecc. )</p>
       </div>
-    )
-  }
+    );
+  };
+  const handleToggleViewMoreEvent = (value) => {
+    setToggleEvent(value);
+    setView("month");
+  };
+
+  const resetCalendarData = () => {
+    setEventsData([]); // Clear the existing events
+    setEventsData(events); // Fetch or reset events data (implement this function)
+  };
   const eventStyleGetter = (event, start, end, isSelected) => {
     return {
       style: {
@@ -207,6 +267,24 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
     const month = date.getMonth() + 1;
     return `${day} ${dateNum}/${month}`;
   };
+  const handleShowMore = (events, date) => {
+    setView("month");
+    setToggleEvent(true);
+    resetCalendarData();
+  };
+    const CustomToolbarButton = ({ label, onNavigate }) => {
+      return (
+        <div className="custom-calendarButtons">
+          <Button className="greenBtn" onClick={() => onNavigate("PREV")}>
+            Prev
+          </Button>
+          <Button className="greenBtn" onClick={() => onNavigate("NEXT")}>
+            Next
+          </Button>
+        </div>
+      );
+    };
+
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
@@ -293,13 +371,19 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
                         {event.allDay
                           ? "All Day"
                           : `${formatTime(event.start)}-${formatTime(
-                            event.end
-                          )}`}
+                              event.end
+                            )}`}
                       </span>
                       <div className="event-content_aganda">
-                        <span className="event-dot_aganda" style={{
-                          backgroundColor: event.eventType === "Appointment" ? "#FFA903" : "#57C700",
-                        }}></span>
+                        <span
+                          className="event-dot_aganda"
+                          style={{
+                            backgroundColor:
+                              event.eventType === "Appointment"
+                                ? "#FFA903"
+                                : "#57C700",
+                          }}
+                        ></span>
                         <div className="event-details_aganda">
                           <span className="event-title_aganda">
                             {event.title}
@@ -349,10 +433,12 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
           className="calendar-container"
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
-          toolbar={false}
-          dayPropGetter={dayPropGetter}
+          toolbar={true}
+          // dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
           components={{
+            toolbar: (props) =>
+              view === "day" ? "" : <CustomToolbarButton {...props} />,
             event: view === "month" ? CustomEvent : CustomWeekEvent,
             timeGutterHeader: CustomTimeGutterHeader,
             week: {
@@ -364,6 +450,21 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
               ), // Pass the currentDate as date prop
             },
           }}
+          popup={false}
+          messages={{
+            showMore: (count) => (
+              <span
+                style={{
+                  textDecoration: "underline",
+                  margin: "0 10px",
+                  cursor: "pointer",
+                }}
+              >
+                Vedi tutti
+              </span>
+            ),
+          }}
+          onShowMore={handleShowMore}
         />
       )}
       {formOpen && (
@@ -373,7 +474,7 @@ export default function PlanCalendar({ acquisti_agenda = false }) {
           event={particularEvent}
         />
       )}
-      <EventDialog open={toggleEvent} />
+      <EventDialog open={toggleEvent} onClose={handleToggleViewMoreEvent} />
     </div>
   );
 }

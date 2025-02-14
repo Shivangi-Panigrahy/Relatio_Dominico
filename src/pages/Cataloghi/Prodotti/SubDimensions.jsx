@@ -11,9 +11,14 @@ import {
   FormControlLabel,
   Checkbox,
   Paper,
+  Autocomplete,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import "./SubDimensions.scss";
+const options = [
+  { label: "Dimensioni 1", value: "Dimensioni1" },
+  { label: "Dimensioni 2", value: "Dimensioni2" },
+];
 
 export default function SubDimensions({ id, onDelete }) {
   return (
@@ -37,8 +42,8 @@ export default function SubDimensions({ id, onDelete }) {
             }}
           >
             <TextField
-              placeholder="Nome della sezione es. Anta 1"
-              className="bg_white custom_padding"
+              label="Nome della sezione es. Anta 1"
+             className="ctmTextFlield"
               variant="outlined"
               fullWidth
             />
@@ -69,96 +74,82 @@ export default function SubDimensions({ id, onDelete }) {
           >
             {/* Width Section */}
             <Box sx={{ display: "flex", gap: "5px" }}>
-              <Select
-                defaultValue="mm"
-                className="unit-select custom_padding"
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="mm">mm</MenuItem>
-                <MenuItem value="cm">cm</MenuItem>
-              </Select>
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="mm" />}
+                style={{width:"90px"}}
+              />
 
               <TextField
-                placeholder="Altezza (1234)"
-                className="dimension-input custom_padding textfield_height"
+                label="Altezza (1234)"
+                className="ctmTextFlield"
                 variant="outlined"
                 style={{ backgroundColor: "#fff" }}
               />
 
-              <Select
-                defaultValue=""
-                className="range-select custom_padding"
-                displayEmpty
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="">Min</MenuItem>
-                <MenuItem value="100">100</MenuItem>
-                <MenuItem value="200">200</MenuItem>
-              </Select>
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="Min" />}
+                style={{width:"90px"}}
+              />
 
-              <Select
-                defaultValue=""
-                className="range-select custom_padding"
-                displayEmpty
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="">Max</MenuItem>
-                <MenuItem value="1000">1000</MenuItem>
-                <MenuItem value="2000">2000</MenuItem>
-              </Select>
-
-              <FormControlLabel
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="Max" />}
+                style={{width:"90px"}}
+              />
+              <div className="blankDiv"></div>
+              {/* <FormControlLabel
                 control={<Checkbox />}
                 label="fissa"
                 className="fixed-checkbox custom_padding"
-              />
+              /> */}
             </Box>
 
             {/* Height Section */}
             <Box sx={{ display: "flex", gap: "5px", marginTop: "10px" }}>
-              <Select
-                defaultValue="mm"
-                className="unit-select custom_padding"
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="mm">mm</MenuItem>
-                <MenuItem value="cm">cm</MenuItem>
-              </Select>
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="mm" />}
+                style={{width:"90px"}}
+              />
 
               <TextField
-                placeholder="Altezza (1234)"
-                className="dimension-input custom_padding textfield_height"
+                label="Altezza (1234)"
+                className="ctmTextFlield"
                 variant="outlined"
                 style={{ backgroundColor: "#fff" }}
               />
 
-              <Select
-                defaultValue=""
-                className="range-select custom_padding"
-                displayEmpty
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="">Min</MenuItem>
-                <MenuItem value="100">100</MenuItem>
-                <MenuItem value="200">200</MenuItem>
-              </Select>
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="Min" />}
+                style={{width:"90px"}}
+              />
 
-              <Select
-                defaultValue=""
-                className="range-select custom_padding"
-                displayEmpty
-                style={{ width: "70px", backgroundColor: "#fff" }}
-              >
-                <MenuItem value="">Max</MenuItem>
-                <MenuItem value="1000">1000</MenuItem>
-                <MenuItem value="2000">2000</MenuItem>
-              </Select>
-
-              <FormControlLabel
+              <Autocomplete
+                disablePortal
+                options={options}
+                className="cmtDropDownField"
+                renderInput={(params) => <TextField {...params} label="Max" />}
+                style={{width:"90px"}}
+              />
+              <div className="blankDiv"></div>
+              {/* <FormControlLabel
                 control={<Checkbox />}
                 label="fissa"
                 className="fixed-checkbox custom_padding"
-              />
+              /> */}
             </Box>
           </Box>
         </Box>

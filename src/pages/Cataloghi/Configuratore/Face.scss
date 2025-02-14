@@ -70,3 +70,29 @@
     padding: 8px;
   }
 }
+.phaseAutoCpmplete {
+  .form-content {
+    .top-row {
+      .MuiAutocomplete-root {
+        min-width: 160px;
+        .MuiFormControl-root {
+          .MuiInputLabel-root {
+           top: -7px;
+          }
+          .MuiInputLabel-root.Mui-focused {
+           top: 0px;
+          }
+          .MuiInputBase-root {
+            background-color: #fff;
+            fieldset {
+              border: 2px solid #e2e8f0;
+            }
+            .MuiInputBase-input  {
+              padding: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

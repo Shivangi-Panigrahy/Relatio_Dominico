@@ -1,5 +1,10 @@
 .configureAccordion {
    .section-container {
+    .form-content {
+        .top-row  {
+            grid-template-columns: 1fr 100px 0.7fr 135px 160px 30px !important;
+        }
+    }
     .MuiListItem-root {
         .MuiButtonBase-root{
             padding: 14px 10px;

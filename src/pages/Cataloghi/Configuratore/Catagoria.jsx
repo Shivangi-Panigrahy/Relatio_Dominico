@@ -7,12 +7,17 @@ import {
   Button,
   Paper,
   Typography,
+  Autocomplete,
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import "./Catagoria.scss";
 import ConfigratorModal from "./ConfigatorModal";
 import { useState } from "react";
 
+const options = [
+  { label: "Categoria 1", value: "Categoria 1" },
+  { label: "Categoria 2", value: "Categoria 2" },
+];
 export default function Face({ id, onDelete }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -25,28 +30,53 @@ export default function Face({ id, onDelete }) {
     >
       <Box className="form-content">
         <Box className="top-row">
-          <Select defaultValue="" className="category-name-select" displayEmpty>
+          <Autocomplete
+            disablePortal
+            options={options}
+            renderInput={(params) => (
+              <TextField {...params} label="Nome della categoria" />
+            )}
+          />
+          {/* <Select defaultValue="" className="category-name-select" displayEmpty>
             <MenuItem value="">Nome della categoria</MenuItem>
             <MenuItem value="1">Categoria 1</MenuItem>
             <MenuItem value="2">Categoria 2</MenuItem>
-          </Select>
-          <Typography className="della-text">della</Typography>
-          <Select defaultValue="" className="category-select" displayEmpty>
+          </Select> */}
+          <Typography className="della-text">è</Typography>
+          <Autocomplete
+            disablePortal
+            options={options}
+            renderInput={(params) => (
+              <TextField {...params} label="Categoria" />
+            )}
+          />
+          {/* <Select defaultValue="" className="category-select" displayEmpty>
             <MenuItem value="">Categoria</MenuItem>
             <MenuItem value="1">Categoria 1</MenuItem>
             <MenuItem value="2">Categoria 2</MenuItem>
-          </Select>
-          <Select defaultValue="" className="phase-select" displayEmpty>
+          </Select> */}
+          <Typography className="della-text">della</Typography>
+          <Autocomplete
+            disablePortal
+            options={options}
+            renderInput={(params) => <TextField {...params} label="Fase" />}
+          />
+          {/* <Select defaultValue="" className="phase-select" displayEmpty>
             <MenuItem value="">Fase</MenuItem>
             <MenuItem value="1">Fase 1</MenuItem>
             <MenuItem value="2">Fase 2</MenuItem>
-          </Select>
-          <Select defaultValue="" className="priority-select" displayEmpty>
+          </Select> */}
+          <Autocomplete
+            disablePortal
+            options={options}
+            renderInput={(params) => <TextField {...params} label="Priorità" />}
+          />
+          {/* <Select defaultValue="" className="priority-select" displayEmpty>
             <MenuItem value="">Priorità</MenuItem>
             <MenuItem value="1">Alta</MenuItem>
             <MenuItem value="2">Media</MenuItem>
             <MenuItem value="3">Bassa</MenuItem>
-          </Select>
+          </Select> */}
           <Button
             variant="contained"
             className="configure-button"
@@ -60,7 +90,7 @@ export default function Face({ id, onDelete }) {
           >
             Configura
           </Button>
-          <IconButton className="delete-button"  onClick={() => onDelete(id)}>
+          <IconButton className="delete-button" onClick={() => onDelete(id)}>
             <Delete />
           </IconButton>
         </Box>
@@ -73,7 +103,7 @@ export default function Face({ id, onDelete }) {
           fullWidth
         />
       </Box>
-      <ConfigratorModal open={open} close={handleClose}/>
+      <ConfigratorModal open={open} close={handleClose} />
     </Paper>
   );
 }

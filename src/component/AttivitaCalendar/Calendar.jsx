@@ -174,7 +174,6 @@ const events = [
     assignedTo: "Me", // Assigned to
     color: "#ED1E79", // Color
   },
-
 ];
 // Set the locale for Italian
 moment.locale("it"); // Use the Italian locale for Moment.js
@@ -191,7 +190,6 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const [particularEvent, setparticularEvent] = useState({});
   // const [openEVentDialog, setOpenEVentDialog] = useState(false);
   const [toggleEvent, setToggleEvent] = useState(false);
-
 
   const handleOpenDialog = (value) => {
     if (!value) {
@@ -266,12 +264,12 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   const CustomWeekEvent = ({ event }) => {
     // Log the event object
 
-  
     return (
       <div
         className="custom-week-event"
         style={{
-          backgroundColor: event.eventType === "Appointment" ? "#FFA90333" : undefined,
+          backgroundColor:
+            event.eventType === "Appointment" ? "#FFA90333" : undefined,
           transition: "background-color 0.3s",
         }}
         onMouseEnter={(e) => {
@@ -299,7 +297,7 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
       </div>
     );
   };
-  
+
   const eventStyleGetter = (event, start, end, isSelected) => {
     return {
       style: {
@@ -373,8 +371,21 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
   }, []);
   const resetCalendarData = () => {
     setEventsData([]); // Clear the existing events
-   setEventsData(events) // Fetch or reset events data (implement this function)
+    setEventsData(events); // Fetch or reset events data (implement this function)
   };
+  const CustomToolbarButton = ({ label, onNavigate }) => {
+    return (
+      <div className="custom-calendarButtons">
+        <Button className="greenBtn" onClick={() => onNavigate("PREV")}>
+          Prev
+        </Button>
+        <Button className="greenBtn" onClick={() => onNavigate("NEXT")}>
+          Next
+        </Button>
+      </div>
+    );
+  };
+
   return (
     <div className="calenderBlock">
       <Box className="calenderBlock__head">
@@ -523,11 +534,13 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
           className="calendar-container"
           onSelectEvent={handleEventClick}
           onSelectSlot={handleSelect}
-          toolbar={false}
+          toolbar={true}
           // dayPropGetter={dayPropGetter}
           eventPropGetter={eventStyleGetter} // Apply the custom styles to events
           scrollToTime={new Date()}
           components={{
+            toolbar: (props) =>
+              view === "day" ? "" : <CustomToolbarButton {...props} />,
             event: view === "month" ? CustomEvent : CustomWeekEvent,
             timeGutterHeader: CustomTimeGutterHeader,
             week: {
@@ -563,7 +576,10 @@ export default function ReactBigCalendar({ acquisti_agenda = false }) {
           event={particularEvent}
         />
       )}
-      <EventActivitaDialog open={toggleEvent} onClose={handleToggleViewMoreEvent} />
+      <EventActivitaDialog
+        open={toggleEvent}
+        onClose={handleToggleViewMoreEvent}
+      />
     </div>
   );
 }
