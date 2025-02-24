@@ -7,8 +7,8 @@
   border-radius: 4px;
 
   .upload-box {
-    width: 100px;
-    height: 48px;
+    width: 130px;
+    height: 41px;
     background-color: #f0f0f0;
     border-radius: 12px;
     display: flex;
@@ -17,9 +17,11 @@
 
     .upload-label {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       cursor: pointer;
+      padding: 5px;
+      gap: 5px;
     }
     .upload-icon {
       color: #919eab;
@@ -30,6 +32,16 @@
     .upload-text {
       color: #6b7280;
       font-size: 14px;
+    }
+  }
+  .color-formFliedRwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 50px;
+    gap: 5px;
+    .dimention_box_container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -60,10 +72,17 @@
 
   .delete-button {
     color: #6b7280;
-    padding: 8px;
-
+    padding: 0px;
     &:hover {
       background-color: rgba(107, 114, 128, 0.04);
+      svg {
+        path {
+          fill: #e72276;
+        }
+      }
     }
+    // &:hover {
+    //   background-color: rgba(107, 114, 128, 0.04);
+    // }
   }
 }

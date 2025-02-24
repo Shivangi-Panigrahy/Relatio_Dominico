@@ -11,6 +11,7 @@
       display: flex;
       gap: 16px;
       align-items: center;
+
       .category-name-select,
       .category-select,
       .phase-select,
@@ -41,6 +42,11 @@
         padding: 8px;
         &:hover {
           background-color: rgba(107, 114, 128, 0.04);
+          svg {
+            path {
+              fill: #e72276;
+            }
+          }
         }
       }
     }
@@ -55,6 +61,92 @@
     }
   }
 }
+.phase-name {
+  label {
+    top: -7px;
+    &.Mui-focused {
+      top: 0;
+      transform: translate(14px, -9px) scale(0.75);
+    }
+  }
+  input {
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    padding: 9px;
+    background-color: #fff;
+  }
+  fieldset {
+    border: 2px solid rgba(22, 10, 42, 0.1019607843);
+  }
+}
+.category-form {
+  .top-row.MuiBox-root {
+    display: grid;
+    grid-template-columns: 1fr 10px 0.5fr 25px 0.5fr 0.3fr auto 40px !important;
+    .MuiAutocomplete-root {
+      .MuiFormControl-root {
+        .MuiInputLabel-root {
+          top: -7px;
+        }
+        .MuiInputLabel-root.Mui-focused {
+          top: 0px;
+        }
+        .MuiInputBase-root {
+          background-color: #fff;
+          fieldset {
+            border: 2px solid rgba(22, 10, 42, 0.1019607843);
+          }
+          .MuiInputBase-input {
+            padding: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+.CatagoriaBlock {
+  margin-bottom: 8px !important;
+  border-bottom: dashed 1px #999999;
+}
+.CatagoriaSubBlock {
+  margin-bottom: 8px !important;
+  border-bottom: dashed 1px #999999;
+  .uloadandtextarea {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 135px 1fr;
+    .upload-box {
+      width: 135px;
+      height: 100%;
+      background-color: #eaebec;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: dashed 1px #dfe1e4;
+
+      .upload-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 5px;
+        gap: 5px;
+      }
+      .upload-icon {
+        color: #919eab;
+        font-size: 30px;
+        margin-bottom: 8px;
+      }
+
+      .upload-text {
+        color: #6b7280;
+        font-size: 14px;
+      }
+    }
+  }
+}
 
 .category-name-select,
 .category-select,
@@ -62,31 +154,5 @@
   .MuiSelect-select {
     padding: 8px;
     padding-right: 32px;
-  }
-}
-
-.category-form {
-  .top-row.MuiBox-root {
-    display: grid;
-    grid-template-columns: 1fr 10px 0.5fr 25px 0.5fr 0.3fr auto 40px  !important;
-    .MuiAutocomplete-root  {
-      .MuiFormControl-root {
-        .MuiInputLabel-root {
-         top: -7px;
-        }
-        .MuiInputLabel-root.Mui-focused {
-         top: 0px;
-        }
-        .MuiInputBase-root {
-          background-color: #fff;
-          fieldset {
-            border: 2px solid rgba(22, 10, 42, 0.1019607843)
-          }
-          .MuiInputBase-input  {
-            padding: 0px;
-          }
-        }
-      }
-    }
   }
 }

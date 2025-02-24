@@ -8,8 +8,9 @@ import {
   IconButton,
   Paper,
   Autocomplete,
+  Grid,
 } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { ReactComponent as Delete } from "../../../assets/deleterRow.svg";
 import "./Face.scss";
 const options = [
   { label: "Alta", value: "Alta" },
@@ -26,23 +27,24 @@ export default function Face({ id, onDelete }) {
     >
       <Box className="form-content">
         <Box className="top-row">
-          <TextField
-            placeholder="Nome della fase"
-            className="phase-name"
-            variant="outlined"
-            fullWidth
-          />{" "}
-          <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => <TextField {...params} label="Priorità" />}
-          />
-          {/* <Select defaultValue="" className="priority-select" displayEmpty>
-            <MenuItem value="">Priorità</MenuItem>
-            <MenuItem value="1">Alta</MenuItem>
-            <MenuItem value="2">Media</MenuItem>
-            <MenuItem value="3">Bassa</MenuItem>
-          </Select> */}
+          <Grid container spacing={1}>
+            <Grid item md={10} sm={12}>
+              <TextField
+                label="Nome della fase"
+                className="phase-name"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item md={2} sm={12}>
+              <TextField
+                label="Priorità"
+                className="phase-name"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+          </Grid>
           <IconButton className="delete-button" onClick={() => onDelete(id)}>
             <Delete />
           </IconButton>

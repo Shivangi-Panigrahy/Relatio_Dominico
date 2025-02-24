@@ -13,12 +13,17 @@ import {
   Paper,
   Autocomplete,
 } from "@mui/material";
-import { CloudUpload, Add, Delete } from "@mui/icons-material";
+import { CloudUpload, Add } from "@mui/icons-material";
+import { ReactComponent as Delete } from "../../../assets/deleterRow.svg";
 import "./Dimension.scss";
 import SubDimensions from "./SubDimensions";
 const options = [
   { label: "Dimensioni 1", value: "Dimensioni1" },
   { label: "Dimensioni 2", value: "Dimensioni2" },
+];
+const optionSmall = [
+  { label: "100", value: "100" },
+  { label: "200", value: "200" },
 ];
 
 export default function Dimension({ id, onDelete }) {
@@ -75,7 +80,6 @@ export default function Dimension({ id, onDelete }) {
                     <TextField {...params} label="Dimensioni" />
                   )}
                 />
-
               </div>
 
               <div className="dimention_box_container">
@@ -83,7 +87,6 @@ export default function Dimension({ id, onDelete }) {
                   label="Nome dell'opzione (Due ante)"
                   variant="outlined"
                   className="ctmTextFlield"
-                 
                 />
               </div>
 
@@ -94,7 +97,7 @@ export default function Dimension({ id, onDelete }) {
                 <Autocomplete
                   disablePortal
                   options={options}
-                   className="cmtDropDownField"
+                  className="cmtDropDownField"
                   renderInput={(params) => (
                     <TextField {...params} label="Fase" />
                   )}
@@ -103,7 +106,7 @@ export default function Dimension({ id, onDelete }) {
                 <Autocomplete
                   disablePortal
                   options={options}
-                   className="cmtDropDownField"
+                  className="cmtDropDownField"
                   renderInput={(params) => (
                     <TextField {...params} label="Categoria" />
                   )}
@@ -120,9 +123,9 @@ export default function Dimension({ id, onDelete }) {
                 <Box style={{ display: "flex", gap: "5px" }}>
                   <Autocomplete
                     disablePortal
-                     className="cmtDropDownField"
-                     style={{width:"90px"}}
-                    options={options}
+                    className="cmtDropDownField"
+                    style={{ width: "90px" }}
+                    options={optionSmall}
                     renderInput={(params) => (
                       <TextField {...params} label="mm" />
                     )}
@@ -130,15 +133,14 @@ export default function Dimension({ id, onDelete }) {
 
                   <TextField
                     label="Larghezza (1234)"
-              
                     variant="outlined"
                     className="ctmTextFlield"
                   />
                   <Autocomplete
                     disablePortal
-                    style={{width:"90px"}}
-                     className="cmtDropDownField"
-                    options={options}
+                    style={{ width: "90px" }}
+                    className="cmtDropDownField"
+                    options={optionSmall}
                     renderInput={(params) => (
                       <TextField {...params} label="Min" />
                     )}
@@ -146,9 +148,9 @@ export default function Dimension({ id, onDelete }) {
 
                   <Autocomplete
                     disablePortal
-                    options={options}
-                     className="cmtDropDownField"
-                     style={{width:"90px"}}
+                    options={optionSmall}
+                    className="cmtDropDownField"
+                    style={{ width: "90px" }}
                     renderInput={(params) => (
                       <TextField {...params} label="Max" />
                     )}
@@ -167,9 +169,9 @@ export default function Dimension({ id, onDelete }) {
                 <Box style={{ display: "flex", gap: "5px" }}>
                   <Autocomplete
                     disablePortal
-                     className="cmtDropDownField"
-                     style={{width:"90px"}}
-                    options={options}
+                    className="cmtDropDownField"
+                    style={{ width: "90px" }}
+                    options={optionSmall}
                     renderInput={(params) => (
                       <TextField {...params} label="mm" />
                     )}
@@ -177,26 +179,24 @@ export default function Dimension({ id, onDelete }) {
 
                   <TextField
                     label="Larghezza (1234)"
-                  
                     variant="outlined"
                     className="ctmTextFlield"
-                  
                   />
 
                   <Autocomplete
                     disablePortal
-                     style={{width:"90px"}}
-                     className="cmtDropDownField"
-                    options={options}
+                    style={{ width: "90px" }}
+                    className="cmtDropDownField"
+                    options={optionSmall}
                     renderInput={(params) => (
                       <TextField {...params} label="Min" />
                     )}
                   />
                   <Autocomplete
                     disablePortal
-                     className="cmtDropDownField"
-                     style={{width:"90px"}}
-                    options={options}
+                    className="cmtDropDownField"
+                    style={{ width: "90px" }}
+                    options={optionSmall}
                     renderInput={(params) => (
                       <TextField {...params} label="Max" />
                     )}

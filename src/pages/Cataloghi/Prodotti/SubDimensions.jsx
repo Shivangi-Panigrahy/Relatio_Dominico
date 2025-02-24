@@ -13,11 +13,15 @@ import {
   Paper,
   Autocomplete,
 } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { ReactComponent as Delete } from "../../../assets/deleterRow.svg";
 import "./SubDimensions.scss";
 const options = [
   { label: "Dimensioni 1", value: "Dimensioni1" },
   { label: "Dimensioni 2", value: "Dimensioni2" },
+];
+const optionSmall = [
+  { label: "100", value: "100" },
+  { label: "200", value: "200" },
 ];
 
 export default function SubDimensions({ id, onDelete }) {
@@ -43,7 +47,7 @@ export default function SubDimensions({ id, onDelete }) {
           >
             <TextField
               label="Nome della sezione es. Anta 1"
-             className="ctmTextFlield"
+              className="ctmTextFlield"
               variant="outlined"
               fullWidth
             />
@@ -76,10 +80,10 @@ export default function SubDimensions({ id, onDelete }) {
             <Box sx={{ display: "flex", gap: "5px" }}>
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="mm" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
 
               <TextField
@@ -91,18 +95,18 @@ export default function SubDimensions({ id, onDelete }) {
 
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="Min" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
 
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="Max" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
               <div className="blankDiv"></div>
               {/* <FormControlLabel
@@ -116,10 +120,10 @@ export default function SubDimensions({ id, onDelete }) {
             <Box sx={{ display: "flex", gap: "5px", marginTop: "10px" }}>
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="mm" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
 
               <TextField
@@ -131,18 +135,18 @@ export default function SubDimensions({ id, onDelete }) {
 
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="Min" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
 
               <Autocomplete
                 disablePortal
-                options={options}
+                options={optionSmall}
                 className="cmtDropDownField"
                 renderInput={(params) => <TextField {...params} label="Max" />}
-                style={{width:"90px"}}
+                style={{ width: "90px" }}
               />
               <div className="blankDiv"></div>
               {/* <FormControlLabel

@@ -198,9 +198,13 @@ const menuItems = [
     subitems: [
       { name: "Servizi", route: "/cataloghi/servizi" },
       { name: "Prodotti", route: "/cataloghi/prodotti" },
+      // {
+      //   name: "Configuratore",
+      //   route: "/cataloghi/configuratore/Configurazione",
+      // },
       {
         name: "Configuratore",
-        route: "/cataloghi/configuratore/Configurazione",
+        route: "/cataloghi/configuratore/Fase",
       },
       { name: "Listini", route: "/cataloghi/listini" },
     ],
@@ -255,7 +259,7 @@ const Sidebar = () => {
   const handleSubmenuItemClick = (route) => {
     navigate(route); // Navigate to the submenu route
   };
-  console.log(open,"open")
+  console.log(open, "open");
   return (
     <StyledDrawer
       variant="permanent"
@@ -274,7 +278,13 @@ const Sidebar = () => {
         }}
       >
         <img src={LogoText} height="33" width="auto" alt="#" />
-        <img className={open ? "" : "logo-text"} src={LogoIcon} height="33" width="auto" alt="#" />
+        <img
+          className={open ? "" : "logo-text"}
+          src={LogoIcon}
+          height="33"
+          width="auto"
+          alt="#"
+        />
         {/* {open ? (
           <>
           </>

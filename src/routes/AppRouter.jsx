@@ -59,8 +59,8 @@ import SubAsset from "../pages/Amministrazione/Asset/SubAsset.jsx";
 import Configuratore from "../pages/Cataloghi/Configuratore/Configuratore";
 import Listini from "../pages/Cataloghi/Listini/Listini";
 import Servizi from "../pages/Cataloghi/Servizi/Servizi";
-import SubListini from "../pages/Cataloghi/Listini/SubListini.jsx"
-import Gruppi from "../pages/Cataloghi/Listini/Gruppi.jsx"
+import SubListini from "../pages/Cataloghi/Listini/SubListini.jsx";
+import Gruppi from "../pages/Cataloghi/Listini/Gruppi.jsx";
 import SubServizi from "../pages/Cataloghi/Servizi/SubServizi.jsx";
 import Scheda_servizio from "../pages/Cataloghi/Servizi/Scheda_servizio.jsx";
 import Prodotti from "../pages/Cataloghi/Prodotti/Prodotti.jsx";
@@ -69,10 +69,10 @@ import Scheda_prodotto from "../pages/Cataloghi/Prodotti/Scheda_prodotto.jsx";
 import Distinta_base from "../pages/Cataloghi/Prodotti/Distinta_base.jsx";
 import Opzioni from "../pages/Cataloghi/Prodotti/Opzioni.jsx";
 import Giacenze from "../pages/Cataloghi/Prodotti/Giacenze.jsx";
-import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx"
-import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx"
-import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx"
-import HrCalendario from "../pages/HR/Calendario/Calendario.jsx"
+import LogisticaGiacenze from "../pages/Logistica/Giacenze/Giacenze.jsx";
+import ConfiguratoreProdotti from "../pages/Cataloghi/Configuratore/Prodotti.jsx";
+import ListiniProdotti from "../pages/Cataloghi/Listini/Prodotti.jsx";
+import HrCalendario from "../pages/HR/Calendario/Calendario.jsx";
 import Candidati from "../pages/HR/Candidati/Candidati.jsx";
 import Candidato from "../pages/HR/Candidati/Candidato.jsx";
 import BustaPage from "../pages/HR/BustePage/BustePage.jsx";
@@ -85,7 +85,7 @@ import Turni from "../component/Turni/Turni.jsx";
 import Progetti from "../component/Progetti/Progetti.jsx";
 import Contratto from "../component/Contratto/Contratto.jsx";
 import Configure from "../pages/Cataloghi/Configuratore/Configure.jsx";
-import ConfigureDetails from "../pages/Production/Configure.jsx"
+import ConfigureDetails from "../pages/Production/Configure.jsx";
 import HrContatti from "../component/Contatti/HrContatti";
 import HrQualificazione from "../component/Qualificazione/HrQualificazione.jsx";
 import Plan from "../pages/Production/Plan.jsx";
@@ -126,6 +126,8 @@ import AttivitaProgetti from "../pages/Attivita/Progetti/Progetti.jsx";
 import SubProgetti from "../pages/Attivita/Progetti/SubProgetti.jsx";
 import Economia from "../component/Economia/Economia.jsx";
 import AttivitaCalendar from "../pages/Attivita/Calendario/Calendario.jsx";
+import Face from "../pages/Cataloghi/Configuratore/Face/SubFace.jsx";
+import Categorr from "../pages/Cataloghi/Configuratore/Categoria/Categorr.jsx";
 
 const Allroutes = () => {
   return (
@@ -733,11 +735,27 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-      <Route
+      {/* <Route
         path="/cataloghi/configuratore/Configurazione"
         element={
           <PublicRoute>
             <Configuratore Component={Configure} />
+          </PublicRoute>
+        }
+      /> */}
+      <Route
+        path="/cataloghi/configuratore/Fase"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Face} />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/cataloghi/configuratore/Categorie"
+        element={
+          <PublicRoute>
+            <Configuratore Component={Categorr} />
           </PublicRoute>
         }
       />
@@ -774,6 +792,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
+
       <Route
         path="/production/plan"
         element={
@@ -841,11 +860,11 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/hr/organizza/calender"
         element={
           <PublicRoute>
-            <OrganizzaCalendra/>
+            <OrganizzaCalendra />
           </PublicRoute>
         }
       />
@@ -1247,7 +1266,8 @@ const Allroutes = () => {
           <PublicRoute>
             <ColaboratoryAnagrafiche />
           </PublicRoute>
-        } ColaboratoryAnagrafiche
+        }
+        ColaboratoryAnagrafiche
       />
       <Route
         path="/angrafiche/sub-colaboratory/Contatti"
@@ -1489,7 +1509,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-            <Route
+      <Route
         path="/attivita/progetti"
         element={
           <PublicRoute>
@@ -1497,7 +1517,7 @@ const Allroutes = () => {
           </PublicRoute>
         }
       />
-          <Route
+      <Route
         path="/attivita/calendario"
         element={
           <PublicRoute>

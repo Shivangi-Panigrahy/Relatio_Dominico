@@ -3,17 +3,15 @@
     padding: 16px;
     margin-bottom: 5px;
     border-radius: 4px;
-     .radio-group {
+    .radio-group {
       color: #666666;
       font-size: 14px;
-     }
+    }
     .form-row {
       margin-bottom: 5px;
       display: grid;
       grid-template-columns: 150px 1fr auto;
       gap: 5px;
-      
-
     }
   }
 
@@ -45,9 +43,10 @@
   }
 }
 .dimention_box_container {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   padding: 12px;
   border-radius: 4px;
+
   .blankDiv {
     width: 170px;
   }
@@ -95,12 +94,12 @@
   .upload-box {
     width: 100%;
     height: 100%;
-    background-color: #EAEBEC;
+    background-color: #eaebec;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: dashed 1px #D8DCDF;
+    border: dashed 1px #d8dcdf;
 
     .upload-label {
       display: flex;
@@ -110,17 +109,31 @@
     }
 
     .upload-icon {
-      color: #919EAB;
+      color: #919eab;
       font-size: 30px;
       margin-bottom: 8px;
     }
 
     .upload-text {
-      color: #919EAB;
+      color: #919eab;
       font-size: 14px;
       font-weight: 400;
       line-height: normal;
     }
   }
-
+  .delete-button {
+    color: #6b7280;
+    padding: 0px;
+    &:hover {
+      background-color: rgba(107, 114, 128, 0.04);
+      svg {
+        path {
+          fill: #e72276;
+        }
+      }
+    }
+    // &:hover {
+    //   background-color: rgba(107, 114, 128, 0.04);
+    // }
+  }
 }

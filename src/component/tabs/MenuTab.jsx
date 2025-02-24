@@ -23,7 +23,7 @@ import { ReactComponent as Dati } from "../../assets/Acquisti/Dati finanziari.sv
 import { ReactComponent as Sedi } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Relazioni } from "../../assets/Acquisti/Dati finanziari.svg";
 import { ReactComponent as Allegati } from "../../assets/Acquisti/Dati finanziari.svg";
-import { ReactComponent as Organizzse  } from "../../assets/organise.svg";
+import { ReactComponent as Organizzse } from "../../assets/organise.svg";
 import { ReactComponent as Right } from "../../assets/right.svg";
 import { ReactComponent as Mese } from "../../assets/Mese.svg";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -148,7 +148,9 @@ const TAB_CONFIGURATIONS = {
     { label: "Allegati", icon: Right },
   ],
   configuratore: [
-    { label: "Configurazione", icon: Right },
+    // { label: "Configurazione", icon: Right },
+    { label: "Fase", icon: Right },
+    { label: "Categorie", icon: Right },
     { label: "Prodotti", icon: Right },
   ],
   Configura: [
@@ -183,7 +185,7 @@ const TAB_CONFIGURATIONS = {
   ],
   hrcalendario: [
     { label: "Calendario", icon: Mese },
-    { label: "Organizza", icon: Organizzse  },
+    { label: "Organizza", icon: Organizzse },
   ],
   leadAnagrafiche: [
     { label: "Contatti", icon: Contatti },
@@ -227,7 +229,8 @@ const TAB_CONFIGURATIONS = {
     { label: "Sedi", icon: Sedi },
     { label: "Relazioni", icon: Relazioni },
     { label: "Allegati", icon: Allegati },
-  ],  subStabilimenti: [
+  ],
+  subStabilimenti: [
     { label: "Gaicenze", icon: Contatti },
     { label: "Mezzi", icon: Qualificazione },
     { label: "Attrezzature", icon: Agenda },
@@ -239,7 +242,7 @@ const TAB_CONFIGURATIONS = {
     { label: "Allegati", icon: Qualificazione },
     { label: "Gaicenze", icon: Agenda },
   ],
-  subAttrezzature:[
+  subAttrezzature: [
     { label: "Scadenze", icon: Qualificazione },
     { label: "Allegati", icon: Agenda },
   ],
@@ -248,9 +251,7 @@ const TAB_CONFIGURATIONS = {
     { label: "Gantt", icon: Agenda },
   ],
 
-  organizzaCalender: [
-    { label: "organizza", icon: Organizzse  },
-  ],
+  organizzaCalender: [{ label: "organizza", icon: Organizzse }],
   subProgetti: [
     { label: "Task", icon: Agenda },
     { label: "Asset", icon: Documenti },
@@ -261,10 +262,34 @@ const TAB_CONFIGURATIONS = {
   ],
 };
 
-
-const getNavigationPath = (label, isLead, isFornitori, isaminiImposte, isImposte, isAsset, isServizi, isProdotti, isConfiguratore, isListini, isHrCandidato, isHrBusta,  isHr,  ishrCalendario, isStabilimenti, isMezzi,isAttrezzature, isleadAnagrafiche, isAnagraficheCandidato, isColaboratoryAnagrafiche,isFornitoriAnagrafiche,isClientiAnagrafiche,isorganizza,isorganizzaCalender,subProgetti) => {
-
-console.log(isorganizzaCalender,"isorganizzaCalender")
+const getNavigationPath = (
+  label,
+  isLead,
+  isFornitori,
+  isaminiImposte,
+  isImposte,
+  isAsset,
+  isServizi,
+  isProdotti,
+  isConfiguratore,
+  isListini,
+  isHrCandidato,
+  isHrBusta,
+  isHr,
+  ishrCalendario,
+  isStabilimenti,
+  isMezzi,
+  isAttrezzature,
+  isleadAnagrafiche,
+  isAnagraficheCandidato,
+  isColaboratoryAnagrafiche,
+  isFornitoriAnagrafiche,
+  isClientiAnagrafiche,
+  isorganizza,
+  isorganizzaCalender,
+  subProgetti
+) => {
+  console.log(isorganizzaCalender, "isorganizzaCalender");
   if (isLead) return `/vendite/sub-lead/${label}`;
 
   if (isFornitori) return `/acquisti/fornitori/${label}`;
@@ -295,21 +320,15 @@ console.log(isorganizzaCalender,"isorganizzaCalender")
 
   if (isAttrezzature) return `/logistica/attrezzature/${label}`;
 
-
   if (isleadAnagrafiche) return `/anagrafiche/sub-lead/${label}`;
-  if (isAnagraficheCandidato)
-    return `/angrafiche/candidati/${label}`;
-  if (isColaboratoryAnagrafiche)
-    return `/angrafiche/sub-colaboratory/${label}`;
-  if (isFornitoriAnagrafiche)
-    return `/angrafiche/fornitori/${label}`;
-  if (isClientiAnagrafiche)
-    return `/angrafiche/clienti/${label}`;
+  if (isAnagraficheCandidato) return `/angrafiche/candidati/${label}`;
+  if (isColaboratoryAnagrafiche) return `/angrafiche/sub-colaboratory/${label}`;
+  if (isFornitoriAnagrafiche) return `/angrafiche/fornitori/${label}`;
+  if (isClientiAnagrafiche) return `/angrafiche/clienti/${label}`;
   if (isorganizza) return `/attivita/${label}`;
   if (isorganizzaCalender) return `/hr/organizza/calender`;
   if (subProgetti) return `/attivita/progetti/${label}`;
   return `/dashboard/${label}`;
-
 };
 
 const MenuTab = ({
@@ -335,16 +354,15 @@ const MenuTab = ({
   hrcalendario = false,
   subStabilimenti = false,
   subMezzi = false,
-  subAttrezzature=false,
+  subAttrezzature = false,
   leadAnagrafiche = false,
   anagraficheCandidato = false,
   colaboratoryAnagrafiche = false,
-  fornitoriAnagrafiche=false,
-  clientiAnagrafiche=false,
-  organizza=false,
-  organizzaCalender=false,
+  fornitoriAnagrafiche = false,
+  clientiAnagrafiche = false,
+  organizza = false,
+  organizzaCalender = false,
   subProgetti = false,
-
 }) => {
   const [selectedTabs, setSelectedTabs] = useState(0);
   const navigate = useNavigate();
@@ -373,16 +391,43 @@ const MenuTab = ({
     if (subAttrezzature) return TAB_CONFIGURATIONS.subAttrezzature;
     if (leadAnagrafiche) return TAB_CONFIGURATIONS.leadAnagrafiche;
     if (anagraficheCandidato) return TAB_CONFIGURATIONS.anagraficheCandidato;
-    if (colaboratoryAnagrafiche) return TAB_CONFIGURATIONS.colaboratoryAnagrafiche;
+    if (colaboratoryAnagrafiche)
+      return TAB_CONFIGURATIONS.colaboratoryAnagrafiche;
     if (fornitoriAnagrafiche) return TAB_CONFIGURATIONS.fornitoriAnagrafiche;
     if (clientiAnagrafiche) return TAB_CONFIGURATIONS.clientiAnagrafiche;
     if (organizza) return TAB_CONFIGURATIONS.organizza;
     if (organizzaCalender) return TAB_CONFIGURATIONS.organizzaCalender;
     if (subProgetti) return TAB_CONFIGURATIONS.subProgetti;
 
-
     return TAB_CONFIGURATIONS.default;
-  }, [gantt, dashboardForm, statsDashboard, dettaglioForm, lead, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti]);
+  }, [
+    gantt,
+    dashboardForm,
+    statsDashboard,
+    dettaglioForm,
+    lead,
+    subImposte,
+    subAsset,
+    subServizi,
+    subProdotti,
+    configuratore,
+    sublistini,
+    hrCandidato,
+    hrEvento,
+    hr,
+    hrcalendario,
+    subStabilimenti,
+    subMezzi,
+    subAttrezzature,
+    leadAnagrafiche,
+    anagraficheCandidato,
+    colaboratoryAnagrafiche,
+    fornitoriAnagrafiche,
+    clientiAnagrafiche,
+    organizza,
+    organizzaCalender,
+    subProgetti,
+  ]);
 
   const tabsConfig = getActiveConfig();
 
@@ -401,7 +446,33 @@ const MenuTab = ({
       setSelectedTabs(index); // Update the selected tab immediately
 
       // Handle navigation
-      const path = getNavigationPath(label, lead, fornitori, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti);
+      const path = getNavigationPath(
+        label,
+        lead,
+        fornitori,
+        vendite,
+        subImposte,
+        subAsset,
+        subServizi,
+        subProdotti,
+        configuratore,
+        sublistini,
+        hrCandidato,
+        hrEvento,
+        hr,
+        hrcalendario,
+        subStabilimenti,
+        subMezzi,
+        subAttrezzature,
+        leadAnagrafiche,
+        anagraficheCandidato,
+        colaboratoryAnagrafiche,
+        fornitoriAnagrafiche,
+        clientiAnagrafiche,
+        organizza,
+        organizzaCalender,
+        subProgetti
+      );
       navigate(path);
 
       // Invoke parent callback
@@ -409,7 +480,34 @@ const MenuTab = ({
         onTabChange(`tab${index + 1}`);
       }
     },
-    [lead, fornitori, navigate, onTabChange, vendite, subImposte, subAsset, subServizi, subProdotti, configuratore, sublistini, hrCandidato, hrEvento,  hr,  hrcalendario, subStabilimenti, subMezzi,subAttrezzature, leadAnagrafiche, anagraficheCandidato, colaboratoryAnagrafiche,fornitoriAnagrafiche,clientiAnagrafiche,organizza,organizzaCalender,subProgetti]
+    [
+      lead,
+      fornitori,
+      navigate,
+      onTabChange,
+      vendite,
+      subImposte,
+      subAsset,
+      subServizi,
+      subProdotti,
+      configuratore,
+      sublistini,
+      hrCandidato,
+      hrEvento,
+      hr,
+      hrcalendario,
+      subStabilimenti,
+      subMezzi,
+      subAttrezzature,
+      leadAnagrafiche,
+      anagraficheCandidato,
+      colaboratoryAnagrafiche,
+      fornitoriAnagrafiche,
+      clientiAnagrafiche,
+      organizza,
+      organizzaCalender,
+      subProgetti,
+    ]
   );
 
   return (
@@ -429,42 +527,43 @@ const MenuTab = ({
                   {tab.label === "Dati"
                     ? "Dati finanziari"
                     : tab.label === "Sedi"
-                      ? "Sedi operative"
-                      : tab.label === "profitti"
-                        ? "Profitti"
-                        : tab.label === "vendite"
-                          ? "Vendite"
-                          : tab.label === "acquisti"
-                            ? "Acquisti"
-                            : tab.label === "personale"
-                              ? "Personale"
-                              : tab.label === "profitti"
-                                ? "Profitti"
-                                : tab.label === "imposte"
-                                  ? "Imposte"
-                                  : tab.label === "asset"
-                                    ? "Asset"
-                                    : tab.label === "attivita"
-                                      ? "Attivita"
-                                      : tab.label === "Reteizzazione" ?
-                                        "Reteizzazione" :
-                                        // tab.label === "Allegati" ?
-                                        //   "Allegati" :
-                                        tab.label === "Scheda" ?
-                                          "Scheda servizio" :
-                                          tab.label === "Scheda" ?
-                                            "Scheda prodotto" :
-                                            tab.label === "Distinta" ?
-                                              "Distinta base" :
-                                              tab.label === "Configurazione" ?
-                                                "Configurazione" :
-                                                tab.label === "Scadenze" ?
-                                                "Scadenze e manutenzioni" :
-                                                // tab.label === "Gruppi" ?
-                                                //   "Gruppi" :
-                                                //   tab.label === "Prodotti" ? "Prodotti" :
-                                                tab.label === "" ? "" :
-                                                  tab.label}
+                    ? "Sedi operative"
+                    : tab.label === "profitti"
+                    ? "Profitti"
+                    : tab.label === "vendite"
+                    ? "Vendite"
+                    : tab.label === "acquisti"
+                    ? "Acquisti"
+                    : tab.label === "personale"
+                    ? "Personale"
+                    : tab.label === "profitti"
+                    ? "Profitti"
+                    : tab.label === "imposte"
+                    ? "Imposte"
+                    : tab.label === "asset"
+                    ? "Asset"
+                    : tab.label === "attivita"
+                    ? "Attivita"
+                    : tab.label === "Reteizzazione"
+                    ? "Reteizzazione"
+                    : // tab.label === "Allegati" ?
+                    //   "Allegati" :
+                    tab.label === "Scheda"
+                    ? "Scheda servizio"
+                    : tab.label === "Scheda"
+                    ? "Scheda prodotto"
+                    : tab.label === "Distinta"
+                    ? "Distinta base"
+                    : tab.label === "Configurazione"
+                    ? "Configurazione"
+                    : tab.label === "Scadenze"
+                    ? "Scadenze e manutenzioni"
+                    : // tab.label === "Gruppi" ?
+                    //   "Gruppi" :
+                    //   tab.label === "Prodotti" ? "Prodotti" :
+                    tab.label === ""
+                    ? ""
+                    : tab.label}
                 </span>
               }
               icon={<IconComponent />}

@@ -347,3 +347,18 @@ body {
   border-radius: 10px !important;
   margin-top: -0.5px !important;
 }
+
+.pageTemplate  .section-container .section-header .MuiListItemButton-root {
+  background-color: #FAFAFA;
+  margin-bottom: 5px;
+  color: #999999;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
+}
+.pageTemplate  .section-container .section-header .MuiListItemButton-root .MuiListItemText-root span {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
+
+}

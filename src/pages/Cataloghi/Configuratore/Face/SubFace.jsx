@@ -9,18 +9,19 @@ import {
   Box,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
-import Catagoria from "../Catagoria";
-import CatagoriaSub from "../CatagoriaSub";
+import Face from "../Face";
+// import "./Configure.scss";
+// import Face from "./SubFace";
 
-export default function Categorr() {
+export default function SubFace() {
   const [openSections, setOpenSections] = useState([]);
   const [dimensions, setDimensions] = useState([]); // Array to track Dimension rows
   const [colors, setColors] = useState([]); // Array to track Colori rows
 
   const sections = [
     {
-      id: "categoria",
-      title: "Nome della Categoria",
+      id: "fase",
+      title: "Nome della fase",
     },
   ];
 
@@ -48,7 +49,7 @@ export default function Categorr() {
   };
 
   return (
-    <List className="expandable-list categoriaAccordion">
+    <List className="expandable-list">
       {sections.map((section) => (
         <Box key={section.id} className="section-container">
           <ListItem disablePadding className="section-header">
@@ -64,37 +65,21 @@ export default function Categorr() {
 
           <Collapse in={openSections.includes(section.id)} timeout="auto">
             <List component="div" disablePadding className="section-content">
-              {section.id === "categoria" && (
+              {section.id === "fase" && (
                 <>
-                  {colors.map((color) => (
-                    <>
-                      <Catagoria
-                        key={color.id}
-                        id={color.id}
-                        onDelete={handleDeleteColori}
-                      />
-                      <CatagoriaSub
-                        key={color.id}
-                        id={color.id}
-                        onDelete={handleDeleteColori}
-                        cloud={true}
-                      />
-                    </>
+                  {dimensions.map((dimension) => (
+                    <Face
+                      key={dimension.id}
+                      id={dimension.id}
+                      onDelete={handleDeleteDimension}
+                    />
                   ))}
-
                   <Button
                     startIcon={<Add />}
-                    className="add-color-button"
-                    variant="text"
-                    onClick={handleAddColori}
-                    style={{
-                      color: "#160a2a",
-                      fontWeight: 700,
-                      textTransform: "unset",
-                      backgroundColor: "transparent",
-                    }}
+                    className="add-row-button"
+                    onClick={handleAddDimension}
                   >
-                    Aggiungi colore
+                    Aggiungi riga
                   </Button>
                 </>
               )}

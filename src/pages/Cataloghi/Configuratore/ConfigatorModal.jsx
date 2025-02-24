@@ -23,7 +23,7 @@ import { MoreVert } from "@mui/icons-material";
 import { ReactComponent as Right } from "../../../assets/right.svg";
 import "./ConfigatorModal.scss";
 
-export default function ConfiguraModal({open,close}) {
+export default function ConfiguraModal({ open, close }) {
   const [tabIndex, setTabIndex] = useState(0);
 
   const handleTabChange = (event, newValue) => setTabIndex(newValue);
@@ -93,12 +93,22 @@ export default function ConfiguraModal({open,close}) {
                 onChange={(event, newValue) => setSelectedTabs(newValue)}
               >
                 <CustomTab
-                  label="Demo"
+                  label="Dimenzioni"
                   icon={<Right />}
                   //   onClick={() => handleTabClick(index, tab.label)}
                 />
                 <CustomTab
-                  label="Demo"
+                  label="Colori"
+                  icon={<Right />}
+                  //   onClick={() => handleTabClick(index, tab.label)}
+                />
+                <CustomTab
+                  label="Componenti"
+                  icon={<Right />}
+                  //   onClick={() => handleTabClick(index, tab.label)}
+                />
+                <CustomTab
+                  label="Accessori"
                   icon={<Right />}
                   //   onClick={() => handleTabClick(index, tab.label)}
                 />

@@ -3,7 +3,7 @@
   padding: 16px;
   margin-bottom: 6px;
   border-radius: 0px !important;
-
+  border-bottom: dashed 1px #999999;
   .form-content {
     display: flex;
     flex-direction: column;
@@ -39,10 +39,18 @@
       .delete-button {
         color: #6b7280;
         padding: 8px;
-
         &:hover {
           background-color: rgba(107, 114, 128, 0.04);
+          svg {
+            path {
+              fill: #e72276;
+            }
+          }
         }
+
+        // &:hover {
+        //   background-color: rgba(107, 114, 128, 0.04);
+        // }
       }
     }
 
@@ -61,8 +69,22 @@
 }
 
 .phase-name {
+  label {
+    top: -7px;
+    &.Mui-focused {
+      top: 0;
+      transform: translate(14px, -9px) scale(0.75);
+    }
+  }
   input {
-    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    padding: 9px;
+    background-color: #fff;
+  }
+  fieldset {
+    border: 2px solid rgba(22, 10, 42, 0.1019607843);
   }
 }
 .priority-select {
@@ -77,17 +99,17 @@
         min-width: 160px;
         .MuiFormControl-root {
           .MuiInputLabel-root {
-           top: -7px;
+            top: -7px;
           }
           .MuiInputLabel-root.Mui-focused {
-           top: 0px;
+            top: 0px;
           }
           .MuiInputBase-root {
             background-color: #fff;
             fieldset {
               border: 2px solid #e2e8f0;
             }
-            .MuiInputBase-input  {
+            .MuiInputBase-input {
               padding: 0px;
             }
           }

@@ -19,25 +19,18 @@ const options = [
   { label: "Categoria 1", value: "Categoria 1" },
   { label: "Categoria 2", value: "Categoria 2" },
 ];
-export default function Face({ id, onDelete, cloud }) {
+export default function CatagoriaSub({ id, onDelete }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <Paper
-      className="category-form CatagoriaBlock"
+      className="category-form CatagoriaSubBlock"
       elevation={0}
       style={{ backgroundColor: "#f3f3f3" }}
     >
       <Box className="form-content">
         <Box className="top-row">
-          {/* <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => (
-              <TextField {...params} label="Nome della categoria" />
-            )}
-          /> */}
           <TextField
             label="Nome della categoria"
             className="phase-name"
@@ -49,14 +42,16 @@ export default function Face({ id, onDelete, cloud }) {
             disablePortal
             options={options}
             renderInput={(params) => (
-              <TextField {...params} label="Categoria" />
+              <TextField {...params} label="Sotto categoria" />
             )}
           />
           <Typography className="della-text">della</Typography>
           <Autocomplete
             disablePortal
             options={options}
-            renderInput={(params) => <TextField {...params} label="Fase" />}
+            renderInput={(params) => (
+              <TextField {...params} label="Categoria" />
+            )}
           />
           <TextField
             label="Priorità"
@@ -64,11 +59,6 @@ export default function Face({ id, onDelete, cloud }) {
             variant="outlined"
             fullWidth
           />{" "}
-          {/* <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => <TextField {...params} label="Priorità" />}
-          /> */}
           <Button
             variant="contained"
             className="configure-button"
@@ -86,8 +76,7 @@ export default function Face({ id, onDelete, cloud }) {
             <Delete />
           </IconButton>
         </Box>
-
-        {cloud && (
+        <Box className="uloadandtextarea">
           <Box className="upload-box">
             <input type="file" id="file-upload" className="file-input" hidden />
             <label htmlFor="file-upload" className="upload-label">
@@ -95,18 +84,18 @@ export default function Face({ id, onDelete, cloud }) {
               <div className="upload-text">Upload file</div>
             </label>
           </Box>
-        )}
 
-        <TextField
-          placeholder="Descrizione"
-          className="description"
-          variant="outlined"
-          multiline
-          rows={4}
-          fullWidth
-        />
+          <TextField
+            placeholder="Descrizione"
+            className="description"
+            variant="outlined"
+            multiline
+            rows={4}
+            fullWidth
+          />
+        </Box>
       </Box>
-      {/* <ConfigratorModal open={open} close={handleClose} /> */}
+      <ConfigratorModal open={open} close={handleClose} />
     </Paper>
   );
 }
