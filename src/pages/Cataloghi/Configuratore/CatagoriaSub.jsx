@@ -27,24 +27,17 @@ export default function CatagoriaSub({ id, onDelete }) {
     <Paper
       className="category-form CatagoriaSubBlock"
       elevation={0}
-      style={{ backgroundColor: "#f3f3f3" }}
+      style={{ backgroundColor: "#f3f3f3", padding: "0" }}
     >
-      <Box className="form-content">
+      <Box className="form-content CatagoriaSub">
         <Box className="top-row">
           <TextField
-            label="Nome della categoria"
+            label="Nome della sottocategoria"
             className="phase-name"
             variant="outlined"
             fullWidth
-          />{" "}
-          <Typography className="della-text">è</Typography>
-          <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => (
-              <TextField {...params} label="Sotto categoria" />
-            )}
           />
+
           <Typography className="della-text">della</Typography>
           <Autocomplete
             disablePortal
@@ -58,7 +51,7 @@ export default function CatagoriaSub({ id, onDelete }) {
             className="phase-name"
             variant="outlined"
             fullWidth
-          />{" "}
+          />
           <Button
             variant="contained"
             className="configure-button"

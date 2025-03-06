@@ -1,0 +1,15 @@
+.add-color-button {
+  &:hover {
+    background: none;
+  }
+  span {
+    color: #160a2a;
+    font-weight: 700;
+    text-transform: none;
+    transition: all 1s;
+
+    &:hover {
+      color: #57c700;
+    }
+  }
+}

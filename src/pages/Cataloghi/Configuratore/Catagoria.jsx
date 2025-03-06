@@ -1,28 +1,51 @@
 import {
   Box,
   TextField,
-  Select,
-  MenuItem,
-  IconButton,
-  Button,
   Paper,
   Typography,
+  Button,
+  IconButton,
   Autocomplete,
 } from "@mui/material";
-import { CloudUpload } from "@mui/icons-material";
-import "./Catagoria.scss";
-import ConfigratorModal from "./ConfigatorModal";
-import { useState } from "react";
+import { Add, CloudUpload } from "@mui/icons-material";
 import { ReactComponent as Delete } from "../../../assets/deleterRow.svg";
+import CatagoriaSub from "./CatagoriaSub";
+import { useState } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const options = [
   { label: "Categoria 1", value: "Categoria 1" },
   { label: "Categoria 2", value: "Categoria 2" },
 ];
-export default function Face({ id, onDelete, cloud }) {
+
+export default function Face({
+  id,
+  onDelete,
+  cloud,
+  handleAddColori,
+  handleDeleteColori,
+  colors,
+  setSubcategories, // Function to update subcategory order
+}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+
+    setSubcategories((prev) => {
+      const updatedColors = [...colors];
+      const [movedItem] = updatedColors.splice(result.source.index, 1);
+      updatedColors.splice(result.destination.index, 0, movedItem);
+
+      return {
+        ...prev,
+        [id]: updatedColors, // Update order for the current category
+      };
+    });
+  };
+
   return (
     <Paper
       className="category-form CatagoriaBlock"
@@ -31,44 +54,32 @@ export default function Face({ id, onDelete, cloud }) {
     >
       <Box className="form-content">
         <Box className="top-row">
-          {/* <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => (
-              <TextField {...params} label="Nome della categoria" />
-            )}
-          /> */}
           <TextField
             label="Nome della categoria"
             className="phase-name"
             variant="outlined"
             fullWidth
-          />{" "}
-          <Typography className="della-text">è</Typography>
-          <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => (
-              <TextField {...params} label="Categoria" />
-            )}
           />
+
           <Typography className="della-text">della</Typography>
           <Autocomplete
             disablePortal
             options={options}
             renderInput={(params) => <TextField {...params} label="Fase" />}
           />
+          {/* <Typography className="della-text"></Typography> */}
+          {/* <Autocomplete
+            disablePortal
+            options={options}
+            renderInput={(params) => <TextField {...params} label="Face" />}
+          /> */}
           <TextField
             label="Priorità"
             className="phase-name"
             variant="outlined"
             fullWidth
-          />{" "}
-          {/* <Autocomplete
-            disablePortal
-            options={options}
-            renderInput={(params) => <TextField {...params} label="Priorità" />}
-          /> */}
+          />
+
           <Button
             variant="contained"
             className="configure-button"
@@ -106,7 +117,61 @@ export default function Face({ id, onDelete, cloud }) {
           fullWidth
         />
       </Box>
-      {/* <ConfigratorModal open={open} close={handleClose} /> */}
+
+      <Button
+        startIcon={<Add />}
+        className="add-section-button"
+        variant="text"
+        onClick={handleAddColori}
+        // style={{
+        //   color: "#160a2a",
+        //   fontWeight: 700,
+        //   textTransform: "unset",
+        //   backgroundColor: "transparent",
+        // }}
+      >
+        <span> Aggiungi sezione</span>
+      </Button>
+
+      {/* Drag and Drop Context */}
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable
+          droppableId={`subcategory-list-${id}`}
+          type="subcategory"
+          direction="vertical"
+        >
+          {(provided) => (
+            <Box {...provided.droppableProps} ref={provided.innerRef}>
+              {colors.map((color, index) => (
+                <Draggable
+                  key={color.id}
+                  draggableId={color.id.toString()}
+                  index={index}
+                >
+                  {(provided, snapshot) => (
+                    <Box
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      sx={{
+                        opacity: snapshot.isDragging ? 0.7 : 1,
+                        transition: "opacity 0.2s",
+                      }}
+                    >
+                      <CatagoriaSub
+                        id={color.id}
+                        onDelete={handleDeleteColori}
+                        cloud={true}
+                      />
+                    </Box>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </Box>
+          )}
+        </Droppable>
+      </DragDropContext>
     </Paper>
   );
 }

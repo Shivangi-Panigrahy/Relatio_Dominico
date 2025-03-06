@@ -9,20 +9,16 @@ import {
   Box,
 } from "@mui/material";
 import { ExpandMore, ExpandLess, Add } from "@mui/icons-material";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Catagoria from "../Catagoria";
-import CatagoriaSub from "../CatagoriaSub";
+import "./categorr.scss";
 
 export default function Categorr() {
   const [openSections, setOpenSections] = useState([]);
-  const [dimensions, setDimensions] = useState([]); // Array to track Dimension rows
-  const [colors, setColors] = useState([]); // Array to track Colori rows
+  const [dimensions, setDimensions] = useState([]);
+  const [subcategories, setSubcategories] = useState({});
 
-  const sections = [
-    {
-      id: "categoria",
-      title: "Nome della Categoria",
-    },
-  ];
+  const sections = [{ id: "categoria", title: "Nome della Categoria" }];
 
   const handleSectionClick = (sectionId) => {
     setOpenSections((prev) =>
@@ -33,18 +29,45 @@ export default function Categorr() {
   };
 
   const handleAddDimension = () => {
-    setDimensions((prev) => [...prev, { id: Date.now() }]); // Add a new dimension with a unique ID
+    const newId = Date.now();
+    setDimensions((prev) => [...prev, { id: newId }]);
+    setSubcategories((prev) => ({ ...prev, [newId]: [] }));
   };
 
-  const handleAddColori = () => {
-    setColors((prev) => [...prev, { id: Date.now() }]); // Add a new colori with a unique ID
+  const handleAddColori = (categoryId) => {
+    setSubcategories((prev) => ({
+      ...prev,
+      [categoryId]: [...(prev[categoryId] || []), { id: Date.now() }],
+    }));
   };
+
   const handleDeleteDimension = (id) => {
-    setDimensions((prev) => prev.filter((item) => item.id !== id)); // Remove the Dimension with the given ID
+    setDimensions((prev) => prev.filter((item) => item.id !== id));
+    setSubcategories((prev) => {
+      const updated = { ...prev };
+      delete updated[id];
+      return updated;
+    });
   };
 
-  const handleDeleteColori = (id) => {
-    setColors((prev) => prev.filter((item) => item.id !== id)); // Remove the Colori with the given ID
+  const handleDeleteColori = (categoryId, subcategoryId) => {
+    setSubcategories((prev) => ({
+      ...prev,
+      [categoryId]: prev[categoryId].filter((sub) => sub.id !== subcategoryId),
+    }));
+  };
+
+  const handleDragEnd = (result, categoryId) => {
+    if (!result.destination) return;
+
+    const items = Array.from(subcategories[categoryId]);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setSubcategories((prev) => ({
+      ...prev,
+      [categoryId]: items,
+    }));
   };
 
   return (
@@ -53,11 +76,7 @@ export default function Categorr() {
         <Box key={section.id} className="section-container">
           <ListItem disablePadding className="section-header">
             <ListItemButton onClick={() => handleSectionClick(section.id)}>
-              {openSections.includes(section.id) ? (
-                <ExpandLess />
-              ) : (
-                <ExpandMore />
-              )}
+              {openSections.includes(section.id) ? <ExpandLess /> : <ExpandMore />}
               <ListItemText primary={section.title} />
             </ListItemButton>
           </ListItem>
@@ -66,35 +85,39 @@ export default function Categorr() {
             <List component="div" disablePadding className="section-content">
               {section.id === "categoria" && (
                 <>
-                  {colors.map((color) => (
-                    <>
-                      <Catagoria
-                        key={color.id}
-                        id={color.id}
-                        onDelete={handleDeleteColori}
-                      />
-                      <CatagoriaSub
-                        key={color.id}
-                        id={color.id}
-                        onDelete={handleDeleteColori}
-                        cloud={true}
-                      />
-                    </>
+                  {dimensions.map((dimension) => (
+                    <DragDropContext
+                      key={dimension.id}
+                      onDragEnd={(result) => handleDragEnd(result, dimension.id)}
+                    >
+                      <Droppable droppableId={dimension.id.toString()} direction="vertical">
+                        {(provided) => (
+                          <Box
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                          >
+                            <Catagoria
+                              id={dimension.id}
+                              onDelete={handleDeleteDimension}
+                              handleAddColori={() => handleAddColori(dimension.id)}
+                              handleDeleteColori={(subId) =>
+                                handleDeleteColori(dimension.id, subId)
+                              }
+                              colors={subcategories[dimension.id] || []}
+                              setSubcategories={setSubcategories}
+                            />
+                            {provided.placeholder}
+                          </Box>
+                        )}
+                      </Droppable>
+                    </DragDropContext>
                   ))}
-
                   <Button
-                    startIcon={<Add />}
                     className="add-color-button"
                     variant="text"
-                    onClick={handleAddColori}
-                    style={{
-                      color: "#160a2a",
-                      fontWeight: 700,
-                      textTransform: "unset",
-                      backgroundColor: "transparent",
-                    }}
+                    onClick={handleAddDimension}
                   >
-                    Aggiungi colore
+                  <span> <Add /> Aggiungi riga</span>
                   </Button>
                 </>
               )}
